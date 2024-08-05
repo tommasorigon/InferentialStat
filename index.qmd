@@ -46,18 +46,18 @@ documentation](https://quarto.org/docs/presentations/revealjs/presenting.html#pr
 | Topic                          | Notes                                | Slides                                             | Code                  |
 |---------------------|-----------------|------------------|-----------------|
 | **Introduction**               | [Introduction](slides/un_intro.html) | [Slides Introduction](slides/un_intro_slides.html) |                       |
-| **Theory of point estimation** | [Unit A](slides/un_A.html)           | [Slides Unit A](slides/un_A_slides.html)           | [Code A](code/un_A.R) |
+| **Point estimation** | [Unit A](slides/un_A.html)           | [Slides Unit A](slides/un_A_slides.html)           | [Code A](code/un_A.R) |
 | *Exercises*                    | [Exercises A](exe/exe_A.html)        |                                                    |                       |
 | **Exponential families**       | [Unit B](slides/un_B.html)           | [Slides Unit B](slides/un_B_slides.html)           | [Code B](code/un_B.R) |
 | *Exercises*                    | [Exercises B](exe/exe_B.html)        |                                                    |                       |
-| **Regression models**          | [Unit C](slides/un_C.html)           | [Slides Unit C](slides/un_C_slides.html)           | [Code C](code/un_C.R) |
+| **Generalized linear models**          | [Unit C](slides/un_C.html)           | [Slides Unit C](slides/un_C_slides.html)           | [Code C](code/un_C.R) |
 | *Exercises*                    | [Exercises C](exe/exe_C.html)        |                                                    |                       |
 | **Advanced models**            | [Unit D](slides/un_D.html)           | [Slides Unit D](slides/un_D_slides.html)           | [Code D](code/un_D.R) |
 | *Exercises*                    | [Exercises D](exe/exe_D.html)        |                                                    |                       |
 
-## Exam
+<!-- ## Exam -->
 
-#### Mock exam
+<!-- #### Mock exam -->
 
 <!-- An example of written examination is provided at [this link](exe/exe_exam.html).  -->
 
