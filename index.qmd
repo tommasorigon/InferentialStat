@@ -6,16 +6,16 @@ institute: "_Università degli Studi di Milano-Bicocca_"
 lang: en
 page-layout: full
 execute:
-  cache: true
+  cache: false
 format:
   html:
     html-math-method: katex
     echo: true
     callout-appearance: minimal
-    theme: [cosmo, template.css]
+    theme: [simplex, template.css]
     toc: true
     toc-title: Table of contents
-    embed-resources: true
+    embed-resources: false
     code-line-numbers: true
     smooth-scroll: true
     fig-dpi: 250
@@ -26,7 +26,7 @@ editor_options:
   chunk_output_type: console
 ---
 
-This is the website of the **Statistical Inference** course "*Ph.D. in
+This is the website of the [Statistical Inference]{.blue} course of the "*Ph.D. in
 Economics, Statistics, and Data Science* (Curriculum Statistics)",
 Università degli Studi di Milano-Bicocca.
 
@@ -52,7 +52,7 @@ documentation](https://quarto.org/docs/presentations/revealjs/presenting.html#pr
 | *Exercises*                    | [Exercises B](exe/exe_B.html)        |                                                    |                       |
 | **Generalized linear models**          | [Unit C](slides/un_C.html)           | [Slides Unit C](slides/un_C_slides.html)           | [Code C](code/un_C.R) |
 | *Exercises*                    | [Exercises C](exe/exe_C.html)        |                                                    |                       |
-| **Advanced models**            | [Unit D](slides/un_D.html)           | [Slides Unit D](slides/un_D_slides.html)           | [Code D](code/un_D.R) |
+| **Advanced statistical models**            | [Unit D](slides/un_D.html)           | [Slides Unit D](slides/un_D_slides.html)           | [Code D](code/un_D.R) |
 | *Exercises*                    | [Exercises D](exe/exe_D.html)        |                                                    |                       |
 
 <!-- ## Exam -->
