@@ -1,0 +1,190 @@
+---
+title: "Point estimation"
+subtitle: "Statistical Inference - PhD EcoStatData"
+author: "[Tommaso Rigon]{.orange}"
+institute: "_Università degli Studi di Milano-Bicocca_"
+page-layout: full
+execute:
+  cache: false
+filters: 
+  - remove-pause.lua
+format:
+  revealjs:
+    auto-stretch: true
+    center: true
+    html-math-method: katex
+    transition: none
+    output-file: un_A_slides.html
+    slide-number: true
+    callout-appearance: minimal
+    code-line-numbers: true
+    theme: [default, ../template.css] # alternative themes (subset): default, night, dark
+    embed-resources: false
+    echo: false
+    fig-dpi: 200
+    # incremental: true  # Remove comment if you like incremental bullet points
+    logo: img/logoB.png
+    footer: "[Home page](https://tommasorigon.github.io/InferentialStat)"
+    highlight-style: github
+  html:
+    html-math-method: katex
+    echo: false
+    callout-appearance: minimal
+    theme: [simplex, ../template.css]
+    toc: true
+    toc-title: Table of contents
+    embed-resources: false
+    code-line-numbers: true
+    smooth-scroll: true
+    code-fold: false
+    code-summary: "Show the code"
+    fig-dpi: 150
+    highlight-style: github
+editor: 
+  markdown: 
+    wrap: 72
+editor_options: 
+  chunk_output_type: console
+---
+
+
+## [Homepage](../index.html)
+
+```{r}
+#| warning: false
+#| echo: false
+#| include: false
+#| message: false
+#| purl: false
+
+knitr::purl("un_A.qmd", output = "../code/un_A.R", documentation = 0)
+styler:::style_file("../code/un_A.R")
+```
+
+::: columns
+::: {.column width="40%"}
+![](img/razor.jpg) *"Pluralitas non est ponenda sine necessitate."*
+
+[William of Ockham]{.grey}
+:::
+
+::: {.column width="60%"}
+-   This unit will cover the following [topics]{.orange}:
+
+    -   Bias-variance trade-off
+    -   Cross-validation
+    -   Information criteria
+    -   Optimism
+
+-   You may have seen these notions before...
+
+-   ...but it is worth discussing the [details]{.orange} of these ideas
+    once again.
+
+-   They are indeed the [foundations]{.blue} of [statistical
+    learning]{.orange}.
+:::
+:::
+
+
+## Yesterday's data, tomorrow's prediction
+
+::: incremental
+-   The [MSE]{.blue} decreases as the number of parameter increases;
+    similarly, the [$R^2$]{.blue} increases as a function of $p$. It can
+    be [proved]{.orange} that this [always happens]{.orange} using
+    ordinary least squares.
+
+-   One might be tempted to let $p$ as large as possible to make the
+    model more flexible...
+
+-   Taking this reasoning to the extreme would lead to the choice
+    $p = n$, so that $$
+    \text{MSE}_\text{train} = 0, \qquad R^2_\text{train} = 1,
+    $$, i.e., a perfect fit. This procedure is called
+    [interpolation]{.blue}.
+
+-   However, we are [not]{.orange} interested in predicting
+    [yesterday]{.orange} data. Our goal is to predict
+    [tomorrow]{.blue}'s data, i.e. a [new set]{.blue} of $n = 30$
+    points: $$
+    (x_1, \tilde{y}_1), \dots, (x_n, \tilde{y}_n), 
+    $$ using $\hat{y}_i = f(x_i; \hat{\beta})$, where $\hat{\beta}$ is
+    obtained using yesterday's data.
+
+-   [Remark]{.orange}. Tomorrow's r.v. $\tilde{Y}_1,\dots, \tilde{Y}_n$
+    follow the same scheme as yesterday's data.
+:::
+
+
+## Bias-variance trade-off
+
+-   In many textbooks, including A&S, the starting point of the analysis
+    is the [reducible error]{.blue}, because it is the only one we can
+    control and has a transparent interpretation.
+
+-   The reducible error measures the [discrepancy]{.orange} between the
+    unknown function $f(\bm{x})$ and its estimate $\hat{f}(\bm{x})$ and
+    therefore it is a [natural measure]{.orange} of the goodness of fit.
+
+-   What follows holds both for [regression]{.blue} and
+    [classification]{.orange} problems.
+
+. . .
+
+::: callout-note
+#### Bias-variance decomposition
+
+For any covariate value $\bm{x}$, it holds the following bias-variance
+decomposition: $$
+\mathbb{E}\left[\{\hat{f}(\bm{x}) - f(\bm{x})\}^2\right] = \underbrace{\mathbb{E}\left[\hat{f}(\bm{x}) - f(\bm{x})\right]^2}_{\text{Bias}^2} + \underbrace{\text{var}\{\hat{f}(\bm{x})\}}_{\text{variance}}.
+$$
+:::
+
+## Example: bias-variance in linear regression models
+
+::: incremental
+-   In [regression problems]{.blue} the [in-sample prediction
+    error]{.orange} under [squared loss]{.blue} is $$
+    \begin{aligned}
+    \text{ErrF} = \sigma^2 + \frac{1}{n}\sum_{i=1}^n\mathbb{E}\left[\hat{f}(\bm{x}_i) - f(\bm{x}_i)\right]^2 + \frac{1}{n}\sum_{i=1}^n\text{var}\{\hat{f}(\bm{x}_i)\}.
+    \end{aligned}
+    $$
+
+-   In [ordinary least squares]{.blue} the above quantity can be
+    computed in closed form, since each element of the [bias]{.orange}
+    term equals $$
+    \mathbb{E}\left[f(\bm{x}_i; \hat{\beta}) - f(\bm{x}_i)\right] = \bm{x}_i^T(\bm{X}^T\bm{X})^{-1}\bm{X}^T\bm{f} - f(\bm{x}_i).
+    $$ where $\bm{f} = (f(\bm{x}_1),\dots,f(\bm{x}_n))^T$. Note that
+    [if]{.orange} $f(\bm{x}) = \bm{x}^T\beta$, then the bias is zero.
+
+-   Moreover, in [ordinary least squares]{.blue} the [variance]{.orange}
+    term equals $$
+    \frac{1}{n}\sum_{i=1}^n\text{var}\{f(\bm{x}_i; \hat{\beta})\} = \frac{\sigma^2}{n}\sum_{i=1}^n  \bm{x}_i^T (\bm{X}^T\bm{X})^{-1}\bm{x}_i = \frac{\sigma^2}{n}\text{tr}(\bm{H}) = \sigma^2 \frac{p}{n}.
+    $$
+:::
+
+
+
+# References
+
+-   [Main references]{.blue}
+    -   **Chapter 3** of Azzalini, A. and Scarpa, B. (2011), [*Data
+        Analysis and Data
+        Mining*](http://azzalini.stat.unipd.it/Book-DM/), Oxford
+        University Press.
+    -   **Chapter 7** of Hastie, T., Tibshirani, R. and Friedman, J.
+        (2009), [*The Elements of Statistical
+        Learning*](https://hastie.su.domains/ElemStatLearn/), Second
+        Edition, Springer.
+-   [Specialized references]{.orange}
+    -   Rosset, S., and R. J. Tibshirani (2020). "[From fixed-X to
+        random-X regression: bias-variance decompositions, covariance
+        penalties, and prediction error
+        Estimation](https://doi.org/10.1080/01621459.2018.1424632)."
+        *Journal of the American Statistical Association* **115** (529):
+        138--51.
+    -   Bates, S., Hastie, T., and R. Tibshirani (2023).
+        "[Cross-validation: what does it estimate and how well does it
+        do it?](https://doi.org/10.1080/01621459.2023.2197686)" *Journal
+        of the American Statistical Association*, in press.
