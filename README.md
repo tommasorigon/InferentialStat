@@ -1,3 +1,3 @@
-# Data mining
+# Inferential Statistics
 
-Pagina web del corso: https://tommasorigon.github.io/datamining/
+Webpage: https://tommasorigon.github.io/InferentialStat/
