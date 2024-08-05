@@ -26,9 +26,9 @@ editor_options:
   chunk_output_type: console
 ---
 
-This is the website of the [Statistical Inference]{.blue} course of the "*Ph.D. in
-Economics, Statistics, and Data Science* (Curriculum Statistics)",
-Università degli Studi di Milano-Bicocca.
+This is the website of the [Statistical Inference]{.blue} course of the
+"*Ph.D. in Economics, Statistics, and Data Science* (Curriculum
+Statistics)", Università degli Studi di Milano-Bicocca.
 
 ## Teaching material
 
@@ -43,17 +43,17 @@ to convert the HTML slides into pdf files, you can [follow the
 instruction of the quarto
 documentation](https://quarto.org/docs/presentations/revealjs/presenting.html#print-to-pdf).
 
-| Topic                          | Notes                                | Slides                                             | Code                  |
-|---------------------|-----------------|------------------|-----------------|
-| **Introduction**               | [Introduction](slides/un_intro.html) | [Slides Introduction](slides/un_intro_slides.html) |                       |
-| **Point estimation** | [Unit A](slides/un_A.html)           | [Slides Unit A](slides/un_A_slides.html)           | [Code A](code/un_A.R) |
-| *Exercises*                    | [Exercises A](exe/exe_A.html)        |                                                    |                       |
-| **Exponential families**       | [Unit B](slides/un_B.html)           | [Slides Unit B](slides/un_B_slides.html)           | [Code B](code/un_B.R) |
-| *Exercises*                    | [Exercises B](exe/exe_B.html)        |                                                    |                       |
-| **Generalized linear models**          | [Unit C](slides/un_C.html)           | [Slides Unit C](slides/un_C_slides.html)           | [Code C](code/un_C.R) |
-| *Exercises*                    | [Exercises C](exe/exe_C.html)        |                                                    |                       |
-| **Advanced statistical models**            | [Unit D](slides/un_D.html)           | [Slides Unit D](slides/un_D_slides.html)           | [Code D](code/un_D.R) |
-| *Exercises*                    | [Exercises D](exe/exe_D.html)        |                                                    |                       |
+| Topic                           | Notes                                | Slides                                             | Code                  |
+|--------------------|------------------|------------------|------------------|
+| **Introduction**                | [Introduction](slides/un_intro.html) | [Slides Introduction](slides/un_intro_slides.html) |                       |
+| **Point estimation**            | [Unit A](slides/un_A.html)           | [Slides Unit A](slides/un_A_slides.html)           | [Code A](code/un_A.R) |
+| *Exercises*                     | [Exercises A](exe/exe_A.html)        |                                                    |                       |
+| **Exponential families**        | [Unit B](slides/un_B.html)           | [Slides Unit B](slides/un_B_slides.html)           | [Code B](code/un_B.R) |
+| *Exercises*                     | [Exercises B](exe/exe_B.html)        |                                                    |                       |
+| **Generalized linear models**   | [Unit C](slides/un_C.html)           | [Slides Unit C](slides/un_C_slides.html)           | [Code C](code/un_C.R) |
+| *Exercises*                     | [Exercises C](exe/exe_C.html)        |                                                    |                       |
+| **Advanced statistical models** | [Unit D](slides/un_D.html)           | [Slides Unit D](slides/un_D_slides.html)           | [Code D](code/un_D.R) |
+| *Exercises*                     | [Exercises D](exe/exe_D.html)        |                                                    |                       |
 
 <!-- ## Exam -->
 
