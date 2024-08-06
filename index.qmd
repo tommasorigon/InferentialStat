@@ -32,12 +32,13 @@ Statistics)", Università degli Studi di Milano-Bicocca.
 
 ## Teaching material
 
-- Agresti, A. 2013. [Categorical Data Analysis](https://onlinelibrary.wiley.com/doi/book/10.1002/0471249688). Third Edition. Wiley.
-- Casella, G., and R. L. Berger. 2002. [Statistical Inference](https://www.routledge.com/Statistical-Inference/Casella-Berger/p/book/9781032593036). Duxbury Advanced Series. Duxbury.
-- Davison, A. C. 2003. [Statistical Models](https://www.cambridge.org/core/books/statistical-models/8EC19F80551F52D4C58FAA2022048FC7). Cambridge University Press.
-- McCullagh, P., and J. A. Nelder. 1986. [Generalized Linear Models](https://www.taylorfrancis.com/books/mono/10.1201/9780203753736/generalized-linear-models-mccullagh). Springer.
-- Pace, L., and A. Salvan. 1997. [Principles of Statistical Inference from a Neo-Fisherian Perspective](https://www.worldscientific.com/worldscibooks/10.1142/3409). Advanced Series on Statistical Science and Applied Probability. World Scientific.
-- van der Vaart, A. W. 1998. [Asymptotic Statistics](https://www.cambridge.org/core/books/asymptotic-statistics/A3C7DAD3F7E66A1FA60E9C8FE132EE1D). Cambridge University Press.
+- Agresti, A. 2013. [*Categorical Data Analysis*](https://onlinelibrary.wiley.com/doi/book/10.1002/0471249688). Third Edition. Wiley.
+- Casella, G., and R. L. Berger. 2002. [*Statistical Inference*](https://www.routledge.com/Statistical-Inference/Casella-Berger/p/book/9781032593036). Duxbury Advanced Series. Duxbury.
+- Davison, A. C. 2003. [*Statistical Models*](https://www.cambridge.org/core/books/statistical-models/8EC19F80551F52D4C58FAA2022048FC7). Cambridge University Press.
+<!-- - Efron, B. 2023. [*Exponential Families in Theory and Practice*](https://www.cambridge.org/core/books/exponential-families-in-theory-and-practice/45CE4C98DEAB5EC9D6934E9DAC002F5F). Cambridge University Press. -->
+- McCullagh, P., and J. A. Nelder. 1986. [*Generalized Linear Models*](https://www.taylorfrancis.com/books/mono/10.1201/9780203753736/generalized-linear-models-mccullagh). Springer.
+- Pace, L., and A. Salvan. 1997. [*Principles of Statistical Inference from a Neo-Fisherian Perspective*](https://www.worldscientific.com/worldscibooks/10.1142/3409). Advanced Series on Statistical Science and Applied Probability. World Scientific.
+- van der Vaart, A. W. 1998. [*Asymptotic Statistics*](https://www.cambridge.org/core/books/asymptotic-statistics/A3C7DAD3F7E66A1FA60E9C8FE132EE1D). Cambridge University Press.
 
 ### Slides and lecture notes
 
