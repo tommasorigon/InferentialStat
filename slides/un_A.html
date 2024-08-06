@@ -105,13 +105,7 @@ window.Quarto = {
   <li><a href="#methods-of-evaluating-estimators" id="toc-methods-of-evaluating-estimators" class="nav-link" data-scroll-target="#methods-of-evaluating-estimators">Methods of evaluating estimators</a></li>
   <li><a href="#best-unbiased-estimators" id="toc-best-unbiased-estimators" class="nav-link" data-scroll-target="#best-unbiased-estimators">Best unbiased estimators</a></li>
   <li><a href="#asymptotic-behavior" id="toc-asymptotic-behavior" class="nav-link" data-scroll-target="#asymptotic-behavior">Asymptotic behavior</a></li>
-  <li><a href="#robustness" id="toc-robustness" class="nav-link" data-scroll-target="#robustness">Robustness</a>
-  <ul class="collapse">
-  <li><a href="#yesterdays-data-tomorrows-prediction" id="toc-yesterdays-data-tomorrows-prediction" class="nav-link" data-scroll-target="#yesterdays-data-tomorrows-prediction">Yesterday’s data, tomorrow’s prediction</a></li>
-  <li><a href="#bias-variance-trade-off" id="toc-bias-variance-trade-off" class="nav-link" data-scroll-target="#bias-variance-trade-off">Bias-variance trade-off</a></li>
-  <li><a href="#example-bias-variance-in-linear-regression-models" id="toc-example-bias-variance-in-linear-regression-models" class="nav-link" data-scroll-target="#example-bias-variance-in-linear-regression-models">Example: bias-variance in linear regression models</a></li>
-  </ul></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  <li><a href="#robustness" id="toc-robustness" class="nav-link" data-scroll-target="#robustness">Robustness</a></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="un_A_slides.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
 </div>
@@ -208,6 +202,9 @@ Point estimator
 </section>
 <section id="example-i-binomial-method-of-moments" class="level2">
 <h2 class="anchored" data-anchor-id="example-i-binomial-method-of-moments">Example I: binomial method of moments</h2>
+<ul>
+<li>asd</li>
+</ul>
 </section>
 <section id="asymptotics" class="level2">
 <h2 class="anchored" data-anchor-id="asymptotics">Asymptotics</h2>
@@ -236,78 +233,6 @@ Point estimator
 </section>
 <section id="robustness" class="level1">
 <h1>Robustness</h1>
-<section id="yesterdays-data-tomorrows-prediction" class="level2">
-<h2 class="anchored" data-anchor-id="yesterdays-data-tomorrows-prediction">Yesterday’s data, tomorrow’s prediction</h2>
-<div class="incremental">
-<ul class="incremental">
-<li><p>The <span class="blue">MSE</span> decreases as the number of parameter increases; similarly, the <span class="blue"><span class="math inline">R^2</span></span> increases as a function of <span class="math inline">p</span>. It can be <span class="orange">proved</span> that this <span class="orange">always happens</span> using ordinary least squares.</p></li>
-<li><p>One might be tempted to let <span class="math inline">p</span> as large as possible to make the model more flexible…</p></li>
-<li><p>Taking this reasoning to the extreme would lead to the choice <span class="math inline">p = n</span>, so that <span class="math display">
-\text{MSE}_\text{train} = 0, \qquad R^2_\text{train} = 1,
-</span>, i.e., a perfect fit. This procedure is called <span class="blue">interpolation</span>.</p></li>
-<li><p>However, we are <span class="orange">not</span> interested in predicting <span class="orange">yesterday</span> data. Our goal is to predict <span class="blue">tomorrow</span>’s data, i.e.&nbsp;a <span class="blue">new set</span> of <span class="math inline">n = 30</span> points: <span class="math display">
-(x_1, \tilde{y}_1), \dots, (x_n, \tilde{y}_n),
-</span> using <span class="math inline">\hat{y}_i = f(x_i; \hat{\beta})</span>, where <span class="math inline">\hat{\beta}</span> is obtained using yesterday’s data.</p></li>
-<li><p><span class="orange">Remark</span>. Tomorrow’s r.v. <span class="math inline">\tilde{Y}_1,\dots, \tilde{Y}_n</span> follow the same scheme as yesterday’s data.</p></li>
-</ul>
-</div>
-</section>
-<section id="bias-variance-trade-off" class="level2">
-<h2 class="anchored" data-anchor-id="bias-variance-trade-off">Bias-variance trade-off</h2>
-<ul>
-<li><p>In many textbooks, including A&amp;S, the starting point of the analysis is the <span class="blue">reducible error</span>, because it is the only one we can control and has a transparent interpretation.</p></li>
-<li><p>The reducible error measures the <span class="orange">discrepancy</span> between the unknown function <span class="math inline">f(\bm{x})</span> and its estimate <span class="math inline">\hat{f}(\bm{x})</span> and therefore it is a <span class="orange">natural measure</span> of the goodness of fit.</p></li>
-<li><p>What follows holds both for <span class="blue">regression</span> and <span class="orange">classification</span> problems.</p></li>
-</ul>
-<div class="callout callout-style-simple callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Bias-variance decomposition
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>For any covariate value <span class="math inline">\bm{x}</span>, it holds the following bias-variance decomposition: <span class="math display">
-\mathbb{E}\left[\{\hat{f}(\bm{x}) - f(\bm{x})\}^2\right] = \underbrace{\mathbb{E}\left[\hat{f}(\bm{x}) - f(\bm{x})\right]^2}_{\text{Bias}^2} + \underbrace{\text{var}\{\hat{f}(\bm{x})\}}_{\text{variance}}.
-</span></p>
-</div>
-</div>
-</section>
-<section id="example-bias-variance-in-linear-regression-models" class="level2">
-<h2 class="anchored" data-anchor-id="example-bias-variance-in-linear-regression-models">Example: bias-variance in linear regression models</h2>
-<div class="incremental">
-<ul class="incremental">
-<li><p>In <span class="blue">regression problems</span> the <span class="orange">in-sample prediction error</span> under <span class="blue">squared loss</span> is <span class="math display">
-\begin{aligned}
-\text{ErrF} = \sigma^2 + \frac{1}{n}\sum_{i=1}^n\mathbb{E}\left[\hat{f}(\bm{x}_i) - f(\bm{x}_i)\right]^2 + \frac{1}{n}\sum_{i=1}^n\text{var}\{\hat{f}(\bm{x}_i)\}.
-\end{aligned}
-</span></p></li>
-<li><p>In <span class="blue">ordinary least squares</span> the above quantity can be computed in closed form, since each element of the <span class="orange">bias</span> term equals <span class="math display">
-\mathbb{E}\left[f(\bm{x}_i; \hat{\beta}) - f(\bm{x}_i)\right] = \bm{x}_i^T(\bm{X}^T\bm{X})^{-1}\bm{X}^T\bm{f} - f(\bm{x}_i).
-</span> where <span class="math inline">\bm{f} = (f(\bm{x}_1),\dots,f(\bm{x}_n))^T</span>. Note that <span class="orange">if</span> <span class="math inline">f(\bm{x}) = \bm{x}^T\beta</span>, then the bias is zero.</p></li>
-<li><p>Moreover, in <span class="blue">ordinary least squares</span> the <span class="orange">variance</span> term equals <span class="math display">
-\frac{1}{n}\sum_{i=1}^n\text{var}\{f(\bm{x}_i; \hat{\beta})\} = \frac{\sigma^2}{n}\sum_{i=1}^n  \bm{x}_i^T (\bm{X}^T\bm{X})^{-1}\bm{x}_i = \frac{\sigma^2}{n}\text{tr}(\bm{H}) = \sigma^2 \frac{p}{n}.
-</span></p></li>
-</ul>
-</div>
-</section>
-</section>
-<section id="references" class="level1">
-<h1>References</h1>
-<ul>
-<li><span class="blue">Main references</span>
-<ul>
-<li><strong>Chapter 3</strong> of Azzalini, A. and Scarpa, B. (2011), <a href="http://azzalini.stat.unipd.it/Book-DM/"><em>Data Analysis and Data Mining</em></a>, Oxford University Press.</li>
-<li><strong>Chapter 7</strong> of Hastie, T., Tibshirani, R. and Friedman, J. (2009), <a href="https://hastie.su.domains/ElemStatLearn/"><em>The Elements of Statistical Learning</em></a>, Second Edition, Springer.</li>
-</ul></li>
-<li><span class="orange">Specialized references</span>
-<ul>
-<li>Rosset, S., and R. J. Tibshirani (2020). “<a href="https://doi.org/10.1080/01621459.2018.1424632">From fixed-X to random-X regression: bias-variance decompositions, covariance penalties, and prediction error Estimation</a>.” <em>Journal of the American Statistical Association</em> <strong>115</strong> (529): 138–51.</li>
-<li>Bates, S., Hastie, T., and R. Tibshirani (2023). “<a href="https://doi.org/10.1080/01621459.2023.2197686">Cross-validation: what does it estimate and how well does it do it?</a>” <em>Journal of the American Statistical Association</em>, in press.</li>
-</ul></li>
-</ul>
 </section>
 
 </main>
