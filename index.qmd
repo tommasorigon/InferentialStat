@@ -32,6 +32,8 @@ Statistics)", Università degli Studi di Milano-Bicocca.
 
 ## Teaching material
 
+#### Textbooks 
+
 - Agresti, A. 2013. [*Categorical Data Analysis*](https://onlinelibrary.wiley.com/doi/book/10.1002/0471249688). Third Edition. Wiley.
 - Casella, G., and R. L. Berger. 2002. [*Statistical Inference*](https://www.routledge.com/Statistical-Inference/Casella-Berger/p/book/9781032593036). Duxbury Advanced Series. Duxbury.
 - Davison, A. C. 2003. [*Statistical Models*](https://www.cambridge.org/core/books/statistical-models/8EC19F80551F52D4C58FAA2022048FC7). Cambridge University Press.
