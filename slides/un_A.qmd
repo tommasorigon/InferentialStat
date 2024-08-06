@@ -63,34 +63,49 @@ styler:::style_file("../code/un_A.R")
 
 ::: columns
 ::: {.column width="40%"}
-![](img/razor.jpg) *"Pluralitas non est ponenda sine necessitate."*
+![](img/target.png)
 
-[William of Ockham]{.grey}
+<!-- *"Pluralitas non est ponenda sine necessitate."* -->
+
+<!-- [William of Ockham]{.grey} -->
 :::
 
 ::: {.column width="60%"}
--   This unit will cover the following [topics]{.orange}:
+- This unit will cover the following [topics]{.orange}:
 
-    -   Bias-variance trade-off
-    -   Cross-validation
-    -   Information criteria
-    -   Optimism
+    - Methods of finding estimators
+    - Methods of evaluating estimators
+    - Best unbiased estimators
+    - Asymptotic behavior
+    - Robustness and model misspecification
+    
+- The rational behind [point estimation]{.blue} is quite simple: 
 
--   You may have seen these notions before...
-
--   ...but it is worth discussing the [details]{.orange} of these ideas
-    once again.
-
--   They are indeed the [foundations]{.blue} of [statistical
-    learning]{.orange}.
+- When sampling data $Y_1,\dots,Y_n$ are from a [population]{.orange} described by a pdf or a pmf $f(\cdot ; \theta)$
 :::
 :::
 
-# 
+# Methods of finding estimators
 
-# Optimality
+## Estimator
 
-# Asymptotics
+## Methods of moments
+
+## Maximum likelihood
+
+## M- and Z- estimators
+
+## Plug-in estimators
+
+## Bayesian estimators
+
+# Methods of evaluating estimators
+
+# Best unbiased estimators
+
+# Asymptotic behavior
+
+# Robustness
 
 ## Yesterday's data, tomorrow's prediction
 

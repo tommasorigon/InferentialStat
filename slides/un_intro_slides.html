@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-<script src="un_A_files/libs/clipboard/clipboard.min.js"></script>
-<script src="un_A_files/libs/quarto-html/tabby.min.js"></script>
-<script src="un_A_files/libs/quarto-html/popper.min.js"></script>
-<script src="un_A_files/libs/quarto-html/tippy.umd.min.js"></script>
-<link href="un_A_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="un_A_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="un_A_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
-<link href="un_A_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+<script src="un_intro_files/libs/clipboard/clipboard.min.js"></script>
+<script src="un_intro_files/libs/quarto-html/tabby.min.js"></script>
+<script src="un_intro_files/libs/quarto-html/popper.min.js"></script>
+<script src="un_intro_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="un_intro_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="un_intro_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="un_intro_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
+<link href="un_intro_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.4.549">
 
   <meta name="author" content="Tommaso Rigon">
-  <title>Point estimation</title>
+  <title>Introduction</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="un_A_files/libs/revealjs/dist/reset.css">
-  <link rel="stylesheet" href="un_A_files/libs/revealjs/dist/reveal.css">
+  <link rel="stylesheet" href="un_intro_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="un_intro_files/libs/revealjs/dist/reveal.css">
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -30,27 +30,11 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="un_A_files/libs/revealjs/dist/theme/quarto.css">
-  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
-  <script>document.addEventListener("DOMContentLoaded", function () {
- var mathElements = document.getElementsByClassName("math");
- var macros = [];
- for (var i = 0; i < mathElements.length; i++) {
-  var texText = mathElements[i].firstChild;
-  if (mathElements[i].tagName == "SPAN") {
-   katex.render(texText.data, mathElements[i], {
-    displayMode: mathElements[i].classList.contains('display'),
-    throwOnError: false,
-    macros: macros,
-    fleqn: false
-   });
-}}});
-  </script>
-  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
-  <link href="un_A_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
-  <link href="un_A_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
-  <link href="un_A_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-  <link href="un_A_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <link rel="stylesheet" href="un_intro_files/libs/revealjs/dist/theme/quarto.css">
+  <link href="un_intro_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="un_intro_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="un_intro_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="un_intro_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
 
   .callout {
@@ -342,7 +326,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Point estimation</h1>
+  <h1 class="title">Introduction</h1>
   <p class="subtitle">Statistical Inference - PhD EcoStatData</p>
 
 <div class="quarto-title-authors">
@@ -359,140 +343,21 @@
 </section>
 <section id="homepage" class="slide level2 center">
 <h2><a href="../index.html">Homepage</a></h2>
-<div class="columns">
-<div class="column" style="width:40%;">
-<p><img data-src="img/target.png"></p>
-<!-- *"Pluralitas non est ponenda sine necessitate."* -->
-<!-- [William of Ockham]{.grey} -->
-</div><div class="column" style="width:60%;">
-<ul>
-<li><p>This unit will cover the following <span class="orange">topics</span>:</p>
-<ul>
-<li>Methods of finding estimators</li>
-<li>Methods of evaluating estimators</li>
-<li>Best unbiased estimators</li>
-<li>Asymptotic behavior</li>
-<li>Robustness and model misspecification</li>
-</ul></li>
-<li><p>The rational behind <span class="blue">point estimation</span> is quite simple:</p></li>
-<li><p>When sampling data <span class="math inline">Y_1,\dots,Y_n</span> are from a population described by a pdf or a pmf <span class="math inline">f(\cdot ; \theta)</span></p></li>
-</ul>
-</div>
-</div>
 </section>
-<section>
-<section id="methods-of-finding-estimators" class="title-slide slide level1 center">
-<h1>Methods of finding estimators</h1>
-
+<section id="parametric-models" class="slide level2 center">
+<h2>Parametric models</h2>
 </section>
-<section id="estimator" class="slide level2 center">
-<h2>Estimator</h2>
+<section id="preliminaries" class="slide level2 center">
+<h2>Preliminaries</h2>
 </section>
-<section id="methods-of-moments" class="slide level2 center">
-<h2>Methods of moments</h2>
+<section id="textbooks" class="slide level2 center">
+<h2>Textbooks</h2>
 </section>
-<section id="maximum-likelihood" class="slide level2 center">
-<h2>Maximum likelihood</h2>
+<section id="inferential-statistics" class="slide level2 center">
+<h2>Inferential statistics</h2>
 </section>
-<section id="m--and-z--estimators" class="slide level2 center">
-<h2>M- and Z- estimators</h2>
-</section>
-<section id="plug-in-estimators" class="slide level2 center">
-<h2>Plug-in estimators</h2>
-</section>
-<section id="bayesian-estimators" class="slide level2 center">
-<h2>Bayesian estimators</h2>
-</section></section>
-<section id="methods-of-evaluating-estimators" class="title-slide slide level1 center">
-<h1>Methods of evaluating estimators</h1>
-
-</section>
-
-<section id="best-unbiased-estimators" class="title-slide slide level1 center">
-<h1>Best unbiased estimators</h1>
-
-</section>
-
-<section id="asymptotic-behavior" class="title-slide slide level1 center">
-<h1>Asymptotic behavior</h1>
-
-</section>
-
-<section>
-<section id="robustness" class="title-slide slide level1 center">
-<h1>Robustness</h1>
-
-</section>
-<section id="yesterdays-data-tomorrows-prediction" class="slide level2 center">
-<h2>Yesterday’s data, tomorrow’s prediction</h2>
-<div>
-<ul>
-<li class="fragment"><p>The <span class="blue">MSE</span> decreases as the number of parameter increases; similarly, the <span class="blue"><span class="math inline">R^2</span></span> increases as a function of <span class="math inline">p</span>. It can be <span class="orange">proved</span> that this <span class="orange">always happens</span> using ordinary least squares.</p></li>
-<li class="fragment"><p>One might be tempted to let <span class="math inline">p</span> as large as possible to make the model more flexible…</p></li>
-<li class="fragment"><p>Taking this reasoning to the extreme would lead to the choice <span class="math inline">p = n</span>, so that <span class="math display">
-\text{MSE}_\text{train} = 0, \qquad R^2_\text{train} = 1,
-</span>, i.e., a perfect fit. This procedure is called <span class="blue">interpolation</span>.</p></li>
-<li class="fragment"><p>However, we are <span class="orange">not</span> interested in predicting <span class="orange">yesterday</span> data. Our goal is to predict <span class="blue">tomorrow</span>’s data, i.e.&nbsp;a <span class="blue">new set</span> of <span class="math inline">n = 30</span> points: <span class="math display">
-(x_1, \tilde{y}_1), \dots, (x_n, \tilde{y}_n),
-</span> using <span class="math inline">\hat{y}_i = f(x_i; \hat{\beta})</span>, where <span class="math inline">\hat{\beta}</span> is obtained using yesterday’s data.</p></li>
-<li class="fragment"><p><span class="orange">Remark</span>. Tomorrow’s r.v. <span class="math inline">\tilde{Y}_1,\dots, \tilde{Y}_n</span> follow the same scheme as yesterday’s data.</p></li>
-</ul>
-</div>
-</section>
-<section id="bias-variance-trade-off" class="slide level2 center">
-<h2>Bias-variance trade-off</h2>
-<ul>
-<li><p>In many textbooks, including A&amp;S, the starting point of the analysis is the <span class="blue">reducible error</span>, because it is the only one we can control and has a transparent interpretation.</p></li>
-<li><p>The reducible error measures the <span class="orange">discrepancy</span> between the unknown function <span class="math inline">f(\bm{x})</span> and its estimate <span class="math inline">\hat{f}(\bm{x})</span> and therefore it is a <span class="orange">natural measure</span> of the goodness of fit.</p></li>
-<li><p>What follows holds both for <span class="blue">regression</span> and <span class="orange">classification</span> problems.</p></li>
-</ul>
-<div class="fragment">
-<div class="callout callout-note no-icon callout-titled callout-style-simple">
-<div class="callout-body">
-<div class="callout-title">
-<p><strong>Bias-variance decomposition</strong></p>
-</div>
-<div class="callout-content">
-<p>For any covariate value <span class="math inline">\bm{x}</span>, it holds the following bias-variance decomposition: <span class="math display">
-\mathbb{E}\left[\{\hat{f}(\bm{x}) - f(\bm{x})\}^2\right] = \underbrace{\mathbb{E}\left[\hat{f}(\bm{x}) - f(\bm{x})\right]^2}_{\text{Bias}^2} + \underbrace{\text{var}\{\hat{f}(\bm{x})\}}_{\text{variance}}.
-</span></p>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="example-bias-variance-in-linear-regression-models" class="slide level2 center">
-<h2>Example: bias-variance in linear regression models</h2>
-<div>
-<ul>
-<li class="fragment"><p>In <span class="blue">regression problems</span> the <span class="orange">in-sample prediction error</span> under <span class="blue">squared loss</span> is <span class="math display">
-\begin{aligned}
-\text{ErrF} = \sigma^2 + \frac{1}{n}\sum_{i=1}^n\mathbb{E}\left[\hat{f}(\bm{x}_i) - f(\bm{x}_i)\right]^2 + \frac{1}{n}\sum_{i=1}^n\text{var}\{\hat{f}(\bm{x}_i)\}.
-\end{aligned}
-</span></p></li>
-<li class="fragment"><p>In <span class="blue">ordinary least squares</span> the above quantity can be computed in closed form, since each element of the <span class="orange">bias</span> term equals <span class="math display">
-\mathbb{E}\left[f(\bm{x}_i; \hat{\beta}) - f(\bm{x}_i)\right] = \bm{x}_i^T(\bm{X}^T\bm{X})^{-1}\bm{X}^T\bm{f} - f(\bm{x}_i).
-</span> where <span class="math inline">\bm{f} = (f(\bm{x}_1),\dots,f(\bm{x}_n))^T</span>. Note that <span class="orange">if</span> <span class="math inline">f(\bm{x}) = \bm{x}^T\beta</span>, then the bias is zero.</p></li>
-<li class="fragment"><p>Moreover, in <span class="blue">ordinary least squares</span> the <span class="orange">variance</span> term equals <span class="math display">
-\frac{1}{n}\sum_{i=1}^n\text{var}\{f(\bm{x}_i; \hat{\beta})\} = \frac{\sigma^2}{n}\sum_{i=1}^n  \bm{x}_i^T (\bm{X}^T\bm{X})^{-1}\bm{x}_i = \frac{\sigma^2}{n}\text{tr}(\bm{H}) = \sigma^2 \frac{p}{n}.
-</span></p></li>
-</ul>
-</div>
-</section></section>
-<section id="references" class="title-slide slide level1 center">
-<h1>References</h1>
-<ul>
-<li><span class="blue">Main references</span>
-<ul>
-<li><strong>Chapter 3</strong> of Azzalini, A. and Scarpa, B. (2011), <a href="http://azzalini.stat.unipd.it/Book-DM/"><em>Data Analysis and Data Mining</em></a>, Oxford University Press.</li>
-<li><strong>Chapter 7</strong> of Hastie, T., Tibshirani, R. and Friedman, J. (2009), <a href="https://hastie.su.domains/ElemStatLearn/"><em>The Elements of Statistical Learning</em></a>, Second Edition, Springer.</li>
-</ul></li>
-<li><span class="orange">Specialized references</span>
-<ul>
-<li>Rosset, S., and R. J. Tibshirani (2020). “<a href="https://doi.org/10.1080/01621459.2018.1424632">From fixed-X to random-X regression: bias-variance decompositions, covariance penalties, and prediction error Estimation</a>.” <em>Journal of the American Statistical Association</em> <strong>115</strong> (529): 138–51.</li>
-<li>Bates, S., Hastie, T., and R. Tibshirani (2023). “<a href="https://doi.org/10.1080/01621459.2023.2197686">Cross-validation: what does it estimate and how well does it do it?</a>” <em>Journal of the American Statistical Association</em>, in press.</li>
-</ul></li>
-</ul>
+<section id="likelihood" class="slide level2 center">
+<h2>Likelihood</h2>
 <div class="quarto-auto-generated-content">
 <p><img src="img/logoB.png" class="slide-logo"></p>
 <div class="footer footer-default">
@@ -504,18 +369,18 @@
   </div>
 
   <script>window.backupDefine = window.define; window.define = undefined;</script>
-  <script src="un_A_files/libs/revealjs/dist/reveal.js"></script>
+  <script src="un_intro_files/libs/revealjs/dist/reveal.js"></script>
   <!-- reveal.js plugins -->
-  <script src="un_A_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
-  <script src="un_A_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
-  <script src="un_A_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
-  <script src="un_A_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
-  <script src="un_A_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  <script src="un_intro_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="un_intro_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="un_intro_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="un_intro_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="un_intro_files/libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
-  <script src="un_A_files/libs/revealjs/plugin/notes/notes.js"></script>
-  <script src="un_A_files/libs/revealjs/plugin/search/search.js"></script>
-  <script src="un_A_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="un_intro_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="un_intro_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="un_intro_files/libs/revealjs/plugin/zoom/zoom.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>
@@ -691,44 +556,6 @@
         ]
       });
     </script>
-    
-    <script>
-      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
-      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
-      // slide changes (different for each slide format).
-      (function () {
-        // dispatch for htmlwidgets
-        function fireSlideEnter() {
-          const event = window.document.createEvent("Event");
-          event.initEvent("slideenter", true, true);
-          window.document.dispatchEvent(event);
-        }
-
-        function fireSlideChanged(previousSlide, currentSlide) {
-          fireSlideEnter();
-
-          // dispatch for shiny
-          if (window.jQuery) {
-            if (previousSlide) {
-              window.jQuery(previousSlide).trigger("hidden");
-            }
-            if (currentSlide) {
-              window.jQuery(currentSlide).trigger("shown");
-            }
-          }
-        }
-
-        // hookup for slidy
-        if (window.w3c_slidy) {
-          window.w3c_slidy.add_observer(function (slide_num) {
-            // slide_num starts at position 1
-            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
-          });
-        }
-
-      })();
-    </script>
-
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {
