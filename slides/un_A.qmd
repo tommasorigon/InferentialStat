@@ -62,7 +62,7 @@ styler:::style_file("../code/un_A.R")
 ```
 
 ::: columns
-::: {.column width="40%"}
+::: {.column width="30%"}
 ![](img/target.png)
 
 <!-- *"Pluralitas non est ponenda sine necessitate."* -->
@@ -70,7 +70,7 @@ styler:::style_file("../code/un_A.R")
 <!-- [William of Ockham]{.grey} -->
 :::
 
-::: {.column width="60%"}
+::: {.column width="70%"}
 - This unit will cover the following [topics]{.orange}:
 
     - Methods of finding estimators
@@ -78,10 +78,12 @@ styler:::style_file("../code/un_A.R")
     - Best unbiased estimators
     - Asymptotic behavior
     - Robustness and model misspecification
-    
+
 - The rational behind [point estimation]{.blue} is quite simple: 
 
-- When sampling data $Y_1,\dots,Y_n$ are from a [population]{.orange} described by a pdf or a pmf $f(\cdot ; \theta)$
+- When sampling is from a [population]{.orange} described by a pdf or a pmf $f(\cdot ; \theta)$, knowledge of $\theta$ yields knowledge of the entire population.
+
+- Hence, it is natural to seek a method of finding a good [estimator]{.blue} of the unknown point $\theta$.
 :::
 :::
 
@@ -89,7 +91,30 @@ styler:::style_file("../code/un_A.R")
 
 ## Estimator
 
+::: callout-note
+#### Point estimator
+
+A [point estimator]{.blue} $\hat{\theta}$ is any function of the random sample $Y_1,\dots,Y_n$, namely
+$$
+\hat{\theta}(\bm{Y}) = \hat{\theta}(Y_1,\dots,Y_n).
+$$
+That is, any [statistic]{.orange} is a point estimator.
+:::
+
+- In principle, the range of the estimator coincide with that of the parameter, i.e.  $\hat{\theta} : \mathcal{Y} \rightarrow \Theta$, but there are exceptions. 
+- An [estimator]{.blue} $\hat{\theta}(Y_1,\dots,Y_n)$ is a function of the sample $Y_1,\dots,Y_n$ and  is a [random variable]{.blue}.
+
+- An [estimate]{.orange} $\hat{\theta}(y_1,\dots,y_n)$ is a function of the realized values $y_1,\dots,y_n$ and is a [number]{.orange}. 
+
+- We will use the notation $\hat{\theta}$ to denote both estimators and estimates whenever its meaning is clear from the context.
+
 ## Methods of moments
+
+- The [methods of moments]{.blue} is, perhaps, the oldest method of finding point estimators, dating back at least to Karl Pearson in the late 1800s.
+
+## Example I: binomial method of moments
+
+## Asymptotics
 
 ## Maximum likelihood
 

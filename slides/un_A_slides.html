@@ -360,11 +360,11 @@
 <section id="homepage" class="slide level2 center">
 <h2><a href="../index.html">Homepage</a></h2>
 <div class="columns">
-<div class="column" style="width:40%;">
+<div class="column" style="width:30%;">
 <p><img data-src="img/target.png"></p>
 <!-- *"Pluralitas non est ponenda sine necessitate."* -->
 <!-- [William of Ockham]{.grey} -->
-</div><div class="column" style="width:60%;">
+</div><div class="column" style="width:70%;">
 <ul>
 <li><p>This unit will cover the following <span class="orange">topics</span>:</p>
 <ul>
@@ -375,7 +375,8 @@
 <li>Robustness and model misspecification</li>
 </ul></li>
 <li><p>The rational behind <span class="blue">point estimation</span> is quite simple:</p></li>
-<li><p>When sampling data <span class="math inline">Y_1,\dots,Y_n</span> are from a <span class="orange">population</span> described by a pdf or a pmf <span class="math inline">f(\cdot ; \theta)</span></p></li>
+<li><p>When sampling is from a <span class="orange">population</span> described by a pdf or a pmf <span class="math inline">f(\cdot ; \theta)</span>, knowledge of <span class="math inline">\theta</span> yields knowledge of the entire population.</p></li>
+<li><p>Hence, it is natural to seek a method of finding a good <span class="blue">estimator</span> of the unknown point <span class="math inline">\theta</span>.</p></li>
 </ul>
 </div>
 </div>
@@ -387,9 +388,36 @@
 </section>
 <section id="estimator" class="slide level2 center">
 <h2>Estimator</h2>
+<div class="callout callout-note no-icon callout-titled callout-style-simple">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Point estimator</strong></p>
+</div>
+<div class="callout-content">
+<p>A <span class="blue">point estimator</span> <span class="math inline">\hat{\theta}</span> is any function of the random sample <span class="math inline">Y_1,\dots,Y_n</span>, namely <span class="math display">
+\hat{\theta}(\bm{Y}) = \hat{\theta}(Y_1,\dots,Y_n).
+</span> That is, any <span class="orange">statistic</span> is a point estimator.</p>
+</div>
+</div>
+</div>
+<ul>
+<li><p>In principle, the range of the estimator coincide with that of the parameter, i.e.&nbsp;<span class="math inline">\hat{\theta} : \mathcal{Y} \rightarrow \Theta</span>, but there are exceptions.</p></li>
+<li><p>An <span class="blue">estimator</span> <span class="math inline">\hat{\theta}(Y_1,\dots,Y_n)</span> is a function of the sample <span class="math inline">Y_1,\dots,Y_n</span> and is a <span class="blue">random variable</span>.</p></li>
+<li><p>An <span class="orange">estimate</span> <span class="math inline">\hat{\theta}(y_1,\dots,y_n)</span> is a function of the realized values <span class="math inline">y_1,\dots,y_n</span> and is a <span class="orange">number</span>.</p></li>
+<li><p>We will use the notation <span class="math inline">\hat{\theta}</span> to denote both estimators and estimates whenever its meaning is clear from the context.</p></li>
+</ul>
 </section>
 <section id="methods-of-moments" class="slide level2 center">
 <h2>Methods of moments</h2>
+<ul>
+<li>The <span class="blue">methods of moments</span> is, perhaps, the oldest method of finding point estimators, dating back at least to Karl Pearson in the late 1800s.</li>
+</ul>
+</section>
+<section id="example-i-binomial-method-of-moments" class="slide level2 center">
+<h2>Example I: binomial method of moments</h2>
+</section>
+<section id="asymptotics" class="slide level2 center">
+<h2>Asymptotics</h2>
 </section>
 <section id="maximum-likelihood" class="slide level2 center">
 <h2>Maximum likelihood</h2>

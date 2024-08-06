@@ -95,6 +95,8 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#estimator" id="toc-estimator" class="nav-link" data-scroll-target="#estimator">Estimator</a></li>
   <li><a href="#methods-of-moments" id="toc-methods-of-moments" class="nav-link" data-scroll-target="#methods-of-moments">Methods of moments</a></li>
+  <li><a href="#example-i-binomial-method-of-moments" id="toc-example-i-binomial-method-of-moments" class="nav-link" data-scroll-target="#example-i-binomial-method-of-moments">Example I: binomial method of moments</a></li>
+  <li><a href="#asymptotics" id="toc-asymptotics" class="nav-link" data-scroll-target="#asymptotics">Asymptotics</a></li>
   <li><a href="#maximum-likelihood" id="toc-maximum-likelihood" class="nav-link" data-scroll-target="#maximum-likelihood">Maximum likelihood</a></li>
   <li><a href="#m--and-z--estimators" id="toc-m--and-z--estimators" class="nav-link" data-scroll-target="#m--and-z--estimators">M- and Z- estimators</a></li>
   <li><a href="#plug-in-estimators" id="toc-plug-in-estimators" class="nav-link" data-scroll-target="#plug-in-estimators">Plug-in estimators</a></li>
@@ -151,11 +153,11 @@ window.Quarto = {
 <section id="homepage" class="level2">
 <h2 class="anchored" data-anchor-id="homepage"><a href="../index.html">Homepage</a></h2>
 <div class="columns">
-<div class="column" style="width:40%;">
+<div class="column" style="width:30%;">
 <p><img src="img/target.png" class="img-fluid"></p>
 <!-- *"Pluralitas non est ponenda sine necessitate."* -->
 <!-- [William of Ockham]{.grey} -->
-</div><div class="column" style="width:60%;">
+</div><div class="column" style="width:70%;">
 <ul>
 <li><p>This unit will cover the following <span class="orange">topics</span>:</p>
 <ul>
@@ -166,7 +168,8 @@ window.Quarto = {
 <li>Robustness and model misspecification</li>
 </ul></li>
 <li><p>The rational behind <span class="blue">point estimation</span> is quite simple:</p></li>
-<li><p>When sampling data <span class="math inline">Y_1,\dots,Y_n</span> are from a <span class="orange">population</span> described by a pdf or a pmf <span class="math inline">f(\cdot ; \theta)</span></p></li>
+<li><p>When sampling is from a <span class="orange">population</span> described by a pdf or a pmf <span class="math inline">f(\cdot ; \theta)</span>, knowledge of <span class="math inline">\theta</span> yields knowledge of the entire population.</p></li>
+<li><p>Hence, it is natural to seek a method of finding a good <span class="blue">estimator</span> of the unknown point <span class="math inline">\theta</span>.</p></li>
 </ul>
 </div>
 </div>
@@ -175,9 +178,39 @@ window.Quarto = {
 <h1>Methods of finding estimators</h1>
 <section id="estimator" class="level2">
 <h2 class="anchored" data-anchor-id="estimator">Estimator</h2>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Point estimator
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A <span class="blue">point estimator</span> <span class="math inline">\hat{\theta}</span> is any function of the random sample <span class="math inline">Y_1,\dots,Y_n</span>, namely <span class="math display">
+\hat{\theta}(\bm{Y}) = \hat{\theta}(Y_1,\dots,Y_n).
+</span> That is, any <span class="orange">statistic</span> is a point estimator.</p>
+</div>
+</div>
+<ul>
+<li><p>In principle, the range of the estimator coincide with that of the parameter, i.e.&nbsp;<span class="math inline">\hat{\theta} : \mathcal{Y} \rightarrow \Theta</span>, but there are exceptions.</p></li>
+<li><p>An <span class="blue">estimator</span> <span class="math inline">\hat{\theta}(Y_1,\dots,Y_n)</span> is a function of the sample <span class="math inline">Y_1,\dots,Y_n</span> and is a <span class="blue">random variable</span>.</p></li>
+<li><p>An <span class="orange">estimate</span> <span class="math inline">\hat{\theta}(y_1,\dots,y_n)</span> is a function of the realized values <span class="math inline">y_1,\dots,y_n</span> and is a <span class="orange">number</span>.</p></li>
+<li><p>We will use the notation <span class="math inline">\hat{\theta}</span> to denote both estimators and estimates whenever its meaning is clear from the context.</p></li>
+</ul>
 </section>
 <section id="methods-of-moments" class="level2">
 <h2 class="anchored" data-anchor-id="methods-of-moments">Methods of moments</h2>
+<ul>
+<li>The <span class="blue">methods of moments</span> is, perhaps, the oldest method of finding point estimators, dating back at least to Karl Pearson in the late 1800s.</li>
+</ul>
+</section>
+<section id="example-i-binomial-method-of-moments" class="level2">
+<h2 class="anchored" data-anchor-id="example-i-binomial-method-of-moments">Example I: binomial method of moments</h2>
+</section>
+<section id="asymptotics" class="level2">
+<h2 class="anchored" data-anchor-id="asymptotics">Asymptotics</h2>
 </section>
 <section id="maximum-likelihood" class="level2">
 <h2 class="anchored" data-anchor-id="maximum-likelihood">Maximum likelihood</h2>
