@@ -112,11 +112,69 @@ That is, any [statistic]{.orange} is a point estimator.
 
 - The [methods of moments]{.blue} is, perhaps, the oldest method of finding point estimators, dating back at least to Karl Pearson in the late 1800s.
 
-## Example I: binomial method of moments
+- Let $Y_1,\dots,Y_n$ be an iid sample from $f(\cdot; \theta)$ and $\theta = (\theta_1,\dots,\theta_k)$. Moreover, let us define
+$$
+m_r = \frac{1}{n}\sum_{i=1}^n Y_i^k, \qquad \mu_r(\theta) = \mu_r(\theta_1,\dots,\theta_k) = \mathbb{E}_\theta(Y^r), \qquad r=1,\dots,k.
+$$
+corresponding to the [population moment]{.blue} $\mu_r(\theta_1,\dots,\theta_k)$ and the [sample moment]{.orange} $m_r$. 
+
+- The method of moments estimator $\hat{\theta}$ is obtained by solving the following system of equations for $(\theta_1,\dots,\theta_k)$:
+$$
+\begin{aligned}
+\mu_1(\theta_1,\dots,\theta_k) &= m_1, \\
+\mu_2(\theta_1,\dots,\theta_k) &= m_2, \\
+&\vdots \\
+\mu_k(\theta_1,\dots,\theta_k) &= m_k. \\
+\end{aligned}
+$$
+- In general, it is [not guaranteed]{.orange} that a [solution exist]{.blue} nor its [uniqueness]{.blue}.
+
+## ✏ Example I: beta method of moments 
+
+- Let $Y_1,\dots,Y_n$ be an iid random sample from a beta distribution of parameters $\alpha,\beta > 0$ with density 
+$$
+f(y; \alpha, \beta) = \frac{\Gamma(\alpha + \beta)}{\Gamma(\alpha)\Gamma(\beta)} y^{\alpha-1}(1 - y)^{\beta-1}, \qquad 0 < y < 1.
+$$
+
+- The [moment estimator]{.blue} for $(\alpha, \beta)$ is the ([explicitly available]{.orange}) solution of the system of equations
+$$
+m_1 = \frac{\alpha}{\alpha + \beta}, \qquad m_2 = \frac{\alpha (\alpha+1)}{(\alpha + \beta) (\alpha + \beta + 1)}.
+$$
+
+. . .
+
+- After some algebra we obtain the following relationship, which is a [smooth]{.orange} and [regular]{.orange} function of $(m_1,m_2)$: 
+$$
+\hat{\alpha} = m_1 \frac{m_1 - m_2}{m_2 - m_1^2}, \qquad \hat{\beta} = (1 - m_1) \frac{m_1 - m_2}{m_2 - m_1^2}.
+$$
+where $\hat{\sigma}^2 = m_2 - m_1^2$ is the [sample variance]{.blue}. [Remark]{.orange}: what if $m_1 < m_2$? 
+
+## Example II: binomial method of moments
 
 - asd
 
 ## Asymptotics
+
+- Moments estimators are not necessarily the best estimators, but [under reasonable conditions]{.blue} they are [consistent]{.orange}, they have converge rate $\sqrt{n}$, and they are [asymptotically normal]{.orange}. 
+
+. . .
+
+- We assume the random vector $(Y,Y^2,\dots,Y^r)$ has finite covariance $\Sigma$, then
+the multivariate [central limit theorem]{.orange} implies that as $n\rightarrow \infty$
+$$
+\sqrt{n}\{m - \mu(\theta)\} \overset{d}{\longrightarrow} Z, \qquad Z\sim N_k(0, \Sigma),
+$$
+where $m = (m_1,\dots,m_k)$ and $\mu(\theta) = (\mu_1(\theta),\dots,\mu_k(\theta))$. 
+
+. . .
+
+- Suppose $\mu(\theta)$ is a [one-to-one]{.blue} mapping and let $g(\mu)$ be the inverse of $\mu(\theta)$, that is $g = \mu^{-1}$. Moreover, suppose that $g$ has [differentiable]{.blue} components $g_r(\cdot)$ for $r = 1,\dots,k$.
+
+- The moments estimator can be written as $\hat{\theta} = g(m)$ and $\theta = g(\mu(\theta))$. Then, as a consequence of the [delta method]{.orange}  the following general result holds:
+$$
+\sqrt{n}(\hat{\theta} - \theta) \overset{d}{\longrightarrow} Z, \qquad Z\sim N_k\left(0, D \Sigma D^T\right),
+$$
+where $D = [d_{rr'}]$ is a $k \times k$ matrix whose entries are the derivatives $d_{rr'} = \partial g_r(\mu)/\partial \mu_{r'}$.
 
 ## Maximum likelihood
 

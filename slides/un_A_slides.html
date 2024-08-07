@@ -410,14 +410,65 @@
 <section id="methods-of-moments" class="slide level2 center">
 <h2>Methods of moments</h2>
 <ul>
-<li>The <span class="blue">methods of moments</span> is, perhaps, the oldest method of finding point estimators, dating back at least to Karl Pearson in the late 1800s.</li>
+<li><p>The <span class="blue">methods of moments</span> is, perhaps, the oldest method of finding point estimators, dating back at least to Karl Pearson in the late 1800s.</p></li>
+<li><p>Let <span class="math inline">Y_1,\dots,Y_n</span> be an iid sample from <span class="math inline">f(\cdot; \theta)</span> and <span class="math inline">\theta = (\theta_1,\dots,\theta_k)</span>. Moreover, let us define <span class="math display">
+m_r = \frac{1}{n}\sum_{i=1}^n Y_i^k, \qquad \mu_r(\theta) = \mu_r(\theta_1,\dots,\theta_k) = \mathbb{E}_\theta(Y^r), \qquad r=1,\dots,k.
+</span> corresponding to the <span class="blue">population moment</span> <span class="math inline">\mu_r(\theta_1,\dots,\theta_k)</span> and the <span class="orange">sample moment</span> <span class="math inline">m_r</span>.</p></li>
+<li><p>The method of moments estimator <span class="math inline">\hat{\theta}</span> is obtained by solving the following system of equations for <span class="math inline">(\theta_1,\dots,\theta_k)</span>: <span class="math display">
+\begin{aligned}
+\mu_1(\theta_1,\dots,\theta_k) &amp;= m_1, \\
+\mu_2(\theta_1,\dots,\theta_k) &amp;= m_2, \\
+&amp;\vdots \\
+\mu_k(\theta_1,\dots,\theta_k) &amp;= m_k. \\
+\end{aligned}
+</span></p></li>
+<li><p>In general, it is <span class="orange">not guaranteed</span> that a <span class="blue">solution exist</span> nor its <span class="blue">uniqueness</span>.</p></li>
 </ul>
 </section>
-<section id="example-i-binomial-method-of-moments" class="slide level2 center">
-<h2>Example I: binomial method of moments</h2>
+<section id="example-i-beta-method-of-moments" class="slide level2 center">
+<h2>✏ Example I: beta method of moments</h2>
+<ul>
+<li><p>Let <span class="math inline">Y_1,\dots,Y_n</span> be an iid random sample from a beta distribution of parameters <span class="math inline">\alpha,\beta &gt; 0</span> with density <span class="math display">
+f(y; \alpha, \beta) = \frac{\Gamma(\alpha + \beta)}{\Gamma(\alpha)\Gamma(\beta)} y^{\alpha-1}(1 - y)^{\beta-1}, \qquad 0 &lt; y &lt; 1.
+</span></p></li>
+<li><p>The <span class="blue">moment estimator</span> for <span class="math inline">(\alpha, \beta)</span> is the (<span class="orange">explicitly available</span>) solution of the system of equations <span class="math display">
+m_1 = \frac{\alpha}{\alpha + \beta}, \qquad m_2 = \frac{\alpha (\alpha+1)}{(\alpha + \beta) (\alpha + \beta + 1)}.
+</span></p></li>
+</ul>
+<div class="fragment">
+<ul>
+<li>After some algebra we obtain the following relationship, which is a <span class="orange">smooth</span> and <span class="orange">regular</span> function of <span class="math inline">(m_1,m_2)</span>: <span class="math display">
+\hat{\alpha} = m_1 \frac{m_1 - m_2}{m_2 - m_1^2}, \qquad \hat{\beta} = (1 - m_1) \frac{m_1 - m_2}{m_2 - m_1^2}.
+</span> where <span class="math inline">\hat{\sigma}^2 = m_2 - m_1^2</span> is the <span class="blue">sample variance</span>. <span class="orange">Remark</span>: what if <span class="math inline">m_1 &lt; m_2</span>?</li>
+</ul>
+</div>
+</section>
+<section id="example-ii-binomial-method-of-moments" class="slide level2 center">
+<h2>Example II: binomial method of moments</h2>
+<ul>
+<li>asd</li>
+</ul>
 </section>
 <section id="asymptotics" class="slide level2 center">
 <h2>Asymptotics</h2>
+<ul>
+<li>Moments estimators are not necessarily the best estimators, but <span class="blue">under reasonable conditions</span> they are <span class="orange">consistent</span>, they have converge rate <span class="math inline">\sqrt{n}</span>, and they are <span class="orange">asymptotically normal</span>.</li>
+</ul>
+<div class="fragment">
+<ul>
+<li>We assume the random vector <span class="math inline">(Y,Y^2,\dots,Y^r)</span> has finite covariance <span class="math inline">\Sigma</span>, then the multivariate <span class="orange">central limit theorem</span> implies that as <span class="math inline">n\rightarrow \infty</span> <span class="math display">
+\sqrt{n}\{m - \mu(\theta)\} \overset{d}{\longrightarrow} Z, \qquad Z\sim N_k(0, \Sigma),
+</span> where <span class="math inline">m = (m_1,\dots,m_k)</span> and <span class="math inline">\mu(\theta) = (\mu_1(\theta),\dots,\mu_k(\theta))</span>.</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li><p>Suppose <span class="math inline">\mu(\theta)</span> is a <span class="blue">one-to-one</span> mapping and let <span class="math inline">g(\mu)</span> be the inverse of <span class="math inline">\mu(\theta)</span>, that is <span class="math inline">g = \mu^{-1}</span>. Moreover, suppose that <span class="math inline">g</span> has <span class="blue">differentiable</span> components <span class="math inline">g_r(\cdot)</span> for <span class="math inline">r = 1,\dots,k</span>.</p></li>
+<li><p>The moments estimator can be written as <span class="math inline">\hat{\theta} = g(m)</span> and <span class="math inline">\theta = g(\mu(\theta))</span>. Then, as a consequence of the <span class="orange">delta method</span> the following general result holds: <span class="math display">
+\sqrt{n}(\hat{\theta} - \theta) \overset{d}{\longrightarrow} Z, \qquad Z\sim N_k\left(0, D \Sigma D^T\right),
+</span> where <span class="math inline">D = [d_{rr'}]</span> is a <span class="math inline">k \times k</span> matrix whose entries are the derivatives <span class="math inline">d_{rr'} = \partial g_r(\mu)/\partial \mu_{r'}</span>.</p></li>
+</ul>
+</div>
 </section>
 <section id="maximum-likelihood" class="slide level2 center">
 <h2>Maximum likelihood</h2>
