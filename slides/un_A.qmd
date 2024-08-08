@@ -76,7 +76,6 @@ styler:::style_file("../code/un_A.R")
     - Methods of finding estimators
     - Methods of evaluating estimators
     - Best unbiased estimators
-    - Asymptotic behavior
     - Robustness and model misspecification
 
 - The rational behind [point estimation]{.blue} is quite simple: 
@@ -108,7 +107,7 @@ That is, any [statistic]{.orange} is a point estimator.
 
 - We will use the notation $\hat{\theta}$ to denote both estimators and estimates whenever its meaning is clear from the context.
 
-## Methods of moments
+## Method of moments
 
 - The [methods of moments]{.blue} is, perhaps, the oldest method of finding point estimators, dating back at least to Karl Pearson in the late 1800s.
 
@@ -129,7 +128,7 @@ $$
 $$
 - In general, it is [not guaranteed]{.orange} that a [solution exist]{.blue} nor its [uniqueness]{.blue}.
 
-## ✏ Example I: beta method of moments 
+## ✏ Example: beta method of moments 
 
 - Let $Y_1,\dots,Y_n$ be an iid random sample from a beta distribution of parameters $\alpha,\beta > 0$ with density 
 $$
@@ -149,11 +148,7 @@ $$
 $$
 where $\hat{\sigma}^2 = m_2 - m_1^2$ is the [sample variance]{.blue}. [Remark]{.orange}: what if $m_1 < m_2$? 
 
-## Example II: binomial method of moments
-
-- asd
-
-## Asymptotics
+## Asymptotics for the MM
 
 - Moments estimators are not necessarily the best estimators, but [under reasonable conditions]{.blue} they are [consistent]{.orange}, they have converge rate $\sqrt{n}$, and they are [asymptotically normal]{.orange}. 
 
@@ -176,7 +171,19 @@ $$
 $$
 where $D = [d_{rr'}]$ is a $k \times k$ matrix whose entries are the derivatives $d_{rr'} = \partial g_r(\mu)/\partial \mu_{r'}$.
 
-## Maximum likelihood
+## Maximum likelihood estimator
+
+- The method of [maximum likelihood]{.orange} is, by far, the most popular technique for deriving estimators. 
+
+## Comments about the MLE
+
+## Comments about the MLE
+
+## ✏ Example
+
+
+## Asymptotics for the MLE
+
 
 ## M- and Z- estimators
 

@@ -371,7 +371,6 @@
 <li>Methods of finding estimators</li>
 <li>Methods of evaluating estimators</li>
 <li>Best unbiased estimators</li>
-<li>Asymptotic behavior</li>
 <li>Robustness and model misspecification</li>
 </ul></li>
 <li><p>The rational behind <span class="blue">point estimation</span> is quite simple:</p></li>
@@ -407,8 +406,8 @@
 <li><p>We will use the notation <span class="math inline">\hat{\theta}</span> to denote both estimators and estimates whenever its meaning is clear from the context.</p></li>
 </ul>
 </section>
-<section id="methods-of-moments" class="slide level2 center">
-<h2>Methods of moments</h2>
+<section id="method-of-moments" class="slide level2 center">
+<h2>Method of moments</h2>
 <ul>
 <li><p>The <span class="blue">methods of moments</span> is, perhaps, the oldest method of finding point estimators, dating back at least to Karl Pearson in the late 1800s.</p></li>
 <li><p>Let <span class="math inline">Y_1,\dots,Y_n</span> be an iid sample from <span class="math inline">f(\cdot; \theta)</span> and <span class="math inline">\theta = (\theta_1,\dots,\theta_k)</span>. Moreover, let us define <span class="math display">
@@ -425,8 +424,8 @@ m_r = \frac{1}{n}\sum_{i=1}^n Y_i^k, \qquad \mu_r(\theta) = \mu_r(\theta_1,\dots
 <li><p>In general, it is <span class="orange">not guaranteed</span> that a <span class="blue">solution exist</span> nor its <span class="blue">uniqueness</span>.</p></li>
 </ul>
 </section>
-<section id="example-i-beta-method-of-moments" class="slide level2 center">
-<h2>✏ Example I: beta method of moments</h2>
+<section id="example-beta-method-of-moments" class="slide level2 center">
+<h2>✏ Example: beta method of moments</h2>
 <ul>
 <li><p>Let <span class="math inline">Y_1,\dots,Y_n</span> be an iid random sample from a beta distribution of parameters <span class="math inline">\alpha,\beta &gt; 0</span> with density <span class="math display">
 f(y; \alpha, \beta) = \frac{\Gamma(\alpha + \beta)}{\Gamma(\alpha)\Gamma(\beta)} y^{\alpha-1}(1 - y)^{\beta-1}, \qquad 0 &lt; y &lt; 1.
@@ -443,14 +442,8 @@ m_1 = \frac{\alpha}{\alpha + \beta}, \qquad m_2 = \frac{\alpha (\alpha+1)}{(\alp
 </ul>
 </div>
 </section>
-<section id="example-ii-binomial-method-of-moments" class="slide level2 center">
-<h2>Example II: binomial method of moments</h2>
-<ul>
-<li>asd</li>
-</ul>
-</section>
-<section id="asymptotics" class="slide level2 center">
-<h2>Asymptotics</h2>
+<section id="asymptotics-for-the-mm" class="slide level2 center">
+<h2>Asymptotics for the MM</h2>
 <ul>
 <li>Moments estimators are not necessarily the best estimators, but <span class="blue">under reasonable conditions</span> they are <span class="orange">consistent</span>, they have converge rate <span class="math inline">\sqrt{n}</span>, and they are <span class="orange">asymptotically normal</span>.</li>
 </ul>
@@ -470,8 +463,23 @@ m_1 = \frac{\alpha}{\alpha + \beta}, \qquad m_2 = \frac{\alpha (\alpha+1)}{(\alp
 </ul>
 </div>
 </section>
-<section id="maximum-likelihood" class="slide level2 center">
-<h2>Maximum likelihood</h2>
+<section id="maximum-likelihood-estimator" class="slide level2 center">
+<h2>Maximum likelihood estimator</h2>
+<ul>
+<li>The method of <span class="orange">maximum likelihood</span> is, by far, the most popular technique for deriving estimators.</li>
+</ul>
+</section>
+<section id="comments-about-the-mle" class="slide level2 center">
+<h2>Comments about the MLE</h2>
+</section>
+<section id="comments-about-the-mle-1" class="slide level2 center">
+<h2>Comments about the MLE</h2>
+</section>
+<section id="example" class="slide level2 center">
+<h2>✏ Example</h2>
+</section>
+<section id="asymptotics-for-the-mle" class="slide level2 center">
+<h2>Asymptotics for the MLE</h2>
 </section>
 <section id="m--and-z--estimators" class="slide level2 center">
 <h2>M- and Z- estimators</h2>
