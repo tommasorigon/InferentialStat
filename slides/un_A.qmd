@@ -173,28 +173,80 @@ where $D = [d_{rr'}]$ is a $k \times k$ matrix whose entries are the derivatives
 
 ## Maximum likelihood estimator
 
-- The method of [maximum likelihood]{.orange} is, by far, the most popular technique for deriving estimators. 
+- The method of [maximum likelihood]{.orange} is, by far, the most popular technique for deriving estimators, devloped by [Ronald A. Fisher]{.blue} in Fisher (1922; 1925). 
 
-## Comments about the MLE
+- Recall that $L(\theta) = L(\theta; \bm{y})$ is the likelihood function and $\ell(\theta) = \log{L(\theta)}$ the log-likelihood. 
 
-## Comments about the MLE
+::: callout-note
+Given a likelihood function $L(\theta)$ for $\theta \in \Theta$, a [maximum likelihood estimate]{.orange} of $\theta$ is an element $\hat{\theta}$ which attains the maximum value of $L(\theta)$ in $\Theta$, i.e. such that
+$$
+L(\hat{\theta}) = \max_{\theta \in \Theta} L(\theta).
+$$
 
-## ✏ Example
 
+The [maximum likelihood estimator]{.blue} (MLE) of the parameter $\theta$ based on a sample $\bm{Y}$ is $\hat{\theta}(\bm{Y})$.
+:::
+
+- Intuitively, the MLE is a reasonable choice: it is the parameter point for which the observed sample is [most likely]{.blue}. 
+
+- Some authors define the maximum likelihood as the [supremum]{.orange} of $L(\theta)$ rather than the maximum, albeit in most regular cases this is not influential. 
+
+## ✏ A regular (and very simple) example
+
+
+:::incremental
+
+- Let $Y_1,\dots,Y_n$ be a iid random sample from a Poisson distribution of parameter $\lambda > 0$, with [likelihood function]{.orange}
+$$
+L(\lambda) = \prod_{i=1}^n \frac{e^{-\lambda} \lambda^{y_i}}{y_i!}.
+$$
+
+- Therefore the [log-likelihood]{.blue}, up to an additive constant $c$ not depending on $\lambda$, is
+$$
+\ell(\lambda) = \sum_{i=1}^ny_i\log{\lambda} - n\lambda + c.
+$$
+- The [maximum likelihood estimator]{.orange} is found by maximizing $\ell(\lambda)$. In this regular problem, this can be done by studying the first derivative:
+$$
+\ell^*(\lambda) = \frac{1}{\lambda}\sum_{i=1}^ny_i - n.
+$$
+- We solve $\ell^*(\lambda) = 0$, obtaining the [maximum likelihood estimate]{.blue} $\hat{\lambda} = \bar{y}$. You can check easily this is indeed a maximum. 
+
+:::
+
+## General facts about the MLE
+
+- The MLE may [not exists]{.orange} and is [not]{.orange} necessarily [unique]{.orange}.
+
+- If $s(y)$ is a [sufficient statistic]{.blue}, then the MLE is a function of it.
+
+- The likelihood function has to be maximized in the set space $\Theta$ specified by the statistical model, not over the set of the mathematically admissible values of $\theta$.
+
+- It is not necessary for $\Theta$ to be a numeric set, i.e. we need [not]{.orange} be dealing with a [parametric]{.orange} model, although we shall restrict ourself to this case.
+
+- Often $\hat{\theta}$ cannot be written explicitly as a function of the sample values, i.e. in general the MLE has [no closed-form expression]{.blue}.
+
+. . .
+
+::: callout-warning
+#### Theorem (Equivariance)
+Let $\psi(\cdot)$ be a one-to-one function (i.e. a [reparametrization]{.blue}) from the set $\Theta$ onto the set $\Psi$. Then the MLE of $\psi = \psi(\theta)$ is $\hat{\psi} = \psi(\hat{\theta})$ where $\hat{\theta}$ denotes the MLE of $\theta$.
+:::
+
+
+## The "regularity conditions"
 
 ## Asymptotics for the MLE
 
+## ✏ A non-regular example
 
 ## M- and Z- estimators
 
-## Plug-in estimators
+<!-- ## Plug-in estimators -->
 
 ## Bayesian estimators
 
 # Methods of evaluating estimators
 
 # Best unbiased estimators
-
-# Asymptotic behavior
 
 # Robustness

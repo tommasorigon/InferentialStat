@@ -8,7 +8,7 @@
 <link href="un_A_files/libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="un_A_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="un_A_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.4.549">
+  <meta name="generator" content="quarto-1.5.56">
 
   <meta name="author" content="Tommaso Rigon">
   <title>Point estimation</title>
@@ -31,7 +31,7 @@
     }
   </style>
   <link rel="stylesheet" href="un_A_files/libs/revealjs/dist/theme/quarto.css">
-  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
  var mathElements = document.getElementsByClassName("math");
  var macros = [];
@@ -46,7 +46,7 @@
    });
 }}});
   </script>
-  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
   <link href="un_A_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="un_A_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="un_A_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -377,8 +377,7 @@
 <li><p>When sampling is from a <span class="orange">population</span> described by a pdf or a pmf <span class="math inline">f(\cdot ; \theta)</span>, knowledge of <span class="math inline">\theta</span> yields knowledge of the entire population.</p></li>
 <li><p>Hence, it is natural to seek a method of finding a good <span class="blue">estimator</span> of the unknown point <span class="math inline">\theta</span>.</p></li>
 </ul>
-</div>
-</div>
+</div></div>
 </section>
 <section>
 <section id="methods-of-finding-estimators" class="title-slide slide level1 center">
@@ -466,26 +465,75 @@ m_1 = \frac{\alpha}{\alpha + \beta}, \qquad m_2 = \frac{\alpha (\alpha+1)}{(\alp
 <section id="maximum-likelihood-estimator" class="slide level2 center">
 <h2>Maximum likelihood estimator</h2>
 <ul>
-<li>The method of <span class="orange">maximum likelihood</span> is, by far, the most popular technique for deriving estimators.</li>
+<li><p>The method of <span class="orange">maximum likelihood</span> is, by far, the most popular technique for deriving estimators, devloped by <span class="blue">Ronald A. Fisher</span> in Fisher (1922; 1925).</p></li>
+<li><p>Recall that <span class="math inline">L(\theta) = L(\theta; \bm{y})</span> is the likelihood function and <span class="math inline">\ell(\theta) = \log{L(\theta)}</span> the log-likelihood.</p></li>
+</ul>
+<div class="callout callout-note no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<p>Given a likelihood function <span class="math inline">L(\theta)</span> for <span class="math inline">\theta \in \Theta</span>, a <span class="orange">maximum likelihood estimate</span> of <span class="math inline">\theta</span> is an element <span class="math inline">\hat{\theta}</span> which attains the maximum value of <span class="math inline">L(\theta)</span> in <span class="math inline">\Theta</span>, i.e.&nbsp;such that <span class="math display">
+L(\hat{\theta}) = \max_{\theta \in \Theta} L(\theta).
+</span></p>
+<p>The <span class="blue">maximum likelihood estimator</span> (MLE) of the parameter <span class="math inline">\theta</span> based on a sample <span class="math inline">\bm{Y}</span> is <span class="math inline">\hat{\theta}(\bm{Y})</span>.</p>
+</div>
+</div>
+</div>
+<ul>
+<li><p>Intuitively, the MLE is a reasonable choice: it is the parameter point for which the observed sample is <span class="blue">most likely</span>.</p></li>
+<li><p>Some authors define the maximum likelihood as the <span class="orange">supremum</span> of <span class="math inline">L(\theta)</span> rather than the maximum, albeit in most regular cases this is not influential.</p></li>
 </ul>
 </section>
-<section id="comments-about-the-mle" class="slide level2 center">
-<h2>Comments about the MLE</h2>
+<section id="a-regular-and-very-simple-example" class="slide level2 center">
+<h2>✏ A regular (and very simple) example</h2>
+<div>
+<ul>
+<li class="fragment"><p>Let <span class="math inline">Y_1,\dots,Y_n</span> be a iid random sample from a Poisson distribution of parameter <span class="math inline">\lambda &gt; 0</span>, with <span class="orange">likelihood function</span> <span class="math display">
+L(\lambda) = \prod_{i=1}^n \frac{e^{-\lambda} \lambda^{y_i}}{y_i!}.
+</span></p></li>
+<li class="fragment"><p>Therefore the <span class="blue">log-likelihood</span>, up to an additive constant <span class="math inline">c</span> not depending on <span class="math inline">\lambda</span>, is <span class="math display">
+\ell(\lambda) = \sum_{i=1}^ny_i\log{\lambda} - n\lambda + c.
+</span></p></li>
+<li class="fragment"><p>The <span class="orange">maximum likelihood estimator</span> is found by maximizing <span class="math inline">\ell(\lambda)</span>. In this regular problem, this can be done by studying the first derivative: <span class="math display">
+\ell^*(\lambda) = \frac{1}{\lambda}\sum_{i=1}^ny_i - n.
+</span></p></li>
+<li class="fragment"><p>We solve <span class="math inline">\ell^*(\lambda) = 0</span>, obtaining the <span class="blue">maximum likelihood estimate</span> <span class="math inline">\hat{\lambda} = \bar{y}</span>. You can check easily this is indeed a maximum.</p></li>
+</ul>
+</div>
 </section>
-<section id="comments-about-the-mle-1" class="slide level2 center">
-<h2>Comments about the MLE</h2>
+<section id="general-facts-about-the-mle" class="slide level2 center">
+<h2>General facts about the MLE</h2>
+<ul>
+<li><p>The MLE may <span class="orange">not exists</span> and is <span class="orange">not</span> necessarily <span class="orange">unique</span>.</p></li>
+<li><p>If <span class="math inline">s(y)</span> is a <span class="blue">sufficient statistic</span>, then the MLE is a function of it.</p></li>
+<li><p>The likelihood function has to be maximized in the set space <span class="math inline">\Theta</span> specified by the statistical model, not over the set of the mathematically admissible values of <span class="math inline">\theta</span>.</p></li>
+<li><p>It is not necessary for <span class="math inline">\Theta</span> to be a numeric set, i.e.&nbsp;we need <span class="orange">not</span> be dealing with a <span class="orange">parametric</span> model, although we shall restrict ourself to this case.</p></li>
+<li><p>Often <span class="math inline">\hat{\theta}</span> cannot be written explicitly as a function of the sample values, i.e.&nbsp;in general the MLE has <span class="blue">no closed-form expression</span>.</p></li>
+</ul>
+<div class="fragment">
+<div class="callout callout-warning no-icon callout-titled callout-style-simple">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Theorem (Equivariance)</strong></p>
+</div>
+<div class="callout-content">
+<p>Let <span class="math inline">\psi(\cdot)</span> be a one-to-one function (i.e.&nbsp;a <span class="blue">reparametrization</span>) from the set <span class="math inline">\Theta</span> onto the set <span class="math inline">\Psi</span>. Then the MLE of <span class="math inline">\psi = \psi(\theta)</span> is <span class="math inline">\hat{\psi} = \psi(\hat{\theta})</span> where <span class="math inline">\hat{\theta}</span> denotes the MLE of <span class="math inline">\theta</span>.</p>
+</div>
+</div>
+</div>
+</div>
 </section>
-<section id="example" class="slide level2 center">
-<h2>✏ Example</h2>
+<section id="the-regularity-conditions" class="slide level2 center">
+<h2>The “regularity conditions”</h2>
 </section>
 <section id="asymptotics-for-the-mle" class="slide level2 center">
 <h2>Asymptotics for the MLE</h2>
 </section>
+<section id="a-non-regular-example" class="slide level2 center">
+<h2>✏ A non-regular example</h2>
+</section>
 <section id="m--and-z--estimators" class="slide level2 center">
 <h2>M- and Z- estimators</h2>
-</section>
-<section id="plug-in-estimators" class="slide level2 center">
-<h2>Plug-in estimators</h2>
+<!-- ## Plug-in estimators -->
 </section>
 <section id="bayesian-estimators" class="slide level2 center">
 <h2>Bayesian estimators</h2>
@@ -497,11 +545,6 @@ m_1 = \frac{\alpha}{\alpha + \beta}, \qquad m_2 = \frac{\alpha (\alpha+1)}{(\alp
 
 <section id="best-unbiased-estimators" class="title-slide slide level1 center">
 <h1>Best unbiased estimators</h1>
-
-</section>
-
-<section id="asymptotic-behavior" class="title-slide slide level1 center">
-<h1>Asymptotic behavior</h1>
 
 </section>
 
@@ -775,18 +818,7 @@ m_1 = \frac{\alpha}{\alpha + \beta}, \qquad m_2 = \frac{\alpha (\alpha+1)}{(\alp
         }
         return false;
       }
-      const clipboard = new window.ClipboardJS('.code-copy-button', {
-        text: function(trigger) {
-          const codeEl = trigger.previousElementSibling.cloneNode(true);
-          for (const childEl of codeEl.children) {
-            if (isCodeAnnotation(childEl)) {
-              childEl.remove();
-            }
-          }
-          return codeEl.innerText;
-        }
-      });
-      clipboard.on('success', function(e) {
+      const onCopySuccess = function(e) {
         // button target
         const button = e.trigger;
         // don't keep focus
@@ -818,7 +850,47 @@ m_1 = \frac{\alpha}{\alpha + \beta}, \qquad m_2 = \frac{\alpha (\alpha+1)}{(\alp
         }, 1000);
         // clear code selection
         e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
       });
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        // For code content inside modals, clipBoardJS needs to be initialized with a container option
+        // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
+        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+        var mailtoRegex = new RegExp(/^mailto:/);
+          var filterRegex = new RegExp('/' + window.location.host + '/');
+        var isInternal = (href) => {
+            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+        }
+        // Inspect non-navigation links and adorn them if external
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+        for (var i=0; i<links.length; i++) {
+          const link = links[i];
+          if (!isInternal(link.href)) {
+            // undo the damage that might have been done by quarto-nav.js in the case of
+            // links that we want to consider external
+            if (link.dataset.originalHref !== undefined) {
+              link.href = link.dataset.originalHref;
+            }
+          }
+        }
       function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
         const config = {
           allowHTML: true,
@@ -855,7 +927,11 @@ m_1 = \frac{\alpha}{\alpha + \beta}, \qquad m_2 = \frac{\alpha (\alpha+1)}{(\alp
           try { href = new URL(href).hash; } catch {}
           const id = href.replace(/^#\/?/, "");
           const note = window.document.getElementById(id);
-          return note.innerHTML;
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
         });
       }
       const findCites = (el) => {

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.549">
+<meta name="generator" content="quarto-1.5.56">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -36,7 +36,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="un_A_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <style>html{ scroll-behavior: smooth; }</style>
 
-  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
  var mathElements = document.getElementsByClassName("math");
  var macros = [];
@@ -51,7 +51,7 @@ ul.task-list li input[type="checkbox"] {
    });
 }}});
   </script>
-  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -98,17 +98,16 @@ window.Quarto = {
   <li><a href="#example-beta-method-of-moments" id="toc-example-beta-method-of-moments" class="nav-link" data-scroll-target="#example-beta-method-of-moments">✏ Example: beta method of moments</a></li>
   <li><a href="#asymptotics-for-the-mm" id="toc-asymptotics-for-the-mm" class="nav-link" data-scroll-target="#asymptotics-for-the-mm">Asymptotics for the MM</a></li>
   <li><a href="#maximum-likelihood-estimator" id="toc-maximum-likelihood-estimator" class="nav-link" data-scroll-target="#maximum-likelihood-estimator">Maximum likelihood estimator</a></li>
+  <li><a href="#a-regular-and-very-simple-example" id="toc-a-regular-and-very-simple-example" class="nav-link" data-scroll-target="#a-regular-and-very-simple-example">✏ A regular (and very simple) example</a></li>
   <li><a href="#comments-about-the-mle" id="toc-comments-about-the-mle" class="nav-link" data-scroll-target="#comments-about-the-mle">Comments about the MLE</a></li>
-  <li><a href="#comments-about-the-mle-1" id="toc-comments-about-the-mle-1" class="nav-link" data-scroll-target="#comments-about-the-mle-1">Comments about the MLE</a></li>
-  <li><a href="#example" id="toc-example" class="nav-link" data-scroll-target="#example">✏ Example</a></li>
+  <li><a href="#the-regularity-conditions" id="toc-the-regularity-conditions" class="nav-link" data-scroll-target="#the-regularity-conditions">The “regularity conditions”</a></li>
   <li><a href="#asymptotics-for-the-mle" id="toc-asymptotics-for-the-mle" class="nav-link" data-scroll-target="#asymptotics-for-the-mle">Asymptotics for the MLE</a></li>
+  <li><a href="#a-non-regular-example" id="toc-a-non-regular-example" class="nav-link" data-scroll-target="#a-non-regular-example">✏ A non-regular example</a></li>
   <li><a href="#m--and-z--estimators" id="toc-m--and-z--estimators" class="nav-link" data-scroll-target="#m--and-z--estimators">M- and Z- estimators</a></li>
-  <li><a href="#plug-in-estimators" id="toc-plug-in-estimators" class="nav-link" data-scroll-target="#plug-in-estimators">Plug-in estimators</a></li>
   <li><a href="#bayesian-estimators" id="toc-bayesian-estimators" class="nav-link" data-scroll-target="#bayesian-estimators">Bayesian estimators</a></li>
   </ul></li>
   <li><a href="#methods-of-evaluating-estimators" id="toc-methods-of-evaluating-estimators" class="nav-link" data-scroll-target="#methods-of-evaluating-estimators">Methods of evaluating estimators</a></li>
   <li><a href="#best-unbiased-estimators" id="toc-best-unbiased-estimators" class="nav-link" data-scroll-target="#best-unbiased-estimators">Best unbiased estimators</a></li>
-  <li><a href="#asymptotic-behavior" id="toc-asymptotic-behavior" class="nav-link" data-scroll-target="#asymptotic-behavior">Asymptotic behavior</a></li>
   <li><a href="#robustness" id="toc-robustness" class="nav-link" data-scroll-target="#robustness">Robustness</a></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="un_A_slides.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
@@ -251,26 +250,65 @@ m_1 = \frac{\alpha}{\alpha + \beta}, \qquad m_2 = \frac{\alpha (\alpha+1)}{(\alp
 <section id="maximum-likelihood-estimator" class="level2">
 <h2 class="anchored" data-anchor-id="maximum-likelihood-estimator">Maximum likelihood estimator</h2>
 <ul>
-<li>The method of <span class="orange">maximum likelihood</span> is, by far, the most popular technique for deriving estimators.</li>
+<li><p>The method of <span class="orange">maximum likelihood</span> is, by far, the most popular technique for deriving estimators, devloped by <span class="blue">Ronald A. Fisher</span> in Fisher (1922; 1925).</p></li>
+<li><p>Recall that <span class="math inline">L(\theta) = L(\theta; \bm{y})</span> is the likelihood function and <span class="math inline">\ell(\theta) = \log{L(\theta)}</span> the log-likelihood.</p></li>
 </ul>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Given a likelihood function <span class="math inline">L(\theta)</span> for <span class="math inline">\theta \in \Theta</span>, a <span class="orange">maximum likelihood estimate</span> of <span class="math inline">\theta</span> is an element <span class="math inline">\hat{\theta}</span> which attains the maximum value of <span class="math inline">L(\theta)</span> in <span class="math inline">\Theta</span>, i.e.&nbsp;such that <span class="math display">
+L(\hat{\theta}) = \max_{\theta \in \Theta} L(\theta).
+</span></p>
+<p>The <span class="blue">maximum likelihood estimator</span> (MLE) of the parameter <span class="math inline">\theta</span> based on a sample <span class="math inline">\bm{Y}</span> is <span class="math inline">\hat{\theta}(\bm{Y})</span>.</p>
+</div>
+</div>
+</div>
+<ul>
+<li><p>Intuitively, the MLE is a reasonable choice: it is the parameter point for which the observed sample is <span class="blue">most likely</span>.</p></li>
+<li><p>Some authors define the maximum likelihood as the <span class="orange">supremum</span> of <span class="math inline">L(\theta)</span> rather than the maximum, albeit in most regular cases this is not influential.</p></li>
+</ul>
+</section>
+<section id="a-regular-and-very-simple-example" class="level2">
+<h2 class="anchored" data-anchor-id="a-regular-and-very-simple-example">✏ A regular (and very simple) example</h2>
+<div class="incremental">
+<ul class="incremental">
+<li><p>Let <span class="math inline">Y_1,\dots,Y_n</span> be a iid random sample from a Poisson distribution of parameter <span class="math inline">\lambda &gt; 0</span>, with <span class="orange">likelihood function</span> <span class="math display">
+L(\lambda) = \prod_{i=1}^n \frac{e^{-\lambda} \lambda^{y_i}}{y_i!}.
+</span></p></li>
+<li><p>Therefore the <span class="blue">log-likelihood</span>, up to an additive constant <span class="math inline">c</span> not depending on <span class="math inline">\lambda</span>, is <span class="math display">
+\ell(\lambda) = \sum_{i=1}^ny_i\log{\lambda} - n\lambda + c.
+</span></p></li>
+<li><p>The <span class="orange">maximum likelihood estimator</span> is found by maximizing <span class="math inline">\ell(\lambda)</span>. In this regular problem, this can be done by studying the first derivative: <span class="math display">
+\ell^*(\lambda) = \frac{1}{\lambda}\sum_{i=1}^ny_i - n.
+</span></p></li>
+<li><p>We solve <span class="math inline">\ell^*(\lambda) = 0</span>, obtaining the <span class="blue">maximum likelihood estimate</span> <span class="math inline">\hat{\lambda} = \bar{y}</span>. You can check easily this is indeed a maximum.</p></li>
+</ul>
+</div>
 </section>
 <section id="comments-about-the-mle" class="level2">
 <h2 class="anchored" data-anchor-id="comments-about-the-mle">Comments about the MLE</h2>
+<ul>
+<li><p>It is not necessary for <span class="math inline">\Theta</span> to be a numeric set, i.e.&nbsp;we need not be dealing with a parametric model, although we shall restrict ourself to this case.</p></li>
+<li><p>The MLE may not exists</p></li>
+<li><p>The MLE need not be unique</p></li>
+<li><p>The</p></li>
+</ul>
 </section>
-<section id="comments-about-the-mle-1" class="level2">
-<h2 class="anchored" data-anchor-id="comments-about-the-mle-1">Comments about the MLE</h2>
-</section>
-<section id="example" class="level2">
-<h2 class="anchored" data-anchor-id="example">✏ Example</h2>
+<section id="the-regularity-conditions" class="level2">
+<h2 class="anchored" data-anchor-id="the-regularity-conditions">The “regularity conditions”</h2>
 </section>
 <section id="asymptotics-for-the-mle" class="level2">
 <h2 class="anchored" data-anchor-id="asymptotics-for-the-mle">Asymptotics for the MLE</h2>
 </section>
+<section id="a-non-regular-example" class="level2">
+<h2 class="anchored" data-anchor-id="a-non-regular-example">✏ A non-regular example</h2>
+</section>
 <section id="m--and-z--estimators" class="level2">
 <h2 class="anchored" data-anchor-id="m--and-z--estimators">M- and Z- estimators</h2>
-</section>
-<section id="plug-in-estimators" class="level2">
-<h2 class="anchored" data-anchor-id="plug-in-estimators">Plug-in estimators</h2>
+<!-- ## Plug-in estimators -->
 </section>
 <section id="bayesian-estimators" class="level2">
 <h2 class="anchored" data-anchor-id="bayesian-estimators">Bayesian estimators</h2>
@@ -281,9 +319,6 @@ m_1 = \frac{\alpha}{\alpha + \beta}, \qquad m_2 = \frac{\alpha (\alpha+1)}{(\alp
 </section>
 <section id="best-unbiased-estimators" class="level1">
 <h1>Best unbiased estimators</h1>
-</section>
-<section id="asymptotic-behavior" class="level1">
-<h1>Asymptotic behavior</h1>
 </section>
 <section id="robustness" class="level1">
 <h1>Robustness</h1>
@@ -326,18 +361,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -369,7 +393,47 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
@@ -404,7 +468,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
     });
   }
   const xrefs = window.document.querySelectorAll('a.quarto-xref');
