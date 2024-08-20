@@ -1,0 +1,56 @@
+---
+title: "Exercises A"
+subtitle: "Statistical Inference - Ph.D. in Economics, Statistics, and Data Science"
+author: "[Tommaso Rigon]{.orange}"
+institute: "_Università degli Studi di Milano-Bicocca_"
+lang: en
+page-layout: full
+execute:
+  cache: false
+format:
+  html:
+    html-math-method: katex
+    echo: true
+    callout-appearance: minimal
+    theme: [simplex, template.css]
+    toc: true
+    toc-title: Table of contents
+    embed-resources: false
+    code-line-numbers: true
+    smooth-scroll: true
+    fig-dpi: 250
+editor: 
+  markdown: 
+    wrap: 72
+editor_options: 
+  chunk_output_type: console
+---
+
+
+# [Homepage](../index.html)
+
+## Exercises A
+
+
+#### All
+
+- Davison (2003), Exercise 2, pag. 157.
+- Casella & Berger (2002), Exercise 7.66.
+- Casella & Berger (2002), Exercise 7.65.
+- Davison (2003), Exercise 11, pag. 159.
+
+#### Groups
+
+- Davison (2003), Exercise 5, pag. 125.
+
+- Casella & Berger (2002), Exercise 7.5.
+- Casella & Berger (2002), Exercise 7.6.
+- Van der Vaart (2006), Exercise 1, pag. 40. 
+- Davison (2003), Exercise 5, pag. 149.
+
+- Davison (2003), Exercise 1 pag. 156.
+
+- Casella & Berger (2002), Exercise 7.37.
+- Casella & Berger (2002), Exercise 7.38.
+- Casella & Berger (2002), Exercise 7.46.
+

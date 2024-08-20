@@ -196,8 +196,7 @@ The [maximum likelihood estimator]{.blue} (MLE) of the parameter $\theta$ based 
 
 :::incremental
 
-- Let $Y_1,\dots,Y_n$ be a iid random sample from a Poisson distribution of parameter $\lambda > 0$, with [likelihood function]{.orange}
-$$
+- Let $Y_1,\dots,Y_n$ be a iid random sample from a Poisson distribution of parameter $\lambda > 0$, with [likelihood function]{.orange} $$
 L(\lambda) = \prod_{i=1}^n \frac{e^{-\lambda} \lambda^{y_i}}{y_i!}.
 $$
 
@@ -215,6 +214,12 @@ $$
 
 ## General facts about the MLE
 
+::: callout-warning
+#### Theorem (Equivariance)
+Let $\psi(\cdot)$ be a one-to-one function (i.e. a [reparametrization]{.blue}) from the set $\Theta$ onto the set $\Psi$. Then the MLE of $\psi = \psi(\theta)$ is $\hat{\psi} = \psi(\hat{\theta})$ where $\hat{\theta}$ denotes the MLE of $\theta$.
+:::
+
+::: incremental
 - The MLE may [not exists]{.orange} and is [not]{.orange} necessarily [unique]{.orange}.
 
 - If $s(y)$ is a [sufficient statistic]{.blue}, then the MLE is a function of it.
@@ -224,14 +229,7 @@ $$
 - It is not necessary for $\Theta$ to be a numeric set, i.e. we need [not]{.orange} be dealing with a [parametric]{.orange} model, although we shall restrict ourself to this case.
 
 - Often $\hat{\theta}$ cannot be written explicitly as a function of the sample values, i.e. in general the MLE has [no closed-form expression]{.blue}.
-
-. . .
-
-::: callout-warning
-#### Theorem (Equivariance)
-Let $\psi(\cdot)$ be a one-to-one function (i.e. a [reparametrization]{.blue}) from the set $\Theta$ onto the set $\Psi$. Then the MLE of $\psi = \psi(\theta)$ is $\hat{\psi} = \psi(\hat{\theta})$ where $\hat{\theta}$ denotes the MLE of $\theta$.
 :::
-
 
 ## The "regularity conditions"
 
