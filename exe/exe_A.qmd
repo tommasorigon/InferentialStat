@@ -38,6 +38,7 @@ editor_options:
 - Casella & Berger (2002), Exercise 7.66.
 - Casella & Berger (2002), Exercise 7.65.
 - Davison (2003), Exercise 11, pag. 159.
+- Davison (2003) Exercise 1, pag. 324.
 
 #### Groups
 
