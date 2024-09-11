@@ -34,24 +34,27 @@ editor_options:
 
 #### All
 
-- Davison (2003), Exercise 2, pag. 157.
-- Casella & Berger (2002), Exercise 7.66.
-- Casella & Berger (2002), Exercise 7.65.
-- Davison (2003), Exercise 11, pag. 159.
-- Davison (2003) Exercise 1, pag. 324.
+#### Easy
 
-#### Groups
+- Davison (2003), Exercise 5, pag. 125. (Exponential model, asymptotics of the MLE)
+- Davison (2003), Exercise 2, pag. 157. (Theory. Reparametrizations and likelihood quantities)
+- Davison (2003), Exercise 11, pag. 159. (Exponential model with censored data, asymptotics of the MLE)
+- Davison (2003), Exercise 5, pag. 149. (Non-regular models, asymptotics of the MLE)
+- Casella & Berger (2002), Exercise 7.46. (Unbiasedeness, MoM, uniform non-regular model, UMVUE)
 
-- Davison (2003), Exercise 5, pag. 125.
+#### Moderate and hard
 
-- Casella & Berger (2002), Exercise 7.5.
-- Casella & Berger (2002), Exercise 7.6.
-- Van der Vaart (2006), Exercise 1, pag. 40. 
-- Davison (2003), Exercise 5, pag. 149.
+- Casella & Berger (2002), Exercise 7.44. (Attaining the Cramer-Rao lower bound, UMVUE)
+- Casella & Berger (2002), Exercise 7.66. (Jacknife estimator, UMVUE)
+- Casella & Berger (2002), Exercise 7.62. (Risk and Bayes risk for a Gaussian distribution)
+- Casella & Berger (2002), Exercise 7.65. (LINEX loss, Bayes estimators)
 
-- Davison (2003), Exercise 1 pag. 156.
+<!-- An exercise about robustness and sandwich estimators is missing!! -->
 
-- Casella & Berger (2002), Exercise 7.37.
-- Casella & Berger (2002), Exercise 7.38.
-- Casella & Berger (2002), Exercise 7.46.
-
+<!-- - Casella & Berger (2002), Exercise 7.48. (UMVUE) -->
+<!-- - Casella & Berger (2002), Exercise 7.5. (More on the binomial example) -->
+<!-- - Casella & Berger (2002), Exercise 7.6. (MLE and MoM for a non-regular model) -->
+<!-- - Davison (2003), Exercise 1 pag. 156. (Weibull model, standard asymptotics) -->
+<!-- - Davison (2003) Exercise 1, pag. 324. (Reparametrizations for M estimators) -->
+<!-- - Casella & Berger (2002), Exercise 7.37. (Non-regular model, UMVUE estimator) -->
+<!-- - Van der Vaart (2006), Exercise 1, pag. 40.  -->

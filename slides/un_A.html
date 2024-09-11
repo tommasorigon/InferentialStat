@@ -21,7 +21,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="un_A_files/libs/clipboard/clipboard.min.js"></script>
@@ -95,24 +115,33 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#estimator" id="toc-estimator" class="nav-link" data-scroll-target="#estimator">Estimator</a></li>
   <li><a href="#method-of-moments" id="toc-method-of-moments" class="nav-link" data-scroll-target="#method-of-moments">Method of moments</a></li>
+  <li><a href="#asymptotic-evaluation-of-the-mm" id="toc-asymptotic-evaluation-of-the-mm" class="nav-link" data-scroll-target="#asymptotic-evaluation-of-the-mm">Asymptotic evaluation of the MM</a></li>
   <li><a href="#example-beta-method-of-moments" id="toc-example-beta-method-of-moments" class="nav-link" data-scroll-target="#example-beta-method-of-moments">✏ Example: beta method of moments</a></li>
-  <li><a href="#asymptotics-for-the-mm" id="toc-asymptotics-for-the-mm" class="nav-link" data-scroll-target="#asymptotics-for-the-mm">Asymptotics for the MM</a></li>
   <li><a href="#maximum-likelihood-estimator" id="toc-maximum-likelihood-estimator" class="nav-link" data-scroll-target="#maximum-likelihood-estimator">Maximum likelihood estimator</a></li>
+  <li><a href="#properties-and-remarks-about-the-mle" id="toc-properties-and-remarks-about-the-mle" class="nav-link" data-scroll-target="#properties-and-remarks-about-the-mle">Properties and remarks about the MLE</a></li>
   <li><a href="#a-regular-and-very-simple-example" id="toc-a-regular-and-very-simple-example" class="nav-link" data-scroll-target="#a-regular-and-very-simple-example">✏ A regular (and very simple) example</a></li>
-  <li><a href="#general-facts-about-the-mle" id="toc-general-facts-about-the-mle" class="nav-link" data-scroll-target="#general-facts-about-the-mle">General facts about the MLE</a></li>
-  <li><a href="#the-regularity-conditions" id="toc-the-regularity-conditions" class="nav-link" data-scroll-target="#the-regularity-conditions">The “regularity conditions”</a></li>
-  <li><a href="#asymptotics-for-the-mle" id="toc-asymptotics-for-the-mle" class="nav-link" data-scroll-target="#asymptotics-for-the-mle">Asymptotics for the MLE</a></li>
   <li><a href="#a-non-regular-example" id="toc-a-non-regular-example" class="nav-link" data-scroll-target="#a-non-regular-example">✏ A non-regular example</a></li>
-  <li><a href="#m--and-z--estimators" id="toc-m--and-z--estimators" class="nav-link" data-scroll-target="#m--and-z--estimators">M- and Z- estimators</a></li>
+  <li><a href="#m-estimators" id="toc-m-estimators" class="nav-link" data-scroll-target="#m-estimators">M-estimators</a></li>
+  <li><a href="#z-estimators" id="toc-z-estimators" class="nav-link" data-scroll-target="#z-estimators">Z-estimators</a></li>
+  <li><a href="#huber-estimators" id="toc-huber-estimators" class="nav-link" data-scroll-target="#huber-estimators">Huber estimators</a></li>
   <li><a href="#bayesian-estimators" id="toc-bayesian-estimators" class="nav-link" data-scroll-target="#bayesian-estimators">Bayesian estimators</a></li>
   </ul></li>
   <li><a href="#methods-of-evaluating-estimators" id="toc-methods-of-evaluating-estimators" class="nav-link" data-scroll-target="#methods-of-evaluating-estimators">Methods of evaluating estimators</a></li>
   <li><a href="#best-unbiased-estimators" id="toc-best-unbiased-estimators" class="nav-link" data-scroll-target="#best-unbiased-estimators">Best unbiased estimators</a></li>
-  <li><a href="#robustness" id="toc-robustness" class="nav-link" data-scroll-target="#robustness">Robustness</a></li>
+  <li><a href="#asymptotic-evaluations" id="toc-asymptotic-evaluations" class="nav-link" data-scroll-target="#asymptotic-evaluations">Asymptotic evaluations</a>
+  <ul class="collapse">
+  <li><a href="#consistency-and-asymptotic-normality" id="toc-consistency-and-asymptotic-normality" class="nav-link" data-scroll-target="#consistency-and-asymptotic-normality">Consistency and asymptotic normality</a></li>
+  <li><a href="#the-regularity-conditions" id="toc-the-regularity-conditions" class="nav-link" data-scroll-target="#the-regularity-conditions">The “regularity conditions”</a></li>
+  <li><a href="#asymptotics-for-the-mle" id="toc-asymptotics-for-the-mle" class="nav-link" data-scroll-target="#asymptotics-for-the-mle">Asymptotics for the MLE</a></li>
+  </ul></li>
+  <li><a href="#robustness" id="toc-robustness" class="nav-link" data-scroll-target="#robustness">Robustness</a>
+  <ul class="collapse">
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="un_A_slides.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
 </div>
-<main class="content column-page-left" id="quarto-document-content">
+<main class="content page-columns page-full column-page-left" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -150,27 +179,30 @@ window.Quarto = {
 <section id="homepage" class="level2">
 <h2 class="anchored" data-anchor-id="homepage"><a href="../index.html">Homepage</a></h2>
 <div class="columns">
-<div class="column" style="width:30%;">
+<div class="column" style="width:20%;">
 <p><img src="img/target.png" class="img-fluid"></p>
 <!-- *"Pluralitas non est ponenda sine necessitate."* -->
 <!-- [William of Ockham]{.grey} -->
-</div><div class="column" style="width:70%;">
+</div><div class="column" style="width:80%;">
 <ul>
 <li><p>This unit will cover the following <span class="orange">topics</span>:</p>
 <ul>
 <li>Methods of finding estimators</li>
 <li>Methods of evaluating estimators</li>
 <li>Best unbiased estimators</li>
+<li>Asymptotic evaluations</li>
 <li>Robustness and model misspecification</li>
 </ul></li>
+</ul>
+</div>
+</div>
+<ul>
 <li><p>The rational behind <span class="blue">point estimation</span> is quite simple:</p></li>
 <li><p>When sampling is from a <span class="orange">population</span> described by a pdf or a pmf <span class="math inline">f(\cdot ; \theta)</span>, knowledge of <span class="math inline">\theta</span> yields knowledge of the entire population.</p></li>
 <li><p>Hence, it is natural to seek a method of finding a good <span class="blue">estimator</span> of the unknown point <span class="math inline">\theta</span>.</p></li>
 </ul>
-</div>
-</div>
 </section>
-<section id="methods-of-finding-estimators" class="level1">
+<section id="methods-of-finding-estimators" class="level1 page-columns page-full">
 <h1>Methods of finding estimators</h1>
 <section id="estimator" class="level2">
 <h2 class="anchored" data-anchor-id="estimator">Estimator</h2>
@@ -214,6 +246,22 @@ m_r = \frac{1}{n}\sum_{i=1}^n Y_i^k, \qquad \mu_r(\theta) = \mu_r(\theta_1,\dots
 <li><p>In general, it is <span class="orange">not guaranteed</span> that a <span class="blue">solution exist</span> nor its <span class="blue">uniqueness</span>.</p></li>
 </ul>
 </section>
+<section id="asymptotic-evaluation-of-the-mm" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="asymptotic-evaluation-of-the-mm">Asymptotic evaluation of the MM</h2>
+<ul>
+<li><p>Moments estimators are not necessarily the best estimators, but <span class="blue">under reasonable conditions</span> they are <span class="orange">consistent</span>, they have converge rate <span class="math inline">\sqrt{n}</span>, and they are <span class="orange">asymptotically normal</span>.</p></li>
+<li><p>Suppose <span class="math inline">(Y,Y^2,\dots,Y^r)</span> has finite covariance <span class="math inline">\Sigma</span>, then the multivariate <span class="orange">central limit theorem</span> implies that as <span class="math inline">n\rightarrow \infty</span> <span class="math display">
+\sqrt{n}\{m - \mu(\theta)\} \overset{d}{\longrightarrow} Z, \qquad Z\sim N_k(0, \Sigma),
+</span> where <span class="math inline">m = (m_1,\dots,m_k)</span> and <span class="math inline">\mu(\theta) = (\mu_1(\theta),\dots,\mu_k(\theta))</span>.</p></li>
+<li><p>Suppose also that <span class="math inline">\mu(\theta)</span> is a <span class="blue">one-to-one</span> mapping and let <span class="math inline">g(\mu)</span> be the inverse of <span class="math inline">\mu(\theta)</span>, that is <span class="math inline">g = \mu^{-1}</span>. We assume that <span class="math inline">g</span> has <span class="blue">differentiable</span> components <span class="math inline">g_r(\cdot)</span> for <span class="math inline">r = 1,\dots,k</span>.</p></li>
+<li><p>The moments estimator can be written as <span class="math inline">\hat{\theta} = g(m)</span> and <span class="math inline">\theta = g(\mu(\theta))</span>. Then, as a consequence of the <span class="orange">delta method</span> the following general result holds: <span class="math display">
+\sqrt{n}(\hat{\theta} - \theta) \overset{d}{\longrightarrow} Z, \qquad Z\sim N_k\left(0, D \Sigma D^T\right),
+</span> where <span class="math inline">D = [d_{rr'}]</span> is a <span class="math inline">k \times k</span> matrix whose entries are the derivatives <span class="math inline">d_{rr'} = \partial g_r(\mu)/\partial \mu_{r'}</span>.</p></li>
+</ul>
+
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
+<p>Refer to <span class="citation" data-cites="vandervaart1998">van der Vaart (<a href="#ref-vandervaart1998" role="doc-biblioref">1998</a>)</span>, Theorem 4.1, pag. 35-36.</p>
+</div></div></section>
 <section id="example-beta-method-of-moments" class="level2">
 <h2 class="anchored" data-anchor-id="example-beta-method-of-moments">✏ Example: beta method of moments</h2>
 <ul>
@@ -230,28 +278,11 @@ m_1 = \frac{\alpha}{\alpha + \beta}, \qquad m_2 = \frac{\alpha (\alpha+1)}{(\alp
 </span> where <span class="math inline">\hat{\sigma}^2 = m_2 - m_1^2</span> is the <span class="blue">sample variance</span>. <span class="orange">Remark</span>: what if <span class="math inline">m_1 &lt; m_2</span>?</li>
 </ul>
 </section>
-<section id="asymptotics-for-the-mm" class="level2">
-<h2 class="anchored" data-anchor-id="asymptotics-for-the-mm">Asymptotics for the MM</h2>
-<ul>
-<li>Moments estimators are not necessarily the best estimators, but <span class="blue">under reasonable conditions</span> they are <span class="orange">consistent</span>, they have converge rate <span class="math inline">\sqrt{n}</span>, and they are <span class="orange">asymptotically normal</span>.</li>
-</ul>
-<ul>
-<li>We assume the random vector <span class="math inline">(Y,Y^2,\dots,Y^r)</span> has finite covariance <span class="math inline">\Sigma</span>, then the multivariate <span class="orange">central limit theorem</span> implies that as <span class="math inline">n\rightarrow \infty</span> <span class="math display">
-\sqrt{n}\{m - \mu(\theta)\} \overset{d}{\longrightarrow} Z, \qquad Z\sim N_k(0, \Sigma),
-</span> where <span class="math inline">m = (m_1,\dots,m_k)</span> and <span class="math inline">\mu(\theta) = (\mu_1(\theta),\dots,\mu_k(\theta))</span>.</li>
-</ul>
-<ul>
-<li><p>Suppose <span class="math inline">\mu(\theta)</span> is a <span class="blue">one-to-one</span> mapping and let <span class="math inline">g(\mu)</span> be the inverse of <span class="math inline">\mu(\theta)</span>, that is <span class="math inline">g = \mu^{-1}</span>. Moreover, suppose that <span class="math inline">g</span> has <span class="blue">differentiable</span> components <span class="math inline">g_r(\cdot)</span> for <span class="math inline">r = 1,\dots,k</span>.</p></li>
-<li><p>The moments estimator can be written as <span class="math inline">\hat{\theta} = g(m)</span> and <span class="math inline">\theta = g(\mu(\theta))</span>. Then, as a consequence of the <span class="orange">delta method</span> the following general result holds: <span class="math display">
-\sqrt{n}(\hat{\theta} - \theta) \overset{d}{\longrightarrow} Z, \qquad Z\sim N_k\left(0, D \Sigma D^T\right),
-</span> where <span class="math inline">D = [d_{rr'}]</span> is a <span class="math inline">k \times k</span> matrix whose entries are the derivatives <span class="math inline">d_{rr'} = \partial g_r(\mu)/\partial \mu_{r'}</span>.</p></li>
-</ul>
-</section>
 <section id="maximum-likelihood-estimator" class="level2">
 <h2 class="anchored" data-anchor-id="maximum-likelihood-estimator">Maximum likelihood estimator</h2>
 <ul>
-<li><p>The method of <span class="orange">maximum likelihood</span> is, by far, the most popular technique for deriving estimators, devloped by <span class="blue">Ronald A. Fisher</span> in Fisher (1922; 1925).</p></li>
-<li><p>Recall that <span class="math inline">L(\theta) = L(\theta; \bm{y})</span> is the likelihood function and <span class="math inline">\ell(\theta) = \log{L(\theta)}</span> the log-likelihood.</p></li>
+<li><p>The method of <span class="orange">maximum likelihood</span> is, by far, the most popular technique for deriving estimators, developed by <span class="blue">Ronald A. Fisher</span> in Fisher (1922; 1925).</p></li>
+<li><p>Recall that <span class="math inline">L(\theta) = L(\theta; \bm{y})</span> is the likelihood function and <span class="math inline">\ell(\theta) = \log{L(\theta)}</span> is the log-likelihood.</p></li>
 </ul>
 <div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
@@ -259,7 +290,7 @@ m_1 = \frac{\alpha}{\alpha + \beta}, \qquad m_2 = \frac{\alpha (\alpha+1)}{(\alp
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>Given a likelihood function <span class="math inline">L(\theta)</span> for <span class="math inline">\theta \in \Theta</span>, a <span class="orange">maximum likelihood estimate</span> of <span class="math inline">\theta</span> is an element <span class="math inline">\hat{\theta}</span> which attains the maximum value of <span class="math inline">L(\theta)</span> in <span class="math inline">\Theta</span>, i.e.&nbsp;such that <span class="math display">
+<p>Given a likelihood function <span class="math inline">L(\theta)</span> of <span class="math inline">\theta \in \Theta</span>, a <span class="orange">maximum likelihood estimate</span> of <span class="math inline">\theta</span> is an element <span class="math inline">\hat{\theta} \in \Theta</span> which attains the maximum value of <span class="math inline">L(\theta)</span> in <span class="math inline">\Theta</span>, i.e.&nbsp;such that <span class="math inline">L(\hat{\theta}) \ge L(\theta)</span> or equivalently <span class="math display">
 L(\hat{\theta}) = \max_{\theta \in \Theta} L(\theta).
 </span></p>
 <p>The <span class="blue">maximum likelihood estimator</span> (MLE) of the parameter <span class="math inline">\theta</span> based on a sample <span class="math inline">\bm{Y}</span> is <span class="math inline">\hat{\theta}(\bm{Y})</span>.</p>
@@ -268,63 +299,97 @@ L(\hat{\theta}) = \max_{\theta \in \Theta} L(\theta).
 </div>
 <ul>
 <li><p>Intuitively, the MLE is a reasonable choice: it is the parameter point for which the observed sample is <span class="blue">most likely</span>.</p></li>
-<li><p>Some authors define the maximum likelihood as the <span class="orange">supremum</span> of <span class="math inline">L(\theta)</span> rather than the maximum, albeit in most regular cases this is not influential.</p></li>
+<li><p>Clearly, the MLE is also the maximizer of the log-likelihood: <span class="math inline">\ell(\hat{\theta}) = \max_{\theta \in \Theta} \ell(\theta)</span>.</p></li>
 </ul>
 </section>
-<section id="a-regular-and-very-simple-example" class="level2">
-<h2 class="anchored" data-anchor-id="a-regular-and-very-simple-example">✏ A regular (and very simple) example</h2>
-<div class="incremental">
-<ul class="incremental">
-<li><p>Let <span class="math inline">Y_1,\dots,Y_n</span> be a iid random sample from a Poisson distribution of parameter <span class="math inline">\lambda &gt; 0</span>, with <span class="orange">likelihood function</span> <span class="math display">
-L(\lambda) = \prod_{i=1}^n \frac{e^{-\lambda} \lambda^{y_i}}{y_i!}.
-</span></p></li>
-<li><p>Therefore the <span class="blue">log-likelihood</span>, up to an additive constant <span class="math inline">c</span> not depending on <span class="math inline">\lambda</span>, is <span class="math display">
-\ell(\lambda) = \sum_{i=1}^ny_i\log{\lambda} - n\lambda + c.
-</span></p></li>
-<li><p>The <span class="orange">maximum likelihood estimator</span> is found by maximizing <span class="math inline">\ell(\lambda)</span>. In this regular problem, this can be done by studying the first derivative: <span class="math display">
-\ell^*(\lambda) = \frac{1}{\lambda}\sum_{i=1}^ny_i - n.
-</span></p></li>
-<li><p>We solve <span class="math inline">\ell^*(\lambda) = 0</span>, obtaining the <span class="blue">maximum likelihood estimate</span> <span class="math inline">\hat{\lambda} = \bar{y}</span>. You can check easily this is indeed a maximum.</p></li>
+<section id="properties-and-remarks-about-the-mle" class="level2">
+<h2 class="anchored" data-anchor-id="properties-and-remarks-about-the-mle">Properties and remarks about the MLE</h2>
+<ul>
+<li><span class="blue">Remark I</span>: the MLE may <span class="orange">not exists</span> and is <span class="orange">not</span> necessarily <span class="orange">unique</span>. On the other hand, if <span class="math inline">l(\theta)</span> is differentiable, then it can be found as the solution of the <span class="blue">score equations</span>: <span class="math display">
+\ell^*(\theta) = \frac{\partial}{\partial \theta}\ell(\theta) = 0.
+</span></li>
 </ul>
-</div>
-</section>
-<section id="general-facts-about-the-mle" class="level2">
-<h2 class="anchored" data-anchor-id="general-facts-about-the-mle">General facts about the MLE</h2>
+<!-- - If $s(y)$ is a [sufficient statistic]{.blue}, then the MLE is a function of it. -->
+<ul>
+<li><p><span class="blue">Remark II</span>: often <span class="math inline">\hat{\theta}</span> cannot be written explicitly as a function of the sample values, i.e.&nbsp;in general the MLE has <span class="orange">no closed-form expression</span> but it must be found using <span class="orange">numerical procedures</span>.</p></li>
+<li><p><span class="blue">Remark III</span>: the likelihood function has to be maximized in the set space <span class="math inline">\Theta</span> specified by the statistical model, not over the set of the mathematically admissible values of <span class="math inline">\theta</span>.</p></li>
+</ul>
+<!-- - [Remark IV]{.blue}: it is not necessary for $\Theta$ to be a numeric set, i.e. we need [not]{.orange} be dealing with a [parametric]{.orange} model, although we shall restrict ourself to this case. -->
 <div class="callout callout-style-simple callout-warning no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Theorem (Equivariance)
+Theorem <span class="citation" data-cites="Casella2002">(Invariance, <a href="#ref-Casella2002" role="doc-biblioref">Casella and Berger 2002</a>, Theorem 7.2.10)</span>
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <p>Let <span class="math inline">\psi(\cdot)</span> be a one-to-one function (i.e.&nbsp;a <span class="blue">reparametrization</span>) from the set <span class="math inline">\Theta</span> onto the set <span class="math inline">\Psi</span>. Then the MLE of <span class="math inline">\psi = \psi(\theta)</span> is <span class="math inline">\hat{\psi} = \psi(\hat{\theta})</span> where <span class="math inline">\hat{\theta}</span> denotes the MLE of <span class="math inline">\theta</span>.</p>
 </div>
 </div>
-<div class="incremental">
-<ul class="incremental">
-<li><p>The MLE may <span class="orange">not exists</span> and is <span class="orange">not</span> necessarily <span class="orange">unique</span>.</p></li>
-<li><p>If <span class="math inline">s(y)</span> is a <span class="blue">sufficient statistic</span>, then the MLE is a function of it.</p></li>
-<li><p>The likelihood function has to be maximized in the set space <span class="math inline">\Theta</span> specified by the statistical model, not over the set of the mathematically admissible values of <span class="math inline">\theta</span>.</p></li>
-<li><p>It is not necessary for <span class="math inline">\Theta</span> to be a numeric set, i.e.&nbsp;we need <span class="orange">not</span> be dealing with a <span class="orange">parametric</span> model, although we shall restrict ourself to this case.</p></li>
-<li><p>Often <span class="math inline">\hat{\theta}</span> cannot be written explicitly as a function of the sample values, i.e.&nbsp;in general the MLE has <span class="blue">no closed-form expression</span>.</p></li>
+</section>
+<section id="a-regular-and-very-simple-example" class="level2">
+<h2 class="anchored" data-anchor-id="a-regular-and-very-simple-example">✏ A regular (and very simple) example</h2>
+<ul>
+<li><p>Let <span class="math inline">Y_1,\dots,Y_n</span> be a iid random sample from a Poisson distribution of parameter <span class="math inline">\lambda &gt; 0</span>, with <span class="orange">likelihood function</span> <span class="math display">
+L(\lambda) = \prod_{i=1}^n \frac{e^{-\lambda} \lambda^{y_i}}{y_i!}.
+</span></p></li>
+<li><p>Therefore the <span class="blue">log-likelihood</span>, up to an additive constant <span class="math inline">c</span> not depending on <span class="math inline">\lambda</span>, is <span class="math display">
+\ell(\lambda) = \sum_{i=1}^ny_i\log{\lambda} - n\lambda + c.
+</span></p></li>
+<li><p>The <span class="orange">maximum likelihood estimator</span> <span class="math inline">\hat{\lambda}</span> is found by maximizing <span class="math inline">\ell(\lambda)</span>. In this regular problem, this can be done by studying the first derivative: <span class="math display">
+\ell^*(\lambda) = \frac{1}{\lambda}\sum_{i=1}^ny_i - n.
+</span></p></li>
+<li><p>We solve <span class="math inline">\ell^*(\lambda) = 0</span>, obtaining <span class="math inline">\hat{\lambda} = \bar{y}</span>. This is indeed a maximizer of <span class="math inline">\ell(\lambda)</span> (<span class="orange">why</span>?).</p></li>
 </ul>
-</div>
 </section>
-<section id="the-regularity-conditions" class="level2">
-<h2 class="anchored" data-anchor-id="the-regularity-conditions">The “regularity conditions”</h2>
-</section>
-<section id="asymptotics-for-the-mle" class="level2">
-<h2 class="anchored" data-anchor-id="asymptotics-for-the-mle">Asymptotics for the MLE</h2>
-</section>
-<section id="a-non-regular-example" class="level2">
+<section id="a-non-regular-example" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="a-non-regular-example">✏ A non-regular example</h2>
+
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
+<p>This problem is described in Example 7.2.2 <span class="citation" data-cites="Casella2002">Casella and Berger (<a href="#ref-Casella2002" role="doc-biblioref">2002</a>)</span>, pag. 313.</p>
+</div></div></section>
+<section id="m-estimators" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="m-estimators">M-estimators</h2>
+<ul>
+<li>M- and Z- estimators are broad class of estimators that encompass the maximum likelihood (iid observations) and the methods of moments as special cases. <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></li>
+</ul>
+<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;A detailed discussion is offered in <span class="citation" data-cites="vandervaart1998">van der Vaart (<a href="#ref-vandervaart1998" role="doc-biblioref">1998</a>)</span>, Chap. 5.</p></div></div><div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>An <span class="blue">M-estimator</span> is the <span class="orange">maximizer</span> over <span class="math inline">\Theta</span> of a function <span class="math inline">M(\theta) : \Theta \rightarrow \mathbb{R}</span> of the type: <span class="math display">
+M(\theta) = \frac{1}{n}\sum_{i=1}^n m(Y_i; \theta),
+</span> where <span class="math inline">m(y; \theta) : \mathcal{Y}\rightarrow \mathbb{R}</span> are known functions.</p>
+</div>
+</div>
+</div>
+<ul>
+<li><p><span class="orange">Remark I</span>: when <span class="math inline">m(y; \theta) = \log{f(Y_i; \theta)}</span> this coincides with the MLE of a model with iid observations.</p></li>
+<li><p>The term <span class="math inline">1/n</span> is included to facilitate the description of the subsequent asymptotic theory, but it obviously irrelevant.</p></li>
+</ul>
 </section>
-<section id="m--and-z--estimators" class="level2">
-<h2 class="anchored" data-anchor-id="m--and-z--estimators">M- and Z- estimators</h2>
+<section id="z-estimators" class="level2">
+<h2 class="anchored" data-anchor-id="z-estimators">Z-estimators</h2>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>A <span class="blue">Z-estimator</span> is the <span class="orange">solution</span> over <span class="math inline">\Theta</span> of a system of equations function <span class="math inline">\Psi(\theta) = 0</span> of the type: <span class="math display">
+\Psi(\theta) = \frac{1}{n}\sum_{i=1}^n \psi(Y_i; \theta) = 0,
+</span> where <span class="math inline">\Psi(y; \theta) : \mathcal{Y}\rightarrow \mathbb{R}</span> are known functions.</p>
+</div>
+</div>
+</div>
 <!-- ## Plug-in estimators -->
+</section>
+<section id="huber-estimators" class="level2">
+<h2 class="anchored" data-anchor-id="huber-estimators">Huber estimators</h2>
 </section>
 <section id="bayesian-estimators" class="level2">
 <h2 class="anchored" data-anchor-id="bayesian-estimators">Bayesian estimators</h2>
@@ -336,9 +401,33 @@ Theorem (Equivariance)
 <section id="best-unbiased-estimators" class="level1">
 <h1>Best unbiased estimators</h1>
 </section>
+<section id="asymptotic-evaluations" class="level1">
+<h1>Asymptotic evaluations</h1>
+<section id="consistency-and-asymptotic-normality" class="level2">
+<h2 class="anchored" data-anchor-id="consistency-and-asymptotic-normality">Consistency and asymptotic normality</h2>
+</section>
+<section id="the-regularity-conditions" class="level2">
+<h2 class="anchored" data-anchor-id="the-regularity-conditions">The “regularity conditions”</h2>
+</section>
+<section id="asymptotics-for-the-mle" class="level2">
+<h2 class="anchored" data-anchor-id="asymptotics-for-the-mle">Asymptotics for the MLE</h2>
+</section>
+</section>
 <section id="robustness" class="level1">
 <h1>Robustness</h1>
+<section id="references" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="references">References</h2>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-Casella2002" class="csl-entry" role="listitem">
+Casella, George, and Roger L. Berger. 2002. <em><span>Statistical Inference</span></em>. Duxbury.
+</div>
+<div id="ref-vandervaart1998" class="csl-entry" role="listitem">
+van der Vaart, A. W. 1998. <em><span>Asymptotic Statistics</span></em>. Cambridge University Press.
+</div>
+</div>
 </section>
+</section>
+
 
 </main>
 <!-- /main column -->

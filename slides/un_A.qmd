@@ -4,6 +4,9 @@ subtitle: "Statistical Inference - PhD EcoStatData"
 author: "[Tommaso Rigon]{.orange}"
 institute: "_Università degli Studi di Milano-Bicocca_"
 page-layout: full
+bibliography: ../biblio.bib
+biblio-style: chicago	
+reference-location: margin
 execute:
   cache: false
 filters: 
@@ -47,7 +50,6 @@ editor_options:
   chunk_output_type: console
 ---
 
-
 ## [Homepage](../index.html)
 
 ```{r}
@@ -62,7 +64,7 @@ styler:::style_file("../code/un_A.R")
 ```
 
 ::: columns
-::: {.column width="30%"}
+::: {.column width="20%"}
 ![](img/target.png)
 
 <!-- *"Pluralitas non est ponenda sine necessitate."* -->
@@ -70,21 +72,27 @@ styler:::style_file("../code/un_A.R")
 <!-- [William of Ockham]{.grey} -->
 :::
 
-::: {.column width="70%"}
-- This unit will cover the following [topics]{.orange}:
+::: {.column width="80%"}
+-   This unit will cover the following [topics]{.orange}:
 
-    - Methods of finding estimators
-    - Methods of evaluating estimators
-    - Best unbiased estimators
-    - Robustness and model misspecification
+    -   Methods of finding estimators
+    -   Methods of evaluating estimators
+    -   Best unbiased estimators
+    -   Asymptotic evaluations
+    -   Robustness and model misspecification
 
-- The rational behind [point estimation]{.blue} is quite simple: 
 
-- When sampling is from a [population]{.orange} described by a pdf or a pmf $f(\cdot ; \theta)$, knowledge of $\theta$ yields knowledge of the entire population.
-
-- Hence, it is natural to seek a method of finding a good [estimator]{.blue} of the unknown point $\theta$.
 :::
 :::
+
+-   The rational behind [point estimation]{.blue} is quite simple:
+
+-   When sampling is from a [population]{.orange} described by a pdf or
+    a pmf $f(\cdot ; \theta)$, knowledge of $\theta$ yields knowledge of
+    the entire population.
+
+-   Hence, it is natural to seek a method of finding a good
+    [estimator]{.blue} of the unknown point $\theta$.
 
 # Methods of finding estimators
 
@@ -93,153 +101,212 @@ styler:::style_file("../code/un_A.R")
 ::: callout-note
 #### Point estimator
 
-A [point estimator]{.blue} $\hat{\theta}$ is any function of the random sample $Y_1,\dots,Y_n$, namely
-$$
+A [point estimator]{.blue} $\hat{\theta}$ is any function of the random
+sample $Y_1,\dots,Y_n$, namely $$
 \hat{\theta}(\bm{Y}) = \hat{\theta}(Y_1,\dots,Y_n).
-$$
-That is, any [statistic]{.orange} is a point estimator.
+$$ That is, any [statistic]{.orange} is a point estimator.
 :::
 
-- In principle, the range of the estimator coincide with that of the parameter, i.e.  $\hat{\theta} : \mathcal{Y} \rightarrow \Theta$, but there are exceptions. 
-- An [estimator]{.blue} $\hat{\theta}(Y_1,\dots,Y_n)$ is a function of the sample $Y_1,\dots,Y_n$ and  is a [random variable]{.blue}.
+-   In principle, the range of the estimator coincide with that of the
+    parameter, i.e. $\hat{\theta} : \mathcal{Y} \rightarrow \Theta$, but
+    there are exceptions.
 
-- An [estimate]{.orange} $\hat{\theta}(y_1,\dots,y_n)$ is a function of the realized values $y_1,\dots,y_n$ and is a [number]{.orange}. 
+-   An [estimator]{.blue} $\hat{\theta}(Y_1,\dots,Y_n)$ is a function of
+    the sample $Y_1,\dots,Y_n$ and is a [random variable]{.blue}.
 
-- We will use the notation $\hat{\theta}$ to denote both estimators and estimates whenever its meaning is clear from the context.
+-   An [estimate]{.orange} $\hat{\theta}(y_1,\dots,y_n)$ is a function
+    of the realized values $y_1,\dots,y_n$ and is a [number]{.orange}.
 
+-   We will use the notation $\hat{\theta}$ to denote both estimators
+    and estimates whenever its meaning is clear from the context.
+    
 ## Method of moments
 
-- The [methods of moments]{.blue} is, perhaps, the oldest method of finding point estimators, dating back at least to Karl Pearson in the late 1800s.
+-   The [methods of moments]{.blue} is, perhaps, the oldest method of
+    finding point estimators, dating back at least to Karl Pearson in
+    the late 1800s.
 
-- Let $Y_1,\dots,Y_n$ be an iid sample from $f(\cdot; \theta)$ and $\theta = (\theta_1,\dots,\theta_k)$. Moreover, let us define
-$$
-m_r = \frac{1}{n}\sum_{i=1}^n Y_i^k, \qquad \mu_r(\theta) = \mu_r(\theta_1,\dots,\theta_k) = \mathbb{E}_\theta(Y^r), \qquad r=1,\dots,k.
-$$
-corresponding to the [population moment]{.blue} $\mu_r(\theta_1,\dots,\theta_k)$ and the [sample moment]{.orange} $m_r$. 
+-   Let $Y_1,\dots,Y_n$ be an iid sample from $f(\cdot; \theta)$ and
+    $\theta = (\theta_1,\dots,\theta_k)$. Moreover, let us define $$
+    m_r = \frac{1}{n}\sum_{i=1}^n Y_i^k, \qquad \mu_r(\theta) = \mu_r(\theta_1,\dots,\theta_k) = \mathbb{E}_\theta(Y^r), \qquad r=1,\dots,k.
+    $$ corresponding to the [population moment]{.blue}
+    $\mu_r(\theta_1,\dots,\theta_k)$ and the [sample moment]{.orange}
+    $m_r$.
 
-- The method of moments estimator $\hat{\theta}$ is obtained by solving the following system of equations for $(\theta_1,\dots,\theta_k)$:
-$$
-\begin{aligned}
-\mu_1(\theta_1,\dots,\theta_k) &= m_1, \\
-\mu_2(\theta_1,\dots,\theta_k) &= m_2, \\
-&\vdots \\
-\mu_k(\theta_1,\dots,\theta_k) &= m_k. \\
-\end{aligned}
-$$
-- In general, it is [not guaranteed]{.orange} that a [solution exist]{.blue} nor its [uniqueness]{.blue}.
+-   The method of moments estimator $\hat{\theta}$ is obtained by
+    solving the following system of equations for
+    $(\theta_1,\dots,\theta_k)$: $$
+    \begin{aligned}
+    \mu_1(\theta_1,\dots,\theta_k) &= m_1, \\
+    \mu_2(\theta_1,\dots,\theta_k) &= m_2, \\
+    &\vdots \\
+    \mu_k(\theta_1,\dots,\theta_k) &= m_k. \\
+    \end{aligned}
+    $$
 
-## ✏ Example: beta method of moments 
+-   In general, it is [not guaranteed]{.orange} that a [solution
+    exist]{.blue} nor its [uniqueness]{.blue}.
+    
+## Asymptotic evaluation of the MM
 
-- Let $Y_1,\dots,Y_n$ be an iid random sample from a beta distribution of parameters $\alpha,\beta > 0$ with density 
-$$
-f(y; \alpha, \beta) = \frac{\Gamma(\alpha + \beta)}{\Gamma(\alpha)\Gamma(\beta)} y^{\alpha-1}(1 - y)^{\beta-1}, \qquad 0 < y < 1.
-$$
+-   Moments estimators are not necessarily the best estimators, but
+    [under reasonable conditions]{.blue} they are [consistent]{.orange},
+    they have converge rate $\sqrt{n}$, and they are [asymptotically
+    normal]{.orange}.
 
-- The [moment estimator]{.blue} for $(\alpha, \beta)$ is the ([explicitly available]{.orange}) solution of the system of equations
-$$
-m_1 = \frac{\alpha}{\alpha + \beta}, \qquad m_2 = \frac{\alpha (\alpha+1)}{(\alpha + \beta) (\alpha + \beta + 1)}.
-$$
+-   Suppose $(Y,Y^2,\dots,Y^r)$ has finite covariance
+    $\Sigma$, then the multivariate [central limit theorem]{.orange}
+    implies that as $n\rightarrow \infty$ $$
+    \sqrt{n}\{m - \mu(\theta)\} \overset{d}{\longrightarrow} Z, \qquad Z\sim N_k(0, \Sigma),
+    $$ where $m = (m_1,\dots,m_k)$ and
+    $\mu(\theta) = (\mu_1(\theta),\dots,\mu_k(\theta))$. 
+
+-   Suppose also that $\mu(\theta)$ is a [one-to-one]{.blue} mapping and let
+    $g(\mu)$ be the inverse of $\mu(\theta)$, that is $g = \mu^{-1}$.
+    We assume that $g$ has [differentiable]{.blue} components
+    $g_r(\cdot)$ for $r = 1,\dots,k$.
+
+-   The moments estimator can be written as $\hat{\theta} = g(m)$ and
+    $\theta = g(\mu(\theta))$. Then, as a consequence of the [delta
+    method]{.orange} the following general result holds: $$
+    \sqrt{n}(\hat{\theta} - \theta) \overset{d}{\longrightarrow} Z, \qquad Z\sim N_k\left(0, D \Sigma D^T\right),
+    $$ where $D = [d_{rr'}]$ is a $k \times k$ matrix whose entries are
+    the derivatives $d_{rr'} = \partial g_r(\mu)/\partial \mu_{r'}$. 
+
+::: aside
+Refer to @vandervaart1998, Theorem 4.1, pag. 35-36.
+:::
+
+## ✏ Example: beta method of moments
+
+-   Let $Y_1,\dots,Y_n$ be an iid random sample from a beta distribution
+    of parameters $\alpha,\beta > 0$ with density $$
+    f(y; \alpha, \beta) = \frac{\Gamma(\alpha + \beta)}{\Gamma(\alpha)\Gamma(\beta)} y^{\alpha-1}(1 - y)^{\beta-1}, \qquad 0 < y < 1.
+    $$
+
+-   The [moment estimator]{.blue} for $(\alpha, \beta)$ is the
+    ([explicitly available]{.orange}) solution of the system of
+    equations $$
+    m_1 = \frac{\alpha}{\alpha + \beta}, \qquad m_2 = \frac{\alpha (\alpha+1)}{(\alpha + \beta) (\alpha + \beta + 1)}.
+    $$
 
 . . .
 
-- After some algebra we obtain the following relationship, which is a [smooth]{.orange} and [regular]{.orange} function of $(m_1,m_2)$: 
-$$
-\hat{\alpha} = m_1 \frac{m_1 - m_2}{m_2 - m_1^2}, \qquad \hat{\beta} = (1 - m_1) \frac{m_1 - m_2}{m_2 - m_1^2}.
-$$
-where $\hat{\sigma}^2 = m_2 - m_1^2$ is the [sample variance]{.blue}. [Remark]{.orange}: what if $m_1 < m_2$? 
-
-## Asymptotics for the MM
-
-- Moments estimators are not necessarily the best estimators, but [under reasonable conditions]{.blue} they are [consistent]{.orange}, they have converge rate $\sqrt{n}$, and they are [asymptotically normal]{.orange}. 
-
-. . .
-
-- We assume the random vector $(Y,Y^2,\dots,Y^r)$ has finite covariance $\Sigma$, then
-the multivariate [central limit theorem]{.orange} implies that as $n\rightarrow \infty$
-$$
-\sqrt{n}\{m - \mu(\theta)\} \overset{d}{\longrightarrow} Z, \qquad Z\sim N_k(0, \Sigma),
-$$
-where $m = (m_1,\dots,m_k)$ and $\mu(\theta) = (\mu_1(\theta),\dots,\mu_k(\theta))$. 
-
-. . .
-
-- Suppose $\mu(\theta)$ is a [one-to-one]{.blue} mapping and let $g(\mu)$ be the inverse of $\mu(\theta)$, that is $g = \mu^{-1}$. Moreover, suppose that $g$ has [differentiable]{.blue} components $g_r(\cdot)$ for $r = 1,\dots,k$.
-
-- The moments estimator can be written as $\hat{\theta} = g(m)$ and $\theta = g(\mu(\theta))$. Then, as a consequence of the [delta method]{.orange}  the following general result holds:
-$$
-\sqrt{n}(\hat{\theta} - \theta) \overset{d}{\longrightarrow} Z, \qquad Z\sim N_k\left(0, D \Sigma D^T\right),
-$$
-where $D = [d_{rr'}]$ is a $k \times k$ matrix whose entries are the derivatives $d_{rr'} = \partial g_r(\mu)/\partial \mu_{r'}$.
+-   After some algebra we obtain the following relationship, which is a
+    [smooth]{.orange} and [regular]{.orange} function of $(m_1,m_2)$: $$
+    \hat{\alpha} = m_1 \frac{m_1 - m_2}{m_2 - m_1^2}, \qquad \hat{\beta} = (1 - m_1) \frac{m_1 - m_2}{m_2 - m_1^2}.
+    $$ where $\hat{\sigma}^2 = m_2 - m_1^2$ is the [sample
+    variance]{.blue}. [Remark]{.orange}: what if $m_1 < m_2$?
 
 ## Maximum likelihood estimator
 
-- The method of [maximum likelihood]{.orange} is, by far, the most popular technique for deriving estimators, devloped by [Ronald A. Fisher]{.blue} in Fisher (1922; 1925). 
+-   The method of [maximum likelihood]{.orange} is, by far, the most
+    popular technique for deriving estimators, developed by [Ronald A.
+    Fisher]{.blue} in Fisher (1922; 1925).
 
-- Recall that $L(\theta) = L(\theta; \bm{y})$ is the likelihood function and $\ell(\theta) = \log{L(\theta)}$ the log-likelihood. 
+-   Recall that $L(\theta) = L(\theta; \bm{y})$ is the likelihood
+    function and $\ell(\theta) = \log{L(\theta)}$ is the log-likelihood.
 
 ::: callout-note
-Given a likelihood function $L(\theta)$ for $\theta \in \Theta$, a [maximum likelihood estimate]{.orange} of $\theta$ is an element $\hat{\theta}$ which attains the maximum value of $L(\theta)$ in $\Theta$, i.e. such that
-$$
+Given a likelihood function $L(\theta)$ of $\theta \in \Theta$, a
+[maximum likelihood estimate]{.orange} of $\theta$ is an element
+$\hat{\theta} \in \Theta$ which attains the maximum value of $L(\theta)$ in
+$\Theta$, i.e. such that $L(\hat{\theta}) \ge L(\theta)$ or equivalently $$
 L(\hat{\theta}) = \max_{\theta \in \Theta} L(\theta).
 $$
 
-
-The [maximum likelihood estimator]{.blue} (MLE) of the parameter $\theta$ based on a sample $\bm{Y}$ is $\hat{\theta}(\bm{Y})$.
+The [maximum likelihood estimator]{.blue} (MLE) of the parameter
+$\theta$ based on a sample $\bm{Y}$ is $\hat{\theta}(\bm{Y})$.
 :::
 
-- Intuitively, the MLE is a reasonable choice: it is the parameter point for which the observed sample is [most likely]{.blue}. 
+- Intuitively, the MLE is a reasonable choice: it is the parameter
+    point for which the observed sample is [most likely]{.blue}.
 
-- Some authors define the maximum likelihood as the [supremum]{.orange} of $L(\theta)$ rather than the maximum, albeit in most regular cases this is not influential. 
+- Clearly, the MLE is also the maximizer of the log-likelihood: $\ell(\hat{\theta}) = \max_{\theta \in \Theta} \ell(\theta)$.
 
-## ✏ A regular (and very simple) example
+## Properties and remarks about the MLE
 
 
-:::incremental
-
-- Let $Y_1,\dots,Y_n$ be a iid random sample from a Poisson distribution of parameter $\lambda > 0$, with [likelihood function]{.orange} $$
-L(\lambda) = \prod_{i=1}^n \frac{e^{-\lambda} \lambda^{y_i}}{y_i!}.
+- [Remark I]{.blue}: the MLE may [not exists]{.orange} and is [not]{.orange} necessarily [unique]{.orange}. On the other hand, if $l(\theta)$ is differentiable, then it can be found as the solution of the [score equations]{.blue}:
+$$
+\ell^*(\theta) = \frac{\partial}{\partial \theta}\ell(\theta) = 0.
 $$
 
-- Therefore the [log-likelihood]{.blue}, up to an additive constant $c$ not depending on $\lambda$, is
-$$
-\ell(\lambda) = \sum_{i=1}^ny_i\log{\lambda} - n\lambda + c.
-$$
-- The [maximum likelihood estimator]{.orange} is found by maximizing $\ell(\lambda)$. In this regular problem, this can be done by studying the first derivative:
-$$
-\ell^*(\lambda) = \frac{1}{\lambda}\sum_{i=1}^ny_i - n.
-$$
-- We solve $\ell^*(\lambda) = 0$, obtaining the [maximum likelihood estimate]{.blue} $\hat{\lambda} = \bar{y}$. You can check easily this is indeed a maximum. 
+<!-- - If $s(y)$ is a [sufficient statistic]{.blue}, then the MLE is a function of it. -->
 
-:::
+- [Remark II]{.blue}: often $\hat{\theta}$ cannot be written explicitly as a function of the sample values, i.e. in general the MLE has [no closed-form expression]{.orange} but it must be found using [numerical procedures]{.orange}.
 
-## General facts about the MLE
+- [Remark III]{.blue}: the likelihood function has to be maximized in the set space $\Theta$ specified by the statistical model, not over the set of the mathematically admissible values of $\theta$.
+
+<!-- - [Remark IV]{.blue}: it is not necessary for $\Theta$ to be a numeric set, i.e. we need [not]{.orange} be dealing with a [parametric]{.orange} model, although we shall restrict ourself to this case. -->
+
 
 ::: callout-warning
-#### Theorem (Equivariance)
+#### Theorem [Invariance, @Casella2002, Theorem 7.2.10]
 Let $\psi(\cdot)$ be a one-to-one function (i.e. a [reparametrization]{.blue}) from the set $\Theta$ onto the set $\Psi$. Then the MLE of $\psi = \psi(\theta)$ is $\hat{\psi} = \psi(\hat{\theta})$ where $\hat{\theta}$ denotes the MLE of $\theta$.
 :::
 
-::: incremental
-- The MLE may [not exists]{.orange} and is [not]{.orange} necessarily [unique]{.orange}.
+## ✏ A regular (and very simple) example
 
-- If $s(y)$ is a [sufficient statistic]{.blue}, then the MLE is a function of it.
+-   Let $Y_1,\dots,Y_n$ be a iid random sample from a Poisson
+    distribution of parameter $\lambda > 0$, with [likelihood
+    function]{.orange} $$
+    L(\lambda) = \prod_{i=1}^n \frac{e^{-\lambda} \lambda^{y_i}}{y_i!}.
+    $$
 
-- The likelihood function has to be maximized in the set space $\Theta$ specified by the statistical model, not over the set of the mathematically admissible values of $\theta$.
+-   Therefore the [log-likelihood]{.blue}, up to an additive constant
+    $c$ not depending on $\lambda$, is $$
+    \ell(\lambda) = \sum_{i=1}^ny_i\log{\lambda} - n\lambda + c.
+    $$
 
-- It is not necessary for $\Theta$ to be a numeric set, i.e. we need [not]{.orange} be dealing with a [parametric]{.orange} model, although we shall restrict ourself to this case.
+-   The [maximum likelihood estimator]{.orange} $\hat{\lambda}$ is found by maximizing
+    $\ell(\lambda)$. In this regular problem, this can be done by
+    studying the first derivative: $$
+    \ell^*(\lambda) = \frac{1}{\lambda}\sum_{i=1}^ny_i - n.
+    $$
 
-- Often $\hat{\theta}$ cannot be written explicitly as a function of the sample values, i.e. in general the MLE has [no closed-form expression]{.blue}.
-:::
-
-## The "regularity conditions"
-
-## Asymptotics for the MLE
+-   We solve $\ell^*(\lambda) = 0$, obtaining $\hat{\lambda} = \bar{y}$. This is indeed a maximizer of $\ell(\lambda)$ ([why]{.orange}?).
 
 ## ✏ A non-regular example
 
-## M- and Z- estimators
+::: aside
+This problem is described in Example 7.2.2 @Casella2002, pag. 313. 
+:::
+
+## M-estimators
+
+- M- and Z- estimators are broad class of estimators that encompass the maximum likelihood (iid observations) and the methods of moments as special cases. [^1]
+
+::: callout-note
+An [M-estimator]{.blue} is the [maximizer]{.orange} over $\Theta$ of a function $M(\theta) : \Theta \rightarrow \mathbb{R}$ of the type:
+$$
+M(\theta) = \frac{1}{n}\sum_{i=1}^n m(Y_i; \theta),
+$$
+where $m(y; \theta) : \mathcal{Y}\rightarrow \mathbb{R}$ are known functions. 
+:::
+
+- [Remark I]{.orange}: when $m(y; \theta) = \log{f(Y_i; \theta)}$ this coincides with the MLE of a model with iid observations.
+
+- The term $1/n$ is included to facilitate the description of the subsequent asymptotic theory, but it obviously irrelevant.
+
+[^1]: A detailed discussion is offered in @vandervaart1998, Chap. 5.
+
+
+## Z-estimators
+
+::: callout-note
+A [Z-estimator]{.blue} is the [solution]{.orange} over $\Theta$ of a system of equations function $\Psi(\theta) = 0$ of the type:
+$$
+\Psi(\theta) = \frac{1}{n}\sum_{i=1}^n \psi(Y_i; \theta) = 0,
+$$
+where $\Psi(y; \theta) : \mathcal{Y}\rightarrow \mathbb{R}$ are known functions. 
+:::
+
+
 
 <!-- ## Plug-in estimators -->
+
+## Huber estimators
 
 ## Bayesian estimators
 
@@ -247,4 +314,18 @@ Let $\psi(\cdot)$ be a one-to-one function (i.e. a [reparametrization]{.blue}) f
 
 # Best unbiased estimators
 
+# Asymptotic evaluations
+
+## Consistency and asymptotic normality
+
+
+## The "regularity conditions"
+
+## Asymptotics for the MLE
+
 # Robustness
+
+## References {-}
+
+::: {#refs}
+:::
