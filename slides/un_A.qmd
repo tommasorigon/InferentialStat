@@ -370,7 +370,7 @@ k |y| - \frac{1}{2}k^2 \quad &\text{ if } |y| \ge k
 $$
 where $k > 0$ is a [tuning]{.orange} parameter. The function $m(y)$ is continuous and differentiable[^1]. The choice $k \rightarrow 0$ leads to the median, whereas for $k \rightarrow \infty$ we get the mean.
 
-- Equivalentyl, we can consider the solution of the following estimating equation:
+- Equivalently, we can consider the solution of the following estimating equation:
 $$
 Q(\theta) = \frac{1}{n}\sum_{i=1}^n q(Y_i - \theta)= 0, \qquad q(y) = \begin{cases} -k \quad &\text{ if }\: y \le -k\\
 y \quad &\text{ if  }\: |y| \le k \\
