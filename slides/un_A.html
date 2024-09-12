@@ -123,9 +123,8 @@ window.Quarto = {
   <li><a href="#a-non-regular-example" id="toc-a-non-regular-example" class="nav-link" data-scroll-target="#a-non-regular-example">✏ A non-regular example</a></li>
   <li><a href="#m-estimators" id="toc-m-estimators" class="nav-link" data-scroll-target="#m-estimators">M-estimators</a></li>
   <li><a href="#z-estimators" id="toc-z-estimators" class="nav-link" data-scroll-target="#z-estimators">Z-estimators</a></li>
-  <li><a href="#location-estimators-i" id="toc-location-estimators-i" class="nav-link" data-scroll-target="#location-estimators-i">Location estimators I</a></li>
-  <li><a href="#location-estimators-ii" id="toc-location-estimators-ii" class="nav-link" data-scroll-target="#location-estimators-ii">Location estimators II</a></li>
-  <li><a href="#huber-estimators" id="toc-huber-estimators" class="nav-link" data-scroll-target="#huber-estimators">Huber estimators</a></li>
+  <li><a href="#huber-estimators-i" id="toc-huber-estimators-i" class="nav-link" data-scroll-target="#huber-estimators-i">Huber estimators I</a></li>
+  <li><a href="#huber-estimators-ii" id="toc-huber-estimators-ii" class="nav-link" data-scroll-target="#huber-estimators-ii">Huber estimators II</a></li>
   <li><a href="#bayesian-estimators" id="toc-bayesian-estimators" class="nav-link" data-scroll-target="#bayesian-estimators">Bayesian estimators</a></li>
   <li><a href="#another-regular-and-very-simple-example" id="toc-another-regular-and-very-simple-example" class="nav-link" data-scroll-target="#another-regular-and-very-simple-example">✏ Another regular (and very simple) example</a></li>
   </ul></li>
@@ -388,54 +387,52 @@ M(\theta) = \frac{1}{n}\sum_{i=1}^n m(\theta; Y_i),
 <div class="callout-body-container">
 <p>A <span class="blue">Z-estimator</span> is the <span class="orange">solution</span> over <span class="math inline">\Theta</span> of a system of equations function <span class="math inline">Q(\theta) = \bm{0}</span> of the type: <span class="math display">
 Q(\theta) = Q(\theta; Y) = \frac{1}{n}\sum_{i=1}^n q(\theta; Y_i) = \bm{0},
-</span> where <span class="math inline">q(y; \theta)</span> are known vector-valued maps.</p>
+</span> where <span class="math inline">q(y; \theta)</span> are known vector-valued maps. These are called <span class="blue">estimating equations</span>.</p>
 </div>
 </div>
 </div>
 <ul>
 <li><p>When <span class="math inline">\theta = (\theta_1,\dots,\theta_p)</span>, <span class="math inline">Q</span> and <span class="math inline">q</span> typically have <span class="math inline">p</span> coordinate functions, namely we consider: <span class="math display">
 Q_r(\theta) = \frac{1}{n}\sum_{i=1}^n q_r(\theta; Y_i)= 0, \qquad r = 1,\dots,p.
-</span> These are called <span class="blue">estimating equations</span>.</p></li>
+</span></p></li>
 <li><p>In many examples <span class="math inline">q_r(y; \theta)</span> are the partial derivatives of a function <span class="math inline">m(\theta; y)</span>, that is <span class="math display">
 Q(\theta) = \frac{\partial}{\partial \theta} M(\theta).</span> An example is the <span class="blue">score function</span> <span class="math inline">\ell^*(\theta)</span>. However, this is <span class="orange">not always the case</span>.</p></li>
 </ul>
 <!-- ## Plug-in estimators -->
 </section>
-<section id="location-estimators-i" class="level2">
-<h2 class="anchored" data-anchor-id="location-estimators-i">Location estimators I</h2>
+<section id="huber-estimators-i" class="level2">
+<h2 class="anchored" data-anchor-id="huber-estimators-i">Huber estimators I</h2>
 <ul>
 <li><p>The <span class="orange">location</span> of a r.v. <span class="math inline">Y</span> is a vague term that can be made precise by defining it as the expectation <span class="math inline">\mathbb{E}(Y)</span>, a quantile, or the center of symmetry, as in the following example.</p></li>
 <li><p>Let <span class="math inline">Y_1,\dots,Y_n</span> be a iid sample of real-valued random variables belonging to family of distributions <span class="math inline">\mathcal{F}</span> defined as <span class="math display">
 \mathcal{F} = \{f(y - \theta) : \theta \in \Theta \subseteq \mathbb{R} \},
 </span> for some unknown density <span class="math inline">f(y)</span> <span class="blue">symmetric</span> around <span class="math inline">0</span>. The parameter <span class="math inline">\theta</span> is the <span class="orange">location</span>.</p></li>
-<li><p>Classical M- and Z- estimators for <span class="math inline">\theta</span> are the <span class="blue">mean</span> and the <span class="orange">median</span>, maximizing: <span class="math display">
+<li><p>Classical M- estimators for <span class="math inline">\theta</span> are the <span class="blue">mean</span> and the <span class="orange">median</span>, maximizing: <span class="math display">
 -\frac{1}{n}\sum_{i=1}^n (Y_i - \theta)^2, \quad (\text{Mean}) \qquad \qquad - \frac{1}{n}\sum_{i=1}^n |Y_i - \theta|, \quad (\text{Median})
-</span> or alternatively solving the equations <span class="math display">
+</span> or alternatively (Z- estimator forms) solving the equations <span class="math display">
 \frac{1}{n}\sum_{i=1}^n (Y_i - \theta) = 0, \quad (\text{Mean}) \qquad \qquad \frac{1}{n}\sum_{i=1}^n \text{sign}(Y_i - \theta) = 0, \quad (\text{Median}).
 </span></p></li>
 </ul>
+<!-- ## Location estimators II -->
+<!-- - Both estimating equations involve functions of the form $q(\theta; Y) = q(Y - \theta)$ that are [monotone]{.blue} and [odd]{.orange} around zero.  -->
+<!-- - It is hence reasonable to study estimating equations of the type:$$ -->
+<!-- Q(\theta) = \frac{1}{n}\sum_{i=1}^n q(Y_i - \theta)= 0. -->
+<!-- $$ -->
+<!-- - This class of estimators has an appealing [equivariance]{.orange} property. If the observations $Y_i$ are shifted by a fixed amount $\alpha$, then so is the estimate: -->
+<!-- $$ -->
+<!-- \hat{\theta} + \alpha \quad \text{ solves } \quad Q(\theta) = \frac{1}{n}\sum_{i=1}^n q(Y_i + \alpha - \theta)= 0, -->
+<!-- $$ -->
+<!-- if $\hat{\theta}$ solves the original equation. -->
 </section>
-<section id="location-estimators-ii" class="level2">
-<h2 class="anchored" data-anchor-id="location-estimators-ii">Location estimators II</h2>
+<section id="huber-estimators-ii" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="huber-estimators-ii">Huber estimators II</h2>
 <ul>
-<li><p>Both estimating equations involve functions of the form <span class="math inline">q(\theta; Y) = q(Y - \theta)</span> that are <span class="blue">monotone</span> and <span class="orange">odd</span> around zero.</p></li>
-<li><p>It is hence reasonable to study estimating equations of the type:<span class="math display">
-Q(\theta) = \frac{1}{n}\sum_{i=1}^n q(Y_i - \theta)= 0.
-</span></p></li>
-<li><p>This class of estimators has an appealing <span class="orange">equivariance</span> property. If the observations <span class="math inline">Y_i</span> are shifted by a fixed amount <span class="math inline">\alpha</span>, then so is the estimate: <span class="math display">
-\hat{\theta} + \alpha \quad \text{ solves } \quad Q(\theta) = \frac{1}{n}\sum_{i=1}^n q(Y_i + \alpha - \theta)= 0,
-</span> if <span class="math inline">\hat{\theta}</span> solves the original equation.</p></li>
-</ul>
-</section>
-<section id="huber-estimators" class="level2 page-columns page-full">
-<h2 class="anchored" data-anchor-id="huber-estimators">Huber estimators</h2>
-<ul>
-<li><p>A notable class are <span class="blue">Huber estimators</span>, that can be regarded as a compromise between the mean and the median, maximizing the following function: <span class="math display">
+<li><p><span class="blue">Huber estimators</span> can be regarded as a compromise between the mean and the median, maximizing the following function: <span class="math display">
 M(\theta) = \frac{1}{n}\sum_{i=1}^n m(Y_i - \theta), \qquad m(y) = \begin{cases}\frac{1}{2}y^2 \quad &amp;\text{ if } |y| \le k\\
 k |y| - \frac{1}{2}k^2 \quad &amp;\text{ if } |y| \ge k
 \end{cases}
 </span> where <span class="math inline">k &gt; 0</span> is a <span class="orange">tuning</span> parameter. The function <span class="math inline">m(y)</span> is continuous and differentiable<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>. The choice <span class="math inline">k \rightarrow 0</span> leads to the median, whereas for <span class="math inline">k \rightarrow \infty</span> we get the mean.</p></li>
-<li><p>Alternatively, we can define Huber estimators as the solution of the following estimating equation: <span class="math display">
+<li><p>Equivalentyl, we can consider the solution of the following estimating equation: <span class="math display">
 Q(\theta) = \frac{1}{n}\sum_{i=1}^n q(Y_i - \theta)= 0, \qquad q(y) = \begin{cases} -k \quad &amp;\text{ if }\: y \le -k\\
 y \quad &amp;\text{ if  }\: |y| \le k \\
 k \quad &amp;\text{ if }\: y \ge k\end{cases}
@@ -458,6 +455,18 @@ k \quad &amp;\text{ if }\: y \ge k\end{cases}
 </section>
 <section id="another-regular-and-very-simple-example" class="level2">
 <h2 class="anchored" data-anchor-id="another-regular-and-very-simple-example">✏ Another regular (and very simple) example</h2>
+<ul>
+<li><p>Let <span class="math inline">Y_1,\dots,Y_n</span> be a iid random sample from a Poisson distribution of parameter <span class="math inline">\lambda &gt; 0</span>, with <span class="orange">likelihood function</span> <span class="math display">
+L(\lambda) = \prod_{i=1}^n \frac{e^{-\lambda} \lambda^{y_i}}{y_i!}.
+</span></p></li>
+<li><p>Therefore the <span class="blue">log-likelihood</span>, up to an additive constant <span class="math inline">c</span> not depending on <span class="math inline">\lambda</span>, is <span class="math display">
+\ell(\lambda) = \sum_{i=1}^ny_i\log{\lambda} - n\lambda + c.
+</span></p></li>
+<li><p>The <span class="orange">maximum likelihood estimator</span> <span class="math inline">\hat{\lambda}</span> is found by maximizing <span class="math inline">\ell(\lambda)</span>. In this regular problem, this can be done by studying the first derivative: <span class="math display">
+\ell^*(\lambda) = \frac{1}{\lambda}\sum_{i=1}^ny_i - n.
+</span></p></li>
+<li><p>We solve <span class="math inline">\ell^*(\lambda) = 0</span>, obtaining <span class="math inline">\hat{\lambda} = \bar{y}</span>. This is indeed a maximizer of <span class="math inline">\ell(\lambda)</span> (<span class="orange">why</span>?).</p></li>
+</ul>
 </section>
 </section>
 <section id="methods-of-evaluating-estimators" class="level1">
