@@ -80,8 +80,6 @@ styler:::style_file("../code/un_A.R")
     -   Best unbiased estimators
     -   Asymptotic evaluations
     -   Robustness and model misspecification
-
-
 :::
 :::
 
@@ -119,7 +117,7 @@ $$ That is, any [statistic]{.orange} is a point estimator.
 
 -   We will use the notation $\hat{\theta}$ to denote both estimators
     and estimates whenever its meaning is clear from the context.
-    
+
 ## Method of moments
 
 -   The [methods of moments]{.blue} is, perhaps, the oldest method of
@@ -127,26 +125,26 @@ $$ That is, any [statistic]{.orange} is a point estimator.
     the late 1800s.
 
 -   Let $Y_1,\dots,Y_n$ be an iid sample from $f(\cdot; \theta)$ and
-    $\theta = (\theta_1,\dots,\theta_k)$. Moreover, let us define $$
-    m_r = \frac{1}{n}\sum_{i=1}^n Y_i^k, \qquad \mu_r(\theta) = \mu_r(\theta_1,\dots,\theta_k) = \mathbb{E}_\theta(Y^r), \qquad r=1,\dots,k.
+    $\theta = (\theta_1,\dots,\theta_p)$. Moreover, let us define $$
+    m_r = \frac{1}{n}\sum_{i=1}^n Y_i^r, \qquad \mu_r(\theta) = \mu_r(\theta_1,\dots,\theta_p) = \mathbb{E}_\theta(Y^r), \qquad r=1,\dots,p.
     $$ corresponding to the [population moment]{.blue}
-    $\mu_r(\theta_1,\dots,\theta_k)$ and the [sample moment]{.orange}
+    $\mu_r(\theta_1,\dots,\theta_p)$ and the [sample moment]{.orange}
     $m_r$.
 
 -   The method of moments estimator $\hat{\theta}$ is obtained by
     solving the following system of equations for
-    $(\theta_1,\dots,\theta_k)$: $$
+    $(\theta_1,\dots,\theta_p)$: $$
     \begin{aligned}
-    \mu_1(\theta_1,\dots,\theta_k) &= m_1, \\
-    \mu_2(\theta_1,\dots,\theta_k) &= m_2, \\
+    \mu_1(\theta_1,\dots,\theta_p) &= m_1, \\
+    \mu_2(\theta_1,\dots,\theta_p) &= m_2, \\
     &\vdots \\
-    \mu_k(\theta_1,\dots,\theta_k) &= m_k. \\
+    \mu_p(\theta_1,\dots,\theta_p) &= m_p. \\
     \end{aligned}
     $$
 
 -   In general, it is [not guaranteed]{.orange} that a [solution
     exist]{.blue} nor its [uniqueness]{.blue}.
-    
+
 ## Asymptotic evaluation of the MM
 
 -   Moments estimators are not necessarily the best estimators, but
@@ -154,24 +152,24 @@ $$ That is, any [statistic]{.orange} is a point estimator.
     they have converge rate $\sqrt{n}$, and they are [asymptotically
     normal]{.orange}.
 
--   Suppose $(Y,Y^2,\dots,Y^r)$ has finite covariance
-    $\Sigma$, then the multivariate [central limit theorem]{.orange}
-    implies that as $n\rightarrow \infty$ $$
-    \sqrt{n}\{m - \mu(\theta)\} \overset{d}{\longrightarrow} Z, \qquad Z\sim N_k(0, \Sigma),
-    $$ where $m = (m_1,\dots,m_k)$ and
-    $\mu(\theta) = (\mu_1(\theta),\dots,\mu_k(\theta))$. 
+-   Suppose $(Y,Y^2,\dots,Y^p)$ has finite covariance $\Sigma$, then the
+    multivariate [central limit theorem]{.orange} implies that as
+    $n\rightarrow \infty$ $$
+    \sqrt{n}\{m - \mu(\theta)\} \overset{d}{\longrightarrow} Z, \qquad Z\sim N_p(0, \Sigma),
+    $$ where $m = (m_1,\dots,m_p)$ and
+    $\mu(\theta) = (\mu_1(\theta),\dots,\mu_p(\theta))$.
 
--   Suppose also that $\mu(\theta)$ is a [one-to-one]{.blue} mapping and let
-    $g(\mu)$ be the inverse of $\mu(\theta)$, that is $g = \mu^{-1}$.
-    We assume that $g$ has [differentiable]{.blue} components
-    $g_r(\cdot)$ for $r = 1,\dots,k$.
+-   Suppose also that $\mu(\theta)$ is a [one-to-one]{.blue} mapping and
+    let $g(\mu)$ be the inverse of $\mu(\theta)$, that is
+    $g = \mu^{-1}$. We assume that $g$ has [differentiable]{.blue}
+    components $g_r(\cdot)$ for $r = 1,\dots,p$.
 
 -   The moments estimator can be written as $\hat{\theta} = g(m)$ and
     $\theta = g(\mu(\theta))$. Then, as a consequence of the [delta
     method]{.orange} the following general result holds: $$
-    \sqrt{n}(\hat{\theta} - \theta) \overset{d}{\longrightarrow} Z, \qquad Z\sim N_k\left(0, D \Sigma D^T\right),
-    $$ where $D = [d_{rr'}]$ is a $k \times k$ matrix whose entries are
-    the derivatives $d_{rr'} = \partial g_r(\mu)/\partial \mu_{r'}$. 
+    \sqrt{n}(\hat{\theta} - \theta) \overset{d}{\longrightarrow} Z, \qquad Z\sim N_p\left(0, D \Sigma D^T\right),
+    $$ where $D = [d_{rr'}]$ is a $p \times p$ matrix whose entries are
+    the derivatives $d_{rr'} = \partial g_r(\mu)/\partial \mu_{r'}$.
 
 ::: aside
 Refer to @vandervaart1998, Theorem 4.1, pag. 35-36.
@@ -210,8 +208,9 @@ Refer to @vandervaart1998, Theorem 4.1, pag. 35-36.
 ::: callout-note
 Given a likelihood function $L(\theta)$ of $\theta \in \Theta$, a
 [maximum likelihood estimate]{.orange} of $\theta$ is an element
-$\hat{\theta} \in \Theta$ which attains the maximum value of $L(\theta)$ in
-$\Theta$, i.e. such that $L(\hat{\theta}) \ge L(\theta)$ or equivalently $$
+$\hat{\theta} \in \Theta$ which attains the maximum value of $L(\theta)$
+in $\Theta$, i.e. such that $L(\hat{\theta}) \ge L(\theta)$ or
+equivalently $$
 L(\hat{\theta}) = \max_{\theta \in \Theta} L(\theta).
 $$
 
@@ -219,31 +218,42 @@ The [maximum likelihood estimator]{.blue} (MLE) of the parameter
 $\theta$ based on a sample $\bm{Y}$ is $\hat{\theta}(\bm{Y})$.
 :::
 
-- Intuitively, the MLE is a reasonable choice: it is the parameter
+-   Intuitively, the MLE is a reasonable choice: it is the parameter
     point for which the observed sample is [most likely]{.blue}.
 
-- Clearly, the MLE is also the maximizer of the log-likelihood: $\ell(\hat{\theta}) = \max_{\theta \in \Theta} \ell(\theta)$.
+-   Clearly, the MLE is also the maximizer of the log-likelihood:
+    $\ell(\hat{\theta}) = \max_{\theta \in \Theta} \ell(\theta)$.
 
 ## Properties and remarks about the MLE
 
-
-- [Remark I]{.blue}: the MLE may [not exists]{.orange} and is [not]{.orange} necessarily [unique]{.orange}. On the other hand, if $l(\theta)$ is differentiable, then it can be found as the solution of the [score equations]{.blue}:
-$$
-\ell^*(\theta) = \frac{\partial}{\partial \theta}\ell(\theta) = 0.
-$$
+-   [Remark I]{.blue}: the MLE may [not exists]{.orange} and is
+    [not]{.orange} necessarily [unique]{.orange}. On the other hand, if
+    $l(\theta)$ is differentiable, then it can be found as the solution
+    of the [score equations]{.blue}: $$
+    \ell^*(\theta) = \frac{\partial}{\partial \theta}\ell(\theta) = 0.
+    $$
 
 <!-- - If $s(y)$ is a [sufficient statistic]{.blue}, then the MLE is a function of it. -->
 
-- [Remark II]{.blue}: often $\hat{\theta}$ cannot be written explicitly as a function of the sample values, i.e. in general the MLE has [no closed-form expression]{.orange} but it must be found using [numerical procedures]{.orange}.
+-   [Remark II]{.blue}: often $\hat{\theta}$ cannot be written
+    explicitly as a function of the sample values, i.e. in general the
+    MLE has [no closed-form expression]{.orange} but it must be found
+    using [numerical procedures]{.orange}.
 
-- [Remark III]{.blue}: the likelihood function has to be maximized in the set space $\Theta$ specified by the statistical model, not over the set of the mathematically admissible values of $\theta$.
+-   [Remark III]{.blue}: the likelihood function has to be maximized in
+    the set space $\Theta$ specified by the statistical model, not over
+    the set of the mathematically admissible values of $\theta$.
 
 <!-- - [Remark IV]{.blue}: it is not necessary for $\Theta$ to be a numeric set, i.e. we need [not]{.orange} be dealing with a [parametric]{.orange} model, although we shall restrict ourself to this case. -->
 
-
 ::: callout-warning
 #### Theorem [Invariance, @Casella2002, Theorem 7.2.10]
-Let $\psi(\cdot)$ be a one-to-one function (i.e. a [reparametrization]{.blue}) from the set $\Theta$ onto the set $\Psi$. Then the MLE of $\psi = \psi(\theta)$ is $\hat{\psi} = \psi(\hat{\theta})$ where $\hat{\theta}$ denotes the MLE of $\theta$.
+
+Let $\psi(\cdot)$ be a one-to-one function (i.e. a
+[reparametrization]{.blue}) from the set $\Theta$ onto the set $\Psi$.
+Then the MLE of $\psi = \psi(\theta)$ is
+$\hat{\psi} = \psi(\hat{\theta})$ where $\hat{\theta}$ denotes the MLE
+of $\theta$.
 :::
 
 ## ✏ A regular (and very simple) example
@@ -259,58 +269,160 @@ Let $\psi(\cdot)$ be a one-to-one function (i.e. a [reparametrization]{.blue}) f
     \ell(\lambda) = \sum_{i=1}^ny_i\log{\lambda} - n\lambda + c.
     $$
 
--   The [maximum likelihood estimator]{.orange} $\hat{\lambda}$ is found by maximizing
-    $\ell(\lambda)$. In this regular problem, this can be done by
-    studying the first derivative: $$
+-   The [maximum likelihood estimator]{.orange} $\hat{\lambda}$ is found
+    by maximizing $\ell(\lambda)$. In this regular problem, this can be
+    done by studying the first derivative: $$
     \ell^*(\lambda) = \frac{1}{\lambda}\sum_{i=1}^ny_i - n.
     $$
 
--   We solve $\ell^*(\lambda) = 0$, obtaining $\hat{\lambda} = \bar{y}$. This is indeed a maximizer of $\ell(\lambda)$ ([why]{.orange}?).
+-   We solve $\ell^*(\lambda) = 0$, obtaining $\hat{\lambda} = \bar{y}$.
+    This is indeed a maximizer of $\ell(\lambda)$ ([why]{.orange}?).
 
 ## ✏ A non-regular example
 
 ::: aside
-This problem is described in Example 7.2.2 @Casella2002, pag. 313. 
+This problem is described in Example 7.2.2 @Casella2002, pag. 313.
 :::
 
 ## M-estimators
 
-- M- and Z- estimators are broad class of estimators that encompass the maximum likelihood (iid observations) and the methods of moments as special cases. [^1]
-
-::: callout-note
-An [M-estimator]{.blue} is the [maximizer]{.orange} over $\Theta$ of a function $M(\theta) : \Theta \rightarrow \mathbb{R}$ of the type:
-$$
-M(\theta) = \frac{1}{n}\sum_{i=1}^n m(Y_i; \theta),
-$$
-where $m(y; \theta) : \mathcal{Y}\rightarrow \mathbb{R}$ are known functions. 
-:::
-
-- [Remark I]{.orange}: when $m(y; \theta) = \log{f(Y_i; \theta)}$ this coincides with the MLE of a model with iid observations.
-
-- The term $1/n$ is included to facilitate the description of the subsequent asymptotic theory, but it obviously irrelevant.
+-   M- and Z- estimators are broad class of estimators that encompass
+    the maximum likelihood (iid observations) and other popular methods
+    as special cases. [^1]
 
 [^1]: A detailed discussion is offered in @vandervaart1998, Chap. 5.
 
+::: callout-note
+An [M-estimator]{.blue} is the [maximizer]{.orange} over $\Theta$ of a
+function $M(\theta) : \Theta \rightarrow \mathbb{R}$ of the type: $$
+M(\theta) = \frac{1}{n}\sum_{i=1}^n m(\theta; Y_i),
+$$ where $m(\theta; Y_i)$ are known real-valued functions.
+:::
+
+-   [Remark]{.orange}: when $m(\theta; y) = \log{f(Y_i; \theta)}$ this
+    coincides with the MLE of a model with iid observations.
+
+-   The term $1/n$ is included here to facilitate the description of the
+    subsequent asymptotic theory, but it is obviously non influential.
 
 ## Z-estimators
 
 ::: callout-note
-A [Z-estimator]{.blue} is the [solution]{.orange} over $\Theta$ of a system of equations function $\Psi(\theta) = 0$ of the type:
-$$
-\Psi(\theta) = \frac{1}{n}\sum_{i=1}^n \psi(Y_i; \theta) = 0,
-$$
-where $\Psi(y; \theta) : \mathcal{Y}\rightarrow \mathbb{R}$ are known functions. 
+A [Z-estimator]{.blue} is the [solution]{.orange} over $\Theta$ of a
+system of equations function $Q(\theta) = \bm{0}$ of the type: $$
+Q(\theta) = Q(\theta; Y) = \frac{1}{n}\sum_{i=1}^n q(\theta; Y_i) = \bm{0},
+$$ where $q(y; \theta)$ are known vector-valued maps. These are called [estimating equations]{.blue}.
 :::
 
+- When $\theta = (\theta_1,\dots,\theta_p)$, $Q$ and $q$ typically have $p$ coordinate functions, namely we consider:
+$$
+Q_r(\theta) = \frac{1}{n}\sum_{i=1}^n q_r(\theta; Y_i)= 0, \qquad r = 1,\dots,p.
+$$
 
+
+- In many examples $q_r(y; \theta)$ are the partial derivatives of a function $m(\theta; y)$, that is $$
+Q(\theta) = \frac{\partial}{\partial \theta} M(\theta).$$ 
+An example is the [score function]{.blue} $\ell^*(\theta)$. However, this is [not always the case]{.orange}.
 
 <!-- ## Plug-in estimators -->
 
-## Huber estimators
+## Huber estimators I
+
+- The [location]{.orange} of a r.v. $Y$ is a vague term that can be made precise by defining it as the expectation $\mathbb{E}(Y)$, a quantile, or the center of symmetry, as in the following example.
+
+- Let $Y_1,\dots,Y_n$ be a iid sample of real-valued random variables belonging to family of distributions $\mathcal{F}$ defined as
+$$
+\mathcal{F} = \{f(y - \theta) : \theta \in \Theta \subseteq \mathbb{R} \},
+$$
+for some unknown density $f(y)$ [symmetric]{.blue} around $0$. The parameter $\theta$ is the [location]{.orange}.
+
+- Classical M- estimators for $\theta$ are the [mean]{.blue} and the [median]{.orange}, maximizing:
+$$
+-\frac{1}{n}\sum_{i=1}^n (Y_i - \theta)^2, \quad (\text{Mean}) \qquad \qquad - \frac{1}{n}\sum_{i=1}^n |Y_i - \theta|, \quad (\text{Median})
+$$
+or alternatively (Z- estimator forms) solving the equations
+$$
+\frac{1}{n}\sum_{i=1}^n (Y_i - \theta) = 0, \quad (\text{Mean}) \qquad \qquad \frac{1}{n}\sum_{i=1}^n \text{sign}(Y_i - \theta) = 0, \quad (\text{Median}).
+$$
+
+<!-- ## Location estimators II -->
+
+<!-- - Both estimating equations involve functions of the form $q(\theta; Y) = q(Y - \theta)$ that are [monotone]{.blue} and [odd]{.orange} around zero.  -->
+
+<!-- - It is hence reasonable to study estimating equations of the type:$$ -->
+<!-- Q(\theta) = \frac{1}{n}\sum_{i=1}^n q(Y_i - \theta)= 0. -->
+<!-- $$ -->
+<!-- - This class of estimators has an appealing [equivariance]{.orange} property. If the observations $Y_i$ are shifted by a fixed amount $\alpha$, then so is the estimate: -->
+<!-- $$ -->
+<!-- \hat{\theta} + \alpha \quad \text{ solves } \quad Q(\theta) = \frac{1}{n}\sum_{i=1}^n q(Y_i + \alpha - \theta)= 0, -->
+<!-- $$ -->
+<!-- if $\hat{\theta}$ solves the original equation. -->
+
+
+
+## Huber estimators II
+
+- [Huber estimators]{.blue} can be regarded as a compromise between the mean and the median, maximizing the following function:
+$$
+M(\theta) = \frac{1}{n}\sum_{i=1}^n m(Y_i - \theta), \qquad m(y) = \begin{cases}\frac{1}{2}y^2 \quad &\text{ if } |y| \le k\\
+k |y| - \frac{1}{2}k^2 \quad &\text{ if } |y| \ge k
+\end{cases}
+$$
+where $k > 0$ is a [tuning]{.orange} parameter. The function $m(y)$ is continuous and differentiable[^1]. The choice $k \rightarrow 0$ leads to the median, whereas for $k \rightarrow \infty$ we get the mean.
+
+- Equivalentyl, we can consider the solution of the following estimating equation:
+$$
+Q(\theta) = \frac{1}{n}\sum_{i=1}^n q(Y_i - \theta)= 0, \qquad q(y) = \begin{cases} -k \quad &\text{ if }\: y \le -k\\
+y \quad &\text{ if  }\: |y| \le k \\
+k \quad &\text{ if }\: y \ge k\end{cases}
+$$
+- Unfortunately, there is no closed-form expression and the equation must be solved numerically. 
+
+[^1]: See Exercise 10.28 of @Casella2002.
 
 ## Bayesian estimators
 
+- Bayesian estimators are obtained following [different inferential paradigm]{.orange} than the one considered here, but they also have [appealing frequentist properties]{.blue}.
+
+- Let $L(\theta; \bm{y})$ be the likelihood function and let $\pi(\theta)$ be the [prior]{.orange} distribution. Then, Bayesian inference relies on the [posterior]{.blue} distribution, obtained as
+$$
+\pi(\theta \mid \bm{y}) = \frac{\pi(\theta) L(\theta; \bm{y})}{\int_\Theta \pi(\theta) L(\theta; \bm{y}) \mathrm{d}\theta}.
+$$
+
+- For reasons that will be soon clarified, under certain hypothesis the [posterior mean]{.blue} is an [optimal Bayesian estimator]{.orange}:
+$$
+\hat{\theta}_\text{Bayes} = \mathbb{E}(\theta \mid \bm{y}) = \frac{\int_\Theta \theta \: \pi(\theta) L(\theta; \bm{y}) \mathrm{d}\theta}{\int_\Theta \pi(\theta) L(\theta; \bm{y}) \mathrm{d}\theta},
+$$
+which is, unfortunately, not always available in closed-form.
+
+- Other "optimal" Bayesian estimators include e.g. the posterior median.
+
+## ✏ Another regular (and very simple) example
+
+-   Let $Y_1,\dots,Y_n$ be a iid random sample from a Poisson
+    distribution of parameter $\lambda > 0$, with [likelihood
+    function]{.orange} $$
+    L(\lambda) = \prod_{i=1}^n \frac{e^{-\lambda} \lambda^{y_i}}{y_i!}.
+    $$
+
+-   Therefore the [log-likelihood]{.blue}, up to an additive constant
+    $c$ not depending on $\lambda$, is $$
+    \ell(\lambda) = \sum_{i=1}^ny_i\log{\lambda} - n\lambda + c.
+    $$
+
+-   The [maximum likelihood estimator]{.orange} $\hat{\lambda}$ is found
+    by maximizing $\ell(\lambda)$. In this regular problem, this can be
+    done by studying the first derivative: $$
+    \ell^*(\lambda) = \frac{1}{\lambda}\sum_{i=1}^ny_i - n.
+    $$
+
+-   We solve $\ell^*(\lambda) = 0$, obtaining $\hat{\lambda} = \bar{y}$.
+    This is indeed a maximizer of $\ell(\lambda)$ ([why]{.orange}?).
+
+
 # Methods of evaluating estimators
+
+## Comparing estimators
 
 # Best unbiased estimators
 
@@ -318,14 +430,13 @@ where $\Psi(y; \theta) : \mathcal{Y}\rightarrow \mathbb{R}$ are known functions.
 
 ## Consistency and asymptotic normality
 
-
 ## The "regularity conditions"
 
 ## Asymptotics for the MLE
 
 # Robustness
 
-## References {-}
+## References {.unnumbered}
 
 ::: {#refs}
 :::

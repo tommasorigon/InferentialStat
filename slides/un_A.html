@@ -123,10 +123,16 @@ window.Quarto = {
   <li><a href="#a-non-regular-example" id="toc-a-non-regular-example" class="nav-link" data-scroll-target="#a-non-regular-example">✏ A non-regular example</a></li>
   <li><a href="#m-estimators" id="toc-m-estimators" class="nav-link" data-scroll-target="#m-estimators">M-estimators</a></li>
   <li><a href="#z-estimators" id="toc-z-estimators" class="nav-link" data-scroll-target="#z-estimators">Z-estimators</a></li>
+  <li><a href="#location-estimators-i" id="toc-location-estimators-i" class="nav-link" data-scroll-target="#location-estimators-i">Location estimators I</a></li>
+  <li><a href="#location-estimators-ii" id="toc-location-estimators-ii" class="nav-link" data-scroll-target="#location-estimators-ii">Location estimators II</a></li>
   <li><a href="#huber-estimators" id="toc-huber-estimators" class="nav-link" data-scroll-target="#huber-estimators">Huber estimators</a></li>
   <li><a href="#bayesian-estimators" id="toc-bayesian-estimators" class="nav-link" data-scroll-target="#bayesian-estimators">Bayesian estimators</a></li>
+  <li><a href="#another-regular-and-very-simple-example" id="toc-another-regular-and-very-simple-example" class="nav-link" data-scroll-target="#another-regular-and-very-simple-example">✏ Another regular (and very simple) example</a></li>
   </ul></li>
-  <li><a href="#methods-of-evaluating-estimators" id="toc-methods-of-evaluating-estimators" class="nav-link" data-scroll-target="#methods-of-evaluating-estimators">Methods of evaluating estimators</a></li>
+  <li><a href="#methods-of-evaluating-estimators" id="toc-methods-of-evaluating-estimators" class="nav-link" data-scroll-target="#methods-of-evaluating-estimators">Methods of evaluating estimators</a>
+  <ul class="collapse">
+  <li><a href="#comparing-estimators" id="toc-comparing-estimators" class="nav-link" data-scroll-target="#comparing-estimators">Comparing estimators</a></li>
+  </ul></li>
   <li><a href="#best-unbiased-estimators" id="toc-best-unbiased-estimators" class="nav-link" data-scroll-target="#best-unbiased-estimators">Best unbiased estimators</a></li>
   <li><a href="#asymptotic-evaluations" id="toc-asymptotic-evaluations" class="nav-link" data-scroll-target="#asymptotic-evaluations">Asymptotic evaluations</a>
   <ul class="collapse">
@@ -232,15 +238,15 @@ Point estimator
 <h2 class="anchored" data-anchor-id="method-of-moments">Method of moments</h2>
 <ul>
 <li><p>The <span class="blue">methods of moments</span> is, perhaps, the oldest method of finding point estimators, dating back at least to Karl Pearson in the late 1800s.</p></li>
-<li><p>Let <span class="math inline">Y_1,\dots,Y_n</span> be an iid sample from <span class="math inline">f(\cdot; \theta)</span> and <span class="math inline">\theta = (\theta_1,\dots,\theta_k)</span>. Moreover, let us define <span class="math display">
-m_r = \frac{1}{n}\sum_{i=1}^n Y_i^k, \qquad \mu_r(\theta) = \mu_r(\theta_1,\dots,\theta_k) = \mathbb{E}_\theta(Y^r), \qquad r=1,\dots,k.
-</span> corresponding to the <span class="blue">population moment</span> <span class="math inline">\mu_r(\theta_1,\dots,\theta_k)</span> and the <span class="orange">sample moment</span> <span class="math inline">m_r</span>.</p></li>
-<li><p>The method of moments estimator <span class="math inline">\hat{\theta}</span> is obtained by solving the following system of equations for <span class="math inline">(\theta_1,\dots,\theta_k)</span>: <span class="math display">
+<li><p>Let <span class="math inline">Y_1,\dots,Y_n</span> be an iid sample from <span class="math inline">f(\cdot; \theta)</span> and <span class="math inline">\theta = (\theta_1,\dots,\theta_p)</span>. Moreover, let us define <span class="math display">
+m_r = \frac{1}{n}\sum_{i=1}^n Y_i^r, \qquad \mu_r(\theta) = \mu_r(\theta_1,\dots,\theta_p) = \mathbb{E}_\theta(Y^r), \qquad r=1,\dots,p.
+</span> corresponding to the <span class="blue">population moment</span> <span class="math inline">\mu_r(\theta_1,\dots,\theta_p)</span> and the <span class="orange">sample moment</span> <span class="math inline">m_r</span>.</p></li>
+<li><p>The method of moments estimator <span class="math inline">\hat{\theta}</span> is obtained by solving the following system of equations for <span class="math inline">(\theta_1,\dots,\theta_p)</span>: <span class="math display">
 \begin{aligned}
-\mu_1(\theta_1,\dots,\theta_k) &amp;= m_1, \\
-\mu_2(\theta_1,\dots,\theta_k) &amp;= m_2, \\
+\mu_1(\theta_1,\dots,\theta_p) &amp;= m_1, \\
+\mu_2(\theta_1,\dots,\theta_p) &amp;= m_2, \\
 &amp;\vdots \\
-\mu_k(\theta_1,\dots,\theta_k) &amp;= m_k. \\
+\mu_p(\theta_1,\dots,\theta_p) &amp;= m_p. \\
 \end{aligned}
 </span></p></li>
 <li><p>In general, it is <span class="orange">not guaranteed</span> that a <span class="blue">solution exist</span> nor its <span class="blue">uniqueness</span>.</p></li>
@@ -250,13 +256,13 @@ m_r = \frac{1}{n}\sum_{i=1}^n Y_i^k, \qquad \mu_r(\theta) = \mu_r(\theta_1,\dots
 <h2 class="anchored" data-anchor-id="asymptotic-evaluation-of-the-mm">Asymptotic evaluation of the MM</h2>
 <ul>
 <li><p>Moments estimators are not necessarily the best estimators, but <span class="blue">under reasonable conditions</span> they are <span class="orange">consistent</span>, they have converge rate <span class="math inline">\sqrt{n}</span>, and they are <span class="orange">asymptotically normal</span>.</p></li>
-<li><p>Suppose <span class="math inline">(Y,Y^2,\dots,Y^r)</span> has finite covariance <span class="math inline">\Sigma</span>, then the multivariate <span class="orange">central limit theorem</span> implies that as <span class="math inline">n\rightarrow \infty</span> <span class="math display">
-\sqrt{n}\{m - \mu(\theta)\} \overset{d}{\longrightarrow} Z, \qquad Z\sim N_k(0, \Sigma),
-</span> where <span class="math inline">m = (m_1,\dots,m_k)</span> and <span class="math inline">\mu(\theta) = (\mu_1(\theta),\dots,\mu_k(\theta))</span>.</p></li>
-<li><p>Suppose also that <span class="math inline">\mu(\theta)</span> is a <span class="blue">one-to-one</span> mapping and let <span class="math inline">g(\mu)</span> be the inverse of <span class="math inline">\mu(\theta)</span>, that is <span class="math inline">g = \mu^{-1}</span>. We assume that <span class="math inline">g</span> has <span class="blue">differentiable</span> components <span class="math inline">g_r(\cdot)</span> for <span class="math inline">r = 1,\dots,k</span>.</p></li>
+<li><p>Suppose <span class="math inline">(Y,Y^2,\dots,Y^p)</span> has finite covariance <span class="math inline">\Sigma</span>, then the multivariate <span class="orange">central limit theorem</span> implies that as <span class="math inline">n\rightarrow \infty</span> <span class="math display">
+\sqrt{n}\{m - \mu(\theta)\} \overset{d}{\longrightarrow} Z, \qquad Z\sim N_p(0, \Sigma),
+</span> where <span class="math inline">m = (m_1,\dots,m_p)</span> and <span class="math inline">\mu(\theta) = (\mu_1(\theta),\dots,\mu_p(\theta))</span>.</p></li>
+<li><p>Suppose also that <span class="math inline">\mu(\theta)</span> is a <span class="blue">one-to-one</span> mapping and let <span class="math inline">g(\mu)</span> be the inverse of <span class="math inline">\mu(\theta)</span>, that is <span class="math inline">g = \mu^{-1}</span>. We assume that <span class="math inline">g</span> has <span class="blue">differentiable</span> components <span class="math inline">g_r(\cdot)</span> for <span class="math inline">r = 1,\dots,p</span>.</p></li>
 <li><p>The moments estimator can be written as <span class="math inline">\hat{\theta} = g(m)</span> and <span class="math inline">\theta = g(\mu(\theta))</span>. Then, as a consequence of the <span class="orange">delta method</span> the following general result holds: <span class="math display">
-\sqrt{n}(\hat{\theta} - \theta) \overset{d}{\longrightarrow} Z, \qquad Z\sim N_k\left(0, D \Sigma D^T\right),
-</span> where <span class="math inline">D = [d_{rr'}]</span> is a <span class="math inline">k \times k</span> matrix whose entries are the derivatives <span class="math inline">d_{rr'} = \partial g_r(\mu)/\partial \mu_{r'}</span>.</p></li>
+\sqrt{n}(\hat{\theta} - \theta) \overset{d}{\longrightarrow} Z, \qquad Z\sim N_p\left(0, D \Sigma D^T\right),
+</span> where <span class="math inline">D = [d_{rr'}]</span> is a <span class="math inline">p \times p</span> matrix whose entries are the derivatives <span class="math inline">d_{rr'} = \partial g_r(\mu)/\partial \mu_{r'}</span>.</p></li>
 </ul>
 
 <div class="no-row-height column-margin column-container"><div class="margin-aside">
@@ -353,23 +359,23 @@ L(\lambda) = \prod_{i=1}^n \frac{e^{-\lambda} \lambda^{y_i}}{y_i!}.
 <section id="m-estimators" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="m-estimators">M-estimators</h2>
 <ul>
-<li>M- and Z- estimators are broad class of estimators that encompass the maximum likelihood (iid observations) and the methods of moments as special cases. <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></li>
+<li>M- and Z- estimators are broad class of estimators that encompass the maximum likelihood (iid observations) and other popular methods as special cases. <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></li>
 </ul>
-<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;A detailed discussion is offered in <span class="citation" data-cites="vandervaart1998">van der Vaart (<a href="#ref-vandervaart1998" role="doc-biblioref">1998</a>)</span>, Chap. 5.</p></div></div><div class="callout callout-style-simple callout-note no-icon">
+<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;See Exercise 10.28 of <span class="citation" data-cites="Casella2002">Casella and Berger (<a href="#ref-Casella2002" role="doc-biblioref">2002</a>)</span>.</p></div></div><div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-body-container">
 <p>An <span class="blue">M-estimator</span> is the <span class="orange">maximizer</span> over <span class="math inline">\Theta</span> of a function <span class="math inline">M(\theta) : \Theta \rightarrow \mathbb{R}</span> of the type: <span class="math display">
-M(\theta) = \frac{1}{n}\sum_{i=1}^n m(Y_i; \theta),
-</span> where <span class="math inline">m(y; \theta) : \mathcal{Y}\rightarrow \mathbb{R}</span> are known functions.</p>
+M(\theta) = \frac{1}{n}\sum_{i=1}^n m(\theta; Y_i),
+</span> where <span class="math inline">m(\theta; Y_i)</span> are known real-valued functions.</p>
 </div>
 </div>
 </div>
 <ul>
-<li><p><span class="orange">Remark I</span>: when <span class="math inline">m(y; \theta) = \log{f(Y_i; \theta)}</span> this coincides with the MLE of a model with iid observations.</p></li>
-<li><p>The term <span class="math inline">1/n</span> is included to facilitate the description of the subsequent asymptotic theory, but it obviously irrelevant.</p></li>
+<li><p><span class="orange">Remark</span>: when <span class="math inline">m(\theta; y) = \log{f(Y_i; \theta)}</span> this coincides with the MLE of a model with iid observations.</p></li>
+<li><p>The term <span class="math inline">1/n</span> is included here to facilitate the description of the subsequent asymptotic theory, but it is obviously non influential.</p></li>
 </ul>
 </section>
 <section id="z-estimators" class="level2">
@@ -380,23 +386,85 @@ M(\theta) = \frac{1}{n}\sum_{i=1}^n m(Y_i; \theta),
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>A <span class="blue">Z-estimator</span> is the <span class="orange">solution</span> over <span class="math inline">\Theta</span> of a system of equations function <span class="math inline">\Psi(\theta) = 0</span> of the type: <span class="math display">
-\Psi(\theta) = \frac{1}{n}\sum_{i=1}^n \psi(Y_i; \theta) = 0,
-</span> where <span class="math inline">\Psi(y; \theta) : \mathcal{Y}\rightarrow \mathbb{R}</span> are known functions.</p>
+<p>A <span class="blue">Z-estimator</span> is the <span class="orange">solution</span> over <span class="math inline">\Theta</span> of a system of equations function <span class="math inline">Q(\theta) = \bm{0}</span> of the type: <span class="math display">
+Q(\theta) = Q(\theta; Y) = \frac{1}{n}\sum_{i=1}^n q(\theta; Y_i) = \bm{0},
+</span> where <span class="math inline">q(y; \theta)</span> are known vector-valued maps.</p>
 </div>
 </div>
 </div>
+<ul>
+<li><p>When <span class="math inline">\theta = (\theta_1,\dots,\theta_p)</span>, <span class="math inline">Q</span> and <span class="math inline">q</span> typically have <span class="math inline">p</span> coordinate functions, namely we consider: <span class="math display">
+Q_r(\theta) = \frac{1}{n}\sum_{i=1}^n q_r(\theta; Y_i)= 0, \qquad r = 1,\dots,p.
+</span> These are called <span class="blue">estimating equations</span>.</p></li>
+<li><p>In many examples <span class="math inline">q_r(y; \theta)</span> are the partial derivatives of a function <span class="math inline">m(\theta; y)</span>, that is <span class="math display">
+Q(\theta) = \frac{\partial}{\partial \theta} M(\theta).</span> An example is the <span class="blue">score function</span> <span class="math inline">\ell^*(\theta)</span>. However, this is <span class="orange">not always the case</span>.</p></li>
+</ul>
 <!-- ## Plug-in estimators -->
 </section>
-<section id="huber-estimators" class="level2">
-<h2 class="anchored" data-anchor-id="huber-estimators">Huber estimators</h2>
+<section id="location-estimators-i" class="level2">
+<h2 class="anchored" data-anchor-id="location-estimators-i">Location estimators I</h2>
+<ul>
+<li><p>The <span class="orange">location</span> of a r.v. <span class="math inline">Y</span> is a vague term that can be made precise by defining it as the expectation <span class="math inline">\mathbb{E}(Y)</span>, a quantile, or the center of symmetry, as in the following example.</p></li>
+<li><p>Let <span class="math inline">Y_1,\dots,Y_n</span> be a iid sample of real-valued random variables belonging to family of distributions <span class="math inline">\mathcal{F}</span> defined as <span class="math display">
+\mathcal{F} = \{f(y - \theta) : \theta \in \Theta \subseteq \mathbb{R} \},
+</span> for some unknown density <span class="math inline">f(y)</span> <span class="blue">symmetric</span> around <span class="math inline">0</span>. The parameter <span class="math inline">\theta</span> is the <span class="orange">location</span>.</p></li>
+<li><p>Classical M- and Z- estimators for <span class="math inline">\theta</span> are the <span class="blue">mean</span> and the <span class="orange">median</span>, maximizing: <span class="math display">
+-\frac{1}{n}\sum_{i=1}^n (Y_i - \theta)^2, \quad (\text{Mean}) \qquad \qquad - \frac{1}{n}\sum_{i=1}^n |Y_i - \theta|, \quad (\text{Median})
+</span> or alternatively solving the equations <span class="math display">
+\frac{1}{n}\sum_{i=1}^n (Y_i - \theta) = 0, \quad (\text{Mean}) \qquad \qquad \frac{1}{n}\sum_{i=1}^n \text{sign}(Y_i - \theta) = 0, \quad (\text{Median}).
+</span></p></li>
+</ul>
 </section>
+<section id="location-estimators-ii" class="level2">
+<h2 class="anchored" data-anchor-id="location-estimators-ii">Location estimators II</h2>
+<ul>
+<li><p>Both estimating equations involve functions of the form <span class="math inline">q(\theta; Y) = q(Y - \theta)</span> that are <span class="blue">monotone</span> and <span class="orange">odd</span> around zero.</p></li>
+<li><p>It is hence reasonable to study estimating equations of the type:<span class="math display">
+Q(\theta) = \frac{1}{n}\sum_{i=1}^n q(Y_i - \theta)= 0.
+</span></p></li>
+<li><p>This class of estimators has an appealing <span class="orange">equivariance</span> property. If the observations <span class="math inline">Y_i</span> are shifted by a fixed amount <span class="math inline">\alpha</span>, then so is the estimate: <span class="math display">
+\hat{\theta} + \alpha \quad \text{ solves } \quad Q(\theta) = \frac{1}{n}\sum_{i=1}^n q(Y_i + \alpha - \theta)= 0,
+</span> if <span class="math inline">\hat{\theta}</span> solves the original equation.</p></li>
+</ul>
+</section>
+<section id="huber-estimators" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="huber-estimators">Huber estimators</h2>
+<ul>
+<li><p>A notable class are <span class="blue">Huber estimators</span>, that can be regarded as a compromise between the mean and the median, maximizing the following function: <span class="math display">
+M(\theta) = \frac{1}{n}\sum_{i=1}^n m(Y_i - \theta), \qquad m(y) = \begin{cases}\frac{1}{2}y^2 \quad &amp;\text{ if } |y| \le k\\
+k |y| - \frac{1}{2}k^2 \quad &amp;\text{ if } |y| \ge k
+\end{cases}
+</span> where <span class="math inline">k &gt; 0</span> is a <span class="orange">tuning</span> parameter. The function <span class="math inline">m(y)</span> is continuous and differentiable<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>. The choice <span class="math inline">k \rightarrow 0</span> leads to the median, whereas for <span class="math inline">k \rightarrow \infty</span> we get the mean.</p></li>
+<li><p>Alternatively, we can define Huber estimators as the solution of the following estimating equation: <span class="math display">
+Q(\theta) = \frac{1}{n}\sum_{i=1}^n q(Y_i - \theta)= 0, \qquad q(y) = \begin{cases} -k \quad &amp;\text{ if }\: y \le -k\\
+y \quad &amp;\text{ if  }\: |y| \le k \\
+k \quad &amp;\text{ if }\: y \ge k\end{cases}
+</span></p></li>
+<li><p>Unfortunately, there is no closed-form expression and the equation must be solved numerically.</p></li>
+</ul>
+<div class="no-row-height column-margin column-container"><div id="fn2"><p><sup>2</sup>&nbsp;See Exercise 10.28 of <span class="citation" data-cites="Casella2002">Casella and Berger (<a href="#ref-Casella2002" role="doc-biblioref">2002</a>)</span>.</p></div></div></section>
 <section id="bayesian-estimators" class="level2">
 <h2 class="anchored" data-anchor-id="bayesian-estimators">Bayesian estimators</h2>
+<ul>
+<li><p>Bayesian estimators are obtained following <span class="orange">different inferential paradigm</span> than the one considered here, but they also have <span class="blue">appealing frequentist properties</span>.</p></li>
+<li><p>Let <span class="math inline">L(\theta; \bm{y})</span> be the likelihood function and let <span class="math inline">\pi(\theta)</span> be the <span class="orange">prior</span> distribution. Then, Bayesian inference relies on the <span class="blue">posterior</span> distribution, obtained as <span class="math display">
+\pi(\theta \mid \bm{y}) = \frac{\pi(\theta) L(\theta; \bm{y})}{\int_\Theta \pi(\theta) L(\theta; \bm{y}) \mathrm{d}\theta}.
+</span></p></li>
+<li><p>For reasons that will be soon clarified, under certain hypothesis the <span class="blue">posterior mean</span> is an <span class="orange">optimal Bayesian estimator</span>: <span class="math display">
+\hat{\theta}_\text{Bayes} = \mathbb{E}(\theta \mid \bm{y}) = \frac{\int_\Theta \theta \: \pi(\theta) L(\theta; \bm{y}) \mathrm{d}\theta}{\int_\Theta \pi(\theta) L(\theta; \bm{y}) \mathrm{d}\theta},
+</span> which is, unfortunately, not always available in closed-form.</p></li>
+<li><p>Other “optimal” Bayesian estimators include e.g.&nbsp;the posterior median.</p></li>
+</ul>
+</section>
+<section id="another-regular-and-very-simple-example" class="level2">
+<h2 class="anchored" data-anchor-id="another-regular-and-very-simple-example">✏ Another regular (and very simple) example</h2>
 </section>
 </section>
 <section id="methods-of-evaluating-estimators" class="level1">
 <h1>Methods of evaluating estimators</h1>
+<section id="comparing-estimators" class="level2">
+<h2 class="anchored" data-anchor-id="comparing-estimators">Comparing estimators</h2>
+</section>
 </section>
 <section id="best-unbiased-estimators" class="level1">
 <h1>Best unbiased estimators</h1>
