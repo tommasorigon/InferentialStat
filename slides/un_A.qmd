@@ -1124,7 +1124,7 @@ Is there a value of $a$ such that $\text{var}_\lambda(\hat{\lambda}_a) \leq \tex
 asdasd
 :::
 
-## Bartlett identity 📖
+## Bartlett identities 📖
 
 ## Cramer-Rao: iid case 📖
 
