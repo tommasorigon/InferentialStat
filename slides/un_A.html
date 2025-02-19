@@ -160,17 +160,21 @@ window.Quarto = {
   <li><a href="#example-mse-of-binomial-estimators-minimax" id="toc-example-mse-of-binomial-estimators-minimax" class="nav-link" data-scroll-target="#example-mse-of-binomial-estimators-minimax">Example: MSE of binomial estimators (minimax)</a></li>
   <li><a href="#minimax-and-bayesian-estimators" id="toc-minimax-and-bayesian-estimators" class="nav-link" data-scroll-target="#minimax-and-bayesian-estimators">Minimax and Bayesian estimators 📖</a></li>
   </ul></li>
-  <li><a href="#best-unbiased-estimators" id="toc-best-unbiased-estimators" class="nav-link" data-scroll-target="#best-unbiased-estimators">Best unbiased estimators</a>
+  <li><a href="#unbiasedness" id="toc-unbiasedness" class="nav-link" data-scroll-target="#unbiasedness">Unbiasedness</a>
   <ul class="collapse">
   <li><a href="#unbiased-estimators" id="toc-unbiased-estimators" class="nav-link" data-scroll-target="#unbiased-estimators">Unbiased estimators</a></li>
   <li><a href="#nonexistence-of-unbiased-estimators" id="toc-nonexistence-of-unbiased-estimators" class="nav-link" data-scroll-target="#nonexistence-of-unbiased-estimators">Nonexistence of unbiased estimators</a></li>
   <li><a href="#bayesian-estimators-and-unbiasedness" id="toc-bayesian-estimators-and-unbiasedness" class="nav-link" data-scroll-target="#bayesian-estimators-and-unbiasedness">Bayesian estimators and unbiasedness 📖</a></li>
   <li><a href="#example-poisson-unbiased-estimation" id="toc-example-poisson-unbiased-estimation" class="nav-link" data-scroll-target="#example-poisson-unbiased-estimation">Example: Poisson unbiased estimation</a></li>
+  <li><a href="#umvu-estimators" id="toc-umvu-estimators" class="nav-link" data-scroll-target="#umvu-estimators">UMVU estimators</a></li>
   <li><a href="#cramer-rao-inequality" id="toc-cramer-rao-inequality" class="nav-link" data-scroll-target="#cramer-rao-inequality">Cramer-Rao inequality 📖</a></li>
   <li><a href="#bartlett-identities" id="toc-bartlett-identities" class="nav-link" data-scroll-target="#bartlett-identities">Bartlett identities 📖</a></li>
   <li><a href="#cramer-rao-iid-case" id="toc-cramer-rao-iid-case" class="nav-link" data-scroll-target="#cramer-rao-iid-case">Cramer-Rao: iid case 📖</a></li>
   <li><a href="#example-poisson-unbiased-estimation-1" id="toc-example-poisson-unbiased-estimation-1" class="nav-link" data-scroll-target="#example-poisson-unbiased-estimation-1">Example: Poisson unbiased estimation 📖</a></li>
   <li><a href="#rao-blackwell" id="toc-rao-blackwell" class="nav-link" data-scroll-target="#rao-blackwell">Rao-Blackwell</a></li>
+  <li><a href="#unbiased-estimating-equations" id="toc-unbiased-estimating-equations" class="nav-link" data-scroll-target="#unbiased-estimating-equations">Unbiased estimating equations</a></li>
+  <li><a href="#godambe-efficiency" id="toc-godambe-efficiency" class="nav-link" data-scroll-target="#godambe-efficiency">Godambe efficiency</a></li>
+  <li><a href="#blue-estimators" id="toc-blue-estimators" class="nav-link" data-scroll-target="#blue-estimators">BLUE estimators</a></li>
   </ul></li>
   <li><a href="#asymptotic-evaluations" id="toc-asymptotic-evaluations" class="nav-link" data-scroll-target="#asymptotic-evaluations">Asymptotic evaluations</a>
   <ul class="collapse">
@@ -1115,8 +1119,8 @@ r(\pi, \hat{\theta}_\text{Bayes}) = \sup_\theta R(\theta; \hat{\theta}_\text{Bay
 </ul>
 </section>
 </section>
-<section id="best-unbiased-estimators" class="level1 page-columns page-full">
-<h1>Best unbiased estimators</h1>
+<section id="unbiasedness" class="level1 page-columns page-full">
+<h1>Unbiasedness</h1>
 <section id="unbiased-estimators" class="level2">
 <h2 class="anchored" data-anchor-id="unbiased-estimators">Unbiased estimators</h2>
 <div class="callout callout-style-simple callout-note no-icon callout-titled">
@@ -1200,6 +1204,22 @@ r(\pi, \hat{\theta}_\text{Bayes}) = 0.
 </span> Is there a value of <span class="math inline">a</span> such that <span class="math inline">\text{var}_\lambda(\hat{\lambda}_a) \leq \text{var}_\lambda(\bar{Y})</span>? What about other unbiased estimators?</p></li>
 </ul>
 <div class="no-row-height column-margin column-container"><div id="fn11"><p><sup>11</sup>&nbsp;These are a basic and well-known results of inferential statistics. See Theorem 5.2.6 in <span class="citation" data-cites="Casella2002">Casella and Berger (<a href="#ref-Casella2002" role="doc-biblioref">2002</a>)</span>.</p></div></div></section>
+<section id="umvu-estimators" class="level2">
+<h2 class="anchored" data-anchor-id="umvu-estimators">UMVU estimators</h2>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+UMVU estimator
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>asdasd</p>
+</div>
+</div>
+</section>
 <section id="cramer-rao-inequality" class="level2">
 <h2 class="anchored" data-anchor-id="cramer-rao-inequality">Cramer-Rao inequality 📖</h2>
 <ul>
@@ -1230,6 +1250,15 @@ Theorem (Cramer-Rao)
 </section>
 <section id="rao-blackwell" class="level2">
 <h2 class="anchored" data-anchor-id="rao-blackwell">Rao-Blackwell</h2>
+</section>
+<section id="unbiased-estimating-equations" class="level2">
+<h2 class="anchored" data-anchor-id="unbiased-estimating-equations">Unbiased estimating equations</h2>
+</section>
+<section id="godambe-efficiency" class="level2">
+<h2 class="anchored" data-anchor-id="godambe-efficiency">Godambe efficiency</h2>
+</section>
+<section id="blue-estimators" class="level2">
+<h2 class="anchored" data-anchor-id="blue-estimators">BLUE estimators</h2>
 </section>
 </section>
 <section id="asymptotic-evaluations" class="level1">

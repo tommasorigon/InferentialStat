@@ -1040,7 +1040,7 @@ then:
 
 - More generally, if an [admissible estimator]{.blue} has [constant risk]{.orange}, is the unique [minimax]{.orange} estimator (@Robert1994, Proposition 2.4.21). 
 
-# Best unbiased estimators
+# Unbiasedness
 
 ## Unbiased estimators
 
@@ -1115,6 +1115,14 @@ Is there a value of $a$ such that $\text{var}_\lambda(\hat{\lambda}_a) \leq \tex
 
 [^mean_variance]: These are a basic and well-known results of inferential statistics. See Theorem 5.2.6 in @Casella2002.
 
+## UMVU estimators
+
+:::callout-note
+#### UMVU estimator
+
+asdasd
+::::
+
 ## Cramer-Rao inequality 📖
 
 - The Cramer-Rao theorem establishes a [lower bound]{.blue} for the variance of an estimator. Thus, if the variance of an unbiased estimator attains the lower bound for all $\theta$, then it is [optimal]{.orange}.
@@ -1132,6 +1140,11 @@ asdasd
 
 ## Rao-Blackwell
 
+## Unbiased estimating equations
+
+## Godambe efficiency
+
+## BLUE estimators
 
 # Asymptotic evaluations
 
