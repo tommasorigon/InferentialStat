@@ -1146,9 +1146,9 @@ The estimator $\hat{\theta}$ is also called [uniform minimum variance unbiased e
 
 ::: callout-warning
 #### Theorem (Cramér-Rao, Theorem 7.3.9 in @Casella2002)
-Let $Y_1,\dots,Y_n$ be a sample from a joint probability measure $f(\mathrm{d}\bm{y} \mid \theta)$ and let $\Theta = \mathbb{R}$. Moreover, let $\hat{\theta}(\bm{Y})$ be an estimator of $\theta$ satisfying
+Let $Y_1,\dots,Y_n$ be a sample from a joint probability measure $f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y})$ and let $\Theta = \mathbb{R}$. Moreover, let $\hat{\theta}(\bm{Y})$ be an estimator of $\theta$ satisfying
 $$
-1 + b^*(\theta) := \frac{\partial}{\partial \theta}\int \hat{\theta}(\bm{y})f(\mathrm{d}\bm{y} \mid \theta) = \int \frac{\partial}{\partial \theta} \hat{\theta}(\bm{y})f(\mathrm{d}\bm{y} \mid \theta),
+1 + b^*(\theta) := \frac{\partial}{\partial \theta}\int \hat{\theta}(\bm{y})f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y}) = \int \frac{\partial}{\partial \theta} \hat{\theta}(\bm{y})f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y}),
 $$
 and with finite variance $\text{var}(\hat{\theta}(\bm{Y})) < \infty$. Then
 $$
@@ -1181,8 +1181,8 @@ If $W(\bm{Y})$ is an unbiased estimator of a [transformation]{.blue} $g(\theta)$
 
 :::callout-warning
 #### First Bartlett identity
-Let $Y_1,\dots,Y_n$ be a sample from a joint probability measure $f(\mathrm{d}\bm{y} \mid \theta)$ and let $\Theta = \mathbb{R}$. If we can interchange derivation and integration, namely
-$$\frac{\partial}{\partial \theta}\int f(\mathrm{d}\bm{y} \mid \theta) = \int \frac{\partial}{\partial \theta} f(\mathrm{d}\bm{y} \mid \theta),
+Let $Y_1,\dots,Y_n$ be a sample from a joint probability measure $f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y})$ and let $\Theta = \mathbb{R}$. If we can interchange derivation and integration, namely
+$$\frac{\partial}{\partial \theta}\int f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y}) = \int \frac{\partial}{\partial \theta} f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y}), \tag{C.1}
 $$
 then 
 $$
@@ -1196,17 +1196,30 @@ $$
 
 :::callout-warning
 #### Second Bartlett identity
-Let $Y_1,\dots,Y_n$ be a sample from a joint probability measure $f(\mathrm{d}\bm{y} \mid \theta)$ and let $\Theta = \mathbb{R}$. If we can interchange [twice]{.orange} derivation and integration
-$$\frac{\partial}{\partial \theta}\int f(\mathrm{d}\bm{y} \mid \theta) = \int \frac{\partial}{\partial \theta} f(\mathrm{d}\bm{y} \mid \theta),
+Let $Y_1,\dots,Y_n$ be a sample from a joint probability measure $f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y})$ and let $\Theta = \mathbb{R}$. If we can interchange [twice]{.orange} derivation and integration, namely
 $$
-and
+\frac{\partial}{\partial \theta}\int f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y}) = \int \frac{\partial}{\partial \theta} f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y}), \tag{C.1}
 $$
-\frac{\partial}{\partial \theta}\int f(\mathrm{d}\bm{y} \mid \theta) = \int \frac{\partial}{\partial \theta} f(\mathrm{d}\bm{y} \mid \theta),
+$$
+\frac{\partial^2}{\partial \theta^2}\int f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y}) = \int \frac{\partial^2}{\partial \theta^2}f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y}), \tag{C.2}
 $$
 then
+$$
+I(\theta) = \mathbb{E}_\theta(\ell^*(\theta)^2) =\text{var}_\theta(\ell^*(\theta))= \mathbb{E}_\theta\left(\frac{\partial^2}{\partial \theta^2}\ell(\theta)\right).
+$$
 :::
 
+- Both conditions are true in [regular exponential]{.orange} families. This also clarifies that, in regular models, Fisher information relates to the [curvature]{.blue} of the log-likelihood. 
+
 ## Cramér-Rao: iid and regular case 📖
+
+::: callout-warning
+#### Theorem (Cramér-Rao, simplified)
+Let $Y_1,\dots,Y_n$ be a iid sample from $f(y \mid \theta)\mathrm{d}y$ satisfying conditions C.1 and C.2, and let $\Theta = \mathbb{R}$. Moreover, let $\hat{\theta}(\bm{Y})$ be an [unbiased]{.orange} estimator of $\theta$  with finite variance $\text{var}(\hat{\theta}(\bm{Y})) < \infty$. Then
+$$
+\text{var}(\hat{\theta}(\bm{Y})) \ge \frac{1}{I(\theta)}.
+$$
+:::
 
 ## Example: Poisson unbiased estimation 📖
 

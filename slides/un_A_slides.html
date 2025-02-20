@@ -1304,8 +1304,8 @@ r(\pi, \hat{\theta}_\text{Bayes}) = 0.
 <p><strong>Theorem (Cramér-Rao, Theorem 7.3.9 in <span class="citation" data-cites="Casella2002">Casella and Berger (<a href="#/references" role="doc-biblioref" onclick="">2002</a>)</span>)</strong></p>
 </div>
 <div class="callout-content">
-<p>Let <span class="math inline">Y_1,\dots,Y_n</span> be a sample from a joint probability measure <span class="math inline">f(\mathrm{d}\bm{y} \mid \theta)</span> and let <span class="math inline">\Theta = \mathbb{R}</span>. Moreover, let <span class="math inline">\hat{\theta}(\bm{Y})</span> be an estimator of <span class="math inline">\theta</span> satisfying <span class="math display">
-1 + b^*(\theta) := \frac{\partial}{\partial \theta}\int \hat{\theta}(\bm{y})f(\mathrm{d}\bm{y} \mid \theta) = \int \frac{\partial}{\partial \theta} \hat{\theta}(\bm{y})f(\mathrm{d}\bm{y} \mid \theta),
+<p>Let <span class="math inline">Y_1,\dots,Y_n</span> be a sample from a joint probability measure <span class="math inline">f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y})</span> and let <span class="math inline">\Theta = \mathbb{R}</span>. Moreover, let <span class="math inline">\hat{\theta}(\bm{Y})</span> be an estimator of <span class="math inline">\theta</span> satisfying <span class="math display">
+1 + b^*(\theta) := \frac{\partial}{\partial \theta}\int \hat{\theta}(\bm{y})f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y}) = \int \frac{\partial}{\partial \theta} \hat{\theta}(\bm{y})f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y}),
 </span> and with finite variance <span class="math inline">\text{var}(\hat{\theta}(\bm{Y})) &lt; \infty</span>. Then <span class="math display">
 \text{var}(\hat{\theta}(\bm{Y})) \ge \frac{[1 + b^*(\theta)]^2}{\mathbb{E}_\theta(\ell^*(\theta)^2)}.
 </span> Moreover, if <span class="math inline">\hat{\theta}</span> is an <span class="orange">unbiased</span> estimator for <span class="math inline">\theta</span>, then <span class="math inline">b^*(\theta) = 0</span> and <span class="math inline">\text{var}(\hat{\theta}(\bm{Y})) \ge 1/\mathbb{E}_\theta(l^*(\theta)^2)</span> .</p>
@@ -1346,7 +1346,7 @@ I(\theta) := \mathbb{E}_\theta(\ell^*(\theta)^2),
 <p><strong>First Bartlett identity</strong></p>
 </div>
 <div class="callout-content">
-<p>Let <span class="math inline">Y_1,\dots,Y_n</span> be a sample from a joint probability measure <span class="math inline">f(\mathrm{d}\bm{y} \mid \theta)</span> and let <span class="math inline">\Theta = \mathbb{R}</span>. If we can interchange derivation and integration, namely <span class="math display">\frac{\partial}{\partial \theta}\int f(\mathrm{d}\bm{y} \mid \theta) = \int \frac{\partial}{\partial \theta} f(\mathrm{d}\bm{y} \mid \theta),
+<p>Let <span class="math inline">Y_1,\dots,Y_n</span> be a sample from a joint probability measure <span class="math inline">f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y})</span> and let <span class="math inline">\Theta = \mathbb{R}</span>. If we can interchange derivation and integration, namely <span class="math display">\frac{\partial}{\partial \theta}\int f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y}) = \int \frac{\partial}{\partial \theta} f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y}), \tag{C.1}
 </span> then <span class="math display">
 \mathbb{E}_\theta(\ell^*(\theta)) = 0,\qquad \text{implying}\qquad  I(\theta) = \mathbb{E}_\theta(\ell^*(\theta)^2) = \text{var}_\theta(\ell^*(\theta)).
 </span></p>
@@ -1365,16 +1365,34 @@ I(\theta) := \mathbb{E}_\theta(\ell^*(\theta)^2),
 <p><strong>Second Bartlett identity</strong></p>
 </div>
 <div class="callout-content">
-<p>Let <span class="math inline">Y_1,\dots,Y_n</span> be a sample from a joint probability measure <span class="math inline">f(\mathrm{d}\bm{y} \mid \theta)</span> and let <span class="math inline">\Theta = \mathbb{R}</span>. If we can interchange <span class="orange">twice</span> derivation and integration <span class="math display">\frac{\partial}{\partial \theta}\int f(\mathrm{d}\bm{y} \mid \theta) = \int \frac{\partial}{\partial \theta} f(\mathrm{d}\bm{y} \mid \theta),
-</span> and <span class="math display">
-\frac{\partial}{\partial \theta}\int f(\mathrm{d}\bm{y} \mid \theta) = \int \frac{\partial}{\partial \theta} f(\mathrm{d}\bm{y} \mid \theta),
-</span> then</p>
+<p>Let <span class="math inline">Y_1,\dots,Y_n</span> be a sample from a joint probability measure <span class="math inline">f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y})</span> and let <span class="math inline">\Theta = \mathbb{R}</span>. If we can interchange <span class="orange">twice</span> derivation and integration, namely <span class="math display">
+\frac{\partial}{\partial \theta}\int f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y}) = \int \frac{\partial}{\partial \theta} f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y}), \tag{C.1}
+</span> <span class="math display">
+\frac{\partial^2}{\partial \theta^2}\int f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y}) = \int \frac{\partial^2}{\partial \theta^2}f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y}), \tag{C.2}
+</span> then <span class="math display">
+I(\theta) = \mathbb{E}_\theta(\ell^*(\theta)^2) =\text{var}_\theta(\ell^*(\theta))= \mathbb{E}_\theta\left(\frac{\partial^2}{\partial \theta^2}\ell(\theta)\right).
+</span></p>
 </div>
 </div>
 </div>
+<ul>
+<li>Both conditions are true in <span class="orange">regular exponential</span> families. This also clarifies that, in regular models, Fisher information relates to the <span class="blue">curvature</span> of the log-likelihood.</li>
+</ul>
 </section>
 <section id="cramér-rao-iid-and-regular-case" class="slide level2 center">
 <h2>Cramér-Rao: iid and regular case 📖</h2>
+<div class="callout callout-warning no-icon callout-titled callout-style-simple">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Theorem (Cramér-Rao, simplified)</strong></p>
+</div>
+<div class="callout-content">
+<p>Let <span class="math inline">Y_1,\dots,Y_n</span> be a iid sample from <span class="math inline">f(y \mid \theta)\mathrm{d}y</span> satisfying conditions C.1 and C.2, and let <span class="math inline">\Theta = \mathbb{R}</span>. Moreover, let <span class="math inline">\hat{\theta}(\bm{Y})</span> be an <span class="orange">unbiased</span> estimator of <span class="math inline">\theta</span> with finite variance <span class="math inline">\text{var}(\hat{\theta}(\bm{Y})) &lt; \infty</span>. Then <span class="math display">
+\text{var}(\hat{\theta}(\bm{Y})) \ge \frac{1}{I(\theta)}.
+</span></p>
+</div>
+</div>
+</div>
 </section>
 <section id="example-poisson-unbiased-estimation-1" class="slide level2 center">
 <h2>Example: Poisson unbiased estimation 📖</h2>

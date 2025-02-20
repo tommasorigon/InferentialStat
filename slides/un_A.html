@@ -169,7 +169,8 @@ window.Quarto = {
   <li><a href="#umvu-estimators" id="toc-umvu-estimators" class="nav-link" data-scroll-target="#umvu-estimators">UMVU estimators</a></li>
   <li><a href="#cramér-rao-inequality" id="toc-cramér-rao-inequality" class="nav-link" data-scroll-target="#cramér-rao-inequality">Cramér-Rao inequality 📖</a></li>
   <li><a href="#cramér-rao-considerations" id="toc-cramér-rao-considerations" class="nav-link" data-scroll-target="#cramér-rao-considerations">Cramér-Rao: considerations</a></li>
-  <li><a href="#bartlett-identities" id="toc-bartlett-identities" class="nav-link" data-scroll-target="#bartlett-identities">Bartlett identities 📖</a></li>
+  <li><a href="#bartlett-identities-i" id="toc-bartlett-identities-i" class="nav-link" data-scroll-target="#bartlett-identities-i">Bartlett identities I 📖</a></li>
+  <li><a href="#bartlett-identities-ii" id="toc-bartlett-identities-ii" class="nav-link" data-scroll-target="#bartlett-identities-ii">Bartlett identities II 📖</a></li>
   <li><a href="#cramér-rao-iid-and-regular-case" id="toc-cramér-rao-iid-and-regular-case" class="nav-link" data-scroll-target="#cramér-rao-iid-and-regular-case">Cramér-Rao: iid and regular case 📖</a></li>
   <li><a href="#example-poisson-unbiased-estimation-1" id="toc-example-poisson-unbiased-estimation-1" class="nav-link" data-scroll-target="#example-poisson-unbiased-estimation-1">Example: Poisson unbiased estimation 📖</a></li>
   <li><a href="#cramér-rao-miscellanea" id="toc-cramér-rao-miscellanea" class="nav-link" data-scroll-target="#cramér-rao-miscellanea">Cramér-Rao: miscellanea</a></li>
@@ -1259,11 +1260,11 @@ Theorem (Cramér-Rao, Theorem 7.3.9 in <span class="citation" data-cites="Casell
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Let <span class="math inline">Y_1,\dots,Y_n</span> be a sample from a joint probability measure <span class="math inline">f(\mathrm{d}\bm{y} \mid \theta)</span> and let <span class="math inline">\Theta = \mathbb{R}</span>. Moreover, let <span class="math inline">\hat{\theta}(\bm{Y})</span> be an estimator of <span class="math inline">\theta</span> satisfying <span class="math display">
-b^*(\theta) := \frac{\partial}{\partial \theta}\int \hat{\theta}(\bm{y})f(\mathrm{d}\bm{y} \mid \theta) = \int \frac{\partial}{\partial \theta} \hat{\theta}(\bm{y})f(\mathrm{d}\bm{y} \mid \theta),
+<p>Let <span class="math inline">Y_1,\dots,Y_n</span> be a sample from a joint probability measure <span class="math inline">f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y})</span> and let <span class="math inline">\Theta = \mathbb{R}</span>. Moreover, let <span class="math inline">\hat{\theta}(\bm{Y})</span> be an estimator of <span class="math inline">\theta</span> satisfying <span class="math display">
+1 + b^*(\theta) := \frac{\partial}{\partial \theta}\int \hat{\theta}(\bm{y})f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y}) = \int \frac{\partial}{\partial \theta} \hat{\theta}(\bm{y})f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y}),
 </span> and with finite variance <span class="math inline">\text{var}(\hat{\theta}(\bm{Y})) &lt; \infty</span>. Then <span class="math display">
 \text{var}(\hat{\theta}(\bm{Y})) \ge \frac{[1 + b^*(\theta)]^2}{\mathbb{E}_\theta(\ell^*(\theta)^2)}.
-</span> Moreover, if <span class="math inline">\hat{\theta}</span> is an <span class="orange">unbiased</span> estimator for <span class="math inline">\theta</span>, then <span class="math inline">b^*(\theta) = 1</span> and <span class="math inline">\text{var}(\hat{\theta}(\bm{Y})) \ge 1/\mathbb{E}_\theta(l^*(\theta)^2)</span> .</p>
+</span> Moreover, if <span class="math inline">\hat{\theta}</span> is an <span class="orange">unbiased</span> estimator for <span class="math inline">\theta</span>, then <span class="math inline">b^*(\theta) = 0</span> and <span class="math inline">\text{var}(\hat{\theta}(\bm{Y})) \ge 1/\mathbb{E}_\theta(l^*(\theta)^2)</span> .</p>
 </div>
 </div>
 </section>
@@ -1293,13 +1294,13 @@ I(\theta) := \mathbb{E}_\theta(\ell^*(\theta)^2),
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>If <span class="math inline">W(\bm{Y})</span> is an unbiased estimator of a <span class="blue">transformation</span> <span class="math inline">g(\theta)</span>, then the Cramér-Rao theorem holds as stated, but the term <span class="math inline">\frac{\partial}{\partial \theta}\mathbb{E}_\theta(W(\bm{Y})) = b^*(\theta)</span> cannot be interpreted as the “bias”.</p>
+<p>If <span class="math inline">W(\bm{Y})</span> is an unbiased estimator of a <span class="blue">transformation</span> <span class="math inline">g(\theta)</span>, then the Cramér-Rao theorem holds as stated, but the term <span class="math inline">\frac{\partial}{\partial \theta}\mathbb{E}_\theta(W(\bm{Y})) = 1 + b^*(\theta)</span> is not related to the “bias”.</p>
 </div>
 </div>
 </div>
 </section>
-<section id="bartlett-identities" class="level2">
-<h2 class="anchored" data-anchor-id="bartlett-identities">Bartlett identities 📖</h2>
+<section id="bartlett-identities-i" class="level2">
+<h2 class="anchored" data-anchor-id="bartlett-identities-i">Bartlett identities I 📖</h2>
 <div class="callout callout-style-simple callout-warning no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1310,11 +1311,18 @@ First Bartlett identity
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>asd <span class="math display">
-\text{var}_\theta(\ell^*(\theta))
+<p>Let <span class="math inline">Y_1,\dots,Y_n</span> be a sample from a joint probability measure <span class="math inline">f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y})</span> and let <span class="math inline">\Theta = \mathbb{R}</span>. If we can interchange derivation and integration, namely <span class="math display">\frac{\partial}{\partial \theta}\int f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y}) = \int \frac{\partial}{\partial \theta} f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y}), \tag{C.1}
+</span> then <span class="math display">
+\mathbb{E}_\theta(\ell^*(\theta)) = 0,\qquad \text{implying}\qquad  I(\theta) = \mathbb{E}_\theta(\ell^*(\theta)^2) = \text{var}_\theta(\ell^*(\theta)).
 </span></p>
 </div>
 </div>
+<ul>
+<li>Thus, the regularity condition of Cramér-Rao implies that the score function <span class="math inline">\ell^*(\theta)</span> is un <span class="blue">unbiased estimating equation</span>. This result easily extends to the <span class="orange">vector case</span> <span class="math inline">\Theta = \mathbb{R}^p</span>.</li>
+</ul>
+</section>
+<section id="bartlett-identities-ii" class="level2">
+<h2 class="anchored" data-anchor-id="bartlett-identities-ii">Bartlett identities II 📖</h2>
 <div class="callout callout-style-simple callout-warning no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1325,12 +1333,36 @@ Second Bartlett identity
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>asd</p>
+<p>Let <span class="math inline">Y_1,\dots,Y_n</span> be a sample from a joint probability measure <span class="math inline">f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y})</span> and let <span class="math inline">\Theta = \mathbb{R}</span>. If we can interchange <span class="orange">twice</span> derivation and integration, namely <span class="math display">
+\frac{\partial}{\partial \theta}\int f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y}) = \int \frac{\partial}{\partial \theta} f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y}), \tag{C.1}
+</span> <span class="math display">
+\frac{\partial^2}{\partial \theta^2}\int f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y}) = \int \frac{\partial^2}{\partial \theta^2}f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y}), \tag{C.2}
+</span> then <span class="math display">
+I(\theta) = \mathbb{E}_\theta(\ell^*(\theta)^2) =\text{var}_\theta(\ell^*(\theta))= \mathbb{E}_\theta\left(\frac{\partial^2}{\partial \theta^2}\ell(\theta)\right).
+</span></p>
 </div>
 </div>
+<ul>
+<li>Both conditions are true in <span class="orange">regular exponential</span> families. This also clarifies that, in regular models, Fisher information relates to the <span class="blue">curvature</span> of the log-likelihood.</li>
+</ul>
 </section>
 <section id="cramér-rao-iid-and-regular-case" class="level2">
 <h2 class="anchored" data-anchor-id="cramér-rao-iid-and-regular-case">Cramér-Rao: iid and regular case 📖</h2>
+<div class="callout callout-style-simple callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Theorem (Cramér-Rao, simplified)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Let <span class="math inline">Y_1,\dots,Y_n</span> be a iid sample from <span class="math inline">f(y \mid \theta)\mathrm{d}y</span> satisfying conditions C.1 and C.2, and let <span class="math inline">\Theta = \mathbb{R}</span>. Moreover, let <span class="math inline">\hat{\theta}(\bm{Y})</span> be an <span class="orange">unbiased</span> estimator of <span class="math inline">\theta</span> with finite variance <span class="math inline">\text{var}(\hat{\theta}(\bm{Y})) &lt; \infty</span>. Then <span class="math display">
+\text{var}(\hat{\theta}(\bm{Y})) \ge \frac{1}{I(\theta)}.
+</span></p>
+</div>
+</div>
 </section>
 <section id="example-poisson-unbiased-estimation-1" class="level2">
 <h2 class="anchored" data-anchor-id="example-poisson-unbiased-estimation-1">Example: Poisson unbiased estimation 📖</h2>
