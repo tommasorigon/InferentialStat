@@ -1148,13 +1148,13 @@ The estimator $\hat{\theta}$ is also called [uniform minimum variance unbiased e
 #### Theorem (Cramér-Rao, Theorem 7.3.9 in @Casella2002)
 Let $Y_1,\dots,Y_n$ be a sample from a joint probability measure $f(\mathrm{d}\bm{y} \mid \theta)$ and let $\Theta = \mathbb{R}$. Moreover, let $\hat{\theta}(\bm{Y})$ be an estimator of $\theta$ satisfying
 $$
-b^*(\theta) := \frac{\partial}{\partial \theta}\int \hat{\theta}(\bm{y})f(\mathrm{d}\bm{y} \mid \theta) = \int \frac{\partial}{\partial \theta} \hat{\theta}(\bm{y})f(\mathrm{d}\bm{y} \mid \theta),
+1 + b^*(\theta) := \frac{\partial}{\partial \theta}\int \hat{\theta}(\bm{y})f(\mathrm{d}\bm{y} \mid \theta) = \int \frac{\partial}{\partial \theta} \hat{\theta}(\bm{y})f(\mathrm{d}\bm{y} \mid \theta),
 $$
 and with finite variance $\text{var}(\hat{\theta}(\bm{Y})) < \infty$. Then
 $$
 \text{var}(\hat{\theta}(\bm{Y})) \ge \frac{[1 + b^*(\theta)]^2}{\mathbb{E}_\theta(\ell^*(\theta)^2)}.
 $$
-Moreover, if $\hat{\theta}$ is an [unbiased]{.orange} estimator for $\theta$, then $b^*(\theta) = 1$ and  $\text{var}(\hat{\theta}(\bm{Y})) \ge 1/\mathbb{E}_\theta(l^*(\theta)^2)$ . 
+Moreover, if $\hat{\theta}$ is an [unbiased]{.orange} estimator for $\theta$, then $b^*(\theta) = 0$ and  $\text{var}(\hat{\theta}(\bm{Y})) \ge 1/\mathbb{E}_\theta(l^*(\theta)^2)$ . 
 :::
 
 ## Cramér-Rao: considerations
@@ -1172,24 +1172,38 @@ $$
 is called [Fisher information]{.blue} or information number. This reflects the fact that as more information become available, the bound on the variance gets smaller.
 
 :::callout-tip
-If $W(\bm{Y})$ is an unbiased estimator of a [transformation]{.blue} $g(\theta)$, then the Cramér-Rao theorem holds as stated, but the term $\frac{\partial}{\partial \theta}\mathbb{E}_\theta(W(\bm{Y})) = b^*(\theta)$ cannot be interpreted as the "bias".  
+If $W(\bm{Y})$ is an unbiased estimator of a [transformation]{.blue} $g(\theta)$, then the Cramér-Rao theorem holds as stated, but the term $\frac{\partial}{\partial \theta}\mathbb{E}_\theta(W(\bm{Y})) = 1 + b^*(\theta)$ is not related to the "bias".  
 :::
 
 [^uniform_example]: See Example 7.3.13 in @Casella2002, for a simple and illuminating example.
 
-## Bartlett identities 📖
+## Bartlett identities I 📖
 
 :::callout-warning
 #### First Bartlett identity
-asd
+Let $Y_1,\dots,Y_n$ be a sample from a joint probability measure $f(\mathrm{d}\bm{y} \mid \theta)$ and let $\Theta = \mathbb{R}$. If we can interchange derivation and integration, namely
+$$\frac{\partial}{\partial \theta}\int f(\mathrm{d}\bm{y} \mid \theta) = \int \frac{\partial}{\partial \theta} f(\mathrm{d}\bm{y} \mid \theta),
 $$
-\text{var}_\theta(\ell^*(\theta))
+then 
+$$
+\mathbb{E}_\theta(\ell^*(\theta)) = 0,\qquad \text{implying}\qquad  I(\theta) = \mathbb{E}_\theta(\ell^*(\theta)^2) = \text{var}_\theta(\ell^*(\theta)).
 $$
 :::
 
+- Thus, the regularity condition of Cramér-Rao implies that the score function $\ell^*(\theta)$ is un [unbiased estimating equation]{.blue}. This result easily extends to the [vector case]{.orange} $\Theta = \mathbb{R}^p$.
+
+## Bartlett identities II 📖
+
 :::callout-warning
 #### Second Bartlett identity
-asd
+Let $Y_1,\dots,Y_n$ be a sample from a joint probability measure $f(\mathrm{d}\bm{y} \mid \theta)$ and let $\Theta = \mathbb{R}$. If we can interchange [twice]{.orange} derivation and integration
+$$\frac{\partial}{\partial \theta}\int f(\mathrm{d}\bm{y} \mid \theta) = \int \frac{\partial}{\partial \theta} f(\mathrm{d}\bm{y} \mid \theta),
+$$
+and
+$$
+\frac{\partial}{\partial \theta}\int f(\mathrm{d}\bm{y} \mid \theta) = \int \frac{\partial}{\partial \theta} f(\mathrm{d}\bm{y} \mid \theta),
+$$
+then
 :::
 
 ## Cramér-Rao: iid and regular case 📖
