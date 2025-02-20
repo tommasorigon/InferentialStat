@@ -1129,30 +1129,62 @@ Is there a value of $a$ such that $\text{var}_\lambda(\hat{\lambda}_a) \leq \tex
 :::callout-note
 #### UMVU estimator
 
-An estimator $\hat{\theta}$ is a [best unbiased estimator]{.blue} of $\theta$ if it satisfies $\mathbb{E})\hat{\theta} = \theta$ for all $\theta$ and, for any other unbiased estimator $\tilde{\theta}$ 
+An estimator $\hat{\theta}$ is a [best unbiased estimator]{.blue} of $\theta$ if it satisfies $\mathbb{E}_\theta(\hat{\theta}) = \theta$ for all $\theta$ (unbiasdness) and, for any [other unbiased]{.orange} estimator $\tilde{\theta}$, we have
+$$
+\text{var}_\theta(\hat{\theta}) \le \text{var}_\theta(\tilde{\theta}), \qquad \text {for all } \theta.
+$$
+The estimator $\hat{\theta}$ is also called [uniform minimum variance unbiased estimator]{.orange} (UMVUE) of $\theta$. 
 ::::
+
+- The UMVUE [does not necessarily exist]{.orange}. If it does, [finding it]{.blue} is not easy. And even if a unique UMVUE exists, it could still be [inadmissible]{.orange}--recall the James-Stein saga.
+
+- The success of UMVUE estimators is tied to two illuminating and elegant theorems: [Cramér-Rao]{.blue} and [Rao-Blackwell]{.orange}, which connect likelihood theory, sufficiency, and unbiasedness.
 
 ## Cramer-Rao inequality 📖
 
-- The Cramer-Rao theorem establishes a [lower bound]{.blue} for the variance of an estimator. Thus, if the variance of an unbiased estimator attains the lower bound for all $\theta$, then it is [optimal]{.orange}.
+- The Cramer-Rao theorem establishes a [lower bound]{.blue} for the variance of an estimator. Thus, if the variance of an unbiased estimator $\hat{\theta}$ attains the lower bound for all $\theta$, then $\hat{\theta}$ is [UMVUE]{.orange}.
 
 ::: callout-warning
 #### Theorem (Cramer-Rao, Theorem 7.3.9 in @Casella2002)
 Let $Y_1,\dots,Y_n$ be a sample from a joint density $f(\bm{y} \mid \theta)$ and let $\Theta = \mathbb{R}$. Moreover, let $\hat{\theta}(\bm{Y})$ be an estimator of $\theta$ satisfying
 $$
-1 + \text{bias}_\theta'(\hat{\theta}) = \frac{\partial}{\partial \theta}\int \hat{\theta}(\bm{y})f(\bm{y} \mid \theta)\mathrm{d}\bm{y} = \int \frac{\partial}{\partial \theta} \hat{\theta}(\bm{y})f(\bm{y} \mid \theta)\mathrm{d}\bm{y},
+1 + \text{bias}_\theta^*(\hat{\theta}) := \frac{\partial}{\partial \theta}\int \hat{\theta}(\bm{y})f(\bm{y} \mid \theta)\mathrm{d}\bm{y} = \int \frac{\partial}{\partial \theta} \hat{\theta}(\bm{y})f(\bm{y} \mid \theta)\mathrm{d}\bm{y},
 $$
 and with finite variance $\text{var}(\hat{\theta}(\bm{Y})) < \infty$. Then
 $$
-\text{var}(\hat{\theta}(\bm{Y})) \ge \frac{[1 + \text{bias}'(\theta)]^2}{\mathbb{E}_\theta(l^*(\theta)^2)}.
+\text{var}(\hat{\theta}(\bm{Y})) \ge \frac{[1 + \text{bias}^*_\theta(\hat{\theta})]^2}{\mathbb{E}_\theta(l^*(\theta)^2)}.
 $$
+which becomes $\text{var}(\hat{\theta}(\bm{Y})) \ge 1/\mathbb{E}_\theta(l^*(\theta)^2)$ if $\hat{\theta}$ is unbiased. 
 :::
+
+## Cramer-Rao: general considerations
+
+- Dependence on $\theta$ sample space
+
+- Transformation and "bias"
+
 
 ## Bartlett identities 📖
 
-## Cramer-Rao: iid case 📖
+:::callout-warning
+#### First Bartlett identity
+asd
+:::
+
+:::callout-warning
+#### Second Bartlett identity
+asd
+:::
+
+## Cramer-Rao: iid and regular case 📖
 
 ## Example: Poisson unbiased estimation 📖
+
+## Cramer-Rao: miscellanea
+
+- Attainance and exponential families
+
+- Multiparameter case
 
 ## Rao-Blackwell
 

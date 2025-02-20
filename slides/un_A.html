@@ -1232,14 +1232,20 @@ UMVU estimator
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>An estimator <span class="math inline">\hat{\theta}</span> is a <span class="blue">best unbiased estimator</span> of <span class="math inline">\theta</span> if it satisfies <span class="math inline">\mathbb{E})\hat{\theta} = \theta</span> for all <span class="math inline">\theta</span> and, for any other unbiased estimator <span class="math inline">\tilde{\theta}</span></p>
+<p>An estimator <span class="math inline">\hat{\theta}</span> is a <span class="blue">best unbiased estimator</span> of <span class="math inline">\theta</span> if it satisfies <span class="math inline">\mathbb{E}_\theta(\hat{\theta}) = \theta</span> for all <span class="math inline">\theta</span> (unbiasdness) and, for any <span class="orange">other unbiased</span> estimator <span class="math inline">\tilde{\theta}</span>, we have <span class="math display">
+\text{var}_\theta(\hat{\theta}) \le \text{var}_\theta(\tilde{\theta}), \qquad \text {for all } \theta.
+</span> The estimator <span class="math inline">\hat{\theta}</span> is also called <span class="orange">uniform minimum variance unbiased estimator</span> (UMVUE) of <span class="math inline">\theta</span>.</p>
 </div>
 </div>
+<ul>
+<li><p>The UMVUE <span class="orange">does not necessarily exist</span>. If it does, <span class="blue">finding it</span> is not easy. And even if a unique UMVUE exists, it could still be <span class="orange">inadmissible</span>–recall the James-Stein saga.</p></li>
+<li><p>The success of UMVUE estimators is tied to two illuminating and elegant theorems: <span class="blue">Cramér-Rao</span> and <span class="orange">Rao-Blackwell</span>, which connect likelihood theory, sufficiency, and unbiasedness.</p></li>
+</ul>
 </section>
 <section id="cramer-rao-inequality" class="level2">
 <h2 class="anchored" data-anchor-id="cramer-rao-inequality">Cramer-Rao inequality 📖</h2>
 <ul>
-<li>The Cramer-Rao theorem establishes a <span class="blue">lower bound</span> for the variance of an estimator. Thus, if the variance of an unbiased estimator attains the lower bound for all <span class="math inline">\theta</span>, then it is <span class="orange">optimal</span>.</li>
+<li>The Cramer-Rao theorem establishes a <span class="blue">lower bound</span> for the variance of an estimator. Thus, if the variance of an unbiased estimator <span class="math inline">\hat{\theta}</span> attains the lower bound for all <span class="math inline">\theta</span>, then <span class="math inline">\hat{\theta}</span> is <span class="orange">UMVUE</span>.</li>
 </ul>
 <div class="callout callout-style-simple callout-warning no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -1252,7 +1258,7 @@ Theorem (Cramer-Rao, Theorem 7.3.9 in <span class="citation" data-cites="Casella
 </div>
 <div class="callout-body-container callout-body">
 <p>Let <span class="math inline">Y_1,\dots,Y_n</span> be a sample from a joint density <span class="math inline">f(\bm{y} \mid \theta)</span> and let <span class="math inline">\Theta = \mathbb{R}</span>. Moreover, let <span class="math inline">\hat{\theta}(\bm{Y})</span> be an estimator of <span class="math inline">\theta</span> satisfying <span class="math display">
-1 + \text{bias}_\theta'(\hat{\theta}) = \frac{\partial}{\partial \theta}\int \hat{\theta}(\bm{y})f(\bm{y} \mid \theta)\mathrm{d}\bm{y} = \int \frac{\partial}{\partial \theta} \hat{\theta}(\bm{y})f(\bm{y} \mid \theta)\mathrm{d}\bm{y},
+1 + \text{bias}_\theta^*(\hat{\theta}) := \frac{\partial}{\partial \theta}\int \hat{\theta}(\bm{y})f(\bm{y} \mid \theta)\mathrm{d}\bm{y} = \int \frac{\partial}{\partial \theta} \hat{\theta}(\bm{y})f(\bm{y} \mid \theta)\mathrm{d}\bm{y},
 </span> and with finite variance <span class="math inline">\text{var}(\hat{\theta}(\bm{Y})) &lt; \infty</span>. Then <span class="math display">
 \text{var}(\hat{\theta}(\bm{Y})) \ge \frac{[1 + \text{bias}'(\theta)]^2}{\mathbb{E}_\theta(l^*(\theta)^2)}.
 </span></p>
