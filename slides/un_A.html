@@ -172,6 +172,9 @@ window.Quarto = {
   <li><a href="#cramer-rao-iid-case" id="toc-cramer-rao-iid-case" class="nav-link" data-scroll-target="#cramer-rao-iid-case">Cramer-Rao: iid case 📖</a></li>
   <li><a href="#example-poisson-unbiased-estimation-1" id="toc-example-poisson-unbiased-estimation-1" class="nav-link" data-scroll-target="#example-poisson-unbiased-estimation-1">Example: Poisson unbiased estimation 📖</a></li>
   <li><a href="#rao-blackwell" id="toc-rao-blackwell" class="nav-link" data-scroll-target="#rao-blackwell">Rao-Blackwell</a></li>
+  </ul></li>
+  <li><a href="#alternative-notions-of-optimality" id="toc-alternative-notions-of-optimality" class="nav-link" data-scroll-target="#alternative-notions-of-optimality">Alternative notions of optimality</a>
+  <ul class="collapse">
   <li><a href="#unbiased-estimating-equations" id="toc-unbiased-estimating-equations" class="nav-link" data-scroll-target="#unbiased-estimating-equations">Unbiased estimating equations</a></li>
   <li><a href="#godambe-efficiency" id="toc-godambe-efficiency" class="nav-link" data-scroll-target="#godambe-efficiency">Godambe efficiency</a></li>
   <li><a href="#blue-estimators" id="toc-blue-estimators" class="nav-link" data-scroll-target="#blue-estimators">BLUE estimators</a></li>
@@ -241,7 +244,7 @@ window.Quarto = {
 <ul>
 <li>Methods of finding estimators</li>
 <li>Methods of evaluating estimators</li>
-<li>Best unbiased estimators</li>
+<li>Unbiasedness</li>
 <li>Asymptotic evaluations</li>
 <li>Robustness and model misspecification</li>
 </ul></li>
@@ -272,11 +275,24 @@ Point estimator
 </span> That is, any <span class="orange">statistic</span> is a point estimator.</p>
 </div>
 </div>
+<div class="callout callout-style-simple callout-warning no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <ul>
-<li><p>In principle, the range of the estimator coincides with that of the parameter, i.e.&nbsp;<span class="math inline">\hat{\theta} : \mathcal{Y} \rightarrow \Theta</span>, but there are exceptions.</p></li>
+<li><p>To streamline the presentation, we consider estimators that target the <span class="orange">unknown parameter</span> <span class="math inline">\theta</span> rather than an arbitrary (non-one-to-one) <span class="blue">transformation</span> <span class="math inline">g(\theta)</span>.</p></li>
+<li><p>Most theoretical results <span class="orange">extend naturally</span> to the general case <span class="math inline">g(\theta)</span>.</p></li>
+</ul>
+<!-- - In principle, the range of the estimator coincides with that of the parameter, i.e. $\hat{\theta} : \mathcal{Y} \rightarrow \Theta$, but there are exceptions. -->
+</div>
+</div>
+</div>
+<ul>
 <li><p>An <span class="blue">estimator</span> <span class="math inline">\hat{\theta}(Y_1,\dots,Y_n)</span> is a function of the sample <span class="math inline">Y_1,\dots,Y_n</span> and is a <span class="blue">random variable</span>.</p></li>
 <li><p>An <span class="orange">estimate</span> <span class="math inline">\hat{\theta}(y_1,\dots,y_n)</span> is a function of the realized values <span class="math inline">y_1,\dots,y_n</span> and is a <span class="orange">number</span>.</p></li>
-<li><p>We will use the notation <span class="math inline">\hat{\theta}</span> to denote both estimators and estimates whenever its meaning is clear from the context.</p></li>
+<li><p>We will write <span class="math inline">\hat{\theta}</span> to denote both estimators and estimates whenever its meaning is clear from the context.</p></li>
 </ul>
 </section>
 <section id="method-of-moments" class="level2">
@@ -394,7 +410,7 @@ Theorem <span class="citation" data-cites="Casella2002">(Invariance, <a href="#r
 <p>Let <span class="math inline">\psi(\cdot)</span> be <span class="orange">one-to-one</span><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>, that is, a <span class="blue">reparametrization</span>, from the set <span class="math inline">\Theta</span> onto the set <span class="math inline">\Psi</span>. Then the MLE of <span class="math inline">\psi = \psi(\theta)</span> is <span class="math inline">\hat{\psi} = \psi(\hat{\theta})</span> where <span class="math inline">\hat{\theta}</span> denotes the MLE of <span class="math inline">\theta</span>.</p>
 </div>
 </div>
-<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;It generalizes to any <span class="math inline">\psi(\cdot)</span>. If <span class="math inline">\hat{\theta}</span> is the MLE, then <span class="math inline">\hat{\psi} = \psi(\hat{\theta})</span> is the “MLE” of an “induced likelihood”.</p></div></div></section>
+<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;It generalizes to any <span class="math inline">g(\cdot)</span>. If <span class="math inline">\hat{\theta}</span> is the MLE, then <span class="math inline">g(\hat{\theta})</span> is the “MLE” of an “induced likelihood”.</p></div></div></section>
 <section id="example-poisson-with-unknown-mean" class="level2">
 <h2 class="anchored" data-anchor-id="example-poisson-with-unknown-mean">Example: Poisson with unknown mean 📖</h2>
 <ul>
@@ -712,8 +728,8 @@ R(p; \hat{p}) = \mathbb{E}_p\{(\hat{p} - p)^2\} = \text{var}_p(\hat{p}) = \frac{
 </div>
 <div class="callout-body-container">
 <ul>
-<li><p>We will get back to this example, as both <span class="math inline">\hat{p}</span> and <span class="math inline">\hat{p}_\text{minimax}</span> are <span class="blue">optimal</span> according to some criteria.</p></li>
-<li><p>In fact, <span class="math inline">\hat{p}</span> is the <span class="orange">UMVUE estimator</span> (uniform minimum variance unbiased estimator), and <span class="math inline">\hat{p}_\text{minimax}</span> is the <span class="orange">minimax</span> estimator.<br>
+<li><p>We will get back to this example, as both <span class="math inline">\hat{p}</span> and <span class="math inline">\hat{p}_\text{minimax}</span> are <span class="blue">optimal</span> in some sense.</p></li>
+<li><p>In fact, <span class="math inline">\hat{p}</span> is the <span class="orange">UMVU estimator</span> (uniform minimum variance unbiased estimator), and <span class="math inline">\hat{p}_\text{minimax}</span> is the <span class="orange">minimax</span> estimator.<br>
 </p></li>
 </ul>
 </div>
@@ -870,7 +886,7 @@ R(\mu; \hat{\mu}_\text{shrink}) \le p - \frac{(p-3)^2}{p - 3 + ||\mu - \bar{\mu}
 <div class="callout-body-container">
 <ul>
 <li><p>The frequentist paradigm evaluates estimators based on their <span class="blue">long-run performance</span>, without accounting for the given observations <span class="math inline">\bm{Y}</span>. A client may wish for <span class="blue">optimal results</span> for the observed data, and <span class="orange">not someone else’s data</span>.</p></li>
-<li><p>The risk function approach implicitly assumes the <span class="blue">repeatability of the experiment</span>, which has sparked controversy on both philosophical and practical grounds.</p></li>
+<li><p>The risk function approach implicitly assumes the <span class="blue">repeatability</span> of the <span class="blue">experiment</span>, which has sparked controversy on both philosophical and practical grounds.</p></li>
 <li><p>For instance, if new observations come to the statistician, she should make use of them, potentially modifying the way the experiment is conducted, as in medical trials.</p></li>
 <li><p>The risk function depends on <span class="math inline">\theta</span>, preventing a <span class="blue">total ordering</span> of the estimators. Comparisons are difficult unless a <span class="blue">uniformly optimal</span> procedure exists, which is <span class="orange">rare</span>.</p></li>
 </ul>
@@ -1024,7 +1040,7 @@ Theorem (<span class="citation" data-cites="Lehmann1998">Lehmann and Casella (<a
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Any unique Bayes estimator is <span class="blue">admissible</span>.</p>
+<p>Any unique Bayesian estimator is <span class="blue">admissible</span>.</p>
 </div>
 </div>
 <ul>
@@ -1133,7 +1149,7 @@ Unbiased estimator
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>An estimator <span class="math inline">\hat{\theta}</span> is <span class="blue">unbiased</span> if <span class="math inline">\mathbb{E}_\theta(\hat{\theta}) = \theta</span>, that is, if <span class="math inline">\text{bias}(\hat{\theta}) = \mathbb{E}_\theta(\hat{\theta} - \theta) = 0</span> for all <span class="math inline">\theta \in \Theta</span>.</p>
+<p>An estimator <span class="math inline">\hat{\theta}</span> is <span class="blue">unbiased</span> for <span class="math inline">\theta</span> if <span class="math inline">\mathbb{E}_\theta(\hat{\theta}) = \theta</span>, that is, if <span class="math inline">\text{bias}_\theta(\hat{\theta}) = \mathbb{E}_\theta(\hat{\theta} - \theta) = 0</span> for all <span class="math inline">\theta \in \Theta</span>.</p>
 </div>
 </div>
 <ul>
@@ -1197,13 +1213,13 @@ r(\pi, \hat{\theta}_\text{Bayes}) = 0.
 <li><p>It can be shown<a href="#fn11" class="footnote-ref" id="fnref11" role="doc-noteref"><sup>11</sup></a> that both estimators are <span class="orange">unbiased</span>, meaning <span class="math display">
 \mathbb{E}(\bar{Y}) = \mathbb{E}(S^2) = \lambda, \quad \text{for all } \lambda.
 </span></p></li>
-<li><p>To determine which estimator, <span class="math inline">\bar{Y}</span> or <span class="math inline">S^2</span>, is preferable, we should <span class="blue">compare their variances</span>. It is well known that <span class="math inline">\text{var}_\lambda(\bar{Y}) = \lambda / n</span>, whereas computing <span class="math inline">\text{var}_\lambda(S^2)</span> can be <span class="orange">lengthy</span>.</p></li>
+<li><p>To determine which estimator, <span class="math inline">\bar{Y}</span> or <span class="math inline">S^2</span>, is preferable, we should <span class="blue">compare their variances</span>. It is also well known that <span class="math inline">\text{var}_\lambda(\bar{Y}) = \lambda / n</span>, whereas computing <span class="math inline">\text{var}_\lambda(S^2)</span> can be <span class="orange">lengthy</span>.</p></li>
 <li><p>It holds that <span class="math inline">\text{var}_\lambda(\bar{Y}) &lt; \text{var}_\lambda(S^2)</span> for all <span class="math inline">\lambda</span>. This implies that <span class="math inline">S^2</span> is <span class="orange">inadmissible</span>.</p></li>
 <li><p>However, we can construct <span class="blue">infinitely</span> many <span class="blue">unbiased estimators</span> of <span class="math inline">\lambda</span>: <span class="math display">
 \hat{\lambda}_a = a \bar{Y} + (1 - a) S^2, \quad 0 &lt; a &lt; 1.
 </span> Is there a value of <span class="math inline">a</span> such that <span class="math inline">\text{var}_\lambda(\hat{\lambda}_a) \leq \text{var}_\lambda(\bar{Y})</span>? What about other unbiased estimators?</p></li>
 </ul>
-<div class="no-row-height column-margin column-container"><div id="fn11"><p><sup>11</sup>&nbsp;These are a basic and well-known results of inferential statistics. See Theorem 5.2.6 in <span class="citation" data-cites="Casella2002">Casella and Berger (<a href="#ref-Casella2002" role="doc-biblioref">2002</a>)</span>.</p></div></div></section>
+<div class="no-row-height column-margin column-container"><div id="fn11"><p><sup>11</sup>&nbsp;These are basic and well-known results: see Theorem 5.2.6 in <span class="citation" data-cites="Casella2002">Casella and Berger (<a href="#ref-Casella2002" role="doc-biblioref">2002</a>)</span>.</p></div></div></section>
 <section id="umvu-estimators" class="level2">
 <h2 class="anchored" data-anchor-id="umvu-estimators">UMVU estimators</h2>
 <div class="callout callout-style-simple callout-note no-icon callout-titled">
@@ -1216,7 +1232,7 @@ UMVU estimator
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>asdasd</p>
+<p>An estimator <span class="math inline">\hat{\theta}</span> is a <span class="blue">best unbiased estimator</span> of <span class="math inline">\theta</span> if it satisfies <span class="math inline">\mathbb{E})\hat{\theta} = \theta</span> for all <span class="math inline">\theta</span> and, for any other unbiased estimator <span class="math inline">\tilde{\theta}</span></p>
 </div>
 </div>
 </section>
@@ -1231,11 +1247,15 @@ UMVU estimator
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Theorem (Cramer-Rao)
+Theorem (Cramer-Rao, Theorem 7.3.9 in <span class="citation" data-cites="Casella2002">Casella and Berger (<a href="#ref-Casella2002" role="doc-biblioref">2002</a>)</span>)
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>asdasd</p>
+<p>Let <span class="math inline">Y_1,\dots,Y_n</span> be a sample from a joint density <span class="math inline">f(\bm{y} \mid \theta)</span> and let <span class="math inline">\Theta = \mathbb{R}</span>. Moreover, let <span class="math inline">\hat{\theta}(\bm{Y})</span> be an estimator of <span class="math inline">\theta</span> satisfying <span class="math display">
+1 + \text{bias}_\theta'(\hat{\theta}) = \frac{\partial}{\partial \theta}\int \hat{\theta}(\bm{y})f(\bm{y} \mid \theta)\mathrm{d}\bm{y} = \int \frac{\partial}{\partial \theta} \hat{\theta}(\bm{y})f(\bm{y} \mid \theta)\mathrm{d}\bm{y},
+</span> and with finite variance <span class="math inline">\text{var}(\hat{\theta}(\bm{Y})) &lt; \infty</span>. Then <span class="math display">
+\text{var}(\hat{\theta}(\bm{Y})) \ge \frac{[1 + \text{bias}'(\theta)]^2}{\mathbb{E}_\theta(l^*(\theta)^2)}.
+</span></p>
 </div>
 </div>
 </section>
@@ -1251,6 +1271,9 @@ Theorem (Cramer-Rao)
 <section id="rao-blackwell" class="level2">
 <h2 class="anchored" data-anchor-id="rao-blackwell">Rao-Blackwell</h2>
 </section>
+</section>
+<section id="alternative-notions-of-optimality" class="level1">
+<h1>Alternative notions of optimality</h1>
 <section id="unbiased-estimating-equations" class="level2">
 <h2 class="anchored" data-anchor-id="unbiased-estimating-equations">Unbiased estimating equations</h2>
 </section>

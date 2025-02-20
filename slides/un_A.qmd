@@ -78,7 +78,7 @@ styler:::style_file("../code/un_A.R")
 
     - Methods of finding estimators
     - Methods of evaluating estimators
-    - Best unbiased estimators
+    - Unbiasedness
     - Asymptotic evaluations
     - Robustness and model misspecification
 :::
@@ -102,13 +102,22 @@ A [point estimator]{.blue} $\hat{\theta}$ is any function of the random sample $
 $$ That is, any [statistic]{.orange} is a point estimator.
 :::
 
-- In principle, the range of the estimator coincides with that of the parameter, i.e. $\hat{\theta} : \mathcal{Y} \rightarrow \Theta$, but there are exceptions.
+::: callout-warning
+
+- To streamline the presentation, we consider estimators that target the [unknown parameter]{.orange} $\theta$ rather than an arbitrary (non-one-to-one) [transformation]{.blue} $g(\theta)$.  
+
+- Most theoretical results [extend naturally]{.orange} to the general case $g(\theta)$. 
+
+<!-- - In principle, the range of the estimator coincides with that of the parameter, i.e. $\hat{\theta} : \mathcal{Y} \rightarrow \Theta$, but there are exceptions. -->
+
+:::
+
 
 - An [estimator]{.blue} $\hat{\theta}(Y_1,\dots,Y_n)$ is a function of the sample $Y_1,\dots,Y_n$ and is a [random variable]{.blue}.
 
 - An [estimate]{.orange} $\hat{\theta}(y_1,\dots,y_n)$ is a function of the realized values $y_1,\dots,y_n$ and is a [number]{.orange}.
 
-- We will use the notation $\hat{\theta}$ to denote both estimators and estimates whenever its meaning is clear from the context.
+- We will write $\hat{\theta}$ to denote both estimators and estimates whenever its meaning is clear from the context.
 
 ## Method of moments
 
@@ -258,7 +267,7 @@ $\theta$ based on a sample $\bm{Y}$ is $\hat{\theta}(\bm{Y})$.
 Let $\psi(\cdot)$ be [one-to-one]{.orange}[^invariance], that is, a [reparametrization]{.blue}, from the set $\Theta$ onto the set $\Psi$. Then the MLE of $\psi = \psi(\theta)$ is $\hat{\psi} = \psi(\hat{\theta})$ where $\hat{\theta}$ denotes the MLE of $\theta$.
 :::
 
-[^invariance]: It generalizes to any $\psi(\cdot)$. If $\hat{\theta}$ is the MLE, then $\hat{\psi} = \psi(\hat{\theta})$ is the "MLE" of an "induced likelihood".
+[^invariance]: It generalizes to any $g(\cdot)$. If $\hat{\theta}$ is the MLE, then $g(\hat{\theta})$ is the "MLE" of an "induced likelihood".
 
 
     
@@ -644,9 +653,9 @@ ggplot(data = data_plot, aes(x = p, y = MSE, col = Estimator)) +
 - This information, [combined]{.blue} with the [knowledge of the problem ]{.blue} at hand, can lead to choosing the better estimator for the situation.  
 
 ::: callout-tip
-- We will get back to this example, as both $\hat{p}$ and $\hat{p}_\text{minimax}$ are [optimal]{.blue} according to some criteria.  
+- We will get back to this example, as both $\hat{p}$ and $\hat{p}_\text{minimax}$ are [optimal]{.blue} in some sense.  
 
-- In fact, $\hat{p}$ is the [UMVUE estimator]{.orange} (uniform minimum variance unbiased estimator), and $\hat{p}_\text{minimax}$ is the [minimax]{.orange} estimator.  
+- In fact, $\hat{p}$ is the [UMVU estimator]{.orange} (uniform minimum variance unbiased estimator), and $\hat{p}_\text{minimax}$ is the [minimax]{.orange} estimator.  
 :::
 
 ## James-Stein estimator I
@@ -791,7 +800,7 @@ $$
 :::callout-tip
 - The frequentist paradigm evaluates estimators based on their [long-run performance]{.blue}, without accounting for the given observations $\bm{Y}$. A client may wish for [optimal results]{.blue} for the observed data, and [not someone else's data]{.orange}.  
 
-- The risk function approach implicitly assumes the [repeatability of the experiment]{.blue}, which has sparked controversy on both philosophical and practical grounds. 
+- The risk function approach implicitly assumes the [repeatability]{.blue} of the [experiment]{.blue}, which has sparked controversy on both philosophical and practical grounds. 
 
 - For instance, if new observations come to the statistician, she should make use of them, potentially modifying the way the experiment is conducted, as in medical trials.  
 
@@ -933,7 +942,7 @@ ggplot(data = data_plot, aes(x = n, y = BayesRisk, col = Estimator)) +
 
 ::: callout-warning
 #### Theorem (@Lehmann1998, Theorem 2.4 in Chap. 5)  
-Any unique Bayes estimator is [admissible]{.blue}.  
+Any unique Bayesian estimator is [admissible]{.blue}.  
 :::
 
 - The uniqueness assumption is a technical condition often satisfied in practice. Under [squared loss]{.blue}, or any other strictly convex loss, this holds automatically, provided the [estimator exists]{.orange}.
@@ -1047,7 +1056,7 @@ then:
 :::callout-note
 #### Unbiased estimator
 
-An estimator $\hat{\theta}$ is [unbiased]{.blue} if $\mathbb{E}_\theta(\hat{\theta}) = \theta$, that is, if $\text{bias}(\hat{\theta}) = \mathbb{E}_\theta(\hat{\theta} - \theta) = 0$ for all $\theta \in \Theta$.
+An estimator $\hat{\theta}$ is [unbiased]{.blue} for $\theta$ if $\mathbb{E}_\theta(\hat{\theta}) = \theta$, that is, if $\text{bias}_\theta(\hat{\theta}) = \mathbb{E}_\theta(\hat{\theta} - \theta) = 0$ for all $\theta \in \Theta$.
 :::
 
 - In classical mathematical statistics courses, we teach that [unbiasedness]{.orange} is a natural and appealing property of an estimator. Under [squared error loss]{.blue}, unbiasedness implies that  
@@ -1102,7 +1111,7 @@ $$
 \mathbb{E}(\bar{Y}) = \mathbb{E}(S^2) = \lambda, \quad \text{for all } \lambda.
 $$
 
-- To determine which estimator, $\bar{Y}$ or $S^2$, is preferable, we should [compare their variances]{.blue}. It is well known that $\text{var}_\lambda(\bar{Y}) = \lambda / n$, whereas computing $\text{var}_\lambda(S^2)$ can be [lengthy]{.orange}.  
+- To determine which estimator, $\bar{Y}$ or $S^2$, is preferable, we should [compare their variances]{.blue}. It is also well known that $\text{var}_\lambda(\bar{Y}) = \lambda / n$, whereas computing $\text{var}_\lambda(S^2)$ can be [lengthy]{.orange}.  
 
 - It holds that $\text{var}_\lambda(\bar{Y}) < \text{var}_\lambda(S^2)$ for all $\lambda$. This implies that $S^2$ is [inadmissible]{.orange}. 
 
@@ -1113,14 +1122,14 @@ $$
 Is there a value of $a$ such that $\text{var}_\lambda(\hat{\lambda}_a) \leq \text{var}_\lambda(\bar{Y})$? What about other unbiased estimators?
 
 
-[^mean_variance]: These are a basic and well-known results of inferential statistics. See Theorem 5.2.6 in @Casella2002.
+[^mean_variance]: These are basic and well-known results: see Theorem 5.2.6 in @Casella2002.
 
 ## UMVU estimators
 
 :::callout-note
 #### UMVU estimator
 
-asdasd
+An estimator $\hat{\theta}$ is a [best unbiased estimator]{.blue} of $\theta$ if it satisfies $\mathbb{E})\hat{\theta} = \theta$ for all $\theta$ and, for any other unbiased estimator $\tilde{\theta}$ 
 ::::
 
 ## Cramer-Rao inequality 📖
@@ -1128,8 +1137,15 @@ asdasd
 - The Cramer-Rao theorem establishes a [lower bound]{.blue} for the variance of an estimator. Thus, if the variance of an unbiased estimator attains the lower bound for all $\theta$, then it is [optimal]{.orange}.
 
 ::: callout-warning
-#### Theorem (Cramer-Rao)
-asdasd
+#### Theorem (Cramer-Rao, Theorem 7.3.9 in @Casella2002)
+Let $Y_1,\dots,Y_n$ be a sample from a joint density $f(\bm{y} \mid \theta)$ and let $\Theta = \mathbb{R}$. Moreover, let $\hat{\theta}(\bm{Y})$ be an estimator of $\theta$ satisfying
+$$
+1 + \text{bias}_\theta'(\hat{\theta}) = \frac{\partial}{\partial \theta}\int \hat{\theta}(\bm{y})f(\bm{y} \mid \theta)\mathrm{d}\bm{y} = \int \frac{\partial}{\partial \theta} \hat{\theta}(\bm{y})f(\bm{y} \mid \theta)\mathrm{d}\bm{y},
+$$
+and with finite variance $\text{var}(\hat{\theta}(\bm{Y})) < \infty$. Then
+$$
+\text{var}(\hat{\theta}(\bm{Y})) \ge \frac{[1 + \text{bias}'(\theta)]^2}{\mathbb{E}_\theta(l^*(\theta)^2)}.
+$$
 :::
 
 ## Bartlett identities 📖
@@ -1139,6 +1155,8 @@ asdasd
 ## Example: Poisson unbiased estimation 📖
 
 ## Rao-Blackwell
+
+# Alternative notions of optimality
 
 ## Unbiased estimating equations
 
