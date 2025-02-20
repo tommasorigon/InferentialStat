@@ -173,7 +173,6 @@ window.Quarto = {
   <li><a href="#bartlett-identities-ii" id="toc-bartlett-identities-ii" class="nav-link" data-scroll-target="#bartlett-identities-ii">Bartlett identities II 📖</a></li>
   <li><a href="#cramér-rao-iid-and-regular-case" id="toc-cramér-rao-iid-and-regular-case" class="nav-link" data-scroll-target="#cramér-rao-iid-and-regular-case">Cramér-Rao: iid and regular case 📖</a></li>
   <li><a href="#example-poisson-unbiased-estimation-1" id="toc-example-poisson-unbiased-estimation-1" class="nav-link" data-scroll-target="#example-poisson-unbiased-estimation-1">Example: Poisson unbiased estimation 📖</a></li>
-  <li><a href="#cramér-rao-miscellanea" id="toc-cramér-rao-miscellanea" class="nav-link" data-scroll-target="#cramér-rao-miscellanea">Cramér-Rao: miscellanea</a></li>
   <li><a href="#rao-blackwell" id="toc-rao-blackwell" class="nav-link" data-scroll-target="#rao-blackwell">Rao-Blackwell</a></li>
   </ul></li>
   <li><a href="#alternative-notions-of-optimality" id="toc-alternative-notions-of-optimality" class="nav-link" data-scroll-target="#alternative-notions-of-optimality">Alternative notions of optimality</a>
@@ -1346,7 +1345,7 @@ I(\theta) = \mathbb{E}_\theta(\ell^*(\theta)^2) =\text{var}_\theta(\ell^*(\theta
 <li>Both conditions are true in <span class="orange">regular exponential</span> families. This also clarifies that, in regular models, Fisher information relates to the <span class="blue">curvature</span> of the log-likelihood.</li>
 </ul>
 </section>
-<section id="cramér-rao-iid-and-regular-case" class="level2">
+<section id="cramér-rao-iid-and-regular-case" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="cramér-rao-iid-and-regular-case">Cramér-Rao: iid and regular case 📖</h2>
 <div class="callout callout-style-simple callout-warning no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -1358,21 +1357,19 @@ Theorem (Cramér-Rao, simplified)
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Let <span class="math inline">Y_1,\dots,Y_n</span> be a iid sample from <span class="math inline">f(y \mid \theta)\mathrm{d}y</span> satisfying conditions C.1 and C.2, and let <span class="math inline">\Theta = \mathbb{R}</span>. Moreover, let <span class="math inline">\hat{\theta}(\bm{Y})</span> be an <span class="orange">unbiased</span> estimator of <span class="math inline">\theta</span> with finite variance <span class="math inline">\text{var}(\hat{\theta}(\bm{Y})) &lt; \infty</span>. Then <span class="math display">
-\text{var}(\hat{\theta}(\bm{Y})) \ge \frac{1}{I(\theta)}.
+<p>Let <span class="math inline">Y_1,\dots,Y_n</span> be an iid sample from <span class="math inline">f(y \mid \theta)\mathrm{d}y</span> satisfying conditions <span class="blue">C.1</span> and <span class="blue">C.2</span>, and let <span class="math inline">\Theta = \mathbb{R}</span>. Moreover, let <span class="math inline">\hat{\theta}(\bm{Y})</span> be an <span class="orange">unbiased</span> estimator of <span class="math inline">\theta</span> with finite variance <span class="math inline">\text{var}(\hat{\theta}(\bm{Y})) &lt; \infty</span>. Then <span class="math display">
+\text{var}(\hat{\theta}(\bm{Y})) \ge \frac{1}{n i(\theta)}, \qquad i(\theta) = \mathbb{E}\left(\frac{\partial^2}{\partial \theta^2}\log{f(y \mid \theta)}\right).
 </span></p>
 </div>
 </div>
-</section>
+<ul>
+<li><p>The Fisher information is the <span class="blue">sum</span> of <span class="blue">individual contributions</span> <span class="math inline">I(\theta) = i(\theta) + \cdots + i(\theta) = n i(\theta)</span>.</p></li>
+<li><p>It can be shown<a href="#fn13" class="footnote-ref" id="fnref13" role="doc-noteref"><sup>13</sup></a> that <span class="blue">attainment</span>, that is the equality <span class="math inline">\text{var}(\hat{\theta}(\bm{Y})) = 1/ni(\theta)</span>, occurs if and only if <span class="math inline">f(y \mid \theta)</span> is the density of an <span class="orange">exponential family</span>.</p></li>
+<li><p>These results can be naturally extended to the <span class="math inline">\Theta = \mathbb{R}^p</span> case, obtaining under regularity conditions that <span class="math inline">\text{var}(\hat{\theta}(\bm{Y})) \ge I(\theta)^{-1}</span> for an unbiased estimator <span class="math inline">\hat{\theta}</span> of <span class="math inline">\theta</span>.</p></li>
+</ul>
+<div class="no-row-height column-margin column-container"><div id="fn13"><p><sup>13</sup>&nbsp;See Theorem 5.12, Chap.2, <span class="citation" data-cites="Lehmann1998">Lehmann and Casella (<a href="#ref-Lehmann1998" role="doc-biblioref">1998</a>)</span>.</p></div></div></section>
 <section id="example-poisson-unbiased-estimation-1" class="level2">
 <h2 class="anchored" data-anchor-id="example-poisson-unbiased-estimation-1">Example: Poisson unbiased estimation 📖</h2>
-</section>
-<section id="cramér-rao-miscellanea" class="level2">
-<h2 class="anchored" data-anchor-id="cramér-rao-miscellanea">Cramér-Rao: miscellanea</h2>
-<ul>
-<li><p>Attainance and exponential families</p></li>
-<li><p>Multiparameter case</p></li>
-</ul>
 </section>
 <section id="rao-blackwell" class="level2">
 <h2 class="anchored" data-anchor-id="rao-blackwell">Rao-Blackwell</h2>

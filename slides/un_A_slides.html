@@ -1387,22 +1387,20 @@ I(\theta) = \mathbb{E}_\theta(\ell^*(\theta)^2) =\text{var}_\theta(\ell^*(\theta
 <p><strong>Theorem (Cramér-Rao, simplified)</strong></p>
 </div>
 <div class="callout-content">
-<p>Let <span class="math inline">Y_1,\dots,Y_n</span> be a iid sample from <span class="math inline">f(y \mid \theta)\mathrm{d}y</span> satisfying conditions C.1 and C.2, and let <span class="math inline">\Theta = \mathbb{R}</span>. Moreover, let <span class="math inline">\hat{\theta}(\bm{Y})</span> be an <span class="orange">unbiased</span> estimator of <span class="math inline">\theta</span> with finite variance <span class="math inline">\text{var}(\hat{\theta}(\bm{Y})) &lt; \infty</span>. Then <span class="math display">
-\text{var}(\hat{\theta}(\bm{Y})) \ge \frac{1}{I(\theta)}.
+<p>Let <span class="math inline">Y_1,\dots,Y_n</span> be an iid sample from <span class="math inline">f(y \mid \theta)\mathrm{d}y</span> satisfying conditions <span class="blue">C.1</span> and <span class="blue">C.2</span>, and let <span class="math inline">\Theta = \mathbb{R}</span>. Moreover, let <span class="math inline">\hat{\theta}(\bm{Y})</span> be an <span class="orange">unbiased</span> estimator of <span class="math inline">\theta</span> with finite variance <span class="math inline">\text{var}(\hat{\theta}(\bm{Y})) &lt; \infty</span>. Then <span class="math display">
+\text{var}(\hat{\theta}(\bm{Y})) \ge \frac{1}{n i(\theta)}, \qquad i(\theta) = \mathbb{E}\left(\frac{\partial^2}{\partial \theta^2}\log{f(y \mid \theta)}\right).
 </span></p>
 </div>
 </div>
 </div>
-</section>
+<ul>
+<li><p>The Fisher information is the <span class="blue">sum</span> of <span class="blue">individual contributions</span> <span class="math inline">I(\theta) = i(\theta) + \cdots + i(\theta) = n i(\theta)</span>.</p></li>
+<li><p>It can be shown<sup>1</sup> that <span class="blue">attainment</span>, that is the equality <span class="math inline">\text{var}(\hat{\theta}(\bm{Y})) = 1/ni(\theta)</span>, occurs if and only if <span class="math inline">f(y \mid \theta)</span> is the density of an <span class="orange">exponential family</span>.</p></li>
+<li><p>These results can be naturally extended to the <span class="math inline">\Theta = \mathbb{R}^p</span> case, obtaining under regularity conditions that <span class="math inline">\text{var}(\hat{\theta}(\bm{Y})) \ge I(\theta)^{-1}</span> for an unbiased estimator <span class="math inline">\hat{\theta}</span> of <span class="math inline">\theta</span>.</p></li>
+</ul>
+<aside><ol class="aside-footnotes"><li id="fn13"><p>See Theorem 5.12, Chap.2, <span class="citation" data-cites="Lehmann1998">Lehmann and Casella (<a href="#/references" role="doc-biblioref" onclick="">1998</a>)</span>.</p></li></ol></aside></section>
 <section id="example-poisson-unbiased-estimation-1" class="slide level2 center">
 <h2>Example: Poisson unbiased estimation 📖</h2>
-</section>
-<section id="cramér-rao-miscellanea" class="slide level2 center">
-<h2>Cramér-Rao: miscellanea</h2>
-<ul>
-<li><p>Attainance and exponential families</p></li>
-<li><p>Multiparameter case</p></li>
-</ul>
 </section>
 <section id="rao-blackwell" class="slide level2 center">
 <h2>Rao-Blackwell</h2>

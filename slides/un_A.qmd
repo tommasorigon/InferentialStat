@@ -1215,19 +1215,23 @@ $$
 
 ::: callout-warning
 #### Theorem (Cramér-Rao, simplified)
-Let $Y_1,\dots,Y_n$ be a iid sample from $f(y \mid \theta)\mathrm{d}y$ satisfying conditions C.1 and C.2, and let $\Theta = \mathbb{R}$. Moreover, let $\hat{\theta}(\bm{Y})$ be an [unbiased]{.orange} estimator of $\theta$  with finite variance $\text{var}(\hat{\theta}(\bm{Y})) < \infty$. Then
+Let $Y_1,\dots,Y_n$ be an iid sample from $f(y \mid \theta)\mathrm{d}y$ satisfying conditions [C.1]{.blue} and [C.2]{.blue}, and let $\Theta = \mathbb{R}$. Moreover, let $\hat{\theta}(\bm{Y})$ be an [unbiased]{.orange} estimator of $\theta$  with finite variance $\text{var}(\hat{\theta}(\bm{Y})) < \infty$. Then
 $$
-\text{var}(\hat{\theta}(\bm{Y})) \ge \frac{1}{I(\theta)}.
+\text{var}(\hat{\theta}(\bm{Y})) \ge \frac{1}{n i(\theta)}, \qquad i(\theta) = \mathbb{E}\left(\frac{\partial^2}{\partial \theta^2}\log{f(y \mid \theta)}\right).
 $$
 :::
 
+- The Fisher information is the [sum]{.blue} of [individual contributions]{.blue} $I(\theta) = i(\theta) + \cdots + i(\theta) = n i(\theta)$. 
+
+- It can be shown[^CramerRao_exponential] that [attainment]{.blue}, that is the equality $\text{var}(\hat{\theta}(\bm{Y})) = 1/ni(\theta)$, occurs if and only if $f(y \mid \theta)$ is the density of an [exponential family]{.orange}.
+
+- These results can be naturally extended to the $\Theta = \mathbb{R}^p$ case, obtaining under regularity conditions that $\text{var}(\hat{\theta}(\bm{Y})) \ge I(\theta)^{-1}$ for an unbiased estimator $\hat{\theta}$ of $\theta$. 
+
+[^CramerRao_exponential]: See Theorem 5.12, Chap.2, @Lehmann1998.
+
+
 ## Example: Poisson unbiased estimation 📖
 
-## Cramér-Rao: miscellanea
-
-- Attainance and exponential families
-
-- Multiparameter case
 
 ## Rao-Blackwell
 
