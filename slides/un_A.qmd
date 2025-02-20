@@ -1140,35 +1140,51 @@ The estimator $\hat{\theta}$ is also called [uniform minimum variance unbiased e
 
 - The success of UMVUE estimators is tied to two illuminating and elegant theorems: [Cramér-Rao]{.blue} and [Rao-Blackwell]{.orange}, which connect likelihood theory, sufficiency, and unbiasedness.
 
-## Cramer-Rao inequality 📖
+## Cramér-Rao inequality 📖
 
-- The Cramer-Rao theorem establishes a [lower bound]{.blue} for the variance of an estimator. Thus, if the variance of an unbiased estimator $\hat{\theta}$ attains the lower bound for all $\theta$, then $\hat{\theta}$ is [UMVUE]{.orange}.
+- The Cramér-Rao theorem establishes a [lower bound]{.blue} for the variance of an estimator. Thus, if the variance of an unbiased estimator $\hat{\theta}$ attains the lower bound for all $\theta$, then $\hat{\theta}$ is [UMVUE]{.orange}.
 
 ::: callout-warning
-#### Theorem (Cramer-Rao, Theorem 7.3.9 in @Casella2002)
-Let $Y_1,\dots,Y_n$ be a sample from a joint density $f(\bm{y} \mid \theta)$ and let $\Theta = \mathbb{R}$. Moreover, let $\hat{\theta}(\bm{Y})$ be an estimator of $\theta$ satisfying
+#### Theorem (Cramér-Rao, Theorem 7.3.9 in @Casella2002)
+Let $Y_1,\dots,Y_n$ be a sample from a joint probability measure $f(\mathrm{d}\bm{y} \mid \theta)$ and let $\Theta = \mathbb{R}$. Moreover, let $\hat{\theta}(\bm{Y})$ be an estimator of $\theta$ satisfying
 $$
-1 + \text{bias}_\theta^*(\hat{\theta}) := \frac{\partial}{\partial \theta}\int \hat{\theta}(\bm{y})f(\bm{y} \mid \theta)\mathrm{d}\bm{y} = \int \frac{\partial}{\partial \theta} \hat{\theta}(\bm{y})f(\bm{y} \mid \theta)\mathrm{d}\bm{y},
+b^*(\theta) := \frac{\partial}{\partial \theta}\int \hat{\theta}(\bm{y})f(\mathrm{d}\bm{y} \mid \theta) = \int \frac{\partial}{\partial \theta} \hat{\theta}(\bm{y})f(\mathrm{d}\bm{y} \mid \theta),
 $$
 and with finite variance $\text{var}(\hat{\theta}(\bm{Y})) < \infty$. Then
 $$
-\text{var}(\hat{\theta}(\bm{Y})) \ge \frac{[1 + \text{bias}^*_\theta(\hat{\theta})]^2}{\mathbb{E}_\theta(l^*(\theta)^2)}.
+\text{var}(\hat{\theta}(\bm{Y})) \ge \frac{[1 + b^*(\theta)]^2}{\mathbb{E}_\theta(\ell^*(\theta)^2)}.
 $$
-which becomes $\text{var}(\hat{\theta}(\bm{Y})) \ge 1/\mathbb{E}_\theta(l^*(\theta)^2)$ if $\hat{\theta}$ is unbiased. 
+Moreover, if $\hat{\theta}$ is an [unbiased]{.orange} estimator for $\theta$, then $b^*(\theta) = 1$ and  $\text{var}(\hat{\theta}(\bm{Y})) \ge 1/\mathbb{E}_\theta(l^*(\theta)^2)$ . 
 :::
 
-## Cramer-Rao: general considerations
+## Cramér-Rao: considerations
 
-- Dependence on $\theta$ sample space
+:::callout-tip
+- The interchange of the derivative under the integral sign is an important [condition]{.orange}, not merely a technical artifact of the proof.
 
-- Transformation and "bias"
+- For example, if the [sample space]{.blue} of i.i.d. random variables $Y_i$ [depends on $\theta$]{.blue}, such condition is violated, and the Cramér-Rao lower bound may not hold.[^uniform_example]
+:::
 
+- The Cramér-Rao inequality is sometimes called [information inequality]{.orange}. In fact $I(\theta)$ defined as: 
+$$
+I(\theta) := \mathbb{E}_\theta(\ell^*(\theta)^2),
+$$
+is called [Fisher information]{.blue} or information number. This reflects the fact that as more information become available, the bound on the variance gets smaller.
+
+:::callout-tip
+If $W(\bm{Y})$ is an unbiased estimator of a [transformation]{.blue} $g(\theta)$, then the Cramér-Rao theorem holds as stated, but the term $\frac{\partial}{\partial \theta}\mathbb{E}_\theta(W(\bm{Y})) = b^*(\theta)$ cannot be interpreted as the "bias".  
+:::
+
+[^uniform_example]: See Example 7.3.13 in @Casella2002, for a simple and illuminating example.
 
 ## Bartlett identities 📖
 
 :::callout-warning
 #### First Bartlett identity
 asd
+$$
+\text{var}_\theta(\ell^*(\theta))
+$$
 :::
 
 :::callout-warning
@@ -1176,11 +1192,11 @@ asd
 asd
 :::
 
-## Cramer-Rao: iid and regular case 📖
+## Cramér-Rao: iid and regular case 📖
 
 ## Example: Poisson unbiased estimation 📖
 
-## Cramer-Rao: miscellanea
+## Cramér-Rao: miscellanea
 
 - Attainance and exponential families
 

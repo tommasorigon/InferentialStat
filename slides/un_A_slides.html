@@ -1293,33 +1293,51 @@ r(\pi, \hat{\theta}_\text{Bayes}) = 0.
 <li><p>The success of UMVUE estimators is tied to two illuminating and elegant theorems: <span class="blue">Cramér-Rao</span> and <span class="orange">Rao-Blackwell</span>, which connect likelihood theory, sufficiency, and unbiasedness.</p></li>
 </ul>
 </section>
-<section id="cramer-rao-inequality" class="slide level2 center">
-<h2>Cramer-Rao inequality 📖</h2>
+<section id="cramér-rao-inequality" class="slide level2 center">
+<h2>Cramér-Rao inequality 📖</h2>
 <ul>
-<li>The Cramer-Rao theorem establishes a <span class="blue">lower bound</span> for the variance of an estimator. Thus, if the variance of an unbiased estimator <span class="math inline">\hat{\theta}</span> attains the lower bound for all <span class="math inline">\theta</span>, then <span class="math inline">\hat{\theta}</span> is <span class="orange">UMVUE</span>.</li>
+<li>The Cramér-Rao theorem establishes a <span class="blue">lower bound</span> for the variance of an estimator. Thus, if the variance of an unbiased estimator <span class="math inline">\hat{\theta}</span> attains the lower bound for all <span class="math inline">\theta</span>, then <span class="math inline">\hat{\theta}</span> is <span class="orange">UMVUE</span>.</li>
 </ul>
 <div class="callout callout-warning no-icon callout-titled callout-style-simple">
 <div class="callout-body">
 <div class="callout-title">
-<p><strong>Theorem (Cramer-Rao, Theorem 7.3.9 in <span class="citation" data-cites="Casella2002">Casella and Berger (<a href="#/references" role="doc-biblioref" onclick="">2002</a>)</span>)</strong></p>
+<p><strong>Theorem (Cramér-Rao, Theorem 7.3.9 in <span class="citation" data-cites="Casella2002">Casella and Berger (<a href="#/references" role="doc-biblioref" onclick="">2002</a>)</span>)</strong></p>
 </div>
 <div class="callout-content">
-<p>Let <span class="math inline">Y_1,\dots,Y_n</span> be a sample from a joint density <span class="math inline">f(\bm{y} \mid \theta)</span> and let <span class="math inline">\Theta = \mathbb{R}</span>. Moreover, let <span class="math inline">\hat{\theta}(\bm{Y})</span> be an estimator of <span class="math inline">\theta</span> satisfying <span class="math display">
-1 + \text{bias}_\theta^*(\hat{\theta}) := \frac{\partial}{\partial \theta}\int \hat{\theta}(\bm{y})f(\bm{y} \mid \theta)\mathrm{d}\bm{y} = \int \frac{\partial}{\partial \theta} \hat{\theta}(\bm{y})f(\bm{y} \mid \theta)\mathrm{d}\bm{y},
+<p>Let <span class="math inline">Y_1,\dots,Y_n</span> be a sample from a joint probability measure <span class="math inline">f(\mathrm{d}\bm{y} \mid \theta)</span> and let <span class="math inline">\Theta = \mathbb{R}</span>. Moreover, let <span class="math inline">\hat{\theta}(\bm{Y})</span> be an estimator of <span class="math inline">\theta</span> satisfying <span class="math display">
+b^*(\theta) := \frac{\partial}{\partial \theta}\int \hat{\theta}(\bm{y})f(\mathrm{d}\bm{y} \mid \theta) = \int \frac{\partial}{\partial \theta} \hat{\theta}(\bm{y})f(\mathrm{d}\bm{y} \mid \theta),
 </span> and with finite variance <span class="math inline">\text{var}(\hat{\theta}(\bm{Y})) &lt; \infty</span>. Then <span class="math display">
-\text{var}(\hat{\theta}(\bm{Y})) \ge \frac{[1 + \text{bias}^*_\theta(\hat{\theta})]^2}{\mathbb{E}_\theta(l^*(\theta)^2)}.
-</span> which becomes <span class="math inline">\text{var}(\hat{\theta}(\bm{Y})) \ge 1/\mathbb{E}_\theta(l^*(\theta)^2)</span> if <span class="math inline">\hat{\theta}</span> is unbiased.</p>
+\text{var}(\hat{\theta}(\bm{Y})) \ge \frac{[1 + b^*(\theta)]^2}{\mathbb{E}_\theta(\ell^*(\theta)^2)}.
+</span> Moreover, if <span class="math inline">\hat{\theta}</span> is an <span class="orange">unbiased</span> estimator for <span class="math inline">\theta</span>, then <span class="math inline">b^*(\theta) = 1</span> and <span class="math inline">\text{var}(\hat{\theta}(\bm{Y})) \ge 1/\mathbb{E}_\theta(l^*(\theta)^2)</span> .</p>
 </div>
 </div>
 </div>
 </section>
-<section id="cramer-rao-general-considerations" class="slide level2 center">
-<h2>Cramer-Rao: general considerations</h2>
+<section id="cramér-rao-considerations" class="slide level2 center">
+<h2>Cramér-Rao: considerations</h2>
+<div class="callout callout-tip no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
 <ul>
-<li><p>Dependence on <span class="math inline">\theta</span> sample space</p></li>
-<li><p>Transformation and “bias”</p></li>
+<li><p>The interchange of the derivative under the integral sign is an important <span class="orange">condition</span>, not merely a technical artifact of the proof.</p></li>
+<li><p>For example, if the <span class="blue">sample space</span> of i.i.d. random variables <span class="math inline">Y_i</span> <span class="blue">depends on <span class="math inline">\theta</span></span>, such condition is violated, and the Cramér-Rao lower bound may not hold.<sup>1</sup></p></li>
 </ul>
-</section>
+</div>
+</div>
+</div>
+<ul>
+<li>The Cramér-Rao inequality is sometimes called <span class="orange">information inequality</span>. In fact <span class="math inline">I(\theta)</span> defined as: <span class="math display">
+I(\theta) := \mathbb{E}_\theta(\ell^*(\theta)^2),
+</span> is called <span class="blue">Fisher information</span> or information number. This reflects the fact that as more information become available, the bound on the variance gets smaller.</li>
+</ul>
+<div class="callout callout-tip no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<p>If <span class="math inline">W(\bm{Y})</span> is an unbiased estimator of a <span class="blue">transformation</span> <span class="math inline">g(\theta)</span>, then the Cramér-Rao theorem holds as stated, but the term <span class="math inline">\frac{\partial}{\partial \theta}\mathbb{E}_\theta(W(\bm{Y})) = b^*(\theta)</span> cannot be interpreted as the “bias”.</p>
+</div>
+</div>
+</div>
+<aside><ol class="aside-footnotes"><li id="fn12"><p>See Example 7.3.13 in <span class="citation" data-cites="Casella2002">Casella and Berger (<a href="#/references" role="doc-biblioref" onclick="">2002</a>)</span>, for a simple and illuminating example.</p></li></ol></aside></section>
 <section id="bartlett-identities" class="slide level2 center">
 <h2>Bartlett identities 📖</h2>
 <div class="callout callout-warning no-icon callout-titled callout-style-simple">
@@ -1328,7 +1346,9 @@ r(\pi, \hat{\theta}_\text{Bayes}) = 0.
 <p><strong>First Bartlett identity</strong></p>
 </div>
 <div class="callout-content">
-<p>asd</p>
+<p>asd <span class="math display">
+\text{var}_\theta(\ell^*(\theta))
+</span></p>
 </div>
 </div>
 </div>
@@ -1343,14 +1363,14 @@ r(\pi, \hat{\theta}_\text{Bayes}) = 0.
 </div>
 </div>
 </section>
-<section id="cramer-rao-iid-and-regular-case" class="slide level2 center">
-<h2>Cramer-Rao: iid and regular case 📖</h2>
+<section id="cramér-rao-iid-and-regular-case" class="slide level2 center">
+<h2>Cramér-Rao: iid and regular case 📖</h2>
 </section>
 <section id="example-poisson-unbiased-estimation-1" class="slide level2 center">
 <h2>Example: Poisson unbiased estimation 📖</h2>
 </section>
-<section id="cramer-rao-miscellanea" class="slide level2 center">
-<h2>Cramer-Rao: miscellanea</h2>
+<section id="cramér-rao-miscellanea" class="slide level2 center">
+<h2>Cramér-Rao: miscellanea</h2>
 <ul>
 <li><p>Attainance and exponential families</p></li>
 <li><p>Multiparameter case</p></li>
