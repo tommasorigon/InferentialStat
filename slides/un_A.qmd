@@ -800,7 +800,7 @@ $$
 :::callout-tip
 - The frequentist paradigm evaluates estimators based on their [long-run performance]{.blue}, without accounting for the given observations $\bm{Y}$. A client may wish for [optimal results]{.blue} for the observed data, and [not someone else's data]{.orange}.  
 
-- The risk function approach implicitly assumes the [repeatability]{.blue} of the [experiment]{.blue}, which has sparked controversy on both philosophical and practical grounds. 
+- The risk function approach implicitly assumes the [repeatability]{.blue} of the [experiment]{.blue}, which has sparked controversy, especially among Bayesian statisticians. 
 
 - For instance, if new observations come to the statistician, she should make use of them, potentially modifying the way the experiment is conducted, as in medical trials.  
 
