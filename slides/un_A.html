@@ -174,6 +174,7 @@ window.Quarto = {
   <li><a href="#cramér-rao-iid-and-regular-case" id="toc-cramér-rao-iid-and-regular-case" class="nav-link" data-scroll-target="#cramér-rao-iid-and-regular-case">Cramér-Rao: iid and regular case 📖</a></li>
   <li><a href="#example-poisson-unbiased-estimation-1" id="toc-example-poisson-unbiased-estimation-1" class="nav-link" data-scroll-target="#example-poisson-unbiased-estimation-1">Example: Poisson unbiased estimation 📖</a></li>
   <li><a href="#rao-blackwell" id="toc-rao-blackwell" class="nav-link" data-scroll-target="#rao-blackwell">Rao-Blackwell</a></li>
+  <li><a href="#example-binomial-best-unbiased-estimation" id="toc-example-binomial-best-unbiased-estimation" class="nav-link" data-scroll-target="#example-binomial-best-unbiased-estimation">Example: binomial best unbiased estimation</a></li>
   </ul></li>
   <li><a href="#alternative-notions-of-optimality" id="toc-alternative-notions-of-optimality" class="nav-link" data-scroll-target="#alternative-notions-of-optimality">Alternative notions of optimality</a>
   <ul class="collapse">
@@ -1337,7 +1338,7 @@ Second Bartlett identity
 </span> <span class="math display">
 \frac{\partial^2}{\partial \theta^2}\int f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y}) = \int \frac{\partial^2}{\partial \theta^2}f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y}), \tag{C.2}
 </span> then <span class="math display">
-I(\theta) = \mathbb{E}_\theta(\ell^*(\theta)^2) =\text{var}_\theta(\ell^*(\theta))= \mathbb{E}_\theta\left(\frac{\partial^2}{\partial \theta^2}\ell(\theta)\right).
+I(\theta) = \mathbb{E}_\theta(\ell^*(\theta)^2) =\text{var}_\theta(\ell^*(\theta))= -\mathbb{E}_\theta\left(\frac{\partial^2}{\partial \theta^2}\ell(\theta)\right).
 </span></p>
 </div>
 </div>
@@ -1358,7 +1359,7 @@ Theorem (Cramér-Rao, simplified)
 </div>
 <div class="callout-body-container callout-body">
 <p>Let <span class="math inline">Y_1,\dots,Y_n</span> be an iid sample from <span class="math inline">f(y \mid \theta)\mathrm{d}y</span> satisfying conditions <span class="blue">C.1</span> and <span class="blue">C.2</span>, and let <span class="math inline">\Theta = \mathbb{R}</span>. Moreover, let <span class="math inline">\hat{\theta}(\bm{Y})</span> be an <span class="orange">unbiased</span> estimator of <span class="math inline">\theta</span> with finite variance <span class="math inline">\text{var}(\hat{\theta}(\bm{Y})) &lt; \infty</span>. Then <span class="math display">
-\text{var}(\hat{\theta}(\bm{Y})) \ge \frac{1}{n i(\theta)}, \qquad i(\theta) = \mathbb{E}\left(\frac{\partial^2}{\partial \theta^2}\log{f(y \mid \theta)}\right).
+\text{var}(\hat{\theta}(\bm{Y})) \ge \frac{1}{n i(\theta)}, \qquad i(\theta) = -\mathbb{E}\left(\frac{\partial^2}{\partial \theta^2}\log{f(y \mid \theta)}\right).
 </span></p>
 </div>
 </div>
@@ -1370,9 +1371,34 @@ Theorem (Cramér-Rao, simplified)
 <div class="no-row-height column-margin column-container"><div id="fn13"><p><sup>13</sup>&nbsp;See Theorem 5.12, Chap.2, <span class="citation" data-cites="Lehmann1998">Lehmann and Casella (<a href="#ref-Lehmann1998" role="doc-biblioref">1998</a>)</span>.</p></div></div></section>
 <section id="example-poisson-unbiased-estimation-1" class="level2">
 <h2 class="anchored" data-anchor-id="example-poisson-unbiased-estimation-1">Example: Poisson unbiased estimation 📖</h2>
+<ul>
+<li><p>Let <span class="math inline">Y_1,\dots,Y_n</span> be i.i.d. <span class="math inline">\text{Poisson}(\lambda)</span>. The sample mean <span class="math inline">\bar{Y}</span> is <span class="orange">unbiased</span> for <span class="math inline">\lambda</span> and <span class="math inline">\text{var}_\lambda(\bar{Y}) = \lambda / n</span>.</p></li>
+<li><p>We can use Cramér-Rao to show this estimator is a <span class="blue">UMVUE</span>. The regularity conditions are satisfied and therefore, after some calculus <span class="math display">
+i(\lambda) = -\mathbb{E}_\lambda\left(\frac{\partial}{\partial \lambda^2}\log{f(y \mid \lambda)}\right) = \mathbb{E}_\lambda\left(\frac{Y}{\lambda^2}\right) = \frac{1}{\lambda}.
+</span></p></li>
+<li><p>Hence, <span class="orange">Cramér-Rao</span> theorem states that for any unbiased estimator <span class="math inline">\hat{\lambda}(\bm{Y})</span> <span class="math display">
+\text{var}_\lambda(\hat{\lambda}) \ge \frac{\lambda}{n},
+</span> implying that <span class="math inline">\bar{Y}</span> is a <span class="blue">UMVUE</span> because <span class="math inline">\text{var}_\lambda(\bar{Y}) = \lambda/n</span>.</p></li>
+</ul>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<ul>
+<li><p>Cramér-Rao theorem does not imply that <span class="math inline">\bar{Y}</span> is the <span class="orange">unique</span> UMVUE.</p></li>
+<li><p>However, this is guaranteed by Theorem 7.3.19 in <span class="citation" data-cites="Casella2002">Casella and Berger (<a href="#ref-Casella2002" role="doc-biblioref">2002</a>)</span>: if a <span class="blue">UMVUE</span> exists, it is <span class="orange">unique</span>.</p></li>
+</ul>
+</div>
+</div>
+</div>
 </section>
 <section id="rao-blackwell" class="level2">
 <h2 class="anchored" data-anchor-id="rao-blackwell">Rao-Blackwell</h2>
+</section>
+<section id="example-binomial-best-unbiased-estimation" class="level2">
+<h2 class="anchored" data-anchor-id="example-binomial-best-unbiased-estimation">Example: binomial best unbiased estimation</h2>
 </section>
 </section>
 <section id="alternative-notions-of-optimality" class="level1">

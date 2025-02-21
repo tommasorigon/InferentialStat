@@ -1205,7 +1205,7 @@ $$
 $$
 then
 $$
-I(\theta) = \mathbb{E}_\theta(\ell^*(\theta)^2) =\text{var}_\theta(\ell^*(\theta))= \mathbb{E}_\theta\left(\frac{\partial^2}{\partial \theta^2}\ell(\theta)\right).
+I(\theta) = \mathbb{E}_\theta(\ell^*(\theta)^2) =\text{var}_\theta(\ell^*(\theta))= -\mathbb{E}_\theta\left(\frac{\partial^2}{\partial \theta^2}\ell(\theta)\right).
 $$
 :::
 
@@ -1217,7 +1217,7 @@ $$
 #### Theorem (Cramér-Rao, simplified)
 Let $Y_1,\dots,Y_n$ be an iid sample from $f(y \mid \theta)\mathrm{d}y$ satisfying conditions [C.1]{.blue} and [C.2]{.blue}, and let $\Theta = \mathbb{R}$. Moreover, let $\hat{\theta}(\bm{Y})$ be an [unbiased]{.orange} estimator of $\theta$  with finite variance $\text{var}(\hat{\theta}(\bm{Y})) < \infty$. Then
 $$
-\text{var}(\hat{\theta}(\bm{Y})) \ge \frac{1}{n i(\theta)}, \qquad i(\theta) = \mathbb{E}\left(\frac{\partial^2}{\partial \theta^2}\log{f(y \mid \theta)}\right).
+\text{var}(\hat{\theta}(\bm{Y})) \ge \frac{1}{n i(\theta)}, \qquad i(\theta) = -\mathbb{E}\left(\frac{\partial^2}{\partial \theta^2}\log{f(y \mid \theta)}\right).
 $$
 :::
 
@@ -1232,8 +1232,26 @@ $$
 
 ## Example: Poisson unbiased estimation 📖
 
+- Let $Y_1,\dots,Y_n$ be i.i.d. $\text{Poisson}(\lambda)$. The sample mean $\bar{Y}$ is [unbiased]{.orange} for $\lambda$ and $\text{var}_\lambda(\bar{Y}) = \lambda / n$.
 
+- We can use Cramér-Rao to show this estimator is a [UMVUE]{.blue}. The regularity conditions are satisfied and therefore, after some calculus
+$$
+i(\lambda) = -\mathbb{E}_\lambda\left(\frac{\partial}{\partial \lambda^2}\log{f(y \mid \lambda)}\right) = \mathbb{E}_\lambda\left(\frac{Y}{\lambda^2}\right) = \frac{1}{\lambda}.
+$$
+- Hence, [Cramér-Rao]{.orange} theorem states that for any unbiased estimator $\hat{\lambda}(\bm{Y})$
+$$
+\text{var}_\lambda(\hat{\lambda}) \ge \frac{\lambda}{n},
+$$
+implying that $\bar{Y}$ is a [UMVUE]{.blue} because $\text{var}_\lambda(\bar{Y}) = \lambda/n$. 
+
+:::callout-tip
+- Cramér-Rao theorem does not imply that $\bar{Y}$ is the [unique]{.orange} UMVUE. 
+
+- However, this is guaranteed by Theorem 7.3.19 in @Casella2002: if a [UMVUE]{.blue} exists, it is [unique]{.orange}.
+:::
 ## Rao-Blackwell
+
+## Example: binomial best unbiased estimation
 
 # Alternative notions of optimality
 

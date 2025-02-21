@@ -1370,7 +1370,7 @@ I(\theta) := \mathbb{E}_\theta(\ell^*(\theta)^2),
 </span> <span class="math display">
 \frac{\partial^2}{\partial \theta^2}\int f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y}) = \int \frac{\partial^2}{\partial \theta^2}f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y}), \tag{C.2}
 </span> then <span class="math display">
-I(\theta) = \mathbb{E}_\theta(\ell^*(\theta)^2) =\text{var}_\theta(\ell^*(\theta))= \mathbb{E}_\theta\left(\frac{\partial^2}{\partial \theta^2}\ell(\theta)\right).
+I(\theta) = \mathbb{E}_\theta(\ell^*(\theta)^2) =\text{var}_\theta(\ell^*(\theta))= -\mathbb{E}_\theta\left(\frac{\partial^2}{\partial \theta^2}\ell(\theta)\right).
 </span></p>
 </div>
 </div>
@@ -1388,7 +1388,7 @@ I(\theta) = \mathbb{E}_\theta(\ell^*(\theta)^2) =\text{var}_\theta(\ell^*(\theta
 </div>
 <div class="callout-content">
 <p>Let <span class="math inline">Y_1,\dots,Y_n</span> be an iid sample from <span class="math inline">f(y \mid \theta)\mathrm{d}y</span> satisfying conditions <span class="blue">C.1</span> and <span class="blue">C.2</span>, and let <span class="math inline">\Theta = \mathbb{R}</span>. Moreover, let <span class="math inline">\hat{\theta}(\bm{Y})</span> be an <span class="orange">unbiased</span> estimator of <span class="math inline">\theta</span> with finite variance <span class="math inline">\text{var}(\hat{\theta}(\bm{Y})) &lt; \infty</span>. Then <span class="math display">
-\text{var}(\hat{\theta}(\bm{Y})) \ge \frac{1}{n i(\theta)}, \qquad i(\theta) = \mathbb{E}\left(\frac{\partial^2}{\partial \theta^2}\log{f(y \mid \theta)}\right).
+\text{var}(\hat{\theta}(\bm{Y})) \ge \frac{1}{n i(\theta)}, \qquad i(\theta) = -\mathbb{E}\left(\frac{\partial^2}{\partial \theta^2}\log{f(y \mid \theta)}\right).
 </span></p>
 </div>
 </div>
@@ -1401,9 +1401,31 @@ I(\theta) = \mathbb{E}_\theta(\ell^*(\theta)^2) =\text{var}_\theta(\ell^*(\theta
 <aside><ol class="aside-footnotes"><li id="fn13"><p>See Theorem 5.12, Chap.2, <span class="citation" data-cites="Lehmann1998">Lehmann and Casella (<a href="#/references" role="doc-biblioref" onclick="">1998</a>)</span>.</p></li></ol></aside></section>
 <section id="example-poisson-unbiased-estimation-1" class="slide level2 center">
 <h2>Example: Poisson unbiased estimation 📖</h2>
+<ul>
+<li><p>Let <span class="math inline">Y_1,\dots,Y_n</span> be i.i.d. <span class="math inline">\text{Poisson}(\lambda)</span>. The sample mean <span class="math inline">\bar{Y}</span> is <span class="orange">unbiased</span> for <span class="math inline">\lambda</span> and <span class="math inline">\text{var}_\lambda(\bar{Y}) = \lambda / n</span>.</p></li>
+<li><p>We can use Cramér-Rao to show this estimator is a <span class="blue">UMVUE</span>. The regularity conditions are satisfied and therefore, after some calculus <span class="math display">
+i(\lambda) = -\mathbb{E}_\lambda\left(\frac{\partial}{\partial \lambda^2}\log{f(y \mid \lambda)}\right) = \mathbb{E}_\lambda\left(\frac{Y}{\lambda^2}\right) = \frac{1}{\lambda}.
+</span></p></li>
+<li><p>Hence, <span class="orange">Cramér-Rao</span> theorem states that for any unbiased estimator <span class="math inline">\hat{\lambda}(\bm{Y})</span> <span class="math display">
+\text{var}_\lambda(\hat{\lambda}) \ge \frac{\lambda}{n},
+</span> implying that <span class="math inline">\bar{Y}</span> is a <span class="blue">UMVUE</span> because <span class="math inline">\text{var}_\lambda(\bar{Y}) = \lambda/n</span>.</p></li>
+</ul>
+<div class="callout callout-tip no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<ul>
+<li><p>Cramér-Rao theorem does not imply that <span class="math inline">\bar{Y}</span> is the <span class="orange">unique</span> UMVUE.</p></li>
+<li><p>However, this is guaranteed by Theorem 7.3.19 in <span class="citation" data-cites="Casella2002">Casella and Berger (<a href="#/references" role="doc-biblioref" onclick="">2002</a>)</span>: if a <span class="blue">UMVUE</span> exists, it is <span class="orange">unique</span>.</p></li>
+</ul>
+</div>
+</div>
+</div>
 </section>
 <section id="rao-blackwell" class="slide level2 center">
 <h2>Rao-Blackwell</h2>
+</section>
+<section id="example-binomial-best-unbiased-estimation" class="slide level2 center">
+<h2>Example: binomial best unbiased estimation</h2>
 </section></section>
 <section>
 <section id="alternative-notions-of-optimality" class="title-slide slide level1 center">
