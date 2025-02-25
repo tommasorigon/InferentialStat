@@ -1382,11 +1382,15 @@ which can be obtained after simple calculations.
 
 ## Asymptotics for the MLE
 
+## Asymptotics for unbiased estimating equations
+
 ## Asymptotic bias and Firth corrections
 
 # Robustness
 
 ## Example: binomial best unbiased estimation
+
+## Maximum likelihood under a misspecified model
 
 # References and study material
 
