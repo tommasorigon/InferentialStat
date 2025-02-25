@@ -1361,7 +1361,7 @@ $$
 $$
 \hat{\psi} = \mathbb{E}(\tilde{\psi} \mid S) = N \binom{N n - N}{S-1}/ \binom{N n}{S}.
 $$
-which can be obtained after some simple, albeit a a bit long, calculations. 
+which can be obtained after simple calculations. 
 
 [^example_completeness]: See Example 6.2.22 of @Casella2002. This is also follows from general result of exponential families.
 
