@@ -43,6 +43,7 @@ format:
     code-fold: false
     code-summary: "Show the code"
     fig-dpi: 150
+    toc-location: left
     highlight-style: github
 editor: 
   markdown: 
@@ -1384,6 +1385,8 @@ which can be obtained after simple calculations.
 ## Asymptotic bias and Firth corrections
 
 # Robustness
+
+## Example: binomial best unbiased estimation
 
 # References and study material
 

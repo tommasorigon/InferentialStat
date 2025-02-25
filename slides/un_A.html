@@ -104,8 +104,8 @@ window.Quarto = {
 
 <body>
 
-<div id="quarto-content" class="page-columns page-rows-contents page-layout-full">
-<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-full toc-left">
+<div id="quarto-sidebar-toc-left" class="sidebar toc-left">
   <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Table of contents</h2>
    
@@ -193,7 +193,10 @@ window.Quarto = {
   <li><a href="#asymptotics-for-the-mle" id="toc-asymptotics-for-the-mle" class="nav-link" data-scroll-target="#asymptotics-for-the-mle">Asymptotics for the MLE</a></li>
   <li><a href="#asymptotic-bias-and-firth-corrections" id="toc-asymptotic-bias-and-firth-corrections" class="nav-link" data-scroll-target="#asymptotic-bias-and-firth-corrections">Asymptotic bias and Firth corrections</a></li>
   </ul></li>
-  <li><a href="#robustness" id="toc-robustness" class="nav-link" data-scroll-target="#robustness">Robustness</a></li>
+  <li><a href="#robustness" id="toc-robustness" class="nav-link" data-scroll-target="#robustness">Robustness</a>
+  <ul class="collapse">
+  <li><a href="#example-binomial-best-unbiased-estimation-1" id="toc-example-binomial-best-unbiased-estimation-1" class="nav-link" data-scroll-target="#example-binomial-best-unbiased-estimation-1">Example: binomial best unbiased estimation</a></li>
+  </ul></li>
   <li><a href="#references-and-study-material" id="toc-references-and-study-material" class="nav-link" data-scroll-target="#references-and-study-material">References and study material</a>
   <ul class="collapse">
   <li><a href="#main-references" id="toc-main-references" class="nav-link" data-scroll-target="#main-references">Main references</a></li>
@@ -203,7 +206,9 @@ window.Quarto = {
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="un_A_slides.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
 </div>
-<main class="content page-columns page-full column-page-left" id="quarto-document-content">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+</div>
+<main class="content page-columns page-full column-body" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -212,7 +217,7 @@ window.Quarto = {
 </div>
 
 
-<div class="quarto-title-meta-author column-page-left">
+<div class="quarto-title-meta-author column-body">
   <div class="quarto-title-meta-heading">Author</div>
   <div class="quarto-title-meta-heading">Affiliation</div>
   
@@ -226,7 +231,7 @@ window.Quarto = {
       </div>
   </div>
 
-<div class="quarto-title-meta column-page-left">
+<div class="quarto-title-meta column-body">
 
       
   
@@ -1552,7 +1557,7 @@ Theorem (Lehmann-Scheffé-Rao-Blackwell, <span class="citation" data-cites="Case
 <li><p>Let us begin noting that <span class="math inline">\tilde{\psi} = \mathbb{I}(Y_1 = 1)</span> is an <span class="orange">unbiased</span> estimator of <span class="math inline">\psi</span>, where <span class="math inline">\mathbb{I}</span> is the <span class="blue">indicator function</span>. In fact: <span class="math inline">\mathbb{E}(\tilde{\psi}) = \mathbb{E}(\mathbb{I}(Y_1 = 1)) = \mathbb{P}(Y_1 = 1) = \psi</span>.</p></li>
 <li><p>The Lehmann-Scheffé-Rao-Blackwell theorem then implies that the unique and best unbiased estimator (UMVUE) is <span class="math display">
 \hat{\psi} = \mathbb{E}(\tilde{\psi} \mid S) = N \binom{N n - N}{S-1}/ \binom{N n}{S}.
-</span> which can be obtained after some simple, albeit a a bit long, calculations.</p></li>
+</span> which can be obtained after simple calculations.</p></li>
 </ul>
 <div class="no-row-height column-margin column-container"><div id="fn14"><p><sup>14</sup>&nbsp;See Example 6.2.22 of <span class="citation" data-cites="Casella2002">Casella and Berger (<a href="#ref-Casella2002" role="doc-biblioref">2002</a>)</span>. This is also follows from general result of exponential families.</p></div></div></section>
 </section>
@@ -1585,6 +1590,9 @@ Theorem (Lehmann-Scheffé-Rao-Blackwell, <span class="citation" data-cites="Case
 </section>
 <section id="robustness" class="level1">
 <h1>Robustness</h1>
+<section id="example-binomial-best-unbiased-estimation-1" class="level2">
+<h2 class="anchored" data-anchor-id="example-binomial-best-unbiased-estimation-1">Example: binomial best unbiased estimation</h2>
+</section>
 </section>
 <section id="references-and-study-material" class="level1">
 <h1>References and study material</h1>
