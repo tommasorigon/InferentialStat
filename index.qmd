@@ -65,6 +65,7 @@ documentation](https://quarto.org/docs/presentations/revealjs/presenting.html#pr
 
 <!-- ## Exam -->
 
+
 <!-- #### Mock exam -->
 
 <!-- An example of written examination is provided at [this link](exe/exe_exam.html).  -->

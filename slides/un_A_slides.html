@@ -1423,6 +1423,95 @@ i(\lambda) = -\mathbb{E}_\lambda\left(\frac{\partial}{\partial \lambda^2}\log{f(
 </section>
 <section id="rao-blackwell" class="slide level2 center">
 <h2>Rao-Blackwell</h2>
+<ul>
+<li>The Rao-Blackwell theorem is a classical result of inferential statistics that emphasizes the pivotal role of <span class="orange">sufficiency</span> in finding UMVU estimators.</li>
+</ul>
+<div class="callout callout-warning no-icon callout-titled callout-style-simple">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Theorem (Rao-Blackwell, <span class="citation" data-cites="Casella2002">Casella and Berger (<a href="#/references" role="doc-biblioref" onclick="">2002</a>)</span>, Theorem 7.3.17)</strong></p>
+</div>
+<div class="callout-content">
+<p>Let <span class="math inline">\tilde{\theta}(\bm{Y})</span> be an <span class="orange">unbiased</span> estimator of <span class="math inline">\theta</span>, and let <span class="math inline">S = s(\bm{Y})</span> be a <span class="blue">sufficient statistic</span> for <span class="math inline">\theta</span>. Let <span class="math inline">\hat{\theta} = \mathbb{E}_\theta(\tilde{\theta}(\bm{Y}) \mid S)</span>. Then <span class="math inline">\hat{\theta}</span> is an estimator such that <span class="math inline">\mathbb{E}_\theta(\hat{\theta}) = \theta</span> and <span class="math display">
+\text{var}_\theta(\hat{\theta}) \le \text{var}_\theta(\tilde{\theta}).
+</span> That is, <span class="math inline">\hat{\theta}</span> is a <span class="blue">uniformly better unbiased estimator</span> of <span class="math inline">\theta</span>.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-tip no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<ul>
+<li><p>Rao-Blackwell holds for any <span class="blue">convex loss function</span>; see <span class="citation" data-cites="Lehmann1998">Lehmann and Casella (<a href="#/references" role="doc-biblioref" onclick="">1998</a>)</span>, Theorem 7.8, Chap. 1. Note that <span class="orange">unbiasedness</span> does not play any role in the proof.</p></li>
+<li><p>This means that conditioning of a sufficient statistic <span class="orange">reduces</span> the <span class="orange">mean squared error</span> of a biased estimator <span class="math inline">\tilde{\theta}</span>, albeit the resulting <span class="math inline">\hat{\theta}</span> would also be biased.</p></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="en-route-to-finding-unique-umvue-i" class="slide level2 center">
+<h2>En route to finding unique UMVUE I</h2>
+<ul>
+<li><p>Rao-Blackwell theorem is a <span class="orange">contructive strategy</span> for finding an unbiased estimator <span class="math inline">\hat{\theta}</span> that <span class="orange">dominates</span> another unbiased estimator <span class="math inline">\tilde{\theta}</span>. However <span class="math inline">\hat{\theta}</span> is not necessarily UMVUE.</p></li>
+<li><p>In looking for UMVUE we should only consider those based on a <span class="blue">sufficient statistic</span> <span class="math inline">S</span>. However, if both <span class="math inline">\hat{\theta}</span> and <span class="math inline">\tilde{\theta}</span> are unbiased and based on <span class="math inline">S</span>, how do we know if <span class="math inline">\hat{\theta}</span> is best unbiased?</p></li>
+<li><p>The next theorem is a <span class="orange">partial answer</span>, which is practically useful if we show that <span class="math inline">\hat{\theta}</span> attains the <span class="blue">Cramér-Rao</span> lower bound.</p></li>
+</ul>
+<div class="callout callout-warning no-icon callout-titled callout-style-simple">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Theorem (<span class="citation" data-cites="Casella2002">Casella and Berger (<a href="#/references" role="doc-biblioref" onclick="">2002</a>)</span>, Theorem 7.3.19)</strong></p>
+</div>
+<div class="callout-content">
+<p>If <span class="math inline">\hat{\theta}</span> is a best unbiased estimator of <span class="math inline">\theta</span>, then <span class="math inline">\hat{\theta}</span> is <span class="blue">unique</span>.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="en-route-to-finding-unique-umvue-ii" class="slide level2 center">
+<h2>En route to finding unique UMVUE II</h2>
+<div class="callout callout-warning no-icon callout-titled callout-style-simple">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Theorem (<span class="citation" data-cites="Casella2002">Casella and Berger (<a href="#/references" role="doc-biblioref" onclick="">2002</a>)</span>, Theorem 7.3.20)</strong></p>
+</div>
+<div class="callout-content">
+<p>Let <span class="math inline">\hat{\theta}</span> be an unbiased estimator of <span class="math inline">\theta</span>. Then <span class="math inline">\hat{\theta}</span> is UMVUE <span class="orange">if and only if</span> <span class="math inline">\hat{\theta}</span> is <span class="blue">uncorrelated</span> with all unbiased estimators of <span class="math inline">0</span>, that is <span class="math display">
+\text{cov}_\theta(\hat{\theta}(\bm{Y}), U(\bm{Y})) = 0,  
+</span> for all estimators <span class="math inline">U(\bm{Y})</span> such that <span class="math inline">\mathbb{E}_\theta(U(\bm{Y})) = 0</span>.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="completeness" class="slide level2 center">
+<h2>Completeness</h2>
+<div class="callout callout-note no-icon callout-titled callout-style-simple">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Completeness</strong></p>
+</div>
+<div class="callout-content">
+<p>A sufficient statistic <span class="math inline">S = s(\bm{Y})</span> for a statistical model <span class="math inline">\mathcal{F} = \{f(\mathrm{d}y \mid \theta) : \theta \in \Theta\}</span> is said to be <span class="blue">complete</span> if <span class="orange">no nonconstant</span> function of <span class="math inline">S</span> is <span class="orange">first-order ancillary</span>, that is, <span class="math display">
+\mathbb{E}_\theta(f(S)) = c \quad \text{for all } \theta \quad \text{implies} \quad f(S) = c \:\text{ a.s.}
+</span> In other words, any non-trivial transformation of <span class="math inline">S</span> conveys information about <span class="math inline">\theta</span> in expectation.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="lehmann-scheffé-theorem" class="slide level2 center">
+<h2>Lehmann-Scheffé theorem</h2>
+<div class="callout callout-warning no-icon callout-titled callout-style-simple">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Theorem (Lehmann-Scheffé-Rao-Blackwell, <span class="citation" data-cites="Casella2002">Casella and Berger (<a href="#/references" role="doc-biblioref" onclick="">2002</a>)</span>, Theorem 7.3.23)</strong></p>
+</div>
+<div class="callout-content">
+<p>Let <span class="math inline">S</span> be a <span class="orange">complete</span> sufficient statistic for a parameter <span class="math inline">\theta</span>, and let <span class="math inline">\hat{\theta}</span> be an unbiased estimator of <span class="math inline">\theta</span> based only on <span class="math inline">S</span>. Then, <span class="math inline">\hat{\theta}</span> is <span class="blue">unique</span> best unbiased estimator (UMVUE) of <span class="math inline">\theta</span>.</p>
+</div>
+</div>
+</div>
+<ul>
+<li>This final theorem is perhaps the most important: if an unbiased estimator of <span class="math inline">\theta</span> and a complete sufficient statistic exist, we can find the unique UMVUE.</li>
+</ul>
 </section>
 <section id="example-binomial-best-unbiased-estimation" class="slide level2 center">
 <h2>Example: binomial best unbiased estimation</h2>

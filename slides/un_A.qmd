@@ -1249,7 +1249,71 @@ implying that $\bar{Y}$ is a [UMVUE]{.blue} because $\text{var}_\lambda(\bar{Y})
 
 - However, this is guaranteed by Theorem 7.3.19 in @Casella2002: if a [UMVUE]{.blue} exists, it is [unique]{.orange}.
 :::
+
 ## Rao-Blackwell
+
+- The Rao-Blackwell theorem is a classical result of inferential statistics that emphasizes the pivotal role of [sufficiency]{.orange} in finding UMVU estimators. 
+
+:::callout-warning
+#### Theorem (Rao-Blackwell, @Casella2002, Theorem 7.3.17)
+
+Let $\tilde{\theta}(\bm{Y})$ be an [unbiased]{.orange} estimator of $\theta$, and let $S = s(\bm{Y})$ be a [sufficient statistic]{.blue} for $\theta$. Let $\hat{\theta} = \mathbb{E}_\theta(\tilde{\theta}(\bm{Y}) \mid S)$. Then $\hat{\theta}$ is an estimator such that $\mathbb{E}_\theta(\hat{\theta}) = \theta$ and
+$$
+\text{var}_\theta(\hat{\theta}) \le \text{var}_\theta(\tilde{\theta}).
+$$
+That is, $\hat{\theta}$ is a [uniformly better unbiased estimator]{.blue} of $\theta$.
+:::
+
+:::callout-tip
+- Rao-Blackwell holds for any [convex loss function]{.blue}; see @Lehmann1998, Theorem 7.8, Chap. 1. Note that [unbiasedness]{.orange} does not play any role in the proof.
+
+- This means that conditioning of a sufficient statistic [reduces]{.orange} the [mean squared error]{.orange} of a biased estimator $\tilde{\theta}$, albeit the resulting $\hat{\theta}$ would also be biased. 
+:::
+
+## En route to finding unique UMVUE I
+
+- Rao-Blackwell theorem is a [contructive strategy]{.orange} for finding an unbiased estimator $\hat{\theta}$ that [dominates]{.orange}  another unbiased estimator $\tilde{\theta}$. However $\hat{\theta}$ is not necessarily UMVUE.
+
+- In looking for UMVUE we should only consider those based on a [sufficient statistic]{.blue} $S$. However, if both $\hat{\theta}$ and $\tilde{\theta}$ are unbiased and based on $S$, how do we know if $\hat{\theta}$ is best unbiased?
+
+- The next theorem is a [partial answer]{.orange}, which is practically useful if we show that $\hat{\theta}$ attains the [Cramér-Rao]{.blue} lower bound. 
+
+:::callout-warning
+#### Theorem (@Casella2002, Theorem 7.3.19)
+If $\hat{\theta}$ is a best unbiased estimator of $\theta$, then $\hat{\theta}$ is [unique]{.blue}.
+:::
+
+## En route to finding unique UMVUE II
+
+:::callout-warning
+#### Theorem (@Casella2002, Theorem 7.3.20)
+Let $\hat{\theta}$ be an unbiased estimator of $\theta$. Then $\hat{\theta}$ is UMVUE [if and only if]{.orange} $\hat{\theta}$ is [uncorrelated]{.blue} with all unbiased estimators of $0$, that is
+$$
+\text{cov}_\theta(\hat{\theta}(\bm{Y}), U(\bm{Y})) = 0,  
+$$
+for all estimators $U(\bm{Y})$ such that $\mathbb{E}_\theta(U(\bm{Y})) = 0$.
+:::
+
+## Completeness
+
+:::callout-note
+#### Completeness
+
+A sufficient statistic $S = s(\bm{Y})$ for a statistical model $\mathcal{F} = \{f(\mathrm{d}y \mid \theta) : \theta \in \Theta\}$ is said to be [complete]{.blue} if [no nonconstant]{.orange} function of $S$ is [first-order ancillary]{.orange}, that is,
+$$
+\mathbb{E}_\theta(f(S)) = c \quad \text{for all } \theta \quad \text{implies} \quad f(S) = c \:\text{ a.s.}
+$$
+In other words, any non-trivial transformation of $S$ conveys information about $\theta$ in expectation.
+:::
+
+## Lehmann-Scheffé theorem
+
+:::callout-warning
+#### Theorem (Lehmann-Scheffé-Rao-Blackwell, @Casella2002, Theorem 7.3.23)
+ Let $S$ be a [complete]{.orange} sufficient statistic for a parameter $\theta$, and let $\hat{\theta}$ be an unbiased estimator of $\theta$ based only on $S$. Then, $\hat{\theta}$ is [unique]{.blue} best unbiased estimator (UMVUE) of $\theta$. 
+:::
+
+- This final theorem is perhaps the most important: if an unbiased estimator of $\theta$ and a complete sufficient statistic exist, we can find the unique UMVUE.
 
 ## Example: binomial best unbiased estimation
 
