@@ -3,29 +3,34 @@ title: "Exercises A"
 subtitle: "Statistical Inference - Ph.D. in Economics, Statistics, and Data Science"
 author: "[Tommaso Rigon]{.orange}"
 institute: "_Università degli Studi di Milano-Bicocca_"
-lang: en
 page-layout: full
+bibliography: ../biblio.bib
+citeproc: true
+csl: https://www.zotero.org/styles/journal-of-the-american-statistical-association
+reference-location: margin
 execute:
   cache: false
 format:
   html:
     html-math-method: katex
-    echo: true
+    echo: false
     callout-appearance: minimal
-    theme: [simplex, template.css]
+    theme: [simplex, ../template.css]
     toc: true
     toc-title: Table of contents
     embed-resources: false
     code-line-numbers: true
     smooth-scroll: true
-    fig-dpi: 250
+    code-fold: false
+    code-summary: "Show the code"
+    fig-dpi: 150
+    highlight-style: github
 editor: 
   markdown: 
     wrap: 72
 editor_options: 
   chunk_output_type: console
 ---
-
 
 # [Homepage](../index.html)
 

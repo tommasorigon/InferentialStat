@@ -489,13 +489,13 @@ m_1 = \frac{\alpha}{\alpha + \beta}, \qquad m_2 = \frac{\alpha (\alpha+1)}{(\alp
 <section id="example-binomial-with-unknown-trials-mm" class="slide level2 center">
 <h2>Example: binomial with unknown trials MM 📖</h2>
 <ul>
-<li><p>Let <span class="math inline">Y_1,\dots,Y_n</span> be iid <span class="math inline">\textup{Bin}(n, p)</span> and we assume that <span class="orange">both</span> <span class="math inline">n</span> and <span class="math inline">p</span> are unknown.</p></li>
+<li><p>Let <span class="math inline">Y_1,\dots,Y_n</span> be iid <span class="math inline">\textup{Bin}(N, p)</span> and we assume that <span class="orange">both</span> <span class="math inline">N</span> and <span class="math inline">p</span> are unknown.</p></li>
 <li><p>This is a somewhat unusual application of the binomial model, which can be used e.g.&nbsp;to estimate crime rates for crimes that are known to have many unreported occurrences.</p></li>
 <li><p>Equating the first two moments yields the system of equations <span class="math display">
-m_1 = n p, \qquad m_2 = np(1-p) + n^2p^2.
+m_1 = N p, \qquad m_2 = N p(1-p) + N^2p^2.
 </span></p></li>
-<li><p>After some algebra we obtain the <span class="blue">moment estimator</span> for <span class="math inline">(n, p)</span>, which is <span class="orange">smooth</span> and <span class="orange">regular</span> function of <span class="math inline">(m_1,m_2)</span>: <span class="math display">
-\hat{p} = \frac{m_1}{n}, \qquad \hat{n} = \frac{m_1^2}{m_1 - \hat{\sigma}^2},
+<li><p>After some algebra we obtain the <span class="blue">moment estimator</span> for <span class="math inline">(N, p)</span>, which is <span class="orange">smooth</span> and <span class="orange">regular</span> function of <span class="math inline">(m_1,m_2)</span>: <span class="math display">
+\hat{p} = \frac{m_1}{\hat{N}}, \qquad \hat{N} = \frac{m_1^2}{m_1 - \hat{\sigma}^2},
 </span> where <span class="math inline">\hat{\sigma}^2 = m_2 - m_1^2</span> is the sample variance.</p></li>
 <li><p><span class="orange">Remark</span>: what if <span class="math inline">m_1 &lt; \hat{\sigma}^2</span>?</p></li>
 </ul>
@@ -566,14 +566,14 @@ L(\lambda) = \prod_{i=1}^n \frac{e^{-\lambda} \lambda^{y_i}}{y_i!}.
 <section id="example-binomial-with-unknown-trials-mle" class="slide level2 center">
 <h2>Example: binomial with unknown trials MLE</h2>
 <ul>
-<li><p>Let <span class="math inline">Y_1,\dots,Y_n</span> be iid <span class="math inline">\textup{Bin}(n, p)</span>, and suppose <span class="math inline">n</span> is <span class="orange">unknown</span>, while <span class="math inline">p</span> is considered <span class="blue">known</span>. This constitutes a non-regular problem because <span class="math inline">n</span> is <span class="blue">discrete</span>.</p></li>
+<li><p>Let <span class="math inline">Y_1,\dots,Y_n</span> be iid <span class="math inline">\textup{Bin}(N, p)</span>, and suppose <span class="math inline">N</span> is <span class="orange">unknown</span>, while <span class="math inline">p</span> is considered <span class="blue">known</span>. This constitutes a non-regular problem because <span class="math inline">N</span> is <span class="blue">discrete</span>.</p></li>
 <li><p>The likelihood function is <span class="math display">
-L(n) = \prod_{i=1}^n\binom{n}{y_i} p^{y_i}(1 - p)^{n - y_i},
-</span> where the maximum <span class="orange">cannot</span> be obtained through <span class="orange">differentiation</span>, as <span class="math inline">n \in \mathbb{N}</span>.</p></li>
-<li><p>Naturally, we require that <span class="math inline">\hat{n} \ge \max_i y_i</span>, since <span class="math inline">L(n) = 0</span> for any <span class="math inline">n &lt; \max_i y_i</span>. The MLE is therefore an integer <span class="math inline">\hat{n} \ge \max_i y_i</span> such that <span class="math display">
-L(\hat{n}) \ge L(\hat{n} - 1), \qquad L(\hat{n} + 1) &lt; L(\hat{n}).
+L(N) = \prod_{i=1}^n\binom{N}{y_i} p^{y_i}(1 - p)^{N - y_i},
+</span> where the maximum <span class="orange">cannot</span> be obtained through <span class="orange">differentiation</span>, as <span class="math inline">N \in \mathbb{N}</span>.</p></li>
+<li><p>Naturally, we require that <span class="math inline">\hat{N} \ge \max_i y_i</span>, since <span class="math inline">L(N) = 0</span> for any <span class="math inline">N &lt; \max_i y_i</span>. The MLE is therefore an integer <span class="math inline">\hat{N} \ge \max_i y_i</span> such that <span class="math display">
+L(\hat{N}) \ge L(\hat{N} - 1), \qquad L(\hat{N} + 1) &lt; L(\hat{N}).
 </span></p></li>
-<li><p>This value must be found <span class="orange">numerically</span>. However, it can be shown<sup>1</sup> that there exists exactly one such <span class="math inline">\hat{n}</span>, meaning the MLE is <span class="blue">unique</span>.</p></li>
+<li><p>This value must be found <span class="orange">numerically</span>. However, it can be shown<sup>1</sup> that there exists exactly one such <span class="math inline">\hat{N}</span>, meaning the MLE is <span class="blue">unique</span>.</p></li>
 </ul>
 <aside><ol class="aside-footnotes"><li id="fn2"><p>This problem is described in Example 7.2.9 of <span class="citation" data-cites="Casella2002">Casella and Berger (<a href="#/references" role="doc-biblioref" onclick="">2002</a>)</span>, pag. 318. See also Example 7.2.13: such estimate has a large variance in practice.</p></li></ol></aside></section>
 <section id="m-estimators" class="slide level2 center">
@@ -1422,9 +1422,9 @@ i(\lambda) = -\mathbb{E}_\lambda\left(\frac{\partial}{\partial \lambda^2}\log{f(
 </div>
 </section>
 <section id="rao-blackwell" class="slide level2 center">
-<h2>Rao-Blackwell</h2>
+<h2>Rao-Blackwell 📖</h2>
 <ul>
-<li>The Rao-Blackwell theorem is a classical result of inferential statistics that emphasizes the pivotal role of <span class="orange">sufficiency</span> in finding UMVU estimators.</li>
+<li>The Rao-Blackwell theorem is <span class="orange">contructive strategy</span> for improving estimators that emphasizes the pivotal role of <span class="orange">sufficiency</span> in finding UMVU estimators.</li>
 </ul>
 <div class="callout callout-warning no-icon callout-titled callout-style-simple">
 <div class="callout-body">
@@ -1450,11 +1450,10 @@ i(\lambda) = -\mathbb{E}_\lambda\left(\frac{\partial}{\partial \lambda^2}\log{f(
 </div>
 </section>
 <section id="en-route-to-finding-unique-umvue-i" class="slide level2 center">
-<h2>En route to finding unique UMVUE I</h2>
+<h2>En route to finding unique UMVUE I 📖</h2>
 <ul>
-<li><p>Rao-Blackwell theorem is a <span class="orange">contructive strategy</span> for finding an unbiased estimator <span class="math inline">\hat{\theta}</span> that <span class="orange">dominates</span> another unbiased estimator <span class="math inline">\tilde{\theta}</span>. However <span class="math inline">\hat{\theta}</span> is not necessarily UMVUE.</p></li>
 <li><p>In looking for UMVUE we should only consider those based on a <span class="blue">sufficient statistic</span> <span class="math inline">S</span>. However, if both <span class="math inline">\hat{\theta}</span> and <span class="math inline">\tilde{\theta}</span> are unbiased and based on <span class="math inline">S</span>, how do we know if <span class="math inline">\hat{\theta}</span> is best unbiased?</p></li>
-<li><p>The next theorem is a <span class="orange">partial answer</span>, which is practically useful if we show that <span class="math inline">\hat{\theta}</span> attains the <span class="blue">Cramér-Rao</span> lower bound.</p></li>
+<li><p>The next theorem is a <span class="orange">partial answer</span>, which is useful if <span class="math inline">\hat{\theta}</span> attains the <span class="blue">Cramér-Rao</span> lower bound.</p></li>
 </ul>
 <div class="callout callout-warning no-icon callout-titled callout-style-simple">
 <div class="callout-body">
@@ -1466,24 +1465,48 @@ i(\lambda) = -\mathbb{E}_\lambda\left(\frac{\partial}{\partial \lambda^2}\log{f(
 </div>
 </div>
 </div>
+<div class="callout callout-tip no-icon callout-titled callout-style-simple">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Example (Example 7.3.13 in <span class="citation" data-cites="Casella2002">Casella and Berger (<a href="#/references" role="doc-biblioref" onclick="">2002</a>)</span>)</strong></p>
+</div>
+<div class="callout-content">
+<p>Let <span class="math inline">Y_1,\dots,Y_n</span> be iid sample from a <span class="math inline">\text{Uniform}(0, \theta)</span>. Then the estimator <span class="math display">
+\hat{\theta} = \frac{n + 1}{n} \max\{Y_1,\dots,Y_n\}
+</span> is <span class="orange">unbiased</span> for <span class="math inline">\theta</span> and is based on a <span class="blue">sufficient statistic</span> <span class="math inline">S = \max\{Y_1,\dots,Y_n\}</span>. However, Cramér-Rao cannot be applied because the regularity conditions are not met. Is <span class="math inline">\hat{\theta}</span> UMVUE?</p>
+</div>
+</div>
+</div>
 </section>
 <section id="en-route-to-finding-unique-umvue-ii" class="slide level2 center">
-<h2>En route to finding unique UMVUE II</h2>
+<h2>En route to finding unique UMVUE II 📖</h2>
+<ul>
+<li>Suppose we wish to improve on an unbiased estimator <span class="math inline">\hat{\theta}</span>. Then, we could consider <span class="math inline">U = U(\bm{Y})</span> such that <span class="math inline">\mathbb{E}_\theta(U) = 0</span>, i.e.&nbsp;<span class="math inline">U</span> is an <span class="blue">unbiased estimator or 0</span>, and let <span class="math display">
+\tilde{\theta} = \hat{\theta} + a U, \qquad a \in \mathbb{R}.
+</span> Clearly, <span class="math inline">\tilde{\theta}</span> is also <span class="orange">unbiased</span> and its <span class="orange">variance</span> is <span class="math display">
+\text{var}_\theta(\tilde{\theta}) = \text{var}_\theta(\hat{\theta}) + 2 a \text{cov}_\theta(\hat{\theta}, U) + a^2\text{var}_\theta(U).
+</span></li>
+<li>If <span class="math inline">\text{cov}_\theta(\hat{\theta}, U) &lt; 0</span> for some <span class="math inline">\theta</span>, then choosing <span class="math inline">a \in (0, - 2  \text{cov}_\theta(\hat{\theta}, U) / \text{var}_\theta(U))</span> gives a <span class="blue">better estimator</span> for <span class="math inline">\theta</span>, implying that <span class="math inline">\hat{\theta}</span> is not UMVUE. This actually <span class="orange">characterizes</span> UMVU estimators.</li>
+</ul>
 <div class="callout callout-warning no-icon callout-titled callout-style-simple">
 <div class="callout-body">
 <div class="callout-title">
 <p><strong>Theorem (<span class="citation" data-cites="Casella2002">Casella and Berger (<a href="#/references" role="doc-biblioref" onclick="">2002</a>)</span>, Theorem 7.3.20)</strong></p>
 </div>
 <div class="callout-content">
-<p>Let <span class="math inline">\hat{\theta}</span> be an unbiased estimator of <span class="math inline">\theta</span>. Then <span class="math inline">\hat{\theta}</span> is UMVUE <span class="orange">if and only if</span> <span class="math inline">\hat{\theta}</span> is <span class="blue">uncorrelated</span> with all unbiased estimators of <span class="math inline">0</span>, that is <span class="math display">
-\text{cov}_\theta(\hat{\theta}(\bm{Y}), U(\bm{Y})) = 0,  
-</span> for all estimators <span class="math inline">U(\bm{Y})</span> such that <span class="math inline">\mathbb{E}_\theta(U(\bm{Y})) = 0</span>.</p>
+<p>Let <span class="math inline">\hat{\theta}</span> be an unbiased estimator of <span class="math inline">\theta</span>. Then <span class="math inline">\hat{\theta}</span> is UMVUE <span class="orange">if and only if</span> <span class="math inline">\hat{\theta}</span> is <span class="blue">uncorrelated</span> with all <span class="blue">unbiased estimators of <span class="math inline">0</span></span>, that is <span class="math display">
+\text{cov}_\theta(\hat{\theta}, U) = 0, \quad \text{ for all } \quad U = U(\bm{Y}) \quad \text{ such that } \quad \mathbb{E}_\theta(U) = 0.
+</span></p>
 </div>
 </div>
 </div>
 </section>
 <section id="completeness" class="slide level2 center">
 <h2>Completeness</h2>
+<ul>
+<li><p>Proving that an estimator <span class="math inline">\hat{\theta}</span> is uncorrelated with all unbiased estimators of 0 is very hard, limitating the practical usefulness of the former theorem.</p></li>
+<li><p>However, if we assume <span class="math inline">S</span> is <span class="orange">complete</span>, we can finally see the light at the end of the tunnel.</p></li>
+</ul>
 <div class="callout callout-note no-icon callout-titled callout-style-simple">
 <div class="callout-body">
 <div class="callout-title">
@@ -1496,9 +1519,16 @@ i(\lambda) = -\mathbb{E}_\lambda\left(\frac{\partial}{\partial \lambda^2}\log{f(
 </div>
 </div>
 </div>
+<ul>
+<li><p>Because of Rao-Blackwell, the UMVUE <span class="math inline">\hat{\theta} = \hat{\theta}(S)</span> must be a function of a <span class="blue">sufficient</span> statistic <span class="math inline">S</span>.</p></li>
+<li><p>If <span class="math inline">S</span> is <span class="orange">complete</span>, then (using <span class="math inline">c = 0</span>), there exists no estimator <span class="math inline">U = U(S)</span> such that <span class="math inline">\mathbb{E}_\theta(U(S)) = 0</span>, with the only exception of <span class="math inline">U = 0</span>, which is uncorrelated with <span class="math inline">\hat{\theta}(S)</span>.</p></li>
+</ul>
 </section>
 <section id="lehmann-scheffé-theorem" class="slide level2 center">
 <h2>Lehmann-Scheffé theorem</h2>
+<ul>
+<li>We summarise these finding into a single statement, which is arguably the most relevant result of the Rao-Blackwell saga.</li>
+</ul>
 <div class="callout callout-warning no-icon callout-titled callout-style-simple">
 <div class="callout-body">
 <div class="callout-title">
@@ -1510,12 +1540,23 @@ i(\lambda) = -\mathbb{E}_\lambda\left(\frac{\partial}{\partial \lambda^2}\log{f(
 </div>
 </div>
 <ul>
-<li>This final theorem is perhaps the most important: if an unbiased estimator of <span class="math inline">\theta</span> and a complete sufficient statistic exist, we can find the unique UMVUE.</li>
+<li><p>The <span class="blue">Lehmann-Scheffé theorem</span> is implicitly contained in the previous results. Its <span class="orange">original formulation</span> is: “<em>unbiased estimators based on complete sufficient statistics are unique.</em>”</p></li>
+<li><p>The Lehmann-Scheffé theorem represents a <span class="blue">major achievement</span> in mathematical statistics, tying together <span class="orange">sufficiency</span>, <span class="grey">completeness</span> and <span class="blue">uniqueness</span>.</p></li>
 </ul>
 </section>
 <section id="example-binomial-best-unbiased-estimation" class="slide level2 center">
-<h2>Example: binomial best unbiased estimation</h2>
-</section></section>
+<h2>Example: binomial best unbiased estimation 📖</h2>
+<ul>
+<li><p>Let <span class="math inline">Y_1,\dots,Y_n</span> be iid <span class="math inline">\textup{Bin}(N, p)</span> and we assume that <span class="math inline">N</span> is <span class="blue">known</span> and <span class="math inline">p</span> is <span class="orange">unknown</span>. We are interested in estimating the <span class="orange">reparametrization</span>: <span class="math display">
+\psi = \mathbb{P}(Y_i = 1) = N p (1 - p)^{N-1}.
+</span></p></li>
+<li><p>We know that <span class="math inline">S = \sum_{i=1}^n Y_i \sim \textup{Bin}(n N, p)</span> is a <span class="grey">complete</span> and <span class="blue">sufficient</span> statistic<sup>1</sup>. However, no obvious unbiased estimator based on <span class="math inline">S</span> is immediately available.</p></li>
+<li><p>Let us begin noting that <span class="math inline">\tilde{\psi} = \mathbb{I}(Y_1 = 1)</span> is an <span class="orange">unbiased</span> estimator of <span class="math inline">\psi</span>, where <span class="math inline">\mathbb{I}</span> is the <span class="blue">indicator function</span>. In fact: <span class="math inline">\mathbb{E}(\tilde{\psi}) = \mathbb{E}(\mathbb{I}(Y_1 = 1)) = \mathbb{P}(Y_1 = 1) = \psi</span>.</p></li>
+<li><p>The Lehmann-Scheffé-Rao-Blackwell theorem then implies that the unique and best unbiased estimator (UMVUE) is <span class="math display">
+\hat{\psi} = \mathbb{E}(\tilde{\psi} \mid S) = N \binom{N n - N}{S-1}/ \binom{N n}{S}.
+</span> which can be obtained after some simple, albeit a a bit long, calculations.</p></li>
+</ul>
+<aside><ol class="aside-footnotes"><li id="fn14"><p>See Example 6.2.22 of <span class="citation" data-cites="Casella2002">Casella and Berger (<a href="#/references" role="doc-biblioref" onclick="">2002</a>)</span>. This is also follows from general result of exponential families.</p></li></ol></aside></section></section>
 <section>
 <section id="alternative-notions-of-optimality" class="title-slide slide level1 center">
 <h1>Alternative notions of optimality</h1>

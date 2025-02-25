@@ -189,18 +189,18 @@ Refer to @vandervaart1998, Theorem 4.1, pag. 35-36.
     
 ## Example: binomial with unknown trials MM 📖
 
-- Let $Y_1,\dots,Y_n$ be iid $\textup{Bin}(n, p)$ and we assume that [both]{.orange} $n$ and $p$ are unknown. 
+- Let $Y_1,\dots,Y_n$ be iid $\textup{Bin}(N, p)$ and we assume that [both]{.orange} $N$ and $p$ are unknown. 
 
 - This is a somewhat unusual application of the binomial model, which can be used e.g. to estimate crime rates for crimes that are known to have many unreported occurrences. 
 
 - Equating the first two moments yields the system of equations
 $$
-m_1 = n p, \qquad m_2 = np(1-p) + n^2p^2.
+m_1 = N p, \qquad m_2 = N p(1-p) + N^2p^2.
 $$
 
-- After some algebra we obtain the [moment estimator]{.blue} for $(n, p)$, which is  [smooth]{.orange} and [regular]{.orange} function of $(m_1,m_2)$:
+- After some algebra we obtain the [moment estimator]{.blue} for $(N, p)$, which is  [smooth]{.orange} and [regular]{.orange} function of $(m_1,m_2)$:
 $$
-\hat{p} = \frac{m_1}{n}, \qquad \hat{n} = \frac{m_1^2}{m_1 - \hat{\sigma}^2},
+\hat{p} = \frac{m_1}{\hat{N}}, \qquad \hat{N} = \frac{m_1^2}{m_1 - \hat{\sigma}^2},
 $$
 where $\hat{\sigma}^2 = m_2 - m_1^2$ is the sample variance.
 
@@ -299,20 +299,20 @@ Let $\psi(\cdot)$ be [one-to-one]{.orange}[^invariance], that is, a [reparametri
 
 ## Example: binomial with unknown trials MLE
 
-- Let $Y_1,\dots,Y_n$ be iid $\textup{Bin}(n, p)$, and suppose $n$ is [unknown]{.orange}, while $p$ is considered [known]{.blue}. This constitutes a non-regular problem because $n$ is [discrete]{.blue}.
+- Let $Y_1,\dots,Y_n$ be iid $\textup{Bin}(N, p)$, and suppose $N$ is [unknown]{.orange}, while $p$ is considered [known]{.blue}. This constitutes a non-regular problem because $N$ is [discrete]{.blue}.
 
 - The likelihood function is
 $$
-L(n) = \prod_{i=1}^n\binom{n}{y_i} p^{y_i}(1 - p)^{n - y_i},
+L(N) = \prod_{i=1}^n\binom{N}{y_i} p^{y_i}(1 - p)^{N - y_i},
 $$
-where the maximum [cannot]{.orange} be obtained through [differentiation]{.orange}, as $n \in \mathbb{N}$.
+where the maximum [cannot]{.orange} be obtained through [differentiation]{.orange}, as $N \in \mathbb{N}$.
 
-- Naturally, we require that $\hat{n} \ge \max_i y_i$, since $L(n) = 0$ for any $n < \max_i y_i$. The MLE is therefore an integer $\hat{n} \ge \max_i y_i$ such that 
+- Naturally, we require that $\hat{N} \ge \max_i y_i$, since $L(N) = 0$ for any $N < \max_i y_i$. The MLE is therefore an integer $\hat{N} \ge \max_i y_i$ such that 
 $$
-L(\hat{n}) \ge L(\hat{n} - 1), \qquad L(\hat{n} + 1) < L(\hat{n}).
+L(\hat{N}) \ge L(\hat{N} - 1), \qquad L(\hat{N} + 1) < L(\hat{N}).
 $$
 
-- This value must be found [numerically]{.orange}. However, it can be shown[^3] that there exists exactly one such $\hat{n}$, meaning the MLE is [unique]{.blue}.
+- This value must be found [numerically]{.orange}. However, it can be shown[^3] that there exists exactly one such $\hat{N}$, meaning the MLE is [unique]{.blue}.
 
 [^3]: This problem is described in Example 7.2.9 of @Casella2002, pag. 318.  See also Example 7.2.13: such estimate has a large variance in practice.
 
@@ -1250,9 +1250,9 @@ implying that $\bar{Y}$ is a [UMVUE]{.blue} because $\text{var}_\lambda(\bar{Y})
 - However, this is guaranteed by Theorem 7.3.19 in @Casella2002: if a [UMVUE]{.blue} exists, it is [unique]{.orange}.
 :::
 
-## Rao-Blackwell
+## Rao-Blackwell 📖
 
-- The Rao-Blackwell theorem is a classical result of inferential statistics that emphasizes the pivotal role of [sufficiency]{.orange} in finding UMVU estimators. 
+- The Rao-Blackwell theorem is [contructive strategy]{.orange} for improving estimators that emphasizes the pivotal role of [sufficiency]{.orange} in finding UMVU estimators. 
 
 :::callout-warning
 #### Theorem (Rao-Blackwell, @Casella2002, Theorem 7.3.17)
@@ -1270,31 +1270,54 @@ That is, $\hat{\theta}$ is a [uniformly better unbiased estimator]{.blue} of $\t
 - This means that conditioning of a sufficient statistic [reduces]{.orange} the [mean squared error]{.orange} of a biased estimator $\tilde{\theta}$, albeit the resulting $\hat{\theta}$ would also be biased. 
 :::
 
-## En route to finding unique UMVUE I
-
-- Rao-Blackwell theorem is a [contructive strategy]{.orange} for finding an unbiased estimator $\hat{\theta}$ that [dominates]{.orange}  another unbiased estimator $\tilde{\theta}$. However $\hat{\theta}$ is not necessarily UMVUE.
+## En route to finding unique UMVUE I 📖
 
 - In looking for UMVUE we should only consider those based on a [sufficient statistic]{.blue} $S$. However, if both $\hat{\theta}$ and $\tilde{\theta}$ are unbiased and based on $S$, how do we know if $\hat{\theta}$ is best unbiased?
 
-- The next theorem is a [partial answer]{.orange}, which is practically useful if we show that $\hat{\theta}$ attains the [Cramér-Rao]{.blue} lower bound. 
+- The next theorem is a [partial answer]{.orange}, which is useful if $\hat{\theta}$ attains the [Cramér-Rao]{.blue} lower bound. 
 
 :::callout-warning
 #### Theorem (@Casella2002, Theorem 7.3.19)
 If $\hat{\theta}$ is a best unbiased estimator of $\theta$, then $\hat{\theta}$ is [unique]{.blue}.
 :::
 
-## En route to finding unique UMVUE II
+:::callout-tip
+#### Example (Example 7.3.13 in @Casella2002)
+Let $Y_1,\dots,Y_n$ be iid sample from a $\text{Uniform}(0, \theta)$. Then the estimator 
+$$
+\hat{\theta} = \frac{n + 1}{n} \max\{Y_1,\dots,Y_n\}
+$$ 
+is [unbiased]{.orange} for $\theta$ and is based on a [sufficient statistic]{.blue} $S = \max\{Y_1,\dots,Y_n\}$. However, Cramér-Rao cannot be applied because the regularity conditions are not met. Is $\hat{\theta}$ UMVUE?
+:::
+
+
+## En route to finding unique UMVUE II 📖
+
+- Suppose we wish to improve on an unbiased estimator $\hat{\theta}$. Then, we could consider $U = U(\bm{Y})$ such that $\mathbb{E}_\theta(U) = 0$, i.e. $U$ is an [unbiased estimator or 0]{.blue}, and let
+$$
+\tilde{\theta} = \hat{\theta} + a U, \qquad a \in \mathbb{R}.
+$$
+Clearly, $\tilde{\theta}$ is also [unbiased]{.orange} and its [variance]{.orange} is
+$$
+\text{var}_\theta(\tilde{\theta}) = \text{var}_\theta(\hat{\theta}) + 2 a \text{cov}_\theta(\hat{\theta}, U) + a^2\text{var}_\theta(U).
+$$
+- If $\text{cov}_\theta(\hat{\theta}, U) < 0$ for some $\theta$, then choosing $a \in (0, - 2  \text{cov}_\theta(\hat{\theta}, U) / \text{var}_\theta(U))$ gives a [better estimator]{.blue} for $\theta$, implying that $\hat{\theta}$ is not UMVUE. This actually [characterizes]{.orange} UMVU estimators. 
 
 :::callout-warning
 #### Theorem (@Casella2002, Theorem 7.3.20)
-Let $\hat{\theta}$ be an unbiased estimator of $\theta$. Then $\hat{\theta}$ is UMVUE [if and only if]{.orange} $\hat{\theta}$ is [uncorrelated]{.blue} with all unbiased estimators of $0$, that is
+Let $\hat{\theta}$ be an unbiased estimator of $\theta$. Then $\hat{\theta}$ is UMVUE [if and only if]{.orange} $\hat{\theta}$ is [uncorrelated]{.blue} with all [unbiased estimators of $0$]{.blue}, that is
 $$
-\text{cov}_\theta(\hat{\theta}(\bm{Y}), U(\bm{Y})) = 0,  
+\text{cov}_\theta(\hat{\theta}, U) = 0, \quad \text{ for all } \quad U = U(\bm{Y}) \quad \text{ such that } \quad \mathbb{E}_\theta(U) = 0.
 $$
-for all estimators $U(\bm{Y})$ such that $\mathbb{E}_\theta(U(\bm{Y})) = 0$.
 :::
 
+
+
 ## Completeness
+
+- Proving that an estimator $\hat{\theta}$ is uncorrelated with all unbiased estimators of 0 is very hard, limitating the practical usefulness of the former theorem.
+
+- However, if we assume $S$ is [complete]{.orange}, we can finally see the light at the end of the tunnel. 
 
 :::callout-note
 #### Completeness
@@ -1306,16 +1329,41 @@ $$
 In other words, any non-trivial transformation of $S$ conveys information about $\theta$ in expectation.
 :::
 
+- Because of Rao-Blackwell, the UMVUE $\hat{\theta} = \hat{\theta}(S)$ must be a function of a [sufficient]{.blue} statistic $S$.  
+
+- If $S$ is [complete]{.orange}, then (using $c = 0$), there exists no estimator $U = U(S)$ such that $\mathbb{E}_\theta(U(S)) = 0$, with the only exception of $U = 0$, which is uncorrelated with $\hat{\theta}(S)$.
+
 ## Lehmann-Scheffé theorem
+
+- We summarise these finding into a single statement, which is arguably the most relevant result of the Rao-Blackwell saga.
 
 :::callout-warning
 #### Theorem (Lehmann-Scheffé-Rao-Blackwell, @Casella2002, Theorem 7.3.23)
  Let $S$ be a [complete]{.orange} sufficient statistic for a parameter $\theta$, and let $\hat{\theta}$ be an unbiased estimator of $\theta$ based only on $S$. Then, $\hat{\theta}$ is [unique]{.blue} best unbiased estimator (UMVUE) of $\theta$. 
 :::
 
-- This final theorem is perhaps the most important: if an unbiased estimator of $\theta$ and a complete sufficient statistic exist, we can find the unique UMVUE.
+- The [Lehmann-Scheffé theorem]{.blue} is implicitly contained in the previous results. Its [original formulation]{.orange} is: "*unbiased estimators based on complete sufficient statistics are unique.*"
 
-## Example: binomial best unbiased estimation
+- The Lehmann-Scheffé theorem represents a [major achievement]{.blue} in mathematical statistics, tying together [sufficiency]{.orange}, [completeness]{.grey} and [uniqueness]{.blue}.
+
+
+## Example: binomial best unbiased estimation 📖
+
+- Let $Y_1,\dots,Y_n$ be iid $\textup{Bin}(N, p)$ and we assume that $N$ is [known]{.blue} and $p$ is [unknown]{.orange}. We are interested in estimating the [reparametrization]{.orange}:
+$$
+\psi = \mathbb{P}(Y_i = 1) = N p (1 - p)^{N-1}.
+$$
+- We know that $S = \sum_{i=1}^n Y_i \sim \textup{Bin}(n N, p)$ is a [complete]{.grey} and [sufficient]{.blue} statistic[^example_completeness]. However, no obvious unbiased estimator based on $S$ is immediately available.
+
+- Let us begin noting that $\tilde{\psi} = \mathbb{I}(Y_1 = 1)$ is an [unbiased]{.orange} estimator of $\psi$, where $\mathbb{I}$ is the [indicator function]{.blue}. In fact: $\mathbb{E}(\tilde{\psi}) = \mathbb{E}(\mathbb{I}(Y_1 = 1)) = \mathbb{P}(Y_1 = 1) = \psi$.
+
+- The Lehmann-Scheffé-Rao-Blackwell theorem then implies that the unique and best unbiased estimator (UMVUE) is
+$$
+\hat{\psi} = \mathbb{E}(\tilde{\psi} \mid S) = N \binom{N n - N}{S-1}/ \binom{N n}{S}.
+$$
+which can be obtained after some simple, albeit a a bit long, calculations. 
+
+[^example_completeness]: See Example 6.2.22 of @Casella2002. This is also follows from general result of exponential families.
 
 # Alternative notions of optimality
 
