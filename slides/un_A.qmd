@@ -367,7 +367,7 @@ L(N) = \prod_{i=1}^n\binom{N}{y_i} p^{y_i}(1 - p)^{N - y_i},
 $$
 where the maximum [cannot]{.orange} be obtained through [differentiation]{.orange}, as $N \in \mathbb{N}$.
 
-- Naturally, we require that $\hat{N} \ge \max_i y_i$, since $L(N) = 0$ for any $N < \max_i y_i$. The MLE is therefore an integer $\hat{N} \ge \max_i y_i$ such that 
+- Naturally, we require that $\hat{N} \ge \max_i y_i$, since $L(N) = 0$ for any $N < \max_i y_i$. The ML is therefore an integer $\hat{N} \ge \max_i y_i$ such that 
 $$
 L(\hat{N}) \ge L(\hat{N} - 1), \qquad L(\hat{N} + 1) < L(\hat{N}).
 $$
@@ -401,7 +401,7 @@ p_MLE <- mean(x) / N_MLE
 print(x)
 ```
 
-- The [method of moments]{.orange} estimator gives $\hat{N}_\text{MM}$ = `r round(N_mm, 0)` (rounded to the closest integer) and $\hat{p}_\text{MM}$ = `r round(p_mm, 2)`. The [maximum likelihood]{.blue}, instead, gives $\hat{N}_\text{ML}$ = `r round(N_MLE, 2)` and $\hat{p}_\text{MLE}$ = `r round(p_MLE, 2)`.
+- The [method of moments]{.orange} estimator gives $\hat{N}_\text{MM}$ = `r round(N_mm, 0)` (rounded to the closest integer) and $\hat{p}_\text{MM}$ = `r round(p_mm, 2)`. The [maximum likelihood]{.blue}, instead, gives $\hat{N}_\text{ML}$ = `r round(N_MLE, 2)` and $\hat{p}_\text{ML}$ = `r round(p_MLE, 2)`.
 
 ```{r}
 #| fig-width: 9
@@ -509,12 +509,13 @@ $$
 
 [^2]: See Exercise 10.28 of @Casella2002.
 
-## Huber estimators III
-
-- Consider the following data set consisting of eights standard normal deviates and three "[outliers]{.orange}":
 
 ```{r}
+#| message: false
+#| purl: false
+#| eval: false
 set.seed(123)
+library(MASS)
 y <- c(rnorm(8), 3, 6, 9)
 
 m_huber <- function(y, k) {
@@ -530,31 +531,47 @@ k_values <- c(0.5, 1, 2, 4, 6, 8)
 m_hat <- numeric(length(k_values))
 for (i in 1:length(k_values)) {
   m_hat[i] <- nlminb(start = median(y), objective = function(theta) -M_huber(theta, y = y, k = k_values[i]))$par
+  # Same thing, but numerically more stable because it is based on a better algorithm
+  m_hat[i] <- huber(y, k = k_values[i] / 1.627587)$mu
 }
+
 ```
 
+
+## Example: Newcomb's measurement for the speed of light
+
+- Data $y_1, \dots, y_{66}$ represent Simon Newcomb's measurements (1882) of the [speed of light]{.orange}. The data are recordes as [deviations]{.blue} from 24,800 nanoseconds.
+
 ```{r}
-print(y)
+library(BayesDA)
+library(MASS)
+data(light)
+light_micro <- 0.001*light + 24.8
+print(light)
 ```
 
-- For these data, the [mean]{.orange} is `r round(mean(y), 3)` and the [median]{.orange} is `r round(median(y), 3)`. Moreover, as $k$ varies, we get the range of [Huber estimates]{.blue} given below.
+- There are [two outliers]{.orange} (-44 and -2) which could influence the analysis. 
 
-- We see that as $k$ increases, the Huber estimate varies between the median and the mean, so we interpret increasing $k$ as decreasing [robustness]{.orange} to outliers.
+- We see that as $k$ increases, the [Huber estimate]{.blue} varies between the median (`r round(median(light), 2)`) and the mean (`r round(mean(light), 2)`), so we interpret increasing $k$ as decreasing [robustness]{.orange} to outliers.
+
+- The suggested [default]{.blue} for $k$ is roughly $k \approx 4.5$, that is $k = 1.5 \times \text{MAD}$. 
 
 ```{r}
-tab <- c(median(y), m_hat)
+k_values <- c(5, seq(from = 10, to = 70, by = 10))
+m_hat <- numeric(length(k_values))
+for (i in 1:length(k_values)) {
+  m_hat[i] <- huber(light, k = k_values[i] / 4.4478)$mu
+}
+tab <- c(median(light), m_hat)
 names(tab) <- c(0, k_values)
 # knitr::kable(t(tab), digits = 3)
 ```
-|$k$ |     0 - Median |   0.5|     1|     2|     4|     6|   8 - Mean |
-|:------|-----:|-----:|-----:|-----:|-----:|-----:|-----:|
-| Estimate | 0.461| 0.554| 0.787| 1.018| 1.431| 1.688| 1.807|
 
+| $k$ |  0|     5|     10|     20|     30|     40|     50|     60|     70|
+|:--|--:|-----:|------:|------:|------:|------:|------:|------:|------:|
+|Est. | 27| 27.37| 27.417| 27.125| 26.831| 26.677| 26.523| 26.369| 26.215|
 
-::: aside
-See Example 10.2.5 in @Casella2002, pag 485. 
-:::
-
+- Based on recent measurements, the [true value]{.orange} of the speed of light, expressed in this scale, is 33. [Huber estimate]{.blue} for reasonable values of $k$ is [closer]{.blue} than both median and mean. 
 
 ## Bayesian estimators
 

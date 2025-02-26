@@ -59,27 +59,20 @@ ggplot(data = data.frame(N = N_seq, loglik = loglik), aes(x = N, y = loglik)) +
   geom_point() +
   geom_vline(xintercept = N_MLE, linetype = "dashed")
 
-set.seed(123)
-y <- c(rnorm(8), 3, 6, 9)
 
-m_huber <- function(y, k) {
-  0.5 * y^2 * I(abs(y) <= k) + (k * abs(y) - 0.5 * k^2) * I(abs(y) >= k)
-}
 
-M_huber <- function(theta, y, k) {
-  -mean(m_huber(y - theta, k))
-}
-M_huber <- Vectorize(M_huber, vectorize.args = "theta")
+library(BayesDA)
+library(MASS)
+data(light)
+light_micro <- 0.001 * light + 24.8
+print(light)
 
-k_values <- c(0.5, 1, 2, 4, 6, 8)
+k_values <- c(5, seq(from = 10, to = 70, by = 10))
 m_hat <- numeric(length(k_values))
 for (i in 1:length(k_values)) {
-  m_hat[i] <- nlminb(start = median(y), objective = function(theta) -M_huber(theta, y = y, k = k_values[i]))$par
+  m_hat[i] <- huber(light, k = k_values[i] / 4.4478)$mu
 }
-
-print(y)
-
-tab <- c(median(y), m_hat)
+tab <- c(median(light), m_hat)
 names(tab) <- c(0, k_values)
 # knitr::kable(t(tab), digits = 3)
 

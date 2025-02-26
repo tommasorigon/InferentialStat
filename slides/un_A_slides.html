@@ -612,7 +612,7 @@ L(\lambda) = \prod_{i=1}^n \frac{e^{-\lambda} \lambda^{y_i}}{y_i!}.
 <li><p>The likelihood function is <span class="math display">
 L(N) = \prod_{i=1}^n\binom{N}{y_i} p^{y_i}(1 - p)^{N - y_i},
 </span> where the maximum <span class="orange">cannot</span> be obtained through <span class="orange">differentiation</span>, as <span class="math inline">N \in \mathbb{N}</span>.</p></li>
-<li><p>Naturally, we require that <span class="math inline">\hat{N} \ge \max_i y_i</span>, since <span class="math inline">L(N) = 0</span> for any <span class="math inline">N &lt; \max_i y_i</span>. The MLE is therefore an integer <span class="math inline">\hat{N} \ge \max_i y_i</span> such that <span class="math display">
+<li><p>Naturally, we require that <span class="math inline">\hat{N} \ge \max_i y_i</span>, since <span class="math inline">L(N) = 0</span> for any <span class="math inline">N &lt; \max_i y_i</span>. The ML is therefore an integer <span class="math inline">\hat{N} \ge \max_i y_i</span> such that <span class="math display">
 L(\hat{N}) \ge L(\hat{N} - 1), \qquad L(\hat{N} + 1) &lt; L(\hat{N}).
 </span></p></li>
 <li><p>This value must be found <span class="orange">numerically</span>. However, it can be shown<sup>1</sup> that there exists exactly one such <span class="math inline">\hat{N}</span>, meaning the MLE is <span class="blue">unique</span>.</p></li>
@@ -629,7 +629,7 @@ L(\hat{N}) \ge L(\hat{N} - 1), \qquad L(\hat{N} + 1) &lt; L(\hat{N}).
 </div>
 </div>
 <ul>
-<li>The <span class="orange">method of moments</span> estimator gives <span class="math inline">\hat{N}_\text{MM}</span> = 102 (rounded to the closest integer) and <span class="math inline">\hat{p}_\text{MM}</span> = 0.21. The <span class="blue">maximum likelihood</span>, instead, gives <span class="math inline">\hat{N}_\text{ML}</span> = 99 and <span class="math inline">\hat{p}_\text{MLE}</span> = 0.22.</li>
+<li>The <span class="orange">method of moments</span> estimator gives <span class="math inline">\hat{N}_\text{MM}</span> = 102 (rounded to the closest integer) and <span class="math inline">\hat{p}_\text{MM}</span> = 0.21. The <span class="blue">maximum likelihood</span>, instead, gives <span class="math inline">\hat{N}_\text{ML}</span> = 99 and <span class="math inline">\hat{p}_\text{ML}</span> = 0.22.</li>
 </ul>
 
 <img data-src="un_A_files/figure-revealjs/unnamed-chunk-7-1.png" class="quarto-figure quarto-figure-center r-stretch" width="1800"><ul>
@@ -715,51 +715,70 @@ k \quad &amp;\text{ if }\: y \ge k\end{cases}
 <li><p>Unfortunately, there is no closed-form expression and the equation must be solved numerically.</p></li>
 </ul>
 <aside><ol class="aside-footnotes"><li id="fn4"><p>See Exercise 10.28 of <span class="citation" data-cites="Casella2002">Casella and Berger (<a href="#/references" role="doc-biblioref" onclick="">2002</a>)</span>.</p></li></ol></aside></section>
-<section id="huber-estimators-iii" class="slide level2 center">
-<h2>Huber estimators III</h2>
+<section id="example-newcombs-measurement-for-the-speed-of-light" class="slide level2 center">
+<h2>Example: Newcomb’s measurement for the speed of light</h2>
 <ul>
-<li>Consider the following data set consisting of eights standard normal deviates and three “<span class="orange">outliers</span>”:</li>
+<li>Data <span class="math inline">y_1, \dots, y_{66}</span> represent Simon Newcomb’s measurements (1882) of the <span class="orange">speed of light</span>. The data are recordes as <span class="blue">deviations</span> from 24,800 nanoseconds.</li>
 </ul>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] -0.56047565 -0.23017749  1.55870831  0.07050839  0.12928774  1.71506499
- [7]  0.46091621 -1.26506123  3.00000000  6.00000000  9.00000000</code></pre>
+<pre><code> [1]  28  26  33  24  34 -44  27  16  40  -2  29  22  24  21  25  30  23  29  31
+[20]  19  24  20  36  32  36  28  25  21  28  29  37  25  28  26  30  32  36  26
+[39]  30  22  36  23  27  27  28  27  31  27  26  33  26  32  32  24  39  28  24
+[58]  25  32  25  29  27  28  29  16  23</code></pre>
 </div>
 </div>
 <ul>
-<li><p>For these data, the <span class="orange">mean</span> is 1.807 and the <span class="orange">median</span> is 0.461. Moreover, as <span class="math inline">k</span> varies, we get the range of <span class="blue">Huber estimates</span> given below.</p></li>
-<li><p>We see that as <span class="math inline">k</span> increases, the Huber estimate varies between the median and the mean, so we interpret increasing <span class="math inline">k</span> as decreasing <span class="orange">robustness</span> to outliers.</p></li>
+<li><p>There are <span class="orange">two outliers</span> (-44 and -2) which could influence the analysis.</p></li>
+<li><p>We see that as <span class="math inline">k</span> increases, the <span class="blue">Huber estimate</span> varies between the median (27) and the mean (26.21), so we interpret increasing <span class="math inline">k</span> as decreasing <span class="orange">robustness</span> to outliers.</p></li>
+<li><p>The suggested <span class="blue">default</span> for <span class="math inline">k</span> is roughly <span class="math inline">k \approx 4.5</span>, that is <span class="math inline">k = 1.5 \times \text{MAD}</span>.</p></li>
 </ul>
 <table class="caption-top">
+<colgroup>
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 9%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+</colgroup>
 <thead>
 <tr class="header">
 <th style="text-align: left;"><span class="math inline">k</span></th>
-<th style="text-align: right;">0 - Median</th>
-<th style="text-align: right;">0.5</th>
-<th style="text-align: right;">1</th>
-<th style="text-align: right;">2</th>
-<th style="text-align: right;">4</th>
-<th style="text-align: right;">6</th>
-<th style="text-align: right;">8 - Mean</th>
+<th style="text-align: right;">0</th>
+<th style="text-align: right;">5</th>
+<th style="text-align: right;">10</th>
+<th style="text-align: right;">20</th>
+<th style="text-align: right;">30</th>
+<th style="text-align: right;">40</th>
+<th style="text-align: right;">50</th>
+<th style="text-align: right;">60</th>
+<th style="text-align: right;">70</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">Estimate</td>
-<td style="text-align: right;">0.461</td>
-<td style="text-align: right;">0.554</td>
-<td style="text-align: right;">0.787</td>
-<td style="text-align: right;">1.018</td>
-<td style="text-align: right;">1.431</td>
-<td style="text-align: right;">1.688</td>
-<td style="text-align: right;">1.807</td>
+<td style="text-align: left;">Est.</td>
+<td style="text-align: right;">27</td>
+<td style="text-align: right;">27.37</td>
+<td style="text-align: right;">27.417</td>
+<td style="text-align: right;">27.125</td>
+<td style="text-align: right;">26.831</td>
+<td style="text-align: right;">26.677</td>
+<td style="text-align: right;">26.523</td>
+<td style="text-align: right;">26.369</td>
+<td style="text-align: right;">26.215</td>
 </tr>
 </tbody>
 </table>
-
-<aside><div>
-<p>See Example 10.2.5 in <span class="citation" data-cites="Casella2002">Casella and Berger (<a href="#/references" role="doc-biblioref" onclick="">2002</a>)</span>, pag 485.</p>
-</div></aside></section>
+<ul>
+<li>Based on recent measurements, the <span class="orange">true value</span> of the speed of light, expressed in this scale, is 33. <span class="blue">Huber estimate</span> for reasonable values of <span class="math inline">k</span> is <span class="blue">closer</span> than both median and mean.</li>
+</ul>
+</section>
 <section id="bayesian-estimators" class="slide level2 center">
 <h2>Bayesian estimators</h2>
 <ul>
