@@ -404,6 +404,8 @@ print(x)
 - The [method of moments]{.orange} estimator gives $\hat{N}_\text{MM}$ = `r round(N_mm, 0)` (rounded to the closest integer) and $\hat{p}_\text{MM}$ = `r round(p_mm, 2)`. The [maximum likelihood]{.blue}, instead, gives $\hat{N}_\text{ML}$ = `r round(N_MLE, 2)` and $\hat{p}_\text{MLE}$ = `r round(p_MLE, 2)`.
 
 ```{r}
+#| fig-width: 9
+#| fig-height: 5
 #| fig-align: center
 
 ggplot(data = data.frame(N = N_seq, loglik = loglik), aes(x = N, y = loglik)) +  theme_light() + xlab("N") + ylab("log-likelihood") + geom_point() + geom_vline(xintercept = N_MLE, linetype = "dashed")
