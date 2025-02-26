@@ -538,7 +538,7 @@ for (i in 1:length(k_values)) {
 ```
 
 
-## Example: Newcomb's measurement for the speed of light
+## Example: Newcomb's speed of light
 
 - Data $y_1, \dots, y_{66}$ represent Simon Newcomb's measurements (1882) of the [speed of light]{.orange}. The data are recordes as [deviations]{.blue} from 24,800 nanoseconds.
 
