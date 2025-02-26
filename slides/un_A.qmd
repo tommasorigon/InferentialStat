@@ -63,6 +63,9 @@ editor_options:
 
 knitr::purl("un_A.qmd", output = "../code/un_A.R", documentation = 0)
 styler:::style_file("../code/un_A.R")
+
+library(ggplot2)
+library(ggthemes)
 ```
 
 ::: columns
@@ -187,7 +190,63 @@ Refer to @vandervaart1998, Theorem 4.1, pag. 35-36.
     $$ where $\hat{\sigma}^2 = m_2 - m_1^2$ is the [sample
     variance]{.blue}. [Remark]{.orange}: is it possible that $m_1 < m_2$?
     
+
+## Example: beta distribution (food expenditure)
+
+- We consider data on [proportion of income]{.orange} spent on [food]{.blue} for a random sample of $38$ households in a large US city.
+
+```{r}
+data("FoodExpenditure", package = "betareg")
+FoodExpenditure$food <- FoodExpenditure$food /100
+FoodExpenditure$Income <- factor(cut(FoodExpenditure$income, breaks = c(0, 50, 100)))
+levels(FoodExpenditure$Income) <- c("Low", "High")
+
+x <- FoodExpenditure$food[FoodExpenditure$Income == "Low"]
+z <- FoodExpenditure$food[FoodExpenditure$Income == "High"]
+
+m1_low <- mean(x)
+m2_low <- mean(x^2)
+
+alpha_low <- m1_low * (m1_low - m2_low) / (m2_low - m1_low^2)
+beta_low <- (1 - m1_low) * (m1_low - m2_low) / (m2_low - m1_low^2)
+
+m1_high <- mean(z)
+m2_high <- mean(z^2)
+
+alpha_high <- m1_high * (m1_high - m2_high) / (m2_high - m1_high^2)
+beta_high <- (1 - m1_high) * (m1_high - m2_high) / (m2_high - m1_high^2)
+```
+
+::: callout-note
+[Low]{.blue} income level ($n$ = `r length(x)`)
+```{r}
+print(x)
+```
+Here $m_1$ = `r round(m1_low, 3)` and $m_2$ = `r round(m2_low, 3)`, giving the [MM estimates]{.orange}: $\hat{\alpha}$ = `r round(alpha_low, 1)` and $\hat{\beta}$ = `r round(beta_low, 1)`. 
+:::
+
+:::callout-warning
+[High]{.orange} income level ($n$ = `r length(z)`)
+
+```{r}
+print(z)
+```
+Here $m_1$ = `r round(m1_high, 3)` and $m_2$ = `r round(m2_high, 3)`, giving the [MM estimates]{.orange}: $\hat{\alpha}$ = `r round(alpha_high, 1)` and $\hat{\beta}$ = `r round(beta_high, 1)`. 
+
+:::
     
+
+## Example: beta distribution (food expenditure)
+
+```{r}
+#| fig-width: 9
+#| fig-height: 5
+
+ggplot(data = FoodExpenditure, aes(x = food, col = Income)) + geom_rug() + theme_light()  + theme(legend.position = "top") + scale_color_tableau(palette = "Color Blind") + xlab("Food expenditure (proportion)") + geom_function(fun = function(x) dbeta(x, alpha_low, beta_low), col = "#1170aa")+ geom_function(fun = function(x) dbeta(x, alpha_high, beta_high), col = "#fc7d0b") + xlim(c(0.02, 0.4)) + ylab("Density")
+```
+
+- [Estimated densities]{.orange} $f(y; \hat{\alpha}, \hat{\beta})$ for each income level, showing a reasonable fit in both cases. 
+
 ## Example: binomial with unknown trials MM 📖
 
 - Let $Y_1,\dots,Y_n$ be iid $\textup{Bin}(N, p)$ and we assume that [both]{.orange} $N$ and $p$ are unknown. 
@@ -316,6 +375,41 @@ $$
 - This value must be found [numerically]{.orange}. However, it can be shown[^3] that there exists exactly one such $\hat{N}$, meaning the MLE is [unique]{.blue}.
 
 [^3]: This problem is described in Example 7.2.9 of @Casella2002, pag. 318.  See also Example 7.2.13: such estimate has a large variance in practice.
+
+## Example: binomial with unknown trials MLE
+
+- Let us consider the following data, in which both $N$ and $p$ are unknown. These are [simulated data]{.blue} and the [true values]{.grey} were $N = 75$ and $p = 0.32$. 
+
+```{r}
+x <- c(16, 18, 22, 25, 27)
+
+m1 <- mean(x)
+m2 <- mean(x^2)
+sigma2 <- m2 - m1^2
+N_mm <- m1^2 / (m1 - sigma2)
+p_mm <- m1 / N_mm
+
+N_seq <- 50:300
+loglik <- numeric(length(N_seq))
+
+for(i in 1: length(N_seq)){
+  loglik[i] <- sum(dbinom(x, N_seq[i], prob = mean(x) / N_seq[i], log = TRUE))
+}
+
+N_MLE <- N_seq[which.max(loglik)]
+p_MLE <- mean(x) / N_MLE
+print(x)
+```
+
+- The [method of moments]{.orange} estimator gives $\hat{N}_\text{MM}$ = `r round(N_mm, 0)` (rounded to the closest integer) and $\hat{p}_\text{MM}$ = `r round(p_mm, 2)`. The [maximum likelihood]{.blue}, instead, gives $\hat{N}_\text{ML}$ = `r round(N_MLE, 2)` and $\hat{p}_\text{MLE}$ = `r round(p_MLE, 2)`.
+
+```{r}
+#| fig-align: center
+
+ggplot(data = data.frame(N = N_seq, loglik = loglik), aes(x = N, y = loglik)) +  theme_light() + xlab("N") + ylab("log-likelihood") + geom_point() + geom_vline(xintercept = N_MLE, linetype = "dashed")
+```
+
+- If we replace $27$ with a $28$, we obtain drastically different estimates, namely $\hat{N}_\text{MM} =  195$ and $\hat{N}_\text{ML} = 191$, demonstrating a [large]{.orange} amount of [variability]{.orange}.
 
 ## M-estimators
 
@@ -615,8 +709,7 @@ This Bayesian estimator has [constant risk]{.orange}, that is, $R(p; \hat{p}_\te
 ```{r}
 #| fig-width: 9
 #| fig-height: 5
-library(ggplot2)
-library(ggthemes)
+
 
 n <- 4
 data_plot <- data.frame(p = rep(seq(from = 0, to = 1, length = 1000), 2))

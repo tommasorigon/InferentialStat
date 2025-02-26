@@ -1,3 +1,64 @@
+data("FoodExpenditure", package = "betareg")
+FoodExpenditure$food <- FoodExpenditure$food / 100
+FoodExpenditure$Income <- factor(cut(FoodExpenditure$income, breaks = c(0, 50, 100)))
+levels(FoodExpenditure$Income) <- c("Low", "High")
+
+x <- FoodExpenditure$food[FoodExpenditure$Income == "Low"]
+z <- FoodExpenditure$food[FoodExpenditure$Income == "High"]
+
+m1_low <- mean(x)
+m2_low <- mean(x^2)
+
+alpha_low <- m1_low * (m1_low - m2_low) / (m2_low - m1_low^2)
+beta_low <- (1 - m1_low) * (m1_low - m2_low) / (m2_low - m1_low^2)
+
+m1_high <- mean(z)
+m2_high <- mean(z^2)
+
+alpha_high <- m1_high * (m1_high - m2_high) / (m2_high - m1_high^2)
+beta_high <- (1 - m1_high) * (m1_high - m2_high) / (m2_high - m1_high^2)
+
+print(x)
+
+print(z)
+
+ggplot(data = FoodExpenditure, aes(x = food, col = Income)) +
+  geom_rug() +
+  theme_light() +
+  theme(legend.position = "top") +
+  scale_color_tableau(palette = "Color Blind") +
+  xlab("Food expenditure (proportion)") +
+  geom_function(fun = function(x) dbeta(x, alpha_low, beta_low), col = "#1170aa") +
+  geom_function(fun = function(x) dbeta(x, alpha_high, beta_high), col = "#fc7d0b") +
+  xlim(c(0.02, 0.4)) +
+  ylab("Density")
+
+x <- c(16, 18, 22, 25, 27)
+
+m1 <- mean(x)
+m2 <- mean(x^2)
+sigma2 <- m2 - m1^2
+N_mm <- m1^2 / (m1 - sigma2)
+p_mm <- m1 / N_mm
+
+N_seq <- 50:300
+loglik <- numeric(length(N_seq))
+
+for (i in 1:length(N_seq)) {
+  loglik[i] <- sum(dbinom(x, N_seq[i], prob = mean(x) / N_seq[i], log = TRUE))
+}
+
+N_MLE <- N_seq[which.max(loglik)]
+p_MLE <- mean(x) / N_MLE
+print(x)
+
+ggplot(data = data.frame(N = N_seq, loglik = loglik), aes(x = N, y = loglik)) +
+  theme_light() +
+  xlab("N") +
+  ylab("log-likelihood") +
+  geom_point() +
+  geom_vline(xintercept = N_MLE, linetype = "dashed")
+
 set.seed(123)
 y <- c(rnorm(8), 3, 6, 9)
 
@@ -22,8 +83,6 @@ tab <- c(median(y), m_hat)
 names(tab) <- c(0, k_values)
 # knitr::kable(t(tab), digits = 3)
 
-library(ggplot2)
-library(ggthemes)
 
 n <- 4
 data_plot <- data.frame(p = rep(seq(from = 0, to = 1, length = 1000), 2))

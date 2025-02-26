@@ -486,6 +486,48 @@ m_1 = \frac{\alpha}{\alpha + \beta}, \qquad m_2 = \frac{\alpha (\alpha+1)}{(\alp
 </span> where <span class="math inline">\hat{\sigma}^2 = m_2 - m_1^2</span> is the <span class="blue">sample variance</span>. <span class="orange">Remark</span>: is it possible that <span class="math inline">m_1 &lt; m_2</span>?</p></li>
 </ul>
 </section>
+<section id="example-beta-distribution-food-expenditure" class="slide level2 center">
+<h2>Example: beta distribution (food expenditure)</h2>
+<ul>
+<li>We consider data on <span class="orange">proportion of income</span> spent on <span class="blue">food</span> for a random sample of <span class="math inline">38</span> households in a large US city.</li>
+</ul>
+<div class="callout callout-note no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<p><span class="blue">Low</span> income level (<span class="math inline">n</span> = 17)</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] 0.07431 0.13548 0.08825 0.13728 0.09629 0.09160 0.13882 0.09670 0.10866
+[10] 0.11629 0.18067 0.14539 0.15869 0.14910 0.09550 0.23066 0.14751</code></pre>
+</div>
+</div>
+<p>Here <span class="math inline">m_1</span> = 0.129 and <span class="math inline">m_2</span> = 0.018, giving the <span class="orange">MM estimates</span>: <span class="math inline">\hat{\alpha}</span> = 9.7 and <span class="math inline">\hat{\beta}</span> = 65.7.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-warning no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<p><span class="orange">High</span> income level (<span class="math inline">n</span> = 21)</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] 0.15998 0.16652 0.21741 0.10481 0.23256 0.17976 0.14161 0.14184 0.19604
+[10] 0.21141 0.17446 0.14005 0.18831 0.07641 0.21604 0.28980 0.10882 0.18561
+[19] 0.19192 0.25918 0.28833</code></pre>
+</div>
+</div>
+<p>Here <span class="math inline">m_1</span> = 0.184 and <span class="math inline">m_2</span> = 0.037, giving the <span class="orange">MM estimates</span>: <span class="math inline">\hat{\alpha}</span> = 9 and <span class="math inline">\hat{\beta}</span> = 39.9.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="example-beta-distribution-food-expenditure-1" class="slide level2 center">
+<h2>Example: beta distribution (food expenditure)</h2>
+
+<img data-src="un_A_files/figure-revealjs/unnamed-chunk-5-1.png" width="1800" class="r-stretch"><ul>
+<li><span class="orange">Estimated densities</span> <span class="math inline">f(y; \hat{\alpha}, \hat{\beta})</span> for each income level, showing a reasonable fit in both cases.</li>
+</ul>
+</section>
 <section id="example-binomial-with-unknown-trials-mm" class="slide level2 center">
 <h2>Example: binomial with unknown trials MM 📖</h2>
 <ul>
@@ -576,6 +618,24 @@ L(\hat{N}) \ge L(\hat{N} - 1), \qquad L(\hat{N} + 1) &lt; L(\hat{N}).
 <li><p>This value must be found <span class="orange">numerically</span>. However, it can be shown<sup>1</sup> that there exists exactly one such <span class="math inline">\hat{N}</span>, meaning the MLE is <span class="blue">unique</span>.</p></li>
 </ul>
 <aside><ol class="aside-footnotes"><li id="fn2"><p>This problem is described in Example 7.2.9 of <span class="citation" data-cites="Casella2002">Casella and Berger (<a href="#/references" role="doc-biblioref" onclick="">2002</a>)</span>, pag. 318. See also Example 7.2.13: such estimate has a large variance in practice.</p></li></ol></aside></section>
+<section id="example-binomial-with-unknown-trials-mle-1" class="slide level2 center">
+<h2>Example: binomial with unknown trials MLE</h2>
+<ul>
+<li>Let us consider the following data, in which both <span class="math inline">N</span> and <span class="math inline">p</span> are unknown. These are <span class="blue">simulated data</span> and the <span class="grey">true values</span> were <span class="math inline">N = 75</span> and <span class="math inline">p = 0.32</span>.</li>
+</ul>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 16 18 22 25 27</code></pre>
+</div>
+</div>
+<ul>
+<li>The <span class="orange">method of moments</span> estimator gives <span class="math inline">\hat{N}_\text{MM}</span> = 102 (rounded to the closest integer) and <span class="math inline">\hat{p}_\text{MM}</span> = 0.21. The <span class="blue">maximum likelihood</span>, instead, gives <span class="math inline">\hat{N}_\text{ML}</span> = 99 and <span class="math inline">\hat{p}_\text{MLE}</span> = 0.22.</li>
+</ul>
+
+<img data-src="un_A_files/figure-revealjs/unnamed-chunk-7-1.png" class="quarto-figure quarto-figure-center r-stretch" width="2000"><ul>
+<li>If we replace <span class="math inline">27</span> with a <span class="math inline">28</span>, we obtain drastically different estimates, namely <span class="math inline">\hat{N}_\text{MM} =  195</span> and <span class="math inline">\hat{N}_\text{ML} = 191</span>, demonstrating a <span class="orange">large</span> amount of <span class="orange">variability</span>.</li>
+</ul>
+</section>
 <section id="m-estimators" class="slide level2 center">
 <h2>M-estimators</h2>
 <ul>
@@ -831,7 +891,7 @@ R(p; \hat{p}) = \mathbb{E}_p\{(\hat{p} - p)^2\} = \text{var}_p(\hat{p}) = \frac{
 <section id="example-mse-of-binomial-estimators-ii" class="slide level2 center">
 <h2>Example: MSE of binomial estimators II</h2>
 
-<img data-src="un_A_files/figure-revealjs/unnamed-chunk-5-1.png" width="1800" class="r-stretch"></section>
+<img data-src="un_A_files/figure-revealjs/unnamed-chunk-11-1.png" width="1800" class="r-stretch"></section>
 <section id="example-mse-of-binomial-estimators-iii" class="slide level2 center">
 <h2>Example: MSE of binomial estimators III</h2>
 <ul>
@@ -1038,7 +1098,7 @@ r(\pi, \hat{p}_\text{minimax}) = \int_0^1 \mathbb{E}_p\{(\hat{p}_\text{minimax} 
 <section id="example-integrated-risk-of-binomial-estimators-1" class="slide level2 center">
 <h2>Example: integrated risk of binomial estimators</h2>
 
-<img data-src="un_A_files/figure-revealjs/unnamed-chunk-6-1.png" class="quarto-figure quarto-figure-center r-stretch" width="1800"><ul>
+<img data-src="un_A_files/figure-revealjs/unnamed-chunk-12-1.png" class="quarto-figure quarto-figure-center r-stretch" width="1800"><ul>
 <li>According to the integrated risk and using constant weights <span class="math inline">\pi(\mathrm{d}p) = \mathrm{d}p</span> one should <span class="orange">prefer</span> <span class="math inline">\hat{p}</span> over <span class="math inline">\hat{p}_\text{minimax}</span> when <span class="math inline">n \ge 20</span> and viceversa.</li>
 </ul>
 </section>
@@ -1102,7 +1162,7 @@ r(\pi, \hat{p}_\text{Bayes}) = \int_0^1 R(p; \hat{p}_\text{Bayes})\mathrm{d}p = 
 <section id="example-integrated-risk-of-binomial-estimators-3" class="slide level2 center">
 <h2>Example: integrated risk of binomial estimators</h2>
 
-<img data-src="un_A_files/figure-revealjs/unnamed-chunk-7-1.png" class="quarto-figure quarto-figure-center r-stretch" width="1800"></section>
+<img data-src="un_A_files/figure-revealjs/unnamed-chunk-13-1.png" class="quarto-figure quarto-figure-center r-stretch" width="1800"></section>
 <section id="admissibility-of-bayesian-estimators" class="slide level2 center">
 <h2>Admissibility of Bayesian estimators 📖</h2>
 <ul>
@@ -1150,7 +1210,7 @@ r(\pi, \hat{p}_\text{Bayes}) = \int_0^1 R(p; \hat{p}_\text{Bayes})\mathrm{d}p = 
 <section id="example-mse-of-binomial-estimators-minimax" class="slide level2 center">
 <h2>Example: MSE of binomial estimators (minimax)</h2>
 
-<img data-src="un_A_files/figure-revealjs/unnamed-chunk-8-1.png" class="quarto-figure quarto-figure-center r-stretch" width="1800"><ul>
+<img data-src="un_A_files/figure-revealjs/unnamed-chunk-14-1.png" class="quarto-figure quarto-figure-center r-stretch" width="1800"><ul>
 <li><p>We will show that <span class="math inline">\hat{p}_\text{minimax} = (n_1 + 0.5\sqrt{n})/(n + \sqrt{n})</span> is indeed the <span class="orange">minimax estimator</span>. However, this is a very <span class="blue">conservative</span> choice.</p></li>
 <li><p>One could argue that the maximum likelihood <span class="math inline">\hat{p} = n_1/n</span> is the preferred choice in practice, especially when <span class="math inline">n</span> is large enough, even though it has slightly higher risk when <span class="math inline">p \approx 1/2</span>.</p></li>
 </ul>
@@ -1585,6 +1645,9 @@ i(\lambda) = -\mathbb{E}_\lambda\left(\frac{\partial}{\partial \lambda^2}\log{f(
 <section id="asymptotics-for-the-mle" class="slide level2 center">
 <h2>Asymptotics for the MLE</h2>
 </section>
+<section id="asymptotics-for-unbiased-estimating-equations" class="slide level2 center">
+<h2>Asymptotics for unbiased estimating equations</h2>
+</section>
 <section id="asymptotic-bias-and-firth-corrections" class="slide level2 center">
 <h2>Asymptotic bias and Firth corrections</h2>
 </section></section>
@@ -1595,6 +1658,9 @@ i(\lambda) = -\mathbb{E}_\lambda\left(\frac{\partial}{\partial \lambda^2}\log{f(
 </section>
 <section id="example-binomial-best-unbiased-estimation-1" class="slide level2 center">
 <h2>Example: binomial best unbiased estimation</h2>
+</section>
+<section id="maximum-likelihood-under-a-misspecified-model" class="slide level2 center">
+<h2>Maximum likelihood under a misspecified model</h2>
 </section></section>
 <section>
 <section id="references-and-study-material" class="title-slide slide level1 center">
