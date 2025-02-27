@@ -911,7 +911,7 @@ colnames(baseball) <- c("First name", "Last name", "At Bats", "Hits", "Average (
 # knitr::kable(baseball[c(1:4, 15:18), c(1:5, 7,6)], row.names = F, digits = 3)
 ```
 
-|Name  | At Bats $n_i$ | Hits $x_i$ |  Avg. $\hat{p_i}$ | James-Stein| Rem. avg.|
+|Name  | At Bats $n_i$ | Hits $x_i$ |  Mean $\hat{p_i}$ | James-Stein| Rem. mean|
 |:---|---------------:|-------------:|-----------------:|----------------:|---------------:|
 |Clemente   |      45|   18|         0.400|       0.290|             0.346|
 |Robinson   |      45|   17|         0.378|       0.286|             0.298|
@@ -927,7 +927,7 @@ colnames(baseball) <- c("First name", "Last name", "At Bats", "Hits", "Average (
 
 - The batting averages $\hat{p}_i$ out of $n_i$ trials for $n = 18$ players have been [transformed]{.orange} via $y_i = \sqrt{n_i} \arcsin(2 p_i - 1)$. The [James-Stein estimator]{.blue} is applied to $y_i$ and then transformed back.  
 
-- The [shrinkage effect]{.orange} is evident and provides a better estimate of the [remaining average]{.blue} for the season.  
+- The [shrinkage effect]{.orange} is evident and provides a better estimate of the [remaining batting average]{.blue} for the season.  
 
 
 ## James-Stein estimator VI
