@@ -100,6 +100,20 @@ ggplot(data = data_plot, aes(x = p, y = MSE, col = Estimator)) +
   xlab("p") +
   ylab("MSE")
 
+baseball <- read.table("../data/efron-morris-75-data.tsv", header = TRUE)
+baseball <- baseball[, c(1:5, 7)]
+
+p_hat <- baseball$BattingAverage
+q_hat <- sqrt(baseball$At.Bats) * asin(2 * p_hat - 1)
+
+q_JS <- mean(q_hat) + (1 - (length(q_hat) - 3) / sum((q_hat - mean(q_hat))^2)) * (q_hat - mean(q_hat))
+
+p_JS <- (sin(q_JS / sqrt(baseball$At.Bats)) + 1) / 2
+
+baseball$JS <- p_JS
+colnames(baseball) <- c("First name", "Last name", "At Bats", "Hits", "Average (MLE)", "Remaining average", "James-Stein")
+# knitr::kable(baseball[c(1:4, 15:18), c(1:5, 7,6)], row.names = F, digits = 3)
+
 data_plot <- data.frame(n = rep(round(seq(from = 3, 50, length = 5000)), 2))
 data_plot$BayesRisk <- c(1 / (6 * data_plot$n[1:5000]), data_plot$n[1:5000] / (4 * (data_plot$n[1:5000] + sqrt(data_plot$n[1:5000]))^2))
 data_plot$Estimator <- rep(c("Maximum likelihood", "Minimax"), each = 5000)

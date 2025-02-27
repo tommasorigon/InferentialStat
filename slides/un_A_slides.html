@@ -1020,8 +1020,8 @@ R(\mu; \hat{\mu}_\text{shrink}) \le p - \frac{(p-3)^2}{p - 3 + ||\mu - \bar{\mu}
 <li><p>Alternative estimates for <span class="math inline">1/(1 + \tau^2)</span> leads to <span class="blue">refined</span> James-Stein estimators.</p></li>
 </ul>
 </section>
-<section id="a-recommended-read-for-unit-a" class="slide level2 center">
-<h2>A recommended read for Unit A</h2>
+<section id="efron-and-morris-1975" class="slide level2 center">
+<h2>Efron and Morris (1975)</h2>
 <div class="columns">
 <div class="column" style="width:35%;">
 <p><img data-src="img/efron.png"></p>
@@ -1038,6 +1038,109 @@ R(\mu; \hat{\mu}_\text{shrink}) \le p - \frac{(p-3)^2}{p - 3 + ||\mu - \bar{\mu}
 </ul></li>
 </ul>
 </div></div>
+</section>
+<section id="efron-and-morris-1975-1" class="slide level2 center">
+<h2>Efron and Morris (1975)</h2>
+<div class="smaller">
+<table class="caption-top">
+<colgroup>
+<col style="width: 4%">
+<col style="width: 18%">
+<col style="width: 16%">
+<col style="width: 21%">
+<col style="width: 20%">
+<col style="width: 18%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Name</th>
+<th style="text-align: right;">At Bats <span class="math inline">n_i</span></th>
+<th style="text-align: right;">Hits <span class="math inline">x_i</span></th>
+<th style="text-align: right;">Avg. <span class="math inline">\hat{p_i}</span></th>
+<th style="text-align: right;">James-Stein</th>
+<th style="text-align: right;">Rem. avg.</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Clemente</td>
+<td style="text-align: right;">45</td>
+<td style="text-align: right;">18</td>
+<td style="text-align: right;">0.400</td>
+<td style="text-align: right;">0.290</td>
+<td style="text-align: right;">0.346</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Robinson</td>
+<td style="text-align: right;">45</td>
+<td style="text-align: right;">17</td>
+<td style="text-align: right;">0.378</td>
+<td style="text-align: right;">0.286</td>
+<td style="text-align: right;">0.298</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Howard</td>
+<td style="text-align: right;">45</td>
+<td style="text-align: right;">16</td>
+<td style="text-align: right;">0.356</td>
+<td style="text-align: right;">0.282</td>
+<td style="text-align: right;">0.276</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Johnstone</td>
+<td style="text-align: right;">45</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: right;">0.333</td>
+<td style="text-align: right;">0.277</td>
+<td style="text-align: right;">0.222</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">…</td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Williams</td>
+<td style="text-align: right;">45</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">0.222</td>
+<td style="text-align: right;">0.254</td>
+<td style="text-align: right;">0.330</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Campaneris</td>
+<td style="text-align: right;">45</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">0.200</td>
+<td style="text-align: right;">0.249</td>
+<td style="text-align: right;">0.285</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Munson</td>
+<td style="text-align: right;">45</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">0.178</td>
+<td style="text-align: right;">0.244</td>
+<td style="text-align: right;">0.316</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Alvis</td>
+<td style="text-align: right;">45</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">0.156</td>
+<td style="text-align: right;">0.239</td>
+<td style="text-align: right;">0.200</td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul>
+<li><p>The batting averages <span class="math inline">\hat{p}_i</span> out of <span class="math inline">n_i</span> trials for <span class="math inline">n = 18</span> players have been <span class="orange">transformed</span> via <span class="math inline">y_i = \sqrt{n_i} \arcsin(2 p_i - 1)</span>. The <span class="blue">James-Stein estimator</span> is applied to <span class="math inline">y_i</span> and then transformed back.</p></li>
+<li><p>The <span class="orange">shrinkage effect</span> is evident and provides a better estimate of the <span class="blue">remaining average</span> for the season.</p></li>
+</ul>
 </section>
 <section id="james-stein-estimator-vi" class="slide level2 center">
 <h2>James-Stein estimator VI</h2>
@@ -1117,7 +1220,7 @@ r(\pi, \hat{p}_\text{minimax}) = \int_0^1 \mathbb{E}_p\{(\hat{p}_\text{minimax} 
 <section id="example-integrated-risk-of-binomial-estimators-1" class="slide level2 center">
 <h2>Example: integrated risk of binomial estimators</h2>
 
-<img data-src="un_A_files/figure-revealjs/unnamed-chunk-12-1.png" class="quarto-figure quarto-figure-center r-stretch" width="1800"><ul>
+<img data-src="un_A_files/figure-revealjs/unnamed-chunk-13-1.png" class="quarto-figure quarto-figure-center r-stretch" width="1800"><ul>
 <li>According to the integrated risk and using constant weights <span class="math inline">\pi(\mathrm{d}p) = \mathrm{d}p</span> one should <span class="orange">prefer</span> <span class="math inline">\hat{p}</span> over <span class="math inline">\hat{p}_\text{minimax}</span> when <span class="math inline">n \ge 20</span> and viceversa.</li>
 </ul>
 </section>
@@ -1181,7 +1284,7 @@ r(\pi, \hat{p}_\text{Bayes}) = \int_0^1 R(p; \hat{p}_\text{Bayes})\mathrm{d}p = 
 <section id="example-integrated-risk-of-binomial-estimators-3" class="slide level2 center">
 <h2>Example: integrated risk of binomial estimators</h2>
 
-<img data-src="un_A_files/figure-revealjs/unnamed-chunk-13-1.png" class="quarto-figure quarto-figure-center r-stretch" width="1800"></section>
+<img data-src="un_A_files/figure-revealjs/unnamed-chunk-14-1.png" class="quarto-figure quarto-figure-center r-stretch" width="1800"></section>
 <section id="admissibility-of-bayesian-estimators" class="slide level2 center">
 <h2>Admissibility of Bayesian estimators 📖</h2>
 <ul>
@@ -1229,7 +1332,7 @@ r(\pi, \hat{p}_\text{Bayes}) = \int_0^1 R(p; \hat{p}_\text{Bayes})\mathrm{d}p = 
 <section id="example-mse-of-binomial-estimators-minimax" class="slide level2 center">
 <h2>Example: MSE of binomial estimators (minimax)</h2>
 
-<img data-src="un_A_files/figure-revealjs/unnamed-chunk-14-1.png" class="quarto-figure quarto-figure-center r-stretch" width="1800"><ul>
+<img data-src="un_A_files/figure-revealjs/unnamed-chunk-15-1.png" class="quarto-figure quarto-figure-center r-stretch" width="1800"><ul>
 <li><p>We will show that <span class="math inline">\hat{p}_\text{minimax} = (n_1 + 0.5\sqrt{n})/(n + \sqrt{n})</span> is indeed the <span class="orange">minimax estimator</span>. However, this is a very <span class="blue">conservative</span> choice.</p></li>
 <li><p>One could argue that the maximum likelihood <span class="math inline">\hat{p} = n_1/n</span> is the preferred choice in practice, especially when <span class="math inline">n</span> is large enough, even though it has slightly higher risk when <span class="math inline">p \approx 1/2</span>.</p></li>
 </ul>
