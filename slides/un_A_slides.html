@@ -645,15 +645,16 @@ L(\hat{N}) \ge L(\hat{N} - 1), \qquad L(\hat{N} + 1) &lt; L(\hat{N}).
 <div class="callout-body">
 <div class="callout-content">
 <p>An <span class="blue">M-estimator</span> is the <span class="orange">maximizer</span> over <span class="math inline">\Theta</span> of a function <span class="math inline">M(\theta) : \Theta \rightarrow \mathbb{R}</span> of the type: <span class="math display">
-M(\theta) = \frac{1}{n}\sum_{i=1}^n m(\theta; Y_i),
+M(\theta) = \sum_{i=1}^n m(\theta; Y_i),
 </span> where <span class="math inline">m(\theta; Y_i)</span> are known real-valued functions.</p>
 </div>
 </div>
 </div>
 <ul>
-<li><p><span class="orange">Remark</span>: when <span class="math inline">m(\theta; y) = \log{f(Y_i; \theta)}</span> this coincides with the MLE of a model with iid observations.</p></li>
-<li><p>The term <span class="math inline">1/n</span> is included here to facilitate the description of the subsequent asymptotic theory, but it is obviously non influential.</p></li>
+<li><span class="orange">Remark</span>: when <span class="math inline">m(\theta; y) = \log{f(Y_i; \theta)}</span> this coincides with the MLE of a model with iid observations.</li>
 </ul>
+<!-- -   The term $1/n$ is included here to facilitate the description of the -->
+<!--     subsequent asymptotic theory, but it is obviously non influential. -->
 <aside><ol class="aside-footnotes"><li id="fn3"><p>A detailed discussion is offered in <span class="citation" data-cites="vandervaart1998">van der Vaart (<a href="#/references" role="doc-biblioref" onclick="">1998</a>)</span>, Chap. 5.</p></li></ol></aside></section>
 <section id="z-estimators" class="slide level2 center">
 <h2>Z-estimators</h2>
@@ -661,14 +662,14 @@ M(\theta) = \frac{1}{n}\sum_{i=1}^n m(\theta; Y_i),
 <div class="callout-body">
 <div class="callout-content">
 <p>A <span class="blue">Z-estimator</span> is the <span class="orange">solution</span> over <span class="math inline">\Theta</span> of a system of equations function <span class="math inline">Q(\theta) = \bm{0}</span> of the type: <span class="math display">
-Q(\theta) = Q(\theta; Y) = \frac{1}{n}\sum_{i=1}^n q(\theta; Y_i) = \bm{0},
-</span> where <span class="math inline">q(y; \theta)</span> are known vector-valued maps. These are called <span class="blue">estimating equations</span>.</p>
+Q(\theta) = Q(\theta; Y) = \sum_{i=1}^n q(\theta; Y_i) = \bm{0},
+</span> where <span class="math inline">q(\theta) = q(\theta; y)</span> are known vector-valued maps. These are called <span class="blue">estimating equations</span>.</p>
 </div>
 </div>
 </div>
 <ul>
 <li><p>When <span class="math inline">\theta = (\theta_1,\dots,\theta_p)</span>, <span class="math inline">Q</span> and <span class="math inline">q</span> typically have <span class="math inline">p</span> coordinate functions, namely we consider: <span class="math display">
-Q_r(\theta) = \frac{1}{n}\sum_{i=1}^n q_r(\theta; Y_i)= 0, \qquad r = 1,\dots,p.
+Q_r(\theta) = \sum_{i=1}^n q_r(\theta; Y_i)= 0, \qquad r = 1,\dots,p.
 </span></p></li>
 <li><p>In many examples <span class="math inline">q_r(y; \theta)</span> are the partial derivatives of a function <span class="math inline">m(\theta; y)</span>, that is <span class="math display">
 Q(\theta) = \frac{\partial}{\partial \theta} M(\theta).</span> An example is the <span class="blue">score function</span> <span class="math inline">\ell^*(\theta)</span>. However, this is <span class="orange">not always the case</span>.</p></li>
@@ -683,9 +684,9 @@ Q(\theta) = \frac{\partial}{\partial \theta} M(\theta).</span> An example is the
 \mathcal{F} = \{f(y - \theta) : \theta \in \Theta \subseteq \mathbb{R} \},
 </span> for some unknown density <span class="math inline">f(y)</span> <span class="blue">symmetric</span> around <span class="math inline">0</span>. The parameter <span class="math inline">\theta</span> is the <span class="orange">location</span>.</p></li>
 <li><p>Classical M- estimators for <span class="math inline">\theta</span> are the <span class="blue">mean</span> and the <span class="orange">median</span>, maximizing: <span class="math display">
--\frac{1}{n}\sum_{i=1}^n (Y_i - \theta)^2, \quad (\text{Mean}) \qquad \qquad - \frac{1}{n}\sum_{i=1}^n |Y_i - \theta|, \quad (\text{Median})
+-\sum_{i=1}^n (Y_i - \theta)^2, \quad (\text{Mean}) \qquad \qquad - \sum_{i=1}^n |Y_i - \theta|, \quad (\text{Median})
 </span> or alternatively (Z- estimator forms) solving the equations <span class="math display">
-\frac{1}{n}\sum_{i=1}^n (Y_i - \theta) = 0, \quad (\text{Mean}) \qquad \qquad \frac{1}{n}\sum_{i=1}^n \text{sign}(Y_i - \theta) = 0, \quad (\text{Median}).
+\sum_{i=1}^n (Y_i - \theta) = 0, \quad (\text{Mean}) \qquad \qquad \sum_{i=1}^n \text{sign}(Y_i - \theta) = 0, \quad (\text{Median}).
 </span></p></li>
 </ul>
 <!-- ## Location estimators II -->
@@ -703,12 +704,12 @@ Q(\theta) = \frac{\partial}{\partial \theta} M(\theta).</span> An example is the
 <h2>Huber estimators II</h2>
 <ul>
 <li><p><span class="blue">Huber estimators</span> can be regarded as a compromise between the mean and the median, maximizing the following function: <span class="math display">
-M(\theta) = -\frac{1}{n}\sum_{i=1}^n m(Y_i - \theta), \qquad m(y) = \begin{cases}\frac{1}{2}y^2 \quad &amp;\text{ if } |y| \le k\\
+M(\theta) = -\sum_{i=1}^n m(Y_i - \theta), \qquad m(y) = \begin{cases}\frac{1}{2}y^2 \quad &amp;\text{ if } |y| \le k\\
 k |y| - \frac{1}{2}k^2 \quad &amp;\text{ if } |y| \ge k
 \end{cases}
 </span> where <span class="math inline">k &gt; 0</span> is a <span class="orange">tuning</span> parameter. The function <span class="math inline">m(y)</span> is continuous and differentiable<sup>1</sup>. The choice <span class="math inline">k \rightarrow 0</span> leads to the median, whereas for <span class="math inline">k \rightarrow \infty</span> we get the mean.</p></li>
 <li><p>Equivalently, we can consider the solution of the following estimating equation: <span class="math display">
-Q(\theta) = \frac{1}{n}\sum_{i=1}^n q(Y_i - \theta)= 0, \qquad q(y) = \begin{cases} -k \quad &amp;\text{ if }\: y \le -k\\
+Q(\theta) = \sum_{i=1}^n q(Y_i - \theta)= 0, \qquad q(y) = \begin{cases} -k \quad &amp;\text{ if }\: y \le -k\\
 y \quad &amp;\text{ if  }\: |y| \le k \\
 k \quad &amp;\text{ if }\: y \ge k\end{cases}
 </span></p></li>
@@ -1632,7 +1633,7 @@ i(\lambda) = -\mathbb{E}_\lambda\left(\frac{\partial}{\partial \lambda^2}\log{f(
 </div>
 </section>
 <section id="en-route-to-finding-unique-umvue-i" class="slide level2 center">
-<h2>En route to finding unique UMVUE I 📖</h2>
+<h2><em>En route</em> to finding unique UMVUE I 📖</h2>
 <ul>
 <li><p>In looking for UMVUE we should only consider those based on a <span class="blue">sufficient statistic</span> <span class="math inline">S</span>. However, if both <span class="math inline">\hat{\theta}</span> and <span class="math inline">\tilde{\theta}</span> are unbiased and based on <span class="math inline">S</span>, how do we know if <span class="math inline">\hat{\theta}</span> is best unbiased?</p></li>
 <li><p>The next theorem is a <span class="orange">partial answer</span>, which is useful if <span class="math inline">\hat{\theta}</span> attains the <span class="blue">Cramér-Rao</span> lower bound.</p></li>
@@ -1661,7 +1662,7 @@ i(\lambda) = -\mathbb{E}_\lambda\left(\frac{\partial}{\partial \lambda^2}\log{f(
 </div>
 </section>
 <section id="en-route-to-finding-unique-umvue-ii" class="slide level2 center">
-<h2>En route to finding unique UMVUE II 📖</h2>
+<h2><em>En route</em> to finding unique UMVUE II 📖</h2>
 <ul>
 <li>Suppose we wish to improve on an unbiased estimator <span class="math inline">\hat{\theta}</span>. Then, we could consider <span class="math inline">U = U(\bm{Y})</span> such that <span class="math inline">\mathbb{E}_\theta(U) = 0</span>, i.e.&nbsp;<span class="math inline">U</span> is an <span class="blue">unbiased estimator or 0</span>, and let <span class="math display">
 \tilde{\theta} = \hat{\theta} + a U, \qquad a \in \mathbb{R}.
@@ -1744,11 +1745,145 @@ i(\lambda) = -\mathbb{E}_\lambda\left(\frac{\partial}{\partial \lambda^2}\log{f(
 <h1>Alternative notions of optimality</h1>
 
 </section>
-<section id="unbiased-estimating-equations" class="slide level2 center">
-<h2>Unbiased estimating equations</h2>
+<section id="unbiased-estimating-equations-i" class="slide level2 center">
+<h2>Unbiased estimating equations I</h2>
+<ul>
+<li>A <span class="blue">Z-estimator</span> is the <span class="orange">solution</span> over <span class="math inline">\Theta</span> of a system of equations function <span class="math inline">Q(\theta) = \bm{0}</span> of the type: <span class="math display">
+Q(\theta) = \sum_{i=1}^n q(\theta; Y_i) = \bm{0},
+</span> where <span class="math inline">q(\theta) = q(\theta; y)</span> are known vector-valued maps. These are called <span class="blue">estimating equations</span>.</li>
+</ul>
+<div class="callout callout-note no-icon callout-titled callout-style-simple">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Unbiased estimating equations</strong></p>
+</div>
+<div class="callout-content">
+<p>The estimating equations <span class="math inline">Q(\theta) = \sum_{i=1}^n q(\theta; Y_i)</span> are <span class="orange">unbiased</span> if they satisfy <span class="math display">
+\mathbb{E}_\theta(Q(\theta)) = \bm{0}, \qquad \text{ for all } \qquad \theta \in \Theta.
+</span></p>
+</div>
+</div>
+</div>
+<ul>
+<li>Under iid sampling, the <span class="orange">score function</span> can be written as <span class="math inline">\ell^*(\theta) = \sum_{i=1}^n \frac{\partial}{\partial \theta}\log{f(y_i; \theta)}</span> and therefore is a Z-estimator. Moreover, under regularity conditions, it is <span class="orange">unbiased</span>: <span class="math inline">\mathbb{E}_\theta(\ell^*(\theta)) = \bm{0}</span>.</li>
+</ul>
 </section>
-<section id="godambe-efficiency" class="slide level2 center">
-<h2>Godambe efficiency</h2>
+<section id="unbiased-estimating-equations-ii" class="slide level2 center">
+<h2>Unbiased estimating equations II</h2>
+<ul>
+<li><p>Remarkably, the unbiasedness of <span class="math inline">Q(\theta)</span>, combined with a few regularity conditions, is often enough to prove <span class="orange">consistency</span> of the resulting estimator <span class="math inline">\hat{\theta}</span> as <span class="math inline">n\rightarrow \infty</span>. <sup>1</sup></p></li>
+<li><p>Unbiasedness of <span class="math inline">Q(\theta)</span> does not imply that the solution <span class="math inline">\hat{\theta}</span> is an unbiased estimator of <span class="math inline">\theta</span>, unless <span class="math inline">Q(\theta)</span> is a <span class="blue">linear function</span>.</p></li>
+<li><p>The unbiasedness of <span class="math inline">Q(\theta)</span> holds for any <span class="orange">reparametrization</span> <span class="math inline">\psi = \psi(\theta)</span>. Moreover, Z-estimators, by construction, satisfy <span class="blue">equivariance</span>, meaning that <span class="math inline">\hat{\psi} = \psi(\hat{\theta})</span>.</p></li>
+</ul>
+<div class="callout callout-tip no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<p>Having defined the class of unbiased estimating functions, the question naturally arises which of them we should use.</p>
+</div>
+</div>
+</div>
+<aside><ol class="aside-footnotes"><li id="fn15"><p>Refer to <span class="citation" data-cites="Davison2003">Davison (<a href="#/references" role="doc-biblioref" onclick="">2003</a>)</span>, Section 7.2, for an intuitive argument and <span class="citation" data-cites="vandervaart1998">van der Vaart (<a href="#/references" role="doc-biblioref" onclick="">1998</a>)</span>, Chap. 5 for a rigorous proof.</p></li></ol></aside></section>
+<section id="asymptotic-behavior-of-unbiased-estimating-equations" class="slide level2 center">
+<h2>Asymptotic behavior of unbiased estimating equations</h2>
+<ul>
+<li><p>Guidance on the choice of <span class="math inline">Q(\theta)</span> can be found by investigating its <span class="blue">asymptotic behavior</span>. We provide an <span class="orange">informal argument</span> for <span class="math inline">\theta \in \mathbb{R}</span>.</p></li>
+<li><p>Under <span class="blue">iid sampling</span> and further <span class="orange">regularity conditions</span>, implying that <span class="math inline">\mathbb{E}_\theta(q(\theta; Y_i)) = 0</span>, a Taylor series expansion of <span class="math inline">Q(\theta)</span> gives <span class="math display">
+0 = Q(\hat{\theta}) \approx \sum_{i=1}^n q(\theta; Y_i) + (\hat{\theta}- \theta) \sum_{i=1}^n\frac{\partial}{\partial \theta}q(\theta; Y_i).
+</span></p></li>
+<li><p>Thus, re-arranging, the following approximations hold <span class="orange">for large <span class="math inline">n</span></span>: <span class="math display">
+\hat{\theta} - \theta \approx \frac{\sum_{i=1}^n q(\theta; Y_i)}{- \sum_{i=1}^n \frac{\partial}{\partial \theta}q(\theta; Y_i)} \approx \frac{Q(\theta)}{\mathbb{E}_\theta\left(- \frac{\partial}{\partial \theta}Q(\theta)\right)} .
+</span></p></li>
+<li><p>This suggests Z-estimators are <span class="blue">asymptotically unbiased</span> and the <span class="orange">asymptotic variance</span> of <span class="math inline">\hat{\theta}</span> is <span class="math display">
+\text{var}(\hat{\theta}) \approx \frac{\text{var}(Q(\theta))}{\mathbb{E}_\theta\left(- \frac{\partial}{\partial \theta}Q(\theta)\right)^2} =  n^{-1}\frac{\text{var}(q(\theta))}{\mathbb{E}_\theta\left(-\frac{\partial}{\partial \theta}q(\theta)\right)^2}.
+</span></p></li>
+</ul>
+</section>
+<section id="godambe-information" class="slide level2 center">
+<h2>Godambe information</h2>
+<div class="callout callout-note no-icon callout-titled callout-style-simple">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Godambe information</strong></p>
+</div>
+<div class="callout-content">
+<p>Let <span class="math inline">\bm{Y}</span> be a sample from a statistical model with parameter <span class="math inline">\theta \in \Theta \subseteq \mathbb{R}</span>. Let <span class="math inline">Q(\theta)</span> be an <span class="orange">unbiased estimating equation</span>. We define the <span class="blue">sensitivity</span> as <span class="math display">
+H(\theta) := \mathbb{E}_\theta\left(-\frac{\partial}{\partial \theta}Q(\theta; \bm{Y})\right),
+</span> and the <span class="grey">variability</span> as <span class="math display">
+J(\theta) := \text{var}_\theta(Q(\theta; \bm{Y})).
+</span> Then, the <span class="blue">Godambe information</span> is defined as <span class="math display">
+G(\theta) := \frac{H(\theta)^2}{J(\theta)}.
+</span></p>
+</div>
+</div>
+</div>
+<ul>
+<li>An estimating equation <span class="math inline">Q(\theta)</span> which has <span class="math inline">H(\theta) = J(\theta)</span> is called <span class="blue">information unbiased</span>.</li>
+</ul>
+</section>
+<section id="godambe-information-2" class="slide level2 center">
+<h2>Godambe information</h2>
+<div class="callout callout-note no-icon callout-titled callout-style-simple">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Godambe efficiency</strong></p>
+</div>
+<div class="callout-content">
+<p>Let <span class="math inline">Q(\theta)</span> and <span class="math inline">\tilde{Q}(\theta)</span> be two <span class="orange">estimating equations</span> with Godambe information <span class="math inline">G(\theta)</span> and <span class="math inline">\tilde{G}(\theta)</span>. Then <span class="math inline">Q(\theta)</span> is <span class="blue">uniformly more efficient</span> than <span class="math inline">\tilde{Q}(\theta)</span> if <span class="math inline">G(\theta) \ge \tilde{G}(\theta)</span> for all <span class="math inline">\theta \in \Theta</span>.</p>
+</div>
+</div>
+</div>
+<ul>
+<li><p>This criterion is appropriate because the <span class="orange">inverse</span> of the <span class="blue">Godambe information</span> <span class="math inline">G(\theta)^{-1}</span>, under regularity conditions, coincides with the <span class="orange">asymptotic variance</span> of <span class="math inline">\hat{\theta}</span>.</p></li>
+<li><p>Moreover, although the <span class="blue">variance</span> <span class="math inline">J(\theta)</span> is a natural basis for comparing estimating functions, <span class="math inline">\tilde{Q}(\theta) = a Q(\theta; \bm{Y})</span> is also unbiased with variance <span class="math inline">\tilde{J}(\theta) = a^2 J(\theta)</span>.</p></li>
+<li><p>Hence, a fair comparison is possible only after removing this <span class="orange">arbitrary scaling</span>. Indeed, Godambe information is <span class="blue">invariant</span> to scaling of <span class="math inline">Q(\theta)</span>.</p></li>
+</ul>
+</section>
+<section id="godambe-information-of-the-score-function" class="slide level2 center">
+<h2>Godambe information of the score function</h2>
+<div class="callout callout-tip no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<ul>
+<li><p>Let <span class="math inline">\bm{Y}</span> be a sample from a statistical model with parameter <span class="math inline">\theta \in \Theta \subseteq \mathbb{R}</span> and with <span class="blue">score function</span> <span class="math inline">\ell^*(\theta)</span>.</p></li>
+<li><p>If the first Bartlett identity holds, the score function <span class="math inline">\ell^*(\theta)</span> is an <span class="orange">unbiased estimating equation</span>.</p></li>
+<li><p>Moreover, if the second Bartlett identity holds, <span class="math inline">\ell^*(\theta)</span> is <span class="blue">information unbiased</span>, that is <span class="math display">
+H(\theta) = \mathbb{E}_\theta\left(-\frac{\partial}{\partial \theta}\ell^*(\theta)\right)= \text{var}_\theta(\ell^*(\theta)) = J(\theta).
+</span> This implies that <span class="math display">
+G(\theta) =  I(\theta),
+</span> that is, the <span class="blue">Godambe information</span> of <span class="math inline">\ell^*(\theta)</span> coincides with the usual <span class="orange">Fisher information</span>.</p></li>
+</ul>
+</div>
+</div>
+</div>
+<ul>
+<li>Hence, Godambe information is a generalization of Fisher information.</li>
+</ul>
+</section>
+<section id="godambe-efficiancy" class="slide level2 center">
+<h2>Godambe efficiancy</h2>
+<div class="callout callout-warning no-icon callout-titled callout-style-simple">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Theorem (<span class="citation" data-cites="Godambe1960">Godambe (<a href="#/references" role="doc-biblioref" onclick="">1960</a>)</span>)</strong></p>
+</div>
+<div class="callout-content">
+<p>Let <span class="math inline">Y_1,\dots,Y_n</span> be a sample from a joint probability measure <span class="math inline">f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y})</span> and let <span class="math inline">\Theta = \mathbb{R}</span>. Moreover, let <span class="math inline">Q(\theta)</span> be an unbiased estimating equation with <span class="blue">Godambe information</span> <span class="math inline">G(\theta)</span>. Then under <span class="orange">regularity conditions</span> <span class="blue">C.1</span> and <span class="blue">C.2</span>: <span class="math display">
+\frac{1}{G(\theta)} \ge \frac{1}{I(\theta)}.
+</span></p>
+</div>
+</div>
+</div>
+<ul>
+<li><p>This result is the equivalent of the Cramér-Rao theorem for unbiased estimating equations.</p></li>
+<li><p>It implies that the <span class="blue">score functions</span> are <span class="orange">optimal</span> (Godambe efficient) among unbiased estimating equations. However, Z-estimators may have appealing <span class="grey">robustness</span> properties.</p></li>
+</ul>
+<div class="callout callout-tip no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<p>Godambe information generalizes to the vector case <span class="math inline">\theta \in \Theta \subseteq \mathbb{R}^p</span> and is defined as <span class="math inline">G(\theta) = H(\theta) J(\theta)^{-1}H(\theta)</span>, sometimes called <span class="orange">sandwich</span> matrix. Optimality results generalize as well.</p>
+</div>
+</div>
+</div>
 </section>
 <section id="blue-estimators" class="slide level2 center">
 <h2>BLUE estimators</h2>
@@ -1850,6 +1985,9 @@ Efron, B., and Hastie, T. (2016), <em><span>Computer Age Statistical Inference</
 </div>
 <div id="ref-Efron1975" class="csl-entry" role="listitem">
 Efron, B., and Morris, C. (1975), <span>“<span class="nocase">Data analysis using Stein’s estimator and its generalizations</span>,”</span> <em>Journal of the American Statistical Association</em>, 70, 311–319.
+</div>
+<div id="ref-Godambe1960" class="csl-entry" role="listitem">
+Godambe, V. P. (1960), <span>“<span class="nocase">An optimum property of regular maximum likelihood estimation</span>,”</span> <em>Annals of Mathematical Statistics</em>, 31, 1208–1211.
 </div>
 <div id="ref-James1961" class="csl-entry" role="listitem">
 James, W., and Stein, C. (1961), <span>“Estimation with quadratic loss,”</span> in <em>Proc. Fourth berkeley symposium</em>, <span>University of California Press</span>, pp. 361–380.

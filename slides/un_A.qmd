@@ -424,28 +424,28 @@ ggplot(data = data.frame(N = N_seq, loglik = loglik), aes(x = N, y = loglik)) + 
 ::: callout-note
 An [M-estimator]{.blue} is the [maximizer]{.orange} over $\Theta$ of a
 function $M(\theta) : \Theta \rightarrow \mathbb{R}$ of the type: $$
-M(\theta) = \frac{1}{n}\sum_{i=1}^n m(\theta; Y_i),
+M(\theta) = \sum_{i=1}^n m(\theta; Y_i),
 $$ where $m(\theta; Y_i)$ are known real-valued functions.
 :::
 
 -   [Remark]{.orange}: when $m(\theta; y) = \log{f(Y_i; \theta)}$ this
     coincides with the MLE of a model with iid observations.
 
--   The term $1/n$ is included here to facilitate the description of the
-    subsequent asymptotic theory, but it is obviously non influential.
+<!-- -   The term $1/n$ is included here to facilitate the description of the -->
+<!--     subsequent asymptotic theory, but it is obviously non influential. -->
 
 ## Z-estimators
 
 ::: callout-note
 A [Z-estimator]{.blue} is the [solution]{.orange} over $\Theta$ of a
 system of equations function $Q(\theta) = \bm{0}$ of the type: $$
-Q(\theta) = Q(\theta; Y) = \frac{1}{n}\sum_{i=1}^n q(\theta; Y_i) = \bm{0},
-$$ where $q(y; \theta)$ are known vector-valued maps. These are called [estimating equations]{.blue}.
+Q(\theta) = Q(\theta; Y) = \sum_{i=1}^n q(\theta; Y_i) = \bm{0},
+$$ where $q(\theta) = q(\theta; y)$ are known vector-valued maps. These are called [estimating equations]{.blue}.
 :::
 
 - When $\theta = (\theta_1,\dots,\theta_p)$, $Q$ and $q$ typically have $p$ coordinate functions, namely we consider:
 $$
-Q_r(\theta) = \frac{1}{n}\sum_{i=1}^n q_r(\theta; Y_i)= 0, \qquad r = 1,\dots,p.
+Q_r(\theta) = \sum_{i=1}^n q_r(\theta; Y_i)= 0, \qquad r = 1,\dots,p.
 $$
 
 
@@ -467,11 +467,11 @@ for some unknown density $f(y)$ [symmetric]{.blue} around $0$. The parameter $\t
 
 - Classical M- estimators for $\theta$ are the [mean]{.blue} and the [median]{.orange}, maximizing:
 $$
--\frac{1}{n}\sum_{i=1}^n (Y_i - \theta)^2, \quad (\text{Mean}) \qquad \qquad - \frac{1}{n}\sum_{i=1}^n |Y_i - \theta|, \quad (\text{Median})
+-\sum_{i=1}^n (Y_i - \theta)^2, \quad (\text{Mean}) \qquad \qquad - \sum_{i=1}^n |Y_i - \theta|, \quad (\text{Median})
 $$
 or alternatively (Z- estimator forms) solving the equations
 $$
-\frac{1}{n}\sum_{i=1}^n (Y_i - \theta) = 0, \quad (\text{Mean}) \qquad \qquad \frac{1}{n}\sum_{i=1}^n \text{sign}(Y_i - \theta) = 0, \quad (\text{Median}).
+\sum_{i=1}^n (Y_i - \theta) = 0, \quad (\text{Mean}) \qquad \qquad \sum_{i=1}^n \text{sign}(Y_i - \theta) = 0, \quad (\text{Median}).
 $$
 
 <!-- ## Location estimators II -->
@@ -493,7 +493,7 @@ $$
 
 - [Huber estimators]{.blue} can be regarded as a compromise between the mean and the median, maximizing the following function:
 $$
-M(\theta) = -\frac{1}{n}\sum_{i=1}^n m(Y_i - \theta), \qquad m(y) = \begin{cases}\frac{1}{2}y^2 \quad &\text{ if } |y| \le k\\
+M(\theta) = -\sum_{i=1}^n m(Y_i - \theta), \qquad m(y) = \begin{cases}\frac{1}{2}y^2 \quad &\text{ if } |y| \le k\\
 k |y| - \frac{1}{2}k^2 \quad &\text{ if } |y| \ge k
 \end{cases}
 $$
@@ -501,7 +501,7 @@ where $k > 0$ is a [tuning]{.orange} parameter. The function $m(y)$ is continuou
 
 - Equivalently, we can consider the solution of the following estimating equation:
 $$
-Q(\theta) = \frac{1}{n}\sum_{i=1}^n q(Y_i - \theta)= 0, \qquad q(y) = \begin{cases} -k \quad &\text{ if }\: y \le -k\\
+Q(\theta) = \sum_{i=1}^n q(Y_i - \theta)= 0, \qquad q(y) = \begin{cases} -k \quad &\text{ if }\: y \le -k\\
 y \quad &\text{ if  }\: |y| \le k \\
 k \quad &\text{ if }\: y \ge k\end{cases}
 $$
@@ -1421,7 +1421,7 @@ That is, $\hat{\theta}$ is a [uniformly better unbiased estimator]{.blue} of $\t
 - This means that conditioning of a sufficient statistic [reduces]{.orange} the [mean squared error]{.orange} of a biased estimator $\tilde{\theta}$, albeit the resulting $\hat{\theta}$ would also be biased. 
 :::
 
-## En route to finding unique UMVUE I 📖
+## *En route* to finding unique UMVUE I 📖
 
 - In looking for UMVUE we should only consider those based on a [sufficient statistic]{.blue} $S$. However, if both $\hat{\theta}$ and $\tilde{\theta}$ are unbiased and based on $S$, how do we know if $\hat{\theta}$ is best unbiased?
 
@@ -1442,7 +1442,7 @@ is [unbiased]{.orange} for $\theta$ and is based on a [sufficient statistic]{.bl
 :::
 
 
-## En route to finding unique UMVUE II 📖
+## *En route* to finding unique UMVUE II 📖
 
 - Suppose we wish to improve on an unbiased estimator $\hat{\theta}$. Then, we could consider $U = U(\bm{Y})$ such that $\mathbb{E}_\theta(U) = 0$, i.e. $U$ is an [unbiased estimator or 0]{.blue}, and let
 $$
@@ -1518,9 +1518,129 @@ which can be obtained after simple calculations.
 
 # Alternative notions of optimality
 
-## Unbiased estimating equations
+## Unbiased estimating equations I
 
-## Godambe efficiency
+- A [Z-estimator]{.blue} is the [solution]{.orange} over $\Theta$ of a
+system of equations function $Q(\theta) = \bm{0}$ of the type: $$
+Q(\theta) = \sum_{i=1}^n q(\theta; Y_i) = \bm{0},
+$$ where $q(\theta) = q(\theta; y)$ are known vector-valued maps. These are called [estimating equations]{.blue}.
+
+::: callout-note
+#### Unbiased estimating equations
+
+The estimating equations $Q(\theta) = \sum_{i=1}^n q(\theta; Y_i)$ are [unbiased]{.orange} if they satisfy
+$$
+\mathbb{E}_\theta(Q(\theta)) = \bm{0}, \qquad \text{ for all } \qquad \theta \in \Theta.
+$$
+:::
+
+- Under iid sampling, the [score function]{.orange} can be written as $\ell^*(\theta) = \sum_{i=1}^n \frac{\partial}{\partial \theta}\log{f(y_i; \theta)}$ and therefore is a Z-estimator. Moreover, under regularity conditions, it is [unbiased]{.orange}: $\mathbb{E}_\theta(\ell^*(\theta)) = \bm{0}$.
+
+
+## Unbiased estimating equations II
+
+- Remarkably, the unbiasedness of $Q(\theta)$, combined with a few regularity conditions, is often enough to prove [consistency]{.orange} of the resulting estimator $\hat{\theta}$ as $n\rightarrow \infty$. [^UEQ]
+
+- Unbiasedness of $Q(\theta)$ does not imply that the solution $\hat{\theta}$ is an unbiased estimator of $\theta$, unless $Q(\theta)$ is a [linear function]{.blue}.
+
+- The unbiasedness of $Q(\theta)$ holds for any [reparametrization]{.orange} $\psi = \psi(\theta)$. Moreover, Z-estimators, by construction, satisfy [equivariance]{.blue}, meaning that $\hat{\psi} = \psi(\hat{\theta})$.
+
+:::callout-tip
+Having defined the class of unbiased estimating functions, the question naturally arises which of them we should use. 
+:::
+
+[^UEQ]: Refer to @Davison2003, Section 7.2, for an intuitive argument and @vandervaart1998, Chap. 5 for a rigorous proof.
+
+
+## Asymptotic behavior of unbiased estimating equations
+
+- Guidance on the choice of $Q(\theta)$ can be found by investigating its [asymptotic behavior]{.blue}. We provide an [informal argument]{.orange} for $\theta \in \mathbb{R}$.
+
+- Under [iid sampling]{.blue} and further [regularity conditions]{.orange}, implying that $\mathbb{E}_\theta(q(\theta; Y_i)) = 0$, a Taylor series expansion of $Q(\theta)$  gives
+$$
+0 = Q(\hat{\theta}) \approx \sum_{i=1}^n q(\theta; Y_i) + (\hat{\theta}- \theta) \sum_{i=1}^n\frac{\partial}{\partial \theta}q(\theta; Y_i).
+$$
+- Thus, re-arranging, the following approximations hold [for large $n$]{.orange}:
+$$
+\hat{\theta} - \theta \approx \frac{\sum_{i=1}^n q(\theta; Y_i)}{- \sum_{i=1}^n \frac{\partial}{\partial \theta}q(\theta; Y_i)} \approx \frac{Q(\theta)}{\mathbb{E}_\theta\left(- \frac{\partial}{\partial \theta}Q(\theta)\right)} .
+$$
+- This suggests Z-estimators are [asymptotically unbiased]{.blue} and the [asymptotic variance]{.orange} of $\hat{\theta}$ is
+$$
+\text{var}(\hat{\theta}) \approx \frac{\text{var}(Q(\theta))}{\mathbb{E}_\theta\left(- \frac{\partial}{\partial \theta}Q(\theta)\right)^2} =  n^{-1}\frac{\text{var}(q(\theta))}{\mathbb{E}_\theta\left(-\frac{\partial}{\partial \theta}q(\theta)\right)^2}.
+$$
+
+## Godambe information
+
+::: callout-note
+#### Godambe information
+
+Let $\bm{Y}$ be a sample from a statistical model with parameter $\theta \in \Theta \subseteq \mathbb{R}$. Let $Q(\theta)$ be an [unbiased estimating equation]{.orange}. We define the [sensitivity]{.blue} as
+$$
+H(\theta) := \mathbb{E}_\theta\left(-\frac{\partial}{\partial \theta}Q(\theta; \bm{Y})\right),
+$$
+and the [variability]{.grey} as
+$$
+J(\theta) := \text{var}_\theta(Q(\theta; \bm{Y})).
+$$
+Then, the [Godambe information]{.blue} is defined as
+$$
+G(\theta) := \frac{H(\theta)^2}{J(\theta)}.
+$$
+:::
+
+- An estimating equation $Q(\theta)$ which has $H(\theta) = J(\theta)$ is called [information unbiased]{.blue}.
+
+## Godambe information
+
+:::callout-note
+#### Godambe efficiency
+
+Let $Q(\theta)$ and $\tilde{Q}(\theta)$ be two [estimating equations]{.orange} with Godambe information $G(\theta)$ and $\tilde{G}(\theta)$. Then $Q(\theta)$ is [uniformly more efficient]{.blue} than $\tilde{Q}(\theta)$ if $G(\theta) \ge \tilde{G}(\theta)$ for all $\theta \in \Theta$.
+:::
+
+- This criterion is appropriate because the [inverse]{.orange} of the [Godambe information]{.blue} $G(\theta)^{-1}$, under regularity conditions, coincides with the [asymptotic variance]{.orange} of $\hat{\theta}$.  
+
+- Moreover, although the [variance]{.blue} $J(\theta)$ is a natural basis for comparing estimating functions, $\tilde{Q}(\theta) = a Q(\theta; \bm{Y})$ is also unbiased with variance $\tilde{J}(\theta) = a^2 J(\theta)$. 
+
+- Hence, a fair comparison is possible only after removing this [arbitrary scaling]{.orange}. Indeed, Godambe information is [invariant]{.blue} to scaling of $Q(\theta)$.
+
+## Godambe information of the score function
+
+:::callout-tip
+- Let $\bm{Y}$ be a sample from a statistical model with parameter $\theta \in \Theta \subseteq \mathbb{R}$ and with [score function]{.blue} $\ell^*(\theta)$. 
+
+- If the first Bartlett identity holds, the score function $\ell^*(\theta)$ is an [unbiased estimating equation]{.orange}. 
+ 
+- Moreover, if the second Bartlett identity holds, $\ell^*(\theta)$ is [information unbiased]{.blue}, that is
+$$
+H(\theta) = \mathbb{E}_\theta\left(-\frac{\partial}{\partial \theta}\ell^*(\theta)\right)= \text{var}_\theta(\ell^*(\theta)) = J(\theta).
+$$
+This implies that 
+$$
+G(\theta) =  I(\theta),
+$$ that is, the [Godambe information]{.blue} of $\ell^*(\theta)$ coincides with the usual [Fisher information]{.orange}. 
+:::
+
+- Hence, Godambe information is a generalization of Fisher information. 
+
+## Godambe efficiancy
+
+:::callout-warning
+#### Theorem (@Godambe1960)
+
+Let $Y_1,\dots,Y_n$ be a sample from a joint probability measure $f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y})$ and let $\Theta = \mathbb{R}$. Moreover, let $Q(\theta)$ be an unbiased estimating equation with [Godambe information]{.blue} $G(\theta)$. Then under [regularity conditions]{.orange} [C.1]{.blue} and [C.2]{.blue}:
+$$
+\frac{1}{G(\theta)} \ge \frac{1}{I(\theta)}.
+$$
+:::
+
+- This result is the equivalent of the Cramér-Rao theorem for unbiased estimating equations.
+
+- It implies that the [score functions]{.blue} are [optimal]{.orange} (Godambe efficient) among unbiased estimating equations. However, Z-estimators may have appealing [robustness]{.grey} properties. 
+
+:::callout-tip
+Godambe information generalizes to the vector case $\theta \in \Theta \subseteq \mathbb{R}^p$ and is defined as $G(\theta) = H(\theta) J(\theta)^{-1}H(\theta)$, sometimes called [sandwich]{.orange} matrix. Optimality results generalize as well.
+:::
 
 ## BLUE estimators
 
