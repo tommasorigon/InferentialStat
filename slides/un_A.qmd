@@ -1473,9 +1473,9 @@ $$
 :::callout-note
 #### Completeness
 
-A sufficient statistic $S = s(\bm{Y})$ for a statistical model $\mathcal{F} = \{f(\mathrm{d}y \mid \theta) : \theta \in \Theta\}$ is said to be [complete]{.blue} if [no nonconstant]{.orange} function of $S$ is [first-order ancillary]{.orange}, that is,
+A sufficient statistic $S = s(\bm{Y})$ for a statistical model $\mathcal{F} = \{f(\mathrm{d}y \mid \theta) : \theta \in \Theta\}$ is said to be [complete]{.blue} if [no nonconstant]{.orange} function $g(\cdot)$ of $S$ is [first-order ancillary]{.orange}, that is,
 $$
-\mathbb{E}_\theta(f(S)) = c \quad \text{for all } \theta \quad \text{implies} \quad f(S) = c \:\text{ a.s.}
+\mathbb{E}_\theta(g(S)) = c \quad \text{for all } \theta \quad \text{implies} \quad g(S) = c \:\text{ a.s.}
 $$
 In other words, any non-trivial transformation of $S$ conveys information about $\theta$ in expectation.
 :::
