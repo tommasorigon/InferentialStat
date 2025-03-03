@@ -99,14 +99,12 @@ library(ggthemes)
 ## Estimator
 
 ::: callout-note
-#### Point estimator
-
 A [point estimator]{.blue} $\hat{\theta}$ is any function of the random sample $Y_1,\dots,Y_n$, namely $$
 \hat{\theta}(\bm{Y}) = \hat{\theta}(Y_1,\dots,Y_n).
 $$ That is, any [statistic]{.orange} is a point estimator.
 :::
 
-::: callout-warning
+::: callout-tip
 
 - To streamline the presentation, we consider estimators that target the [unknown parameter]{.orange} $\theta$ rather than an arbitrary (non-one-to-one) [transformation]{.blue} $g(\theta)$.  
 
@@ -127,7 +125,7 @@ $$ That is, any [statistic]{.orange} is a point estimator.
 
 - The [method of moments]{.blue} is, perhaps, the oldest method of finding point estimators, dating back at least to Karl Pearson in the late 1800s.
 
-- Let $Y_1,\dots,Y_n$ be an iid sample from $f(\cdot; \theta)$ and $\theta = (\theta_1,\dots,\theta_p)$. Moreover, let us define $$
+- Let $Y_1,\dots,Y_n$ be an iid sample from $f(\cdot; \theta)$,  $\theta = (\theta_1,\dots,\theta_p)$, and $\Theta \subseteq \mathbb{R}^p$. Moreover, define $$
     m_r = \frac{1}{n}\sum_{i=1}^n Y_i^r, \qquad \mu_r(\theta) = \mu_r(\theta_1,\dots,\theta_p) = \mathbb{E}_\theta(Y^r), \qquad r=1,\dots,p.
     $$ corresponding to the [population moment]{.blue} $\mu_r(\theta_1,\dots,\theta_p)$ and the [sample moment]{.orange} $m_r$.
 
@@ -162,7 +160,7 @@ $$ That is, any [statistic]{.orange} is a point estimator.
 
 -   The moments estimator can be written as $\hat{\theta} = g(m)$ and
     $\theta = g(\mu(\theta))$. Then, as a consequence of the [delta
-    method]{.orange} the following general result holds: $$
+    method]{.orange}, the following general result holds: $$
     \sqrt{n}(\hat{\theta} - \theta) \overset{d}{\longrightarrow} Z, \qquad Z\sim N_p\left(0, D \Sigma D^T\right),
     $$ where $D = [d_{rr'}]$ is a $p \times p$ matrix whose entries are
     the derivatives $d_{rr'} = \partial g_r(\mu)/\partial \mu_{r'}$.
@@ -302,7 +300,7 @@ $\theta$ based on a sample $\bm{Y}$ is $\hat{\theta}(\bm{Y})$.
 ## Properties and remarks about the MLE 📖 
 
 -   [Remark I]{.blue}: the MLE may [not exists]{.orange} and is
-    [not]{.orange} necessarily [unique]{.orange}. On the other hand, if
+    [not]{.orange} necessarily [unique]{.orange}. On the other hand, if $\Theta \subseteq \mathbb{R}^p$ and 
     $l(\theta)$ is differentiable, then it can be found as the solution
     of the [score equations]{.blue}: $$
     \ell^*(\theta) = \frac{\partial}{\partial \theta}\ell(\theta) = 0.
@@ -622,8 +620,6 @@ $$
 $$  for all $\theta$ and $\hat{\theta}$.
 
 ::: callout-note
-#### Risk function
-
 Since $\hat{\theta}(\bm{Y})$ is random, we need a way to summarize the loss. A common criterion is the (frequentist) [risk function]{.orange}, namely the [average loss]{.blue}, defined as the expectation
 $$
 R(\theta; \hat{\theta}) = \mathbb{E}_\theta\{\mathscr{L}(\theta, \hat{\theta}(\bm{Y}))\}.
@@ -649,8 +645,6 @@ $$ for all $\theta \in \Theta$ and estimators $\tilde{\theta}$. Except for trivi
 
 
 ::: callout-note
-#### Admissible estimator
-
 An estimator $\hat{\theta}$ is [admissible]{.orange} if no other estimator $\tilde{\theta}$ exists such that  
 $$
 R(\theta; \tilde{\theta}) \le R(\theta; \hat{\theta}), \qquad \text { for all } \theta \in \Theta,
@@ -679,7 +673,7 @@ $$
 \mathscr{L}(\theta, \hat{\theta}) = ||\hat{\theta} - \theta||_2^2, \qquad \text{(Quadratic loss)}.
 $$  
 
-- The quadratic loss is the de facto standard in many contexts, leading to the [mean squared error]{.orange} and the well-known [bias-variance]{.blue} decomposition. Let $\theta \in \mathbb{R}$, then  
+- The quadratic loss is the de facto standard in many contexts, leading to the [mean squared error]{.orange} and the well-known [bias-variance]{.blue} decomposition. Let $\Theta \subseteq \mathbb{R}$, then  
 $$
 R(\theta; \hat{\theta}) = \mathbb{E}_\theta\{(\hat{\theta} - \theta)^2\} = \text{bias}_\theta(\hat{\theta})^2 + \text{var}_\theta(\hat{\theta}), \qquad \text{(Mean squared error)}.
 $$  
@@ -963,8 +957,6 @@ colnames(baseball) <- c("First name", "Last name", "At Bats", "Hits", "Average (
 - Let us begin by finding a criterion that induces [total ordering]{.orange} among estimators. A potential solution is taking the [average]{.blue} risk function over values of $\theta$.  
 
 ::: callout-note
-#### Integrated risk (Bayes risk)  
-
 Let $R(\theta, \hat{\theta}) = \mathbb{E}_\theta\{\mathscr{L}(\theta,\hat{\theta})\}$ be the [risk function]{.orange}, and let $\pi(\mathrm{d}\theta)$ be a probability measure [weighting]{.orange} the relevance of each $\theta$. Then  
 $$
 r(\pi, \hat{\theta}) = \int_\Theta R(\theta; \hat{\theta}) \pi(\mathrm{d}\theta),
@@ -1035,7 +1027,7 @@ which means $\hat{\theta}_\text{Bayes}$ coincides with minimizer of the [integra
 
 ::: callout-warning
 #### Corollary (@Robert1994, Proposition 2.5.1)
-The [Bayes estimator]{.blue} associated with prior distribution $\pi$ and [quadratic loss]{.blue} $\mathscr{L}(\theta, \hat{\theta}) = ||\hat{\theta} -\theta||_2^2$ is the [posterior mean]{.orange}:
+Let $\Theta \subseteq \mathbb{R}^p$, then the [Bayes estimator]{.blue} associated with prior distribution $\pi$ and [quadratic loss]{.blue} $\mathscr{L}(\theta, \hat{\theta}) = ||\hat{\theta} -\theta||_2^2$ is the [posterior mean]{.orange}:
 $$
 \hat{\theta}_\text{Bayes}(\bm{Y}) = \arg\min_{\tilde{\theta} \in \Theta} \int_\Theta ||\tilde{\theta}(\bm{Y}) - \theta||_2^2\pi(\mathrm{d}\theta \mid \bm{Y}) = \mathbb{E}(\theta \mid \bm{Y}).
 $$
@@ -1111,8 +1103,6 @@ Any unique Bayesian estimator is [admissible]{.blue}.
 - Instead of considering the "average" risk over $\theta$ (integrated risk), the minimax criterion evaluates the [risk function]{.blue} of estimators in the [worst-case scenario]{.orange}.
 
 ::: callout-note
-#### Minimax estimator
-
 An estimator $\hat{\theta}_\text{minimax}$ which [minimizes]{.blue} the [maximum]{.orange} risk, that is, which satisfies
 $$
 \sup_{\theta \in \Theta} R(\theta; \hat{\theta}_\text{minimax}) =\inf_{\hat{\theta}} \sup_{\theta \in \Theta} R(\theta; \hat{\theta}),
@@ -1205,12 +1195,10 @@ then:
 ## Unbiased estimators
 
 :::callout-note
-#### Unbiased estimator
-
 An estimator $\hat{\theta}$ is [unbiased]{.blue} for $\theta$ if $\mathbb{E}_\theta(\hat{\theta}) = \theta$, that is, if $\text{bias}_\theta(\hat{\theta}) = \mathbb{E}_\theta(\hat{\theta} - \theta) = 0$ for all $\theta \in \Theta$.
 :::
 
-- In classical mathematical statistics courses, we teach that [unbiasedness]{.orange} is a natural and appealing property of an estimator. Under [squared error loss]{.blue}, unbiasedness implies that  
+- We often teach that [unbiasedness]{.orange} is a natural and appealing property of an estimator. If $\Theta \subseteq \mathbb{R}$ and under [squared error loss]{.blue}, unbiasedness implies that  
   $$R(\theta;\hat{\theta}) = \mathbb{E}_\theta\{(\hat{\theta} - \theta)^2\} = \text{var}_\theta(\hat{\theta}).$$
 
 - There are two main reasons for emphasizing unbiasedness:
@@ -1240,7 +1228,7 @@ Such an estimator [does not exist]{.orange}!
 :::callout-warning
 #### Theorem (@Lehmann1998, Theorem 2.3, Chap. 4)
 
-Let $\hat{\theta}_\text{Bayes}(\bm{Y})$ be the unique Bayes estimator with prior $\pi$ under a [squared error loss]{.orange}. If $\hat{\theta}_\text{Bayes}$ is [unbiased]{.blue} then its integrated risk is
+Let $\Theta \subseteq \mathbb{R}^p$ and $\hat{\theta}_\text{Bayes}(\bm{Y})$ be the unique Bayes estimator with prior $\pi$ under a [squared error loss]{.orange}. If $\hat{\theta}_\text{Bayes}$ is [unbiased]{.blue} then its integrated risk is
 $$
 r(\pi, \hat{\theta}_\text{Bayes}) = 0.
 $$
@@ -1277,12 +1265,14 @@ Is there a value of $a$ such that $\text{var}_\lambda(\hat{\lambda}_a) \leq \tex
 
 ## UMVU estimators
 
-:::callout-note
-#### UMVU estimator
+:::callout-tip
+In this subsection on [unbiasedness]{.orange}, we will often assume that $\Theta \subseteq \mathbb{R}$. All the results presented here extend to the [vector case]{.blue}, though at the cost of heavier notation.
+:::
 
-An estimator $\hat{\theta}$ is a [best unbiased estimator]{.blue} of $\theta$ if it satisfies $\mathbb{E}_\theta(\hat{\theta}) = \theta$ for all $\theta$ (unbiasdness) and, for any [other unbiased]{.orange} estimator $\tilde{\theta}$, we have
+:::callout-note
+Let $\Theta \subseteq \mathbb{R}$. An estimator $\hat{\theta}$ is a [best unbiased estimator]{.blue} of $\theta$ if it satisfies $\mathbb{E}_\theta(\hat{\theta}) = \theta$ for all $\theta$ (unbiasdness) and, for any [other unbiased]{.orange} estimator $\tilde{\theta}$, we have
 $$
-\text{var}_\theta(\hat{\theta}) \le \text{var}_\theta(\tilde{\theta}), \qquad \text {for all } \theta.
+\text{var}_\theta(\hat{\theta}) \le \text{var}_\theta(\tilde{\theta}), \qquad \text {for all } \theta \in \Theta.
 $$
 The estimator $\hat{\theta}$ is also called [uniform minimum variance unbiased estimator]{.orange} (UMVUE) of $\theta$. 
 ::::
@@ -1297,7 +1287,7 @@ The estimator $\hat{\theta}$ is also called [uniform minimum variance unbiased e
 
 ::: callout-warning
 #### Theorem (Cramér-Rao, Theorem 7.3.9 in @Casella2002)
-Let $Y_1,\dots,Y_n$ be a sample from a joint probability measure $f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y})$ and let $\Theta = \mathbb{R}$. Moreover, let $\hat{\theta}(\bm{Y})$ be an estimator of $\theta$ satisfying
+Let $Y_1,\dots,Y_n$ be a sample from a joint probability measure $f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y})$ and let $\Theta \subseteq \mathbb{R}$. Moreover, let $\hat{\theta}(\bm{Y})$ be an estimator of $\theta$ satisfying
 $$
 1 + b^*(\theta) := \frac{\partial}{\partial \theta}\int \hat{\theta}(\bm{y})f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y}) = \int \frac{\partial}{\partial \theta} \hat{\theta}(\bm{y})f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y}),
 $$
@@ -1332,7 +1322,7 @@ If $W(\bm{Y})$ is an unbiased estimator of a [transformation]{.blue} $g(\theta)$
 
 :::callout-warning
 #### First Bartlett identity
-Let $Y_1,\dots,Y_n$ be a sample from a joint probability measure $f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y})$ and let $\Theta = \mathbb{R}$. If we can interchange derivation and integration, namely
+Let $Y_1,\dots,Y_n$ be a sample from a joint probability measure $f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y})$ and let $\Theta \subseteq \mathbb{R}$. If we can interchange derivation and integration, namely
 $$\frac{\partial}{\partial \theta}\int f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y}) = \int \frac{\partial}{\partial \theta} f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y}), \tag{C.1}
 $$
 then 
@@ -1341,13 +1331,13 @@ $$
 $$
 :::
 
-- Thus, the regularity condition of Cramér-Rao implies that the score function $\ell^*(\theta)$ is un [unbiased estimating equation]{.blue}. This result easily extends to the [vector case]{.orange} $\Theta = \mathbb{R}^p$.
+- Thus, the regularity condition of Cramér-Rao implies that the score function $\ell^*(\theta)$ is un [unbiased estimating equation]{.blue}. 
 
 ## Bartlett identities II 📖
 
 :::callout-warning
 #### Second Bartlett identity
-Let $Y_1,\dots,Y_n$ be a sample from a joint probability measure $f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y})$ and let $\Theta = \mathbb{R}$. If we can interchange [twice]{.orange} derivation and integration, namely
+Let $Y_1,\dots,Y_n$ be a sample from a joint probability measure $f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y})$ and let $\Theta \subseteq \mathbb{R}$. If we can interchange [twice]{.orange} derivation and integration, namely
 $$
 \frac{\partial}{\partial \theta}\int f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y}) = \int \frac{\partial}{\partial \theta} f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y}), \tag{C.1}
 $$
@@ -1356,7 +1346,7 @@ $$
 $$
 then
 $$
-I(\theta) = \mathbb{E}_\theta(\ell^*(\theta)^2) =\text{var}_\theta(\ell^*(\theta))= -\mathbb{E}_\theta\left(\frac{\partial^2}{\partial \theta^2}\ell(\theta)\right).
+I(\theta) = \mathbb{E}_\theta(\ell^*(\theta)^2) =\text{var}_\theta(\ell^*(\theta))= \mathbb{E}_\theta\left(-\frac{\partial^2}{\partial \theta^2}\ell(\theta)\right).
 $$
 :::
 
@@ -1366,9 +1356,9 @@ $$
 
 ::: callout-warning
 #### Theorem (Cramér-Rao, simplified)
-Let $Y_1,\dots,Y_n$ be an iid sample from $f(y \mid \theta)\mathrm{d}y$ satisfying conditions [C.1]{.blue} and [C.2]{.blue}, and let $\Theta = \mathbb{R}$. Moreover, let $\hat{\theta}(\bm{Y})$ be an [unbiased]{.orange} estimator of $\theta$  with finite variance $\text{var}(\hat{\theta}(\bm{Y})) < \infty$. Then
+Let $Y_1,\dots,Y_n$ be an iid sample from $f(y \mid \theta)\mathrm{d}y$ satisfying conditions [C.1]{.blue} and [C.2]{.blue}, and let $\Theta \subseteq \mathbb{R}$. Moreover, let $\hat{\theta}(\bm{Y})$ be an [unbiased]{.orange} estimator of $\theta$  with finite variance $\text{var}(\hat{\theta}(\bm{Y})) < \infty$. Then
 $$
-\text{var}(\hat{\theta}(\bm{Y})) \ge \frac{1}{n i(\theta)}, \qquad i(\theta) = -\mathbb{E}\left(\frac{\partial^2}{\partial \theta^2}\log{f(y \mid \theta)}\right).
+\text{var}_\theta(\hat{\theta}(\bm{Y})) \ge \frac{1}{n i(\theta)}, \qquad i(\theta) = -\int\frac{\partial^2}{\partial \theta^2}\log{f(y \mid \theta)}\mathrm{d}y.
 $$
 :::
 
@@ -1376,10 +1366,7 @@ $$
 
 - It can be shown[^CramerRao_exponential] that [attainment]{.blue}, that is the equality $\text{var}(\hat{\theta}(\bm{Y})) = 1/ni(\theta)$, occurs if and only if $f(y \mid \theta)$ is the density of an [exponential family]{.orange}.
 
-- These results can be naturally extended to the $\Theta = \mathbb{R}^p$ case, obtaining under regularity conditions that $\text{var}(\hat{\theta}(\bm{Y})) \ge I(\theta)^{-1}$ for an unbiased estimator $\hat{\theta}$ of $\theta$. 
-
 [^CramerRao_exponential]: See Theorem 5.12, Chap.2, @Lehmann1998.
-
 
 ## Example: Poisson unbiased estimation 📖
 
@@ -1401,6 +1388,26 @@ implying that $\bar{Y}$ is a [UMVUE]{.blue} because $\text{var}_\lambda(\bar{Y})
 - However, this is guaranteed by Theorem 7.3.19 in @Casella2002: if a [UMVUE]{.blue} exists, it is [unique]{.orange}.
 :::
 
+## Cramér-Rao, multiparameter case
+
+- The Cramér-Rao theorem naturally extends to the [vector case]{.orange}, that is when $\Theta \subseteq \mathbb{R}^p$.
+
+- The [regularity conditions]{.orange} [C.1]{.blue} and [C.2]{.blue} extend to the vector case, leading to the multiparameter [Bartlett identities]{.blue}:
+$$
+\mathbb{E}_\theta(\ell^*(\theta)) = \bm{0}, \qquad I(\theta) = \mathbb{E}_\theta(\ell^*(\theta)\ell^*(\theta)^T) = \mathbb{E}_\theta\left(- \frac{\partial^2}{\partial \theta \partial \theta^T} \ell(\theta)\right),
+$$
+where $I(\theta)$ is called [Fisher information matrix]{.blue}, which is [positive definite]{.orange}.
+
+- Let $Y_1,\dots,Y_n$ be an iid sample from $f(y \mid \theta)\mathrm{d}y$ satisfying the above regularity conditions, and let $\Theta \subseteq \mathbb{R}^p$. Moreover, let $\hat{\theta}(\bm{Y})$ be an [unbiased]{.orange} estimator of $\theta$  with finite covariance matrix, then 
+$$
+\text{var}_\theta(\hat{\theta}(\bm{Y})) \ge I(\theta)^{-1}, \quad I(\theta) = n i(\theta), \quad i(\theta) = - \int\frac{\partial^2}{\partial \theta \partial \theta^T} \log f(y \mid \theta)\mathrm{d}y,
+$$
+corresponding to the multiparameter Cramér-Rao theorem. 
+
+- Refer to Theorem 6.6, Chap.2 in @Lehmann1998 for a proof. 
+
+
+
 ## Rao-Blackwell 📖
 
 - The Rao-Blackwell theorem is [contructive strategy]{.orange} for improving estimators that emphasizes the pivotal role of [sufficiency]{.orange} in finding UMVU estimators. 
@@ -1408,7 +1415,7 @@ implying that $\bar{Y}$ is a [UMVUE]{.blue} because $\text{var}_\lambda(\bar{Y})
 :::callout-warning
 #### Theorem (Rao-Blackwell, @Casella2002, Theorem 7.3.17)
 
-Let $\tilde{\theta}(\bm{Y})$ be an [unbiased]{.orange} estimator of $\theta$, and let $S = s(\bm{Y})$ be a [sufficient statistic]{.blue} for $\theta$. Let $\hat{\theta} = \mathbb{E}_\theta(\tilde{\theta}(\bm{Y}) \mid S)$. Then $\hat{\theta}$ is an estimator such that $\mathbb{E}_\theta(\hat{\theta}) = \theta$ and
+Let $\Theta \subseteq \mathbb{R}$ and $\tilde{\theta}(\bm{Y})$ be an [unbiased]{.orange} estimator of $\theta$. Moreover, let $S = s(\bm{Y})$ be a [sufficient statistic]{.blue} for $\theta$ and $\hat{\theta} = \mathbb{E}_\theta(\tilde{\theta}(\bm{Y}) \mid S)$. Then $\hat{\theta}$ is an estimator such that $\mathbb{E}_\theta(\hat{\theta}) = \theta$ and
 $$
 \text{var}_\theta(\hat{\theta}) \le \text{var}_\theta(\tilde{\theta}).
 $$
@@ -1429,7 +1436,7 @@ That is, $\hat{\theta}$ is a [uniformly better unbiased estimator]{.blue} of $\t
 
 :::callout-warning
 #### Theorem (@Casella2002, Theorem 7.3.19)
-If $\hat{\theta}$ is a best unbiased estimator of $\theta$, then $\hat{\theta}$ is [unique]{.blue}.
+Let $\Theta \subseteq \mathbb{R}$. If $\hat{\theta}$ is a best unbiased estimator of $\theta$, then $\hat{\theta}$ is [unique]{.blue}.
 :::
 
 :::callout-tip
@@ -1456,7 +1463,7 @@ $$
 
 :::callout-warning
 #### Theorem (@Casella2002, Theorem 7.3.20)
-Let $\hat{\theta}$ be an unbiased estimator of $\theta$. Then $\hat{\theta}$ is UMVUE [if and only if]{.orange} $\hat{\theta}$ is [uncorrelated]{.blue} with all [unbiased estimators of $0$]{.blue}, that is
+Let $\Theta \subseteq \mathbb{R}$ and $\hat{\theta}$ be an unbiased estimator of $\theta$. Then $\hat{\theta}$ is UMVUE [if and only if]{.orange} $\hat{\theta}$ is [uncorrelated]{.blue} with all [unbiased estimators of $0$]{.blue}, that is
 $$
 \text{cov}_\theta(\hat{\theta}, U) = 0, \quad \text{ for all } \quad U = U(\bm{Y}) \quad \text{ such that } \quad \mathbb{E}_\theta(U) = 0.
 $$
@@ -1471,8 +1478,6 @@ $$
 - However, if we assume $S$ is [complete]{.orange}, we can finally see the light at the end of the tunnel. 
 
 :::callout-note
-#### Completeness
-
 A sufficient statistic $S = s(\bm{Y})$ for a statistical model $\mathcal{F} = \{f(\mathrm{d}y \mid \theta) : \theta \in \Theta\}$ is said to be [complete]{.blue} if [no nonconstant]{.orange} function $g(\cdot)$ of $S$ is [first-order ancillary]{.orange}, that is,
 $$
 \mathbb{E}_\theta(g(S)) = c \quad \text{for all } \theta \quad \text{implies} \quad g(S) = c \:\text{ a.s.}
@@ -1490,7 +1495,7 @@ In other words, any non-trivial transformation of $S$ conveys information about 
 
 :::callout-warning
 #### Theorem (Lehmann-Scheffé-Rao-Blackwell, @Casella2002, Theorem 7.3.23)
- Let $S$ be a [complete]{.orange} sufficient statistic for a parameter $\theta$, and let $\hat{\theta}$ be an unbiased estimator of $\theta$ based only on $S$. Then, $\hat{\theta}$ is [unique]{.blue} best unbiased estimator (UMVUE) of $\theta$. 
+ Let $\Theta \subseteq \mathbb{R}$ and $S$ be a [complete]{.orange} sufficient statistic for a parameter $\theta$, and let $\hat{\theta}$ be an unbiased estimator of $\theta$ based only on $S$. Then, $\hat{\theta}$ is [unique]{.blue} best unbiased estimator (UMVUE) of $\theta$. 
 :::
 
 - The [Lehmann-Scheffé theorem]{.blue} is implicitly contained in the previous results. Its [original formulation]{.orange} is: "*unbiased estimators based on complete sufficient statistics are unique.*"
@@ -1516,6 +1521,8 @@ which can be obtained after simple calculations.
 
 [^example_completeness]: See Example 6.2.22 of @Casella2002. This is also follows from general result of exponential families.
 
+## Rao-Blackwell, multiparameter case
+
 # Alternative notions of optimality
 
 ## Unbiased estimating equations I
@@ -1526,8 +1533,6 @@ Q(\theta) = \sum_{i=1}^n q(\theta; Y_i) = \bm{0},
 $$ where $q(\theta) = q(\theta; y)$ are known vector-valued maps. These are called [estimating equations]{.blue}.
 
 ::: callout-note
-#### Unbiased estimating equations
-
 The estimating equations $Q(\theta) = \sum_{i=1}^n q(\theta; Y_i)$ are [unbiased]{.orange} if they satisfy
 $$
 \mathbb{E}_\theta(Q(\theta)) = \bm{0}, \qquad \text{ for all } \qquad \theta \in \Theta.
@@ -1554,7 +1559,7 @@ Having defined the class of unbiased estimating functions, the question naturall
 
 ## Asymptotic behavior of unbiased estimating equations
 
-- Guidance on the choice of $Q(\theta)$ can be found by investigating its [asymptotic behavior]{.blue}. We provide an [informal argument]{.orange} for $\theta \in \mathbb{R}$.
+- Guidance on the choice of $Q(\theta)$ can be found by investigating its [asymptotic behavior]{.blue}. We provide an [informal argument]{.orange} for $\theta \in \Theta \subseteq \mathbb{R}$.
 
 - Under [iid sampling]{.blue} and further [regularity conditions]{.orange}, implying that $\mathbb{E}_\theta(q(\theta; Y_i)) = 0$, a Taylor series expansion of $Q(\theta)$  gives
 $$
@@ -1572,8 +1577,6 @@ $$
 ## Godambe information
 
 ::: callout-note
-#### Godambe information
-
 Let $\bm{Y}$ be a sample from a statistical model with parameter $\theta \in \Theta \subseteq \mathbb{R}$. Let $Q(\theta)$ be an [unbiased estimating equation]{.orange}. We define the [sensitivity]{.blue} as
 $$
 H(\theta) := \mathbb{E}_\theta\left(-\frac{\partial}{\partial \theta}Q(\theta; \bm{Y})\right),
@@ -1590,12 +1593,10 @@ $$
 
 - An estimating equation $Q(\theta)$ which has $H(\theta) = J(\theta)$ is called [information unbiased]{.blue}.
 
-## Godambe information
+## Godambe efficiency
 
 :::callout-note
-#### Godambe efficiency
-
-Let $Q(\theta)$ and $\tilde{Q}(\theta)$ be two [estimating equations]{.orange} with Godambe information $G(\theta)$ and $\tilde{G}(\theta)$. Then $Q(\theta)$ is [uniformly more efficient]{.blue} than $\tilde{Q}(\theta)$ if $G(\theta) \ge \tilde{G}(\theta)$ for all $\theta \in \Theta$.
+Let $Q(\theta)$ and $\tilde{Q}(\theta)$ be two [estimating equations]{.orange} with Godambe information $G(\theta)$ and $\tilde{G}(\theta)$. Then $Q(\theta)$ is [uniformly more efficient]{.blue} than $\tilde{Q}(\theta)$ if $G(\theta) \ge \tilde{G}(\theta)$ for all $\theta \in \Theta \subseteq \mathbb{R}$.
 :::
 
 - This criterion is appropriate because the [inverse]{.orange} of the [Godambe information]{.blue} $G(\theta)^{-1}$, under regularity conditions, coincides with the [asymptotic variance]{.orange} of $\hat{\theta}$.  
@@ -1623,12 +1624,12 @@ $$ that is, the [Godambe information]{.blue} of $\ell^*(\theta)$ coincides with 
 
 - Hence, Godambe information is a generalization of Fisher information. 
 
-## Godambe efficiancy
+## Godambe efficiency
 
 :::callout-warning
 #### Theorem (@Godambe1960)
 
-Let $Y_1,\dots,Y_n$ be a sample from a joint probability measure $f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y})$ and let $\Theta = \mathbb{R}$. Moreover, let $Q(\theta)$ be an unbiased estimating equation with [Godambe information]{.blue} $G(\theta)$. Then under [regularity conditions]{.orange} [C.1]{.blue} and [C.2]{.blue}:
+Let $Y_1,\dots,Y_n$ be a sample from a joint probability measure $f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y})$ and let $\Theta \subseteq \mathbb{R}$. Moreover, let $Q(\theta)$ be an unbiased estimating equation with [Godambe information]{.blue} $G(\theta)$. Then under [regularity conditions]{.orange} [C.1]{.blue} and [C.2]{.blue}:
 $$
 \frac{1}{G(\theta)} \ge \frac{1}{I(\theta)}.
 $$

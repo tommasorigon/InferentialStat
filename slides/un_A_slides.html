@@ -409,11 +409,8 @@
 </section>
 <section id="estimator" class="slide level2 center">
 <h2>Estimator</h2>
-<div class="callout callout-note no-icon callout-titled callout-style-simple">
+<div class="callout callout-note no-icon callout-style-simple">
 <div class="callout-body">
-<div class="callout-title">
-<p><strong>Point estimator</strong></p>
-</div>
 <div class="callout-content">
 <p>A <span class="blue">point estimator</span> <span class="math inline">\hat{\theta}</span> is any function of the random sample <span class="math inline">Y_1,\dots,Y_n</span>, namely <span class="math display">
 \hat{\theta}(\bm{Y}) = \hat{\theta}(Y_1,\dots,Y_n).
@@ -421,7 +418,7 @@
 </div>
 </div>
 </div>
-<div class="callout callout-warning no-icon callout-style-simple">
+<div class="callout callout-tip no-icon callout-style-simple">
 <div class="callout-body">
 <div class="callout-content">
 <ul>
@@ -442,7 +439,7 @@
 <h2>Method of moments</h2>
 <ul>
 <li><p>The <span class="blue">method of moments</span> is, perhaps, the oldest method of finding point estimators, dating back at least to Karl Pearson in the late 1800s.</p></li>
-<li><p>Let <span class="math inline">Y_1,\dots,Y_n</span> be an iid sample from <span class="math inline">f(\cdot; \theta)</span> and <span class="math inline">\theta = (\theta_1,\dots,\theta_p)</span>. Moreover, let us define <span class="math display">
+<li><p>Let <span class="math inline">Y_1,\dots,Y_n</span> be an iid sample from <span class="math inline">f(\cdot; \theta)</span>, <span class="math inline">\theta = (\theta_1,\dots,\theta_p)</span>, and <span class="math inline">\Theta \subseteq \mathbb{R}^p</span>. Moreover, define <span class="math display">
   m_r = \frac{1}{n}\sum_{i=1}^n Y_i^r, \qquad \mu_r(\theta) = \mu_r(\theta_1,\dots,\theta_p) = \mathbb{E}_\theta(Y^r), \qquad r=1,\dots,p.
   </span> corresponding to the <span class="blue">population moment</span> <span class="math inline">\mu_r(\theta_1,\dots,\theta_p)</span> and the <span class="orange">sample moment</span> <span class="math inline">m_r</span>.</p></li>
 <li><p>The method of moments estimator <span class="math inline">\hat{\theta}</span> is obtained by solving the following system of equations for <span class="math inline">(\theta_1,\dots,\theta_p)</span>: <span class="math display">
@@ -464,7 +461,7 @@
 \sqrt{n}\{m - \mu(\theta)\} \overset{d}{\longrightarrow} Z, \qquad Z\sim N_p(0, \Sigma),
 </span> where <span class="math inline">m = (m_1,\dots,m_p)</span> and <span class="math inline">\mu(\theta) = (\mu_1(\theta),\dots,\mu_p(\theta))</span>.</p></li>
 <li><p>Suppose also that <span class="math inline">\mu(\theta)</span> is a <span class="blue">one-to-one</span> mapping and let <span class="math inline">g(\mu)</span> be the inverse of <span class="math inline">\mu(\theta)</span>, that is <span class="math inline">g = \mu^{-1}</span>. We assume that <span class="math inline">g</span> has <span class="blue">differentiable</span> components <span class="math inline">g_r(\cdot)</span> for <span class="math inline">r = 1,\dots,p</span>.</p></li>
-<li><p>The moments estimator can be written as <span class="math inline">\hat{\theta} = g(m)</span> and <span class="math inline">\theta = g(\mu(\theta))</span>. Then, as a consequence of the <span class="orange">delta method</span> the following general result holds: <span class="math display">
+<li><p>The moments estimator can be written as <span class="math inline">\hat{\theta} = g(m)</span> and <span class="math inline">\theta = g(\mu(\theta))</span>. Then, as a consequence of the <span class="orange">delta method</span>, the following general result holds: <span class="math display">
 \sqrt{n}(\hat{\theta} - \theta) \overset{d}{\longrightarrow} Z, \qquad Z\sim N_p\left(0, D \Sigma D^T\right),
 </span> where <span class="math inline">D = [d_{rr'}]</span> is a <span class="math inline">p \times p</span> matrix whose entries are the derivatives <span class="math inline">d_{rr'} = \partial g_r(\mu)/\partial \mu_{r'}</span>.</p></li>
 </ul>
@@ -569,7 +566,7 @@ L(\hat{\theta}) = \max_{\theta \in \Theta} L(\theta).
 <section id="properties-and-remarks-about-the-mle" class="slide level2 center">
 <h2>Properties and remarks about the MLE 📖</h2>
 <ul>
-<li><span class="blue">Remark I</span>: the MLE may <span class="orange">not exists</span> and is <span class="orange">not</span> necessarily <span class="orange">unique</span>. On the other hand, if <span class="math inline">l(\theta)</span> is differentiable, then it can be found as the solution of the <span class="blue">score equations</span>: <span class="math display">
+<li><span class="blue">Remark I</span>: the MLE may <span class="orange">not exists</span> and is <span class="orange">not</span> necessarily <span class="orange">unique</span>. On the other hand, if <span class="math inline">\Theta \subseteq \mathbb{R}^p</span> and <span class="math inline">l(\theta)</span> is differentiable, then it can be found as the solution of the <span class="blue">score equations</span>: <span class="math display">
 \ell^*(\theta) = \frac{\partial}{\partial \theta}\ell(\theta) = 0.
 </span></li>
 </ul>
@@ -819,11 +816,8 @@ k \quad &amp;\text{ if }\: y \ge k\end{cases}
 \mathscr{L}(\theta, \theta) = 0 \text{ (no loss for the correct estimate)}, \qquad \mathscr{L}(\theta, \hat{\theta}) \geq 0,
 </span> for all <span class="math inline">\theta</span> and <span class="math inline">\hat{\theta}</span>.</p></li>
 </ul>
-<div class="callout callout-note no-icon callout-titled callout-style-simple">
+<div class="callout callout-note no-icon callout-style-simple">
 <div class="callout-body">
-<div class="callout-title">
-<p><strong>Risk function</strong></p>
-</div>
 <div class="callout-content">
 <p>Since <span class="math inline">\hat{\theta}(\bm{Y})</span> is random, we need a way to summarize the loss. A common criterion is the (frequentist) <span class="orange">risk function</span>, namely the <span class="blue">average loss</span>, defined as the expectation <span class="math display">
 R(\theta; \hat{\theta}) = \mathbb{E}_\theta\{\mathscr{L}(\theta, \hat{\theta}(\bm{Y}))\}.
@@ -846,11 +840,8 @@ R(\theta; \hat{\theta}_\text{opt}) \leq R(\theta; \tilde{\theta}),
 <aside><ol class="aside-footnotes"><li id="fn6"><p>A common restriction is unbiasedness, namely the requirement <span class="math inline">\mathbb{E}_\theta(\hat{\theta}) = \theta</span>. An alternative restriction is equivariance.</p></li></ol></aside></section>
 <section id="admissible-estimators" class="slide level2 center">
 <h2>Admissible estimators</h2>
-<div class="callout callout-note no-icon callout-titled callout-style-simple">
+<div class="callout callout-note no-icon callout-style-simple">
 <div class="callout-body">
-<div class="callout-title">
-<p><strong>Admissible estimator</strong></p>
-</div>
 <div class="callout-content">
 <p>An estimator <span class="math inline">\hat{\theta}</span> is <span class="orange">admissible</span> if no other estimator <span class="math inline">\tilde{\theta}</span> exists such that<br>
 <span class="math display">
@@ -876,7 +867,7 @@ R(\theta; \tilde{\theta}) \le R(\theta; \hat{\theta}), \qquad \text { for all } 
 <span class="math display">
 \mathscr{L}(\theta, \hat{\theta}) = ||\hat{\theta} - \theta||_2^2, \qquad \text{(Quadratic loss)}.
 </span></p></li>
-<li><p>The quadratic loss is the de facto standard in many contexts, leading to the <span class="orange">mean squared error</span> and the well-known <span class="blue">bias-variance</span> decomposition. Let <span class="math inline">\theta \in \mathbb{R}</span>, then<br>
+<li><p>The quadratic loss is the de facto standard in many contexts, leading to the <span class="orange">mean squared error</span> and the well-known <span class="blue">bias-variance</span> decomposition. Let <span class="math inline">\Theta \subseteq \mathbb{R}</span>, then<br>
 <span class="math display">
 R(\theta; \hat{\theta}) = \mathbb{E}_\theta\{(\hat{\theta} - \theta)^2\} = \text{bias}_\theta(\hat{\theta})^2 + \text{var}_\theta(\hat{\theta}), \qquad \text{(Mean squared error)}.
 </span></p></li>
@@ -1185,11 +1176,8 @@ R(\mu; \hat{\mu}_\text{shrink}) \le p - \frac{(p-3)^2}{p - 3 + ||\mu - \bar{\mu}
 <ul>
 <li>Let us begin by finding a criterion that induces <span class="orange">total ordering</span> among estimators. A potential solution is taking the <span class="blue">average</span> risk function over values of <span class="math inline">\theta</span>.</li>
 </ul>
-<div class="callout callout-note no-icon callout-titled callout-style-simple">
+<div class="callout callout-note no-icon callout-style-simple">
 <div class="callout-body">
-<div class="callout-title">
-<p><strong>Integrated risk (Bayes risk)</strong></p>
-</div>
 <div class="callout-content">
 <p>Let <span class="math inline">R(\theta, \hat{\theta}) = \mathbb{E}_\theta\{\mathscr{L}(\theta,\hat{\theta})\}</span> be the <span class="orange">risk function</span>, and let <span class="math inline">\pi(\mathrm{d}\theta)</span> be a probability measure <span class="orange">weighting</span> the relevance of each <span class="math inline">\theta</span>. Then<br>
 <span class="math display">
@@ -1255,7 +1243,7 @@ r(\pi, \hat{p}_\text{minimax}) = \int_0^1 \mathbb{E}_p\{(\hat{p}_\text{minimax} 
 <p><strong>Corollary (<span class="citation" data-cites="Robert1994">Robert (<a href="#/references" role="doc-biblioref" onclick="">1994</a>)</span>, Proposition 2.5.1)</strong></p>
 </div>
 <div class="callout-content">
-<p>The <span class="blue">Bayes estimator</span> associated with prior distribution <span class="math inline">\pi</span> and <span class="blue">quadratic loss</span> <span class="math inline">\mathscr{L}(\theta, \hat{\theta}) = ||\hat{\theta} -\theta||_2^2</span> is the <span class="orange">posterior mean</span>: <span class="math display">
+<p>Let <span class="math inline">\Theta \subseteq \mathbb{R}^p</span>, then the <span class="blue">Bayes estimator</span> associated with prior distribution <span class="math inline">\pi</span> and <span class="blue">quadratic loss</span> <span class="math inline">\mathscr{L}(\theta, \hat{\theta}) = ||\hat{\theta} -\theta||_2^2</span> is the <span class="orange">posterior mean</span>: <span class="math display">
 \hat{\theta}_\text{Bayes}(\bm{Y}) = \arg\min_{\tilde{\theta} \in \Theta} \int_\Theta ||\tilde{\theta}(\bm{Y}) - \theta||_2^2\pi(\mathrm{d}\theta \mid \bm{Y}) = \mathbb{E}(\theta \mid \bm{Y}).
 </span> If the posterior mean exists, the Bayes estimator is <span class="blue">unique</span>.</p>
 </div>
@@ -1314,11 +1302,8 @@ r(\pi, \hat{p}_\text{Bayes}) = \int_0^1 R(p; \hat{p}_\text{Bayes})\mathrm{d}p = 
 <li><p>The <span class="blue">minimax</span> criterion is an alternative to the integrated risk for <span class="orange">discriminating</span> among (admissible) <span class="blue">estimators</span>. It comes from game theory, where two adversaries are competing.</p></li>
 <li><p>Instead of considering the “average” risk over <span class="math inline">\theta</span> (integrated risk), the minimax criterion evaluates the <span class="blue">risk function</span> of estimators in the <span class="orange">worst-case scenario</span>.</p></li>
 </ul>
-<div class="callout callout-note no-icon callout-titled callout-style-simple">
+<div class="callout callout-note no-icon callout-style-simple">
 <div class="callout-body">
-<div class="callout-title">
-<p><strong>Minimax estimator</strong></p>
-</div>
 <div class="callout-content">
 <p>An estimator <span class="math inline">\hat{\theta}_\text{minimax}</span> which <span class="blue">minimizes</span> the <span class="orange">maximum</span> risk, that is, which satisfies <span class="math display">
 \sup_{\theta \in \Theta} R(\theta; \hat{\theta}_\text{minimax}) =\inf_{\hat{\theta}} \sup_{\theta \in \Theta} R(\theta; \hat{\theta}),
@@ -1385,18 +1370,15 @@ r(\pi, \hat{\theta}_\text{Bayes}) = \sup_\theta R(\theta; \hat{\theta}_\text{Bay
 </section>
 <section id="unbiased-estimators" class="slide level2 center">
 <h2>Unbiased estimators</h2>
-<div class="callout callout-note no-icon callout-titled callout-style-simple">
+<div class="callout callout-note no-icon callout-style-simple">
 <div class="callout-body">
-<div class="callout-title">
-<p><strong>Unbiased estimator</strong></p>
-</div>
 <div class="callout-content">
 <p>An estimator <span class="math inline">\hat{\theta}</span> is <span class="blue">unbiased</span> for <span class="math inline">\theta</span> if <span class="math inline">\mathbb{E}_\theta(\hat{\theta}) = \theta</span>, that is, if <span class="math inline">\text{bias}_\theta(\hat{\theta}) = \mathbb{E}_\theta(\hat{\theta} - \theta) = 0</span> for all <span class="math inline">\theta \in \Theta</span>.</p>
 </div>
 </div>
 </div>
 <ul>
-<li><p>In classical mathematical statistics courses, we teach that <span class="orange">unbiasedness</span> is a natural and appealing property of an estimator. Under <span class="blue">squared error loss</span>, unbiasedness implies that<br>
+<li><p>We often teach that <span class="orange">unbiasedness</span> is a natural and appealing property of an estimator. If <span class="math inline">\Theta \subseteq \mathbb{R}</span> and under <span class="blue">squared error loss</span>, unbiasedness implies that<br>
 <span class="math display">R(\theta;\hat{\theta}) = \mathbb{E}_\theta\{(\hat{\theta} - \theta)^2\} = \text{var}_\theta(\hat{\theta}).</span></p></li>
 <li><p>There are two main reasons for emphasizing unbiasedness:</p>
 <ul>
@@ -1431,7 +1413,7 @@ r(\pi, \hat{\theta}_\text{Bayes}) = \sup_\theta R(\theta; \hat{\theta}_\text{Bay
 <p><strong>Theorem (<span class="citation" data-cites="Lehmann1998">Lehmann and Casella (<a href="#/references" role="doc-biblioref" onclick="">1998</a>)</span>, Theorem 2.3, Chap. 4)</strong></p>
 </div>
 <div class="callout-content">
-<p>Let <span class="math inline">\hat{\theta}_\text{Bayes}(\bm{Y})</span> be the unique Bayes estimator with prior <span class="math inline">\pi</span> under a <span class="orange">squared error loss</span>. If <span class="math inline">\hat{\theta}_\text{Bayes}</span> is <span class="blue">unbiased</span> then its integrated risk is <span class="math display">
+<p>Let <span class="math inline">\Theta \subseteq \mathbb{R}^p</span> and <span class="math inline">\hat{\theta}_\text{Bayes}(\bm{Y})</span> be the unique Bayes estimator with prior <span class="math inline">\pi</span> under a <span class="orange">squared error loss</span>. If <span class="math inline">\hat{\theta}_\text{Bayes}</span> is <span class="blue">unbiased</span> then its integrated risk is <span class="math display">
 r(\pi, \hat{\theta}_\text{Bayes}) = 0.
 </span></p>
 </div>
@@ -1459,14 +1441,18 @@ r(\pi, \hat{\theta}_\text{Bayes}) = 0.
 <aside><ol class="aside-footnotes"><li id="fn11"><p>These are basic and well-known results: see Theorem 5.2.6 in <span class="citation" data-cites="Casella2002">Casella and Berger (<a href="#/references" role="doc-biblioref" onclick="">2002</a>)</span>.</p></li></ol></aside></section>
 <section id="umvu-estimators" class="slide level2 center">
 <h2>UMVU estimators</h2>
-<div class="callout callout-note no-icon callout-titled callout-style-simple">
+<div class="callout callout-tip no-icon callout-style-simple">
 <div class="callout-body">
-<div class="callout-title">
-<p><strong>UMVU estimator</strong></p>
-</div>
 <div class="callout-content">
-<p>An estimator <span class="math inline">\hat{\theta}</span> is a <span class="blue">best unbiased estimator</span> of <span class="math inline">\theta</span> if it satisfies <span class="math inline">\mathbb{E}_\theta(\hat{\theta}) = \theta</span> for all <span class="math inline">\theta</span> (unbiasdness) and, for any <span class="orange">other unbiased</span> estimator <span class="math inline">\tilde{\theta}</span>, we have <span class="math display">
-\text{var}_\theta(\hat{\theta}) \le \text{var}_\theta(\tilde{\theta}), \qquad \text {for all } \theta.
+<p>In this subsection on <span class="orange">unbiasedness</span>, we will often assume that <span class="math inline">\Theta \subseteq \mathbb{R}</span>. All the results presented here extend to the <span class="blue">vector case</span>, though at the cost of heavier notation.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-note no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<p>Let <span class="math inline">\Theta \subseteq \mathbb{R}</span>. An estimator <span class="math inline">\hat{\theta}</span> is a <span class="blue">best unbiased estimator</span> of <span class="math inline">\theta</span> if it satisfies <span class="math inline">\mathbb{E}_\theta(\hat{\theta}) = \theta</span> for all <span class="math inline">\theta</span> (unbiasdness) and, for any <span class="orange">other unbiased</span> estimator <span class="math inline">\tilde{\theta}</span>, we have <span class="math display">
+\text{var}_\theta(\hat{\theta}) \le \text{var}_\theta(\tilde{\theta}), \qquad \text {for all } \theta \in \Theta.
 </span> The estimator <span class="math inline">\hat{\theta}</span> is also called <span class="orange">uniform minimum variance unbiased estimator</span> (UMVUE) of <span class="math inline">\theta</span>.</p>
 </div>
 </div>
@@ -1487,7 +1473,7 @@ r(\pi, \hat{\theta}_\text{Bayes}) = 0.
 <p><strong>Theorem (Cramér-Rao, Theorem 7.3.9 in <span class="citation" data-cites="Casella2002">Casella and Berger (<a href="#/references" role="doc-biblioref" onclick="">2002</a>)</span>)</strong></p>
 </div>
 <div class="callout-content">
-<p>Let <span class="math inline">Y_1,\dots,Y_n</span> be a sample from a joint probability measure <span class="math inline">f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y})</span> and let <span class="math inline">\Theta = \mathbb{R}</span>. Moreover, let <span class="math inline">\hat{\theta}(\bm{Y})</span> be an estimator of <span class="math inline">\theta</span> satisfying <span class="math display">
+<p>Let <span class="math inline">Y_1,\dots,Y_n</span> be a sample from a joint probability measure <span class="math inline">f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y})</span> and let <span class="math inline">\Theta \subseteq \mathbb{R}</span>. Moreover, let <span class="math inline">\hat{\theta}(\bm{Y})</span> be an estimator of <span class="math inline">\theta</span> satisfying <span class="math display">
 1 + b^*(\theta) := \frac{\partial}{\partial \theta}\int \hat{\theta}(\bm{y})f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y}) = \int \frac{\partial}{\partial \theta} \hat{\theta}(\bm{y})f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y}),
 </span> and with finite variance <span class="math inline">\text{var}(\hat{\theta}(\bm{Y})) &lt; \infty</span>. Then <span class="math display">
 \text{var}(\hat{\theta}(\bm{Y})) \ge \frac{[1 + b^*(\theta)]^2}{\mathbb{E}_\theta(\ell^*(\theta)^2)}.
@@ -1529,7 +1515,7 @@ I(\theta) := \mathbb{E}_\theta(\ell^*(\theta)^2),
 <p><strong>First Bartlett identity</strong></p>
 </div>
 <div class="callout-content">
-<p>Let <span class="math inline">Y_1,\dots,Y_n</span> be a sample from a joint probability measure <span class="math inline">f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y})</span> and let <span class="math inline">\Theta = \mathbb{R}</span>. If we can interchange derivation and integration, namely <span class="math display">\frac{\partial}{\partial \theta}\int f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y}) = \int \frac{\partial}{\partial \theta} f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y}), \tag{C.1}
+<p>Let <span class="math inline">Y_1,\dots,Y_n</span> be a sample from a joint probability measure <span class="math inline">f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y})</span> and let <span class="math inline">\Theta \subseteq \mathbb{R}</span>. If we can interchange derivation and integration, namely <span class="math display">\frac{\partial}{\partial \theta}\int f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y}) = \int \frac{\partial}{\partial \theta} f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y}), \tag{C.1}
 </span> then <span class="math display">
 \mathbb{E}_\theta(\ell^*(\theta)) = 0,\qquad \text{implying}\qquad  I(\theta) = \mathbb{E}_\theta(\ell^*(\theta)^2) = \text{var}_\theta(\ell^*(\theta)).
 </span></p>
@@ -1537,7 +1523,7 @@ I(\theta) := \mathbb{E}_\theta(\ell^*(\theta)^2),
 </div>
 </div>
 <ul>
-<li>Thus, the regularity condition of Cramér-Rao implies that the score function <span class="math inline">\ell^*(\theta)</span> is un <span class="blue">unbiased estimating equation</span>. This result easily extends to the <span class="orange">vector case</span> <span class="math inline">\Theta = \mathbb{R}^p</span>.</li>
+<li>Thus, the regularity condition of Cramér-Rao implies that the score function <span class="math inline">\ell^*(\theta)</span> is un <span class="blue">unbiased estimating equation</span>.</li>
 </ul>
 </section>
 <section id="bartlett-identities-ii" class="slide level2 center">
@@ -1548,12 +1534,12 @@ I(\theta) := \mathbb{E}_\theta(\ell^*(\theta)^2),
 <p><strong>Second Bartlett identity</strong></p>
 </div>
 <div class="callout-content">
-<p>Let <span class="math inline">Y_1,\dots,Y_n</span> be a sample from a joint probability measure <span class="math inline">f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y})</span> and let <span class="math inline">\Theta = \mathbb{R}</span>. If we can interchange <span class="orange">twice</span> derivation and integration, namely <span class="math display">
+<p>Let <span class="math inline">Y_1,\dots,Y_n</span> be a sample from a joint probability measure <span class="math inline">f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y})</span> and let <span class="math inline">\Theta \subseteq \mathbb{R}</span>. If we can interchange <span class="orange">twice</span> derivation and integration, namely <span class="math display">
 \frac{\partial}{\partial \theta}\int f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y}) = \int \frac{\partial}{\partial \theta} f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y}), \tag{C.1}
 </span> <span class="math display">
 \frac{\partial^2}{\partial \theta^2}\int f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y}) = \int \frac{\partial^2}{\partial \theta^2}f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y}), \tag{C.2}
 </span> then <span class="math display">
-I(\theta) = \mathbb{E}_\theta(\ell^*(\theta)^2) =\text{var}_\theta(\ell^*(\theta))= -\mathbb{E}_\theta\left(\frac{\partial^2}{\partial \theta^2}\ell(\theta)\right).
+I(\theta) = \mathbb{E}_\theta(\ell^*(\theta)^2) =\text{var}_\theta(\ell^*(\theta))= \mathbb{E}_\theta\left(-\frac{\partial^2}{\partial \theta^2}\ell(\theta)\right).
 </span></p>
 </div>
 </div>
@@ -1570,8 +1556,8 @@ I(\theta) = \mathbb{E}_\theta(\ell^*(\theta)^2) =\text{var}_\theta(\ell^*(\theta
 <p><strong>Theorem (Cramér-Rao, simplified)</strong></p>
 </div>
 <div class="callout-content">
-<p>Let <span class="math inline">Y_1,\dots,Y_n</span> be an iid sample from <span class="math inline">f(y \mid \theta)\mathrm{d}y</span> satisfying conditions <span class="blue">C.1</span> and <span class="blue">C.2</span>, and let <span class="math inline">\Theta = \mathbb{R}</span>. Moreover, let <span class="math inline">\hat{\theta}(\bm{Y})</span> be an <span class="orange">unbiased</span> estimator of <span class="math inline">\theta</span> with finite variance <span class="math inline">\text{var}(\hat{\theta}(\bm{Y})) &lt; \infty</span>. Then <span class="math display">
-\text{var}(\hat{\theta}(\bm{Y})) \ge \frac{1}{n i(\theta)}, \qquad i(\theta) = -\mathbb{E}\left(\frac{\partial^2}{\partial \theta^2}\log{f(y \mid \theta)}\right).
+<p>Let <span class="math inline">Y_1,\dots,Y_n</span> be an iid sample from <span class="math inline">f(y \mid \theta)\mathrm{d}y</span> satisfying conditions <span class="blue">C.1</span> and <span class="blue">C.2</span>, and let <span class="math inline">\Theta \subseteq \mathbb{R}</span>. Moreover, let <span class="math inline">\hat{\theta}(\bm{Y})</span> be an <span class="orange">unbiased</span> estimator of <span class="math inline">\theta</span> with finite variance <span class="math inline">\text{var}(\hat{\theta}(\bm{Y})) &lt; \infty</span>. Then <span class="math display">
+\text{var}_\theta(\hat{\theta}(\bm{Y})) \ge \frac{1}{n i(\theta)}, \qquad i(\theta) = -\int\frac{\partial^2}{\partial \theta^2}\log{f(y \mid \theta)}\mathrm{d}y.
 </span></p>
 </div>
 </div>
@@ -1579,7 +1565,6 @@ I(\theta) = \mathbb{E}_\theta(\ell^*(\theta)^2) =\text{var}_\theta(\ell^*(\theta
 <ul>
 <li><p>The Fisher information is the <span class="blue">sum</span> of <span class="blue">individual contributions</span> <span class="math inline">I(\theta) = i(\theta) + \cdots + i(\theta) = n i(\theta)</span>.</p></li>
 <li><p>It can be shown<sup>1</sup> that <span class="blue">attainment</span>, that is the equality <span class="math inline">\text{var}(\hat{\theta}(\bm{Y})) = 1/ni(\theta)</span>, occurs if and only if <span class="math inline">f(y \mid \theta)</span> is the density of an <span class="orange">exponential family</span>.</p></li>
-<li><p>These results can be naturally extended to the <span class="math inline">\Theta = \mathbb{R}^p</span> case, obtaining under regularity conditions that <span class="math inline">\text{var}(\hat{\theta}(\bm{Y})) \ge I(\theta)^{-1}</span> for an unbiased estimator <span class="math inline">\hat{\theta}</span> of <span class="math inline">\theta</span>.</p></li>
 </ul>
 <aside><ol class="aside-footnotes"><li id="fn13"><p>See Theorem 5.12, Chap.2, <span class="citation" data-cites="Lehmann1998">Lehmann and Casella (<a href="#/references" role="doc-biblioref" onclick="">1998</a>)</span>.</p></li></ol></aside></section>
 <section id="example-poisson-unbiased-estimation-1" class="slide level2 center">
@@ -1604,6 +1589,19 @@ i(\lambda) = -\mathbb{E}_\lambda\left(\frac{\partial}{\partial \lambda^2}\log{f(
 </div>
 </div>
 </section>
+<section id="cramér-rao-multiparameter-case" class="slide level2 center">
+<h2>Cramér-Rao, multiparameter case</h2>
+<ul>
+<li><p>The Cramér-Rao theorem naturally extends to the <span class="orange">vector case</span>, that is when <span class="math inline">\Theta \subseteq \mathbb{R}^p</span>.</p></li>
+<li><p>The <span class="orange">regularity conditions</span> <span class="blue">C.1</span> and <span class="blue">C.2</span> extend to the vector case, leading to the multiparameter <span class="blue">Bartlett identities</span>: <span class="math display">
+\mathbb{E}_\theta(\ell^*(\theta)) = \bm{0}, \qquad I(\theta) = \mathbb{E}_\theta(\ell^*(\theta)\ell^*(\theta)^T) = \mathbb{E}_\theta\left(- \frac{\partial^2}{\partial \theta \partial \theta^T} \ell(\theta)\right),
+</span> where <span class="math inline">I(\theta)</span> is called <span class="blue">Fisher information matrix</span>, which is <span class="orange">positive definite</span>.</p></li>
+<li><p>Let <span class="math inline">Y_1,\dots,Y_n</span> be an iid sample from <span class="math inline">f(y \mid \theta)\mathrm{d}y</span> satisfying the above regularity conditions, and let <span class="math inline">\Theta \subseteq \mathbb{R}^p</span>. Moreover, let <span class="math inline">\hat{\theta}(\bm{Y})</span> be an <span class="orange">unbiased</span> estimator of <span class="math inline">\theta</span> with finite covariance matrix, then <span class="math display">
+\text{var}_\theta(\hat{\theta}(\bm{Y})) \ge I(\theta)^{-1}, \quad I(\theta) = n i(\theta), \quad i(\theta) = - \int\frac{\partial^2}{\partial \theta \partial \theta^T} \log f(y \mid \theta)\mathrm{d}y,
+</span> corresponding to the multiparameter Cramér-Rao theorem.</p></li>
+<li><p>Refer to Theorem 6.6, Chap.2 in <span class="citation" data-cites="Lehmann1998">Lehmann and Casella (<a href="#/references" role="doc-biblioref" onclick="">1998</a>)</span> for a proof.</p></li>
+</ul>
+</section>
 <section id="rao-blackwell" class="slide level2 center">
 <h2>Rao-Blackwell 📖</h2>
 <ul>
@@ -1615,7 +1613,7 @@ i(\lambda) = -\mathbb{E}_\lambda\left(\frac{\partial}{\partial \lambda^2}\log{f(
 <p><strong>Theorem (Rao-Blackwell, <span class="citation" data-cites="Casella2002">Casella and Berger (<a href="#/references" role="doc-biblioref" onclick="">2002</a>)</span>, Theorem 7.3.17)</strong></p>
 </div>
 <div class="callout-content">
-<p>Let <span class="math inline">\tilde{\theta}(\bm{Y})</span> be an <span class="orange">unbiased</span> estimator of <span class="math inline">\theta</span>, and let <span class="math inline">S = s(\bm{Y})</span> be a <span class="blue">sufficient statistic</span> for <span class="math inline">\theta</span>. Let <span class="math inline">\hat{\theta} = \mathbb{E}_\theta(\tilde{\theta}(\bm{Y}) \mid S)</span>. Then <span class="math inline">\hat{\theta}</span> is an estimator such that <span class="math inline">\mathbb{E}_\theta(\hat{\theta}) = \theta</span> and <span class="math display">
+<p>Let <span class="math inline">\Theta \subseteq \mathbb{R}</span> and <span class="math inline">\tilde{\theta}(\bm{Y})</span> be an <span class="orange">unbiased</span> estimator of <span class="math inline">\theta</span>. Moreover, let <span class="math inline">S = s(\bm{Y})</span> be a <span class="blue">sufficient statistic</span> for <span class="math inline">\theta</span> and <span class="math inline">\hat{\theta} = \mathbb{E}_\theta(\tilde{\theta}(\bm{Y}) \mid S)</span>. Then <span class="math inline">\hat{\theta}</span> is an estimator such that <span class="math inline">\mathbb{E}_\theta(\hat{\theta}) = \theta</span> and <span class="math display">
 \text{var}_\theta(\hat{\theta}) \le \text{var}_\theta(\tilde{\theta}).
 </span> That is, <span class="math inline">\hat{\theta}</span> is a <span class="blue">uniformly better unbiased estimator</span> of <span class="math inline">\theta</span>.</p>
 </div>
@@ -1644,7 +1642,7 @@ i(\lambda) = -\mathbb{E}_\lambda\left(\frac{\partial}{\partial \lambda^2}\log{f(
 <p><strong>Theorem (<span class="citation" data-cites="Casella2002">Casella and Berger (<a href="#/references" role="doc-biblioref" onclick="">2002</a>)</span>, Theorem 7.3.19)</strong></p>
 </div>
 <div class="callout-content">
-<p>If <span class="math inline">\hat{\theta}</span> is a best unbiased estimator of <span class="math inline">\theta</span>, then <span class="math inline">\hat{\theta}</span> is <span class="blue">unique</span>.</p>
+<p>Let <span class="math inline">\Theta \subseteq \mathbb{R}</span>. If <span class="math inline">\hat{\theta}</span> is a best unbiased estimator of <span class="math inline">\theta</span>, then <span class="math inline">\hat{\theta}</span> is <span class="blue">unique</span>.</p>
 </div>
 </div>
 </div>
@@ -1677,7 +1675,7 @@ i(\lambda) = -\mathbb{E}_\lambda\left(\frac{\partial}{\partial \lambda^2}\log{f(
 <p><strong>Theorem (<span class="citation" data-cites="Casella2002">Casella and Berger (<a href="#/references" role="doc-biblioref" onclick="">2002</a>)</span>, Theorem 7.3.20)</strong></p>
 </div>
 <div class="callout-content">
-<p>Let <span class="math inline">\hat{\theta}</span> be an unbiased estimator of <span class="math inline">\theta</span>. Then <span class="math inline">\hat{\theta}</span> is UMVUE <span class="orange">if and only if</span> <span class="math inline">\hat{\theta}</span> is <span class="blue">uncorrelated</span> with all <span class="blue">unbiased estimators of <span class="math inline">0</span></span>, that is <span class="math display">
+<p>Let <span class="math inline">\Theta \subseteq \mathbb{R}</span> and <span class="math inline">\hat{\theta}</span> be an unbiased estimator of <span class="math inline">\theta</span>. Then <span class="math inline">\hat{\theta}</span> is UMVUE <span class="orange">if and only if</span> <span class="math inline">\hat{\theta}</span> is <span class="blue">uncorrelated</span> with all <span class="blue">unbiased estimators of <span class="math inline">0</span></span>, that is <span class="math display">
 \text{cov}_\theta(\hat{\theta}, U) = 0, \quad \text{ for all } \quad U = U(\bm{Y}) \quad \text{ such that } \quad \mathbb{E}_\theta(U) = 0.
 </span></p>
 </div>
@@ -1690,11 +1688,8 @@ i(\lambda) = -\mathbb{E}_\lambda\left(\frac{\partial}{\partial \lambda^2}\log{f(
 <li><p>Proving that an estimator <span class="math inline">\hat{\theta}</span> is uncorrelated with all unbiased estimators of 0 is very hard, limitating the practical usefulness of the former theorem.</p></li>
 <li><p>However, if we assume <span class="math inline">S</span> is <span class="orange">complete</span>, we can finally see the light at the end of the tunnel.</p></li>
 </ul>
-<div class="callout callout-note no-icon callout-titled callout-style-simple">
+<div class="callout callout-note no-icon callout-style-simple">
 <div class="callout-body">
-<div class="callout-title">
-<p><strong>Completeness</strong></p>
-</div>
 <div class="callout-content">
 <p>A sufficient statistic <span class="math inline">S = s(\bm{Y})</span> for a statistical model <span class="math inline">\mathcal{F} = \{f(\mathrm{d}y \mid \theta) : \theta \in \Theta\}</span> is said to be <span class="blue">complete</span> if <span class="orange">no nonconstant</span> function <span class="math inline">g(\cdot)</span> of <span class="math inline">S</span> is <span class="orange">first-order ancillary</span>, that is, <span class="math display">
 \mathbb{E}_\theta(g(S)) = c \quad \text{for all } \theta \quad \text{implies} \quad g(S) = c \:\text{ a.s.}
@@ -1718,7 +1713,7 @@ i(\lambda) = -\mathbb{E}_\lambda\left(\frac{\partial}{\partial \lambda^2}\log{f(
 <p><strong>Theorem (Lehmann-Scheffé-Rao-Blackwell, <span class="citation" data-cites="Casella2002">Casella and Berger (<a href="#/references" role="doc-biblioref" onclick="">2002</a>)</span>, Theorem 7.3.23)</strong></p>
 </div>
 <div class="callout-content">
-<p>Let <span class="math inline">S</span> be a <span class="orange">complete</span> sufficient statistic for a parameter <span class="math inline">\theta</span>, and let <span class="math inline">\hat{\theta}</span> be an unbiased estimator of <span class="math inline">\theta</span> based only on <span class="math inline">S</span>. Then, <span class="math inline">\hat{\theta}</span> is <span class="blue">unique</span> best unbiased estimator (UMVUE) of <span class="math inline">\theta</span>.</p>
+<p>Let <span class="math inline">\Theta \subseteq \mathbb{R}</span> and <span class="math inline">S</span> be a <span class="orange">complete</span> sufficient statistic for a parameter <span class="math inline">\theta</span>, and let <span class="math inline">\hat{\theta}</span> be an unbiased estimator of <span class="math inline">\theta</span> based only on <span class="math inline">S</span>. Then, <span class="math inline">\hat{\theta}</span> is <span class="blue">unique</span> best unbiased estimator (UMVUE) of <span class="math inline">\theta</span>.</p>
 </div>
 </div>
 </div>
@@ -1739,7 +1734,10 @@ i(\lambda) = -\mathbb{E}_\lambda\left(\frac{\partial}{\partial \lambda^2}\log{f(
 \hat{\psi} = \mathbb{E}(\tilde{\psi} \mid S) = N \binom{N n - N}{S-1}/ \binom{N n}{S}.
 </span> which can be obtained after simple calculations.</p></li>
 </ul>
-<aside><ol class="aside-footnotes"><li id="fn14"><p>See Example 6.2.22 of <span class="citation" data-cites="Casella2002">Casella and Berger (<a href="#/references" role="doc-biblioref" onclick="">2002</a>)</span>. This is also follows from general result of exponential families.</p></li></ol></aside></section></section>
+<aside><ol class="aside-footnotes"><li id="fn14"><p>See Example 6.2.22 of <span class="citation" data-cites="Casella2002">Casella and Berger (<a href="#/references" role="doc-biblioref" onclick="">2002</a>)</span>. This is also follows from general result of exponential families.</p></li></ol></aside></section>
+<section id="rao-blackwell-multiparameter-case" class="slide level2 center">
+<h2>Rao-Blackwell, multiparameter case</h2>
+</section></section>
 <section>
 <section id="alternative-notions-of-optimality" class="title-slide slide level1 center">
 <h1>Alternative notions of optimality</h1>
@@ -1752,11 +1750,8 @@ i(\lambda) = -\mathbb{E}_\lambda\left(\frac{\partial}{\partial \lambda^2}\log{f(
 Q(\theta) = \sum_{i=1}^n q(\theta; Y_i) = \bm{0},
 </span> where <span class="math inline">q(\theta) = q(\theta; y)</span> are known vector-valued maps. These are called <span class="blue">estimating equations</span>.</li>
 </ul>
-<div class="callout callout-note no-icon callout-titled callout-style-simple">
+<div class="callout callout-note no-icon callout-style-simple">
 <div class="callout-body">
-<div class="callout-title">
-<p><strong>Unbiased estimating equations</strong></p>
-</div>
 <div class="callout-content">
 <p>The estimating equations <span class="math inline">Q(\theta) = \sum_{i=1}^n q(\theta; Y_i)</span> are <span class="orange">unbiased</span> if they satisfy <span class="math display">
 \mathbb{E}_\theta(Q(\theta)) = \bm{0}, \qquad \text{ for all } \qquad \theta \in \Theta.
@@ -1786,7 +1781,7 @@ Q(\theta) = \sum_{i=1}^n q(\theta; Y_i) = \bm{0},
 <section id="asymptotic-behavior-of-unbiased-estimating-equations" class="slide level2 center">
 <h2>Asymptotic behavior of unbiased estimating equations</h2>
 <ul>
-<li><p>Guidance on the choice of <span class="math inline">Q(\theta)</span> can be found by investigating its <span class="blue">asymptotic behavior</span>. We provide an <span class="orange">informal argument</span> for <span class="math inline">\theta \in \mathbb{R}</span>.</p></li>
+<li><p>Guidance on the choice of <span class="math inline">Q(\theta)</span> can be found by investigating its <span class="blue">asymptotic behavior</span>. We provide an <span class="orange">informal argument</span> for <span class="math inline">\theta \in \Theta \subseteq \mathbb{R}</span>.</p></li>
 <li><p>Under <span class="blue">iid sampling</span> and further <span class="orange">regularity conditions</span>, implying that <span class="math inline">\mathbb{E}_\theta(q(\theta; Y_i)) = 0</span>, a Taylor series expansion of <span class="math inline">Q(\theta)</span> gives <span class="math display">
 0 = Q(\hat{\theta}) \approx \sum_{i=1}^n q(\theta; Y_i) + (\hat{\theta}- \theta) \sum_{i=1}^n\frac{\partial}{\partial \theta}q(\theta; Y_i).
 </span></p></li>
@@ -1800,11 +1795,8 @@ Q(\theta) = \sum_{i=1}^n q(\theta; Y_i) = \bm{0},
 </section>
 <section id="godambe-information" class="slide level2 center">
 <h2>Godambe information</h2>
-<div class="callout callout-note no-icon callout-titled callout-style-simple">
+<div class="callout callout-note no-icon callout-style-simple">
 <div class="callout-body">
-<div class="callout-title">
-<p><strong>Godambe information</strong></p>
-</div>
 <div class="callout-content">
 <p>Let <span class="math inline">\bm{Y}</span> be a sample from a statistical model with parameter <span class="math inline">\theta \in \Theta \subseteq \mathbb{R}</span>. Let <span class="math inline">Q(\theta)</span> be an <span class="orange">unbiased estimating equation</span>. We define the <span class="blue">sensitivity</span> as <span class="math display">
 H(\theta) := \mathbb{E}_\theta\left(-\frac{\partial}{\partial \theta}Q(\theta; \bm{Y})\right),
@@ -1820,15 +1812,12 @@ G(\theta) := \frac{H(\theta)^2}{J(\theta)}.
 <li>An estimating equation <span class="math inline">Q(\theta)</span> which has <span class="math inline">H(\theta) = J(\theta)</span> is called <span class="blue">information unbiased</span>.</li>
 </ul>
 </section>
-<section id="godambe-information-2" class="slide level2 center">
-<h2>Godambe information</h2>
-<div class="callout callout-note no-icon callout-titled callout-style-simple">
+<section id="godambe-efficiency" class="slide level2 center">
+<h2>Godambe efficiency</h2>
+<div class="callout callout-note no-icon callout-style-simple">
 <div class="callout-body">
-<div class="callout-title">
-<p><strong>Godambe efficiency</strong></p>
-</div>
 <div class="callout-content">
-<p>Let <span class="math inline">Q(\theta)</span> and <span class="math inline">\tilde{Q}(\theta)</span> be two <span class="orange">estimating equations</span> with Godambe information <span class="math inline">G(\theta)</span> and <span class="math inline">\tilde{G}(\theta)</span>. Then <span class="math inline">Q(\theta)</span> is <span class="blue">uniformly more efficient</span> than <span class="math inline">\tilde{Q}(\theta)</span> if <span class="math inline">G(\theta) \ge \tilde{G}(\theta)</span> for all <span class="math inline">\theta \in \Theta</span>.</p>
+<p>Let <span class="math inline">Q(\theta)</span> and <span class="math inline">\tilde{Q}(\theta)</span> be two <span class="orange">estimating equations</span> with Godambe information <span class="math inline">G(\theta)</span> and <span class="math inline">\tilde{G}(\theta)</span>. Then <span class="math inline">Q(\theta)</span> is <span class="blue">uniformly more efficient</span> than <span class="math inline">\tilde{Q}(\theta)</span> if <span class="math inline">G(\theta) \ge \tilde{G}(\theta)</span> for all <span class="math inline">\theta \in \Theta \subseteq \mathbb{R}</span>.</p>
 </div>
 </div>
 </div>
@@ -1859,15 +1848,15 @@ G(\theta) =  I(\theta),
 <li>Hence, Godambe information is a generalization of Fisher information.</li>
 </ul>
 </section>
-<section id="godambe-efficiancy" class="slide level2 center">
-<h2>Godambe efficiancy</h2>
+<section id="godambe-efficiency-1" class="slide level2 center">
+<h2>Godambe efficiency</h2>
 <div class="callout callout-warning no-icon callout-titled callout-style-simple">
 <div class="callout-body">
 <div class="callout-title">
 <p><strong>Theorem (<span class="citation" data-cites="Godambe1960">Godambe (<a href="#/references" role="doc-biblioref" onclick="">1960</a>)</span>)</strong></p>
 </div>
 <div class="callout-content">
-<p>Let <span class="math inline">Y_1,\dots,Y_n</span> be a sample from a joint probability measure <span class="math inline">f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y})</span> and let <span class="math inline">\Theta = \mathbb{R}</span>. Moreover, let <span class="math inline">Q(\theta)</span> be an unbiased estimating equation with <span class="blue">Godambe information</span> <span class="math inline">G(\theta)</span>. Then under <span class="orange">regularity conditions</span> <span class="blue">C.1</span> and <span class="blue">C.2</span>: <span class="math display">
+<p>Let <span class="math inline">Y_1,\dots,Y_n</span> be a sample from a joint probability measure <span class="math inline">f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y})</span> and let <span class="math inline">\Theta \subseteq \mathbb{R}</span>. Moreover, let <span class="math inline">Q(\theta)</span> be an unbiased estimating equation with <span class="blue">Godambe information</span> <span class="math inline">G(\theta)</span>. Then under <span class="orange">regularity conditions</span> <span class="blue">C.1</span> and <span class="blue">C.2</span>: <span class="math display">
 \frac{1}{G(\theta)} \ge \frac{1}{I(\theta)}.
 </span></p>
 </div>
