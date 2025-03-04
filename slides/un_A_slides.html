@@ -1592,14 +1592,14 @@ i(\lambda) = -\mathbb{E}_\lambda\left(\frac{\partial}{\partial \lambda^2}\log{f(
 <section id="cramér-rao-multiparameter-case" class="slide level2 center">
 <h2>Cramér-Rao, multiparameter case</h2>
 <ul>
-<li><p>The Cramér-Rao theorem naturally extends to the <span class="orange">vector case</span>, that is when <span class="math inline">\Theta \subseteq \mathbb{R}^p</span>.</p></li>
+<li><p>The Cramér-Rao theorem naturally extends to the <span class="orange">vector case</span>, that is, when <span class="math inline">\Theta \subseteq \mathbb{R}^p</span>.</p></li>
 <li><p>The <span class="orange">regularity conditions</span> <span class="blue">C.1</span> and <span class="blue">C.2</span> extend to the vector case, leading to the multiparameter <span class="blue">Bartlett identities</span>: <span class="math display">
 \mathbb{E}_\theta(\ell^*(\theta)) = \bm{0}, \qquad I(\theta) = \mathbb{E}_\theta(\ell^*(\theta)\ell^*(\theta)^T) = \mathbb{E}_\theta\left(- \frac{\partial^2}{\partial \theta \partial \theta^T} \ell(\theta)\right),
-</span> where <span class="math inline">I(\theta)</span> is called <span class="blue">Fisher information matrix</span>, which is <span class="orange">positive definite</span>.</p></li>
-<li><p>Let <span class="math inline">Y_1,\dots,Y_n</span> be an iid sample from <span class="math inline">f(y \mid \theta)\mathrm{d}y</span> satisfying the above regularity conditions, and let <span class="math inline">\Theta \subseteq \mathbb{R}^p</span>. Moreover, let <span class="math inline">\hat{\theta}(\bm{Y})</span> be an <span class="orange">unbiased</span> estimator of <span class="math inline">\theta</span> with finite covariance matrix, then <span class="math display">
+</span> where <span class="math inline">I(\theta)</span> is called the <span class="blue">Fisher information matrix</span>, which is <span class="orange">positive definite</span>.</p></li>
+<li><p>Let <span class="math inline">Y_1,\dots,Y_n</span> be an iid sample from <span class="math inline">f(y \mid \theta)\mathrm{d}y</span> satisfying the above regularity conditions. Moreover, let <span class="math inline">\hat{\theta}(\bm{Y})</span> be an <span class="orange">unbiased</span> estimator of <span class="math inline">\theta</span> with a finite covariance matrix. Then, <span class="math display">
 \text{var}_\theta(\hat{\theta}(\bm{Y})) \ge I(\theta)^{-1}, \quad I(\theta) = n i(\theta), \quad i(\theta) = - \int\frac{\partial^2}{\partial \theta \partial \theta^T} \log f(y \mid \theta)\mathrm{d}y,
 </span> corresponding to the multiparameter Cramér-Rao theorem.</p></li>
-<li><p>Refer to Theorem 6.6, Chap.2 in <span class="citation" data-cites="Lehmann1998">Lehmann and Casella (<a href="#/references" role="doc-biblioref" onclick="">1998</a>)</span> for a proof.</p></li>
+<li><p>Refer to Theorem 6.6, Chap. 2 in <span class="citation" data-cites="Lehmann1998">Lehmann and Casella (<a href="#/references" role="doc-biblioref" onclick="">1998</a>)</span> for a proof.</p></li>
 </ul>
 </section>
 <section id="rao-blackwell" class="slide level2 center">
@@ -1737,6 +1737,23 @@ i(\lambda) = -\mathbb{E}_\lambda\left(\frac{\partial}{\partial \lambda^2}\log{f(
 <aside><ol class="aside-footnotes"><li id="fn14"><p>See Example 6.2.22 of <span class="citation" data-cites="Casella2002">Casella and Berger (<a href="#/references" role="doc-biblioref" onclick="">2002</a>)</span>. This is also follows from general result of exponential families.</p></li></ol></aside></section>
 <section id="rao-blackwell-multiparameter-case" class="slide level2 center">
 <h2>Rao-Blackwell, multiparameter case</h2>
+<ul>
+<li><p>Generalizations of Rao-Blakwell theory to the multiparameter case <span class="math inline">\Theta \subseteq \mathbb{R}^p</span> are possible.</p></li>
+<li><p>If one is interested in estimating <span class="math inline">\psi = g(\theta)</span> for some <span class="blue">function</span> <span class="math inline">g: \mathbb{R}^p \to \mathbb{R}</span>, then the previously developed <span class="orange">theory applies almost directly</span>, with minor modifications to the statements.</p></li>
+<li><p>Note that a special case of the above is <span class="math inline">g(\theta) = \theta_j</span>, meaning that the developed theory can be <span class="orange">separately</span> applied to <span class="blue">each coordinate</span> of <span class="math inline">\theta</span>.</p></li>
+</ul>
+<div class="callout callout-warning no-icon callout-titled callout-style-simple">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Theorem (Rao-Blackwell, <span class="citation" data-cites="Lehmann1998">Lehmann and Casella (<a href="#/references" role="doc-biblioref" onclick="">1998</a>)</span>, Theorem 7.8, Chap. 1)</strong></p>
+</div>
+<div class="callout-content">
+<p>Let <span class="math inline">\Theta \subseteq \mathbb{R}^p</span>, and let <span class="math inline">\tilde{\theta}(\bm{Y})</span> be an estimator of <span class="math inline">\theta</span> with finite risk <span class="math inline">R(\theta; \tilde{\theta})</span> under a <span class="orange">strictly convex loss</span> function. Moreover, let <span class="math inline">S = s(\bm{Y})</span> be a <span class="blue">sufficient statistic</span> for <span class="math inline">\theta</span>, and set <span class="math inline">\hat{\theta} = \mathbb{E}_\theta(\tilde{\theta}(\bm{Y}) \mid S)</span>. Then, <span class="math display">
+R(\theta; \hat{\theta}) \le R(\theta; \tilde{\theta}),
+</span> unless <span class="math inline">\tilde{\theta} = \hat{\theta}</span> with probability 1.</p>
+</div>
+</div>
+</div>
 </section></section>
 <section>
 <section id="alternative-notions-of-optimality" class="title-slide slide level1 center">
@@ -1817,7 +1834,9 @@ G(\theta) := \frac{H(\theta)^2}{J(\theta)}.
 <div class="callout callout-note no-icon callout-style-simple">
 <div class="callout-body">
 <div class="callout-content">
-<p>Let <span class="math inline">Q(\theta)</span> and <span class="math inline">\tilde{Q}(\theta)</span> be two <span class="orange">estimating equations</span> with Godambe information <span class="math inline">G(\theta)</span> and <span class="math inline">\tilde{G}(\theta)</span>. Then <span class="math inline">Q(\theta)</span> is <span class="blue">uniformly more efficient</span> than <span class="math inline">\tilde{Q}(\theta)</span> if <span class="math inline">G(\theta) \ge \tilde{G}(\theta)</span> for all <span class="math inline">\theta \in \Theta \subseteq \mathbb{R}</span>.</p>
+<p>Let <span class="math inline">Q(\theta)</span> and <span class="math inline">\tilde{Q}(\theta)</span> be two <span class="orange">estimating equations</span> with Godambe information <span class="math inline">G(\theta)</span> and <span class="math inline">\tilde{G}(\theta)</span>. Then <span class="math inline">Q(\theta)</span> is <span class="blue">uniformly more efficient</span> than <span class="math inline">\tilde{Q}(\theta)</span> if <span class="math display">
+G(\theta) \ge \tilde{G}(\theta) \qquad\text{ for all } \qquad \theta \in \Theta \subseteq \mathbb{R}.
+</span></p>
 </div>
 </div>
 </div>
@@ -1874,8 +1893,37 @@ G(\theta) =  I(\theta),
 </div>
 </div>
 </section>
-<section id="blue-estimators" class="slide level2 center">
-<h2>BLUE estimators</h2>
+<section id="linear-estimating-equations" class="slide level2 center">
+<h2>Linear estimating equations</h2>
+<ul>
+<li>Davison’s arguments</li>
+</ul>
+</section>
+<section id="blue-estimators-i" class="slide level2 center">
+<h2>BLUE estimators I</h2>
+<div class="callout callout-note no-icon callout-titled callout-style-simple">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Theorem (Gauss-Markov)</strong></p>
+</div>
+<div class="callout-content">
+<p>asd</p>
+</div>
+</div>
+</div>
+</section>
+<section id="blue-estimators-ii" class="slide level2 center">
+<h2>BLUE estimators II</h2>
+<div class="callout callout-note no-icon callout-titled callout-style-simple">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Theorem (Aitken)</strong></p>
+</div>
+<div class="callout-content">
+<p>asd</p>
+</div>
+</div>
+</div>
 </section></section>
 <section>
 <section id="asymptotic-evaluations" class="title-slide slide level1 center">

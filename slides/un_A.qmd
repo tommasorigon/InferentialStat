@@ -1390,22 +1390,21 @@ implying that $\bar{Y}$ is a [UMVUE]{.blue} because $\text{var}_\lambda(\bar{Y})
 
 ## Cramér-Rao, multiparameter case
 
-- The Cramér-Rao theorem naturally extends to the [vector case]{.orange}, that is when $\Theta \subseteq \mathbb{R}^p$.
+- The Cramér-Rao theorem naturally extends to the [vector case]{.orange}, that is, when $\Theta \subseteq \mathbb{R}^p$.
 
 - The [regularity conditions]{.orange} [C.1]{.blue} and [C.2]{.blue} extend to the vector case, leading to the multiparameter [Bartlett identities]{.blue}:
 $$
-\mathbb{E}_\theta(\ell^*(\theta)) = \bm{0}, \qquad I(\theta) = \mathbb{E}_\theta(\ell^*(\theta)\ell^*(\theta)^T) = \mathbb{E}_\theta\left(- \frac{\partial^2}{\partial \theta \partial \theta^T} \ell(\theta)\right),
+  \mathbb{E}_\theta(\ell^*(\theta)) = \bm{0}, \qquad I(\theta) = \mathbb{E}_\theta(\ell^*(\theta)\ell^*(\theta)^T) = \mathbb{E}_\theta\left(- \frac{\partial^2}{\partial \theta \partial \theta^T} \ell(\theta)\right),
 $$
-where $I(\theta)$ is called [Fisher information matrix]{.blue}, which is [positive definite]{.orange}.
+where $I(\theta)$ is called the [Fisher information matrix]{.blue}, which is [positive definite]{.orange}.
 
-- Let $Y_1,\dots,Y_n$ be an iid sample from $f(y \mid \theta)\mathrm{d}y$ satisfying the above regularity conditions, and let $\Theta \subseteq \mathbb{R}^p$. Moreover, let $\hat{\theta}(\bm{Y})$ be an [unbiased]{.orange} estimator of $\theta$  with finite covariance matrix, then 
+- Let $Y_1,\dots,Y_n$ be an iid sample from $f(y \mid \theta)\mathrm{d}y$ satisfying the above regularity conditions. Moreover, let $\hat{\theta}(\bm{Y})$ be an [unbiased]{.orange} estimator of $\theta$ with a finite covariance matrix. Then,
 $$
-\text{var}_\theta(\hat{\theta}(\bm{Y})) \ge I(\theta)^{-1}, \quad I(\theta) = n i(\theta), \quad i(\theta) = - \int\frac{\partial^2}{\partial \theta \partial \theta^T} \log f(y \mid \theta)\mathrm{d}y,
+  \text{var}_\theta(\hat{\theta}(\bm{Y})) \ge I(\theta)^{-1}, \quad I(\theta) = n i(\theta), \quad i(\theta) = - \int\frac{\partial^2}{\partial \theta \partial \theta^T} \log f(y \mid \theta)\mathrm{d}y,
 $$
-corresponding to the multiparameter Cramér-Rao theorem. 
+corresponding to the multiparameter Cramér-Rao theorem.
 
-- Refer to Theorem 6.6, Chap.2 in @Lehmann1998 for a proof. 
-
+- Refer to Theorem 6.6, Chap. 2 in @Lehmann1998 for a proof.
 
 
 ## Rao-Blackwell 📖
@@ -1523,6 +1522,22 @@ which can be obtained after simple calculations.
 
 ## Rao-Blackwell, multiparameter case
 
+- Generalizations of Rao-Blakwell theory to the multiparameter case $\Theta \subseteq \mathbb{R}^p$ are possible.
+
+- If one is interested in estimating $\psi = g(\theta)$ for some [function]{.blue} $g: \mathbb{R}^p \to \mathbb{R}$, then the previously developed [theory applies almost directly]{.orange}, with minor modifications to the statements.
+
+- Note that a special case of the above is $g(\theta) = \theta_j$, meaning that the developed theory can be [separately]{.orange} applied to [each coordinate]{.blue} of $\theta$. 
+
+:::callout-warning
+#### Theorem (Rao-Blackwell, @Lehmann1998, Theorem 7.8, Chap. 1)
+Let $\Theta \subseteq \mathbb{R}^p$, and let $\tilde{\theta}(\bm{Y})$ be an estimator of $\theta$ with finite risk $R(\theta; \tilde{\theta})$ under a [strictly convex loss]{.orange} function. Moreover, let $S = s(\bm{Y})$ be a [sufficient statistic]{.blue} for $\theta$, and set $\hat{\theta} = \mathbb{E}_\theta(\tilde{\theta}(\bm{Y}) \mid S)$. Then,
+$$
+R(\theta; \hat{\theta}) \le R(\theta; \tilde{\theta}),
+$$
+unless $\tilde{\theta} = \hat{\theta}$ with probability 1.
+:::
+
+
 # Alternative notions of optimality
 
 ## Unbiased estimating equations I
@@ -1596,7 +1611,10 @@ $$
 ## Godambe efficiency
 
 :::callout-note
-Let $Q(\theta)$ and $\tilde{Q}(\theta)$ be two [estimating equations]{.orange} with Godambe information $G(\theta)$ and $\tilde{G}(\theta)$. Then $Q(\theta)$ is [uniformly more efficient]{.blue} than $\tilde{Q}(\theta)$ if $G(\theta) \ge \tilde{G}(\theta)$ for all $\theta \in \Theta \subseteq \mathbb{R}$.
+Let $Q(\theta)$ and $\tilde{Q}(\theta)$ be two [estimating equations]{.orange} with Godambe information $G(\theta)$ and $\tilde{G}(\theta)$. Then $Q(\theta)$ is [uniformly more efficient]{.blue} than $\tilde{Q}(\theta)$ if 
+$$
+G(\theta) \ge \tilde{G}(\theta) \qquad\text{ for all } \qquad \theta \in \Theta \subseteq \mathbb{R}.
+$$
 :::
 
 - This criterion is appropriate because the [inverse]{.orange} of the [Godambe information]{.blue} $G(\theta)^{-1}$, under regularity conditions, coincides with the [asymptotic variance]{.orange} of $\hat{\theta}$.  
@@ -1643,7 +1661,25 @@ $$
 Godambe information generalizes to the vector case $\theta \in \Theta \subseteq \mathbb{R}^p$ and is defined as $G(\theta) = H(\theta) J(\theta)^{-1}H(\theta)$, sometimes called [sandwich]{.orange} matrix. Optimality results generalize as well.
 :::
 
-## BLUE estimators
+## Linear estimating equations
+
+- Davison's arguments
+
+
+## BLUE estimators I
+
+:::callout-note
+#### Theorem (Gauss-Markov)
+asd
+:::
+
+## BLUE estimators II
+
+:::callout-note
+#### Theorem (Aitken)
+asd
+:::
+
 
 # Asymptotic evaluations
 
