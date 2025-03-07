@@ -195,7 +195,12 @@ window.Quarto = {
   <li><a href="#godambe-efficiency" id="toc-godambe-efficiency" class="nav-link" data-scroll-target="#godambe-efficiency">Godambe efficiency</a></li>
   <li><a href="#godambe-information-of-the-score-function" id="toc-godambe-information-of-the-score-function" class="nav-link" data-scroll-target="#godambe-information-of-the-score-function">Godambe information of the score function</a></li>
   <li><a href="#godambe-efficiency-1" id="toc-godambe-efficiency-1" class="nav-link" data-scroll-target="#godambe-efficiency-1">Godambe efficiency</a></li>
-  <li><a href="#blue-estimators" id="toc-blue-estimators" class="nav-link" data-scroll-target="#blue-estimators">BLUE estimators</a></li>
+  <li><a href="#linear-estimating-equations-i" id="toc-linear-estimating-equations-i" class="nav-link" data-scroll-target="#linear-estimating-equations-i">Linear estimating equations I</a></li>
+  <li><a href="#linear-estimating-equations-ii" id="toc-linear-estimating-equations-ii" class="nav-link" data-scroll-target="#linear-estimating-equations-ii">Linear estimating equations II</a></li>
+  <li><a href="#blue-estimators-i" id="toc-blue-estimators-i" class="nav-link" data-scroll-target="#blue-estimators-i">BLUE estimators I</a></li>
+  <li><a href="#blue-estimators-ii" id="toc-blue-estimators-ii" class="nav-link" data-scroll-target="#blue-estimators-ii">BLUE estimators II</a></li>
+  <li><a href="#blue-estimators-and-unbiased-estimating-equations-i" id="toc-blue-estimators-and-unbiased-estimating-equations-i" class="nav-link" data-scroll-target="#blue-estimators-and-unbiased-estimating-equations-i">BLUE estimators and unbiased estimating equations I</a></li>
+  <li><a href="#blue-estimators-and-unbiased-estimating-equations-ii" id="toc-blue-estimators-and-unbiased-estimating-equations-ii" class="nav-link" data-scroll-target="#blue-estimators-and-unbiased-estimating-equations-ii">BLUE estimators and unbiased estimating equations II</a></li>
   </ul></li>
   <li><a href="#asymptotic-evaluations" id="toc-asymptotic-evaluations" class="nav-link" data-scroll-target="#asymptotic-evaluations">Asymptotic evaluations</a>
   <ul class="collapse">
@@ -1612,14 +1617,14 @@ i(\lambda) = -\mathbb{E}_\lambda\left(\frac{\partial}{\partial \lambda^2}\log{f(
 <section id="cramér-rao-multiparameter-case" class="level2">
 <h2 class="anchored" data-anchor-id="cramér-rao-multiparameter-case">Cramér-Rao, multiparameter case</h2>
 <ul>
-<li><p>The Cramér-Rao theorem naturally extends to the <span class="orange">vector case</span>, that is when <span class="math inline">\Theta \subseteq \mathbb{R}^p</span>.</p></li>
+<li><p>The Cramér-Rao theorem naturally extends to the <span class="orange">vector case</span>, that is, when <span class="math inline">\Theta \subseteq \mathbb{R}^p</span>.</p></li>
 <li><p>The <span class="orange">regularity conditions</span> <span class="blue">C.1</span> and <span class="blue">C.2</span> extend to the vector case, leading to the multiparameter <span class="blue">Bartlett identities</span>: <span class="math display">
 \mathbb{E}_\theta(\ell^*(\theta)) = \bm{0}, \qquad I(\theta) = \mathbb{E}_\theta(\ell^*(\theta)\ell^*(\theta)^T) = \mathbb{E}_\theta\left(- \frac{\partial^2}{\partial \theta \partial \theta^T} \ell(\theta)\right),
-</span> where <span class="math inline">I(\theta)</span> is called <span class="blue">Fisher information matrix</span>, which is <span class="orange">positive definite</span>.</p></li>
-<li><p>Let <span class="math inline">Y_1,\dots,Y_n</span> be an iid sample from <span class="math inline">f(y \mid \theta)\mathrm{d}y</span> satisfying the above regularity conditions, and let <span class="math inline">\Theta \subseteq \mathbb{R}^p</span>. Moreover, let <span class="math inline">\hat{\theta}(\bm{Y})</span> be an <span class="orange">unbiased</span> estimator of <span class="math inline">\theta</span> with finite covariance matrix, then <span class="math display">
+</span> where <span class="math inline">I(\theta)</span> is called the <span class="blue">Fisher information matrix</span>, which is <span class="orange">positive definite</span>.</p></li>
+<li><p>Let <span class="math inline">Y_1,\dots,Y_n</span> be an iid sample from <span class="math inline">f(y \mid \theta)\mathrm{d}y</span> satisfying the above regularity conditions. Moreover, let <span class="math inline">\hat{\theta}(\bm{Y})</span> be an <span class="orange">unbiased</span> estimator of <span class="math inline">\theta</span> with a finite covariance matrix. Then, <span class="math display">
 \text{var}_\theta(\hat{\theta}(\bm{Y})) \ge I(\theta)^{-1}, \quad I(\theta) = n i(\theta), \quad i(\theta) = - \int\frac{\partial^2}{\partial \theta \partial \theta^T} \log f(y \mid \theta)\mathrm{d}y,
 </span> corresponding to the multiparameter Cramér-Rao theorem.</p></li>
-<li><p>Refer to Theorem 6.6, Chap.2 in <span class="citation" data-cites="Lehmann1998">Lehmann and Casella (<a href="#ref-Lehmann1998" role="doc-biblioref">1998</a>)</span> for a proof.</p></li>
+<li><p>Refer to Theorem 6.6, Chap. 2 in <span class="citation" data-cites="Lehmann1998">Lehmann and Casella (<a href="#ref-Lehmann1998" role="doc-biblioref">1998</a>)</span> for a proof.</p></li>
 </ul>
 </section>
 <section id="rao-blackwell" class="level2">
@@ -1778,6 +1783,26 @@ Theorem (Lehmann-Scheffé-Rao-Blackwell, <span class="citation" data-cites="Case
 <div class="no-row-height column-margin column-container"><div id="fn14"><p><sup>14</sup>&nbsp;See Example 6.2.22 of <span class="citation" data-cites="Casella2002">Casella and Berger (<a href="#ref-Casella2002" role="doc-biblioref">2002</a>)</span>. This is also follows from general result of exponential families.</p></div></div></section>
 <section id="rao-blackwell-multiparameter-case" class="level2">
 <h2 class="anchored" data-anchor-id="rao-blackwell-multiparameter-case">Rao-Blackwell, multiparameter case</h2>
+<ul>
+<li><p>Generalizations of Rao-Blakwell theory to the multiparameter case <span class="math inline">\Theta \subseteq \mathbb{R}^p</span> are possible.</p></li>
+<li><p>If one is interested in estimating <span class="math inline">\psi = g(\theta)</span> for some <span class="blue">function</span> <span class="math inline">g: \mathbb{R}^p \to \mathbb{R}</span>, then the previously developed <span class="orange">theory applies almost directly</span>, with minor modifications to the statements.</p></li>
+<li><p>Note that a special case of the above is <span class="math inline">g(\theta) = \theta_j</span>, meaning that the developed theory can be <span class="orange">separately</span> applied to <span class="blue">each coordinate</span> of <span class="math inline">\theta</span>.</p></li>
+</ul>
+<div class="callout callout-style-simple callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Theorem (Rao-Blackwell, <span class="citation" data-cites="Lehmann1998">Lehmann and Casella (<a href="#ref-Lehmann1998" role="doc-biblioref">1998</a>)</span>, Theorem 7.8, Chap. 1)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Let <span class="math inline">\Theta \subseteq \mathbb{R}^p</span>, and let <span class="math inline">\tilde{\theta}(\bm{Y})</span> be an estimator of <span class="math inline">\theta</span> with finite risk <span class="math inline">R(\theta; \tilde{\theta})</span> under a <span class="orange">strictly convex loss</span> function. Moreover, let <span class="math inline">S = s(\bm{Y})</span> be a <span class="blue">sufficient statistic</span> for <span class="math inline">\theta</span>, and set <span class="math inline">\hat{\theta} = \mathbb{E}_\theta(\tilde{\theta}(\bm{Y}) \mid S)</span>. Then, <span class="math display">
+R(\theta; \hat{\theta}) \le R(\theta; \tilde{\theta}),
+</span> unless <span class="math inline">\tilde{\theta} = \hat{\theta}</span> with probability 1.</p>
+</div>
+</div>
 </section>
 </section>
 <section id="alternative-notions-of-optimality" class="level1 page-columns page-full">
@@ -1868,7 +1893,9 @@ G(\theta) := \frac{H(\theta)^2}{J(\theta)}.
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>Let <span class="math inline">Q(\theta)</span> and <span class="math inline">\tilde{Q}(\theta)</span> be two <span class="orange">estimating equations</span> with Godambe information <span class="math inline">G(\theta)</span> and <span class="math inline">\tilde{G}(\theta)</span>. Then <span class="math inline">Q(\theta)</span> is <span class="blue">uniformly more efficient</span> than <span class="math inline">\tilde{Q}(\theta)</span> if <span class="math inline">G(\theta) \ge \tilde{G}(\theta)</span> for all <span class="math inline">\theta \in \Theta \subseteq \mathbb{R}</span>.</p>
+<p>Let <span class="math inline">Q(\theta)</span> and <span class="math inline">\tilde{Q}(\theta)</span> be two <span class="orange">estimating equations</span> with Godambe information <span class="math inline">G(\theta)</span> and <span class="math inline">\tilde{G}(\theta)</span>. Then <span class="math inline">Q(\theta)</span> is <span class="blue">uniformly more efficient</span> than <span class="math inline">\tilde{Q}(\theta)</span> if <span class="math display">
+G(\theta) \ge \tilde{G}(\theta) \qquad\text{ for all } \qquad \theta \in \Theta \subseteq \mathbb{R}.
+</span></p>
 </div>
 </div>
 </div>
@@ -1929,13 +1956,121 @@ Theorem (<span class="citation" data-cites="Godambe1960">Godambe (<a href="#ref-
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>Godambe information generalizes to the vector case <span class="math inline">\theta \in \Theta \subseteq \mathbb{R}^p</span> and is defined as <span class="math inline">G(\theta) = H(\theta) J(\theta)^{-1}H(\theta)</span>, sometimes called <span class="orange">sandwich</span> matrix. Optimality results generalize as well.</p>
+<p>Godambe information generalizes to the vector case <span class="math inline">\theta \in \Theta \subseteq \mathbb{R}^p</span> and is defined as <span class="math inline">G(\theta) = H(\theta) J(\theta)^{-1}H(\theta)^T</span>, sometimes called <span class="orange">sandwich</span> matrix. Optimality results generalize as well.</p>
 </div>
 </div>
 </div>
 </section>
-<section id="blue-estimators" class="level2">
-<h2 class="anchored" data-anchor-id="blue-estimators">BLUE estimators</h2>
+<section id="linear-estimating-equations-i" class="level2">
+<h2 class="anchored" data-anchor-id="linear-estimating-equations-i">Linear estimating equations I</h2>
+<ul>
+<li><p>Let <span class="math inline">Y_1, \dots, Y_n</span> be <span class="blue">independent</span> random variables with <span class="orange">mean</span> <span class="math inline">\mathbb{E}(Y_i) = \mu_i(\theta)</span> and <span class="orange">variance</span> <span class="math inline">\text{var}(Y_i) = V_i(\mu)</span>, depending on a scalar parameter <span class="math inline">\theta \in \Theta \subseteq \mathbb{R}</span>.</p></li>
+<li><p>Suppose the unbiased estimating equation <span class="math inline">Q(\theta)</span> has a <span class="blue">linear form</span>: <span class="math display">
+Q(\theta) = \sum_{i=1}^n q(\theta; Y_i) = \sum_{i=1}^n w_i(\theta)(Y_i - \mu_i(\theta)),
+</span> for some set of positive <span class="orange">weights</span> <span class="math inline">w_i(\theta)</span>. Can we find the <span class="blue">optimal</span> set of weights, according to the <span class="blue">Godambe information</span>?</p></li>
+<li><p>The <span class="blue">sensitivity</span> <span class="math inline">H(\theta)</span> and the <span class="orange">variability</span> <span class="math inline">J(\theta)</span> of <span class="math inline">Q(\theta)</span> are readily available: <span class="math display">
+H(\theta) = \sum_{i=1}^n w_i(\theta)\mu_i(\theta), \qquad J(\theta) = \sum_{i=1}^n w_i^2(\theta) V_i(\theta).
+</span> Therefore, the optimal weights are those that <span class="orange">maximize</span> the <span class="blue">Godambe information</span>: <span class="math display">
+G(\theta) = \frac{\left(\sum_{i=1}^n w_i(\theta)\mu_i(\theta)\right)^2}{\sum_{i=1}^n w_i^2(\theta) V_i(\theta)}.
+</span></p></li>
+</ul>
+</section>
+<section id="linear-estimating-equations-ii" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="linear-estimating-equations-ii">Linear estimating equations II</h2>
+<ul>
+<li>Using Lagrange multipliers, it can be shown<a href="#fn16" class="footnote-ref" id="fnref16" role="doc-noteref"><sup>16</sup></a> that the <span class="orange">optimal weights</span> are <span class="math display">
+w_i(\theta) \propto \frac{\mu_i^*(\theta)}{V_i(\theta)}, \qquad \mu_i^*(\theta) = \frac{\partial}{\partial \theta}\mu(\theta), \qquad i=1,\dots,n,
+</span> which means the following unbiased <span class="orange">linear</span> estimating equation is <span class="blue">Godambe efficient</span>: <span class="math display">
+Q(\theta) = \sum_{i=1}^n \frac{\mu_i^*(\theta)}{V_i(\theta)}(Y_i - \mu_i(\theta)).
+</span></li>
+<li>This optimality property holds for a special class of <span class="blue">linear</span> unbiased estimating equations but does <span class="orange">not</span> make <span class="orange">assumptions</span> of the distribution of <span class="math inline">Y_i</span> other than <span class="math inline">\mu_i(\theta)</span> and <span class="math inline">V_i(\theta)</span>.</li>
+</ul>
+<div class="no-row-height column-margin column-container"><div id="fn16"><p><sup>16</sup>&nbsp;See <span class="citation" data-cites="Davison2003">Davison (<a href="#ref-Davison2003" role="doc-biblioref">2003</a>)</span>, Section 7.2.2, for a proof.</p></div></div><div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Let <span class="math inline">Y_1,\dots,Y_n</span> be independent random variables such that <span class="math inline">\mu_i(\theta) = \lambda e_i</span> and <span class="math inline">V_i(\theta) = \lambda e_i</span>, where <span class="math inline">e_i</span> are <span class="orange">known constants</span> e.g.&nbsp;representing exposure. Then the optimal weights are <span class="math inline">w_i(\theta) = 1</span> and <span class="math inline">\hat{\theta} = \bar{Y}/ \bar{e}</span>. Note the <span class="math inline">Y_i</span> is <span class="blue">not</span> necessarily <span class="blue">Poisson</span>.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="blue-estimators-i" class="level2">
+<h2 class="anchored" data-anchor-id="blue-estimators-i">BLUE estimators I</h2>
+<div class="callout callout-style-simple callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Theorem (Gauss-Markov, <span class="citation" data-cites="Agresti2015">Agresti (<a href="#ref-Agresti2015" role="doc-biblioref">2015</a>)</span>, Section 2.7.1)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Let <span class="math inline">\bm{Y} \in \mathbb{R}^n</span> be a random vector satisfying <span class="math inline">\mathbb{E}(\bm{Y}) = \bm{X}\beta</span> and <span class="math inline">\text{var}(\bm{Y}) = \sigma^2 I_p</span>, where <span class="math inline">\bm{X}</span> is an <span class="math inline">n \times p</span> known matrix with <span class="orange">full rank</span>, <span class="math inline">\beta \in \mathbb{R}^p</span> is an unknown vector, and <span class="math inline">\sigma^2 &gt; 0</span> is an unknown parameter. Then the <span class="blue">best linear unbiased estimator</span> (BLUE) of <span class="math inline">\beta</span> is <span class="math display">
+\hat{\beta} = (\bm{X}^T\bm{X})^{-1}\bm{X}^T\bm{Y}.
+</span> meaning that <span class="math inline">\hat{\beta}</span> is <span class="orange">unbiased</span> and has the <span class="blue">minimum variance</span> among all unbiased linear estimators of <span class="math inline">\beta</span>.</p>
+</div>
+</div>
+<ul>
+<li><p>The Gauss-Markov theorem does not make specific assumptions on the distribution of <span class="math inline">\bm{Y}</span>, only on the <span class="orange">mean</span> and <span class="orange">variance</span>.</p></li>
+<li><p>If we strengthen the assumptions to <span class="math inline">\bm{Y} \sim \textup{N}_p(\bm{X}\beta, \sigma^2 I_p)</span>, then <span class="math inline">\hat{\beta}</span> is the <span class="blue">UMVUE</span> of <span class="math inline">\beta</span> among all estimators, including non-linear ones; see <span class="citation" data-cites="Lehmann1998">Lehmann and Casella (<a href="#ref-Lehmann1998" role="doc-biblioref">1998</a>)</span>, Chap. 3, Sec. 4.</p></li>
+<li><p>As a special case of Gauss-Markov, if <span class="math inline">Y_i</span> are iid with mean <span class="math inline">\mu</span> and variance <span class="math inline">\sigma</span>, then <span class="math inline">\bar{Y}</span> is BLUE.</p></li>
+</ul>
+</section>
+<section id="blue-estimators-ii" class="level2">
+<h2 class="anchored" data-anchor-id="blue-estimators-ii">BLUE estimators II</h2>
+<div class="callout callout-style-simple callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Theorem (Aitken, <span class="citation" data-cites="Agresti2015">Agresti (<a href="#ref-Agresti2015" role="doc-biblioref">2015</a>)</span>, Section 2.7.1)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Let <span class="math inline">\bm{Y} \in \mathbb{R}^n</span> be random vector satisfying <span class="math inline">\mathbb{E}(\bm{Y}) = \bm{X}\beta</span> and <span class="math inline">\text{var}(\bm{Y}) = \Sigma</span>, where <span class="math inline">\bm{X}</span> is <span class="math inline">n \times p</span> known matrix with <span class="orange">full rank</span>, <span class="math inline">\beta \in \mathbb{R}^p</span> an unknown vector, and <span class="math inline">\Sigma</span> an <span class="orange">known</span> covariance matrix. Then the <span class="blue">best linear unbiased estimator</span> (BLUE) of <span class="math inline">\beta</span> is <span class="math display">
+\hat{\beta} = (\bm{X}^T\Sigma \bm{X})^{-1}\bm{X}^T\Sigma^{-1}\bm{Y}.
+</span> corresponding to the <span class="orange">generalized least squares</span> estimator.</p>
+</div>
+</div>
+<ul>
+<li><p>This interesting <span class="blue">generalization</span> of Gauss-Markov is often not applicable in practice, because the covariance matrix <span class="math inline">\Sigma</span> is typically <span class="orange">unknown</span>.</p></li>
+<li><p>When <span class="math inline">\Sigma = \text{diag}(\sigma_1^2,\dots,\sigma_n^2)</span> is <span class="orange">diagonal</span>, i.e.&nbsp;in presence of heteroschedasticity, the Aitken estimator reduces to the <span class="blue">weighted least squares</span> estimator.</p></li>
+<li><p>Moreover, if <span class="math inline">Y_i</span> are independent random variables with mean <span class="math inline">\mu</span> and variance <span class="math inline">\sigma^2_i</span>, then the <span class="orange">weighted mean</span> <span class="math inline">\hat{\mu} = \sum_{i=1}^n w_i Y_i / \sum_{j=1}^n w_j</span> is BLUE, where <span class="math inline">w_i = (1/\sigma_i^2)</span>.</p></li>
+</ul>
+</section>
+<section id="blue-estimators-and-unbiased-estimating-equations-i" class="level2">
+<h2 class="anchored" data-anchor-id="blue-estimators-and-unbiased-estimating-equations-i">BLUE estimators and unbiased estimating equations I</h2>
+<ul>
+<li><p>We discuss here <span class="orange">connections</span> between the <span class="blue">BLUE estimators</span> and the <span class="orange">unbiased estimating equations</span>, aimed at providing a <span class="orange">unified view</span> of these concepts.</p></li>
+<li><p>Under the same assumptions of Gauss-Markov theorem, let us consider: <span class="math display">
+Q(\beta) = \bm{A}^T(\bm{Y} - \bm{X}\beta),
+</span> for some <span class="math inline">n \times p</span> matrix <span class="math inline">\bm{A}</span> having full rank. This is a <span class="orange">linear unbiased</span> estimating equation, and the <span class="blue">optimal</span> choice of <span class="math inline">\bm{A}</span> minimizes the <span class="orange">Godambe information</span>.</p></li>
+<li><p>Solving this estimating equation we obtain to a linear unbiased estimator, which is <span class="math display">
+\hat{\beta} = (\bm{A}^T \bm{X})^{-1}\bm{A}^T \bm{Y}, \qquad \mathbb{E}(\hat{\beta}) = (\bm{A}^T \bm{X})^{-1}\bm{A}^T \bm{X}\beta = \beta.
+</span></p></li>
+<li><p>The <span class="blue">sensitivity</span> and <span class="orange">variability</span> matrices of <span class="math inline">Q(\beta)</span> are <span class="math display">
+J(\beta) = \text{var}(Q(\beta)) = \sigma^2 \bm{A}^T \bm{A}, \qquad H(\beta) = \mathbb{E}\left(-\frac{\partial}{\partial \beta}Q(\beta)\right) = (\bm{A}^T \bm{X})^T.
+</span> Consequently, the <span class="blue">Godambe information</span> is <span class="math inline">G(\beta) =  \sigma^{-2} (\bm{A}^T \bm{X})^T(\bm{A}^T \bm{A})^{-1}(\bm{A}^T \bm{X})^T</span>.</p></li>
+</ul>
+</section>
+<section id="blue-estimators-and-unbiased-estimating-equations-ii" class="level2">
+<h2 class="anchored" data-anchor-id="blue-estimators-and-unbiased-estimating-equations-ii">BLUE estimators and unbiased estimating equations II</h2>
+<ul>
+<li><p>The <span class="orange">optimal</span> choice of <span class="math inline">\bm{A}</span> equivalently minimizes the inverse of the <span class="blue">Godambe information</span>, which after a few algebraic manipulation is equal to <span class="math display">
+G(\beta)^{-1} =  \sigma^2 \left[(\bm{A}^T \bm{X})^{-1}\bm{A}^T\right] \left[(\bm{A}^T \bm{X})^{-1}\bm{A}^T\right]^T.
+</span></p></li>
+<li><p>The key remark is the following: a direct calculation shows that the variance of <span class="math inline">\hat{\beta}</span> is <span class="math display">
+\text{var}(\beta) = \sigma^2 \left[(\bm{A}^T \bm{X})^{-1}\bm{A}^T\right] \left[(\bm{A}^T \bm{X})^{-1}\bm{A}^T\right]^T = G(\beta)^{-1},
+</span> that is, the <span class="orange">variance</span> of <span class="math inline">\hat{\beta}</span> coincides with the inverse of the <span class="blue">Godambe information</span>. This is a consequence of the linearity of <span class="math inline">Q(\beta)</span>, otherwise the property holds only asymptotically.</p></li>
+<li><p>Thus, the same proof of Gauss-Markov theorem can be used to show that the <span class="blue">BLUE estimator</span> is <span class="orange">Godambe efficient</span> and the optimal matrix is <span class="math inline">\bm{A} = \bm{X}</span>, giving <span class="math display">
+\hat{\beta} = (\bm{X}^T\bm{X})^{-1}\bm{X}^T\bm{Y}, \qquad G(\beta) = \frac{1}{\sigma^2}\bm{X}^T\bm{X}.
+</span></p></li>
+<li><p>Moreover, if <span class="math inline">\bm{Y} \sim \textup{N}_p(\bm{X}\beta, \sigma^2 I_p)</span>, then <span class="math inline">G(\beta)</span> also coincides with the <span class="blue">Fisher information</span> <span class="math inline">I(\beta)</span>.</p></li>
+</ul>
 </section>
 </section>
 <section id="asymptotic-evaluations" class="level1">
@@ -2011,6 +2146,9 @@ Theorem (<span class="citation" data-cites="Godambe1960">Godambe (<a href="#ref-
 <section id="references" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="references">References</h2>
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-Agresti2015" class="csl-entry" role="listitem">
+Agresti, A. (2015), <em><span class="nocase">Foundations of Linear and Generalized Linear Models</span></em>, Wiley.
+</div>
 <div id="ref-Casella2002" class="csl-entry" role="listitem">
 Casella, G., and Berger, R. L. (2002), <em><span>Statistical Inference</span></em>, Duxbury.
 </div>

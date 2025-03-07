@@ -1658,28 +1658,119 @@ $$
 - It implies that the [score functions]{.blue} are [optimal]{.orange} (Godambe efficient) among unbiased estimating equations. However, Z-estimators may have appealing [robustness]{.grey} properties. 
 
 :::callout-tip
-Godambe information generalizes to the vector case $\theta \in \Theta \subseteq \mathbb{R}^p$ and is defined as $G(\theta) = H(\theta) J(\theta)^{-1}H(\theta)$, sometimes called [sandwich]{.orange} matrix. Optimality results generalize as well.
+Godambe information generalizes to the vector case $\theta \in \Theta \subseteq \mathbb{R}^p$ and is defined as $G(\theta) = H(\theta) J(\theta)^{-1}H(\theta)^T$, sometimes called [sandwich]{.orange} matrix. Optimality results generalize as well.
 :::
 
-## Linear estimating equations
+## Linear estimating equations I
 
-- Davison's arguments
+- Let $Y_1, \dots, Y_n$ be [independent]{.blue} random variables with [mean]{.orange} $\mathbb{E}(Y_i) = \mu_i(\theta)$ and [variance]{.orange} $\text{var}(Y_i) = V_i(\mu)$, depending on a scalar parameter $\theta \in \Theta \subseteq \mathbb{R}$.
 
+- Suppose the unbiased estimating equation $Q(\theta)$ has a [linear form]{.blue}:
+$$
+  Q(\theta) = \sum_{i=1}^n q(\theta; Y_i) = \sum_{i=1}^n w_i(\theta)(Y_i - \mu_i(\theta)),
+$$
+for some set of positive [weights]{.orange} $w_i(\theta)$. Can we find the [optimal]{.blue} set of weights, according to the [Godambe information]{.blue}?
+
+- The [sensitivity]{.blue} $H(\theta)$ and the [variability]{.orange} $J(\theta)$ of $Q(\theta)$ are readily available:
+$$
+  H(\theta) = \sum_{i=1}^n w_i(\theta)\mu_i(\theta), \qquad J(\theta) = \sum_{i=1}^n w_i^2(\theta) V_i(\theta).
+$$
+Therefore, the optimal weights are those that [maximize]{.orange} the [Godambe information]{.blue}:
+$$
+G(\theta) = \frac{\left(\sum_{i=1}^n w_i(\theta)\mu_i(\theta)\right)^2}{\sum_{i=1}^n w_i^2(\theta) V_i(\theta)}.
+$$
+
+## Linear estimating equations II
+
+- Using Lagrange multipliers, it can be shown[^best_linear] that the [optimal weights]{.orange} are
+$$
+  w_i(\theta) \propto \frac{\mu_i^*(\theta)}{V_i(\theta)}, \qquad \mu_i^*(\theta) = \frac{\partial}{\partial \theta}\mu(\theta), \qquad i=1,\dots,n,
+$$
+which means the following unbiased [linear]{.orange} estimating equation is [Godambe efficient]{.blue}:
+$$
+Q(\theta) = \sum_{i=1}^n \frac{\mu_i^*(\theta)}{V_i(\theta)}(Y_i - \mu_i(\theta)).
+$$
+- This optimality property holds for a special class of [linear]{.blue} unbiased estimating equations but does [not]{.orange} make [assumptions]{.orange} of the distribution of $Y_i$ other than $\mu_i(\theta)$ and $V_i(\theta)$.
+
+::: callout-tip
+Let $Y_1,\dots,Y_n$ be independent random variables such that $\mu_i(\theta) = \lambda e_i$ and $V_i(\theta) = \lambda e_i$, where $e_i$ are [known constants]{.orange} e.g. representing exposure. Then the optimal weights are $w_i(\theta) = 1$ and $\hat{\theta} = \bar{Y}/ \bar{e}$. Note the $Y_i$ is [not]{.blue} necessarily [Poisson]{.blue}. 
+:::
+
+[^best_linear]: See @Davison2003, Section 7.2.2, for a proof.
 
 ## BLUE estimators I
 
-:::callout-note
-#### Theorem (Gauss-Markov)
-asd
+:::callout-warning
+#### Theorem (Gauss-Markov, @Agresti2015, Section 2.7.1)
+Let $\bm{Y} \in \mathbb{R}^n$ be a random vector satisfying $\mathbb{E}(\bm{Y}) = \bm{X}\beta$ and $\text{var}(\bm{Y}) = \sigma^2 I_p$, where $\bm{X}$ is an $n \times p$ known matrix with [full rank]{.orange}, $\beta \in \mathbb{R}^p$ is an unknown vector, and $\sigma^2 > 0$ is an unknown parameter. Then the [best linear unbiased estimator]{.blue} (BLUE) of $\beta$ is
+$$
+\hat{\beta} = (\bm{X}^T\bm{X})^{-1}\bm{X}^T\bm{Y}.
+$$
+meaning that $\hat{\beta}$ is [unbiased]{.orange} and has the [minimum variance]{.blue} among all unbiased linear estimators of $\beta$.
 :::
+
+- The Gauss-Markov theorem does not make specific assumptions on the distribution of $\bm{Y}$, only on the [mean]{.orange} and [variance]{.orange}.
+
+- If we strengthen the assumptions to $\bm{Y} \sim \textup{N}_p(\bm{X}\beta, \sigma^2 I_p)$, then $\hat{\beta}$ is the [UMVUE]{.blue} of $\beta$ among all estimators, including non-linear ones; see @Lehmann1998, Chap. 3, Sec. 4. 
+
+- As a special case of Gauss-Markov, if $Y_i$ are iid with mean $\mu$ and variance $\sigma$, then $\bar{Y}$ is BLUE. 
 
 ## BLUE estimators II
 
-:::callout-note
-#### Theorem (Aitken)
-asd
+:::callout-warning
+#### Theorem (Aitken, @Agresti2015, Section 2.7.1)
+Let $\bm{Y} \in \mathbb{R}^n$ be random vector satisfying $\mathbb{E}(\bm{Y}) = \bm{X}\beta$ and $\text{var}(\bm{Y}) = \Sigma$, where $\bm{X}$ is $n \times p$ known matrix with [full rank]{.orange},  $\beta \in \mathbb{R}^p$ an unknown vector, and $\Sigma$ an [known]{.orange} covariance matrix. Then the [best linear unbiased estimator]{.blue} (BLUE) of $\beta$ is $$
+\hat{\beta} = (\bm{X}^T\Sigma \bm{X})^{-1}\bm{X}^T\Sigma^{-1}\bm{Y}.
+$$
+corresponding to the [generalized least squares]{.orange} estimator.
 :::
 
+- This interesting [generalization]{.blue} of Gauss-Markov is often not applicable in practice, because the covariance matrix $\Sigma$ is typically [unknown]{.orange}.
+
+- When $\Sigma = \text{diag}(\sigma_1^2,\dots,\sigma_n^2)$ is [diagonal]{.orange}, i.e. in presence of heteroschedasticity, the Aitken estimator reduces to the [weighted least squares]{.blue} estimator.
+
+- Moreover, if $Y_i$ are independent random variables with mean $\mu$ and variance $\sigma^2_i$, then the [weighted mean]{.orange} $\hat{\mu} = \sum_{i=1}^n w_i Y_i / \sum_{j=1}^n w_j$ is BLUE, where $w_i = (1/\sigma_i^2)$.
+
+## BLUE estimators and unbiased estimating equations I
+
+- We discuss here [connections]{.orange} between the [BLUE estimators]{.blue} and the [unbiased estimating equations]{.orange}, aimed at providing a [unified view]{.orange} of these concepts.
+
+- Under the same assumptions of Gauss-Markov theorem, let us consider:
+$$
+Q(\beta) = \bm{A}^T(\bm{Y} - \bm{X}\beta), 
+$$
+for some $n \times p$ matrix $\bm{A}$ having full rank. This is a [linear unbiased]{.orange} estimating equation, and the [optimal]{.blue} choice of $\bm{A}$ minimizes the [Godambe information]{.orange}. 
+
+- Solving this estimating equation we obtain to a linear unbiased estimator, which is
+$$
+\hat{\beta} = (\bm{A}^T \bm{X})^{-1}\bm{A}^T \bm{Y}, \qquad \mathbb{E}(\hat{\beta}) = (\bm{A}^T \bm{X})^{-1}\bm{A}^T \bm{X}\beta = \beta.
+$$
+
+- The [sensitivity]{.blue} and [variability]{.orange} matrices of $Q(\beta)$ are
+$$
+J(\beta) = \text{var}(Q(\beta)) = \sigma^2 \bm{A}^T \bm{A}, \qquad H(\beta) = \mathbb{E}\left(-\frac{\partial}{\partial \beta}Q(\beta)\right) = (\bm{A}^T \bm{X})^T.
+$$
+Consequently, the [Godambe information]{.blue} is $G(\beta) =  \sigma^{-2} (\bm{A}^T \bm{X})^T(\bm{A}^T \bm{A})^{-1}(\bm{A}^T \bm{X})^T$.
+
+## BLUE estimators and unbiased estimating equations II
+
+- The [optimal]{.orange} choice of $\bm{A}$ equivalently minimizes the inverse of the [Godambe information]{.blue}, which after a few algebraic manipulation is equal to
+$$
+G(\beta)^{-1} =  \sigma^2 \left[(\bm{A}^T \bm{X})^{-1}\bm{A}^T\right] \left[(\bm{A}^T \bm{X})^{-1}\bm{A}^T\right]^T.
+$$
+
+- The key remark is the following: a direct calculation shows that the variance of $\hat{\beta}$ is
+$$
+\text{var}(\beta) = \sigma^2 \left[(\bm{A}^T \bm{X})^{-1}\bm{A}^T\right] \left[(\bm{A}^T \bm{X})^{-1}\bm{A}^T\right]^T = G(\beta)^{-1},
+$$
+that is, the [variance]{.orange} of $\hat{\beta}$ coincides with the inverse of the [Godambe information]{.blue}. This is a consequence of the linearity of $Q(\beta)$, otherwise the property holds only asymptotically. 
+
+- Thus, the same proof of Gauss-Markov theorem can be used to show that the [BLUE estimator]{.blue} is [Godambe efficient]{.orange} and the optimal matrix is $\bm{A} = \bm{X}$, giving
+$$
+\hat{\beta} = (\bm{X}^T\bm{X})^{-1}\bm{X}^T\bm{Y}, \qquad G(\beta) = \frac{1}{\sigma^2}\bm{X}^T\bm{X}.
+$$
+
+- Moreover, if  $\bm{Y} \sim \textup{N}_p(\bm{X}\beta, \sigma^2 I_p)$, then $G(\beta)$ also coincides with the [Fisher information]{.blue} $I(\beta)$. 
 
 # Asymptotic evaluations
 

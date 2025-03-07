@@ -1888,42 +1888,112 @@ G(\theta) =  I(\theta),
 <div class="callout callout-tip no-icon callout-style-simple">
 <div class="callout-body">
 <div class="callout-content">
-<p>Godambe information generalizes to the vector case <span class="math inline">\theta \in \Theta \subseteq \mathbb{R}^p</span> and is defined as <span class="math inline">G(\theta) = H(\theta) J(\theta)^{-1}H(\theta)</span>, sometimes called <span class="orange">sandwich</span> matrix. Optimality results generalize as well.</p>
+<p>Godambe information generalizes to the vector case <span class="math inline">\theta \in \Theta \subseteq \mathbb{R}^p</span> and is defined as <span class="math inline">G(\theta) = H(\theta) J(\theta)^{-1}H(\theta)^T</span>, sometimes called <span class="orange">sandwich</span> matrix. Optimality results generalize as well.</p>
 </div>
 </div>
 </div>
 </section>
-<section id="linear-estimating-equations" class="slide level2 center">
-<h2>Linear estimating equations</h2>
+<section id="linear-estimating-equations-i" class="slide level2 center">
+<h2>Linear estimating equations I</h2>
 <ul>
-<li>Davison’s arguments</li>
+<li><p>Let <span class="math inline">Y_1, \dots, Y_n</span> be <span class="blue">independent</span> random variables with <span class="orange">mean</span> <span class="math inline">\mathbb{E}(Y_i) = \mu_i(\theta)</span> and <span class="orange">variance</span> <span class="math inline">\text{var}(Y_i) = V_i(\mu)</span>, depending on a scalar parameter <span class="math inline">\theta \in \Theta \subseteq \mathbb{R}</span>.</p></li>
+<li><p>Suppose the unbiased estimating equation <span class="math inline">Q(\theta)</span> has a <span class="blue">linear form</span>: <span class="math display">
+Q(\theta) = \sum_{i=1}^n q(\theta; Y_i) = \sum_{i=1}^n w_i(\theta)(Y_i - \mu_i(\theta)),
+</span> for some set of positive <span class="orange">weights</span> <span class="math inline">w_i(\theta)</span>. Can we find the <span class="blue">optimal</span> set of weights, according to the <span class="blue">Godambe information</span>?</p></li>
+<li><p>The <span class="blue">sensitivity</span> <span class="math inline">H(\theta)</span> and the <span class="orange">variability</span> <span class="math inline">J(\theta)</span> of <span class="math inline">Q(\theta)</span> are readily available: <span class="math display">
+H(\theta) = \sum_{i=1}^n w_i(\theta)\mu_i(\theta), \qquad J(\theta) = \sum_{i=1}^n w_i^2(\theta) V_i(\theta).
+</span> Therefore, the optimal weights are those that <span class="orange">maximize</span> the <span class="blue">Godambe information</span>: <span class="math display">
+G(\theta) = \frac{\left(\sum_{i=1}^n w_i(\theta)\mu_i(\theta)\right)^2}{\sum_{i=1}^n w_i^2(\theta) V_i(\theta)}.
+</span></p></li>
 </ul>
 </section>
+<section id="linear-estimating-equations-ii" class="slide level2 center">
+<h2>Linear estimating equations II</h2>
+<ul>
+<li>Using Lagrange multipliers, it can be shown<sup>1</sup> that the <span class="orange">optimal weights</span> are <span class="math display">
+w_i(\theta) \propto \frac{\mu_i^*(\theta)}{V_i(\theta)}, \qquad \mu_i^*(\theta) = \frac{\partial}{\partial \theta}\mu(\theta), \qquad i=1,\dots,n,
+</span> which means the following unbiased <span class="orange">linear</span> estimating equation is <span class="blue">Godambe efficient</span>: <span class="math display">
+Q(\theta) = \sum_{i=1}^n \frac{\mu_i^*(\theta)}{V_i(\theta)}(Y_i - \mu_i(\theta)).
+</span></li>
+<li>This optimality property holds for a special class of <span class="blue">linear</span> unbiased estimating equations but does <span class="orange">not</span> make <span class="orange">assumptions</span> of the distribution of <span class="math inline">Y_i</span> other than <span class="math inline">\mu_i(\theta)</span> and <span class="math inline">V_i(\theta)</span>.</li>
+</ul>
+<div class="callout callout-tip no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<p>Let <span class="math inline">Y_1,\dots,Y_n</span> be independent random variables such that <span class="math inline">\mu_i(\theta) = \lambda e_i</span> and <span class="math inline">V_i(\theta) = \lambda e_i</span>, where <span class="math inline">e_i</span> are <span class="orange">known constants</span> e.g.&nbsp;representing exposure. Then the optimal weights are <span class="math inline">w_i(\theta) = 1</span> and <span class="math inline">\hat{\theta} = \bar{Y}/ \bar{e}</span>. Note the <span class="math inline">Y_i</span> is <span class="blue">not</span> necessarily <span class="blue">Poisson</span>.</p>
+</div>
+</div>
+</div>
+<aside><ol class="aside-footnotes"><li id="fn16"><p>See <span class="citation" data-cites="Davison2003">Davison (<a href="#/references" role="doc-biblioref" onclick="">2003</a>)</span>, Section 7.2.2, for a proof.</p></li></ol></aside></section>
 <section id="blue-estimators-i" class="slide level2 center">
 <h2>BLUE estimators I</h2>
-<div class="callout callout-note no-icon callout-titled callout-style-simple">
+<div class="callout callout-warning no-icon callout-titled callout-style-simple">
 <div class="callout-body">
 <div class="callout-title">
-<p><strong>Theorem (Gauss-Markov)</strong></p>
+<p><strong>Theorem (Gauss-Markov, <span class="citation" data-cites="Agresti2015">Agresti (<a href="#/references" role="doc-biblioref" onclick="">2015</a>)</span>, Section 2.7.1)</strong></p>
 </div>
 <div class="callout-content">
-<p>asd</p>
+<p>Let <span class="math inline">\bm{Y} \in \mathbb{R}^n</span> be a random vector satisfying <span class="math inline">\mathbb{E}(\bm{Y}) = \bm{X}\beta</span> and <span class="math inline">\text{var}(\bm{Y}) = \sigma^2 I_p</span>, where <span class="math inline">\bm{X}</span> is an <span class="math inline">n \times p</span> known matrix with <span class="orange">full rank</span>, <span class="math inline">\beta \in \mathbb{R}^p</span> is an unknown vector, and <span class="math inline">\sigma^2 &gt; 0</span> is an unknown parameter. Then the <span class="blue">best linear unbiased estimator</span> (BLUE) of <span class="math inline">\beta</span> is <span class="math display">
+\hat{\beta} = (\bm{X}^T\bm{X})^{-1}\bm{X}^T\bm{Y}.
+</span> meaning that <span class="math inline">\hat{\beta}</span> is <span class="orange">unbiased</span> and has the <span class="blue">minimum variance</span> among all unbiased linear estimators of <span class="math inline">\beta</span>.</p>
 </div>
 </div>
 </div>
+<ul>
+<li><p>The Gauss-Markov theorem does not make specific assumptions on the distribution of <span class="math inline">\bm{Y}</span>, only on the <span class="orange">mean</span> and <span class="orange">variance</span>.</p></li>
+<li><p>If we strengthen the assumptions to <span class="math inline">\bm{Y} \sim \textup{N}_p(\bm{X}\beta, \sigma^2 I_p)</span>, then <span class="math inline">\hat{\beta}</span> is the <span class="blue">UMVUE</span> of <span class="math inline">\beta</span> among all estimators, including non-linear ones; see <span class="citation" data-cites="Lehmann1998">Lehmann and Casella (<a href="#/references" role="doc-biblioref" onclick="">1998</a>)</span>, Chap. 3, Sec. 4.</p></li>
+<li><p>As a special case of Gauss-Markov, if <span class="math inline">Y_i</span> are iid with mean <span class="math inline">\mu</span> and variance <span class="math inline">\sigma</span>, then <span class="math inline">\bar{Y}</span> is BLUE.</p></li>
+</ul>
 </section>
 <section id="blue-estimators-ii" class="slide level2 center">
 <h2>BLUE estimators II</h2>
-<div class="callout callout-note no-icon callout-titled callout-style-simple">
+<div class="callout callout-warning no-icon callout-titled callout-style-simple">
 <div class="callout-body">
 <div class="callout-title">
-<p><strong>Theorem (Aitken)</strong></p>
+<p><strong>Theorem (Aitken, <span class="citation" data-cites="Agresti2015">Agresti (<a href="#/references" role="doc-biblioref" onclick="">2015</a>)</span>, Section 2.7.1)</strong></p>
 </div>
 <div class="callout-content">
-<p>asd</p>
+<p>Let <span class="math inline">\bm{Y} \in \mathbb{R}^n</span> be random vector satisfying <span class="math inline">\mathbb{E}(\bm{Y}) = \bm{X}\beta</span> and <span class="math inline">\text{var}(\bm{Y}) = \Sigma</span>, where <span class="math inline">\bm{X}</span> is <span class="math inline">n \times p</span> known matrix with <span class="orange">full rank</span>, <span class="math inline">\beta \in \mathbb{R}^p</span> an unknown vector, and <span class="math inline">\Sigma</span> an <span class="orange">known</span> covariance matrix. Then the <span class="blue">best linear unbiased estimator</span> (BLUE) of <span class="math inline">\beta</span> is <span class="math display">
+\hat{\beta} = (\bm{X}^T\Sigma \bm{X})^{-1}\bm{X}^T\Sigma^{-1}\bm{Y}.
+</span> corresponding to the <span class="orange">generalized least squares</span> estimator.</p>
 </div>
 </div>
 </div>
+<ul>
+<li><p>This interesting <span class="blue">generalization</span> of Gauss-Markov is often not applicable in practice, because the covariance matrix <span class="math inline">\Sigma</span> is typically <span class="orange">unknown</span>.</p></li>
+<li><p>When <span class="math inline">\Sigma = \text{diag}(\sigma_1^2,\dots,\sigma_n^2)</span> is <span class="orange">diagonal</span>, i.e.&nbsp;in presence of heteroschedasticity, the Aitken estimator reduces to the <span class="blue">weighted least squares</span> estimator.</p></li>
+<li><p>Moreover, if <span class="math inline">Y_i</span> are independent random variables with mean <span class="math inline">\mu</span> and variance <span class="math inline">\sigma^2_i</span>, then the <span class="orange">weighted mean</span> <span class="math inline">\hat{\mu} = \sum_{i=1}^n w_i Y_i / \sum_{j=1}^n w_j</span> is BLUE, where <span class="math inline">w_i = (1/\sigma_i^2)</span>.</p></li>
+</ul>
+</section>
+<section id="blue-estimators-and-unbiased-estimating-equations-i" class="slide level2 center">
+<h2>BLUE estimators and unbiased estimating equations I</h2>
+<ul>
+<li><p>We discuss here <span class="orange">connections</span> between the <span class="blue">BLUE estimators</span> and the <span class="orange">unbiased estimating equations</span>, aimed at providing a <span class="orange">unified view</span> of these concepts.</p></li>
+<li><p>Under the same assumptions of Gauss-Markov theorem, let us consider: <span class="math display">
+Q(\beta) = \bm{A}^T(\bm{Y} - \bm{X}\beta),
+</span> for some <span class="math inline">n \times p</span> matrix <span class="math inline">\bm{A}</span> having full rank. This is a <span class="orange">linear unbiased</span> estimating equation, and the <span class="blue">optimal</span> choice of <span class="math inline">\bm{A}</span> minimizes the <span class="orange">Godambe information</span>.</p></li>
+<li><p>Solving this estimating equation we obtain to a linear unbiased estimator, which is <span class="math display">
+\hat{\beta} = (\bm{A}^T \bm{X})^{-1}\bm{A}^T \bm{Y}, \qquad \mathbb{E}(\hat{\beta}) = (\bm{A}^T \bm{X})^{-1}\bm{A}^T \bm{X}\beta = \beta.
+</span></p></li>
+<li><p>The <span class="blue">sensitivity</span> and <span class="orange">variability</span> matrices of <span class="math inline">Q(\beta)</span> are <span class="math display">
+J(\beta) = \text{var}(Q(\beta)) = \sigma^2 \bm{A}^T \bm{A}, \qquad H(\beta) = \mathbb{E}\left(-\frac{\partial}{\partial \beta}Q(\beta)\right) = (\bm{A}^T \bm{X})^T.
+</span> Consequently, the <span class="blue">Godambe information</span> is <span class="math inline">G(\beta) =  \sigma^{-2} (\bm{A}^T \bm{X})^T(\bm{A}^T \bm{A})^{-1}(\bm{A}^T \bm{X})^T</span>.</p></li>
+</ul>
+</section>
+<section id="blue-estimators-and-unbiased-estimating-equations-ii" class="slide level2 center">
+<h2>BLUE estimators and unbiased estimating equations II</h2>
+<ul>
+<li><p>The <span class="orange">optimal</span> choice of <span class="math inline">\bm{A}</span> equivalently minimizes the inverse of the <span class="blue">Godambe information</span>, which after a few algebraic manipulation is equal to <span class="math display">
+G(\beta)^{-1} =  \sigma^2 \left[(\bm{A}^T \bm{X})^{-1}\bm{A}^T\right] \left[(\bm{A}^T \bm{X})^{-1}\bm{A}^T\right]^T.
+</span></p></li>
+<li><p>The key remark is the following: a direct calculation shows that the variance of <span class="math inline">\hat{\beta}</span> is <span class="math display">
+\text{var}(\beta) = \sigma^2 \left[(\bm{A}^T \bm{X})^{-1}\bm{A}^T\right] \left[(\bm{A}^T \bm{X})^{-1}\bm{A}^T\right]^T = G(\beta)^{-1},
+</span> that is, the <span class="orange">variance</span> of <span class="math inline">\hat{\beta}</span> coincides with the inverse of the <span class="blue">Godambe information</span>. This is a consequence of the linearity of <span class="math inline">Q(\beta)</span>, otherwise the property holds only asymptotically.</p></li>
+<li><p>Thus, the same proof of Gauss-Markov theorem can be used to show that the <span class="blue">BLUE estimator</span> is <span class="orange">Godambe efficient</span> and the optimal matrix is <span class="math inline">\bm{A} = \bm{X}</span>, giving <span class="math display">
+\hat{\beta} = (\bm{X}^T\bm{X})^{-1}\bm{X}^T\bm{Y}, \qquad G(\beta) = \frac{1}{\sigma^2}\bm{X}^T\bm{X}.
+</span></p></li>
+<li><p>Moreover, if <span class="math inline">\bm{Y} \sim \textup{N}_p(\bm{X}\beta, \sigma^2 I_p)</span>, then <span class="math inline">G(\beta)</span> also coincides with the <span class="blue">Fisher information</span> <span class="math inline">I(\beta)</span>.</p></li>
+</ul>
 </section></section>
 <section>
 <section id="asymptotic-evaluations" class="title-slide slide level1 center">
@@ -2005,6 +2075,9 @@ G(\theta) =  I(\theta),
 <section id="references" class="slide level2 unnumbered smaller scrollable">
 <h2>References</h2>
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-Agresti2015" class="csl-entry" role="listitem">
+Agresti, A. (2015), <em><span class="nocase">Foundations of Linear and Generalized Linear Models</span></em>, Wiley.
+</div>
 <div id="ref-Casella2002" class="csl-entry" role="listitem">
 Casella, G., and Berger, R. L. (2002), <em><span>Statistical Inference</span></em>, Duxbury.
 </div>
