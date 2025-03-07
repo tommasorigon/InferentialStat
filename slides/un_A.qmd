@@ -1776,9 +1776,13 @@ $$
 
 ## Consistency and asymptotic normality
 
+- Introduction to main notions
+
 ## The "regularity conditions"
 
-## Asymptotics for the MLE
+## Consistency for the MLE
+
+## Asymptotic normality for the MLE
 
 ## Asymptotics for unbiased estimating equations
 
@@ -1786,9 +1790,13 @@ $$
 
 # Robustness
 
-## Example: binomial best unbiased estimation
-
 ## Maximum likelihood under a misspecified model
+
+## Re-interpreting M-estimators and Z-estimators
+
+## Example: Huber estimators
+
+## Example: linear models with misspecified variance
 
 # References and study material
 
