@@ -43,7 +43,7 @@ format:
     code-fold: false
     code-summary: "Show the code"
     fig-dpi: 150
-    toc-location: left
+    toc-location: right
     highlight-style: github
 editor: 
   markdown: 
@@ -1774,9 +1774,43 @@ $$
 
 # Asymptotic evaluations
 
-## Consistency and asymptotic normality
+## Asymptotic evaluations: informal intro
 
-- Introduction to main notions
+- Asymptotic evaluations of estimators are taught in basic courses of inferential statistics. We focus on two main properties: [consistency]{.blue} and [asymptotic normality]{.orange}.  
+
+- An estimator $\hat{\theta}_n$ is [consistent]{.orange} if it converges [in probability]{.blue} to the true value $\theta$ as the sample size increases, i.e., $\hat{\theta}_n \overset{p}{\longrightarrow} \theta$ as $n\rightarrow \infty$. Classical [sufficient conditions]{.blue} are given below.
+
+:::callout-warning
+#### Theorem (@Casella2002, Theorem 10.1.3)
+Let $\Theta \subseteq \mathbb{R}$ and $\hat{\theta}_n$ be a sequence of estimators such that the [asymptotic bias]{.orange} and [variance]{.blue} are zero, that is for every $\theta \in \Theta$
+$$
+\lim_{n\to\infty}\text{bias}_\theta(\hat{\theta}_n)=0, \qquad \lim_{n\to\infty}\text{var}_\theta(\hat{\theta}_n)=0.
+$$
+Then $\hat{\theta}_n$ is a [consistent estimator]{.blue} of $\theta$.
+:::
+
+- Checking this condition case-by-case is difficult. Instead, we seek [general sufficient conditions]{.blue} to establish the consistency of broad estimator classes, including [maximum likelihood]{.orange}.
+
+## Asymptotic evaluations: informal intro
+
+- The [asymptotic normality]{.orange} of an estimator $\hat{\theta}_n$ is a stronger property than consistency, implying that the estimator is [normally distributed]{.blue} around the true value $\theta$ as the sample size increases.
+
+- Let $\Theta \subseteq \mathbb{R}$ and let $\hat{\theta}_n$ be a sequence of estimators. Under "regularity conditions":
+$$
+\sqrt{n}(\hat{\theta}_n - \theta) \overset{d}{\longrightarrow} \text{N}(0, v(\theta)^{-1}), \qquad n \rightarrow \infty,
+$$
+where $v(\theta)^{-1}$ is the so-called [asymptotic variance]{.blue}.
+
+- If $\hat{\theta}_n$ is the [maximum likelihood]{.orange}, then under regularity conditions $n v(\theta)$ equals the [Fisher information]{.orange} $I(\theta) = n i(\theta)$ and the [asymptotic variance]{.blue} is $i(\theta)^{-1}$. 
+
+:::callout-tip
+In regular estimation problems, the maximum likelihood estimator $\hat{\theta}$ is [asymptotically efficient]{.orange}, that is, for $n$ large enough, its variance attains the Cramér-Rao lower bound. Informally, 
+$$
+\hat{\theta} \:\dot{\sim}\: \text{N}(\theta, (n i(\theta))^{-1}).
+$$
+:::
+
+- [Remark]{.orange}: there exist infinitely many asymptotically efficient estimators.
 
 ## The "regularity conditions"
 
@@ -1787,6 +1821,8 @@ $$
 ## Asymptotics for unbiased estimating equations
 
 ## Asymptotic bias and Firth corrections
+
+- First order and second-order efficienct, corrections
 
 # Robustness
 

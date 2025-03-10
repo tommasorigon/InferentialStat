@@ -2000,10 +2000,48 @@ G(\beta)^{-1} =  \sigma^2 \left[(\bm{A}^T \bm{X})^{-1}\bm{A}^T\right] \left[(\bm
 <h1>Asymptotic evaluations</h1>
 
 </section>
-<section id="consistency-and-asymptotic-normality" class="slide level2 center">
-<h2>Consistency and asymptotic normality</h2>
+<section id="asymptotic-evaluations-informal-intro" class="slide level2 center">
+<h2>Asymptotic evaluations: informal intro</h2>
 <ul>
-<li>Introduction to main notions</li>
+<li><p>Asymptotic evaluations of estimators are taught in basic courses of inferential statistics. We focus on two main properties: <span class="blue">consistency</span> and <span class="orange">asymptotic normality</span>.</p></li>
+<li><p>An estimator <span class="math inline">\hat{\theta}_n</span> is <span class="orange">consistent</span> if it converges <span class="blue">in probability</span> to the true value <span class="math inline">\theta</span> as the sample size increases, i.e., <span class="math inline">\hat{\theta}_n \overset{p}{\longrightarrow} \theta</span> as <span class="math inline">n\rightarrow \infty</span>. Classical <span class="blue">sufficient conditions</span> are given below.</p></li>
+</ul>
+<div class="callout callout-warning no-icon callout-titled callout-style-simple">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Theorem (<span class="citation" data-cites="Casella2002">Casella and Berger (<a href="#/references" role="doc-biblioref" onclick="">2002</a>)</span>, Theorem 10.1.3)</strong></p>
+</div>
+<div class="callout-content">
+<p>Let <span class="math inline">\Theta \subseteq \mathbb{R}</span> and <span class="math inline">\hat{\theta}_n</span> be a sequence of estimators such that the <span class="orange">asymptotic bias</span> and <span class="blue">variance</span> are zero, that is for every <span class="math inline">\theta \in \Theta</span> <span class="math display">
+\lim_{n\to\infty}\text{bias}_\theta(\hat{\theta}_n)=0, \qquad \lim_{n\to\infty}\text{var}_\theta(\hat{\theta}_n)=0.
+</span> Then <span class="math inline">\hat{\theta}_n</span> is a <span class="blue">consistent estimator</span> of <span class="math inline">\theta</span>.</p>
+</div>
+</div>
+</div>
+<ul>
+<li>Checking this condition case-by-case is difficult. Instead, we seek <span class="blue">general sufficient conditions</span> to establish the consistency of broad estimator classes, including <span class="orange">maximum likelihood</span>.</li>
+</ul>
+</section>
+<section id="asymptotic-evaluations-informal-intro-1" class="slide level2 center">
+<h2>Asymptotic evaluations: informal intro</h2>
+<ul>
+<li><p>The <span class="orange">asymptotic normality</span> of an estimator <span class="math inline">\hat{\theta}_n</span> is a stronger property than consistency, implying that the estimator is <span class="blue">normally distributed</span> around the true value <span class="math inline">\theta</span> as the sample size increases.</p></li>
+<li><p>Let <span class="math inline">\Theta \subseteq \mathbb{R}</span> and let <span class="math inline">\hat{\theta}_n</span> be a sequence of estimators. Under “regularity conditions”: <span class="math display">
+\sqrt{n}(\hat{\theta}_n - \theta) \overset{d}{\longrightarrow} \text{N}(0, v(\theta)^{-1}), \qquad n \rightarrow \infty,
+</span> where <span class="math inline">v(\theta)^{-1}</span> is the so-called <span class="blue">asymptotic variance</span>.</p></li>
+<li><p>If <span class="math inline">\hat{\theta}_n</span> is the <span class="orange">maximum likelihood</span>, then under regularity conditions <span class="math inline">n v(\theta)</span> equals the <span class="orange">Fisher information</span> <span class="math inline">I(\theta) = n i(\theta)</span> and the <span class="blue">asymptotic variance</span> is <span class="math inline">i(\theta)^{-1}</span>.</p></li>
+</ul>
+<div class="callout callout-tip no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<p>In regular estimation problems, the maximum likelihood estimator <span class="math inline">\hat{\theta}</span> is <span class="orange">asymptotically efficient</span>, that is, for <span class="math inline">n</span> large enough, its variance attains the Cramér-Rao lower bound. Informally, <span class="math display">
+\hat{\theta} \:\dot{\sim}\: \text{N}(\theta, (n i(\theta))^{-1}).
+</span></p>
+</div>
+</div>
+</div>
+<ul>
+<li><span class="orange">Remark</span>: there exist infinitely many asymptotically efficient estimators.</li>
 </ul>
 </section>
 <section id="the-regularity-conditions" class="slide level2 center">
@@ -2020,6 +2058,9 @@ G(\beta)^{-1} =  \sigma^2 \left[(\bm{A}^T \bm{X})^{-1}\bm{A}^T\right] \left[(\bm
 </section>
 <section id="asymptotic-bias-and-firth-corrections" class="slide level2 center">
 <h2>Asymptotic bias and Firth corrections</h2>
+<ul>
+<li>First order and second-order efficienct, corrections</li>
+</ul>
 </section></section>
 <section>
 <section id="robustness" class="title-slide slide level1 center">

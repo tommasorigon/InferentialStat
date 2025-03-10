@@ -104,8 +104,8 @@ window.Quarto = {
 
 <body>
 
-<div id="quarto-content" class="page-columns page-rows-contents page-layout-full toc-left">
-<div id="quarto-sidebar-toc-left" class="sidebar toc-left">
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-full">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
   <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Table of contents</h2>
    
@@ -204,7 +204,8 @@ window.Quarto = {
   </ul></li>
   <li><a href="#asymptotic-evaluations" id="toc-asymptotic-evaluations" class="nav-link" data-scroll-target="#asymptotic-evaluations">Asymptotic evaluations</a>
   <ul class="collapse">
-  <li><a href="#consistency-and-asymptotic-normality" id="toc-consistency-and-asymptotic-normality" class="nav-link" data-scroll-target="#consistency-and-asymptotic-normality">Consistency and asymptotic normality</a></li>
+  <li><a href="#asymptotic-evaluations-informal-intro" id="toc-asymptotic-evaluations-informal-intro" class="nav-link" data-scroll-target="#asymptotic-evaluations-informal-intro">Asymptotic evaluations: informal intro</a></li>
+  <li><a href="#asymptotic-evaluations-informal-intro-1" id="toc-asymptotic-evaluations-informal-intro-1" class="nav-link" data-scroll-target="#asymptotic-evaluations-informal-intro-1">Asymptotic evaluations: informal intro</a></li>
   <li><a href="#the-regularity-conditions" id="toc-the-regularity-conditions" class="nav-link" data-scroll-target="#the-regularity-conditions">The “regularity conditions”</a></li>
   <li><a href="#consistency-for-the-mle" id="toc-consistency-for-the-mle" class="nav-link" data-scroll-target="#consistency-for-the-mle">Consistency for the MLE</a></li>
   <li><a href="#asymptotic-normality-for-the-mle" id="toc-asymptotic-normality-for-the-mle" class="nav-link" data-scroll-target="#asymptotic-normality-for-the-mle">Asymptotic normality for the MLE</a></li>
@@ -227,9 +228,7 @@ window.Quarto = {
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="un_A_slides.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
 </div>
-<div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-</div>
-<main class="content page-columns page-full column-body" id="quarto-document-content">
+<main class="content page-columns page-full column-page-left" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -238,7 +237,7 @@ window.Quarto = {
 </div>
 
 
-<div class="quarto-title-meta-author column-body">
+<div class="quarto-title-meta-author column-page-left">
   <div class="quarto-title-meta-heading">Author</div>
   <div class="quarto-title-meta-heading">Affiliation</div>
   
@@ -252,7 +251,7 @@ window.Quarto = {
       </div>
   </div>
 
-<div class="quarto-title-meta column-body">
+<div class="quarto-title-meta column-page-left">
 
       
   
@@ -2078,10 +2077,54 @@ G(\beta)^{-1} =  \sigma^2 \left[(\bm{A}^T \bm{X})^{-1}\bm{A}^T\right] \left[(\bm
 </section>
 <section id="asymptotic-evaluations" class="level1">
 <h1>Asymptotic evaluations</h1>
-<section id="consistency-and-asymptotic-normality" class="level2">
-<h2 class="anchored" data-anchor-id="consistency-and-asymptotic-normality">Consistency and asymptotic normality</h2>
+<section id="asymptotic-evaluations-informal-intro" class="level2">
+<h2 class="anchored" data-anchor-id="asymptotic-evaluations-informal-intro">Asymptotic evaluations: informal intro</h2>
 <ul>
-<li>Introduction to main notions</li>
+<li><p>Asymptotic evaluations of estimators are taught in basic courses of inferential statistics. We focus on two main properties: <span class="blue">consistency</span> and <span class="orange">asymptotic normality</span>.</p></li>
+<li><p>An estimator <span class="math inline">\hat{\theta}_n</span> is <span class="orange">consistent</span> if it converges <span class="blue">in probability</span> to the true value <span class="math inline">\theta</span> as the sample size increases, i.e., <span class="math inline">\hat{\theta}_n \overset{p}{\longrightarrow} \theta</span> as <span class="math inline">n\rightarrow \infty</span>. Classical <span class="blue">sufficient conditions</span> are given below.</p></li>
+</ul>
+<div class="callout callout-style-simple callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Theorem (<span class="citation" data-cites="Casella2002">Casella and Berger (<a href="#ref-Casella2002" role="doc-biblioref">2002</a>)</span>, Theorem 10.1.3)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Let <span class="math inline">\Theta \subseteq \mathbb{R}</span> and <span class="math inline">\hat{\theta}_n</span> be a sequence of estimators such that the <span class="orange">asymptotic bias</span> and <span class="blue">variance</span> are zero, that is for every <span class="math inline">\theta \in \Theta</span> <span class="math display">
+\lim_{n\to\infty}\text{bias}_\theta(\hat{\theta}_n)=0, \qquad \lim_{n\to\infty}\text{var}_\theta(\hat{\theta}_n)=0.
+</span> Then <span class="math inline">\hat{\theta}_n</span> is a <span class="blue">consistent estimator</span> of <span class="math inline">\theta</span>.</p>
+</div>
+</div>
+<ul>
+<li>Checking this condition case-by-case is difficult. Instead, we seek <span class="blue">general sufficient conditions</span> to establish the consistency of broad estimator classes, including <span class="orange">maximum likelihood</span>.</li>
+</ul>
+</section>
+<section id="asymptotic-evaluations-informal-intro-1" class="level2">
+<h2 class="anchored" data-anchor-id="asymptotic-evaluations-informal-intro-1">Asymptotic evaluations: informal intro</h2>
+<ul>
+<li><p>The <span class="orange">asymptotic normality</span> of an estimator <span class="math inline">\hat{\theta}_n</span> is a stronger property than consistency, implying that the estimator is <span class="blue">normally distributed</span> around the true value <span class="math inline">\theta</span> as the sample size increases.</p></li>
+<li><p>Let <span class="math inline">\Theta \subseteq \mathbb{R}</span> and let <span class="math inline">\hat{\theta}_n</span> be a sequence of estimators. Under “regularity conditions”: <span class="math display">
+\sqrt{n}(\hat{\theta}_n - \theta) \overset{d}{\longrightarrow} \text{N}(0, v(\theta)^{-1}), \qquad n \rightarrow \infty,
+</span> where <span class="math inline">v(\theta)^{-1}</span> is the so-called <span class="blue">asymptotic variance</span>.</p></li>
+<li><p>If <span class="math inline">\hat{\theta}_n</span> is the <span class="orange">maximum likelihood</span>, then under regularity conditions <span class="math inline">n v(\theta)</span> equals the <span class="orange">Fisher information</span> <span class="math inline">I(\theta) = n i(\theta)</span> and the <span class="blue">asymptotic variance</span> is <span class="math inline">i(\theta)^{-1}</span>.</p></li>
+</ul>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>In regular estimation problems, the maximum likelihood estimator <span class="math inline">\hat{\theta}</span> is <span class="orange">asymptotically efficient</span>, that is, for <span class="math inline">n</span> large enough, its variance attains the Cramér-Rao lower bound. Informally, <span class="math display">
+\hat{\theta} \:\dot{\sim}\: \text{N}(\theta, (n i(\theta))^{-1}).
+</span></p>
+</div>
+</div>
+</div>
+<ul>
+<li><span class="orange">Remark</span>: there exist infinitely many asymptotically efficient estimators.</li>
 </ul>
 </section>
 <section id="the-regularity-conditions" class="level2">
@@ -2098,6 +2141,9 @@ G(\beta)^{-1} =  \sigma^2 \left[(\bm{A}^T \bm{X})^{-1}\bm{A}^T\right] \left[(\bm
 </section>
 <section id="asymptotic-bias-and-firth-corrections" class="level2">
 <h2 class="anchored" data-anchor-id="asymptotic-bias-and-firth-corrections">Asymptotic bias and Firth corrections</h2>
+<ul>
+<li>First order and second-order efficienct, corrections</li>
+</ul>
 </section>
 </section>
 <section id="robustness" class="level1">
