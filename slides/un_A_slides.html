@@ -2000,11 +2000,11 @@ G(\beta)^{-1} =  \sigma^2 \left[(\bm{A}^T \bm{X})^{-1}\bm{A}^T\right] \left[(\bm
 <h1>Asymptotic evaluations</h1>
 
 </section>
-<section id="asymptotic-evaluations-informal-intro" class="slide level2 center">
-<h2>Asymptotic evaluations: informal intro</h2>
+<section id="asymptotic-evaluations-preliminaries" class="slide level2 center">
+<h2>Asymptotic evaluations: preliminaries</h2>
 <ul>
 <li><p>Asymptotic evaluations of estimators are taught in basic courses of inferential statistics. We focus on two main properties: <span class="blue">consistency</span> and <span class="orange">asymptotic normality</span>.</p></li>
-<li><p>An estimator <span class="math inline">\hat{\theta}_n</span> is <span class="orange">consistent</span> if it converges <span class="blue">in probability</span> to the true value <span class="math inline">\theta</span> as the sample size increases, i.e., <span class="math inline">\hat{\theta}_n \overset{p}{\longrightarrow} \theta</span> as <span class="math inline">n\rightarrow \infty</span>. Classical <span class="blue">sufficient conditions</span> are given below.</p></li>
+<li><p>An estimator <span class="math inline">\hat{\theta}_n</span> is <span class="orange">consistent</span> if it converges <span class="blue">in probability</span> to the true value <span class="math inline">\theta_0</span> as the sample size increases, i.e., <span class="math inline">\hat{\theta}_n \overset{p}{\longrightarrow} \theta_0</span> as <span class="math inline">n\rightarrow \infty</span>. Classical <span class="blue">sufficient conditions</span> are given below.</p></li>
 </ul>
 <div class="callout callout-warning no-icon callout-titled callout-style-simple">
 <div class="callout-body">
@@ -2022,8 +2022,8 @@ G(\beta)^{-1} =  \sigma^2 \left[(\bm{A}^T \bm{X})^{-1}\bm{A}^T\right] \left[(\bm
 <li>Checking this condition case-by-case is difficult. Instead, we seek <span class="blue">general sufficient conditions</span> to establish the consistency of broad estimator classes, including <span class="orange">maximum likelihood</span>.</li>
 </ul>
 </section>
-<section id="asymptotic-evaluations-informal-intro-1" class="slide level2 center">
-<h2>Asymptotic evaluations: informal intro</h2>
+<section id="asymptotic-evaluations-preliminaries-1" class="slide level2 center">
+<h2>Asymptotic evaluations: preliminaries</h2>
 <ul>
 <li><p>The <span class="orange">asymptotic normality</span> of an estimator <span class="math inline">\hat{\theta}_n</span> is a stronger property than consistency, implying that the estimator is <span class="blue">normally distributed</span> around the true value <span class="math inline">\theta</span> as the sample size increases.</p></li>
 <li><p>Let <span class="math inline">\Theta \subseteq \mathbb{R}</span> and let <span class="math inline">\hat{\theta}_n</span> be a sequence of estimators. Under “regularity conditions”: <span class="math display">
@@ -2044,11 +2044,93 @@ G(\beta)^{-1} =  \sigma^2 \left[(\bm{A}^T \bm{X})^{-1}\bm{A}^T\right] \left[(\bm
 <li><span class="orange">Remark</span>: there exist infinitely many asymptotically efficient estimators.</li>
 </ul>
 </section>
-<section id="the-regularity-conditions" class="slide level2 center">
-<h2>The “regularity conditions”</h2>
+<section id="the-classical-regularity-conditions" class="slide level2 center">
+<h2>The classical “regularity conditions”</h2>
+<div class="callout callout-warning no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<p>(<strong>A1</strong>) We observe an <span class="orange">iid</span> sample <span class="math inline">Y_1,\dots,Y_n</span> from a density <span class="math inline">f(y ; \theta_0)</span> with true value <span class="math inline">\theta_0 \in \Theta \subseteq \mathbb{R}^p</span>.</p>
+<p>(<strong>A2</strong>) The model is <span class="blue">identifiable</span>, that is, the densities <span class="math inline">f(\cdot ; \theta)</span> and <span class="math inline">f(\cdot ; \theta')</span> are different for <span class="math inline">\theta \neq \theta'</span>.</p>
+<p>(<strong>A3</strong>) The distributions <span class="math inline">f(y ; \theta)</span> have <span class="orange">common support</span>.</p>
+<p>(<strong>A4</strong>) The parameter space <span class="math inline">\Theta</span> contains an <span class="orange">open set</span> of which <span class="math inline">\theta_0</span> is an <span class="blue">interior point</span>.</p>
+</div>
+</div>
+</div>
+<p>We will sometimes need the additional conditions:</p>
+<div class="callout callout-warning no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<p>(<strong>A5</strong>) There is a neighbourhood <span class="math inline">\mathcal{N}</span> of the true value <span class="math inline">\theta_0</span> within which the first <span class="orange">three derivatives</span> of <span class="math inline">\ell(\theta)</span> exist a.s., and there exist functions <span class="math inline">m_{rst}(y)</span> such that <span class="math inline">|\partial^3\ell(\theta)/\partial\theta_r \partial\theta _s \partial \theta_t| \le m_{rst}(y)</span> and <span class="math inline">\mathbb{E}_\theta(M_{rst}(\bm{Y})) &lt; \infty</span> for <span class="math inline">r,s,t = 1,\dots,p</span> and <span class="math inline">\theta \in \mathcal{N}</span>.</p>
+<p>(<strong>A6</strong>) The <span class="blue">Fisher information matrix</span> is finite and <span class="orange">positive definite</span>, and <span class="math display">
+\mathbb{E}_\theta\left[\frac{\partial}{\partial\theta_r}\ell(\theta)\right] = 0, \qquad [I(\theta)]_{rs} = -\mathbb{E}_\theta\left[\frac{\partial^2}{\partial \theta_r \partial \theta_s}\ell(\theta)\right] = \mathbb{E}_\theta\left[\frac{\partial\ell(\theta)}{\partial \theta_r}\frac{\partial\ell(\theta)}{\partial \theta_s}\right],
+</span> for <span class="math inline">r,s = 1,\dots,p</span>, that this, the <span class="orange">first</span> and <span class="blue">second Bartlett identities</span>.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="wald-inequality" class="slide level2 center">
+<h2>Wald inequality</h2>
+<div class="callout callout-warning no-icon callout-titled callout-style-simple">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Theorem (Wald inequality, <span class="citation" data-cites="Lehmann1998">Lehmann and Casella (<a href="#/references" role="doc-biblioref" onclick="">1998</a>)</span>, Theorem 3.2, Chap. 6)</strong></p>
+</div>
+<div class="callout-content">
+<p>Under assumptions <span class="blue">(A1)-(A3)</span>, by the strong law of large numbers: <span class="math display">
+\frac{1}{n}\ell(\theta; \bm{Y}) - \frac{1}{n}\ell(\theta_0; \bm{Y}) = \frac{1}{n}\sum_{i=1}^n\log{\frac{f(Y_i; \theta)}{f(Y_i; \theta_0)}} \overset{\text{a.s.}}{\longrightarrow} - \text{KL}(f(\cdot; \theta_0) \mid f(\cdot; \theta)), \qquad n\rightarrow \infty,
+</span> where <span class="math inline">\text{KL}</span> is the <span class="blue">Kullback-Leibler divergence</span>, which is <span class="orange">strictly positive</span> for <span class="math inline">\theta \neq \theta_0</span>. Thus: <span class="math display">
+\ell(\theta; \bm{Y}) - \ell(\theta_0; \bm{Y}) \overset{\text{a.s.}}{\longrightarrow} - \infty.
+</span> Moreover, by the properties of the <span class="math inline">\text{KL}</span>, or using Jensen’s inequality, we deduce: <span class="math display">
+\mathbb{E}_{\theta_0}\left(\ell(\theta; \bm{Y})\right) &lt; \mathbb{E}_{\theta_0}\left(\ell(\theta_0; \bm{Y})\right), \qquad \theta \neq \theta_0,
+</span> which is commonly known as <span class="orange">Wald inequality</span>.</p>
+</div>
+</div>
+</div>
 </section>
 <section id="consistency-for-the-mle" class="slide level2 center">
 <h2>Consistency for the MLE</h2>
+<ul>
+<li><p>Wald inequality is the main workhorse for proving <span class="blue">consistency</span> of the <span class="orange">maximum likelihood</span>.</p></li>
+<li><p>Broadly speaking, <span class="blue">on average</span>, the likelihood is <span class="orange">maximized</span> at the true value <span class="math inline">\theta_0</span>, and this holds almost surely for large <span class="math inline">n</span>, suggesting that <span class="math inline">\hat{\theta}_n \rightarrow \theta_0</span> almost surely as <span class="math inline">n\rightarrow \infty</span>.</p></li>
+<li><p>We may be tempted to conclude that conditions <span class="blue">(A1)-(A3)</span> are enough to prove consistency. Unfortunately, there are <span class="orange">complications</span> on general spaces <span class="math inline">\Theta</span>. An exception is given below:</p></li>
+</ul>
+<div class="callout callout-warning no-icon callout-titled callout-style-simple">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Theorem (<span class="citation" data-cites="Lehmann1998">Lehmann and Casella (<a href="#/references" role="doc-biblioref" onclick="">1998</a>)</span>, Cor. 3.5, Chap. 6)</strong></p>
+</div>
+<div class="callout-content">
+<p>Under assumptions <span class="blue">(A1)-(A3)</span> and if <span class="math inline">\Theta = (\theta_0,\theta_1,\dots,\theta_k)</span> is <span class="orange">finite</span>, then <span class="math inline">\hat{\theta}_n</span> exists, is unique and is a <span class="blue">consistent estimator</span> of <span class="math inline">\theta_0</span>.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-tip no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<p><span class="grey">Proof</span>. Let <span class="math inline">A_{j,n} = \{\ell(\theta_0) &gt; \ell(\theta_j)\}</span> for <span class="math inline">j=1,\dots,k</span>. It holds <span class="math inline">\mathbb{P}(A_{j,n}) \rightarrow 1</span> as <span class="math inline">n\rightarrow \infty</span>. Hence: <span class="math display">
+\mathbb{P}(\ell(\theta_0) &gt; \ell(\theta_j) \text { for all } j=1,\dots,k) = \mathbb{P}(\cap_{j=1}^k A_{j,n}) \ge 1 - \sum_{j=1}^k\mathbb{P}(A_{j,n}^C)\rightarrow 1, \quad n\rightarrow \infty.
+</span></p>
+</div>
+</div>
+</div>
+</section>
+<section id="what-could-go-wrong" class="slide level2 center">
+<h2>What could go wrong?</h2>
+<p>Let us consider a sample of iid observations <span class="math inline">Y_1,\dots,Y_n</span> from the following univariate density<sup>1</sup> <span class="math display">
+f(y; \theta) = \frac{1}{2}\phi(x; 0, 1) + \frac{1}{2}\phi(x; \theta, \exp\{-2/\theta^2\}),  \qquad y,\theta \in \mathbb{R},
+</span> which satisfies conditions <span class="blue">(A1)-(A3)</span>.</p>
+<aside><ol class="aside-footnotes"><li id="fn17"><p>This example is taken from a <a href="https://radfordneal.wordpress.com/2008/08/09/inconsistent-maximum-likelihood-estimation-an-ordinary-example/">blogpost</a> of Radford Neal.</p></li></ol></aside></section>
+<section id="consistency-for-the-mle-1" class="slide level2 center">
+<h2>Consistency for the MLE</h2>
+<p>(TH2) (<span class="citation" data-cites="Lehmann1998">Lehmann and Casella (<a href="#/references" role="doc-biblioref" onclick="">1998</a>)</span>, Th. 3.7, Chap. 6) Under assumptions <span class="blue">(A1)-(A4)</span>, suppose <span class="math inline">\Theta \subseteq \mathbb{R}</span>, that <span class="math inline">f(y; \theta)</span> is <span class="blue">differentiable</span> and that, with probability tending to one as <span class="math inline">n\rightarrow \infty</span>, the score equation <span class="math inline">\ell^*(\theta) = 0</span> has a <span class="blue">unique solution</span> <span class="math inline">\hat{\theta}_n</span>. Then <span class="math inline">\hat{\theta}_n</span> is a <span class="orange">consistent estimator</span> of <span class="math inline">\theta_0</span>.</p>
+<p>(TH3) (<span class="citation" data-cites="Lehmann1998">Lehmann and Casella (<a href="#/references" role="doc-biblioref" onclick="">1998</a>)</span>, Th. 5.1, Chap. 6) Under assumptions <span class="blue">(A1)-(A6)</span>, suppose that, with probability tending to one as <span class="math inline">n\rightarrow \infty</span>, the score equations <span class="math inline">\ell^*(\theta) = \bm{0}</span> have a <span class="blue">unique solution</span> <span class="math inline">\hat{\theta}_n</span>. Then <span class="math inline">\hat{\theta}_n</span> is a <span class="orange">consistent estimator</span> of <span class="math inline">\theta_0</span>.</p>
+</section>
+<section id="comments-of-consistency-results" class="slide level2 center">
+<h2>Comments of consistency results</h2>
+<ul>
+<li><p>TH1 requires the <span class="orange">finiteness</span> of <span class="math inline">\Theta</span>, which is clearly <span class="orange">restrictive</span>.</p></li>
+<li><p>On the other hand, the statements of TH2 and TH3 are complicated by the possibility <span class="blue">multiple roots</span>, so one must shown existence and uniqueness of <span class="math inline">\hat{\theta}_n</span> by other means.</p></li>
+</ul>
 </section>
 <section id="asymptotic-normality-for-the-mle" class="slide level2 center">
 <h2>Asymptotic normality for the MLE</h2>

@@ -1774,11 +1774,11 @@ $$
 
 # Asymptotic evaluations
 
-## Asymptotic evaluations: informal intro
+## Asymptotic evaluations: preliminaries
 
 - Asymptotic evaluations of estimators are taught in basic courses of inferential statistics. We focus on two main properties: [consistency]{.blue} and [asymptotic normality]{.orange}.  
 
-- An estimator $\hat{\theta}_n$ is [consistent]{.orange} if it converges [in probability]{.blue} to the true value $\theta$ as the sample size increases, i.e., $\hat{\theta}_n \overset{p}{\longrightarrow} \theta$ as $n\rightarrow \infty$. Classical [sufficient conditions]{.blue} are given below.
+- An estimator $\hat{\theta}_n$ is [consistent]{.orange} if it converges [in probability]{.blue} to the true value $\theta_0$ as the sample size increases, i.e., $\hat{\theta}_n \overset{p}{\longrightarrow} \theta_0$ as $n\rightarrow \infty$. Classical [sufficient conditions]{.blue} are given below.
 
 :::callout-warning
 #### Theorem (@Casella2002, Theorem 10.1.3)
@@ -1791,7 +1791,7 @@ Then $\hat{\theta}_n$ is a [consistent estimator]{.blue} of $\theta$.
 
 - Checking this condition case-by-case is difficult. Instead, we seek [general sufficient conditions]{.blue} to establish the consistency of broad estimator classes, including [maximum likelihood]{.orange}.
 
-## Asymptotic evaluations: informal intro
+## Asymptotic evaluations: preliminaries
 
 - The [asymptotic normality]{.orange} of an estimator $\hat{\theta}_n$ is a stronger property than consistency, implying that the estimator is [normally distributed]{.blue} around the true value $\theta$ as the sample size increases.
 
@@ -1812,9 +1812,95 @@ $$
 
 - [Remark]{.orange}: there exist infinitely many asymptotically efficient estimators.
 
-## The "regularity conditions"
+## The classical "regularity conditions"
+
+
+:::callout-warning
+
+(**A1**) We observe an [iid]{.orange} sample $Y_1,\dots,Y_n$ from a density $f(y ; \theta_0)$ with true value $\theta_0 \in \Theta \subseteq \mathbb{R}^p$. 
+
+(**A2**) The model is [identifiable]{.blue}, that is, the densities $f(\cdot ; \theta)$ and $f(\cdot ; \theta')$ are different for $\theta \neq \theta'$.
+
+(**A3**) The distributions $f(y ; \theta)$ have [common support]{.orange}. 
+
+(**A4**) The parameter space $\Theta$ contains an [open set]{.orange} of which $\theta_0$ is an [interior point]{.blue}.
+:::
+
+We will sometimes need the additional conditions:
+
+
+:::callout-warning
+
+(**A5**) There is a neighbourhood $\mathcal{N}$ of the true value $\theta_0$ within which the first [three derivatives]{.orange} of $\ell(\theta)$ exist a.s., and there exist functions $m_{rst}(y)$ such that $|\partial^3\ell(\theta)/\partial\theta_r \partial\theta _s \partial \theta_t| \le m_{rst}(y)$ and $\mathbb{E}_\theta(M_{rst}(\bm{Y})) < \infty$ for $r,s,t = 1,\dots,p$ and $\theta \in \mathcal{N}$. 
+
+(**A6**) The [Fisher information matrix]{.blue} is finite and [positive definite]{.orange}, and
+$$
+\mathbb{E}_\theta\left[\frac{\partial}{\partial\theta_r}\ell(\theta)\right] = 0, \qquad [I(\theta)]_{rs} = -\mathbb{E}_\theta\left[\frac{\partial^2}{\partial \theta_r \partial \theta_s}\ell(\theta)\right] = \mathbb{E}_\theta\left[\frac{\partial\ell(\theta)}{\partial \theta_r}\frac{\partial\ell(\theta)}{\partial \theta_s}\right],
+$$
+for $r,s = 1,\dots,p$, that this, the [first]{.orange} and [second Bartlett identities]{.blue}. 
+:::
+
+## Wald inequality
+
+:::callout-warning
+#### Theorem (Wald inequality, @Lehmann1998, Theorem 3.2, Chap. 6)
+Under assumptions [(A1)-(A3)]{.blue}, by the strong law of large numbers:
+$$
+\frac{1}{n}\ell(\theta; \bm{Y}) - \frac{1}{n}\ell(\theta_0; \bm{Y}) = \frac{1}{n}\sum_{i=1}^n\log{\frac{f(Y_i; \theta)}{f(Y_i; \theta_0)}} \overset{\text{a.s.}}{\longrightarrow} - \text{KL}(f(\cdot; \theta_0) \mid f(\cdot; \theta)), \qquad n\rightarrow \infty,
+$$
+where $\text{KL}$ is the [Kullback-Leibler divergence]{.blue}, which is [strictly positive]{.orange} for $\theta \neq \theta_0$. Thus:
+$$
+\ell(\theta; \bm{Y}) - \ell(\theta_0; \bm{Y}) \overset{\text{a.s.}}{\longrightarrow} - \infty.
+$$
+Moreover, by the properties of the $\text{KL}$, or using Jensen's inequality, we deduce:
+$$
+\mathbb{E}_{\theta_0}\left(\ell(\theta; \bm{Y})\right) < \mathbb{E}_{\theta_0}\left(\ell(\theta_0; \bm{Y})\right), \qquad \theta \neq \theta_0,
+$$
+which is commonly known as [Wald inequality]{.orange}.
+:::
 
 ## Consistency for the MLE
+
+- Wald inequality is the main workhorse for proving [consistency]{.blue} of the [maximum likelihood]{.orange}. 
+
+- Broadly speaking, [on average]{.blue}, the likelihood is [maximized]{.orange} at the true value $\theta_0$, and this holds almost surely for large $n$, suggesting that $\hat{\theta}_n \rightarrow \theta_0$ almost surely as $n\rightarrow \infty$.
+
+- We may be tempted to conclude that conditions [(A1)-(A3)]{.blue} are enough to prove consistency. Unfortunately, there are [complications]{.orange} on general spaces $\Theta$. An exception is given below:
+
+:::callout-warning
+#### Theorem (@Lehmann1998, Cor. 3.5, Chap. 6) 
+
+Under assumptions [(A1)-(A3)]{.blue} and if $\Theta = (\theta_0,\theta_1,\dots,\theta_k)$ is [finite]{.orange}, then $\hat{\theta}_n$ exists, is unique and is a [consistent estimator]{.blue} of $\theta_0$.
+:::
+:::callout-tip
+[Proof]{.grey}. Let $A_{j,n} = \{\ell(\theta_0) > \ell(\theta_j)\}$ for $j=1,\dots,k$. It holds $\mathbb{P}(A_{j,n}) \rightarrow 1$ as $n\rightarrow \infty$. Hence: 
+$$
+\mathbb{P}(\ell(\theta_0) > \ell(\theta_j) \text { for all } j=1,\dots,k) = \mathbb{P}(\cap_{j=1}^k A_{j,n}) \ge 1 - \sum_{j=1}^k\mathbb{P}(A_{j,n}^C)\rightarrow 1, \quad n\rightarrow \infty.
+$$ 
+:::
+
+## What could go wrong?
+
+Let $Y_1,\dots,Y_n$ be an iid sample from the following univariate density[^Neal]
+$$
+f(y; \theta) = \frac{1}{2}\phi(x; 0, 1) + \frac{1}{2}\phi(x; \theta, \exp\{-2/\theta^2\}),  \qquad y,\theta \in \mathbb{R},
+$$
+which satisfies conditions [(A1)-(A3)]{.blue}.
+
+[^Neal]: This example is taken from a [blogpost](https://radfordneal.wordpress.com/2008/08/09/inconsistent-maximum-likelihood-estimation-an-ordinary-example/) of Radford Neal. 
+
+## Consistency for the MLE
+
+
+(TH2) (@Lehmann1998, Th. 3.7, Chap. 6) Under assumptions [(A1)-(A4)]{.blue}, suppose $\Theta \subseteq \mathbb{R}$, that $f(y; \theta)$ is [differentiable]{.blue} and that, with probability tending to one as $n\rightarrow \infty$, the score equation $\ell^*(\theta) = 0$ has a [unique solution]{.blue} $\hat{\theta}_n$. Then $\hat{\theta}_n$ is a [consistent estimator]{.orange} of $\theta_0$.
+
+(TH3) (@Lehmann1998, Th. 5.1, Chap. 6) Under assumptions [(A1)-(A6)]{.blue}, suppose that, with probability tending to one as $n\rightarrow \infty$, the score equations $\ell^*(\theta) = \bm{0}$ have a [unique solution]{.blue} $\hat{\theta}_n$. Then $\hat{\theta}_n$ is a [consistent estimator]{.orange} of $\theta_0$.
+
+## Comments of consistency results
+
+- TH1 requires the [finiteness]{.orange} of $\Theta$, which is clearly [restrictive]{.orange}. 
+
+- On the other hand, the statements of TH2 and TH3 are complicated by the possibility [multiple roots]{.blue}, so one must shown existence and uniqueness of $\hat{\theta}_n$ by other means. 
 
 ## Asymptotic normality for the MLE
 
