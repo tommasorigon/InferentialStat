@@ -1902,9 +1902,11 @@ where $\phi(x; \mu, \sigma^2)$ is the [normal density]{.orange}. The density $f(
 
 - However, the log-likelihood present [spykes]{.blue} in correspondence of the observed data  and the maximum likelihood concentrates around $0$ rather than $\theta_0$, i.e $\hat{\theta}_n$ is [inconsistent]{.orange}.
 
-- Note this does not contradict Wald inequality, because the spykes occur on a [set of measure zero]{.orange}. Indeed for any fixed $\theta$ the probability of observing $Y_i = \theta$ is zero.
+- Indeed, there are [multiple roots]{.blue} of the score equation $\ell^*(\theta)$, corresponding to the spykes. The "correct" solution close $\theta_0$ is among them, but is not identified by the data even for large $n$. 
 
-- There are [multiple roots]{.blue} of the score equation $\ell^*(\theta)$, corresponding to the spykes and the "correct" solution around $\theta_0$. 
+:::callout-tip
+Note this example does not contradict Wald inequality, because the spykes occur on a [set of measure zero]{.orange}. Indeed for any fixed $\theta$ the probability of observing $Y_i = \theta$ is zero.
+:::
 
 [^Neal]: This example is taken from a [blogpost](https://radfordneal.wordpress.com/2008/08/09/inconsistent-maximum-likelihood-estimation-an-ordinary-example/) of Radford Neal. 
 
@@ -1952,6 +1954,7 @@ loglik <- Vectorize(loglik, vectorize.args = "theta")
 #| fig-width: 8
 #| fig-height: 6
 #| fig-align: center
+#| warning: false
 
 n <- 100
 theta <- 0.6
@@ -1996,7 +1999,7 @@ curve(h, 0, 30, n = 2000, xlab = expression(theta), ylab = "negative KL")
 abline(h = 0, lty = "dotted")
 ```
 
-- The picture depict a possible $- \text{KL}(f(\cdot; \theta_0) \mid f(\cdot; \theta))$ an hypothetical situation in which the true value is $\theta_0 = \pi/2$. The presence of the asymptote may cause $\hat{\theta}_n$ to [diverge]{.orange}. 
+- The picture depict $- \text{KL}(f(\cdot; \theta_0) \mid f(\cdot; \theta))$ in another [problematic]{.orange} situation. The true value is $\theta_0 = \pi/2$, but the presence of the asymptote may cause $\hat{\theta}_n$ to [diverge]{.orange}. 
 
 ## Consistency for the MLE
 
@@ -2011,10 +2014,10 @@ Under assumptions [(A1)-(A6)]{.blue}, with probability tending to $1$ as $n\righ
 - The claim is that a [clairvoyant statistician]{.blue}, with knowlegde of $\theta_0$, could choose a consistent sequence of roots. In reality, it may be impossibile to choose the right solution.
 
 :::callout-tip
-The situation is not bad as it seems if we further require that, with probability tending to 1 as $n\to \infty$, there is a [unique solution]{.blue} to the [score equation]{.orange}. In that case $\hat{\theta}_n$ is the global maximizer of $\ell(\theta)$ and is also [consistent]{.orange}.
+Let us further require that, with probability tending to 1 as $n\to \infty$, there is a [unique solution]{.blue} to the [score equation]{.orange}. In that case $\hat{\theta}_n$ is [consistent]{.orange} and is also the [global maximizer]{.blue} of $\ell(\theta)$.
 :::
 
-[^th_vdv]: See also @vandervaart1998, Theorem 5.42, for slightly less stringent conditions and a careful discussion.
+[^th_vdv]: See also @vandervaart1998, Theorem 5.42, for slightly less stringent conditions and a careful discussion about the issue of multiple roots.
 
 
 ## Asymptotic normality for the MLE

@@ -2121,9 +2121,15 @@ G(\beta)^{-1} =  \sigma^2 \left[(\bm{A}^T \bm{X})^{-1}\bm{A}^T\right] \left[(\bm
 f(y; \theta) = \frac{1}{2}\phi(y; 0, 1) + \frac{1}{2}\phi(y; \theta, e^{-2/\theta^2}),  \qquad \theta \in \mathbb{R},
 </span> where <span class="math inline">\phi(x; \mu, \sigma^2)</span> is the <span class="orange">normal density</span>. The density <span class="math inline">f(y; \theta)</span> satisfies conditions <span class="blue">(A1)-(A4)</span>. Moreover <span class="math inline">\ell(\theta)</span> is <span class="blue">differentiable</span>.</p></li>
 <li><p>However, the log-likelihood present <span class="blue">spykes</span> in correspondence of the observed data and the maximum likelihood concentrates around <span class="math inline">0</span> rather than <span class="math inline">\theta_0</span>, i.e <span class="math inline">\hat{\theta}_n</span> is <span class="orange">inconsistent</span>.</p></li>
-<li><p>Note this does not contradict Wald inequality, because the spykes occur on a <span class="orange">set of measure zero</span>. Indeed for any fixed <span class="math inline">\theta</span> the probability of observing <span class="math inline">Y_i = \theta</span> is zero.</p></li>
-<li><p>There are <span class="blue">multiple roots</span> of the score equation <span class="math inline">\ell^*(\theta)</span>, corresponding to the spykes and the “correct” solution around <span class="math inline">\theta_0</span>.</p></li>
+<li><p>Indeed, there are <span class="blue">multiple roots</span> of the score equation <span class="math inline">\ell^*(\theta)</span>, corresponding to the spykes. The “correct” solution close <span class="math inline">\theta_0</span> is among them, but is not identified by the data even for large <span class="math inline">n</span>.</p></li>
 </ul>
+<div class="callout callout-tip no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<p>Note this example does not contradict Wald inequality, because the spykes occur on a <span class="orange">set of measure zero</span>. Indeed for any fixed <span class="math inline">\theta</span> the probability of observing <span class="math inline">Y_i = \theta</span> is zero.</p>
+</div>
+</div>
+</div>
 <aside><ol class="aside-footnotes"><li id="fn17"><p>This example is taken from a <a href="https://radfordneal.wordpress.com/2008/08/09/inconsistent-maximum-likelihood-estimation-an-ordinary-example/">blogpost</a> of Radford Neal.</p></li></ol></aside></section>
 <section id="what-could-go-wrong-1" class="slide level2 center">
 <h2>What could go wrong?</h2>
@@ -2136,7 +2142,7 @@ f(y; \theta) = \frac{1}{2}\phi(y; 0, 1) + \frac{1}{2}\phi(y; \theta, e^{-2/\thet
 <h2>What else could go wrong?</h2>
 
 <img data-src="un_A_files/figure-revealjs/unnamed-chunk-18-1.png" width="2000" class="r-stretch"><ul>
-<li>The picture depict a possible <span class="math inline">- \text{KL}(f(\cdot; \theta_0) \mid f(\cdot; \theta))</span> an hypothetical situation in which the true value is <span class="math inline">\theta_0 = \pi/2</span>. The presence of the asymptote may cause <span class="math inline">\hat{\theta}_n</span> to <span class="orange">diverge</span>.</li>
+<li>The picture depict <span class="math inline">- \text{KL}(f(\cdot; \theta_0) \mid f(\cdot; \theta))</span> in another <span class="orange">problematic</span> situation. The true value is <span class="math inline">\theta_0 = \pi/2</span>, but the presence of the asymptote may cause <span class="math inline">\hat{\theta}_n</span> to <span class="orange">diverge</span>.</li>
 </ul>
 </section>
 <section id="consistency-for-the-mle-1" class="slide level2 center">
@@ -2158,11 +2164,11 @@ f(y; \theta) = \frac{1}{2}\phi(y; 0, 1) + \frac{1}{2}\phi(y; \theta, e^{-2/\thet
 <div class="callout callout-tip no-icon callout-style-simple">
 <div class="callout-body">
 <div class="callout-content">
-<p>The situation is not bad as it seems if we further require that, with probability tending to 1 as <span class="math inline">n\to \infty</span>, there is a <span class="blue">unique solution</span> to the <span class="orange">score equation</span>. In that case <span class="math inline">\hat{\theta}_n</span> is the maximizer of <span class="math inline">\ell(\theta)</span> and is also <span class="orange">consistent</span>.</p>
+<p>Let us further require that, with probability tending to 1 as <span class="math inline">n\to \infty</span>, there is a <span class="blue">unique solution</span> to the <span class="orange">score equation</span>. In that case <span class="math inline">\hat{\theta}_n</span> is <span class="orange">consistent</span> and is also the <span class="blue">global maximizer</span> of <span class="math inline">\ell(\theta)</span>.</p>
 </div>
 </div>
 </div>
-<aside><ol class="aside-footnotes"><li id="fn18"><p>See also <span class="citation" data-cites="vandervaart1998">van der Vaart (<a href="#/references" role="doc-biblioref" onclick="">1998</a>)</span>, Theorem 5.42, for slightly less stringent conditions and a careful discussion.</p></li></ol></aside></section>
+<aside><ol class="aside-footnotes"><li id="fn18"><p>See also <span class="citation" data-cites="vandervaart1998">van der Vaart (<a href="#/references" role="doc-biblioref" onclick="">1998</a>)</span>, Theorem 5.42, for slightly less stringent conditions and a careful discussion about the issue of multiple roots.</p></li></ol></aside></section>
 <section id="asymptotic-normality-for-the-mle" class="slide level2 center">
 <h2>Asymptotic normality for the MLE</h2>
 </section>
