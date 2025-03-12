@@ -163,3 +163,72 @@ ggplot(data = data_plot, aes(x = p, y = MSE, col = Estimator)) +
   scale_color_tableau(palette = "Color Blind") +
   xlab("p") +
   ylab("MSE")
+
+add.logs <- function(a, b) {
+  if (a > b) {
+    a + log(1 + exp(b - a))
+  } else {
+    b + log(1 + exp(a - b))
+  }
+}
+
+logdensity <- function(x, theta) {
+  ll1 <- dnorm(x, 0, 1, log = TRUE) + log(0.5)
+
+  ll2 <- dnorm(x, theta, exp(-1 / theta^2), log = TRUE) + log(0.5)
+  ll2[x == theta] <- -0.5 * log(2 * pi) + 1 / theta^2 + log(0.5)
+
+  ll <- rep(NA, length(x))
+  for (i in 1:length(x))
+  {
+    ll[i] <- add.logs(ll1[i], ll2[i])
+  }
+
+  ll
+}
+
+# COMPUTE THE LOG LIKELIHOOD GIVEN A DATA VECTOR AND PARAMETER VALUE.  Arguments
+# are the vector of data values, x, and the parameter value, t.
+
+loglik <- function(x, theta) {
+  sum(logdensity(x, theta))
+}
+
+
+loglik <- Vectorize(loglik, vectorize.args = "theta")
+
+n <- 100
+theta <- 0.6
+
+set.seed(123)
+z <- rbinom(n, 1, prob = 0.5) + 1
+y <- rnorm(n, mean = c(0, theta)[z], sd = c(1, exp(-1 / theta^2))[z])
+
+theta_seq <- sort(c(y, seq(0.01, 3, by = 0.001)))
+theta_seq <- theta_seq[theta_seq > 0 & theta_seq < 1.5]
+
+par(mfrow = c(2, 2))
+
+curve(logdensity(x, theta = theta), -3, 3, n = 1000, xlab = expression(y), ylab = "log-density", main = "Log-density")
+
+ll_seq1 <- loglik(y[1:10], theta_seq)
+plot(theta_seq, ll_seq1, type = "l", xlab = expression(theta), ylab = "log-likelihood", main = expression(n == 10))
+rug(y[1:10])
+
+ll_seq2 <- loglik(y[1:30], theta_seq)
+plot(theta_seq, ll_seq2, type = "l", xlab = expression(theta), ylab = "log-likelihood", main = expression(n == 30))
+rug(y[1:30])
+
+ll_seq3 <- loglik(y, theta_seq)
+plot(theta_seq, ll_seq3, type = "l", xlab = expression(theta), ylab = "log-likelihood", main = expression(n == 100))
+rug(y)
+
+f <- function(x) sin(x * pi / 2) - 1
+g <- function(x) -18 / x^2
+
+h <- function(x) {
+  ifelse(x < 3, f(x), g(x))
+}
+
+curve(h, 0, 30, n = 2000, xlab = expression(theta), ylab = "negative KL")
+abline(h = 0, lty = "dotted")

@@ -195,7 +195,7 @@ Refer to @vandervaart1998, Theorem 4.1, pag. 35-36.
 
 ```{r}
 data("FoodExpenditure", package = "betareg")
-FoodExpenditure$food <- FoodExpenditure$food /100
+FoodExpenditure$food <- FoodExpenditure$food / 100
 FoodExpenditure$Income <- factor(cut(FoodExpenditure$income, breaks = c(0, 50, 100)))
 levels(FoodExpenditure$Income) <- c("Low", "High")
 
@@ -240,7 +240,16 @@ Here $m_1$ = `r round(m1_high, 3)` and $m_2$ = `r round(m2_high, 3)`, giving the
 #| fig-width: 9
 #| fig-height: 5
 
-ggplot(data = FoodExpenditure, aes(x = food, col = Income)) + geom_rug() + theme_light()  + theme(legend.position = "top") + scale_color_tableau(palette = "Color Blind") + xlab("Food expenditure (proportion)") + geom_function(fun = function(x) dbeta(x, alpha_low, beta_low), col = "#1170aa")+ geom_function(fun = function(x) dbeta(x, alpha_high, beta_high), col = "#fc7d0b") + xlim(c(0.02, 0.4)) + ylab("Density")
+ggplot(data = FoodExpenditure, aes(x = food, col = Income)) +
+  geom_rug() +
+  theme_light() +
+  theme(legend.position = "top") +
+  scale_color_tableau(palette = "Color Blind") +
+  xlab("Food expenditure (proportion)") +
+  geom_function(fun = function(x) dbeta(x, alpha_low, beta_low), col = "#1170aa") +
+  geom_function(fun = function(x) dbeta(x, alpha_high, beta_high), col = "#fc7d0b") +
+  xlim(c(0.02, 0.4)) +
+  ylab("Density")
 ```
 
 - [Estimated densities]{.orange} $f(y; \hat{\alpha}, \hat{\beta})$ for each income level, showing a reasonable fit in both cases. 
@@ -390,7 +399,7 @@ p_mm <- m1 / N_mm
 N_seq <- 50:300
 loglik <- numeric(length(N_seq))
 
-for(i in 1: length(N_seq)){
+for (i in 1:length(N_seq)) {
   loglik[i] <- sum(dbinom(x, N_seq[i], prob = mean(x) / N_seq[i], log = TRUE))
 }
 
@@ -406,7 +415,12 @@ print(x)
 #| fig-height: 5
 #| fig-align: center
 
-ggplot(data = data.frame(N = N_seq, loglik = loglik), aes(x = N, y = loglik)) +  theme_light() + xlab("N") + ylab("log-likelihood") + geom_point() + geom_vline(xintercept = N_MLE, linetype = "dashed")
+ggplot(data = data.frame(N = N_seq, loglik = loglik), aes(x = N, y = loglik)) +
+  theme_light() +
+  xlab("N") +
+  ylab("log-likelihood") +
+  geom_point() +
+  geom_vline(xintercept = N_MLE, linetype = "dashed")
 ```
 
 - If we replace $27$ with a $28$, we obtain drastically different estimates, namely $\hat{N}_\text{MM} =  195$ and $\hat{N}_\text{ML} = 191$, demonstrating a [large]{.orange} amount of [variability]{.orange}.
@@ -532,7 +546,6 @@ for (i in 1:length(k_values)) {
   # Same thing, but numerically more stable because it is based on a better algorithm
   m_hat[i] <- huber(y, k = k_values[i] / 1.627587)$mu
 }
-
 ```
 
 
@@ -544,7 +557,7 @@ for (i in 1:length(k_values)) {
 library(BayesDA)
 library(MASS)
 data(light)
-light_micro <- 0.001*light + 24.8
+light_micro <- 0.001 * light + 24.8
 print(light)
 ```
 
@@ -740,7 +753,7 @@ data_plot <- rbind(data_plot, data_plot2)
 
 ggplot(data = data_plot, aes(x = p, y = MSE, col = Estimator)) +
   geom_line() +
-  facet_wrap(.~n, scales = "free_y") + 
+  facet_wrap(. ~ n, scales = "free_y") +
   theme_light() +
   theme(legend.position = "top") +
   scale_color_tableau(palette = "Color Blind") +
@@ -992,7 +1005,7 @@ $$
 #| fig-align: center
 
 data_plot <- data.frame(n = rep(round(seq(from = 3, 50, length = 5000)), 2))
-data_plot$BayesRisk <- c(1 / (6 * data_plot$n[1:5000]),  data_plot$n[1:5000] / (4 * (data_plot$n[1:5000] + sqrt(data_plot$n[1:5000]))^2))
+data_plot$BayesRisk <- c(1 / (6 * data_plot$n[1:5000]), data_plot$n[1:5000] / (4 * (data_plot$n[1:5000] + sqrt(data_plot$n[1:5000]))^2))
 data_plot$Estimator <- rep(c("Maximum likelihood", "Minimax"), each = 5000)
 
 ggplot(data = data_plot, aes(x = n, y = BayesRisk, col = Estimator)) +
@@ -1067,7 +1080,7 @@ which is indeed [smaller]{.orange} than $r(\pi, \hat{p})$ and $r(\pi, \hat{p}_\t
 #| fig-align: center
 
 data_plot <- data.frame(n = rep(round(seq(from = 3, 50, length = 5000)), 3))
-data_plot$BayesRisk <- c(1 / (6 * data_plot$n[1:5000]),  data_plot$n[1:5000] / (4 * (data_plot$n[1:5000] + sqrt(data_plot$n[1:5000]))^2), 1 / (6 * (data_plot$n[1:5000] + 2)))
+data_plot$BayesRisk <- c(1 / (6 * data_plot$n[1:5000]), data_plot$n[1:5000] / (4 * (data_plot$n[1:5000] + sqrt(data_plot$n[1:5000]))^2), 1 / (6 * (data_plot$n[1:5000] + 2)))
 data_plot$Estimator <- rep(c("Maximum likelihood", "Minimax", "Bayes"), each = 5000)
 
 ggplot(data = data_plot, aes(x = n, y = BayesRisk, col = Estimator)) +
@@ -1137,7 +1150,7 @@ data_plot <- rbind(data_plot, data_plot2)
 
 ggplot(data = data_plot, aes(x = p, y = MSE, col = Estimator)) +
   geom_line() +
-  facet_wrap(.~n, scales = "free_y") + 
+  facet_wrap(. ~ n, scales = "free_y") +
   theme_light() +
   theme(legend.position = "top") +
   scale_color_tableau(palette = "Color Blind") +
@@ -1881,26 +1894,128 @@ $$
 
 ## What could go wrong?
 
-Let $Y_1,\dots,Y_n$ be an iid sample from the following univariate density[^Neal]
+- Let $Y_1,\dots,Y_n$ be an iid sample from the following univariate density[^Neal]
 $$
-f(y; \theta) = \frac{1}{2}\phi(x; 0, 1) + \frac{1}{2}\phi(x; \theta, \exp\{-2/\theta^2\}),  \qquad y,\theta \in \mathbb{R},
+f(y; \theta) = \frac{1}{2}\phi(y; 0, 1) + \frac{1}{2}\phi(y; \theta, e^{-2/\theta^2}),  \qquad \theta \in \mathbb{R},
 $$
-where $\phi(x; \mu, \sigma^2)$ is the [normal density]{.orange} with mean $\mu$ and variance $\sigma^2$, which satisfies conditions [(A1)-(A3)]{.blue}.
+where $\phi(x; \mu, \sigma^2)$ is the [normal density]{.orange}. The density $f(y; \theta)$ satisfies conditions [(A1)-(A4)]{.blue}. Moreover $\ell(\theta)$ is [differentiable]{.blue}. 
+
+- However, the log-likelihood present [spykes]{.blue} in correspondence of the observed data  and the maximum likelihood concentrates around $0$ rather than $\theta_0$, i.e $\hat{\theta}_n$ is [inconsistent]{.orange}.
+
+- Note this does not contradict Wald inequality, because the spykes occur on a [set of measure zero]{.orange}. Indeed for any fixed $\theta$ the probability of observing $Y_i = \theta$ is zero.
+
+- There are [multiple roots]{.blue} of the score equation $\ell^*(\theta)$, corresponding to the spykes and the "correct" solution around $\theta_0$. 
 
 [^Neal]: This example is taken from a [blogpost](https://radfordneal.wordpress.com/2008/08/09/inconsistent-maximum-likelihood-estimation-an-ordinary-example/) of Radford Neal. 
 
+
+## What could go wrong?
+
+
+```{r}
+add.logs <- function(a, b) {
+  if (a > b) {
+    a + log(1 + exp(b - a))
+  } else {
+    b + log(1 + exp(a - b))
+  }
+}
+
+logdensity <- function(x, theta) {
+  ll1 <- dnorm(x, 0, 1, log = TRUE) + log(0.5)
+
+  ll2 <- dnorm(x, theta, exp(-1 / theta^2), log = TRUE) + log(0.5)
+  ll2[x == theta] <- -0.5 * log(2 * pi) + 1 / theta^2 + log(0.5)
+
+  ll <- rep(NA, length(x))
+  for (i in 1:length(x))
+  {
+    ll[i] <- add.logs(ll1[i], ll2[i])
+  }
+
+  ll
+}
+
+# COMPUTE THE LOG LIKELIHOOD GIVEN A DATA VECTOR AND PARAMETER VALUE.  Arguments
+# are the vector of data values, x, and the parameter value, t.
+
+loglik <- function(x, theta) {
+  sum(logdensity(x, theta))
+}
+
+
+loglik <- Vectorize(loglik, vectorize.args = "theta")
+```
+
+
+```{r}
+#| fig-width: 8
+#| fig-height: 6
+#| fig-align: center
+
+n <- 100
+theta <- 0.6
+
+set.seed(123)
+z <- rbinom(n, 1, prob = 0.5) + 1
+y <- rnorm(n, mean = c(0, theta)[z], sd = c(1, exp(-1 / theta^2))[z])
+
+theta_seq <- sort(c(y, seq(0.01, 3, by = 0.001)))
+theta_seq <- theta_seq[theta_seq > 0 & theta_seq < 1.5]
+
+par(mfrow = c(2, 2))
+
+curve(logdensity(x, theta = theta), -3, 3, n = 1000, xlab = expression(y), ylab = "log-density", main = "Log-density")
+
+ll_seq1 <- loglik(y[1:10], theta_seq)
+plot(theta_seq, ll_seq1, type = "l", xlab = expression(theta), ylab = "log-likelihood", main = expression(n==10))
+rug(y[1:10])
+
+ll_seq2 <- loglik(y[1:30], theta_seq)
+plot(theta_seq, ll_seq2, type = "l", xlab = expression(theta), ylab = "log-likelihood", main = expression(n==30))
+rug(y[1:30])
+
+ll_seq3 <- loglik(y, theta_seq)
+plot(theta_seq, ll_seq3, type = "l", xlab = expression(theta), ylab = "log-likelihood", main = expression(n==100))
+rug(y)
+```
+
+- These are [simulated data]{.blue} when the true value is $\theta_0 = 0.6$. We plot the [log-density]{.orange} $\log{f(y;\theta_0)}$ and the [log-likelihood]{.blue} $\ell(\theta)$ for $n=10,30,100$.
+
+## What else could go wrong?
+
+```{r}
+f <- function(x) sin(x * pi/2) - 1
+g <- function(x) -18/x^2
+
+h <- function(x){
+  ifelse(x < 3, f(x), g(x))
+}
+
+curve(h, 0, 30, n = 2000, xlab = expression(theta), ylab = "negative KL")
+abline(h = 0, lty = "dotted")
+```
+
+- The picture depict a possible $- \text{KL}(f(\cdot; \theta_0) \mid f(\cdot; \theta))$ an hypothetical situation in which the true value is $\theta_0 = \pi/2$. The presence of the asymptote may cause $\hat{\theta}_n$ to [diverge]{.orange}. 
+
 ## Consistency for the MLE
 
+:::callout-warning
+#### Theorem (@Lehmann1998, Th. 5.1, Chap. 6) 
 
-(TH2) (@Lehmann1998, Th. 3.7, Chap. 6) Under assumptions [(A1)-(A4)]{.blue}, suppose $\Theta \subseteq \mathbb{R}$, that $f(y; \theta)$ is [differentiable]{.blue} and that, with probability tending to one as $n\rightarrow \infty$, the score equation $\ell^*(\theta) = 0$ has a [unique solution]{.blue} $\hat{\theta}_n$. Then $\hat{\theta}_n$ is a [consistent estimator]{.orange} of $\theta_0$.
+Under assumptions [(A1)-(A6)]{.blue}, with probability tending to $1$ as $n\rightarrow \infty$, the equation $\ell^*(\theta) = \bm{0}$ has at least one root $\hat{\theta}_n$, and there exists a sequence of roots $\hat{\theta}_n$ such that $\hat{\theta}_n \overset{p}{\longrightarrow} \theta_0$.
+:::
 
-(TH3) (@Lehmann1998, Th. 5.1, Chap. 6) Under assumptions [(A1)-(A6)]{.blue}, suppose that, with probability tending to one as $n\rightarrow \infty$, the score equations $\ell^*(\theta) = \bm{0}$ have a [unique solution]{.blue} $\hat{\theta}_n$. Then $\hat{\theta}_n$ is a [consistent estimator]{.orange} of $\theta_0$.
+- This standard result of the literature requires several regularity conditions and yet it delivers [less]{.orange} than [what it seems]{.orange}.[^th_vdv] 
 
-## Comments of consistency results
+- The claim is that a [clairvoyant statistician]{.blue}, with knowlegde of $\theta_0$, could choose a consistent sequence of roots. In reality, it may be impossibile to choose the right solution.
 
-- TH1 requires the [finiteness]{.orange} of $\Theta$, which is clearly [restrictive]{.orange}. 
+:::callout-tip
+The situation is not bad as it seems if we further require that, with probability tending to 1 as $n\to \infty$, there is a [unique solution]{.blue} to the [score equation]{.orange}. In that case $\hat{\theta}_n$ is the global maximizer of $\ell(\theta)$ and is also [consistent]{.orange}.
+:::
 
-- On the other hand, the statements of TH2 and TH3 are complicated by the possibility [multiple roots]{.blue}, so one must shown existence and uniqueness of $\hat{\theta}_n$ by other means. 
+[^th_vdv]: See also @vandervaart1998, Theorem 5.42, for slightly less stringent conditions and a careful discussion.
+
 
 ## Asymptotic normality for the MLE
 

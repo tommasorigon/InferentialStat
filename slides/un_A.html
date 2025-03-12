@@ -210,8 +210,9 @@ window.Quarto = {
   <li><a href="#wald-inequality" id="toc-wald-inequality" class="nav-link" data-scroll-target="#wald-inequality">Wald inequality</a></li>
   <li><a href="#consistency-for-the-mle" id="toc-consistency-for-the-mle" class="nav-link" data-scroll-target="#consistency-for-the-mle">Consistency for the MLE</a></li>
   <li><a href="#what-could-go-wrong" id="toc-what-could-go-wrong" class="nav-link" data-scroll-target="#what-could-go-wrong">What could go wrong?</a></li>
+  <li><a href="#what-could-go-wrong-1" id="toc-what-could-go-wrong-1" class="nav-link" data-scroll-target="#what-could-go-wrong-1">What could go wrong?</a></li>
+  <li><a href="#what-else-could-go-wrong" id="toc-what-else-could-go-wrong" class="nav-link" data-scroll-target="#what-else-could-go-wrong">What else could go wrong?</a></li>
   <li><a href="#consistency-for-the-mle-1" id="toc-consistency-for-the-mle-1" class="nav-link" data-scroll-target="#consistency-for-the-mle-1">Consistency for the MLE</a></li>
-  <li><a href="#comments-of-consistency-results" id="toc-comments-of-consistency-results" class="nav-link" data-scroll-target="#comments-of-consistency-results">Comments of consistency results</a></li>
   <li><a href="#asymptotic-normality-for-the-mle" id="toc-asymptotic-normality-for-the-mle" class="nav-link" data-scroll-target="#asymptotic-normality-for-the-mle">Asymptotic normality for the MLE</a></li>
   <li><a href="#asymptotics-for-unbiased-estimating-equations" id="toc-asymptotics-for-unbiased-estimating-equations" class="nav-link" data-scroll-target="#asymptotics-for-unbiased-estimating-equations">Asymptotics for unbiased estimating equations</a></li>
   <li><a href="#asymptotic-bias-and-firth-corrections" id="toc-asymptotic-bias-and-firth-corrections" class="nav-link" data-scroll-target="#asymptotic-bias-and-firth-corrections">Asymptotic bias and Firth corrections</a></li>
@@ -2218,21 +2219,80 @@ Theorem (<span class="citation" data-cites="Lehmann1998">Lehmann and Casella (<a
 </section>
 <section id="what-could-go-wrong" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="what-could-go-wrong">What could go wrong?</h2>
-<p>Let <span class="math inline">Y_1,\dots,Y_n</span> be an iid sample from the following univariate density<a href="#fn17" class="footnote-ref" id="fnref17" role="doc-noteref"><sup>17</sup></a> <span class="math display">
-f(y; \theta) = \frac{1}{2}\phi(x; 0, 1) + \frac{1}{2}\phi(x; \theta, \exp\{-2/\theta^2\}),  \qquad y,\theta \in \mathbb{R},
-</span> where <span class="math inline">\phi(x; \mu, \sigma^2)</span> is the <span class="orange">normal density</span> with mean <span class="math inline">\mu</span> and variance <span class="math inline">\sigma^2</span>, which satisfies conditions <span class="blue">(A1)-(A3)</span>.</p>
-<div class="no-row-height column-margin column-container"><div id="fn17"><p><sup>17</sup>&nbsp;This example is taken from a <a href="https://radfordneal.wordpress.com/2008/08/09/inconsistent-maximum-likelihood-estimation-an-ordinary-example/">blogpost</a> of Radford Neal.</p></div></div></section>
-<section id="consistency-for-the-mle-1" class="level2">
-<h2 class="anchored" data-anchor-id="consistency-for-the-mle-1">Consistency for the MLE</h2>
-<p>(TH2) (<span class="citation" data-cites="Lehmann1998">Lehmann and Casella (<a href="#ref-Lehmann1998" role="doc-biblioref">1998</a>)</span>, Th. 3.7, Chap. 6) Under assumptions <span class="blue">(A1)-(A4)</span>, suppose <span class="math inline">\Theta \subseteq \mathbb{R}</span>, that <span class="math inline">f(y; \theta)</span> is <span class="blue">differentiable</span> and that, with probability tending to one as <span class="math inline">n\rightarrow \infty</span>, the score equation <span class="math inline">\ell^*(\theta) = 0</span> has a <span class="blue">unique solution</span> <span class="math inline">\hat{\theta}_n</span>. Then <span class="math inline">\hat{\theta}_n</span> is a <span class="orange">consistent estimator</span> of <span class="math inline">\theta_0</span>.</p>
-<p>(TH3) (<span class="citation" data-cites="Lehmann1998">Lehmann and Casella (<a href="#ref-Lehmann1998" role="doc-biblioref">1998</a>)</span>, Th. 5.1, Chap. 6) Under assumptions <span class="blue">(A1)-(A6)</span>, suppose that, with probability tending to one as <span class="math inline">n\rightarrow \infty</span>, the score equations <span class="math inline">\ell^*(\theta) = \bm{0}</span> have a <span class="blue">unique solution</span> <span class="math inline">\hat{\theta}_n</span>. Then <span class="math inline">\hat{\theta}_n</span> is a <span class="orange">consistent estimator</span> of <span class="math inline">\theta_0</span>.</p>
-</section>
-<section id="comments-of-consistency-results" class="level2">
-<h2 class="anchored" data-anchor-id="comments-of-consistency-results">Comments of consistency results</h2>
 <ul>
-<li><p>TH1 requires the <span class="orange">finiteness</span> of <span class="math inline">\Theta</span>, which is clearly <span class="orange">restrictive</span>.</p></li>
-<li><p>On the other hand, the statements of TH2 and TH3 are complicated by the possibility <span class="blue">multiple roots</span>, so one must shown existence and uniqueness of <span class="math inline">\hat{\theta}_n</span> by other means.</p></li>
+<li><p>Let <span class="math inline">Y_1,\dots,Y_n</span> be an iid sample from the following univariate density<a href="#fn17" class="footnote-ref" id="fnref17" role="doc-noteref"><sup>17</sup></a> <span class="math display">
+f(y; \theta) = \frac{1}{2}\phi(y; 0, 1) + \frac{1}{2}\phi(y; \theta, e^{-2/\theta^2}),  \qquad \theta \in \mathbb{R},
+</span> where <span class="math inline">\phi(x; \mu, \sigma^2)</span> is the <span class="orange">normal density</span>. The density <span class="math inline">f(y; \theta)</span> satisfies conditions <span class="blue">(A1)-(A4)</span>. Moreover <span class="math inline">\ell(\theta)</span> is <span class="blue">differentiable</span>.</p></li>
+<li><p>However, the log-likelihood present <span class="blue">spykes</span> in correspondence of the observed data and the maximum likelihood concentrates around <span class="math inline">0</span> rather than <span class="math inline">\theta_0</span>, i.e <span class="math inline">\hat{\theta}_n</span> is <span class="orange">inconsistent</span>.</p></li>
+<li><p>Note this does not contradict Wald inequality, because the spykes occur on a <span class="orange">set of measure zero</span>. Indeed for any fixed <span class="math inline">\theta</span> the probability of observing <span class="math inline">Y_i = \theta</span> is zero.</p></li>
+<li><p>There are <span class="blue">multiple roots</span> of the score equation <span class="math inline">\ell^*(\theta)</span>, corresponding to the spykes and the “correct” solution around <span class="math inline">\theta_0</span>.</p></li>
 </ul>
+<div class="no-row-height column-margin column-container"><div id="fn17"><p><sup>17</sup>&nbsp;This example is taken from a <a href="https://radfordneal.wordpress.com/2008/08/09/inconsistent-maximum-likelihood-estimation-an-ordinary-example/">blogpost</a> of Radford Neal.</p></div></div></section>
+<section id="what-could-go-wrong-1" class="level2">
+<h2 class="anchored" data-anchor-id="what-could-go-wrong-1">What could go wrong?</h2>
+<div class="cell" data-layout-align="center">
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in rug(y[1:30]): some values will be clipped</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in rug(y): some values will be clipped</code></pre>
+</div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="un_A_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="1200"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li>These are <span class="blue">simulated data</span> when the true value is <span class="math inline">\theta_0 = 0.6</span>. We plot the <span class="orange">log-density</span> <span class="math inline">\log{f(y;\theta_0)}</span> and the <span class="blue">log-likelihood</span> <span class="math inline">\ell(\theta)</span> for <span class="math inline">n=10,30,100</span>.</li>
+</ul>
+</section>
+<section id="what-else-could-go-wrong" class="level2">
+<h2 class="anchored" data-anchor-id="what-else-could-go-wrong">What else could go wrong?</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="un_A_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid figure-img" width="1050"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li>The picture depict a possible <span class="math inline">- \text{KL}(f(\cdot; \theta_0) \mid f(\cdot; \theta))</span> an hypothetical situation in which the true value is <span class="math inline">\theta_0 = \pi/2</span>. The presence of the asymptote may cause <span class="math inline">\hat{\theta}_n</span> to <span class="orange">diverge</span>.</li>
+</ul>
+</section>
+<section id="consistency-for-the-mle-1" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="consistency-for-the-mle-1">Consistency for the MLE</h2>
+<div class="callout callout-style-simple callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Theorem (<span class="citation" data-cites="Lehmann1998">Lehmann and Casella (<a href="#ref-Lehmann1998" role="doc-biblioref">1998</a>)</span>, Th. 5.1, Chap. 6)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Under assumptions <span class="blue">(A1)-(A6)</span>, with probability tending to <span class="math inline">1</span> as <span class="math inline">n\rightarrow \infty</span>, the equation <span class="math inline">\ell^*(\theta) = \bm{0}</span> has at least one root <span class="math inline">\hat{\theta}_n</span>, and there exists a sequence of roots <span class="math inline">\hat{\theta}_n</span> such that <span class="math inline">\hat{\theta}_n \overset{p}{\longrightarrow} \theta_0</span>.</p>
+</div>
+</div>
+<ul>
+<li><p>This standard result of the literature requires several regularity conditions and yet it delivers <span class="orange">less</span> than <span class="orange">what it seems</span>.<a href="#fn18" class="footnote-ref" id="fnref18" role="doc-noteref"><sup>18</sup></a></p></li>
+<li><p>The claim is that a <span class="blue">clairvoyant statistician</span>, with knowlegde of <span class="math inline">\theta_0</span>, could choose a consistent sequence of roots. In reality, it may be impossibile to choose the right solution.</p></li>
+</ul>
+<div class="no-row-height column-margin column-container"><div id="fn18"><p><sup>18</sup>&nbsp;See also <span class="citation" data-cites="vandervaart1998">van der Vaart (<a href="#ref-vandervaart1998" role="doc-biblioref">1998</a>)</span>, Theorem 5.42, for slightly less stringent conditions and a careful discussion.</p></div></div><div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>The situation is not bad as it seems if we further require that, with probability tending to 1 as <span class="math inline">n\to \infty</span>, there is a <span class="blue">unique solution</span> to the <span class="orange">score equation</span>. In that case <span class="math inline">\hat{\theta}_n</span> is the global maximizer of <span class="math inline">\ell(\theta)</span> and is also <span class="orange">consistent</span>.</p>
+</div>
+</div>
+</div>
 </section>
 <section id="asymptotic-normality-for-the-mle" class="level2">
 <h2 class="anchored" data-anchor-id="asymptotic-normality-for-the-mle">Asymptotic normality for the MLE</h2>
