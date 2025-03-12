@@ -1885,7 +1885,7 @@ Let $Y_1,\dots,Y_n$ be an iid sample from the following univariate density[^Neal
 $$
 f(y; \theta) = \frac{1}{2}\phi(x; 0, 1) + \frac{1}{2}\phi(x; \theta, \exp\{-2/\theta^2\}),  \qquad y,\theta \in \mathbb{R},
 $$
-which satisfies conditions [(A1)-(A3)]{.blue}.
+where $\phi(x; \mu, \sigma^2)$ is the [normal density]{.orange} with mean $\mu$ and variance $\sigma^2$, which satisfies conditions [(A1)-(A3)]{.blue}.
 
 [^Neal]: This example is taken from a [blogpost](https://radfordneal.wordpress.com/2008/08/09/inconsistent-maximum-likelihood-estimation-an-ordinary-example/) of Radford Neal. 
 
