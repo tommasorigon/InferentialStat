@@ -1841,7 +1841,11 @@ which implies $\text{bias}_\lambda(\hat{\lambda}_n)=0$ and $\lim_{n\to\infty}\te
 
 - Moreover, as a direct application of the [central limit theorem]{.orange}, we also obtain that
 $$
-\sqrt{n}(\hat{\lambda}_n - \lambda) \overset{\text{d}}{\longrightarrow} \text{N}(0, \lambda). 
+\sqrt{n}(\hat{\lambda}_n - \lambda) \overset{\text{d}}{\longrightarrow} \text{N}(0, \lambda), \qquad i(\lambda) = \frac{1}{\lambda}.
+$$
+- In order to construct confidence intervals, one typically estimate the asymptotic variance $i(\lambda)^{-1}$ with a consistent estimator $i(\hat{\lambda}_n)^{-1} = \hat{\lambda}_n$. Then [Slutsky theorem]{.blue} ensures that
+$$
+\sqrt{n}\:i(\hat{\lambda}_n)^{1/2}(\hat{\lambda}_n - \lambda)\overset{\text{d}}{\longrightarrow} \text{N}(0, 1).
 $$
 
 ## The classical "regularity conditions"
@@ -2038,6 +2042,40 @@ Let us further require that, with probability tending to 1 as $n\to \infty$, the
 [^th_vdv]: See also @vandervaart1998, Theorem 5.42, for slightly less stringent conditions and a careful discussion about the issue of multiple roots.
 
 ## Asymptotic normality for the MLE
+
+:::callout-warning
+#### Theorem (@Lehmann1998, Th. 5.1, Chap. 6) 
+
+Under assumptions [(A1)-(A6)]{.blue}, suppose the maximum likelihood estimator $\hat{\theta}_n$ exists and is [consistent]{.orange}. Then
+$$
+\sqrt{n}(\hat{\theta}_n - \theta_0) \overset{\text{d}}{\longrightarrow} \text{N}(0, i(\theta)^{-1}), \quad i(\theta) = -\int\frac{\partial}{\partial \theta \partial \theta^T}\log{f(y \mid \theta)}\mathrm{d}y,
+$$
+where $i(\theta)$ is the [Fisher information matrix]{.blue}.
+:::
+
+- Informally, we say that the maximum likelihood estimator is [asymptotically efficient]{.orange} because, roughly speaking, $\text{var}_\theta(\hat{\theta}_n) \approx I(\theta)^{-1}$, the latter being the [Cramér-Rao lower bound]{.blue}.
+
+- Rigorously, the above theorem does not establish the convergence of $\mathbb{E}_\theta(\hat{\theta}_n)$ and $\text{var}_\theta(\hat{\theta}_n)$, nor have we introduced an asymptotic version of the Cramér-Rao bound.
+
+- Nevertheless, the statement that maximum likelihood estimators are [asymptotically efficient]{.blue} is [correct]{.orange}, as rigorously discussed in Chapter 8 of @vandervaart1998.
+
+## Observed vs Fisher information
+
+- For the [practical]{.blue} construction of [confidence intervals]{.orange}, or simply to empirically assess the variance of an estimator, we need to consider a consistent estimator for $I(\theta) = n i(\theta)$. 
+
+:::callout-note
+The negative [Hessian matrix]{.orange} of the log-likelihood is called [observed information]{.blue} and equals:
+$$
+j(\theta) := - \frac{\partial^2}{\partial \theta \partial \theta^T} \ell(\theta; \bm{Y}).
+$$
+If the second Bartlett identity holds, the [Fisher information]{.orange} is $I(\theta) = \mathbb{E}_\theta(j(\theta))$.
+:::
+
+- There are two natural candidates for estimating $I(\theta)$, namely $I(\hat{\theta}_n)$  and $j(\hat{\theta}_n)$. These two quantities may coincide, but in general it is not guaranteed.
+
+- Following the original work of Fisher, @Efron1978 suggested using $j(\hat{\theta}_n)$ because it approximate the [conditional variance]{.blue} of $\hat{\theta}_n$ given an appropriate [ancillary statistics]{.orange}. 
+
+- Besides, $j(\hat{\theta}_n)$ can be numerically computed via differentiation, whereas $i(\hat{\theta}_n)$ requires some analytical work. 
 
 ## Consistency for estimating equations
 

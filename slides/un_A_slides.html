@@ -2054,7 +2054,10 @@ G(\beta)^{-1} =  \sigma^2 \left[(\bm{A}^T \bm{X})^{-1}\bm{A}^T\right] \left[(\bm
 \mathbb{E}_\lambda(\hat{\lambda}) = \lambda, \qquad \text{var}_\lambda(\hat{\lambda}_n) = \frac{\lambda}{n} = I(\lambda)^{-1},
 </span> which implies <span class="math inline">\text{bias}_\lambda(\hat{\lambda}_n)=0</span> and <span class="math inline">\lim_{n\to\infty}\text{var}_\lambda(\hat{\lambda}_n)=0</span>, from which <span class="orange">consistency</span> follows.</p></li>
 <li><p>Moreover, as a direct application of the <span class="orange">central limit theorem</span>, we also obtain that <span class="math display">
-\sqrt{n}(\hat{\lambda}_n - \lambda) \overset{\text{d}}{\longrightarrow} \text{N}(0, \lambda).
+\sqrt{n}(\hat{\lambda}_n - \lambda) \overset{\text{d}}{\longrightarrow} \text{N}(0, \lambda), \qquad i(\lambda) = \frac{1}{\lambda}.
+</span></p></li>
+<li><p>In order to construct confidence intervals, one typically estimate the asymptotic variance <span class="math inline">i(\lambda)^{-1}</span> with a consistent estimator <span class="math inline">i(\hat{\lambda}_n)^{-1} = \hat{\lambda}_n</span>. Then <span class="blue">Slutsky theorem</span> ensures that <span class="math display">
+\sqrt{n}\:i(\hat{\lambda}_n)^{1/2}(\hat{\lambda}_n - \lambda)\overset{\text{d}}{\longrightarrow} \text{N}(0, 1).
 </span></p></li>
 </ul>
 </section>
@@ -2185,6 +2188,43 @@ f(y; \theta) = \frac{1}{2}\phi(y; 0, 1) + \frac{1}{2}\phi(y; \theta, e^{-2/\thet
 <aside><ol class="aside-footnotes"><li id="fn18"><p>See also <span class="citation" data-cites="vandervaart1998">van der Vaart (<a href="#/references" role="doc-biblioref" onclick="">1998</a>)</span>, Theorem 5.42, for slightly less stringent conditions and a careful discussion about the issue of multiple roots.</p></li></ol></aside></section>
 <section id="asymptotic-normality-for-the-mle" class="slide level2 center">
 <h2>Asymptotic normality for the MLE</h2>
+<div class="callout callout-warning no-icon callout-titled callout-style-simple">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Theorem (<span class="citation" data-cites="Lehmann1998">Lehmann and Casella (<a href="#/references" role="doc-biblioref" onclick="">1998</a>)</span>, Th. 5.1, Chap. 6)</strong></p>
+</div>
+<div class="callout-content">
+<p>Under assumptions <span class="blue">(A1)-(A6)</span>, suppose the maximum likelihood estimator <span class="math inline">\hat{\theta}_n</span> exists and is <span class="orange">consistent</span>. Then <span class="math display">
+\sqrt{n}(\hat{\theta}_n - \theta_0) \overset{\text{d}}{\longrightarrow} \text{N}(0, i(\theta)^{-1}), \quad i(\theta) = -\int\frac{\partial}{\partial \theta \partial \theta^T}\log{f(y \mid \theta)}\mathrm{d}y,
+</span> where <span class="math inline">i(\theta)</span> is the <span class="blue">Fisher information matrix</span>.</p>
+</div>
+</div>
+</div>
+<ul>
+<li><p>Informally, we say that the maximum likelihood estimator is <span class="orange">asymptotically efficient</span> because, roughly speaking, <span class="math inline">\text{var}_\theta(\hat{\theta}_n) \approx I(\theta)^{-1}</span>, the latter being the <span class="blue">Cramér-Rao lower bound</span>.</p></li>
+<li><p>Rigorously, the above theorem does not establish the convergence of <span class="math inline">\mathbb{E}_\theta(\hat{\theta}_n)</span> and <span class="math inline">\text{var}_\theta(\hat{\theta}_n)</span>, nor have we introduced an asymptotic version of the Cramér-Rao bound.</p></li>
+<li><p>Nevertheless, the statement that maximum likelihood estimators are <span class="blue">asymptotically efficient</span> is <span class="orange">correct</span>, as rigorously discussed in Chapter 8 of <span class="citation" data-cites="vandervaart1998">van der Vaart (<a href="#/references" role="doc-biblioref" onclick="">1998</a>)</span>.</p></li>
+</ul>
+</section>
+<section id="observed-vs-fisher-information" class="slide level2 center">
+<h2>Observed vs Fisher information</h2>
+<ul>
+<li>For the <span class="blue">practical</span> construction of <span class="orange">confidence intervals</span>, or simply to empirically assess the variance of an estimator, we need to consider a consistent estimator for <span class="math inline">I(\theta) = n i(\theta)</span>.</li>
+</ul>
+<div class="callout callout-note no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<p>The negative <span class="orange">Hessian matrix</span> of the log-likelihood is called <span class="blue">observed information</span> and equals: <span class="math display">
+j(\theta) := - \frac{\partial^2}{\partial \theta \partial \theta^T} \ell(\theta; \bm{Y}).
+</span> If the second Bartlett identity holds, the <span class="orange">Fisher information</span> is <span class="math inline">I(\theta) = \mathbb{E}_\theta(j(\theta))</span>.</p>
+</div>
+</div>
+</div>
+<ul>
+<li><p>There are two natural candidates for estimating <span class="math inline">I(\theta)</span>, namely <span class="math inline">I(\hat{\theta}_n)</span> and <span class="math inline">j(\hat{\theta}_n)</span>. These two quantities may coincide, but in general it is not guaranteed.</p></li>
+<li><p>Following the original work of Fisher, <span class="citation" data-cites="Efron1978">Efron and Hinkley (<a href="#/references" role="doc-biblioref" onclick="">1978</a>)</span> suggested using <span class="math inline">j(\hat{\theta}_n)</span> because it approximate the <span class="blue">conditional variance</span> of <span class="math inline">\hat{\theta}_n</span> given an appropriate <span class="orange">ancillary statistics</span>.</p></li>
+<li><p>Besides, <span class="math inline">j(\hat{\theta}_n)</span> can be numerically computed via differentiation, whereas <span class="math inline">i(\hat{\theta}_n)</span> requires some analytical work.</p></li>
+</ul>
 </section>
 <section id="consistency-for-estimating-equations" class="slide level2 center">
 <h2>Consistency for estimating equations</h2>
@@ -2278,6 +2318,9 @@ Efron, B. (2010), <em><span class="nocase">Large Scale Inference: Empirical Baye
 </div>
 <div id="ref-Efron2016" class="csl-entry" role="listitem">
 Efron, B., and Hastie, T. (2016), <em><span>Computer Age Statistical Inference</span></em>, Cambridge University Press.
+</div>
+<div id="ref-Efron1978" class="csl-entry" role="listitem">
+Efron, B., and Hinkley, D. V. (1978), <span>“<span class="nocase">Assessing the accuracy of the maximum likelihood estimator: observed vs Fisher information</span>,”</span> <em>Biometrika</em>, 65, 457–482.
 </div>
 <div id="ref-Efron1975" class="csl-entry" role="listitem">
 Efron, B., and Morris, C. (1975), <span>“<span class="nocase">Data analysis using Stein’s estimator and its generalizations</span>,”</span> <em>Journal of the American Statistical Association</em>, 70, 311–319.
