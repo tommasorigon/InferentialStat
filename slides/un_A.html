@@ -206,6 +206,7 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#asymptotic-evaluations-preliminaries" id="toc-asymptotic-evaluations-preliminaries" class="nav-link" data-scroll-target="#asymptotic-evaluations-preliminaries">Asymptotic evaluations: preliminaries</a></li>
   <li><a href="#asymptotic-evaluations-preliminaries-1" id="toc-asymptotic-evaluations-preliminaries-1" class="nav-link" data-scroll-target="#asymptotic-evaluations-preliminaries-1">Asymptotic evaluations: preliminaries</a></li>
+  <li><a href="#example-poisson-with-unknown-mean-1" id="toc-example-poisson-with-unknown-mean-1" class="nav-link" data-scroll-target="#example-poisson-with-unknown-mean-1">Example: Poisson with unknown mean 📖</a></li>
   <li><a href="#the-classical-regularity-conditions" id="toc-the-classical-regularity-conditions" class="nav-link" data-scroll-target="#the-classical-regularity-conditions">The classical “regularity conditions”</a></li>
   <li><a href="#wald-inequality" id="toc-wald-inequality" class="nav-link" data-scroll-target="#wald-inequality">Wald inequality</a></li>
   <li><a href="#consistency-for-the-mle" id="toc-consistency-for-the-mle" class="nav-link" data-scroll-target="#consistency-for-the-mle">Consistency for the MLE</a></li>
@@ -214,7 +215,7 @@ window.Quarto = {
   <li><a href="#what-else-could-go-wrong" id="toc-what-else-could-go-wrong" class="nav-link" data-scroll-target="#what-else-could-go-wrong">What else could go wrong?</a></li>
   <li><a href="#consistency-for-the-mle-1" id="toc-consistency-for-the-mle-1" class="nav-link" data-scroll-target="#consistency-for-the-mle-1">Consistency for the MLE</a></li>
   <li><a href="#asymptotic-normality-for-the-mle" id="toc-asymptotic-normality-for-the-mle" class="nav-link" data-scroll-target="#asymptotic-normality-for-the-mle">Asymptotic normality for the MLE</a></li>
-  <li><a href="#asymptotics-for-unbiased-estimating-equations" id="toc-asymptotics-for-unbiased-estimating-equations" class="nav-link" data-scroll-target="#asymptotics-for-unbiased-estimating-equations">Asymptotics for unbiased estimating equations</a></li>
+  <li><a href="#consistency-for-estimating-equations" id="toc-consistency-for-estimating-equations" class="nav-link" data-scroll-target="#consistency-for-estimating-equations">Consistency for estimating equations</a></li>
   <li><a href="#asymptotic-bias-and-firth-corrections" id="toc-asymptotic-bias-and-firth-corrections" class="nav-link" data-scroll-target="#asymptotic-bias-and-firth-corrections">Asymptotic bias and Firth corrections</a></li>
   </ul></li>
   <li><a href="#robustness" id="toc-robustness" class="nav-link" data-scroll-target="#robustness">Robustness</a>
@@ -352,11 +353,11 @@ window.Quarto = {
 <ul>
 <li><p>Moments estimators are not necessarily the best estimators, but <span class="blue">under reasonable conditions</span> they are <span class="orange">consistent</span>, they have converge rate <span class="math inline">\sqrt{n}</span>, and they are <span class="orange">asymptotically normal</span>.</p></li>
 <li><p>Suppose <span class="math inline">(Y,Y^2,\dots,Y^p)</span> has <span class="blue">covariance</span> <span class="math inline">\Sigma</span>, then the multivariate <span class="orange">central limit theorem</span> implies that as <span class="math inline">n\rightarrow \infty</span> <span class="math display">
-\sqrt{n}\{m - \mu(\theta)\} \overset{d}{\longrightarrow} Z, \qquad Z\sim N_p(0, \Sigma),
+\sqrt{n}\{m - \mu(\theta)\} \overset{\text{d}}{\longrightarrow} Z, \qquad Z\sim N_p(0, \Sigma),
 </span> where <span class="math inline">m = (m_1,\dots,m_p)</span> and <span class="math inline">\mu(\theta) = (\mu_1(\theta),\dots,\mu_p(\theta))</span>.</p></li>
 <li><p>Suppose also that <span class="math inline">\mu(\theta)</span> is a <span class="blue">one-to-one</span> mapping and let <span class="math inline">g(\mu)</span> be the inverse of <span class="math inline">\mu(\theta)</span>, that is <span class="math inline">g = \mu^{-1}</span>. We assume that <span class="math inline">g</span> has <span class="blue">differentiable</span> components <span class="math inline">g_r(\cdot)</span> for <span class="math inline">r = 1,\dots,p</span>.</p></li>
 <li><p>The moments estimator can be written as <span class="math inline">\hat{\theta} = g(m)</span> and <span class="math inline">\theta = g(\mu(\theta))</span>. Then, as a consequence of the <span class="orange">delta method</span>, the following general result holds: <span class="math display">
-\sqrt{n}(\hat{\theta} - \theta) \overset{d}{\longrightarrow} Z, \qquad Z\sim N_p\left(0, D \Sigma D^T\right),
+\sqrt{n}(\hat{\theta} - \theta) \overset{\text{d}}{\longrightarrow} Z, \qquad Z\sim N_p\left(0, D \Sigma D^T\right),
 </span> where <span class="math inline">D = [d_{rr'}]</span> is a <span class="math inline">p \times p</span> matrix whose entries are the derivatives <span class="math inline">d_{rr'} = \partial g_r(\mu)/\partial \mu_{r'}</span>.</p></li>
 </ul>
 
@@ -2112,7 +2113,7 @@ Theorem (<span class="citation" data-cites="Casella2002">Casella and Berger (<a 
 <ul>
 <li><p>The <span class="orange">asymptotic normality</span> of an estimator <span class="math inline">\hat{\theta}_n</span> is a stronger property than consistency, implying that the estimator is <span class="blue">normally distributed</span> around the true value <span class="math inline">\theta</span> as the sample size increases.</p></li>
 <li><p>Let <span class="math inline">\Theta \subseteq \mathbb{R}</span> and let <span class="math inline">\hat{\theta}_n</span> be a sequence of estimators. Under “regularity conditions”: <span class="math display">
-\sqrt{n}(\hat{\theta}_n - \theta) \overset{d}{\longrightarrow} \text{N}(0, v(\theta)^{-1}), \qquad n \rightarrow \infty,
+\sqrt{n}(\hat{\theta}_n - \theta) \overset{\text{d}}{\longrightarrow} \text{N}(0, v(\theta)^{-1}), \qquad n \rightarrow \infty,
 </span> where <span class="math inline">v(\theta)^{-1}</span> is the so-called <span class="blue">asymptotic variance</span>.</p></li>
 <li><p>If <span class="math inline">\hat{\theta}_n</span> is the <span class="orange">maximum likelihood</span>, then under regularity conditions <span class="math inline">n v(\theta)</span> equals the <span class="orange">Fisher information</span> <span class="math inline">I(\theta) = n i(\theta)</span> and the <span class="blue">asymptotic variance</span> is <span class="math inline">i(\theta)^{-1}</span>.</p></li>
 </ul>
@@ -2130,6 +2131,20 @@ Theorem (<span class="citation" data-cites="Casella2002">Casella and Berger (<a 
 </div>
 <ul>
 <li><span class="orange">Remark</span>: there exist infinitely many asymptotically efficient estimators.</li>
+</ul>
+</section>
+<section id="example-poisson-with-unknown-mean-1" class="level2">
+<h2 class="anchored" data-anchor-id="example-poisson-with-unknown-mean-1">Example: Poisson with unknown mean 📖</h2>
+<ul>
+<li><p>Let <span class="math inline">Y_1,\dots,Y_n</span> be a iid random sample from a <span class="orange">Poisson</span> distribution of mean parameter <span class="math inline">\lambda &gt; 0</span>. The maximum likelihood estimator <span class="math inline">\hat{\lambda}_n</span> is the sample mean <span class="math display">
+\hat{\lambda}_n = \bar{Y}.
+</span></p></li>
+<li><p>One could invoke the strong <span class="blue">law of large numbers</span> to show that <span class="math inline">\hat{\lambda}_n \overset{\text{a.s.}}{\longrightarrow} \lambda</span>. Alternatively: <span class="math display">
+\mathbb{E}_\lambda(\hat{\lambda}) = \lambda, \qquad \text{var}_\lambda(\hat{\lambda}_n) = \frac{\lambda}{n} = I(\lambda)^{-1},
+</span> which implies <span class="math inline">\text{bias}_\lambda(\hat{\lambda}_n)=0</span> and <span class="math inline">\lim_{n\to\infty}\text{var}_\lambda(\hat{\lambda}_n)=0</span>, from which <span class="orange">consistency</span> follows.</p></li>
+<li><p>Moreover, as a direct application of the <span class="orange">central limit theorem</span>, we also obtain that <span class="math display">
+\sqrt{n}(\hat{\lambda}_n - \lambda) \overset{\text{d}}{\longrightarrow} \text{N}(0, \lambda).
+</span></p></li>
 </ul>
 </section>
 <section id="the-classical-regularity-conditions" class="level2">
@@ -2300,8 +2315,8 @@ Theorem (<span class="citation" data-cites="Lehmann1998">Lehmann and Casella (<a
 <section id="asymptotic-normality-for-the-mle" class="level2">
 <h2 class="anchored" data-anchor-id="asymptotic-normality-for-the-mle">Asymptotic normality for the MLE</h2>
 </section>
-<section id="asymptotics-for-unbiased-estimating-equations" class="level2">
-<h2 class="anchored" data-anchor-id="asymptotics-for-unbiased-estimating-equations">Asymptotics for unbiased estimating equations</h2>
+<section id="consistency-for-estimating-equations" class="level2">
+<h2 class="anchored" data-anchor-id="consistency-for-estimating-equations">Consistency for estimating equations</h2>
 </section>
 <section id="asymptotic-bias-and-firth-corrections" class="level2">
 <h2 class="anchored" data-anchor-id="asymptotic-bias-and-firth-corrections">Asymptotic bias and Firth corrections</h2>

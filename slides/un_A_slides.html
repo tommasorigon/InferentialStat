@@ -458,11 +458,11 @@
 <ul>
 <li><p>Moments estimators are not necessarily the best estimators, but <span class="blue">under reasonable conditions</span> they are <span class="orange">consistent</span>, they have converge rate <span class="math inline">\sqrt{n}</span>, and they are <span class="orange">asymptotically normal</span>.</p></li>
 <li><p>Suppose <span class="math inline">(Y,Y^2,\dots,Y^p)</span> has <span class="blue">covariance</span> <span class="math inline">\Sigma</span>, then the multivariate <span class="orange">central limit theorem</span> implies that as <span class="math inline">n\rightarrow \infty</span> <span class="math display">
-\sqrt{n}\{m - \mu(\theta)\} \overset{d}{\longrightarrow} Z, \qquad Z\sim N_p(0, \Sigma),
+\sqrt{n}\{m - \mu(\theta)\} \overset{\text{d}}{\longrightarrow} Z, \qquad Z\sim N_p(0, \Sigma),
 </span> where <span class="math inline">m = (m_1,\dots,m_p)</span> and <span class="math inline">\mu(\theta) = (\mu_1(\theta),\dots,\mu_p(\theta))</span>.</p></li>
 <li><p>Suppose also that <span class="math inline">\mu(\theta)</span> is a <span class="blue">one-to-one</span> mapping and let <span class="math inline">g(\mu)</span> be the inverse of <span class="math inline">\mu(\theta)</span>, that is <span class="math inline">g = \mu^{-1}</span>. We assume that <span class="math inline">g</span> has <span class="blue">differentiable</span> components <span class="math inline">g_r(\cdot)</span> for <span class="math inline">r = 1,\dots,p</span>.</p></li>
 <li><p>The moments estimator can be written as <span class="math inline">\hat{\theta} = g(m)</span> and <span class="math inline">\theta = g(\mu(\theta))</span>. Then, as a consequence of the <span class="orange">delta method</span>, the following general result holds: <span class="math display">
-\sqrt{n}(\hat{\theta} - \theta) \overset{d}{\longrightarrow} Z, \qquad Z\sim N_p\left(0, D \Sigma D^T\right),
+\sqrt{n}(\hat{\theta} - \theta) \overset{\text{d}}{\longrightarrow} Z, \qquad Z\sim N_p\left(0, D \Sigma D^T\right),
 </span> where <span class="math inline">D = [d_{rr'}]</span> is a <span class="math inline">p \times p</span> matrix whose entries are the derivatives <span class="math inline">d_{rr'} = \partial g_r(\mu)/\partial \mu_{r'}</span>.</p></li>
 </ul>
 
@@ -2027,7 +2027,7 @@ G(\beta)^{-1} =  \sigma^2 \left[(\bm{A}^T \bm{X})^{-1}\bm{A}^T\right] \left[(\bm
 <ul>
 <li><p>The <span class="orange">asymptotic normality</span> of an estimator <span class="math inline">\hat{\theta}_n</span> is a stronger property than consistency, implying that the estimator is <span class="blue">normally distributed</span> around the true value <span class="math inline">\theta</span> as the sample size increases.</p></li>
 <li><p>Let <span class="math inline">\Theta \subseteq \mathbb{R}</span> and let <span class="math inline">\hat{\theta}_n</span> be a sequence of estimators. Under “regularity conditions”: <span class="math display">
-\sqrt{n}(\hat{\theta}_n - \theta) \overset{d}{\longrightarrow} \text{N}(0, v(\theta)^{-1}), \qquad n \rightarrow \infty,
+\sqrt{n}(\hat{\theta}_n - \theta) \overset{\text{d}}{\longrightarrow} \text{N}(0, v(\theta)^{-1}), \qquad n \rightarrow \infty,
 </span> where <span class="math inline">v(\theta)^{-1}</span> is the so-called <span class="blue">asymptotic variance</span>.</p></li>
 <li><p>If <span class="math inline">\hat{\theta}_n</span> is the <span class="orange">maximum likelihood</span>, then under regularity conditions <span class="math inline">n v(\theta)</span> equals the <span class="orange">Fisher information</span> <span class="math inline">I(\theta) = n i(\theta)</span> and the <span class="blue">asymptotic variance</span> is <span class="math inline">i(\theta)^{-1}</span>.</p></li>
 </ul>
@@ -2042,6 +2042,20 @@ G(\beta)^{-1} =  \sigma^2 \left[(\bm{A}^T \bm{X})^{-1}\bm{A}^T\right] \left[(\bm
 </div>
 <ul>
 <li><span class="orange">Remark</span>: there exist infinitely many asymptotically efficient estimators.</li>
+</ul>
+</section>
+<section id="example-poisson-with-unknown-mean-1" class="slide level2 center">
+<h2>Example: Poisson with unknown mean 📖</h2>
+<ul>
+<li><p>Let <span class="math inline">Y_1,\dots,Y_n</span> be a iid random sample from a <span class="orange">Poisson</span> distribution of mean parameter <span class="math inline">\lambda &gt; 0</span>. The maximum likelihood estimator <span class="math inline">\hat{\lambda}_n</span> is the sample mean <span class="math display">
+\hat{\lambda}_n = \bar{Y}.
+</span></p></li>
+<li><p>One could invoke the strong <span class="blue">law of large numbers</span> to show that <span class="math inline">\hat{\lambda}_n \overset{\text{a.s.}}{\longrightarrow} \lambda</span>. Alternatively: <span class="math display">
+\mathbb{E}_\lambda(\hat{\lambda}) = \lambda, \qquad \text{var}_\lambda(\hat{\lambda}_n) = \frac{\lambda}{n} = I(\lambda)^{-1},
+</span> which implies <span class="math inline">\text{bias}_\lambda(\hat{\lambda}_n)=0</span> and <span class="math inline">\lim_{n\to\infty}\text{var}_\lambda(\hat{\lambda}_n)=0</span>, from which <span class="orange">consistency</span> follows.</p></li>
+<li><p>Moreover, as a direct application of the <span class="orange">central limit theorem</span>, we also obtain that <span class="math display">
+\sqrt{n}(\hat{\lambda}_n - \lambda) \overset{\text{d}}{\longrightarrow} \text{N}(0, \lambda).
+</span></p></li>
 </ul>
 </section>
 <section id="the-classical-regularity-conditions" class="slide level2 center">
@@ -2172,8 +2186,8 @@ f(y; \theta) = \frac{1}{2}\phi(y; 0, 1) + \frac{1}{2}\phi(y; \theta, e^{-2/\thet
 <section id="asymptotic-normality-for-the-mle" class="slide level2 center">
 <h2>Asymptotic normality for the MLE</h2>
 </section>
-<section id="asymptotics-for-unbiased-estimating-equations" class="slide level2 center">
-<h2>Asymptotics for unbiased estimating equations</h2>
+<section id="consistency-for-estimating-equations" class="slide level2 center">
+<h2>Consistency for estimating equations</h2>
 </section>
 <section id="asymptotic-bias-and-firth-corrections" class="slide level2 center">
 <h2>Asymptotic bias and Firth corrections</h2>

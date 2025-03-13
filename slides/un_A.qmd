@@ -149,7 +149,7 @@ $$ That is, any [statistic]{.orange} is a point estimator.
 
 -   Suppose $(Y,Y^2,\dots,Y^p)$ has [covariance]{.blue} $\Sigma$, then the
     multivariate [central limit theorem]{.orange} implies that as $n\rightarrow \infty$ $$
-    \sqrt{n}\{m - \mu(\theta)\} \overset{d}{\longrightarrow} Z, \qquad Z\sim N_p(0, \Sigma),
+    \sqrt{n}\{m - \mu(\theta)\} \overset{\text{d}}{\longrightarrow} Z, \qquad Z\sim N_p(0, \Sigma),
     $$ where $m = (m_1,\dots,m_p)$ and
     $\mu(\theta) = (\mu_1(\theta),\dots,\mu_p(\theta))$.
 
@@ -161,7 +161,7 @@ $$ That is, any [statistic]{.orange} is a point estimator.
 -   The moments estimator can be written as $\hat{\theta} = g(m)$ and
     $\theta = g(\mu(\theta))$. Then, as a consequence of the [delta
     method]{.orange}, the following general result holds: $$
-    \sqrt{n}(\hat{\theta} - \theta) \overset{d}{\longrightarrow} Z, \qquad Z\sim N_p\left(0, D \Sigma D^T\right),
+    \sqrt{n}(\hat{\theta} - \theta) \overset{\text{d}}{\longrightarrow} Z, \qquad Z\sim N_p\left(0, D \Sigma D^T\right),
     $$ where $D = [d_{rr'}]$ is a $p \times p$ matrix whose entries are
     the derivatives $d_{rr'} = \partial g_r(\mu)/\partial \mu_{r'}$.
 
@@ -1810,7 +1810,7 @@ Then $\hat{\theta}_n$ is a [consistent estimator]{.blue} of $\theta$.
 
 - Let $\Theta \subseteq \mathbb{R}$ and let $\hat{\theta}_n$ be a sequence of estimators. Under "regularity conditions":
 $$
-\sqrt{n}(\hat{\theta}_n - \theta) \overset{d}{\longrightarrow} \text{N}(0, v(\theta)^{-1}), \qquad n \rightarrow \infty,
+\sqrt{n}(\hat{\theta}_n - \theta) \overset{\text{d}}{\longrightarrow} \text{N}(0, v(\theta)^{-1}), \qquad n \rightarrow \infty,
 $$
 where $v(\theta)^{-1}$ is the so-called [asymptotic variance]{.blue}.
 
@@ -1825,8 +1825,26 @@ $$
 
 - [Remark]{.orange}: there exist infinitely many asymptotically efficient estimators.
 
-## The classical "regularity conditions"
+## Example: Poisson with unknown mean 📖 
 
+-   Let $Y_1,\dots,Y_n$ be a iid random sample from a [Poisson]{.orange}
+    distribution of mean parameter $\lambda > 0$. The maximum likelihood estimator $\hat{\lambda}_n$ is the sample mean
+    $$
+    \hat{\lambda}_n = \bar{Y}.
+    $$
+
+- One could invoke the strong [law of large numbers]{.blue} to show that $\hat{\lambda}_n \overset{\text{a.s.}}{\longrightarrow} \lambda$. Alternatively:
+$$
+\mathbb{E}_\lambda(\hat{\lambda}) = \lambda, \qquad \text{var}_\lambda(\hat{\lambda}_n) = \frac{\lambda}{n} = I(\lambda)^{-1},
+$$
+which implies $\text{bias}_\lambda(\hat{\lambda}_n)=0$ and $\lim_{n\to\infty}\text{var}_\lambda(\hat{\lambda}_n)=0$, from which [consistency]{.orange} follows. 
+
+- Moreover, as a direct application of the [central limit theorem]{.orange}, we also obtain that
+$$
+\sqrt{n}(\hat{\lambda}_n - \lambda) \overset{\text{d}}{\longrightarrow} \text{N}(0, \lambda). 
+$$
+
+## The classical "regularity conditions"
 
 :::callout-warning
 
@@ -2019,10 +2037,9 @@ Let us further require that, with probability tending to 1 as $n\to \infty$, the
 
 [^th_vdv]: See also @vandervaart1998, Theorem 5.42, for slightly less stringent conditions and a careful discussion about the issue of multiple roots.
 
-
 ## Asymptotic normality for the MLE
 
-## Asymptotics for unbiased estimating equations
+## Consistency for estimating equations
 
 ## Asymptotic bias and Firth corrections
 
