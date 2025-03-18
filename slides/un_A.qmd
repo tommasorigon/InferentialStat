@@ -2182,12 +2182,12 @@ $$
 $$
 where $\Delta^2(\theta) \geq 0$, with equality if and only if $\hat{\theta}_\text{bc} = \tilde{\theta}_n$. In this case, $\hat{\theta}_\text{bc}$ is said to be [second-order efficient]{.orange}; see @Efron1975b.
 
-## Bias reduction using Firth's corrections I
+## Bias reduction using Firth's correction I
 
 
 - The jackknife and $\hat{\theta}_\text{bs}$ are "corrective" rather than "preventive". That is, the maximum likelihood $\hat{\theta}$ is first calculated, then corrected. A practical requirement is the [existence]{.orange} of $\hat{\theta}$. 
 
-- Motivated by this, @Firth1993 proposed a [modified score equation]{.blue}. The [bias]{.orange} in $\hat{\theta}$ can be [reduced]{.orange} by introducing a [small bias]{.blue} into the [score function]{.blue}.  
+- Motivated by this, @Firth1993 proposed a [modified score equation]{.blue}. The idea is that the [bias]{.orange} in $\hat{\theta}$ can be [reduced]{.orange} by introducing a [small bias]{.blue} into the [score function]{.blue}.  
 
 
 :::callout-note
@@ -2195,21 +2195,21 @@ In a regular model with $\Theta \subseteq \mathbb{R}^p$, let $\ell^*(\theta)$ be
 $$
 Q(\theta) = \ell^*(\theta) + A(\theta),
 $$
-where $A(\theta)$ is any vector such that 
+where $A(\theta) = A(\theta; \bm{Y})$ is any vector such that 
 $$
 \mathbb{E}_\theta(A(\theta)) = - I(\theta)\frac{b_1(\theta)}{n} + \mathcal{O}(n^{-1/2}).
 $$
-Clearly, a natural candidate for $A(\theta)$ is indeed $A(\theta) = - I(\theta)b_1(\theta)/n$.
+Clearly, a natural candidate for $A(\theta; \bm{Y})$ is indeed $A(\theta) = - I(\theta)b_1(\theta)/n$.
 :::
 
-## Bias reduction using Firth's corrections II
+## Bias reduction using Firth's correction II
 
 
-![](firth.png){width=4in fig-align="center"}
+![](firth.png){width=6in fig-align="center"}
 
 
 
-## Bias reduction using Firth's corrections III
+## Bias reduction using Firth's correction III
 
 
 :::callout-tip
@@ -2236,17 +2236,26 @@ which is a well-know [bias-reducing]{.orange} correction of the empirical logit.
 
 # Robustness
 
+## Robustness: preliminaries
+
 ## Maximum likelihood under a misspecified model
+
+- Interpretation of $\hat{\theta}$ as the minimizer of the Kullback-Leibler
 
 ## Re-interpreting M-estimators and Z-estimators
 
+- Results of Godambe efficiency
+
 ## Example: Huber estimators
+
+- Section 10.2.2 of Casella-Berger
+- See Davison, Section 8.4
 
 ## Example: linear models with misspecified variance
 
+- See Davison, Section 8.4
+
 # References and study material
-
-
 
 ## Main references
 

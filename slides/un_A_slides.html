@@ -2334,30 +2334,30 @@ h(\theta) = \mathbb{E}_\theta\left(- \frac{\partial}{\partial \theta}q(\theta)\r
 </span> where <span class="math inline">\Delta^2(\theta) \geq 0</span>, with equality if and only if <span class="math inline">\hat{\theta}_\text{bc} = \tilde{\theta}_n</span>. In this case, <span class="math inline">\hat{\theta}_\text{bc}</span> is said to be <span class="orange">second-order efficient</span>; see <span class="citation" data-cites="Efron1975b">Efron (<a href="#/references" role="doc-biblioref" onclick="">1975</a>)</span>.</p></li>
 </ul>
 </section>
-<section id="bias-reduction-using-firths-corrections-i" class="slide level2 center">
-<h2>Bias reduction using Firth’s corrections I</h2>
+<section id="bias-reduction-using-firths-correction-i" class="slide level2 center">
+<h2>Bias reduction using Firth’s correction I</h2>
 <ul>
 <li><p>The jackknife and <span class="math inline">\hat{\theta}_\text{bs}</span> are “corrective” rather than “preventive”. That is, the maximum likelihood <span class="math inline">\hat{\theta}</span> is first calculated, then corrected. A practical requirement is the <span class="orange">existence</span> of <span class="math inline">\hat{\theta}</span>.</p></li>
-<li><p>Motivated by this, <span class="citation" data-cites="Firth1993">Firth (<a href="#/references" role="doc-biblioref" onclick="">1993</a>)</span> proposed a <span class="blue">modified score equation</span>. The <span class="orange">bias</span> in <span class="math inline">\hat{\theta}</span> can be <span class="orange">reduced</span> by introducing a <span class="blue">small bias</span> into the <span class="blue">score function</span>.</p></li>
+<li><p>Motivated by this, <span class="citation" data-cites="Firth1993">Firth (<a href="#/references" role="doc-biblioref" onclick="">1993</a>)</span> proposed a <span class="blue">modified score equation</span>. The idea is that the <span class="orange">bias</span> in <span class="math inline">\hat{\theta}</span> can be <span class="orange">reduced</span> by introducing a <span class="blue">small bias</span> into the <span class="blue">score function</span>.</p></li>
 </ul>
 <div class="callout callout-note no-icon callout-style-simple">
 <div class="callout-body">
 <div class="callout-content">
 <p>In a regular model with <span class="math inline">\Theta \subseteq \mathbb{R}^p</span>, let <span class="math inline">\ell^*(\theta)</span> be the score function, <span class="math inline">I(\theta)</span> the Fisher information matrix and <span class="math inline">b(\theta)</span> the <span class="orange">bias</span> of the maximum likelihood <span class="math inline">\hat{\theta}_n</span>. <span class="citation" data-cites="Firth1993">Firth (<a href="#/references" role="doc-biblioref" onclick="">1993</a>)</span> estimating equation is <span class="math display">
 Q(\theta) = \ell^*(\theta) + A(\theta),
-</span> where <span class="math inline">A(\theta)</span> is any vector such that <span class="math display">
+</span> where <span class="math inline">A(\theta) = A(\theta; \bm{Y})</span> is any vector such that <span class="math display">
 \mathbb{E}_\theta(A(\theta)) = - I(\theta)\frac{b_1(\theta)}{n} + \mathcal{O}(n^{-1/2}).
-</span> Clearly, a natural candidate for <span class="math inline">A(\theta)</span> is indeed <span class="math inline">A(\theta) = - I(\theta)b_1(\theta)/n</span>.</p>
+</span> Clearly, a natural candidate for <span class="math inline">A(\theta; \bm{Y})</span> is indeed <span class="math inline">A(\theta) = - I(\theta)b_1(\theta)/n</span>.</p>
 </div>
 </div>
 </div>
 </section>
-<section id="bias-reduction-using-firths-corrections-ii" class="slide level2 center">
-<h2>Bias reduction using Firth’s corrections II</h2>
+<section id="bias-reduction-using-firths-correction-ii" class="slide level2 center">
+<h2>Bias reduction using Firth’s correction II</h2>
 
-<img data-src="firth.png" class="quarto-figure quarto-figure-center r-stretch" style="width:4in"></section>
-<section id="bias-reduction-using-firths-corrections-iii" class="slide level2 center">
-<h2>Bias reduction using Firth’s corrections III</h2>
+<img data-src="firth.png" class="quarto-figure quarto-figure-center r-stretch" style="width:6in"></section>
+<section id="bias-reduction-using-firths-correction-iii" class="slide level2 center">
+<h2>Bias reduction using Firth’s correction III</h2>
 <div class="callout callout-tip no-icon callout-style-simple">
 <div class="callout-body">
 <div class="callout-content">
@@ -2384,17 +2384,33 @@ Q(\psi) = \ell^*(\psi) - I(\psi)b_1(\psi)/n \quad \implies \quad \hat{\psi}_\tex
 <h1>Robustness</h1>
 
 </section>
+<section id="robustness-preliminaries" class="slide level2 center">
+<h2>Robustness: preliminaries</h2>
+</section>
 <section id="maximum-likelihood-under-a-misspecified-model" class="slide level2 center">
 <h2>Maximum likelihood under a misspecified model</h2>
+<ul>
+<li>Interpretation of <span class="math inline">\hat{\theta}</span> as the minimizer of the Kullback-Leibler</li>
+</ul>
 </section>
 <section id="re-interpreting-m-estimators-and-z-estimators" class="slide level2 center">
 <h2>Re-interpreting M-estimators and Z-estimators</h2>
+<ul>
+<li>Results of Godambe efficiency</li>
+</ul>
 </section>
 <section id="example-huber-estimators" class="slide level2 center">
 <h2>Example: Huber estimators</h2>
+<ul>
+<li>Section 10.2.2 of Casella-Berger</li>
+<li>See Davison, Section 8.4</li>
+</ul>
 </section>
 <section id="example-linear-models-with-misspecified-variance" class="slide level2 center">
 <h2>Example: linear models with misspecified variance</h2>
+<ul>
+<li>See Davison, Section 8.4</li>
+</ul>
 </section></section>
 <section>
 <section id="references-and-study-material" class="title-slide slide level1 center">
