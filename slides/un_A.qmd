@@ -1615,7 +1615,7 @@ J(\theta) := \text{var}_\theta(Q(\theta; \bm{Y})).
 $$
 Then, the [Godambe information]{.blue} is defined as
 $$
-G(\theta) := \frac{H(\theta)^2}{J(\theta)}.
+V(\theta) := \frac{H(\theta)^2}{J(\theta)}.
 $$
 :::
 
@@ -1624,13 +1624,13 @@ $$
 ## Godambe efficiency
 
 :::callout-note
-Let $Q(\theta)$ and $\tilde{Q}(\theta)$ be two [estimating equations]{.orange} with Godambe information $G(\theta)$ and $\tilde{G}(\theta)$. Then $Q(\theta)$ is [uniformly more efficient]{.blue} than $\tilde{Q}(\theta)$ if 
+Let $Q(\theta)$ and $\tilde{Q}(\theta)$ be two [estimating equations]{.orange} with Godambe information $V(\theta)$ and $\tilde{V}(\theta)$. Then $Q(\theta)$ is [uniformly more efficient]{.blue} than $\tilde{Q}(\theta)$ if 
 $$
-G(\theta) \ge \tilde{G}(\theta) \qquad\text{ for all } \qquad \theta \in \Theta \subseteq \mathbb{R}.
+V(\theta) \ge \tilde{V}(\theta) \qquad\text{ for all } \qquad \theta \in \Theta \subseteq \mathbb{R}.
 $$
 :::
 
-- This criterion is appropriate because the [inverse]{.orange} of the [Godambe information]{.blue} $G(\theta)^{-1}$, under regularity conditions, coincides with the [asymptotic variance]{.orange} of $\hat{\theta}$.  
+- This criterion is appropriate because the [inverse]{.orange} of the [Godambe information]{.blue} $V(\theta)^{-1}$, under regularity conditions, coincides with the [asymptotic variance]{.orange} of $\hat{\theta}$.  
 
 - Moreover, although the [variance]{.blue} $J(\theta)$ is a natural basis for comparing estimating functions, $\tilde{Q}(\theta) = a Q(\theta; \bm{Y})$ is also unbiased with variance $\tilde{J}(\theta) = a^2 J(\theta)$. 
 
@@ -1649,7 +1649,7 @@ H(\theta) = \mathbb{E}_\theta\left(-\frac{\partial}{\partial \theta}\ell^*(\thet
 $$
 This implies that 
 $$
-G(\theta) =  I(\theta),
+V(\theta) =  I(\theta),
 $$ that is, the [Godambe information]{.blue} of $\ell^*(\theta)$ coincides with the usual [Fisher information]{.orange}. 
 :::
 
@@ -1660,9 +1660,9 @@ $$ that is, the [Godambe information]{.blue} of $\ell^*(\theta)$ coincides with 
 :::callout-warning
 #### Theorem (@Godambe1960)
 
-Let $Y_1,\dots,Y_n$ be a sample from a joint probability measure $f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y})$ and let $\Theta \subseteq \mathbb{R}$. Moreover, let $Q(\theta)$ be an unbiased estimating equation with [Godambe information]{.blue} $G(\theta)$. Then under [regularity conditions]{.orange} [C.1]{.blue} and [C.2]{.blue}:
+Let $Y_1,\dots,Y_n$ be a sample from a joint probability measure $f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y})$ and let $\Theta \subseteq \mathbb{R}$. Moreover, let $Q(\theta)$ be an unbiased estimating equation with [Godambe information]{.blue} $V(\theta)$. Then under [regularity conditions]{.orange} [C.1]{.blue} and [C.2]{.blue}:
 $$
-\frac{1}{G(\theta)} \ge \frac{1}{I(\theta)}.
+\frac{1}{V(\theta)} \ge \frac{1}{I(\theta)}.
 $$
 :::
 
@@ -1671,7 +1671,7 @@ $$
 - It implies that the [score functions]{.blue} are [optimal]{.orange} (Godambe efficient) among unbiased estimating equations. However, Z-estimators may have appealing [robustness]{.grey} properties. 
 
 :::callout-tip
-Godambe information generalizes to the vector case $\theta \in \Theta \subseteq \mathbb{R}^p$ and is defined as $G(\theta) = H(\theta) J(\theta)^{-1}H(\theta)^T$, sometimes called [sandwich]{.orange} matrix. Optimality results generalize as well.
+Godambe information generalizes to the vector case $\theta \in \Theta \subseteq \mathbb{R}^p$ and is defined as $V(\theta) = H(\theta) J(\theta)^{-1}H(\theta)^T$, sometimes called [sandwich]{.orange} matrix. Optimality results generalize as well.
 :::
 
 ## Linear estimating equations I
@@ -1690,7 +1690,7 @@ $$
 $$
 Therefore, the optimal weights are those that [maximize]{.orange} the [Godambe information]{.blue}:
 $$
-G(\theta) = \frac{\left(\sum_{i=1}^n w_i(\theta)\mu_i(\theta)\right)^2}{\sum_{i=1}^n w_i^2(\theta) V_i(\theta)}.
+V(\theta) = \frac{\left(\sum_{i=1}^n w_i(\theta)\mu_i(\theta)\right)^2}{\sum_{i=1}^n w_i^2(\theta) V_i(\theta)}.
 $$
 
 ## Linear estimating equations II
@@ -1763,27 +1763,27 @@ $$
 $$
 J(\beta) = \text{var}(Q(\beta)) = \sigma^2 \bm{A}^T \bm{A}, \qquad H(\beta) = \mathbb{E}\left(-\frac{\partial}{\partial \beta}Q(\beta)\right) = (\bm{A}^T \bm{X})^T.
 $$
-Consequently, the [Godambe information]{.blue} is $G(\beta) =  \sigma^{-2} (\bm{A}^T \bm{X})^T(\bm{A}^T \bm{A})^{-1}(\bm{A}^T \bm{X})^T$.
+Consequently, the [Godambe information]{.blue} is $V(\beta) =  \sigma^{-2} (\bm{A}^T \bm{X})^T(\bm{A}^T \bm{A})^{-1}(\bm{A}^T \bm{X})^T$.
 
 ## BLUE estimators and unbiased estimating equations II
 
 - The [optimal]{.orange} choice of $\bm{A}$ equivalently minimizes the inverse of the [Godambe information]{.blue}, which after a few algebraic manipulation is equal to
 $$
-G(\beta)^{-1} =  \sigma^2 \left[(\bm{A}^T \bm{X})^{-1}\bm{A}^T\right] \left[(\bm{A}^T \bm{X})^{-1}\bm{A}^T\right]^T.
+V(\beta)^{-1} =  \sigma^2 \left[(\bm{A}^T \bm{X})^{-1}\bm{A}^T\right] \left[(\bm{A}^T \bm{X})^{-1}\bm{A}^T\right]^T.
 $$
 
 - The key remark is the following: a direct calculation shows that the variance of $\hat{\beta}$ is
 $$
-\text{var}(\beta) = \sigma^2 \left[(\bm{A}^T \bm{X})^{-1}\bm{A}^T\right] \left[(\bm{A}^T \bm{X})^{-1}\bm{A}^T\right]^T = G(\beta)^{-1},
+\text{var}(\beta) = \sigma^2 \left[(\bm{A}^T \bm{X})^{-1}\bm{A}^T\right] \left[(\bm{A}^T \bm{X})^{-1}\bm{A}^T\right]^T = V(\beta)^{-1},
 $$
 that is, the [variance]{.orange} of $\hat{\beta}$ coincides with the inverse of the [Godambe information]{.blue}. This is a consequence of the linearity of $Q(\beta)$, otherwise the property holds only asymptotically. 
 
 - Thus, the same proof of Gauss-Markov theorem can be used to show that the [BLUE estimator]{.blue} is [Godambe efficient]{.orange} and the optimal matrix is $\bm{A} = \bm{X}$, giving
 $$
-\hat{\beta} = (\bm{X}^T\bm{X})^{-1}\bm{X}^T\bm{Y}, \qquad G(\beta) = \frac{1}{\sigma^2}\bm{X}^T\bm{X}.
+\hat{\beta} = (\bm{X}^T\bm{X})^{-1}\bm{X}^T\bm{Y}, \qquad V(\beta) = \frac{1}{\sigma^2}\bm{X}^T\bm{X}.
 $$
 
-- Moreover, if  $\bm{Y} \sim \textup{N}_p(\bm{X}\beta, \sigma^2 I_p)$, then $G(\beta)$ also coincides with the [Fisher information]{.blue} $I(\beta)$. 
+- Moreover, if  $\bm{Y} \sim \textup{N}_p(\bm{X}\beta, \sigma^2 I_p)$, then $V(\beta)$ also coincides with the [Fisher information]{.blue} $I(\beta)$. 
 
 # Asymptotic evaluations
 
@@ -1817,9 +1817,9 @@ where $v(\theta)^{-1}$ is the so-called [asymptotic variance]{.blue}.
 - If $\hat{\theta}_n$ is the [maximum likelihood]{.orange}, then under regularity conditions $n v(\theta)$ equals the [Fisher information]{.orange} $I(\theta) = n i(\theta)$ and the [asymptotic variance]{.blue} is $i(\theta)^{-1}$. 
 
 :::callout-tip
-In regular estimation problems, the maximum likelihood estimator $\hat{\theta}$ is [asymptotically efficient]{.orange}, that is, for $n$ large enough, its variance attains the Cramér-Rao lower bound. Informally, 
+In regular estimation problems, the maximum likelihood estimator $\hat{\theta}_n$ is [asymptotically efficient]{.orange}, that is, for $n$ large enough, its variance attains the Cramér-Rao lower bound. Informally, 
 $$
-\hat{\theta} \:\dot{\sim}\: \text{N}(\theta, (n i(\theta))^{-1}).
+\hat{\theta}_n \:\dot{\sim}\: \text{N}(\theta, I(\theta)^{-1}).
 $$
 :::
 
@@ -2041,16 +2041,16 @@ Let us further require that, with probability tending to 1 as $n\to \infty$, the
 
 [^th_vdv]: See also @vandervaart1998, Theorem 5.42, for slightly less stringent conditions and a careful discussion about the issue of multiple roots.
 
-## Asymptotic normality for the MLE
+## Asymptotic normality of the MLE
 
 :::callout-warning
 #### Theorem (@Lehmann1998, Th. 5.1, Chap. 6) 
 
 Under assumptions [(A1)-(A6)]{.blue}, suppose the maximum likelihood estimator $\hat{\theta}_n$ exists and is [consistent]{.orange}. Then
 $$
-\sqrt{n}(\hat{\theta}_n - \theta_0) \overset{\text{d}}{\longrightarrow} \text{N}(0, i(\theta)^{-1}), \quad i(\theta) = -\int\frac{\partial}{\partial \theta \partial \theta^T}\log{f(y \mid \theta)}\mathrm{d}y,
+\sqrt{n}(\hat{\theta}_n - \theta_0) \overset{\text{d}}{\longrightarrow} \text{N}(0, i(\theta)^{-1}), \quad i(\theta) = -\int\frac{\partial^2}{\partial \theta \partial \theta^T}\log{f(y \mid \theta)}\mathrm{d}y,
 $$
-where $i(\theta)$ is the [Fisher information matrix]{.blue}.
+where $n i(\theta)$ is the [Fisher information matrix]{.blue}.
 :::
 
 - Informally, we say that the maximum likelihood estimator is [asymptotically efficient]{.orange} because, roughly speaking, $\text{var}_\theta(\hat{\theta}_n) \approx I(\theta)^{-1}$, the latter being the [Cramér-Rao lower bound]{.blue}.
@@ -2061,27 +2061,178 @@ where $i(\theta)$ is the [Fisher information matrix]{.blue}.
 
 ## Observed vs Fisher information
 
-- For the [practical]{.blue} construction of [confidence intervals]{.orange}, or simply to empirically assess the variance of an estimator, we need to consider a consistent estimator for $I(\theta) = n i(\theta)$. 
+- For the [practical]{.blue} construction of [confidence intervals]{.orange}, or simply to empirically assess the variance of an estimator, we need to consider a consistent estimator of $I(\theta) = n i(\theta)$. 
 
 :::callout-note
 The negative [Hessian matrix]{.orange} of the log-likelihood is called [observed information]{.blue} and equals:
 $$
-j(\theta) := - \frac{\partial^2}{\partial \theta \partial \theta^T} \ell(\theta; \bm{Y}).
+\mathcal{I}(\theta) := - \frac{\partial^2}{\partial \theta \partial \theta^T} \ell(\theta; \bm{Y}).
 $$
-If the second Bartlett identity holds, the [Fisher information]{.orange} is $I(\theta) = \mathbb{E}_\theta(j(\theta))$.
+If the second Bartlett identity holds, the [Fisher information]{.orange} is $I(\theta) = \mathbb{E}_\theta(\mathcal{I}(\theta))$.
 :::
 
-- There are two natural candidates for estimating $I(\theta)$, namely $I(\hat{\theta}_n)$  and $j(\hat{\theta}_n)$. These two quantities may coincide, but in general it is not guaranteed.
+- There are two natural candidates for estimating $I(\theta)$, namely $I(\hat{\theta}_n)$ and $\mathcal{I}(\hat{\theta}_n)$. These two quantities may coincide, but in general, this is not guaranteed.
 
-- Following the original work of Fisher, @Efron1978 suggested using $j(\hat{\theta}_n)$ because it approximate the [conditional variance]{.blue} of $\hat{\theta}_n$ given an appropriate [ancillary statistics]{.orange}. 
+- Following Fisher's original work, @Efron1978 suggested using $\mathcal{I}(\hat{\theta}_n)$ because it approximates the [conditional variance]{.blue} of $\hat{\theta}_n$ given an appropriate [ancillary statistic]{.orange}.
 
-- Besides, $j(\hat{\theta}_n)$ can be numerically computed via differentiation, whereas $i(\hat{\theta}_n)$ requires some analytical work. 
+- Moreover, $\mathcal{I}(\hat{\theta}_n)$ can be computed numerically via differentiation, whereas $I(\hat{\theta}_n)$ requires analytical derivations.
 
-## Consistency for estimating equations
+## Consistency for M-estimators I
 
-## Asymptotic bias and Firth corrections
+- We now discuss a broader and modern theory for [consistency]{.orange}. Let $M_n(\theta) = \sum_{i=1}^n m(\theta; Y_i)$ be an [M-estimator]{.blue} and recall that the [maximum likelihood]{.orange} is a special instance, with
+$$
+M_n(\theta) = \sum_{i=1}^n \ell(\theta;Y_i),
+$$
+- In order to simplify the subsequent exposition, it is convenient to consider
+$$
+M_n(\theta) = \textcolor{red}{\frac{1}{n}}\sum_{i=1}^n [\ell(\theta;Y_i) \textcolor{red}{- \ell(\theta_0; Y_i)}] = \frac{1}{n}\sum_{i=1}^n\log{\frac{f(Y_i; \theta)}{f(Y_i; \theta_0)}},
+$$
+where the red terms are ininfluential because the maximizer $\hat{\theta}_n$ of $M_n(\theta)$ is the same. 
 
-- First order and second-order efficienct, corrections
+- Under conditions [(A1)-(A3)]{.blue} the law of large numbers guarantees that $M_n(\theta) \overset{\textup{p}}{\longrightarrow} M(\theta)$ [pointwise]{.orange} for every $\theta$, where $M(\theta) = - \text{KL}(f(\cdot; \theta_0) \mid f(\cdot; \theta))$. However, this was [not enough]{.orange}. 
+
+- On the other hand, we will see that $\hat{\theta}_n$ does not need to maximize $M_n(\theta)$. Indeed, it is sufficient that is [nearly maximizes]{.blue} it, in the sense that $M_n(\hat{\theta}_n) \ge \sup_{\theta \in \Theta}M(\theta) - o_p(1)$.
+
+## Consistency for M-estimators II
+
+:::callout-warning
+#### Theorem (@vandervaart1998, Theorem 5.7)
+Let $\theta \subseteq \mathbb{R}^p$, $M_n(\theta)$ be random functions and $M(\theta)$ be a function of $\theta$ such that for every $\epsilon > 0$
+$$
+\begin{aligned}
+\sup_{\theta \in \Theta} \left|M_n(\theta) - M(\theta)\right| \overset{\textup{p}}{\longrightarrow} 0, \qquad \text{(Uniform convergence)} \\
+\sup_{\theta : ||\theta- \theta_0||_2 \ge \epsilon} M(\theta) < M(\theta_0). \qquad \text{(Strong identifiability)}
+\end{aligned}
+$$
+Then any sequence of estimators $\hat{\theta}_n$ with $M_n(\hat{\theta}_n) \ge M_n(\theta_0) + o_p(1)$ [converges in probability]{.blue} to $\theta_0$ as $n\rightarrow \infty$. 
+:::
+
+- The [uniform convergence]{.orange} assumption strengthen the pointwise convergence typically ensured by the law of large numbers, that is, $m(\theta)$ should be [Glivenko-Cantelli]{.blue}.
+
+- This holds if $\Theta$ is [compact]{.blue}, $m(\theta)$ is continuous and dominated by an integrable function. 
+
+- The strong identifiability condition, also called [well separability]{.orange} ensures that only point close to $\theta_0$ are close to the maximum value $M(\theta_0)$, strengthening Wald inequality.
+
+## Consistency for Z-estimators
+
+- The former theorem can be also expressed in terms of Z-estimators $Q_n(\theta)$, that is, on a set of [estimating equations]{.orange}. An example is the score function
+$$
+Q_n(\theta) = \textcolor{red}{\frac{1}{n}}\sum_{i=1}^n \ell^*(\theta; Y_i).
+$$
+
+- We require $\hat{\theta}_n$ to [nearly solve]{.blue} $Q_n(\theta) = \bm{0}$ and that $\lim_{n\to\infty} Q_n(\theta_0) = \bm{0}$. Intuitively, this comes from the [LLN]{.blue} in [unbiased estimating equations]{.orange}, in which case $\mathbb{E}_{\theta_0}(Q_n(\theta_0)) = \bm{0}$.
+
+:::callout-warning
+#### Theorem (@vandervaart1998, Theorem 5.9)
+Let $\theta \subseteq \mathbb{R}^p$, $Q_n(\theta)$ be random vector-valued functions and $Q(\theta)$ be a vector-valued function of $\theta$ such that for every $\epsilon > 0$
+$$
+\sup_{\theta \in \Theta} \left ||Q_n(\theta) - Q(\theta)\right||_2 \overset{\textup{p}}{\longrightarrow} 0, \qquad\sup_{\theta : ||\theta- \theta_0||_2 \ge \epsilon} ||Q(\theta)||_2 > 0 = ||Q(\theta_0)||_2.
+$$
+Then any sequence of estimators $\hat{\theta}_n$ such that $Q_n(\hat{\theta}_n) = o_p(1)$ [converges in probability]{.blue} to $\theta_0$. 
+:::
+
+## Asymptotic normality of M-estimators I
+
+::: callout-warning
+#### Theorem (@vandervaart1998, Theorem 5.21)
+Let $\Theta \subseteq \mathbb{R}^p$ and $M_n(\theta)$ be an M-estimator whose vector-valued [derivative]{.blue} is $Q_n(\theta)$, so that $$
+M_n(\theta) = \sum_{i=1}^n m(\theta; Y_i), \qquad Q_n(\theta) = \sum_{i=1}^nq(\theta;Y_i).
+$$
+Let $\hat{\theta}_n$ be a sequence of [consistent]{.orange} estimators such that $Q_n(\hat{\theta}_n) = 0$. Under assumptions [(A1)-(A2)]{.blue} and further [mild regularity conditions]{.blue}
+$$
+\sqrt{n}(\hat{\theta}_n - \theta) \overset{\text{d}}{\longrightarrow} \text{N}(0, v(\theta)^{-1}), \qquad v(\theta) = h(\theta)j(\theta)^{-1}h(\theta)^T,
+$$
+where $V(\theta) = n v(\theta)$ is the [Godambe information matrix]{.orange} and
+$$
+h(\theta) = \mathbb{E}_\theta\left(- \frac{\partial}{\partial \theta}q(\theta)\right), \qquad j(\theta) = \mathbb{E}_\theta\left(q(\theta)q(\theta)^T\right).
+$$
+:::
+
+## Asymptotic normality of M-estimators II
+
+- The previous theorem is very powerful as it applies to the broad class of M-estimators. Moreover, its statement has been substantially [simplified]{.orange} compared to @vandervaart1998.
+
+- The actual statement does not even require $Y_1,\dots,Y_n$ to be independent or identically distributed.
+
+- Moreover, the [regularity conditions]{.blue} are much weaker than [(A1)-(A6)]{.blue} and essentially ensure that the involved quantities are well-defined. [However]{.orange}, note that $\hat{\theta}_n$ must be [consistent]{.orange}.
+
+:::callout-tip
+In regular problems, an M-estimator $\hat{\theta}_n$ is [consistent]{.orange} and [asymptotically normal]{.blue}. Moreover, for $n$ large enough, its variance is the inverse of the [Godambe information]{.blue}. Informally,
+$$
+\hat{\theta}_n \:\dot{\sim}\: \text{N}(\theta, V(\theta)^{-1}).
+$$
+:::
+
+## First-order bias-correction
+
+- In a regular model with $\Theta \subseteq \mathbb{R}^p$ and independent samples, the [bias]{.orange} of the [maximum likelihood estimator]{.orange} can be [expanded]{.orange} as follows:
+$$
+\text{bias}_\theta(\hat{\theta}_n) = \frac{b_1(\theta)}{n} + \frac{b_2(\theta)}{n^2} + \mathcal{O}(n^{-3}).
+$$
+- The quantity $\text{bias}_\theta(\hat{\theta}_n)$ is often unavailable, but the [first-order]{.blue} term $b_1(\theta)$ might be computable, e.g., in [exponential families]{.orange} (@Pace1997, Chap. 9).
+
+- The [jackknife]{.orange} is a popular strategy for removing the first-order bias. Alternatively, the [first-order bias-corrected]{.blue} maximum likelihood estimator is obtained via plug-in as
+$$
+\hat{\theta}_\text{bc} = \hat{\theta}_n - \frac{b_1(\hat{\theta}_n)}{n}.
+$$
+
+- If $\tilde{\theta}_n$ is an estimator of $\theta$ with bias of order $\mathcal{O}(n^{-2})$, then 
+$$
+\text{var}_\theta(\tilde{\theta}_n) = \text{var}_\theta(\hat{\theta}_\text{bc}) + \Delta^2(\theta) + \mathcal{O}(n^{-3}),
+$$
+where $\Delta^2(\theta) \geq 0$, with equality if and only if $\hat{\theta}_\text{bc} = \tilde{\theta}_n$. In this case, $\hat{\theta}_\text{bc}$ is said to be [second-order efficient]{.orange}; see @Efron1975b.
+
+## Bias reduction using Firth's corrections I
+
+
+- The jackknife and $\hat{\theta}_\text{bs}$ are "corrective" rather than "preventive". That is, the maximum likelihood $\hat{\theta}$ is first calculated, then corrected. A practical requirement is the [existence]{.orange} of $\hat{\theta}$. 
+
+- Motivated by this, @Firth1993 proposed a [modified score equation]{.blue}. The [bias]{.orange} in $\hat{\theta}$ can be [reduced]{.orange} by introducing a [small bias]{.blue} into the [score function]{.blue}.  
+
+
+:::callout-note
+In a regular model with $\Theta \subseteq \mathbb{R}^p$, let $\ell^*(\theta)$ be the score function, $I(\theta)$ the Fisher information matrix and $b(\theta)$ the [bias]{.orange} of the maximum likelihood $\hat{\theta}_n$. @Firth1993 estimating equation is
+$$
+Q(\theta) = \ell^*(\theta) + A(\theta),
+$$
+where $A(\theta)$ is any vector such that 
+$$
+\mathbb{E}_\theta(A(\theta)) = - I(\theta)\frac{b_1(\theta)}{n} + \mathcal{O}(n^{-1/2}).
+$$
+Clearly, a natural candidate for $A(\theta)$ is indeed $A(\theta) = - I(\theta)b_1(\theta)/n$.
+:::
+
+## Bias reduction using Firth's corrections II
+
+
+![](firth.png){width=4in fig-align="center"}
+
+
+
+## Bias reduction using Firth's corrections III
+
+
+:::callout-tip
+Let $Y_1,\dots,Y_n$ be an iid sample from a Poisson with parameter $\lambda$ and consider the reparametrization $\psi = 1/\lambda$. The score and the Fisher information are
+$$
+\ell^*(\psi) = \frac{n}{\psi^2} - \frac{\bar{y}}{n \psi}, \qquad I(\psi) = \frac{n}{\psi^3}.
+$$
+The [maximum likelihood]{.orange} is $\hat{\psi} = 1/\bar{y}$, with [first-order bias]{.blue} $b_1(\psi)/n = \psi^2/n$. Thus
+$$
+Q(\psi) = \ell^*(\psi) - I(\psi)b_1(\psi)/n \quad \implies \quad \hat{\psi}_\text{Firth} = \frac{1}{\bar{y} + 1/n}. 
+$$
+:::
+
+
+:::callout-tip
+Let $Y_1,\dots,Y_n$ be an iid sample from a Bernoulli with parameter $p$ and consider the reparametrization $\beta = \log{p/(1-p)}$. Application of @Firth1993 method gives
+$$
+\hat{\beta}_\text{Firth} = \log\left(\frac{n_1 + 1/2}{n - n_1 + 1/2}\right), \quad \text{whereas}\quad \hat{\beta} = \log\left(\frac{n_1}{n - n_1}\right),
+$$
+which is a well-know [bias-reducing]{.orange} correction of the empirical logit. 
+:::
+
+
 
 # Robustness
 

@@ -214,10 +214,17 @@ window.Quarto = {
   <li><a href="#what-could-go-wrong-1" id="toc-what-could-go-wrong-1" class="nav-link" data-scroll-target="#what-could-go-wrong-1">What could go wrong?</a></li>
   <li><a href="#what-else-could-go-wrong" id="toc-what-else-could-go-wrong" class="nav-link" data-scroll-target="#what-else-could-go-wrong">What else could go wrong?</a></li>
   <li><a href="#consistency-for-the-mle-1" id="toc-consistency-for-the-mle-1" class="nav-link" data-scroll-target="#consistency-for-the-mle-1">Consistency for the MLE</a></li>
-  <li><a href="#asymptotic-normality-for-the-mle" id="toc-asymptotic-normality-for-the-mle" class="nav-link" data-scroll-target="#asymptotic-normality-for-the-mle">Asymptotic normality for the MLE</a></li>
-  <li><a href="#observed-vs-expected-information" id="toc-observed-vs-expected-information" class="nav-link" data-scroll-target="#observed-vs-expected-information">Observed vs expected information</a></li>
-  <li><a href="#consistency-for-estimating-equations" id="toc-consistency-for-estimating-equations" class="nav-link" data-scroll-target="#consistency-for-estimating-equations">Consistency for estimating equations</a></li>
-  <li><a href="#asymptotic-bias-and-firth-corrections" id="toc-asymptotic-bias-and-firth-corrections" class="nav-link" data-scroll-target="#asymptotic-bias-and-firth-corrections">Asymptotic bias and Firth corrections</a></li>
+  <li><a href="#asymptotic-normality-of-the-mle" id="toc-asymptotic-normality-of-the-mle" class="nav-link" data-scroll-target="#asymptotic-normality-of-the-mle">Asymptotic normality of the MLE</a></li>
+  <li><a href="#observed-vs-fisher-information" id="toc-observed-vs-fisher-information" class="nav-link" data-scroll-target="#observed-vs-fisher-information">Observed vs Fisher information</a></li>
+  <li><a href="#consistency-for-m-estimators-i" id="toc-consistency-for-m-estimators-i" class="nav-link" data-scroll-target="#consistency-for-m-estimators-i">Consistency for M-estimators I</a></li>
+  <li><a href="#consistency-for-m-estimators-ii" id="toc-consistency-for-m-estimators-ii" class="nav-link" data-scroll-target="#consistency-for-m-estimators-ii">Consistency for M-estimators II</a></li>
+  <li><a href="#consistency-for-z-estimators" id="toc-consistency-for-z-estimators" class="nav-link" data-scroll-target="#consistency-for-z-estimators">Consistency for Z-estimators</a></li>
+  <li><a href="#asymptotic-normality-of-m-estimators-i" id="toc-asymptotic-normality-of-m-estimators-i" class="nav-link" data-scroll-target="#asymptotic-normality-of-m-estimators-i">Asymptotic normality of M-estimators I</a></li>
+  <li><a href="#asymptotic-normality-of-m-estimators-ii" id="toc-asymptotic-normality-of-m-estimators-ii" class="nav-link" data-scroll-target="#asymptotic-normality-of-m-estimators-ii">Asymptotic normality of M-estimators II</a></li>
+  <li><a href="#first-order-bias-correction" id="toc-first-order-bias-correction" class="nav-link" data-scroll-target="#first-order-bias-correction">First-order bias-correction</a></li>
+  <li><a href="#bias-reduction-using-firths-corrections-i" id="toc-bias-reduction-using-firths-corrections-i" class="nav-link" data-scroll-target="#bias-reduction-using-firths-corrections-i">Bias reduction using Firth’s corrections I</a></li>
+  <li><a href="#bias-reduction-using-firths-corrections-ii" id="toc-bias-reduction-using-firths-corrections-ii" class="nav-link" data-scroll-target="#bias-reduction-using-firths-corrections-ii">Bias reduction using Firth’s corrections II</a></li>
+  <li><a href="#bias-reduction-using-firths-corrections-iii" id="toc-bias-reduction-using-firths-corrections-iii" class="nav-link" data-scroll-target="#bias-reduction-using-firths-corrections-iii">Bias reduction using Firth’s corrections III</a></li>
   </ul></li>
   <li><a href="#robustness" id="toc-robustness" class="nav-link" data-scroll-target="#robustness">Robustness</a>
   <ul class="collapse">
@@ -1885,7 +1892,7 @@ H(\theta) := \mathbb{E}_\theta\left(-\frac{\partial}{\partial \theta}Q(\theta; \
 </span> and the <span class="grey">variability</span> as <span class="math display">
 J(\theta) := \text{var}_\theta(Q(\theta; \bm{Y})).
 </span> Then, the <span class="blue">Godambe information</span> is defined as <span class="math display">
-G(\theta) := \frac{H(\theta)^2}{J(\theta)}.
+V(\theta) := \frac{H(\theta)^2}{J(\theta)}.
 </span></p>
 </div>
 </div>
@@ -1902,14 +1909,14 @@ G(\theta) := \frac{H(\theta)^2}{J(\theta)}.
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>Let <span class="math inline">Q(\theta)</span> and <span class="math inline">\tilde{Q}(\theta)</span> be two <span class="orange">estimating equations</span> with Godambe information <span class="math inline">G(\theta)</span> and <span class="math inline">\tilde{G}(\theta)</span>. Then <span class="math inline">Q(\theta)</span> is <span class="blue">uniformly more efficient</span> than <span class="math inline">\tilde{Q}(\theta)</span> if <span class="math display">
-G(\theta) \ge \tilde{G}(\theta) \qquad\text{ for all } \qquad \theta \in \Theta \subseteq \mathbb{R}.
+<p>Let <span class="math inline">Q(\theta)</span> and <span class="math inline">\tilde{Q}(\theta)</span> be two <span class="orange">estimating equations</span> with Godambe information <span class="math inline">V(\theta)</span> and <span class="math inline">\tilde{V}(\theta)</span>. Then <span class="math inline">Q(\theta)</span> is <span class="blue">uniformly more efficient</span> than <span class="math inline">\tilde{Q}(\theta)</span> if <span class="math display">
+V(\theta) \ge \tilde{V}(\theta) \qquad\text{ for all } \qquad \theta \in \Theta \subseteq \mathbb{R}.
 </span></p>
 </div>
 </div>
 </div>
 <ul>
-<li><p>This criterion is appropriate because the <span class="orange">inverse</span> of the <span class="blue">Godambe information</span> <span class="math inline">G(\theta)^{-1}</span>, under regularity conditions, coincides with the <span class="orange">asymptotic variance</span> of <span class="math inline">\hat{\theta}</span>.</p></li>
+<li><p>This criterion is appropriate because the <span class="orange">inverse</span> of the <span class="blue">Godambe information</span> <span class="math inline">V(\theta)^{-1}</span>, under regularity conditions, coincides with the <span class="orange">asymptotic variance</span> of <span class="math inline">\hat{\theta}</span>.</p></li>
 <li><p>Moreover, although the <span class="blue">variance</span> <span class="math inline">J(\theta)</span> is a natural basis for comparing estimating functions, <span class="math inline">\tilde{Q}(\theta) = a Q(\theta; \bm{Y})</span> is also unbiased with variance <span class="math inline">\tilde{J}(\theta) = a^2 J(\theta)</span>.</p></li>
 <li><p>Hence, a fair comparison is possible only after removing this <span class="orange">arbitrary scaling</span>. Indeed, Godambe information is <span class="blue">invariant</span> to scaling of <span class="math inline">Q(\theta)</span>.</p></li>
 </ul>
@@ -1928,7 +1935,7 @@ G(\theta) \ge \tilde{G}(\theta) \qquad\text{ for all } \qquad \theta \in \Theta 
 <li><p>Moreover, if the second Bartlett identity holds, <span class="math inline">\ell^*(\theta)</span> is <span class="blue">information unbiased</span>, that is <span class="math display">
 H(\theta) = \mathbb{E}_\theta\left(-\frac{\partial}{\partial \theta}\ell^*(\theta)\right)= \text{var}_\theta(\ell^*(\theta)) = J(\theta).
 </span> This implies that <span class="math display">
-G(\theta) =  I(\theta),
+V(\theta) =  I(\theta),
 </span> that is, the <span class="blue">Godambe information</span> of <span class="math inline">\ell^*(\theta)</span> coincides with the usual <span class="orange">Fisher information</span>.</p></li>
 </ul>
 </div>
@@ -1950,8 +1957,8 @@ Theorem (<span class="citation" data-cites="Godambe1960">Godambe (<a href="#ref-
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Let <span class="math inline">Y_1,\dots,Y_n</span> be a sample from a joint probability measure <span class="math inline">f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y})</span> and let <span class="math inline">\Theta \subseteq \mathbb{R}</span>. Moreover, let <span class="math inline">Q(\theta)</span> be an unbiased estimating equation with <span class="blue">Godambe information</span> <span class="math inline">G(\theta)</span>. Then under <span class="orange">regularity conditions</span> <span class="blue">C.1</span> and <span class="blue">C.2</span>: <span class="math display">
-\frac{1}{G(\theta)} \ge \frac{1}{I(\theta)}.
+<p>Let <span class="math inline">Y_1,\dots,Y_n</span> be a sample from a joint probability measure <span class="math inline">f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y})</span> and let <span class="math inline">\Theta \subseteq \mathbb{R}</span>. Moreover, let <span class="math inline">Q(\theta)</span> be an unbiased estimating equation with <span class="blue">Godambe information</span> <span class="math inline">V(\theta)</span>. Then under <span class="orange">regularity conditions</span> <span class="blue">C.1</span> and <span class="blue">C.2</span>: <span class="math display">
+\frac{1}{V(\theta)} \ge \frac{1}{I(\theta)}.
 </span></p>
 </div>
 </div>
@@ -1965,7 +1972,7 @@ Theorem (<span class="citation" data-cites="Godambe1960">Godambe (<a href="#ref-
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>Godambe information generalizes to the vector case <span class="math inline">\theta \in \Theta \subseteq \mathbb{R}^p</span> and is defined as <span class="math inline">G(\theta) = H(\theta) J(\theta)^{-1}H(\theta)^T</span>, sometimes called <span class="orange">sandwich</span> matrix. Optimality results generalize as well.</p>
+<p>Godambe information generalizes to the vector case <span class="math inline">\theta \in \Theta \subseteq \mathbb{R}^p</span> and is defined as <span class="math inline">V(\theta) = H(\theta) J(\theta)^{-1}H(\theta)^T</span>, sometimes called <span class="orange">sandwich</span> matrix. Optimality results generalize as well.</p>
 </div>
 </div>
 </div>
@@ -1980,7 +1987,7 @@ Q(\theta) = \sum_{i=1}^n q(\theta; Y_i) = \sum_{i=1}^n w_i(\theta)(Y_i - \mu_i(\
 <li><p>The <span class="blue">sensitivity</span> <span class="math inline">H(\theta)</span> and the <span class="orange">variability</span> <span class="math inline">J(\theta)</span> of <span class="math inline">Q(\theta)</span> are readily available: <span class="math display">
 H(\theta) = \sum_{i=1}^n w_i(\theta)\mu_i(\theta), \qquad J(\theta) = \sum_{i=1}^n w_i^2(\theta) V_i(\theta).
 </span> Therefore, the optimal weights are those that <span class="orange">maximize</span> the <span class="blue">Godambe information</span>: <span class="math display">
-G(\theta) = \frac{\left(\sum_{i=1}^n w_i(\theta)\mu_i(\theta)\right)^2}{\sum_{i=1}^n w_i^2(\theta) V_i(\theta)}.
+V(\theta) = \frac{\left(\sum_{i=1}^n w_i(\theta)\mu_i(\theta)\right)^2}{\sum_{i=1}^n w_i^2(\theta) V_i(\theta)}.
 </span></p></li>
 </ul>
 </section>
@@ -2063,22 +2070,22 @@ Q(\beta) = \bm{A}^T(\bm{Y} - \bm{X}\beta),
 </span></p></li>
 <li><p>The <span class="blue">sensitivity</span> and <span class="orange">variability</span> matrices of <span class="math inline">Q(\beta)</span> are <span class="math display">
 J(\beta) = \text{var}(Q(\beta)) = \sigma^2 \bm{A}^T \bm{A}, \qquad H(\beta) = \mathbb{E}\left(-\frac{\partial}{\partial \beta}Q(\beta)\right) = (\bm{A}^T \bm{X})^T.
-</span> Consequently, the <span class="blue">Godambe information</span> is <span class="math inline">G(\beta) =  \sigma^{-2} (\bm{A}^T \bm{X})^T(\bm{A}^T \bm{A})^{-1}(\bm{A}^T \bm{X})^T</span>.</p></li>
+</span> Consequently, the <span class="blue">Godambe information</span> is <span class="math inline">V(\beta) =  \sigma^{-2} (\bm{A}^T \bm{X})^T(\bm{A}^T \bm{A})^{-1}(\bm{A}^T \bm{X})^T</span>.</p></li>
 </ul>
 </section>
 <section id="blue-estimators-and-unbiased-estimating-equations-ii" class="level2">
 <h2 class="anchored" data-anchor-id="blue-estimators-and-unbiased-estimating-equations-ii">BLUE estimators and unbiased estimating equations II</h2>
 <ul>
 <li><p>The <span class="orange">optimal</span> choice of <span class="math inline">\bm{A}</span> equivalently minimizes the inverse of the <span class="blue">Godambe information</span>, which after a few algebraic manipulation is equal to <span class="math display">
-G(\beta)^{-1} =  \sigma^2 \left[(\bm{A}^T \bm{X})^{-1}\bm{A}^T\right] \left[(\bm{A}^T \bm{X})^{-1}\bm{A}^T\right]^T.
+V(\beta)^{-1} =  \sigma^2 \left[(\bm{A}^T \bm{X})^{-1}\bm{A}^T\right] \left[(\bm{A}^T \bm{X})^{-1}\bm{A}^T\right]^T.
 </span></p></li>
 <li><p>The key remark is the following: a direct calculation shows that the variance of <span class="math inline">\hat{\beta}</span> is <span class="math display">
-\text{var}(\beta) = \sigma^2 \left[(\bm{A}^T \bm{X})^{-1}\bm{A}^T\right] \left[(\bm{A}^T \bm{X})^{-1}\bm{A}^T\right]^T = G(\beta)^{-1},
+\text{var}(\beta) = \sigma^2 \left[(\bm{A}^T \bm{X})^{-1}\bm{A}^T\right] \left[(\bm{A}^T \bm{X})^{-1}\bm{A}^T\right]^T = V(\beta)^{-1},
 </span> that is, the <span class="orange">variance</span> of <span class="math inline">\hat{\beta}</span> coincides with the inverse of the <span class="blue">Godambe information</span>. This is a consequence of the linearity of <span class="math inline">Q(\beta)</span>, otherwise the property holds only asymptotically.</p></li>
 <li><p>Thus, the same proof of Gauss-Markov theorem can be used to show that the <span class="blue">BLUE estimator</span> is <span class="orange">Godambe efficient</span> and the optimal matrix is <span class="math inline">\bm{A} = \bm{X}</span>, giving <span class="math display">
-\hat{\beta} = (\bm{X}^T\bm{X})^{-1}\bm{X}^T\bm{Y}, \qquad G(\beta) = \frac{1}{\sigma^2}\bm{X}^T\bm{X}.
+\hat{\beta} = (\bm{X}^T\bm{X})^{-1}\bm{X}^T\bm{Y}, \qquad V(\beta) = \frac{1}{\sigma^2}\bm{X}^T\bm{X}.
 </span></p></li>
-<li><p>Moreover, if <span class="math inline">\bm{Y} \sim \textup{N}_p(\bm{X}\beta, \sigma^2 I_p)</span>, then <span class="math inline">G(\beta)</span> also coincides with the <span class="blue">Fisher information</span> <span class="math inline">I(\beta)</span>.</p></li>
+<li><p>Moreover, if <span class="math inline">\bm{Y} \sim \textup{N}_p(\bm{X}\beta, \sigma^2 I_p)</span>, then <span class="math inline">V(\beta)</span> also coincides with the <span class="blue">Fisher information</span> <span class="math inline">I(\beta)</span>.</p></li>
 </ul>
 </section>
 </section>
@@ -2124,8 +2131,8 @@ Theorem (<span class="citation" data-cites="Casella2002">Casella and Berger (<a 
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>In regular estimation problems, the maximum likelihood estimator <span class="math inline">\hat{\theta}</span> is <span class="orange">asymptotically efficient</span>, that is, for <span class="math inline">n</span> large enough, its variance attains the Cramér-Rao lower bound. Informally, <span class="math display">
-\hat{\theta} \:\dot{\sim}\: \text{N}(\theta, (n i(\theta))^{-1}).
+<p>In regular estimation problems, the maximum likelihood estimator <span class="math inline">\hat{\theta}_n</span> is <span class="orange">asymptotically efficient</span>, that is, for <span class="math inline">n</span> large enough, its variance attains the Cramér-Rao lower bound. Informally, <span class="math display">
+\hat{\theta}_n \:\dot{\sim}\: \text{N}(\theta, I(\theta)^{-1}).
 </span></p>
 </div>
 </div>
@@ -2316,8 +2323,8 @@ Theorem (<span class="citation" data-cites="Lehmann1998">Lehmann and Casella (<a
 </div>
 </div>
 </section>
-<section id="asymptotic-normality-for-the-mle" class="level2">
-<h2 class="anchored" data-anchor-id="asymptotic-normality-for-the-mle">Asymptotic normality for the MLE</h2>
+<section id="asymptotic-normality-of-the-mle" class="level2">
+<h2 class="anchored" data-anchor-id="asymptotic-normality-of-the-mle">Asymptotic normality of the MLE</h2>
 <div class="callout callout-style-simple callout-warning no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -2329,8 +2336,8 @@ Theorem (<span class="citation" data-cites="Lehmann1998">Lehmann and Casella (<a
 </div>
 <div class="callout-body-container callout-body">
 <p>Under assumptions <span class="blue">(A1)-(A6)</span>, suppose the maximum likelihood estimator <span class="math inline">\hat{\theta}_n</span> exists and is <span class="orange">consistent</span>. Then <span class="math display">
-\sqrt{n}(\hat{\theta}_n - \theta_0) \overset{\text{d}}{\longrightarrow} \text{N}(0, i(\theta)^{-1}), \quad i(\theta) = -\int\frac{\partial}{\partial \theta \partial \theta^T}\log{f(y \mid \theta)}\mathrm{d}y,
-</span> where <span class="math inline">i(\theta)</span> is the <span class="blue">Fisher information matrix</span>.</p>
+\sqrt{n}(\hat{\theta}_n - \theta_0) \overset{\text{d}}{\longrightarrow} \text{N}(0, i(\theta)^{-1}), \quad i(\theta) = -\int\frac{\partial^2}{\partial \theta \partial \theta^T}\log{f(y \mid \theta)}\mathrm{d}y,
+</span> where <span class="math inline">n i(\theta)</span> is the <span class="blue">Fisher information matrix</span>.</p>
 </div>
 </div>
 <ul>
@@ -2339,10 +2346,10 @@ Theorem (<span class="citation" data-cites="Lehmann1998">Lehmann and Casella (<a
 <li><p>Nevertheless, the statement that maximum likelihood estimators are <span class="blue">asymptotically efficient</span> is <span class="orange">correct</span>, as rigorously discussed in Chapter 8 of <span class="citation" data-cites="vandervaart1998">van der Vaart (<a href="#ref-vandervaart1998" role="doc-biblioref">1998</a>)</span>.</p></li>
 </ul>
 </section>
-<section id="observed-vs-expected-information" class="level2">
-<h2 class="anchored" data-anchor-id="observed-vs-expected-information">Observed vs expected information</h2>
+<section id="observed-vs-fisher-information" class="level2">
+<h2 class="anchored" data-anchor-id="observed-vs-fisher-information">Observed vs Fisher information</h2>
 <ul>
-<li>For the <span class="blue">practical</span> construction of <span class="orange">confidence intervals</span>, or simply to empirically assess the variance of an estimator, we need to consider a consistent estimator for <span class="math inline">I(\theta) = n i(\theta)</span>. Convergence to normality is guaranteed by Slutsky theorem.</li>
+<li>For the <span class="blue">practical</span> construction of <span class="orange">confidence intervals</span>, or simply to empirically assess the variance of an estimator, we need to consider a consistent estimator of <span class="math inline">I(\theta) = n i(\theta)</span>.</li>
 </ul>
 <div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
@@ -2350,24 +2357,195 @@ Theorem (<span class="citation" data-cites="Lehmann1998">Lehmann and Casella (<a
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>The negative Hessian matrix of the log-likelihood is called <span class="blue">observed information</span> and is defined as <span class="math display">
-j(\theta) := - \frac{\partial^2}{\partial \theta \partial \theta^T} \ell(\theta; \bm{Y})
-</span> If the second Bartlett identity holds, the <span class="orange">Fisher information</span> is <span class="math inline">I(\theta) = \mathbb{E}_\theta(j(\theta))</span>.</p>
+<p>The negative <span class="orange">Hessian matrix</span> of the log-likelihood is called <span class="blue">observed information</span> and equals: <span class="math display">
+\mathcal{I}(\theta) := - \frac{\partial^2}{\partial \theta \partial \theta^T} \ell(\theta; \bm{Y}).
+</span> If the second Bartlett identity holds, the <span class="orange">Fisher information</span> is <span class="math inline">I(\theta) = \mathbb{E}_\theta(\mathcal{I}(\theta))</span>.</p>
 </div>
 </div>
 </div>
 <ul>
-<li>Hence, there are two natural candidates for estimating <span class="math inline">I(\theta)</span>, namely <span class="math inline">I(\hat{\theta}_n)</span> and <span class="math inline">j(\hat{\theta}_n)</span> which are both consistent estimator of <span class="math inline">I(\theta)</span>.</li>
+<li><p>There are two natural candidates for estimating <span class="math inline">I(\theta)</span>, namely <span class="math inline">I(\hat{\theta}_n)</span> and <span class="math inline">\mathcal{I}(\hat{\theta}_n)</span>. These two quantities may coincide, but in general, this is not guaranteed.</p></li>
+<li><p>Following Fisher’s original work, <span class="citation" data-cites="Efron1978">Efron and Hinkley (<a href="#ref-Efron1978" role="doc-biblioref">1978</a>)</span> suggested using <span class="math inline">\mathcal{I}(\hat{\theta}_n)</span> because it approximates the <span class="blue">conditional variance</span> of <span class="math inline">\hat{\theta}_n</span> given an appropriate <span class="orange">ancillary statistic</span>.</p></li>
+<li><p>Moreover, <span class="math inline">\mathcal{I}(\hat{\theta}_n)</span> can be computed numerically via differentiation, whereas <span class="math inline">I(\hat{\theta}_n)</span> requires analytical derivations.</p></li>
 </ul>
 </section>
-<section id="consistency-for-estimating-equations" class="level2">
-<h2 class="anchored" data-anchor-id="consistency-for-estimating-equations">Consistency for estimating equations</h2>
-</section>
-<section id="asymptotic-bias-and-firth-corrections" class="level2">
-<h2 class="anchored" data-anchor-id="asymptotic-bias-and-firth-corrections">Asymptotic bias and Firth corrections</h2>
+<section id="consistency-for-m-estimators-i" class="level2">
+<h2 class="anchored" data-anchor-id="consistency-for-m-estimators-i">Consistency for M-estimators I</h2>
 <ul>
-<li>First order and second-order efficienct, corrections</li>
+<li><p>We now discuss a broader and modern theory for <span class="orange">consistency</span>. Let <span class="math inline">M_n(\theta) = \sum_{i=1}^n m(\theta; Y_i)</span> be an <span class="blue">M-estimator</span> and recall that the <span class="orange">maximum likelihood</span> is a special instance, with <span class="math display">
+M_n(\theta) = \sum_{i=1}^n \ell(\theta;Y_i),
+</span></p></li>
+<li><p>In order to simplify the subsequent exposition, it is convenient to consider <span class="math display">
+M_n(\theta) = \textcolor{red}{\frac{1}{n}}\sum_{i=1}^n [\ell(\theta;Y_i) \textcolor{red}{- \ell(\theta_0; Y_i)}] = \frac{1}{n}\sum_{i=1}^n\log{\frac{f(Y_i; \theta)}{f(Y_i; \theta_0)}},
+</span> where the red terms are ininfluential because the maximizer <span class="math inline">\hat{\theta}_n</span> of <span class="math inline">M_n(\theta)</span> is the same.</p></li>
+<li><p>Under conditions <span class="blue">(A1)-(A3)</span> the law of large numbers guarantees that <span class="math inline">M_n(\theta) \overset{\textup{p}}{\longrightarrow} M(\theta)</span> <span class="orange">pointwise</span> for every <span class="math inline">\theta</span>, where <span class="math inline">M(\theta) = - \text{KL}(f(\cdot; \theta_0) \mid f(\cdot; \theta))</span>. However, this was <span class="orange">not enough</span>.</p></li>
+<li><p>On the other hand, we will see that <span class="math inline">\hat{\theta}_n</span> does not need to maximize <span class="math inline">M_n(\theta)</span>. Indeed, it is sufficient that is <span class="blue">nearly maximizes</span> it, in the sense that <span class="math inline">M_n(\hat{\theta}_n) \ge \sup_{\theta \in \Theta}M(\theta) - o_p(1)</span>.</p></li>
 </ul>
+</section>
+<section id="consistency-for-m-estimators-ii" class="level2">
+<h2 class="anchored" data-anchor-id="consistency-for-m-estimators-ii">Consistency for M-estimators II</h2>
+<div class="callout callout-style-simple callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Theorem (<span class="citation" data-cites="vandervaart1998">van der Vaart (<a href="#ref-vandervaart1998" role="doc-biblioref">1998</a>)</span>, Theorem 5.7)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Let <span class="math inline">\theta \subseteq \mathbb{R}^p</span>, <span class="math inline">M_n(\theta)</span> be random functions and <span class="math inline">M(\theta)</span> be a function of <span class="math inline">\theta</span> such that for every <span class="math inline">\epsilon &gt; 0</span> <span class="math display">
+\begin{aligned}
+\sup_{\theta \in \Theta} \left|M_n(\theta) - M(\theta)\right| \overset{\textup{p}}{\longrightarrow} 0, \qquad \text{(Uniform convergence)} \\
+\sup_{\theta : ||\theta- \theta_0||_2 \ge \epsilon} M(\theta) &lt; M(\theta_0). \qquad \text{(Strong identifiability)}
+\end{aligned}
+</span> Then any sequence of estimators <span class="math inline">\hat{\theta}_n</span> with <span class="math inline">M_n(\hat{\theta}_n) \ge M_n(\theta_0) + o_p(1)</span> <span class="blue">converges in probability</span> to <span class="math inline">\theta_0</span> as <span class="math inline">n\rightarrow \infty</span>.</p>
+</div>
+</div>
+<ul>
+<li><p>The <span class="orange">uniform convergence</span> assumption strengthen the pointwise convergence typically ensured by the law of large numbers, that is, <span class="math inline">m(\theta)</span> should be <span class="blue">Glivenko-Cantelli</span>.</p></li>
+<li><p>This holds if <span class="math inline">\Theta</span> is <span class="blue">compact</span>, <span class="math inline">m(\theta)</span> is continuous and dominated by an integrable function.</p></li>
+<li><p>The strong identifiability condition, also called <span class="orange">well separability</span> ensures that only point close to <span class="math inline">\theta_0</span> are close to the maximum value <span class="math inline">M(\theta_0)</span>, strengthening Wald inequality.</p></li>
+</ul>
+</section>
+<section id="consistency-for-z-estimators" class="level2">
+<h2 class="anchored" data-anchor-id="consistency-for-z-estimators">Consistency for Z-estimators</h2>
+<ul>
+<li><p>The former theorem can be also expressed in terms of Z-estimators <span class="math inline">Q_n(\theta)</span>, that is, on a set of <span class="orange">estimating equations</span>. An example is the score function <span class="math display">
+Q_n(\theta) = \textcolor{red}{\frac{1}{n}}\sum_{i=1}^n \ell^*(\theta; Y_i).
+</span></p></li>
+<li><p>We require <span class="math inline">\hat{\theta}_n</span> to <span class="blue">nearly solve</span> <span class="math inline">Q_n(\theta) = \bm{0}</span> and that <span class="math inline">\lim_{n\to\infty} Q_n(\theta_0) = \bm{0}</span>. Intuitively, this comes from the <span class="blue">LLN</span> in <span class="orange">unbiased estimating equations</span>, in which case <span class="math inline">\mathbb{E}_{\theta_0}(Q_n(\theta_0)) = \bm{0}</span>.</p></li>
+</ul>
+<div class="callout callout-style-simple callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Theorem (<span class="citation" data-cites="vandervaart1998">van der Vaart (<a href="#ref-vandervaart1998" role="doc-biblioref">1998</a>)</span>, Theorem 5.9)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Let <span class="math inline">\theta \subseteq \mathbb{R}^p</span>, <span class="math inline">Q_n(\theta)</span> be random vector-valued functions and <span class="math inline">Q(\theta)</span> be a vector-valued function of <span class="math inline">\theta</span> such that for every <span class="math inline">\epsilon &gt; 0</span> <span class="math display">
+\sup_{\theta \in \Theta} \left ||Q_n(\theta) - Q(\theta)\right||_2 \overset{\textup{p}}{\longrightarrow} 0, \qquad\sup_{\theta : ||\theta- \theta_0||_2 \ge \epsilon} ||Q(\theta)||_2 &gt; 0 = ||Q(\theta_0)||_2.
+</span> Then any sequence of estimators <span class="math inline">\hat{\theta}_n</span> such that <span class="math inline">Q_n(\hat{\theta}_n) = o_p(1)</span> <span class="blue">converges in probability</span> to <span class="math inline">\theta_0</span>.</p>
+</div>
+</div>
+</section>
+<section id="asymptotic-normality-of-m-estimators-i" class="level2">
+<h2 class="anchored" data-anchor-id="asymptotic-normality-of-m-estimators-i">Asymptotic normality of M-estimators I</h2>
+<div class="callout callout-style-simple callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Theorem (<span class="citation" data-cites="vandervaart1998">van der Vaart (<a href="#ref-vandervaart1998" role="doc-biblioref">1998</a>)</span>, Theorem 5.21)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Let <span class="math inline">\Theta \subseteq \mathbb{R}^p</span> and <span class="math inline">M_n(\theta)</span> be an M-estimator whose vector-valued <span class="blue">derivative</span> is <span class="math inline">Q_n(\theta)</span>, so that <span class="math display">
+M_n(\theta) = \sum_{i=1}^n m(\theta; Y_i), \qquad Q_n(\theta) = \sum_{i=1}^nq(\theta;Y_i).
+</span> Let <span class="math inline">\hat{\theta}_n</span> be a sequence of <span class="orange">consistent</span> estimators such that <span class="math inline">Q_n(\hat{\theta}_n) = 0</span>. Under assumptions <span class="blue">(A1)-(A2)</span> and further <span class="blue">mild regularity conditions</span> <span class="math display">
+\sqrt{n}(\hat{\theta}_n - \theta) \overset{\text{d}}{\longrightarrow} \text{N}(0, v(\theta)^{-1}), \qquad v(\theta) = h(\theta)j(\theta)^{-1}h(\theta)^T,
+</span> where <span class="math inline">V(\theta) = n v(\theta)</span> is the <span class="orange">Godambe information matrix</span> and <span class="math display">
+h(\theta) = \mathbb{E}_\theta\left(- \frac{\partial}{\partial \theta}q(\theta)\right), \qquad j(\theta) = \mathbb{E}_\theta\left(q(\theta)q(\theta)^T\right).
+</span></p>
+</div>
+</div>
+</section>
+<section id="asymptotic-normality-of-m-estimators-ii" class="level2">
+<h2 class="anchored" data-anchor-id="asymptotic-normality-of-m-estimators-ii">Asymptotic normality of M-estimators II</h2>
+<ul>
+<li><p>The previous theorem is very powerful as it applies to the broad class of M-estimators. Moreover, its statement has been substantially <span class="orange">simplified</span> compared to <span class="citation" data-cites="vandervaart1998">van der Vaart (<a href="#ref-vandervaart1998" role="doc-biblioref">1998</a>)</span>.</p></li>
+<li><p>The actual statement does not even require <span class="math inline">Y_1,\dots,Y_n</span> to be independent or identically distributed.</p></li>
+<li><p>Moreover, the <span class="blue">regularity conditions</span> are much weaker than <span class="blue">(A1)-(A6)</span> and essentially ensure that the involved quantities are well-defined. <span class="orange">However</span>, note that <span class="math inline">\hat{\theta}_n</span> must be <span class="orange">consistent</span>.</p></li>
+</ul>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>In regular problems, an M-estimator <span class="math inline">\hat{\theta}_n</span> is <span class="orange">consistent</span> and <span class="blue">asymptotically normal</span>. Moreover, for <span class="math inline">n</span> large enough, its variance is the inverse of the <span class="blue">Godambe information</span>. Informally, <span class="math display">
+\hat{\theta}_n \:\dot{\sim}\: \text{N}(\theta, V(\theta)^{-1}).
+</span></p>
+</div>
+</div>
+</div>
+</section>
+<section id="first-order-bias-correction" class="level2">
+<h2 class="anchored" data-anchor-id="first-order-bias-correction">First-order bias-correction</h2>
+<ul>
+<li><p>In a regular model with <span class="math inline">\Theta \subseteq \mathbb{R}^p</span> and independent samples, the <span class="orange">bias</span> of the <span class="orange">maximum likelihood estimator</span> can be <span class="orange">expanded</span> as follows: <span class="math display">
+\text{bias}_\theta(\hat{\theta}_n) = \frac{b_1(\theta)}{n} + \frac{b_2(\theta)}{n^2} + \mathcal{O}(n^{-3}).
+</span></p></li>
+<li><p>The quantity <span class="math inline">\text{bias}_\theta(\hat{\theta}_n)</span> is often unavailable, but the <span class="blue">first-order</span> term <span class="math inline">b_1(\theta)</span> might be computable, e.g., in <span class="orange">exponential families</span> (<span class="citation" data-cites="Pace1997">Pace and Salvan (<a href="#ref-Pace1997" role="doc-biblioref">1997</a>)</span>, Chap. 9).</p></li>
+<li><p>The <span class="orange">jackknife</span> is a popular strategy for removing the first-order bias. Alternatively, the <span class="blue">first-order bias-corrected</span> maximum likelihood estimator is obtained via plug-in as <span class="math display">
+\hat{\theta}_\text{bc} = \hat{\theta}_n - \frac{b_1(\hat{\theta}_n)}{n}.
+</span></p></li>
+<li><p>If <span class="math inline">\tilde{\theta}_n</span> is an estimator of <span class="math inline">\theta</span> with bias of order <span class="math inline">\mathcal{O}(n^{-2})</span>, then <span class="math display">
+\text{var}_\theta(\tilde{\theta}_n) = \text{var}_\theta(\hat{\theta}_\text{bc}) + \Delta^2(\theta) + \mathcal{O}(n^{-3}),
+</span> where <span class="math inline">\Delta^2(\theta) \geq 0</span>, with equality if and only if <span class="math inline">\hat{\theta}_\text{bc} = \tilde{\theta}_n</span>. In this case, <span class="math inline">\hat{\theta}_\text{bc}</span> is said to be <span class="orange">second-order efficient</span>; see <span class="citation" data-cites="Efron1975b">Efron (<a href="#ref-Efron1975b" role="doc-biblioref">1975</a>)</span>.</p></li>
+</ul>
+</section>
+<section id="bias-reduction-using-firths-corrections-i" class="level2">
+<h2 class="anchored" data-anchor-id="bias-reduction-using-firths-corrections-i">Bias reduction using Firth’s corrections I</h2>
+<ul>
+<li><p>The jackknife and <span class="math inline">\hat{\theta}_\text{bs}</span> are “corrective” rather than “preventive”. That is, the maximum likelihood <span class="math inline">\hat{\theta}</span> is first calculated, then corrected. A practical requirement is the <span class="orange">existence</span> of <span class="math inline">\hat{\theta}</span>.</p></li>
+<li><p>Motivated by this, <span class="citation" data-cites="Firth1993">Firth (<a href="#ref-Firth1993" role="doc-biblioref">1993</a>)</span> proposed a <span class="blue">modified score equation</span>. The <span class="orange">bias</span> in <span class="math inline">\hat{\theta}</span> can be <span class="orange">reduced</span> by introducing a <span class="blue">small bias</span> into the <span class="blue">score function</span>.</p></li>
+</ul>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>In a regular model with <span class="math inline">\Theta \subseteq \mathbb{R}^p</span>, let <span class="math inline">\ell^*(\theta)</span> be the score function, <span class="math inline">I(\theta)</span> the Fisher information matrix and <span class="math inline">b(\theta)</span> the <span class="orange">bias</span> of the maximum likelihood <span class="math inline">\hat{\theta}_n</span>. <span class="citation" data-cites="Firth1993">Firth (<a href="#ref-Firth1993" role="doc-biblioref">1993</a>)</span> estimating equation is <span class="math display">
+Q(\theta) = \ell^*(\theta) + A(\theta),
+</span> where <span class="math inline">A(\theta)</span> is any vector such that <span class="math display">
+\mathbb{E}_\theta(A(\theta)) = - I(\theta)\frac{b_1(\theta)}{n} + \mathcal{O}(n^{-1/2}).
+</span> Clearly, a natural candidate for <span class="math inline">A(\theta)</span> is indeed <span class="math inline">A(\theta) = - I(\theta)b_1(\theta)/n</span>.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="bias-reduction-using-firths-corrections-ii" class="level2">
+<h2 class="anchored" data-anchor-id="bias-reduction-using-firths-corrections-ii">Bias reduction using Firth’s corrections II</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="firth.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:4in"></p>
+</figure>
+</div>
+</section>
+<section id="bias-reduction-using-firths-corrections-iii" class="level2">
+<h2 class="anchored" data-anchor-id="bias-reduction-using-firths-corrections-iii">Bias reduction using Firth’s corrections III</h2>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Let <span class="math inline">Y_1,\dots,Y_n</span> be an iid sample from a Poisson with parameter <span class="math inline">\lambda</span> and consider the reparametrization <span class="math inline">\psi = 1/\lambda</span>. The score and the Fisher information are <span class="math display">
+\ell^*(\psi) = \frac{n}{\psi^2} - \frac{\bar{y}}{n \psi}, \qquad I(\psi) = \frac{n}{\psi^3}.
+</span> The <span class="orange">maximum likelihood</span> is <span class="math inline">\hat{\psi} = 1/\bar{y}</span>, with <span class="blue">first-order bias</span> <span class="math inline">b_1(\psi)/n = \psi^2/n</span>. Thus <span class="math display">
+Q(\psi) = \ell^*(\psi) - I(\psi)b_1(\psi)/n \quad \implies \quad \hat{\psi}_\text{Firth} = \frac{1}{\bar{y} + 1/n}.
+</span></p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Let <span class="math inline">Y_1,\dots,Y_n</span> be an iid sample from a Bernoulli with parameter <span class="math inline">p</span> and consider the reparametrization <span class="math inline">\beta = \log{p/(1-p)}</span>. Application of <span class="citation" data-cites="Firth1993">Firth (<a href="#ref-Firth1993" role="doc-biblioref">1993</a>)</span> method gives <span class="math display">
+\hat{\beta}_\text{Firth} = \log\left(\frac{n_1 + 1/2}{n - n_1 + 1/2}\right), \quad \text{whereas}\quad \hat{\beta} = \log\left(\frac{n_1}{n - n_1}\right),
+</span> which is a well-know <span class="orange">bias-reducing</span> correction of the empirical logit.</p>
+</div>
+</div>
+</div>
 </section>
 </section>
 <section id="robustness" class="level1">
@@ -2443,14 +2621,23 @@ Davison, A. C. (2003), <em><span>Statistical Models</span></em>, Cambridge Unive
 <div id="ref-Diaconis1979" class="csl-entry" role="listitem">
 Diaconis, P., and Ylvisaker, D. (1979), <span>“<span class="nocase">Conjugate prior for exponential families</span>,”</span> <em>Ann. of Statist.</em>, 7, 269–292.
 </div>
+<div id="ref-Efron1975b" class="csl-entry" role="listitem">
+Efron, B. (1975), <span>“<span class="nocase">Defining the curvature of a statistical problem (with applications to second order efficiency)</span>,”</span> <em>The Annals of Statistics</em>, 3, 1189–1242.
+</div>
 <div id="ref-Efron2010" class="csl-entry" role="listitem">
 Efron, B. (2010), <em><span class="nocase">Large Scale Inference: Empirical Bayes Methods for Estimation, Testing, and Prediction</span></em>, Institute of mathematical statistics monographs, Leiden: Cambridge University Press.
 </div>
 <div id="ref-Efron2016" class="csl-entry" role="listitem">
 Efron, B., and Hastie, T. (2016), <em><span>Computer Age Statistical Inference</span></em>, Cambridge University Press.
 </div>
+<div id="ref-Efron1978" class="csl-entry" role="listitem">
+Efron, B., and Hinkley, D. V. (1978), <span>“Assessing the accuracy of the maximum likelihood estimator: Observed vs fisher information,”</span> <em>Biometrika</em>, 65, 457–482.
+</div>
 <div id="ref-Efron1975" class="csl-entry" role="listitem">
 Efron, B., and Morris, C. (1975), <span>“<span class="nocase">Data analysis using Stein’s estimator and its generalizations</span>,”</span> <em>Journal of the American Statistical Association</em>, 70, 311–319.
+</div>
+<div id="ref-Firth1993" class="csl-entry" role="listitem">
+Firth, D. (1993), <span>“Bias reduction of maximum likelihood estimates,”</span> <em>Biometrika</em>, 80, 27–38.
 </div>
 <div id="ref-Godambe1960" class="csl-entry" role="listitem">
 Godambe, V. P. (1960), <span>“<span class="nocase">An optimum property of regular maximum likelihood estimation</span>,”</span> <em>Annals of Mathematical Statistics</em>, 31, 1208–1211.
