@@ -56,13 +56,13 @@ editor_options:
 
 ::: columns
 ::: {.column width="35%"}
-![](img/cox.jpg){width=2in}
+![](img/cox.jpg){width=3in}
 
-:::{.small}
+::: {style="font-size: 80%;"}
 *"I would like to think of myself as a scientist, who happens largely to specialise in the use of statistics."*
-:::
 
 [Sir David Cox](https://royalsocietypublishing.org/doi/10.1098/rsbm.2023.0052#:~:text=David%20described%20himself%20as%20a,of%20his%20interest%20in%20applications.){.grey} (1924-2022)
+:::
 :::
 
 ::: {.column width="65%"}
@@ -71,29 +71,86 @@ editor_options:
     - Exponential families
     - Generalized linear models
     - ...and more advanced topics
-- This is a Ph.D.-level course, so it is assumed that you have already been exposed to these topics to some extent.
+- This is a [Ph.D.-level]{.blue} course, so it is assumed that you have already been exposed to these topics to some extent.
 
-- We aim to (briefly!) touch upon the most relevant concepts of [classical statistical inference]{.orange} from the [20th century]{.blue}.
+- We aim to (briefly!) touch upon many [key concepts]{.blue} of [classical statistical inference]{.orange} from the [20th century]{.blue}.
 
 - Fundamental topics such as [hypothesis testing]{.blue} are not covered here, but they are covered in another module.
 :::
 :::
 
 
-## Statistics over the XX century [@Davison2001]
+## Statistics of the 20th century [@Davison2001]
 
-![](img/Davison1.png){width=4in, fig-align="center"}
+![](img/Davison1.png){width=6in fig-align=center}
 
 - [Biometrika]{.orange} is among the most prestigious journals in Statistics. Past editors include Karl Pearson, Sir David Cox, and Anthony Davison.
 
 ## Foundations and Bayesian statistics 
 
-![](img/Davison2.png){width=5in, fig-align="center"}
+![](img/Davison2.png){width=6in fig-align=center}
 
 
-## Parametric models
+## Principles: sufficiency, conditionality and likelihoods
 
-## Preliminaries
+![](img/Davison3.png){width=6in fig-align=center}
+
+![](img/Davison3_5.png){width=6in fig-align=center}
+
+
+![](img/Davison4.png){width=6in fig-align=center}
+
+:::aside
+See @Birnbaum1962.
+:::
+
+## Likelihood
+
+![](img/Davison5.png){width=6in fig-align=center}
+
+- The study of the [likelihood]{.orange} has gone [far beyond]{.blue} the classical [textbook]{.blue} description. Specialized topics that have attracted considerable attention include:
+  - Likelihood ratio tests and their large-sample properties  
+  - Conditional and marginal likelihoods  
+  - Modified profile likelihoods  
+  - Restricted maximum likelihood  
+
+## Estimating functions
+
+![](img/Davison6.png){width=6in fig-align=center}
+
+## Generalized linear models 
+
+![](img/Davison7.png){width=7in fig-align=center}
+
+![](img/Davison8.png){width=7in fig-align=center}
+
+
+## Nonparametric (local) models
+
+![](img/Davison9.png){width=7in fig-align=center}
+
+## Bayesian methods
+
+![](img/Davison10.png){width=7in fig-align=center}
+
+![](img/Davison11.png){width=7in fig-align=center}
+
+![](img/Davison11_5.png){width=7in fig-align=center}
+
+## The future
+
+![](img/Davison12.png){width=7in fig-align=center}
+
+![](img/Davison13.png){width=7in fig-align=center}
+
+
+## Advice to a young investigator
+
+
+
+## Prerequisites
+
+## Notation
 
 ## Textbooks
 
@@ -102,7 +159,7 @@ editor_options:
 - @Casella2002
 - @Lehmann1998
 
-## Inferential statistics
+## References {.unnumbered}
 
-## Likelihood
-
+::: {#refs}
+:::
