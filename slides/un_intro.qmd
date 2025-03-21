@@ -144,9 +144,40 @@ editor_options:
 ![](img/Davison13.png){width=7in fig-align=center}
 
 
-## Advice to a young investigator
+## Advice for a young investigator?
 
-## Advice to a young investigator
+- What is the take-home message from this overwhelming amount of work? Below is a list of [practical advice]{.blue} that may help you secure a [permanent position]{.orange} in academia.
+
+1. Strive to [publish]{.blue} in the [top journals]{.orange} in statistics: *Annals of Statistics, Biometrika, Journal of the American Statistical Association, Journal of the Royal Statistical Society: Series B*.
+
+2. Focus on a [niche trending topic]{.orange} and exploit it until it is exhausted. Make sure you are part of a larger, [established group]{.blue} of researchers who actively promote the topic you are working on.
+
+3. Become an expert in your niche, and learn how to write about it and promote it effectively. In a nutshell, [learn]{.orange} how to [play the game]{.orange}.
+
+4. Closely follow the [suggestions]{.blue} of your [advisor]{.blue} — they know better than you how to navigate the system and can guide you through many institutional, political, and scientific challenges.
+
+5. [Do not wast time]{.orange} on activities that do not produce papers. This include:
+    - Teaching to undergraduate students
+    - Disseminating your work to the broader community
+    - Studying topics not strictly related to your niche area
+    - (God forbid!) being involved in administrative matters
+
+## Advice for a young investigator
+
+::: columns
+::: {.column width="35%"}
+![](img/advice.jpg){width=3in}
+
+::: {style="font-size: 80%;"}
+[Santiago Ramon Y Cajal]{.grey}
+:::
+:::
+
+::: {.column width="65%"}
+- The former list of practical advice is probably [effective]{.orange} but [questionable]{.orange}. For sure, it lacks [perspective]{.blue}.
+:::
+:::
+
 
 ## Prerequisites
 
