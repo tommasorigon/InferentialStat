@@ -4,6 +4,10 @@ subtitle: "Statistical Inference - PhD EcoStatData"
 author: "[Tommaso Rigon]{.orange}"
 institute: "_Università degli Studi di Milano-Bicocca_"
 page-layout: full
+bibliography: ../biblio.bib
+citeproc: true
+csl: https://www.zotero.org/styles/journal-of-the-american-statistical-association
+reference-location: margin
 execute:
   cache: false
 filters: 
@@ -14,7 +18,7 @@ format:
     center: true
     html-math-method: katex
     transition: none
-    output-file: un_intro_slides.html
+    output-file: un_A_slides.html
     slide-number: true
     callout-appearance: minimal
     code-line-numbers: true
@@ -39,6 +43,7 @@ format:
     code-fold: false
     code-summary: "Show the code"
     fig-dpi: 150
+    toc-location: right
     highlight-style: github
 editor: 
   markdown: 
@@ -47,8 +52,44 @@ editor_options:
   chunk_output_type: console
 ---
 
-
 ## [Homepage](../index.html)
+
+::: columns
+::: {.column width="35%"}
+![](img/cox.jpg){width=2in}
+
+:::{.small}
+*"I would like to think of myself as a scientist, who happens largely to specialise in the use of statistics."*
+:::
+
+[Sir David Cox](https://royalsocietypublishing.org/doi/10.1098/rsbm.2023.0052#:~:text=David%20described%20himself%20as%20a,of%20his%20interest%20in%20applications.){.grey} (1924-2022)
+:::
+
+::: {.column width="65%"}
+- This course will cover the following [topics]{.orange}:
+    - Point estimation
+    - Exponential families
+    - Generalized linear models
+    - ...and more advanced topics
+- This is a Ph.D.-level course, so it is assumed that you have already been exposed to these topics to some extent.
+
+- We aim to (briefly!) touch upon the most relevant concepts of [classical statistical inference]{.orange} from the [20th century]{.blue}.
+
+- Fundamental topics such as [hypothesis testing]{.blue} are not covered here, but they are covered in another module.
+:::
+:::
+
+
+## Statistics over the XX century [@Davison2001]
+
+![](img/Davison1.png){width=4in, fig-align="center"}
+
+- [Biometrika]{.orange} is among the most prestigious journals in Statistics. Past editors include Karl Pearson, Sir David Cox, and Anthony Davison.
+
+## Foundations and Bayesian statistics 
+
+![](img/Davison2.png){width=5in, fig-align="center"}
+
 
 ## Parametric models
 
@@ -56,6 +97,12 @@ editor_options:
 
 ## Textbooks
 
+- @Davison2003
+- @Pace1997
+- @Casella2002
+- @Lehmann1998
+
 ## Inferential statistics
 
 ## Likelihood
+
