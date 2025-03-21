@@ -144,12 +144,13 @@ editor_options:
 ![](img/Davison13.png){width=7in fig-align=center}
 
 
-## Advice for a young investigator?
+## Cynical advice for a young investigator
 
-What is the take-home message from this overwhelming amount of work? Below is a list of [practical advice]{.blue} that may help you secure a [permanent position]{.orange} in academia.
+Below is a list of [practical advice]{.blue} that may help you secure a [permanent position]{.orange} in academia, in statistics, in Italy.
 
-::: callout-tip
 1. Strive to [publish]{.blue} in the [top journals]{.orange} in statistics: *Annals of Statistics, Biometrika, Journal of the American Statistical Association, Journal of the Royal Statistical Society: Series B*.
+
+1. Keep in mind that both [quality]{.blue} and [quantity]{.orange} matter. Aim to have around 3–4 submitted or published papers by the end of your Ph.D. — the more, the better.
 
 2. Focus on a [niche trending topic]{.orange} and exploit it until it is exhausted. Make sure you are part of an [established group]{.blue} of researchers who actively promote the topic you are working on.
 
@@ -161,8 +162,6 @@ What is the take-home message from this overwhelming amount of work? Below is a 
     - Teaching to undergraduate students
     - Disseminating your work to the broader community, beyond academia
     - Studying topics not strictly related to your niche area
-    - (God forbid!) being involved in administrative matters
-:::
 
 ## Advice for a young investigator
 
