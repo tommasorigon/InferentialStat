@@ -86,13 +86,13 @@ editor_options:
 
 ## Statistics of the 20th century 
 
-![](img/Davison1.png){width=6in fig-align=center}
+![](img/Davison1.png){width=7in fig-align=center}
 
 - [Biometrika]{.orange} is among the most prestigious journals in Statistics. Past editors include Karl Pearson, Sir David Cox, and Anthony Davison.
 
 ## Foundations and Bayesian statistics 
 
-![](img/Davison2.png){width=6in fig-align=center}
+![](img/Davison2.png){width=7in fig-align=center}
 
 
 ## Principles: sufficiency, conditionality and likelihoods
@@ -106,7 +106,7 @@ editor_options:
 
 ## Likelihood
 
-![](img/Davison5.png){width=6in fig-align=center}
+![](img/Davison5.png){width=7in fig-align=center}
 
 - The study of the [likelihood]{.orange} has gone [far beyond]{.blue} the classical [textbook]{.blue} description. Specialized topics that have attracted considerable attention include:
   - Likelihood ratio tests and their large-sample properties  
@@ -116,7 +116,7 @@ editor_options:
 
 ## Estimating functions
 
-![](img/Davison6.png){width=6in fig-align=center}
+![](img/Davison6.png){width=7in fig-align=center}
 
 ## Generalized linear models 
 
@@ -146,7 +146,7 @@ editor_options:
 
 ## Advice to a young investigator
 
-
+## Advice to a young investigator
 
 ## Prerequisites
 
