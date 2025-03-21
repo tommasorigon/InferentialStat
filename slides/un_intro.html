@@ -68,7 +68,7 @@ div.csl-indent {
    
   <ul>
   <li><a href="#homepage" id="toc-homepage" class="nav-link active" data-scroll-target="#homepage">Homepage</a></li>
-  <li><a href="#statistics-of-the-20th-century-davison2001" id="toc-statistics-of-the-20th-century-davison2001" class="nav-link" data-scroll-target="#statistics-of-the-20th-century-davison2001">Statistics of the 20th century <span class="citation" data-cites="Davison2001">(Davison 2001)</span></a></li>
+  <li><a href="#statistics-of-the-20th-century" id="toc-statistics-of-the-20th-century" class="nav-link" data-scroll-target="#statistics-of-the-20th-century">Statistics of the 20th century</a></li>
   <li><a href="#foundations-and-bayesian-statistics" id="toc-foundations-and-bayesian-statistics" class="nav-link" data-scroll-target="#foundations-and-bayesian-statistics">Foundations and Bayesian statistics</a></li>
   <li><a href="#principles-sufficiency-conditionality-and-likelihoods" id="toc-principles-sufficiency-conditionality-and-likelihoods" class="nav-link" data-scroll-target="#principles-sufficiency-conditionality-and-likelihoods">Principles: sufficiency, conditionality and likelihoods</a></li>
   <li><a href="#likelihood" id="toc-likelihood" class="nav-link" data-scroll-target="#likelihood">Likelihood</a></li>
@@ -85,7 +85,7 @@ div.csl-indent {
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="un_A_slides.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
 </div>
-<main class="content page-columns page-full column-page-left" id="quarto-document-content">
+<main class="content column-page-left" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -140,13 +140,14 @@ div.csl-indent {
 </ul></li>
 <li><p>This is a <span class="blue">Ph.D.-level</span> course, so it is assumed that you have already been exposed to these topics to some extent.</p></li>
 <li><p>We aim to (briefly!) touch upon many <span class="blue">key concepts</span> of <span class="orange">classical statistical inference</span> from the <span class="blue">20th century</span>.</p></li>
-<li><p>Fundamental topics such as <span class="blue">hypothesis testing</span> are not covered here, but they are covered in another module.</p></li>
+<li><p>Fundamental topics such as <span class="blue">hypothesis testing</span> are not covered here, as they are addressed in another module.</p></li>
+<li><p>To introduce the main ideas, I will borrow the words of <span class="citation" data-cites="Davison2001">Davison (<a href="#ref-Davison2001" role="doc-biblioref">2001</a>)</span> — a source you are <span class="orange">encouraged to read!</span></p></li>
 </ul>
 </div>
 </div>
 </section>
-<section id="statistics-of-the-20th-century-davison2001" class="level2">
-<h2 class="anchored" data-anchor-id="statistics-of-the-20th-century-davison2001">Statistics of the 20th century <span class="citation" data-cites="Davison2001">(<a href="#ref-Davison2001" role="doc-biblioref">Davison 2001</a>)</span></h2>
+<section id="statistics-of-the-20th-century" class="level2">
+<h2 class="anchored" data-anchor-id="statistics-of-the-20th-century">Statistics of the 20th century</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="img/Davison1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:6in"></p>
@@ -164,27 +165,24 @@ div.csl-indent {
 </figure>
 </div>
 </section>
-<section id="principles-sufficiency-conditionality-and-likelihoods" class="level2 page-columns page-full">
+<section id="principles-sufficiency-conditionality-and-likelihoods" class="level2">
 <h2 class="anchored" data-anchor-id="principles-sufficiency-conditionality-and-likelihoods">Principles: sufficiency, conditionality and likelihoods</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="img/Davison3.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:6in"></p>
+<p><img src="img/Davison3.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:7in"></p>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="img/Davison3_5.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:6in"></p>
+<p><img src="img/Davison3_5.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:7in"></p>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="img/Davison4.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:6in"></p>
+<p><img src="img/Davison4.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:7in"></p>
 </figure>
 </div>
-
-<div class="no-row-height column-margin column-container"><div class="margin-aside">
-<p>See <span class="citation" data-cites="Birnbaum1962">Birnbaum (<a href="#ref-Birnbaum1962" role="doc-biblioref">1962</a>)</span>.</p>
-</div></div></section>
+</section>
 <section id="likelihood" class="level2">
 <h2 class="anchored" data-anchor-id="likelihood">Likelihood</h2>
 <div class="quarto-figure quarto-figure-center">
@@ -192,6 +190,18 @@ div.csl-indent {
 <p><img src="img/Davison5.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:6in"></p>
 </figure>
 </div>
+<ul>
+<li>The study of the <span class="orange">likelihood</span> has gone <span class="blue">far beyond</span> the classical <span class="blue">textbook</span> description. Specialized topics that have attracted considerable attention include:
+<ul>
+<li>Likelihood ratio tests and their large-sample properties<br>
+</li>
+<li>Conditional and marginal likelihoods<br>
+</li>
+<li>Modified profile likelihoods<br>
+</li>
+<li>Restricted maximum likelihood</li>
+</ul></li>
+</ul>
 </section>
 <section id="estimating-functions" class="level2">
 <h2 class="anchored" data-anchor-id="estimating-functions">Estimating functions</h2>
@@ -226,17 +236,17 @@ div.csl-indent {
 <h2 class="anchored" data-anchor-id="bayesian-methods">Bayesian methods</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="img/Davison10.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:7in"></p>
+<p><img src="img/Davison10.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:6in"></p>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="img/Davison11.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:7in"></p>
+<p><img src="img/Davison11.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:6in"></p>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="img/Davison11_5.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:7in"></p>
+<p><img src="img/Davison11_5.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:6in"></p>
 </figure>
 </div>
 </section>

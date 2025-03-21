@@ -12,6 +12,8 @@ execute:
   cache: false
 filters: 
   - remove-pause.lua
+nocite: |
+  @Birnbaum1962
 format:
   revealjs:
     auto-stretch: true
@@ -75,12 +77,14 @@ editor_options:
 
 - We aim to (briefly!) touch upon many [key concepts]{.blue} of [classical statistical inference]{.orange} from the [20th century]{.blue}.
 
-- Fundamental topics such as [hypothesis testing]{.blue} are not covered here, but they are covered in another module.
+- Fundamental topics such as [hypothesis testing]{.blue} are not covered here, as they are addressed in another module.
+
+- To introduce the main ideas, I will borrow the words of @Davison2001 — a source you are [encouraged to read!]{.orange}
 :::
 :::
 
 
-## Statistics of the 20th century [@Davison2001]
+## Statistics of the 20th century 
 
 ![](img/Davison1.png){width=6in fig-align=center}
 
@@ -93,16 +97,12 @@ editor_options:
 
 ## Principles: sufficiency, conditionality and likelihoods
 
-![](img/Davison3.png){width=6in fig-align=center}
+![](img/Davison3.png){width=7in fig-align=center}
 
-![](img/Davison3_5.png){width=6in fig-align=center}
+![](img/Davison3_5.png){width=7in fig-align=center}
 
 
-![](img/Davison4.png){width=6in fig-align=center}
-
-:::aside
-See @Birnbaum1962.
-:::
+![](img/Davison4.png){width=7in fig-align=center}
 
 ## Likelihood
 
@@ -131,11 +131,11 @@ See @Birnbaum1962.
 
 ## Bayesian methods
 
-![](img/Davison10.png){width=7in fig-align=center}
+![](img/Davison10.png){width=6in fig-align=center}
 
-![](img/Davison11.png){width=7in fig-align=center}
+![](img/Davison11.png){width=6in fig-align=center}
 
-![](img/Davison11_5.png){width=7in fig-align=center}
+![](img/Davison11_5.png){width=6in fig-align=center}
 
 ## The future
 
