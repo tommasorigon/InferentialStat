@@ -146,15 +146,15 @@ editor_options:
 
 ## Cynical advice for a young investigator
 
-Below is a list of [practical advice]{.blue} that may help you secure a [permanent position]{.orange} in academia, in statistics, in Italy.
+This is a list of [practical advice]{.blue} that may help you secure a [permanent position]{.orange} in academia, in statistics, in Italy. These suggestions may change over time, but they are valid today.
 
 1. Strive to [publish]{.blue} in the [top journals]{.orange} in statistics: *Annals of Statistics, Biometrika, Journal of the American Statistical Association, Journal of the Royal Statistical Society: Series B*.
 
-1. Keep in mind that both [quality]{.blue} and [quantity]{.orange} matter. Aim to have around 3–4 submitted or published papers by the end of your Ph.D. — the more, the better.
+1. However, keep in mind that both [quality]{.blue} and [quantity]{.orange} matter. Aim to have at least 3–4 submitted or published papers by the end of your Ph.D. — the more, the better.
 
-2. Focus on a [niche trending topic]{.orange} and exploit it until it is exhausted. Make sure you are part of an [established group]{.blue} of researchers who actively promote the topic you are working on.
+2. Focus on a [niche trending topic]{.orange} and exploit it until it is exhausted. Make sure you are part of a [large]{.blue} and [established group]{.blue} of researchers who actively promote the topic you are working on.
 
-3. Become an expert in your niche, and learn how to write about it and promote it effectively. In a nutshell, [learn]{.orange} how to [play the game]{.orange}.
+3. Become an [expert]{.blue} in your niche, and learn how to [write]{.blue} about it and promote it effectively. In a nutshell, [learn]{.orange} how to [play the game]{.orange}.
 
 4. Closely follow the [suggestions]{.blue} of your [advisor]{.blue} — they know better than you how to navigate the system and can guide you through many political and scientific challenges.
 
@@ -166,19 +166,64 @@ Below is a list of [practical advice]{.blue} that may help you secure a [permane
 ## Advice for a young investigator
 
 ::: columns
-::: {.column width="35%"}
+::: {.column width="25%"}
 ![](img/advice.jpg){width=3in}
 
 ::: {style="font-size: 80%;"}
-[Santiago Ramon Y Cajal]{.grey}
+[Santiago Ramon Y Cajal]{.grey} (1852–1934)
 :::
 :::
 
-::: {.column width="65%"}
+::: {.column width="75%"}
 - The former list of practical advice is probably [effective]{.orange} but [questionable]{.orange}. For sure, it lacks [perspective]{.blue}.
+
+- In looking for [principles]{.blue} defining a [good researcher]{.orange}, I once again need to borrow the words of somebody else.
+
+- [Santiago Ramón y Cajal]{.grey}  is a fascinating personalities in science. He was one of the most important [neuroanatomist]{.blue} of his century. 
+
+- Cajal was also a [thoughtful]{.orange} and inspired [teacher]{.orange}. 
+
+- "The advice" became vehicle for Cajal to write down the thoughts and anecdotes he would give to students and colleagues about how to make [important original contributions]{.blue} in any branch of [science]{.orange}.
+
+- This book was written in 1898. The world was different, and so was academia. Yet, the book feels remarkably [modern]{.blue}.
+
 :::
 :::
 
+
+## On general philosophical principles
+
+:::callout-tip
+#### Chapter 1, Introduction
+
+It is important to note that the most brilliant discoveries have not relied on a formal knowledge of logic. Instead, their
+discoverers have had an [acute inner logic]{.blue} that generates ideas [...]
+
+Let me assert without further ado that there are no rules of logic for making discoveries [...]
+
+Must we therefore abandon any attempt to instruct and educate about the process of scientifc research? Shall we leave the beginner to his own devices, confused and abandoned, struggling without guidance or advice along a path strewn with difficulties and dangers? 
+
+Definitely not. In fact, just the opposite--we believe that by [abandoning]{.orange} the [ethereal realm of philosophical principles]{.orange} and abstract methods we can descend to the [solid ground]{.blue} of [experimental science]{.blue}, as well as to the sphere of ethical considerations involved in the process of inquiry. In taking this course, simple, genuinely useful advice for the novice can be found.
+
+:::
+
+## Beginners traps
+
+
+## Intellectual qualities
+
+- Independent judgment
+- Passion for reputation
+- Taste for scientific
+
+## Specialization
+
+## Diseases of the will
+
+- Contemplators
+- Megalomaniacs
+- Misfits
+- Theorists
 
 ## Prerequisites
 
