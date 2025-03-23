@@ -152,6 +152,8 @@ editor_options:
 
 - [Specialized modeling]{.orange}: approaches for longitudinal and clustered data, multivariate analysis, factor modelling, graphical models, and spatial statistics.
 
+## Prerequisite of this course
+
 ## Notation
 
 ## Textbooks
