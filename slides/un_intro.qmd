@@ -137,11 +137,23 @@ editor_options:
 
 ![](img/Davison11_5.png){width=6in fig-align=center}
 
+## Other topics
+
+- Davison's paper covers many other topics beyond the scope of this overview, including:
+
+- [Model selection]{.blue}: information criteria such as AIC and its variants; [robustness]{.orange} and model diagnostics.
+
+- [Computational methods]{.grey}: simulation techniques including Markov Chain Monte Carlo; analytical approximations such as saddlepoint and Laplace methods.
+
+- [Missing data]{.blue}, counterfactual reasoning, and causal inference frameworks.
+
+- [Specialized modeling]{.orange}: approaches for longitudinal and clustered data, multivariate analysis, factor modelling, graphical models, and spatial statistics.
+
 ## The future
 
-![](img/Davison12.png){width=7in fig-align=center}
+![](img/Davison12.png){width=8in fig-align=center}
 
-![](img/Davison13.png){width=7in fig-align=center}
+![](img/Davison13.png){width=8in fig-align=center}
 
 
 ## Cynical advice for a young investigator
@@ -150,7 +162,7 @@ This is a list of [practical advice]{.blue} that may help you secure a [permanen
 
 1. Strive to [publish]{.blue} in the [top journals]{.orange} in statistics: *Annals of Statistics, Biometrika, Journal of the American Statistical Association, Journal of the Royal Statistical Society: Series B*.
 
-1. However, keep in mind that both [quality]{.blue} and [quantity]{.orange} matter. Aim to have at least 3–4 submitted or published papers by the end of your Ph.D. — the more, the better.
+1. However, keep in mind that both [quality]{.blue} and [quantity]{.orange} matter. Aim to have at least 2–3 submitted or published papers by the end of your Ph.D. — the more, the better.
 
 2. Focus on a [niche trending topic]{.orange} and exploit it until it is exhausted. Make sure you are part of a [large]{.blue} and [established group]{.blue} of researchers who actively promote the topic you are working on.
 
@@ -196,19 +208,32 @@ This is a list of [practical advice]{.blue} that may help you secure a [permanen
 :::callout-tip
 #### Chapter 1, Introduction
 
-It is important to note that the most brilliant discoveries have not relied on a formal knowledge of logic. Instead, their
+"It is important to note that the most brilliant discoveries have not relied on a formal knowledge of logic. Instead, their
 discoverers have had an [acute inner logic]{.blue} that generates ideas [...]
 
 Let me assert without further ado that there are no rules of logic for making discoveries [...]
 
 Must we therefore abandon any attempt to instruct and educate about the process of scientifc research? Shall we leave the beginner to his own devices, confused and abandoned, struggling without guidance or advice along a path strewn with difficulties and dangers? 
 
-Definitely not. In fact, just the opposite--we believe that by [abandoning]{.orange} the [ethereal realm of philosophical principles]{.orange} and abstract methods we can descend to the [solid ground]{.blue} of [experimental science]{.blue}, as well as to the sphere of ethical considerations involved in the process of inquiry. In taking this course, simple, genuinely useful advice for the novice can be found.
+Definitely not. In fact, just the opposite--we believe that by [abandoning]{.orange} the [ethereal realm of philosophical principles]{.orange} and abstract methods we can descend to the [solid ground]{.blue} of [experimental science]{.blue}, as well as to the sphere of ethical considerations involved in the process of inquiry. In taking this course, simple, genuinely useful advice for the novice can be found."
 
 :::
 
-## Beginners traps
+## Undue admiration of authority
 
+:::callout-tip
+#### Chapter 2, Beginner traps
+
+"I believe that [excessive admiration]{.orange} for the work of [great minds]{.blue} is one of the most [unfortunate preoccupations]{.orange} of intellectual youth--along with a conviction that certain problems cannot be attacked, let alone solved, because of one’s relatively limited abilities. 
+
+Inordinate respect for genius is based on a commendable sense of fairness and modesty that is difficult to censure. 
+
+However, when foremost in the mind of a novice, it [cripples initiative]{.orange} and prevents the formulation of [original work]{.blue}. Defect for defect, arrogance is preferable to diffidence, boldness measures its strengths and conquers or is conquered, and undue modesty flees from battle, condemned to [shameful inactivity]{.orange}. [...]
+
+Far from humbling one’s self before the great authorities of science, those beginning research must understand that [...] their destiny is to [grow a little]{.blue} at the [expense of the great one]{.orange}'s reputation. [...]
+
+By way of classic examples, recall Galileo refuting Aristotle’s view of gravity, Copernicus tearing down Ptolemy’s system of the universe [...]". 
+:::
 
 ## Intellectual qualities
 
