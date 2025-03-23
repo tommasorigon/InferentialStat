@@ -122,8 +122,11 @@ editor_options:
 
 ![](img/Davison7.png){width=7in fig-align=center}
 
-![](img/Davison8.png){width=7in fig-align=center}
+![](img/Davison7_5.png){width=7in fig-align=center}
 
+## Quasi likelihoods
+
+![](img/Davison8.png){width=7in fig-align=center}
 
 ## Nonparametric (local) models
 
@@ -220,10 +223,10 @@ editor_options:
 :::
 
 
-## On general philosophical principles
+## Chapter 1: introduction
 
 :::callout-tip
-#### Chapter 1, Introduction
+#### On general philosophical principles
 ::: {style="font-size: 85%;"}
 *"It is important to note that the most brilliant discoveries have not relied on a formal knowledge of logic. Instead, their discoverers have had an [acute inner logic]{.blue} that generates ideas [...]*
 
@@ -235,10 +238,10 @@ editor_options:
 :::
 :::
 
-## Undue admiration of authority
+## Chapter 2: beginner traps
 
 :::callout-tip
-#### Chapter 2, Beginner traps
+#### Undue admiration of authority
 
 ::: {style="font-size: 85%;"}
 *"I believe that [excessive admiration]{.orange} for the work of [great minds]{.blue} is one of the most [unfortunate preoccupations]{.orange} of intellectual youth--along with a conviction that certain problems cannot be attacked, let alone solved, because of one’s relatively limited abilities.*
@@ -251,10 +254,10 @@ editor_options:
 :::
 :::
 
-## The most important problems are already solved
+## Chapter 2: beginner traps
 
 :::callout-tip
-#### Chapter 2, Beginner traps
+#### The most important problems are already solved
 
 ::: {style="font-size: 85%;"}
 "*Here is another [false concept]{.orange} often heard from the lips of the newly graduated: "Everything of major importance in the various areas of science has already been clarified. What difference does it make if I add some minor detail or gather up what is left in some field where more diligent observers have already collected the abundant, ripe grain. Science won’t change  its  perspective  because of my work, and my name will never emerge from obscurity."* 
