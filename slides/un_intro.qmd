@@ -13,7 +13,7 @@ execute:
 filters: 
   - remove-pause.lua
 nocite: |
-  @Birnbaum1962
+  @Birnbaum1962 @Cajal1916
 format:
   revealjs:
     auto-stretch: true
@@ -73,7 +73,7 @@ editor_options:
     - Exponential families
     - Generalized linear models
     - ...and more advanced topics
-- This is a [Ph.D.-level]{.blue} course, so it is assumed that you have already been exposed to these topics to some extent.
+- This is a [Ph.D.-level]{.blue} course, so it is assumed that you have already been exposed to all these topics to some extent.
 
 - We aim to (briefly!) touch upon many [key concepts]{.blue} of [classical statistical inference]{.orange} from the [20th century]{.blue}.
 
@@ -151,10 +151,6 @@ editor_options:
 - [Missing data]{.blue}, counterfactual reasoning, and causal inference frameworks.
 
 - [Specialized modeling]{.orange}: approaches for longitudinal and clustered data, multivariate analysis, factor modelling, graphical models, and spatial statistics.
-
-
-
-## Prerequisites
 
 ## Notation
 
