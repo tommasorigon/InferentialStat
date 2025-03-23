@@ -158,22 +158,39 @@ editor_options:
 
 ## Cynical advice for a young investigator
 
-This is a list of [practical advice]{.blue} that may help you secure a [permanent position]{.orange} in academia, in statistics, in Italy. These suggestions may change over time, but they are valid today.
-
 1. Strive to [publish]{.blue} in the [top journals]{.orange} in statistics: *Annals of Statistics, Biometrika, Journal of the American Statistical Association, Journal of the Royal Statistical Society: Series B*.
 
-1. However, keep in mind that both [quality]{.blue} and [quantity]{.orange} matter. Aim to have at least 2–3 submitted or published papers by the end of your Ph.D. — the more, the better.
+1. However, keep in mind that both [quality]{.blue} and [quantity]{.orange} matter. Aim to have at least 2–4 submitted or published papers by the end of your Ph.D. — the more, the better.
 
 2. Focus on a [niche trending topic]{.orange} and exploit it until it is exhausted. Make sure you are part of a [large]{.blue} and [established group]{.blue} of researchers who actively promote the topic you are working on.
 
 3. Become an [expert]{.blue} in your niche, and learn how to [write]{.blue} about it and promote it effectively. In a nutshell, [learn]{.orange} how to [play the game]{.orange}.
 
-4. Closely follow the [suggestions]{.blue} of your [advisor]{.blue} — they know better than you how to navigate the system and can guide you through many political and scientific challenges.
+4. Closely follow the [suggestions]{.blue} of your [advisor]{.blue} -- they know better than you how to navigate the system and can guide you through many political and scientific challenges.
 
 5. [Do not wast time]{.orange} on activities that do not produce papers. This include:
     - Teaching to undergraduate students
     - Disseminating your work to the broader community, beyond academia
     - Studying topics not strictly related to your niche area
+
+## Deconstructing the cynical advice
+
+- The former is a list of [concrete goals]{.blue} (easier said than done, especially about publishing on top journals) that may help you secure a [permanent position]{.orange} in academia, in [statistics]{.grey}. 
+
+- These suggestions may change over time and do not necessarily apply to other fields.  Moreover, keep in mind academia in the [short period]{.orange} is partially a [game of chance]{.blue}.
+
+- I recognize their [effectiveness]{.blue}, but there are, I think, some [uncomfortable]{.orange} consequences. 
+
+:::callout-warning
+- These suggestions implicitly and categorically exclude the possibility of [working]{.blue} in [industry]{.blue} after the Ph.D., which is ironically what many (most?) Ph.D. students will do.
+
+- This may lead to an [unhealthy competition]{.orange} among peers, to [publish or perish]{.blue}, which has the negative side effect of favoring [incremental]{.orange} contributions. 
+
+- If the academic system rewards ultra-specialization, why study [classical statistical inference]{.orange} or other topics at all?  
+
+- Congratulations, you got tenure! However, you have now ~30 years of career ahead of you, and the niche you decided to focus on is declining. Now what?
+
+:::
 
 ## Advice for a young investigator
 
@@ -207,16 +224,15 @@ This is a list of [practical advice]{.blue} that may help you secure a [permanen
 
 :::callout-tip
 #### Chapter 1, Introduction
+::: {style="font-size: 85%;"}
+*"It is important to note that the most brilliant discoveries have not relied on a formal knowledge of logic. Instead, their discoverers have had an [acute inner logic]{.blue} that generates ideas [...]*
 
-"It is important to note that the most brilliant discoveries have not relied on a formal knowledge of logic. Instead, their
-discoverers have had an [acute inner logic]{.blue} that generates ideas [...]
+*Let me assert without further ado that [there are no rules of logic]{.orange} for [making discoveries]{.blue} [...]*
 
-Let me assert without further ado that there are no rules of logic for making discoveries [...]
+*Must we therefore abandon any attempt to instruct and educate about the process of scientific research? Shall we leave the beginner to his own devices, confused and abandoned, struggling without guidance or advice along a path strewn with difficulties and dangers?*
 
-Must we therefore abandon any attempt to instruct and educate about the process of scientifc research? Shall we leave the beginner to his own devices, confused and abandoned, struggling without guidance or advice along a path strewn with difficulties and dangers? 
-
-Definitely not. In fact, just the opposite--we believe that by [abandoning]{.orange} the [ethereal realm of philosophical principles]{.orange} and abstract methods we can descend to the [solid ground]{.blue} of [experimental science]{.blue}, as well as to the sphere of ethical considerations involved in the process of inquiry. In taking this course, simple, genuinely useful advice for the novice can be found."
-
+*Definitely not. In fact, just the opposite--we believe that by [abandoning]{.orange} the [ethereal realm of philosophical principles]{.orange} and abstract methods we can descend to the [solid ground]{.blue} of [experimental science]{.blue}, as well as to the sphere of ethical considerations involved in the process of inquiry. In taking this course, simple, genuinely useful advice for the novice can be found."*
+:::
 :::
 
 ## Undue admiration of authority
@@ -224,15 +240,15 @@ Definitely not. In fact, just the opposite--we believe that by [abandoning]{.ora
 :::callout-tip
 #### Chapter 2, Beginner traps
 
-"I believe that [excessive admiration]{.orange} for the work of [great minds]{.blue} is one of the most [unfortunate preoccupations]{.orange} of intellectual youth--along with a conviction that certain problems cannot be attacked, let alone solved, because of one’s relatively limited abilities. 
+::: {style="font-size: 85%;"}
+*"I believe that [excessive admiration]{.orange} for the work of [great minds]{.blue} is one of the most [unfortunate preoccupations]{.orange} of intellectual youth--along with a conviction that certain problems cannot be attacked, let alone solved, because of one’s relatively limited abilities.*
 
-Inordinate respect for genius is based on a commendable sense of fairness and modesty that is difficult to censure. 
+*Inordinate respect for genius is based on a commendable sense of fairness and modesty that is difficult to censure. However, when foremost in the mind of a novice, it [cripples initiative]{.orange} and prevents the formulation of [original work]{.blue}. Defect for defect, arrogance is preferable to diffidence, boldness measures its strengths and conquers or is conquered, and undue modesty flees from battle, condemned to [shameful inactivity]{.orange}. [...]*
 
-However, when foremost in the mind of a novice, it [cripples initiative]{.orange} and prevents the formulation of [original work]{.blue}. Defect for defect, arrogance is preferable to diffidence, boldness measures its strengths and conquers or is conquered, and undue modesty flees from battle, condemned to [shameful inactivity]{.orange}. [...]
+*Far from humbling one’s self before the great authorities of science, those beginning research must understand that [...] their destiny is to [grow a little]{.blue} at the [expense of the great one]{.orange}'s reputation. [...]*
 
-Far from humbling one’s self before the great authorities of science, those beginning research must understand that [...] their destiny is to [grow a little]{.blue} at the [expense of the great one]{.orange}'s reputation. [...]
-
-By way of classic examples, recall Galileo refuting Aristotle’s view of gravity, Copernicus tearing down Ptolemy’s system of the universe [...]". 
+*By way of classic examples, recall Galileo refuting Aristotle’s view of gravity, Copernicus tearing down Ptolemy’s system of the universe [...]".*
+:::
 :::
 
 ## Intellectual qualities
