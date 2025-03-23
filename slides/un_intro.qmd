@@ -247,7 +247,24 @@ editor_options:
 
 *Far from humbling one’s self before the great authorities of science, those beginning research must understand that [...] their destiny is to [grow a little]{.blue} at the [expense of the great one]{.orange}'s reputation. [...]*
 
-*By way of classic examples, recall Galileo refuting Aristotle’s view of gravity, Copernicus tearing down Ptolemy’s system of the universe [...]".*
+*By way of classic examples, recall Galileo refuting [Aristotle’s view of gravity](https://en.wikipedia.org/wiki/Aristotelian_physics), Copernicus tearing down [Ptolemy’s system of the universe](https://en.wikipedia.org/wiki/Geocentric_model), Lavoisier destroying Stahl’s concept of [phlogiston](https://en.wikipedia.org/wiki/Phlogiston_theory), and Virchow refuting the idea of [spontaneous generation](https://en.wikipedia.org/wiki/Spontaneous_generation) held by Schwann, Schleiden, and Robin.".*
+:::
+:::
+
+## The most important problems are already solved
+
+:::callout-tip
+#### Chapter 2, Beginner traps
+
+::: {style="font-size: 85%;"}
+"*Here is another [false concept]{.orange} often heard from the lips of the newly graduated: "Everything of major importance in the various areas of science has already been clarified. What difference does it make if I add some minor detail or gather up what is left in some field where more diligent observers have already collected the abundant, ripe grain. Science won’t change  its  perspective  because of my work, and my name will never emerge from obscurity."* 
+
+*This is often [indolence masquerading as modesty]{.orange}. [...]*
+
+*Instead, bear in mind that even in our own time science is often built on the [ruins of theories]{.blue} once thought to be [indestructible]{.blue}. It is important to realize that if certain areas of science appear to be quite [mature]{.blue}, [others]{.orange} are in the process of [development]{.orange}, and yet others remain to be born. [...]*
+
+*It is fair to say that, in general, no problems have been exhausted; instead, men have been exhausted by the problems. [...] [Fresh talent]{.blue} approaching the analysis of a problem [without prejudice]{.blue} will always see new possibilities--some aspect not considered by those who believe that a subject is fully understood. Our knowledge is so fragmentary that unexpected findings appear in even the most fully explored topics.*"
+
 :::
 :::
 
