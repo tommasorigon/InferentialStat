@@ -190,7 +190,7 @@ that is, there exists a measurable set $A \in \mathcal{B}(\mathcal{Y})$ such tha
 
 - We will focus on [dominated families]{.orange} of distributions, namely we assume there exist a measure $\nu(\mathrm{d}\bm{y})$ over $\mathcal{B}(\mathcal{Y})$ such that $P_\theta$ is absolutely continuous w.r.t. $\nu$ for all $\theta \in \Theta$, that is
 $$
-\forall A\in \mathcal{B}(\mathcal{Y}) \quad \text{ such that } \quad \nu(A) = 0, \qquad P_\theta(A) = 0.
+\forall A\in \mathcal{B}(\mathcal{Y}) \quad \text{ such that } \quad \nu(A) = 0 \quad\implies \quad P_\theta(A) = 0.
 $$
 - [Radon-Nykodym]{.grey} theorem then ensures there exists a [probability density]{.blue} $f(\bm{y}; \theta)$ such that
 $$
