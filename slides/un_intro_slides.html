@@ -51,6 +51,22 @@
       margin-left: 2em;
     }  </style>
   <link rel="stylesheet" href="un_intro_files/libs/revealjs/dist/theme/quarto.css">
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
   <link href="un_intro_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="un_intro_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="un_intro_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -473,22 +489,59 @@
 <p><img data-src="img/Davison11_5.png" class="quarto-figure quarto-figure-center" style="width:6in"></p>
 </figure>
 </div>
-</section>
-<section id="other-topics" class="slide level2 center">
-<h2>Other topics</h2>
-<ul>
-<li><p>Davison’s paper covers many other topics beyond the scope of this overview, including:</p></li>
-<li><p><span class="blue">Model selection</span>: information criteria such as AIC and its variants; <span class="orange">robustness</span> and model diagnostics.</p></li>
-<li><p><span class="grey">Computational methods</span>: simulation techniques including Markov Chain Monte Carlo; analytical approximations such as saddlepoint and Laplace methods.</p></li>
-<li><p><span class="blue">Missing data</span>, counterfactual reasoning, and causal inference frameworks.</p></li>
-<li><p><span class="orange">Specialized modeling</span>: approaches for longitudinal and clustered data, multivariate analysis, factor modelling, graphical models, and spatial statistics.</p></li>
-</ul>
+<!-- ## Other topics -->
+<!-- - Davison's paper covers many other topics beyond the scope of this overview, including: -->
+<!-- - [Model selection]{.blue}: information criteria such as AIC and its variants; [robustness]{.orange} and model diagnostics. -->
+<!-- - [Computational methods]{.grey}: simulation techniques including Markov Chain Monte Carlo; analytical approximations such as saddlepoint and Laplace methods. -->
+<!-- - [Missing data]{.blue}, counterfactual reasoning, and causal inference frameworks. -->
+<!-- - [Specialized modeling]{.orange}: approaches for longitudinal and clustered data, multivariate analysis, factor modelling, graphical models, and spatial statistics. -->
 </section>
 <section id="prerequisite-of-this-course" class="slide level2 center">
 <h2>Prerequisite of this course</h2>
+<ul>
+<li><p>As mentioned, it is assumed that you have already been exposed to courses on statistical inference before.</p></li>
+<li><p><span class="blue">Propedeutical</span> topics that I will <span class="orange">not</span> discuss here are:</p>
+<ul>
+<li>Asymptotic probability theory, <span class="math inline">O_p(\cdot)</span> and <span class="math inline">o_p(\cdot)</span> notations</li>
+<li>Likelihood function: definition and basic properties</li>
+<li>Sufficiency, ancillarity, Fisher factorization theorem, minimality</li>
+<li>Tests based on the likelihood (likelihood ratio, score test, Wald test), asymptotically equivalent forms, confidence intervals</li>
+<li>Linear models, ordinary least squares, exact normal theory</li>
+</ul></li>
+<li><p>If you are unfamiliar with any of these, please have a look at Chap. 2 and Chap. 3 of <span class="citation" data-cites="Pace1997">Pace and Salvan (<a href="#/references" role="doc-biblioref" onclick="">1997</a>)</span>, and <span class="citation" data-cites="Davison2003">Davison (<a href="#/references" role="doc-biblioref" onclick="">2003</a>)</span>.</p></li>
+</ul>
 </section>
-<section id="notation" class="slide level2 center">
-<h2>Notation</h2>
+<section id="statistical-inference" class="slide level2 center">
+<h2>Statistical Inference</h2>
+<ul>
+<li><p>The key assumption is that <span class="orange">observations</span> <span class="math inline">y_1,\dots, y_n</span>, seen as realizations of the <span class="blue">random variables</span> <span class="math inline">(Y_1,\dots,Y_n) \sim P_\theta</span>, provide information about the <span class="orange">generating process</span> <span class="math inline">P_\theta(\cdot)</span>.</p></li>
+<li><p>We assume that <span class="math inline">P_\theta</span> is only partially known; that is, it belongs to a <span class="orange">model class</span> specified by the tuple <span class="math display">
+(\mathcal{Y}, P_\theta, \Theta),
+</span> where <span class="math inline">\mathcal{Y}</span> is the <span class="blue">sample space</span>, <span class="math inline">P_\theta</span> is a <span class="grey">probability measure</span> over <span class="math inline">\mathcal{Y}</span> indexed by <span class="math inline">\theta \in \Theta</span>, and <span class="math inline">\Theta</span> is the <span class="orange">parameter space</span>.</p></li>
+<li><p>In this course, we focus on the <span class="orange">parametric case</span>, where <span class="math inline">\Theta \subseteq \mathbb{R}^p</span>. Hence, <span class="math inline">\theta \in \Theta</span> is a vector-valued <span class="orange">parameter</span> that we aim to infer from the data.</p></li>
+<li><p>If instead <span class="math inline">\Theta</span> is not a subset of <span class="math inline">\mathbb{R}^p</span>, then we are in the domain of <span class="blue">nonparametric statistics</span>.</p></li>
+<li><p>A basic requirement is <span class="blue">identifiability</span>, meaning that <span class="math display">
+\text{if} \quad \theta_1 \neq \theta_2, \qquad P_{\theta_1} \neq P_{\theta_2},
+</span> that is, there exists a measurable set <span class="math inline">A \in \mathcal{B}(\mathcal{Y})</span> such that <span class="math inline">P_{\theta_1}(A) \neq P_{\theta_2}(A)</span>.</p></li>
+</ul>
+</section>
+<section id="dominated-statistical-models" class="slide level2 center">
+<h2>Dominated statistical models</h2>
+<ul>
+<li><p>We will focus on <span class="orange">dominated families</span> of distributions, namely we assume there exist a measure <span class="math inline">\nu(\mathrm{d}\bm{y})</span> over <span class="math inline">\mathcal{B}(\mathcal{Y})</span> such that <span class="math inline">P_\theta</span> is absolutely continuous w.r.t. <span class="math inline">\nu</span> for all <span class="math inline">\theta \in \Theta</span>, that is <span class="math display">
+\forall A\in \mathcal{B}(\mathcal{Y}) \quad \text{ such that } \quad \nu(A) = 0, \qquad P_\theta(A) = 0.
+</span></p></li>
+<li><p><span class="grey">Radon-Nykodym</span> theorem then ensures there exists a <span class="blue">probability density</span> <span class="math inline">f(\bm{y}; \theta)</span> such that <span class="math display">
+P_\theta(A) = \int_A f(\bm{y}; \theta)\nu(\mathrm{d}\bm{y}).
+</span> If <span class="math inline">\mathcal{Y} \subseteq \mathbb{R}^d</span>, then <span class="math inline">\nu</span> is typically the <span class="blue">Lebesgue measure</span> or the <span class="orange">counting measure</span>.</p></li>
+<li><p>A <span class="orange">dominated statistical model</span> is therefore identified by the following class of densities: <span class="math display">
+\mathcal{F} = \{f(\cdot;\theta) : \theta \in \Theta \subseteq \mathbb{R}^p\},
+</span> or more precisely by the tuple <span class="math inline">(\mathcal{Y}, f(\cdot;\theta), \Theta)</span>, with <span class="math inline">\Theta \subseteq \mathbb{R}^p</span>. We will only consider the dominated case in this course.</p></li>
+</ul>
+</section>
+<section id="likelihood-function" class="slide level2 center">
+<h2>Likelihood function</h2>
+<p>Let <span class="math inline">\mathcal{F}</span> be a dominated (parametric) statistical model and The likelihood function</p>
 </section>
 <section id="textbooks" class="slide level2 center">
 <h2>Textbooks</h2>
@@ -497,6 +550,7 @@
 <li><span class="citation" data-cites="Pace1997">Pace and Salvan (<a href="#/references" role="doc-biblioref" onclick="">1997</a>)</span></li>
 <li><span class="citation" data-cites="Casella2002">Casella and Berger (<a href="#/references" role="doc-biblioref" onclick="">2002</a>)</span></li>
 <li><span class="citation" data-cites="Lehmann1998">Lehmann and Casella (<a href="#/references" role="doc-biblioref" onclick="">1998</a>)</span></li>
+<li><span class="citation" data-cites="vandervaart1998">van der Vaart (<a href="#/references" role="doc-biblioref" onclick="">1998</a>)</span></li>
 </ul>
 </section>
 <section id="the-future" class="slide level2 center">
@@ -682,6 +736,9 @@ Lehmann, E. L., and Casella, G. (1998), <em><span class="nocase">Theory of Point
 </div>
 <div id="ref-Pace1997" class="csl-entry" role="listitem">
 Pace, L., and Salvan, A. (1997), <em><span class="nocase">Principles of statistical inference from a Neo-Fisherian perspective</span></em>, Advanced series on statistical science and applied probability, World Scientific.
+</div>
+<div id="ref-vandervaart1998" class="csl-entry" role="listitem">
+van der Vaart, A. W. (1998), <em><span>Asymptotic Statistics</span></em>, Cambridge University Press.
 </div>
 </div>
 <div class="quarto-auto-generated-content">

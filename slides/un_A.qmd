@@ -2205,7 +2205,7 @@ Clearly, a natural candidate for $A(\theta; \bm{Y})$ is indeed $A(\theta) = - I(
 ## Bias reduction using Firth's correction II
 
 
-![](img/firth.png){width=6in fig-align="center"}
+![](firth.png){width=6in fig-align="center"}
 
 
 

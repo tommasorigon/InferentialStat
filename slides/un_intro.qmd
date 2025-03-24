@@ -140,21 +140,73 @@ editor_options:
 
 ![](img/Davison11_5.png){width=6in fig-align=center}
 
-## Other topics
+<!-- ## Other topics -->
 
-- Davison's paper covers many other topics beyond the scope of this overview, including:
+<!-- - Davison's paper covers many other topics beyond the scope of this overview, including: -->
 
-- [Model selection]{.blue}: information criteria such as AIC and its variants; [robustness]{.orange} and model diagnostics.
+<!-- - [Model selection]{.blue}: information criteria such as AIC and its variants; [robustness]{.orange} and model diagnostics. -->
 
-- [Computational methods]{.grey}: simulation techniques including Markov Chain Monte Carlo; analytical approximations such as saddlepoint and Laplace methods.
+<!-- - [Computational methods]{.grey}: simulation techniques including Markov Chain Monte Carlo; analytical approximations such as saddlepoint and Laplace methods. -->
 
-- [Missing data]{.blue}, counterfactual reasoning, and causal inference frameworks.
+<!-- - [Missing data]{.blue}, counterfactual reasoning, and causal inference frameworks. -->
 
-- [Specialized modeling]{.orange}: approaches for longitudinal and clustered data, multivariate analysis, factor modelling, graphical models, and spatial statistics.
+<!-- - [Specialized modeling]{.orange}: approaches for longitudinal and clustered data, multivariate analysis, factor modelling, graphical models, and spatial statistics. -->
 
 ## Prerequisite of this course
 
-## Notation
+- As mentioned, it is assumed that you have already been exposed to courses on statistical inference before.
+
+- [Propedeutical]{.blue} topics that I will [not]{.orange} discuss here are:
+  - Asymptotic probability theory, $O_p(\cdot)$ and $o_p(\cdot)$ notations
+  - Likelihood function: definition and basic properties
+  - Sufficiency, ancillarity, Fisher factorization theorem, minimality
+  - Tests based on the likelihood (likelihood ratio, score test, Wald test), asymptotically equivalent forms, confidence intervals
+  - Linear models, ordinary least squares, exact normal theory
+
+- If you are unfamiliar with any of these, please have a look at Chap. 2 and Chap. 3 of @Pace1997, and @Davison2003.
+
+## Statistical Inference
+
+- The key assumption is that [observations]{.orange} $y_1,\dots, y_n$, seen as realizations of the [random variables]{.blue} $(Y_1,\dots,Y_n) \sim P_\theta$, provide information about the [generating process]{.orange} $P_\theta(\cdot)$.
+
+- We assume that $P_\theta$ is only partially known; that is, it belongs to a [model class]{.orange} specified by the tuple
+$$
+(\mathcal{Y}, P_\theta, \Theta),
+$$
+where $\mathcal{Y}$ is the [sample space]{.blue}, $P_\theta$ is a [probability measure]{.grey} over $\mathcal{Y}$ indexed by $\theta \in \Theta$, and $\Theta$ is the [parameter space]{.orange}.
+
+- In this course, we focus on the [parametric case]{.orange}, where $\Theta \subseteq \mathbb{R}^p$. Hence, $\theta \in \Theta$ is a vector-valued [parameter]{.orange} that we aim to infer from the data.
+
+- If instead $\Theta$ is not a subset of $\mathbb{R}^p$, then we are in the domain of [nonparametric statistics]{.blue}.
+
+- A basic requirement is [identifiability]{.blue}, meaning that
+$$
+\text{if} \quad \theta_1 \neq \theta_2, \qquad P_{\theta_1} \neq P_{\theta_2},
+$$
+that is, there exists a measurable set $A \in \mathcal{B}(\mathcal{Y})$ such that $P_{\theta_1}(A) \neq P_{\theta_2}(A)$.
+
+
+## Dominated statistical models
+
+- We will focus on [dominated families]{.orange} of distributions, namely we assume there exist a measure $\nu(\mathrm{d}\bm{y})$ over $\mathcal{B}(\mathcal{Y})$ such that $P_\theta$ is absolutely continuous w.r.t. $\nu$ for all $\theta \in \Theta$, that is
+$$
+\forall A\in \mathcal{B}(\mathcal{Y}) \quad \text{ such that } \quad \nu(A) = 0, \qquad P_\theta(A) = 0.
+$$
+- [Radon-Nykodym]{.grey} theorem then ensures there exists a [probability density]{.blue} $f(\bm{y}; \theta)$ such that
+$$
+P_\theta(A) = \int_A f(\bm{y}; \theta)\nu(\mathrm{d}\bm{y}).
+$$
+If $\mathcal{Y} \subseteq \mathbb{R}^d$, then $\nu$ is typically the [Lebesgue measure]{.blue} or the [counting measure]{.orange}. 
+
+- A [dominated statistical model]{.orange} is therefore identified by the following class of densities:
+$$
+\mathcal{F} = \{f(\cdot;\theta) : \theta \in \Theta \subseteq \mathbb{R}^p\},
+$$
+or more precisely by the tuple $(\mathcal{Y}, f(\cdot;\theta), \Theta)$, with $\Theta \subseteq \mathbb{R}^p$. We will only consider the dominated case in this course. 
+
+## Likelihood function
+
+Let $\mathcal{F}$ be a dominated (parametric) statistical model and The likelihood function 
 
 ## Textbooks
 
@@ -162,6 +214,7 @@ editor_options:
 - @Pace1997
 - @Casella2002
 - @Lehmann1998
+- @vandervaart1998
 
 ## The future
 
