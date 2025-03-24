@@ -206,7 +206,21 @@ or more precisely by the tuple $(\mathcal{Y}, f(\cdot;\theta), \Theta)$, with $\
 
 ## Likelihood function
 
-Let $\mathcal{F}$ be a dominated (parametric) statistical model and The likelihood function 
+- Let $\mathcal{F}$ be a [dominated (parametric) statistical model]{.blue} and $\bm{y} = (y_1,\dots,y_n) \in \mathcal{Y}$ the observed data. Let $c  = c(\bm{y}) > 0$ be a positive [arbitrary constant]{.orange}, the function $L : \Theta \to \mathbb{R}^+$ defined as
+$$
+L(\theta) = L(\theta;\bm{y}) = c(\bm{y}) f(\bm{y}; \theta), \qquad \theta \in \Theta,
+$$
+is called [likelihood function]{.orange}. The log-likelihood function is $\ell(\theta) := \log{L(\theta)}$. 
+
+- Some authors set $c = 1$, but this is [not correct]{.orange}. Indeed, defining the likelihood [up to a multiplicative factor]{.blue} can be justified in multiple ways:
+
+- Intuitively, when comparing the coherency of two statistical models with the observed data, we only care about ratios of the form $L(\theta_1;\bm{y}) / L(\theta_2;\bm{y})$ where the constant simplifies. 
+
+- Moreover, this definition does not depend on the choice of the dominating measure $\nu$. 
+
+- In particular, the likelihood is [invariant]{.blue} under [one-to-one transformations]{.orange} of the data, as the jacobian of the transformation can be incorporated into $c(\bm{y})$.
+
+- This is also the [original definition]{.grey} provided by [Fisher]{.grey} in 1922!
 
 ## Textbooks
 
