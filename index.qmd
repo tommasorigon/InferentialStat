@@ -41,7 +41,7 @@ Statistics)", Università degli Studi di Milano-Bicocca.
 - Keener, R. W. 2010. [*Theoretical Statistics*](https://link.springer.com/book/10.1007/978-0-387-93839-4). Springer. 
 - Lehmann, E. L., and G. Casella. 1998. [*Theory of Point Estimation*](https://link.springer.com/book/10.1007/b98854). Springer.
 <!-- - Efron, B. 2023. [*Exponential Families in Theory and Practice*](https://www.cambridge.org/core/books/exponential-families-in-theory-and-practice/45CE4C98DEAB5EC9D6934E9DAC002F5F). Cambridge University Press. -->
-- McCullagh, P., and J. A. Nelder. 1986. [*Generalized Linear Models*](https://www.taylorfrancis.com/books/mono/10.1201/9780203753736/generalized-linear-models-mccullagh). Chapman & Hall/CRC.
+- McCullagh, P., and J. A. Nelder. 1989. [*Generalized Linear Models*](https://www.taylorfrancis.com/books/mono/10.1201/9780203753736/generalized-linear-models-mccullagh). Second Edition. Springer.
 - Pace, L., and A. Salvan. 1997. [*Principles of Statistical Inference from a Neo-Fisherian Perspective*](https://www.worldscientific.com/worldscibooks/10.1142/3409). Advanced Series on Statistical Science and Applied Probability. World Scientific.
 - van der Vaart, A. W. 1998. [*Asymptotic Statistics*](https://www.cambridge.org/core/books/asymptotic-statistics/A3C7DAD3F7E66A1FA60E9C8FE132EE1D). Cambridge University Press.
 

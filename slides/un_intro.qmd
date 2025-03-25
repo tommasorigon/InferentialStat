@@ -224,11 +224,19 @@ is called [likelihood function]{.orange}. The log-likelihood function is $\ell(\
 
 ## Textbooks
 
-- @Davison2003
-- @Pace1997
-- @Casella2002
-- @Lehmann1998
-- @vandervaart1998
+- We will use multiple textbooks throughout this course --- some more specialized than others. Please treat them as reference materials to consult as needed.
+
+- Roughly speaking, they can be organized as follows:
+
+  - [General references]{.blue}: @Casella2002, @Davison2003, and @Pace1997 
+  - [Point estimation]{.grey}: @Lehmann1998  and @Keener2010 
+  - [Exponential families]{.orange}: @Pace1997
+  - [Asymptotic statistics]{.blue}: @vandervaart1998 
+  - [Generalized linear models]{.grey}: @Agresti2015, @McCullagh1989
+
+- The book by @Davison2003 is perhaps the most accessible among the listed texts. You are encouraged to refer to it if you need to review or catch up on prerequisite material.
+
+- In addition, specialized articles and resources will be discussed throughout the course to complement the textbook material.
 
 ## The future
 
