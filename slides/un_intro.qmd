@@ -275,7 +275,7 @@ is called [likelihood function]{.orange}. The log-likelihood function is $\ell(\
 
 :::callout-warning
 
-- These rules may lead to an [unhealthy competition]{.orange} among peers, to [publish or perish]{.blue}, which has the negative side effect of favoring [incremental]{.orange} contributions. 
+- These rules may lead to an [unhealthy competition]{.orange} among peers, to [publish or perish]{.blue}, which has [negative psychological]{.orange} effects and it favors [incremental]{.orange} contributions. 
 
 - If the academic system rewards ultra-specialization, why study [classical statistical inference]{.orange} or other topics at all?  
 
