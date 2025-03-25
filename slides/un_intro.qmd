@@ -246,7 +246,7 @@ is called [likelihood function]{.orange}. The log-likelihood function is $\ell(\
 
 
 
-## Cynical advice for a young investigator
+## Cynical (but questionable) advice for a young investigator
 
 1. Strive to [publish]{.blue} in [top statistical journals]{.orange}, such as: *Annals of Statistics, Biometrika, Journal of the American Statistical Association, Journal of the Royal Statistical Society: Series B*.
 
