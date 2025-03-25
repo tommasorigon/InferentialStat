@@ -248,11 +248,11 @@ is called [likelihood function]{.orange}. The log-likelihood function is $\ell(\
 
 ## Cynical advice for a young investigator
 
-1. Strive to [publish]{.blue} in the [top journals]{.orange} in statistics: *Annals of Statistics, Biometrika, Journal of the American Statistical Association, Journal of the Royal Statistical Society: Series B*.
+1. Strive to [publish]{.blue} in [top statistical journals]{.orange}, such as: *Annals of Statistics, Biometrika, Journal of the American Statistical Association, Journal of the Royal Statistical Society: Series B*.
 
 1. However, keep in mind that both [quality]{.blue} and [quantity]{.orange} matter. Aim to have at least 2–4 submitted or published papers by the end of your Ph.D. — the more, the better.
 
-2. Focus on a [niche trending topic]{.orange} and exploit it until it is exhausted. Make sure you are part of a [large]{.blue} and [established group]{.blue} of researchers who actively promote the topic you are working on.
+2. Focus on a [niche trending topic]{.orange}. Make sure you are part of a [large]{.blue} and [established group]{.blue} of researchers who actively promote the topic you are working on.
 
 3. Become an [expert]{.blue} in your niche, and learn how to [write]{.blue} about it and promote it effectively. In a nutshell, [learn]{.orange} how to [play the game]{.orange}.
 
@@ -261,25 +261,27 @@ is called [likelihood function]{.orange}. The log-likelihood function is $\ell(\
 5. [Do not wast time]{.orange} on activities that do not produce papers. This include:
     - Teaching to undergraduate students
     - Disseminating your work to the broader community, beyond academia
-    - Studying topics not strictly related to your niche area
+    - Studying topics unrelated to your niche area
 
 ## Deconstructing the cynical advice
 
-- The former is a list of [concrete goals]{.blue} (easier said than done, especially about publishing on top journals) that may help you secure a [permanent position]{.orange} in academia, in [statistics]{.grey}. 
+- The former is a list of cynical concrete recommendations (easier said than done, especially about publishing on top journals) that may help you secure a [permanent position]{.blue} in [academia]{.blue}. 
 
-- These suggestions may change over time and do not necessarily apply to other fields.  Moreover, keep in mind academia in the [short period]{.orange} is partially a [game of chance]{.blue}.
+- I [do not fully agree]{.orange} with those rules: there is more to pursuing a Ph.D. than just "getting a job." 
+
+- These suggestions may change over time and do not necessarily apply to other fields.  Moreover, keep in mind academia, in the [short period]{.orange}, is also a [game of chance]{.blue}.
 
 - I recognize their [effectiveness]{.blue}, but there are, I think, some [uncomfortable]{.orange} consequences. 
 
 :::callout-warning
-- These suggestions implicitly and categorically exclude the possibility of [working]{.blue} in [industry]{.blue} after the Ph.D., which is ironically what many (most?) Ph.D. students will do.
 
-- This may lead to an [unhealthy competition]{.orange} among peers, to [publish or perish]{.blue}, which has the negative side effect of favoring [incremental]{.orange} contributions. 
+- These rules may lead to an [unhealthy competition]{.orange} among peers, to [publish or perish]{.blue}, which has the negative side effect of favoring [incremental]{.orange} contributions. 
 
 - If the academic system rewards ultra-specialization, why study [classical statistical inference]{.orange} or other topics at all?  
 
-- Congratulations, you got tenure! However, you have now ~30 years of career ahead of you, and the niche you decided to focus on is declining. Now what?
+- In the [long run]{.blue}, if the niche you decided to focus on is declining, transitioning towards different topics is really hard if have not studied them before. 
 
+- These suggestions apply to academia and do not consider [working]{.blue} in [industry]{.blue} after the Ph.D., which is ironically what many (most?) Ph.D. students will do.
 :::
 
 ## Advice for a young investigator

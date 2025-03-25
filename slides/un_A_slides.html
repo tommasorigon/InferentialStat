@@ -2386,18 +2386,81 @@ Q(\psi) = \ell^*(\psi) - I(\psi)b_1(\psi)/n \quad \implies \quad \hat{\psi}_\tex
 </section>
 <section id="robustness-preliminaries" class="slide level2 center">
 <h2>Robustness: preliminaries</h2>
+<ul>
+<li><p>Thus far, we have assumed that <span class="math inline">\mathcal{F} = \{f(;\theta) : \theta \in \Theta\}</span> is <span class="orange">correctly specified</span>, that is, there exists a <span class="math inline">\theta_0</span> that generates the data <span class="math inline">(Y_1,\dots,Y_n) \sim f(\cdot;\theta_0)</span> and <span class="math inline">f(\cdot; \theta_0) \in \mathcal{F}</span>.</p></li>
+<li><p>Under this <span class="blue">assumption</span>, we have derived estimators that are <span class="orange">optimal</span> in some sense. However, if the underlying model is not correct, everything breaks down.</p></li>
+<li><p>The term “<span class="orange">robustness</span>” is intentionally vague, but let us say that any statistical procedure:</p>
+<ol type="a">
+<li>Should have nearly optimal efficiency if the model is correctly specified</li>
+<li>Small deviations from the model assumptions should impair the model only slightly</li>
+<li>Somewhat larger devitations from the model should not cause a catastrophe</li>
+</ol></li>
+<li><p>We also distinguish among two kinds of robustness:</p>
+<ol type="i">
+<li>robustness with respect to <span class="blue">contamination</span> of the data (i.e.&nbsp;<span class="math inline">y_i = 10^{32}</span> is an <span class="orange">outlier</span>)</li>
+<li>robustness with respect to <span class="orange">model misspecification</span>, that is, we specify a class of models <span class="math inline">\mathcal{F}</span> but in reality <span class="math inline">(Y_1,\dots,Y_n) \sim f_0(\cdot)</span> and <span class="math inline">f_0(\cdot) \notin \mathcal{F}</span>.</li>
+</ol></li>
+<li><p>Case i. is sometimes called <span class="orange">resistence</span> and relies on the notion of <span class="blue">influence functions</span>. For instance, the median is resistent, the mean is not. Here we will consider case ii.</p></li>
+</ul>
 </section>
 <section id="maximum-likelihood-under-a-misspecified-model" class="slide level2 center">
 <h2>Maximum likelihood under a misspecified model</h2>
 <ul>
-<li>Interpretation of <span class="math inline">\hat{\theta}</span> as the minimizer of the Kullback-Leibler</li>
+<li><p>Let <span class="math inline">f_0(\cdot)</span> denote the true probability model, and let <span class="math inline">\mathcal{F} = \{f(\cdot;\theta) : \theta \in \Theta\}</span> be an <span class="orange">incorrectly specified</span> statistical model, such that <span class="math inline">f_0 \notin \mathcal{F}</span>.</p></li>
+<li><p>Suppose <span class="math inline">Y_1, \dots, Y_n</span> are <span class="blue">iid</span> under <span class="math inline">f_0</span>, and define the log-likelihood as <span class="math inline">\ell(\theta) = \sum_{i=1}^n \log{f(y_i;\theta)}</span>.</p></li>
+<li><p>Let <span class="math inline">\mathbb{E}_0(\cdot)</span> denote expectation under the true model <span class="math inline">f_0</span>. If the problem is <span class="blue">sufficiently regular</span>, the <span class="orange">maximum likelihood</span> estimator <span class="math inline">\hat{\theta}_n</span> <span class="orange">converges</span> in probability to some value <span class="math inline">\theta_0</span> such that <span class="math display">
+\mathbb{E}_0\{\ell(\theta)\} &lt; \mathbb{E}_0\{\ell(\theta_0)\}, \quad \text{for all } \theta \in \Theta, \quad \theta \neq \theta_0,
+</span> as shown in <span class="citation" data-cites="Huber1967">Huber (<a href="#/references" role="doc-biblioref" onclick="">1967</a>)</span>. That is, <span class="math inline">\hat{\theta}_n</span> converges to a value satisfying <span class="orange">Wald’s inequality</span>.</p></li>
+<li><p>An alternative formulation of this result is the following: <span class="math display">
+\mathrm{KL}(f(\cdot; \theta_0) \mid f_0) &lt; \mathrm{KL}(f(\cdot; \theta) \mid f_0), \quad \text{for all } \theta \in \Theta, \quad \theta \neq \theta_0.
+</span> In other words, <span class="math inline">\theta_0</span> represents the parameter value that makes <span class="math inline">f(\cdot;\theta)</span> <span class="blue">as close as possible</span> to <span class="math inline">f_0</span>, although <span class="math inline">\mathrm{KL}(f(\cdot; \theta_0) \mid f_0) &gt; 0.</span></p></li>
 </ul>
+</section>
+<section id="robustness-and-parametric-estimation" class="slide level2 center">
+<h2>Robustness and parametric estimation</h2>
+<!-- - As an example, note that the [sample mean]{.blue} $\bar{Y}$ is actually robust with respect to [model misspecification]{.orange}; it can be justified, in fact, using a nonparametric argument.  -->
+<ul>
+<li><p>Let <span class="math inline">\mathcal{F} = \{\mu^{-1}e^{-y/\mu} : \mu \in \mathbb{R}^+ \}</span> and suppose the data <span class="math inline">Y_1,\dots,Y_n</span> are iid from an <span class="orange">exponential</span> with mean <span class="math inline">\mu_0</span>. Then <span class="math inline">\bar{Y}</span> is a consistent and efficient estimator for <span class="math inline">\mu_0</span>.</p></li>
+<li><p>However, <span class="math inline">\bar{Y}</span> is a <span class="orange">robust</span> estimator in the sense that if <span class="math inline">Y_i \overset{\textup{iid}}{\sim} f_0(\cdot)</span> with <span class="math inline">f_0(\cdot) \notin \mathcal{F}</span>, then <span class="math inline">\bar{Y}</span> remains <span class="blue">consistent</span> for the mean <span class="math inline">\mu_0</span> under minimal assumptions on <span class="math inline">f_0</span> (i.e.&nbsp;<span class="math inline">\mu_0</span> must exist).</p></li>
+<li><p>On the other hand, the central limit theorem shows that the asymptotic distribution is <span class="math display">
+\sqrt{n}(\bar{Y} - \mu) \overset{\textup{d}}{\longrightarrow} \textup{N}(0, \sigma^2).
+</span> where <span class="math inline">\sigma^2</span> is the variance of <span class="math inline">Y_i</span> under <span class="math inline">f_0(\cdot)</span>, provided <span class="math inline">\sigma^2 &lt; \infty</span>.</p></li>
+<li><p>Thus, <span class="blue">confidence intervals</span> are robust if <span class="math inline">\sigma^2</span> is estimated in a <span class="orange">robust</span> way, e.g.&nbsp;using the <span class="blue">sample variance</span>, but <span class="orange">not</span> if we use the usual <span class="math inline">\hat{\sigma} = i(\hat{\mu})^{-1} = \bar{Y}^2</span> implied by the exponential specification.</p></li>
+</ul>
+<div class="callout callout-tip no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<p>An essential requirement is then that estimands have the <span class="blue">same interpretation</span> under all the potential models. In the former example <span class="math inline">\mu_0</span> have this property of <span class="orange">robustness of interpretation</span>.</p>
+<p>On the other hand, the parameters <span class="math inline">\alpha</span> and <span class="math inline">\beta</span> of a Gamma distribution do not, because they are meaningless for models other than the Gamma.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="robustness-and-parametric-estimation-1" class="slide level2 center">
+<h2>Robustness and parametric estimation</h2>
+<ul>
+<li>The former example can be read under the lenses of estimating equation. The score function <span class="math display">
+\ell^*(\mu) = \sum_{i=1}^n(Y_i - \mu)
+</span> is an <span class="blue">unbiased estimating equation</span> under <span class="math inline">f_0(\cdot)</span> for a broad class of models beyond <span class="math inline">\mathcal{F}</span>. This ensures <span class="orange">consistency</span> under mild conditions (cfr. <span class="citation" data-cites="vandervaart1998">van der Vaart (<a href="#/references" role="doc-biblioref" onclick="">1998</a>)</span>, Theorem 5.9)</li>
+</ul>
+</section>
+<section id="example-correlated-observations" class="slide level2 center">
+<h2>Example: correlated observations</h2>
+</section>
+<section id="example-the-probability-of-observing-a-zero" class="slide level2 center">
+<h2>Example: the probability of observing a zero</h2>
+</section>
+<section id="example-omitted-variable-in-linear-regression" class="slide level2 center">
+<h2>Example: omitted variable in linear regression</h2>
 </section>
 <section id="re-interpreting-m-estimators-and-z-estimators" class="slide level2 center">
 <h2>Re-interpreting M-estimators and Z-estimators</h2>
 <ul>
 <li>Results of Godambe efficiency</li>
 </ul>
+</section>
+<section id="sandwich-estimators" class="slide level2 center">
+<h2>Sandwich estimators</h2>
 </section>
 <section id="example-huber-estimators" class="slide level2 center">
 <h2>Example: Huber estimators</h2>
@@ -2424,11 +2487,17 @@ Q(\psi) = \ell^*(\psi) - I(\psi)b_1(\psi)/n \quad \implies \quad \hat{\psi}_\tex
 <ul>
 <li><span class="orange">Chapter 4</span> (<em>Likelihood</em>)</li>
 <li><span class="orange">Chapter 7</span> (<em>Estimation and Hypothesis Testing</em>)</li>
+<li><span class="orange">Chapter 8</span> (<em>Linear Regression Model</em>)</li>
 </ul></li>
 <li><span class="citation" data-cites="Casella2002">Casella and Berger (<a href="#/references" role="doc-biblioref" onclick="">2002</a>)</span>
 <ul>
 <li><span class="blue">Chapter 7</span> (<em>Point estimation</em>)</li>
 <li><span class="blue">Chapter 10</span> (<em>Asymptotic evaluations</em>)</li>
+</ul></li>
+<li><span class="citation" data-cites="Pace1997">Pace and Salvan (<a href="#/references" role="doc-biblioref" onclick="">1997</a>)</span>
+<ul>
+<li><span class="grey">Chapter 2</span> (<em>Data and model reduction</em>)</li>
+<li><span class="grey">Chapter 3</span> (<em>Survey of basic concepts and techniques</em>)</li>
 </ul></li>
 </ul>
 </section>
@@ -2441,11 +2510,8 @@ Q(\psi) = \ell^*(\psi) - I(\psi)b_1(\psi)/n \quad \implies \quad \hat{\psi}_\tex
 <li><span class="orange">Chapter 2</span> (<em>Unbiasedness</em>)</li>
 <li><span class="orange">Chapter 4</span> (<em>Average risk optimality</em>)</li>
 <li><span class="orange">Chapter 5</span> (<em>Minimax and admissibility</em>)</li>
-</ul></li>
-<li><span class="citation" data-cites="Pace1997">Pace and Salvan (<a href="#/references" role="doc-biblioref" onclick="">1997</a>)</span>
-<ul>
-<li><span class="blue">Chapter 2</span> (<em>Data and model reduction</em>)</li>
-<li><span class="blue">Chapter 3</span> (<em>Survey of basic concepts and techniques</em>)</li>
+<li><span class="orange">Chapter 5</span> (<em>Minimax and admissibility</em>)</li>
+<li><span class="orange">Chapter 6</span> (<em>Asymptotic optimality</em>)</li>
 </ul></li>
 <li><span class="citation" data-cites="Robert1994">Robert (<a href="#/references" role="doc-biblioref" onclick="">1994</a>)</span>
 <ul>
@@ -2493,6 +2559,9 @@ Firth, D. (1993), <span>“Bias reduction of maximum likelihood estimates,”</s
 </div>
 <div id="ref-Godambe1960" class="csl-entry" role="listitem">
 Godambe, V. P. (1960), <span>“<span class="nocase">An optimum property of regular maximum likelihood estimation</span>,”</span> <em>Annals of Mathematical Statistics</em>, 31, 1208–1211.
+</div>
+<div id="ref-Huber1967" class="csl-entry" role="listitem">
+Huber, P. J. (1967), <span>“The behavior of maximum likelihood estimates under nonstandard conditions,”</span> in <em>Proceedings of the fifth berkeley symposium on mathematical statistics and probability</em>.
 </div>
 <div id="ref-James1961" class="csl-entry" role="listitem">
 James, W., and Stein, C. (1961), <span>“Estimation with quadratic loss,”</span> in <em>Proc. Fourth berkeley symposium</em>, <span>University of California Press</span>, pp. 361–380.

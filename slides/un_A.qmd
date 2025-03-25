@@ -2205,7 +2205,7 @@ Clearly, a natural candidate for $A(\theta; \bm{Y})$ is indeed $A(\theta) = - I(
 ## Bias reduction using Firth's correction II
 
 
-![](firth.png){width=6in fig-align="center"}
+![](img/firth.png){width=6in fig-align="center"}
 
 
 
@@ -2238,13 +2238,80 @@ which is a well-know [bias-reducing]{.orange} correction of the empirical logit.
 
 ## Robustness: preliminaries
 
+- Thus far, we have assumed that $\mathcal{F} = \{f(;\theta) : \theta \in \Theta\}$ is [correctly specified]{.orange}, that is, there exists a $\theta_0$ that generates the data $(Y_1,\dots,Y_n) \sim f(\cdot;\theta_0)$ and $f(\cdot; \theta_0) \in \mathcal{F}$. 
+
+- Under this [assumption]{.blue}, we have derived estimators that are [optimal]{.orange} in some sense. However, if the underlying model is not correct, everything breaks down. 
+
+- The term "[robustness]{.orange}" is intentionally vague, but let us say that any statistical procedure:
+  a. Should have nearly optimal efficiency if the model is correctly specified
+  b. Small deviations from the model assumptions should impair the model only slightly
+  c. Somewhat larger devitations from the model should not cause a catastrophe
+
+- We also distinguish among two kinds of robustness:
+  i. robustness with respect to [contamination]{.blue} of the data (i.e. $y_i = 10^{32}$ is an [outlier]{.orange})
+  ii. robustness with respect to [model misspecification]{.orange}, that is, we specify a class of models $\mathcal{F}$ but in reality $(Y_1,\dots,Y_n) \sim f_0(\cdot)$ and $f_0(\cdot) \notin \mathcal{F}$.
+
+- Case i. is sometimes called [resistence]{.orange} and relies on the notion of [influence functions]{.blue}. For instance, the median is resistent, the mean is not. Here we will consider case ii. 
+
 ## Maximum likelihood under a misspecified model
 
-- Interpretation of $\hat{\theta}$ as the minimizer of the Kullback-Leibler
+- Let $f_0(\cdot)$ denote the true probability model, and let $\mathcal{F} = \{f(\cdot;\theta) : \theta \in \Theta\}$ be an [incorrectly specified]{.orange} statistical model, such that $f_0 \notin \mathcal{F}$.
+
+- Suppose $Y_1, \dots, Y_n$ are [iid]{.blue} under $f_0$, and define the log-likelihood as $\ell(\theta) = \sum_{i=1}^n \log{f(y_i;\theta)}$.
+
+- Let $\mathbb{E}_0(\cdot)$ denote expectation under the true model $f_0$. If the problem is [sufficiently regular]{.blue}, the [maximum likelihood]{.orange} estimator $\hat{\theta}_n$ [converges]{.orange} in probability to some value $\theta_0$ such that
+$$
+  \mathbb{E}_0\{\ell(\theta)\} < \mathbb{E}_0\{\ell(\theta_0)\}, \quad \text{for all } \theta \in \Theta, \quad \theta \neq \theta_0,
+$$
+as shown in @Huber1967. That is, $\hat{\theta}_n$ converges to a value satisfying [Wald's inequality]{.orange}.
+
+- An alternative formulation of this result is the following:
+$$
+\mathrm{KL}(f(\cdot; \theta_0) \mid f_0) < \mathrm{KL}(f(\cdot; \theta) \mid f_0), \quad \text{for all } \theta \in \Theta, \quad \theta \neq \theta_0.
+$$
+In other words, $\theta_0$ represents the parameter value that makes $f(\cdot;\theta)$ [as close as possible]{.blue} to $f_0$, although  $\mathrm{KL}(f(\cdot; \theta_0) \mid f_0) > 0.$
+
+## Robustness and parametric estimation
+
+<!-- - As an example, note that the [sample mean]{.blue} $\bar{Y}$ is actually robust with respect to [model misspecification]{.orange}; it can be justified, in fact, using a nonparametric argument.  -->
+
+- Let $\mathcal{F} = \{\mu^{-1}e^{-y/\mu} : \mu \in \mathbb{R}^+ \}$ and suppose the data $Y_1,\dots,Y_n$ are iid from an [exponential]{.orange} with mean $\mu_0$. Then $\bar{Y}$ is a consistent and efficient estimator for $\mu_0$. 
+
+- However, $\bar{Y}$ is a [robust]{.orange} estimator in the sense that if $Y_i \overset{\textup{iid}}{\sim} f_0(\cdot)$ with $f_0(\cdot) \notin \mathcal{F}$, then $\bar{Y}$ remains [consistent]{.blue} for the mean $\mu_0$ under minimal assumptions on $f_0$ (i.e. $\mu_0$ must exist).
+
+- On the other hand, the central limit theorem shows that the asymptotic distribution is
+$$
+\sqrt{n}(\bar{Y} - \mu) \overset{\textup{d}}{\longrightarrow} \textup{N}(0, \sigma^2). 
+$$
+where $\sigma^2$ is the variance of $Y_i$ under $f_0(\cdot)$, provided $\sigma^2 < \infty$. 
+
+- Thus, [confidence intervals]{.blue} are robust if $\sigma^2$ is estimated in a [robust]{.orange} way, e.g. using the [sample variance]{.blue}, but [not]{.orange} if we use the usual $\hat{\sigma} = i(\hat{\mu})^{-1} = \bar{Y}^2$ implied by the exponential specification.
+
+:::callout-tip
+An essential requirement is then that estimands have the [same interpretation]{.blue} under all the potential models. In the former example $\mu_0$ have this property of [robustness of interpretation]{.orange}. 
+
+On the other hand, the parameters $\alpha$ and $\beta$ of a Gamma distribution do not, because they are meaningless for models other than the Gamma.
+:::
+
+## Robustness and parametric estimation
+
+- The former example can be read under the lenses of estimating equation. The score function
+$$
+\ell^*(\mu) = \sum_{i=1}^n(Y_i - \mu)
+$$
+is an [unbiased estimating equation]{.blue} under $f_0(\cdot)$ for a broad class of models beyond $\mathcal{F}$. This ensures [consistency]{.orange} under mild conditions (cfr. @vandervaart1998, Theorem 5.9)
+
+## Example: correlated observations
+
+## Example: the probability of observing a zero
+
+## Example: omitted variable in linear regression
 
 ## Re-interpreting M-estimators and Z-estimators
 
 - Results of Godambe efficiency
+
+## Sandwich estimators
 
 ## Example: Huber estimators
 
@@ -2255,6 +2322,8 @@ which is a well-know [bias-reducing]{.orange} correction of the empirical logit.
 
 - See Davison, Section 8.4
 
+
+
 # References and study material
 
 ## Main references
@@ -2262,10 +2331,16 @@ which is a well-know [bias-reducing]{.orange} correction of the empirical logit.
 - @Davison2003
   - [Chapter 4]{.orange} (*Likelihood*)
   - [Chapter 7]{.orange} (*Estimation and Hypothesis Testing*)
+  - [Chapter 8]{.orange} (*Linear Regression Model*)
 
 - @Casella2002
   - [Chapter 7]{.blue} (*Point estimation*)
   - [Chapter 10]{.blue} (*Asymptotic evaluations*)
+  
+- @Pace1997
+  - [Chapter 2]{.grey} (*Data and model reduction*)
+  - [Chapter 3]{.grey} (*Survey of basic concepts and techniques*)
+  
 
 ## Additional references
 
@@ -2274,10 +2349,8 @@ which is a well-know [bias-reducing]{.orange} correction of the empirical logit.
   - [Chapter 2]{.orange} (*Unbiasedness*)
   - [Chapter 4]{.orange} (*Average risk optimality*)
   - [Chapter 5]{.orange} (*Minimax and admissibility*)
-  
-- @Pace1997
-  - [Chapter 2]{.blue} (*Data and model reduction*)
-  - [Chapter 3]{.blue} (*Survey of basic concepts and techniques*)
+  - [Chapter 5]{.orange} (*Minimax and admissibility*)
+  - [Chapter 6]{.orange} (*Asymptotic optimality*)
   
 - @Robert1994
   - [Chapter 2]{.orange} (*Decision-theoretic foundations*)
