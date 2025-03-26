@@ -2023,7 +2023,7 @@ abline(h = 0, lty = "dotted")
 
 - The picture depict $- \text{KL}(f(\cdot; \theta_0) \mid f(\cdot; \theta))$ in another [problematic]{.orange} situation. The true value is $\theta_0 = \pi/2$, but the presence of the asymptote may cause $\hat{\theta}_n$ to [diverge]{.orange}. 
 
-## Consistency for the MLE
+## Consistency for the MLE 📖
 
 :::callout-warning
 #### Theorem (@Lehmann1998, Th. 5.1, Chap. 6) 
@@ -2041,7 +2041,7 @@ Let us further require that, with probability tending to 1 as $n\to \infty$, the
 
 [^th_vdv]: See also @vandervaart1998, Theorem 5.42, for slightly less stringent conditions and a careful discussion about the issue of multiple roots.
 
-## Asymptotic normality of the MLE
+## Asymptotic normality of the MLE 📖
 
 :::callout-warning
 #### Theorem (@Lehmann1998, Th. 5.1, Chap. 6) 
@@ -2093,7 +2093,7 @@ where the red terms are ininfluential because the maximizer $\hat{\theta}_n$ of 
 
 - On the other hand, we will see that $\hat{\theta}_n$ does not need to maximize $M_n(\theta)$. Indeed, it is sufficient that is [nearly maximizes]{.blue} it, in the sense that $M_n(\hat{\theta}_n) \ge \sup_{\theta \in \Theta}M(\theta) - o_p(1)$.
 
-## Consistency for M-estimators II
+## Consistency for M-estimators II 📖
 
 :::callout-warning
 #### Theorem (@vandervaart1998, Theorem 5.7)
@@ -2113,7 +2113,7 @@ Then any sequence of estimators $\hat{\theta}_n$ with $M_n(\hat{\theta}_n) \ge M
 
 - The strong identifiability condition, also called [well separability]{.orange} ensures that only point close to $\theta_0$ are close to the maximum value $M(\theta_0)$, strengthening Wald inequality.
 
-## Consistency for Z-estimators
+## Consistency for Z-estimators 📖
 
 - The former theorem can be also expressed in terms of Z-estimators $Q_n(\theta)$, that is, on a set of [estimating equations]{.orange}. An example is the score function
 $$
@@ -2209,7 +2209,7 @@ Clearly, a natural candidate for $A(\theta; \bm{Y})$ is indeed $A(\theta) = - I(
 
 
 
-## Bias reduction using Firth's correction III
+## Bias reduction using Firth's correction III 📖
 
 
 :::callout-tip
@@ -2253,7 +2253,7 @@ which is a well-know [bias-reducing]{.orange} correction of the empirical logit.
 
 - Case i. is sometimes called [resistence]{.orange} and relies on the notion of [influence functions]{.blue}. For instance, the median is resistent, the mean is not. Here we will consider case ii. 
 
-## Example: omitted variable in linear regression
+## Example: omitted variable in linear regression 📖
 
 - Let $y_1,\dots,y_n$ be realizations from the model $Y_i = \beta_1 + \beta_2 x_i + \beta_3 z_i + \epsilon_i$ for $i=1,\dots,n$, where $x_i$ and $z_i$ are linearly independent [covariates]{.blue} and $\epsilon_i \overset{\textup{iid}}{\sim} \text{N}(0, \sigma^2)$ is the [error term]{.orange}.  
 
@@ -2268,7 +2268,7 @@ $$
 and variance $\sigma^2 / \sum_{j=1}^n (x_j - \bar{x})^2$. 
 - In other words, $\hat{\beta}_2$ is [biased]{.orange} and [inconsistent]{.orange} unless $x$ and $z$ are [uncorrelated]{.blue} or, obviously, if the model is correctly specified, that is if $\beta_3 = 0$. 
 
-## Maximum likelihood under a misspecified model
+## Maximum likelihood under a misspecified model 📖
 
 - Let $f_0(\cdot)$ denote the true probability model, and let $\mathcal{F} = \{f(\cdot;\theta) : \theta \in \Theta\}$ be an [incorrectly specified]{.orange} statistical model, such that $f_0 \notin \mathcal{F}$.
 
@@ -2368,10 +2368,11 @@ $$
 \hat{V}(\hat{\theta}_n) = \mathcal{I}(\hat{\theta}_n)\left(\sum_{i=1}^n\ell^*(\hat{\theta}_n; y_i)\ell^*(\hat{\theta}_n; y_i)^T\right)^{-1}\mathcal{I}(\hat{\theta}_n),
 $$
 recalling that $\mathcal{I}(\theta) = - \partial/\partial \theta  \:\ell^*(\theta; \bm{y})$ is the [observed information]{.blue} matrix.
-
 :::
 
-## Example: misspecified exponential model II
+- Note that, under correct specification, $\hat{V}(\hat{\theta}_n) = I(\hat{\theta}_n) + o_p(1)$.  
+
+## Example: misspecified exponential model II 📖
 
 - Let us consider again $Y_i \overset{\textup{iid}}{\sim} f_0(\cdot)$ with $f_0(\cdot) \notin \mathcal{F}$, where $\mathcal{F}$ is a [misspecified exponential]{.orange} model.
 
@@ -2405,7 +2406,7 @@ $$
 [^dependent]: Refer to Section 7.2.3 in @Davison2003 for a discussion on general estimating equations with dependent data and sufficient conditions for consistency and asymptotic normality. 
 
 
-## Example: the probability of observing a zero
+## Example: the probability of observing a zero 📖
 
 
 
