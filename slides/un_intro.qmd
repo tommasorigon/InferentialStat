@@ -192,7 +192,7 @@ that is, there exists a measurable set $A \in \mathcal{B}(\mathcal{Y})$ such tha
 $$
 \forall A\in \mathcal{B}(\mathcal{Y}) \quad \text{ such that } \quad \nu(A) = 0 \quad\implies \quad P_\theta(A) = 0.
 $$
-- [Radon-Nykodym]{.grey} theorem then ensures there exists a [probability density]{.blue} $f(\bm{y}; \theta)$ such that
+- [Radon-Nikodym]{.grey} theorem then ensures there exists a [probability density]{.blue} $f(\bm{y}; \theta)$ such that
 $$
 P_\theta(A) = \int_A f(\bm{y}; \theta)\nu(\mathrm{d}\bm{y}).
 $$

@@ -1671,7 +1671,7 @@ $$
 - It implies that the [score functions]{.blue} are [optimal]{.orange} (Godambe efficient) among unbiased estimating equations. However, Z-estimators may have appealing [robustness]{.grey} properties. 
 
 :::callout-tip
-Godambe information generalizes to the vector case $\theta \in \Theta \subseteq \mathbb{R}^p$ and is defined as $V(\theta) = H(\theta) J(\theta)^{-1}H(\theta)^T$, sometimes called [sandwich]{.orange} matrix. Optimality results generalize as well.
+Godambe information generalizes to the vector case $\theta \in \Theta \subseteq \mathbb{R}^p$ and is defined as $V(\theta) = H(\theta) J(\theta)^{-1}H(\theta)$, sometimes called [sandwich]{.orange} matrix. Optimality results generalize as well.
 :::
 
 ## Linear estimating equations I
@@ -1799,27 +1799,27 @@ Let $\Theta \subseteq \mathbb{R}$ and $\hat{\theta}_n$ be a sequence of estimato
 $$
 \lim_{n\to\infty}\text{bias}_\theta(\hat{\theta}_n)=0, \qquad \lim_{n\to\infty}\text{var}_\theta(\hat{\theta}_n)=0.
 $$
-Then $\hat{\theta}_n$ is a [consistent estimator]{.blue} of $\theta$.
+Then $\hat{\theta}_n$ is a [consistent estimator]{.blue} of $\theta_0$.
 :::
 
 - Checking this condition case-by-case is difficult. Instead, we seek [general sufficient conditions]{.blue} to establish the consistency of broad estimator classes, including [maximum likelihood]{.orange}.
 
 ## Asymptotic evaluations: preliminaries
 
-- The [asymptotic normality]{.orange} of an estimator $\hat{\theta}_n$ is a stronger property than consistency, implying that the estimator is [normally distributed]{.blue} around the true value $\theta$ as the sample size increases.
+- The [asymptotic normality]{.orange} of an estimator $\hat{\theta}_n$ is a stronger property than consistency, implying that the estimator is [normally distributed]{.blue} around the true value $\theta_0$ for large $n$.
 
 - Let $\Theta \subseteq \mathbb{R}$ and let $\hat{\theta}_n$ be a sequence of estimators. Under "regularity conditions":
 $$
-\sqrt{n}(\hat{\theta}_n - \theta) \overset{\text{d}}{\longrightarrow} \text{N}(0, v(\theta)^{-1}), \qquad n \rightarrow \infty,
+\sqrt{n}(\hat{\theta}_n - \theta_0) \overset{\text{d}}{\longrightarrow} \text{N}(0, v(\theta_0)^{-1}), \qquad n \rightarrow \infty,
 $$
-where $v(\theta)^{-1}$ is the so-called [asymptotic variance]{.blue}.
+where $v(\theta_0)^{-1}$ is the so-called [asymptotic variance]{.blue}.
 
-- If $\hat{\theta}_n$ is the [maximum likelihood]{.orange}, then under regularity conditions $n v(\theta)$ equals the [Fisher information]{.orange} $I(\theta) = n i(\theta)$ and the [asymptotic variance]{.blue} is $i(\theta)^{-1}$. 
+- If $\hat{\theta}_n$ is the [maximum likelihood]{.orange}, then under regularity conditions $n v(\theta)$ equals the [Fisher information]{.orange} $I(\theta) = n i(\theta)$ and the [asymptotic variance]{.blue} is $i(\theta_0)^{-1}$. 
 
 :::callout-tip
-In regular estimation problems, the maximum likelihood estimator $\hat{\theta}_n$ is [asymptotically efficient]{.orange}, that is, for $n$ large enough, its variance attains the Cramér-Rao lower bound. Informally, 
+In regular problems, the maximum likelihood estimator $\hat{\theta}_n$ is [asymptotically efficient]{.orange}, that is, for $n$ large enough, its variance attains the Cramér-Rao lower bound. Informally, 
 $$
-\hat{\theta}_n \:\dot{\sim}\: \text{N}(\theta, I(\theta)^{-1}).
+\hat{\theta}_n \:\dot{\sim}\: \text{N}(\theta_0, I(\theta_0)^{-1}).
 $$
 :::
 
@@ -2046,9 +2046,9 @@ Let us further require that, with probability tending to 1 as $n\to \infty$, the
 :::callout-warning
 #### Theorem (@Lehmann1998, Th. 5.1, Chap. 6) 
 
-Under assumptions [(A1)-(A6)]{.blue}, suppose the maximum likelihood estimator $\hat{\theta}_n$ exists and is [consistent]{.orange}. Then
+Under assumptions [(A1)-(A6)]{.blue}, suppose the maximum likelihood estimator $\hat{\theta}_n$ exists and is [consistent]{.orange} for the true value $\theta_0$. Then
 $$
-\sqrt{n}(\hat{\theta}_n - \theta_0) \overset{\text{d}}{\longrightarrow} \text{N}(0, i(\theta)^{-1}), \quad i(\theta) = -\int\frac{\partial^2}{\partial \theta \partial \theta^T}\log{f(y \mid \theta)}\mathrm{d}y,
+\sqrt{n}(\hat{\theta}_n - \theta_0) \overset{\text{d}}{\longrightarrow} \text{N}(0, i(\theta_0)^{-1}), \quad i(\theta) = -\int\frac{\partial^2}{\partial \theta \partial \theta^T}\log{f(y \mid \theta)}\mathrm{d}y,
 $$
 where $n i(\theta)$ is the [Fisher information matrix]{.blue}.
 :::
@@ -2071,7 +2071,7 @@ $$
 If the second Bartlett identity holds, the [Fisher information]{.orange} is $I(\theta) = \mathbb{E}_\theta(\mathcal{I}(\theta))$.
 :::
 
-- There are two natural candidates for estimating $I(\theta)$, namely $I(\hat{\theta}_n)$ and $\mathcal{I}(\hat{\theta}_n)$. These two quantities may coincide, but in general, this is not guaranteed.
+- There are two natural candidates for estimating $I(\theta_0) = n i(\theta_0)$, namely $I(\hat{\theta}_n)$ and $\mathcal{I}(\hat{\theta}_n)$. These two quantities may coincide, but in general, this is not guaranteed.
 
 - Following Fisher's original work, @Efron1978 suggested using $\mathcal{I}(\hat{\theta}_n)$ because it approximates the [conditional variance]{.blue} of $\hat{\theta}_n$ given an appropriate [ancillary statistic]{.orange}.
 
@@ -2140,7 +2140,7 @@ M_n(\theta) = \sum_{i=1}^n m(\theta; Y_i), \qquad Q_n(\theta) = \sum_{i=1}^nq(\t
 $$
 Let $\hat{\theta}_n$ be a sequence of [consistent]{.orange} estimators such that $Q_n(\hat{\theta}_n) = 0$. Under assumptions [(A1)-(A2)]{.blue} and further [mild regularity conditions]{.blue}
 $$
-\sqrt{n}(\hat{\theta}_n - \theta) \overset{\text{d}}{\longrightarrow} \text{N}(0, v(\theta)^{-1}), \qquad v(\theta) = h(\theta)j(\theta)^{-1}h(\theta)^T,
+\sqrt{n}(\hat{\theta}_n - \theta_0) \overset{\text{d}}{\longrightarrow} \text{N}(0, v(\theta_0)^{-1}), \qquad v(\theta) = h(\theta)j(\theta)^{-1}h(\theta),
 $$
 where $V(\theta) = n v(\theta)$ is the [Godambe information matrix]{.orange} and
 $$
@@ -2159,7 +2159,7 @@ $$
 :::callout-tip
 In regular problems, an M-estimator $\hat{\theta}_n$ is [consistent]{.orange} and [asymptotically normal]{.blue}. Moreover, for $n$ large enough, its variance is the inverse of the [Godambe information]{.blue}. Informally,
 $$
-\hat{\theta}_n \:\dot{\sim}\: \text{N}(\theta, V(\theta)^{-1}).
+\hat{\theta}_n \:\dot{\sim}\: \text{N}(\theta_0, V(\theta_0)^{-1}).
 $$
 :::
 
@@ -2238,7 +2238,7 @@ which is a well-know [bias-reducing]{.orange} correction of the empirical logit.
 
 ## Robustness: preliminaries
 
-- Thus far, we have assumed that $\mathcal{F} = \{f(;\theta) : \theta \in \Theta\}$ is [correctly specified]{.orange}, that is, there exists a $\theta_0$ that generates the data $(Y_1,\dots,Y_n) \sim f(\cdot;\theta_0)$ and $f(\cdot; \theta_0) \in \mathcal{F}$. 
+- Thus far, we have assumed that $\mathcal{F} = \{f(\cdot;\theta) : \theta \in \Theta\}$ is [correctly specified]{.orange}, that is, there exists a $\theta_0$ that generates the data $(Y_1,\dots,Y_n) \sim f(\cdot;\theta_0)$ and $f(\cdot; \theta_0) \in \mathcal{F}$. 
 
 - Under this [assumption]{.blue}, we have derived estimators that are [optimal]{.orange} in some sense. However, if the underlying model is not correct, everything breaks down. 
 
@@ -2252,6 +2252,21 @@ which is a well-know [bias-reducing]{.orange} correction of the empirical logit.
   ii. robustness with respect to [model misspecification]{.orange}, that is, we specify a class of models $\mathcal{F}$ but in reality $(Y_1,\dots,Y_n) \sim f_0(\cdot)$ and $f_0(\cdot) \notin \mathcal{F}$.
 
 - Case i. is sometimes called [resistence]{.orange} and relies on the notion of [influence functions]{.blue}. For instance, the median is resistent, the mean is not. Here we will consider case ii. 
+
+## Example: omitted variable in linear regression
+
+- Let $y_1,\dots,y_n$ be realizations from the model $Y_i = \beta_1 + \beta_2 x_i + \beta_3 z_i + \epsilon_i$ for $i=1,\dots,n$, where $x_i$ and $z_i$ are linearly independent [covariates]{.blue} and $\epsilon_i \overset{\textup{iid}}{\sim} \text{N}(0, \sigma^2)$ is the [error term]{.orange}.  
+
+- If we do not include $z_i$ in our model, the class $\mathcal{F}$ is [misspecified]{.orange}. The [maximum likelihood]{.orange} estimate of $\beta_2$ under the misspecified $\mathcal{F}$ is:
+$$
+\hat{\beta}_2 = \frac{1}{\sum_{j=1}^n (x_j - \bar{x})^2}\sum_{i=1}^n (x_i - \bar{x})(y_i - \bar{y}).
+$$
+- Thus, the estimator $\hat{\beta}_2$, [under the true model]{.blue} $f_0$, is distributed as a Gaussian with mean
+$$
+\mathbb{E}_0(\hat{\beta}_2) = \beta_2 + \beta_3 \frac{1}{\sum_{j=1}^n (x_j - \bar{x})^2}\sum_{i=1}^n (x_i - \bar{x})(z_i - \bar{z}),
+$$
+and variance $\sigma^2 / \sum_{j=1}^n (x_j - \bar{x})^2$. 
+- In other words, $\hat{\beta}_2$ is [biased]{.orange} and [inconsistent]{.orange} unless $x$ and $z$ are [uncorrelated]{.blue} or, obviously, if the model is correctly specified, that is if $\beta_3 = 0$. 
 
 ## Maximum likelihood under a misspecified model
 
@@ -2269,15 +2284,20 @@ as shown in @Huber1967. That is, $\hat{\theta}_n$ converges to a value satisfyin
 $$
 \mathrm{KL}(f(\cdot; \theta_0) \mid f_0) < \mathrm{KL}(f(\cdot; \theta) \mid f_0), \quad \text{for all } \theta \in \Theta, \quad \theta \neq \theta_0.
 $$
-In other words, $\theta_0$ represents the parameter value that makes $f(\cdot;\theta)$ [as close as possible]{.blue} to $f_0$, although  $\mathrm{KL}(f(\cdot; \theta_0) \mid f_0) > 0.$
 
-## Robustness and parametric estimation
+:::callout-tip
+In other words, the [maximum likelihood]{.orange} converges to $\theta_0$, which represents the parameter value that makes $f(\cdot;\theta)$ [as close as possible]{.blue} to the true $f_0$, albeit $\mathrm{KL}(f(\cdot; \theta_0) \mid f_0) > 0$.
 
-<!-- - As an example, note that the [sample mean]{.blue} $\bar{Y}$ is actually robust with respect to [model misspecification]{.orange}; it can be justified, in fact, using a nonparametric argument.  -->
+The maximum likelihood makes our predictions "the best they can be" given the chosen model.
+:::
 
-- Let $\mathcal{F} = \{\mu^{-1}e^{-y/\mu} : \mu \in \mathbb{R}^+ \}$ and suppose the data $Y_1,\dots,Y_n$ are iid from an [exponential]{.orange} with mean $\mu_0$. Then $\bar{Y}$ is a consistent and efficient estimator for $\mu_0$. 
 
-- However, $\bar{Y}$ is a [robust]{.orange} estimator in the sense that if $Y_i \overset{\textup{iid}}{\sim} f_0(\cdot)$ with $f_0(\cdot) \notin \mathcal{F}$, then $\bar{Y}$ remains [consistent]{.blue} for the mean $\mu_0$ under minimal assumptions on $f_0$ (i.e. $\mu_0$ must exist).
+
+## Example: misspecified exponential model I
+
+- Let $\mathcal{F} = \{\mu^{-1}e^{-y/\mu} : \mu \in \mathbb{R}^+ \}$ and suppose the data $Y_1,\dots,Y_n$ are iid from an [exponential]{.orange} with mean $\mu_0$. Then $\bar{Y}$ is a [consistent]{.blue} and [efficient]{.orange} estimator for $\mu_0$. 
+
+- However, $\bar{Y}$ is a [robust]{.orange} estimator, in the sense that if instead $Y_i \overset{\textup{iid}}{\sim} f_0(\cdot)$ with $f_0(\cdot) \notin \mathcal{F}$, then $\bar{Y}$ remains [consistent]{.blue} for the mean $\mu_0$ under minimal assumptions on $f_0$ (i.e. $\mu_0$ must exist).
 
 - On the other hand, the central limit theorem shows that the asymptotic distribution is
 $$
@@ -2287,31 +2307,92 @@ where $\sigma^2$ is the variance of $Y_i$ under $f_0(\cdot)$, provided $\sigma^2
 
 - Thus, [confidence intervals]{.blue} are robust if $\sigma^2$ is estimated in a [robust]{.orange} way, e.g. using the [sample variance]{.blue}, but [not]{.orange} if we use the usual $\hat{\sigma} = i(\hat{\mu})^{-1} = \bar{Y}^2$ implied by the exponential specification.
 
-:::callout-tip
-An essential requirement is then that estimands have the [same interpretation]{.blue} under all the potential models. In the former example $\mu_0$ have this property of [robustness of interpretation]{.orange}. 
-
-On the other hand, the parameters $\alpha$ and $\beta$ of a Gamma distribution do not, because they are meaningless for models other than the Gamma.
-:::
-
-## Robustness and parametric estimation
-
-- The former example can be read under the lenses of estimating equation. The score function
+- This example can be read under the lenses of estimating equations. The score function
 $$
 \ell^*(\mu) = \sum_{i=1}^n(Y_i - \mu)
 $$
-is an [unbiased estimating equation]{.blue} under $f_0(\cdot)$ for a broad class of models beyond $\mathcal{F}$. This ensures [consistency]{.orange} under mild conditions (cfr. @vandervaart1998, Theorem 5.9)
+is an [unbiased estimating equation]{.blue} under $f_0(\cdot)$ for a broad class of models beyond $\mathcal{F}$. 
+
+
+## Robustness and unbiased estimating equations
+
+:::callout-tip
+An essential requirement is that estimands must have the [same interpretation]{.blue} under all the potential models. In the former exponential example $\mu_0$ represents the mean of $f_0$. 
+
+Formally, this means we can write the parameter $\theta_0$ as a [functional of interest]{.orange} $T(\cdot)$ of $f_0$:
+$$
+\theta_0 = T(f_0).
+$$
+For example, we might have $\theta_0 = \int_\mathcal{Y} \bm{y} f_0(\bm{y}) \nu(\mathrm{d}\bm{y})$, that is, the mean of $f_0$.
+
+On the other hand, for instance the parameters $\alpha$ and $\beta$ of a Gamma distribution are not robust to interpretation, because they are meaningless for models other than the Gamma.
+:::
+
+- More broadly, if the [score function]{.orange} $\ell^*(\theta) = \sum_{i=1}^n \ell^*(\theta; Y_i)$ is [unbiased]{.blue} under $f_0(\cdot)$, the estimator is [consistent]{.blue} under mild conditions.
+
+- Moreover, even if the maximum likelihood $\hat{\theta}_n$ is consistent, the [asymptotic variance]{.blue} is not anymore the one induced by the Fisher information: [adjustments]{.orange} are needed.
+
+
+## Misspecified likelihoods are M-estimators
+
+- The [theory]{.blue} of [M- and Z-estimators]{.blue} can be directly applied to investigate the asymptotic behavior the maximum likelihood estimator [under model misspecification]{.orange}.
+
+- If $\mathcal{F}$ is misspecified then the maximizer of the log-likelihood $\ell(\theta) = \sum_{i=1}^n \log{f(y_i;\theta)}$ should be regarded as an [M-estimator]{.orange} while the score function $\ell^*(\theta)$ is a [Z-estimator]{.blue}.
+
+- [Consistency]{.orange} and [asymptotic normality]{.blue} of the maximum likelihood estimator $\hat{\theta}_n$ for misspecified models hold under the assumptions in @vandervaart1998, Theorems 5.7, 5.9, 5.21. 
+
+- Note that under misspecification, [Bartlett identity]{.blue} does not hold anymore. However, under the assumptions of Theorem 5.21 of @vandervaart1998, the maximum likelihood is such that
+$$
+\sqrt{n}(\hat{\theta}_n - \theta_0) \overset{\text{d}}{\longrightarrow} \text{N}(0, v(\theta_0)^{-1}), \qquad v(\theta) = h(\theta)j(\theta)^{-1}h(\theta),
+$$
+where $V(\theta) = n v(\theta)$ is the [Godambe information matrix]{.orange} and
+$$
+h(\theta) = \mathbb{E}_0\left(- \frac{\partial}{\partial \theta}\ell^*(\theta)\right), \qquad j(\theta) = \mathbb{E}_0\left(\ell^*(\theta)\ell^*(\theta)^T\right).
+$$
+where expectations are taken over $f_0 \notin \mathcal{F}$ and not the misspecified $f(\cdot; \theta)$, so that $h(\theta) \neq j(\theta)$. 
+
+## Sandwich estimators
+
+- In order to compute [confidence intervals]{.orange} and test hypotheses, we need to estimate the [asymptotic variance]{.blue} of the maximum likelihood estimator $\hat{\theta}_n$ under model misspecification.
+
+- Informally, recall that for $n$ large enough and under regularity conditions, we have
+$$
+\text{var}_0(\hat{\theta}_n) \approx V(\theta_0)^{-1}.
+$$
+
+- If the model is correctly specified, then typical [estimators]{.orange} of the [variance]{.orange} of $\hat{\theta}_n$ are $\mathcal{I}(\hat{\theta}_n)$ and $I(\hat{\theta}_n)$. Unfortunately, we cannot use $V(\hat{\theta}_n)$ because it depends on $f_0$, which is unknown!
+
+:::callout-note
+The [sandwich estimator]{.blue} is a popular choice for estimating the [asymptotic variance]{.orange} of $\hat{\theta}_n$ under model misspecification. The sandwich estimator for $V(\theta)$ is
+$$
+\hat{V}(\hat{\theta}_n) = \mathcal{I}(\hat{\theta}_n)\left(\sum_{i=1}^n\ell^*(\hat{\theta}_n; y_i)\ell^*(\hat{\theta}_n; y_i)^T\right)^{-1}\mathcal{I}(\hat{\theta}_n),
+$$
+recalling that $\mathcal{I}(\theta) = - \partial/\partial \theta  \:\ell^*(\theta; \bm{y})$ is the [observed information]{.blue} matrix.
+
+:::
+
+## Example: misspecified exponential model II
 
 ## Example: correlated observations
 
+- Let $y_1,\dots,y_n$ be realizations of [dependent]{.orange} random variables from the density $f(\bm{y};\theta)$ with $\Theta \subseteq \mathbb{R}^p$. Moreover, let $f(y_i;\theta)$ be the [marginal density]{.blue} of $y_i$.
+
+- If the data are dependent, the log-likelihood $\ell_c(\theta) = \sum_{i=1}^n \log{f(y_i;\theta)}$ is [misspecified]{.orange}, because it assumes independence. Indeed, $\ell_c(\theta)$ is an instance of [composite likelihood]{.blue}.
+
+- Nonetheless, under mild regularity conditions, the [misspecified score function]{.grey} is [unbiased]{.orange} under the true model $f(\bm{y};\theta)$, thanks to the [linearity]{.blue} of the expectation operator:
+$$
+\ell^*_c(\theta) = \sum_{i=1}^n \frac{\partial}{\partial \theta}\log{f(y_i;\theta)} \implies \mathbb{E}_0\{\ell^*_c(\theta)\} = \bm{0}.
+$$
+
+- Unbiasedness of $\ell^*_c(\theta)$ does not guarantee consistency nor asymptotic normality, but both are recovered under mild assumptions on the dependence structure, relying on [ergodic]{.blue} theorems or [martingales]{.orange}. Remarkably, a Godambe-like asymptotic variance is obtained at the limit[^dependent].
+
+[^dependent]: Refer to Section 7.2.3 in @Davison2003 for a discussion on general estimating equations with dependent data and sufficient conditions for consistency and asymptotic normality. 
+
+
 ## Example: the probability of observing a zero
 
-## Example: omitted variable in linear regression
 
-## Re-interpreting M-estimators and Z-estimators
 
-- Results of Godambe efficiency
-
-## Sandwich estimators
 
 ## Example: Huber estimators
 

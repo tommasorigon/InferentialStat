@@ -229,8 +229,15 @@ window.Quarto = {
   <li><a href="#robustness" id="toc-robustness" class="nav-link" data-scroll-target="#robustness">Robustness</a>
   <ul class="collapse">
   <li><a href="#robustness-preliminaries" id="toc-robustness-preliminaries" class="nav-link" data-scroll-target="#robustness-preliminaries">Robustness: preliminaries</a></li>
+  <li><a href="#example-omitted-variable-in-linear-regression" id="toc-example-omitted-variable-in-linear-regression" class="nav-link" data-scroll-target="#example-omitted-variable-in-linear-regression">Example: omitted variable in linear regression</a></li>
   <li><a href="#maximum-likelihood-under-a-misspecified-model" id="toc-maximum-likelihood-under-a-misspecified-model" class="nav-link" data-scroll-target="#maximum-likelihood-under-a-misspecified-model">Maximum likelihood under a misspecified model</a></li>
-  <li><a href="#re-interpreting-m-estimators-and-z-estimators" id="toc-re-interpreting-m-estimators-and-z-estimators" class="nav-link" data-scroll-target="#re-interpreting-m-estimators-and-z-estimators">Re-interpreting M-estimators and Z-estimators</a></li>
+  <li><a href="#example-misspecified-exponential-model-i" id="toc-example-misspecified-exponential-model-i" class="nav-link" data-scroll-target="#example-misspecified-exponential-model-i">Example: misspecified exponential model I</a></li>
+  <li><a href="#robustness-and-unbiased-estimating-equations" id="toc-robustness-and-unbiased-estimating-equations" class="nav-link" data-scroll-target="#robustness-and-unbiased-estimating-equations">Robustness and unbiased estimating equations</a></li>
+  <li><a href="#misspecified-likelihoods-are-m-estimators" id="toc-misspecified-likelihoods-are-m-estimators" class="nav-link" data-scroll-target="#misspecified-likelihoods-are-m-estimators">Misspecified likelihoods are M-estimators</a></li>
+  <li><a href="#sandwich-estimators" id="toc-sandwich-estimators" class="nav-link" data-scroll-target="#sandwich-estimators">Sandwich estimators</a></li>
+  <li><a href="#example-misspecified-exponential-model-ii" id="toc-example-misspecified-exponential-model-ii" class="nav-link" data-scroll-target="#example-misspecified-exponential-model-ii">Example: misspecified exponential model II</a></li>
+  <li><a href="#example-correlated-observations" id="toc-example-correlated-observations" class="nav-link" data-scroll-target="#example-correlated-observations">Example: correlated observations</a></li>
+  <li><a href="#example-the-probability-of-observing-a-zero" id="toc-example-the-probability-of-observing-a-zero" class="nav-link" data-scroll-target="#example-the-probability-of-observing-a-zero">Example: the probability of observing a zero</a></li>
   <li><a href="#example-huber-estimators" id="toc-example-huber-estimators" class="nav-link" data-scroll-target="#example-huber-estimators">Example: Huber estimators</a></li>
   <li><a href="#example-linear-models-with-misspecified-variance" id="toc-example-linear-models-with-misspecified-variance" class="nav-link" data-scroll-target="#example-linear-models-with-misspecified-variance">Example: linear models with misspecified variance</a></li>
   </ul></li>
@@ -1973,7 +1980,7 @@ Theorem (<span class="citation" data-cites="Godambe1960">Godambe (<a href="#ref-
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>Godambe information generalizes to the vector case <span class="math inline">\theta \in \Theta \subseteq \mathbb{R}^p</span> and is defined as <span class="math inline">V(\theta) = H(\theta) J(\theta)^{-1}H(\theta)^T</span>, sometimes called <span class="orange">sandwich</span> matrix. Optimality results generalize as well.</p>
+<p>Godambe information generalizes to the vector case <span class="math inline">\theta \in \Theta \subseteq \mathbb{R}^p</span> and is defined as <span class="math inline">V(\theta) = H(\theta) J(\theta)^{-1}H(\theta)</span>, sometimes called <span class="orange">sandwich</span> matrix. Optimality results generalize as well.</p>
 </div>
 </div>
 </div>
@@ -2110,7 +2117,7 @@ Theorem (<span class="citation" data-cites="Casella2002">Casella and Berger (<a 
 <div class="callout-body-container callout-body">
 <p>Let <span class="math inline">\Theta \subseteq \mathbb{R}</span> and <span class="math inline">\hat{\theta}_n</span> be a sequence of estimators such that the <span class="orange">asymptotic bias</span> and <span class="blue">variance</span> are zero, that is for every <span class="math inline">\theta \in \Theta</span> <span class="math display">
 \lim_{n\to\infty}\text{bias}_\theta(\hat{\theta}_n)=0, \qquad \lim_{n\to\infty}\text{var}_\theta(\hat{\theta}_n)=0.
-</span> Then <span class="math inline">\hat{\theta}_n</span> is a <span class="blue">consistent estimator</span> of <span class="math inline">\theta</span>.</p>
+</span> Then <span class="math inline">\hat{\theta}_n</span> is a <span class="blue">consistent estimator</span> of <span class="math inline">\theta_0</span>.</p>
 </div>
 </div>
 <ul>
@@ -2120,11 +2127,11 @@ Theorem (<span class="citation" data-cites="Casella2002">Casella and Berger (<a 
 <section id="asymptotic-evaluations-preliminaries-1" class="level2">
 <h2 class="anchored" data-anchor-id="asymptotic-evaluations-preliminaries-1">Asymptotic evaluations: preliminaries</h2>
 <ul>
-<li><p>The <span class="orange">asymptotic normality</span> of an estimator <span class="math inline">\hat{\theta}_n</span> is a stronger property than consistency, implying that the estimator is <span class="blue">normally distributed</span> around the true value <span class="math inline">\theta</span> as the sample size increases.</p></li>
+<li><p>The <span class="orange">asymptotic normality</span> of an estimator <span class="math inline">\hat{\theta}_n</span> is a stronger property than consistency, implying that the estimator is <span class="blue">normally distributed</span> around the true value <span class="math inline">\theta_0</span> for large <span class="math inline">n</span>.</p></li>
 <li><p>Let <span class="math inline">\Theta \subseteq \mathbb{R}</span> and let <span class="math inline">\hat{\theta}_n</span> be a sequence of estimators. Under “regularity conditions”: <span class="math display">
-\sqrt{n}(\hat{\theta}_n - \theta) \overset{\text{d}}{\longrightarrow} \text{N}(0, v(\theta)^{-1}), \qquad n \rightarrow \infty,
-</span> where <span class="math inline">v(\theta)^{-1}</span> is the so-called <span class="blue">asymptotic variance</span>.</p></li>
-<li><p>If <span class="math inline">\hat{\theta}_n</span> is the <span class="orange">maximum likelihood</span>, then under regularity conditions <span class="math inline">n v(\theta)</span> equals the <span class="orange">Fisher information</span> <span class="math inline">I(\theta) = n i(\theta)</span> and the <span class="blue">asymptotic variance</span> is <span class="math inline">i(\theta)^{-1}</span>.</p></li>
+\sqrt{n}(\hat{\theta}_n - \theta_0) \overset{\text{d}}{\longrightarrow} \text{N}(0, v(\theta_0)^{-1}), \qquad n \rightarrow \infty,
+</span> where <span class="math inline">v(\theta_0)^{-1}</span> is the so-called <span class="blue">asymptotic variance</span>.</p></li>
+<li><p>If <span class="math inline">\hat{\theta}_n</span> is the <span class="orange">maximum likelihood</span>, then under regularity conditions <span class="math inline">n v(\theta)</span> equals the <span class="orange">Fisher information</span> <span class="math inline">I(\theta) = n i(\theta)</span> and the <span class="blue">asymptotic variance</span> is <span class="math inline">i(\theta_0)^{-1}</span>.</p></li>
 </ul>
 <div class="callout callout-style-simple callout-tip no-icon">
 <div class="callout-body d-flex">
@@ -2132,8 +2139,8 @@ Theorem (<span class="citation" data-cites="Casella2002">Casella and Berger (<a 
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>In regular estimation problems, the maximum likelihood estimator <span class="math inline">\hat{\theta}_n</span> is <span class="orange">asymptotically efficient</span>, that is, for <span class="math inline">n</span> large enough, its variance attains the Cramér-Rao lower bound. Informally, <span class="math display">
-\hat{\theta}_n \:\dot{\sim}\: \text{N}(\theta, I(\theta)^{-1}).
+<p>In regular problems, the maximum likelihood estimator <span class="math inline">\hat{\theta}_n</span> is <span class="orange">asymptotically efficient</span>, that is, for <span class="math inline">n</span> large enough, its variance attains the Cramér-Rao lower bound. Informally, <span class="math display">
+\hat{\theta}_n \:\dot{\sim}\: \text{N}(\theta_0, I(\theta_0)^{-1}).
 </span></p>
 </div>
 </div>
@@ -2336,8 +2343,8 @@ Theorem (<span class="citation" data-cites="Lehmann1998">Lehmann and Casella (<a
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Under assumptions <span class="blue">(A1)-(A6)</span>, suppose the maximum likelihood estimator <span class="math inline">\hat{\theta}_n</span> exists and is <span class="orange">consistent</span>. Then <span class="math display">
-\sqrt{n}(\hat{\theta}_n - \theta_0) \overset{\text{d}}{\longrightarrow} \text{N}(0, i(\theta)^{-1}), \quad i(\theta) = -\int\frac{\partial^2}{\partial \theta \partial \theta^T}\log{f(y \mid \theta)}\mathrm{d}y,
+<p>Under assumptions <span class="blue">(A1)-(A6)</span>, suppose the maximum likelihood estimator <span class="math inline">\hat{\theta}_n</span> exists and is <span class="orange">consistent</span> for the true value <span class="math inline">\theta_0</span>. Then <span class="math display">
+\sqrt{n}(\hat{\theta}_n - \theta_0) \overset{\text{d}}{\longrightarrow} \text{N}(0, i(\theta_0)^{-1}), \quad i(\theta) = -\int\frac{\partial^2}{\partial \theta \partial \theta^T}\log{f(y \mid \theta)}\mathrm{d}y,
 </span> where <span class="math inline">n i(\theta)</span> is the <span class="blue">Fisher information matrix</span>.</p>
 </div>
 </div>
@@ -2365,7 +2372,7 @@ Theorem (<span class="citation" data-cites="Lehmann1998">Lehmann and Casella (<a
 </div>
 </div>
 <ul>
-<li><p>There are two natural candidates for estimating <span class="math inline">I(\theta)</span>, namely <span class="math inline">I(\hat{\theta}_n)</span> and <span class="math inline">\mathcal{I}(\hat{\theta}_n)</span>. These two quantities may coincide, but in general, this is not guaranteed.</p></li>
+<li><p>There are two natural candidates for estimating <span class="math inline">I(\theta_0) = n i(\theta_0)</span>, namely <span class="math inline">I(\hat{\theta}_n)</span> and <span class="math inline">\mathcal{I}(\hat{\theta}_n)</span>. These two quantities may coincide, but in general, this is not guaranteed.</p></li>
 <li><p>Following Fisher’s original work, <span class="citation" data-cites="Efron1978">Efron and Hinkley (<a href="#ref-Efron1978" role="doc-biblioref">1978</a>)</span> suggested using <span class="math inline">\mathcal{I}(\hat{\theta}_n)</span> because it approximates the <span class="blue">conditional variance</span> of <span class="math inline">\hat{\theta}_n</span> given an appropriate <span class="orange">ancillary statistic</span>.</p></li>
 <li><p>Moreover, <span class="math inline">\mathcal{I}(\hat{\theta}_n)</span> can be computed numerically via differentiation, whereas <span class="math inline">I(\hat{\theta}_n)</span> requires analytical derivations.</p></li>
 </ul>
@@ -2448,7 +2455,7 @@ Theorem (<span class="citation" data-cites="vandervaart1998">van der Vaart (<a h
 <p>Let <span class="math inline">\Theta \subseteq \mathbb{R}^p</span> and <span class="math inline">M_n(\theta)</span> be an M-estimator whose vector-valued <span class="blue">derivative</span> is <span class="math inline">Q_n(\theta)</span>, so that <span class="math display">
 M_n(\theta) = \sum_{i=1}^n m(\theta; Y_i), \qquad Q_n(\theta) = \sum_{i=1}^nq(\theta;Y_i).
 </span> Let <span class="math inline">\hat{\theta}_n</span> be a sequence of <span class="orange">consistent</span> estimators such that <span class="math inline">Q_n(\hat{\theta}_n) = 0</span>. Under assumptions <span class="blue">(A1)-(A2)</span> and further <span class="blue">mild regularity conditions</span> <span class="math display">
-\sqrt{n}(\hat{\theta}_n - \theta) \overset{\text{d}}{\longrightarrow} \text{N}(0, v(\theta)^{-1}), \qquad v(\theta) = h(\theta)j(\theta)^{-1}h(\theta)^T,
+\sqrt{n}(\hat{\theta}_n - \theta_0) \overset{\text{d}}{\longrightarrow} \text{N}(0, v(\theta_0)^{-1}), \qquad v(\theta) = h(\theta)j(\theta)^{-1}h(\theta),
 </span> where <span class="math inline">V(\theta) = n v(\theta)</span> is the <span class="orange">Godambe information matrix</span> and <span class="math display">
 h(\theta) = \mathbb{E}_\theta\left(- \frac{\partial}{\partial \theta}q(\theta)\right), \qquad j(\theta) = \mathbb{E}_\theta\left(q(\theta)q(\theta)^T\right).
 </span></p>
@@ -2469,7 +2476,7 @@ h(\theta) = \mathbb{E}_\theta\left(- \frac{\partial}{\partial \theta}q(\theta)\r
 </div>
 <div class="callout-body-container">
 <p>In regular problems, an M-estimator <span class="math inline">\hat{\theta}_n</span> is <span class="orange">consistent</span> and <span class="blue">asymptotically normal</span>. Moreover, for <span class="math inline">n</span> large enough, its variance is the inverse of the <span class="blue">Godambe information</span>. Informally, <span class="math display">
-\hat{\theta}_n \:\dot{\sim}\: \text{N}(\theta, V(\theta)^{-1}).
+\hat{\theta}_n \:\dot{\sim}\: \text{N}(\theta_0, V(\theta_0)^{-1}).
 </span></p>
 </div>
 </div>
@@ -2549,22 +2556,150 @@ Q(\psi) = \ell^*(\psi) - I(\psi)b_1(\psi)/n \quad \implies \quad \hat{\psi}_\tex
 </div>
 </section>
 </section>
-<section id="robustness" class="level1">
+<section id="robustness" class="level1 page-columns page-full">
 <h1>Robustness</h1>
 <section id="robustness-preliminaries" class="level2">
 <h2 class="anchored" data-anchor-id="robustness-preliminaries">Robustness: preliminaries</h2>
+<ul>
+<li><p>Thus far, we have assumed that <span class="math inline">\mathcal{F} = \{f(\cdot;\theta) : \theta \in \Theta\}</span> is <span class="orange">correctly specified</span>, that is, there exists a <span class="math inline">\theta_0</span> that generates the data <span class="math inline">(Y_1,\dots,Y_n) \sim f(\cdot;\theta_0)</span> and <span class="math inline">f(\cdot; \theta_0) \in \mathcal{F}</span>.</p></li>
+<li><p>Under this <span class="blue">assumption</span>, we have derived estimators that are <span class="orange">optimal</span> in some sense. However, if the underlying model is not correct, everything breaks down.</p></li>
+<li><p>The term “<span class="orange">robustness</span>” is intentionally vague, but let us say that any statistical procedure:</p>
+<ol type="a">
+<li>Should have nearly optimal efficiency if the model is correctly specified</li>
+<li>Small deviations from the model assumptions should impair the model only slightly</li>
+<li>Somewhat larger devitations from the model should not cause a catastrophe</li>
+</ol></li>
+<li><p>We also distinguish among two kinds of robustness:</p>
+<ol type="i">
+<li>robustness with respect to <span class="blue">contamination</span> of the data (i.e.&nbsp;<span class="math inline">y_i = 10^{32}</span> is an <span class="orange">outlier</span>)</li>
+<li>robustness with respect to <span class="orange">model misspecification</span>, that is, we specify a class of models <span class="math inline">\mathcal{F}</span> but in reality <span class="math inline">(Y_1,\dots,Y_n) \sim f_0(\cdot)</span> and <span class="math inline">f_0(\cdot) \notin \mathcal{F}</span>.</li>
+</ol></li>
+<li><p>Case i. is sometimes called <span class="orange">resistence</span> and relies on the notion of <span class="blue">influence functions</span>. For instance, the median is resistent, the mean is not. Here we will consider case ii.</p></li>
+</ul>
+</section>
+<section id="example-omitted-variable-in-linear-regression" class="level2">
+<h2 class="anchored" data-anchor-id="example-omitted-variable-in-linear-regression">Example: omitted variable in linear regression</h2>
+<ul>
+<li><p>Let <span class="math inline">y_1,\dots,y_n</span> be realizations from the model <span class="math inline">Y_i = \beta_1 + \beta_2 x_i + \beta_3 z_i + \epsilon_i</span> for <span class="math inline">i=1,\dots,n</span>, where <span class="math inline">x_i</span> and <span class="math inline">z_i</span> are linearly independent <span class="blue">covariates</span> and <span class="math inline">\epsilon_i \overset{\textup{iid}}{\sim} \text{N}(0, \sigma^2)</span> is the <span class="orange">error term</span>.</p></li>
+<li><p>If we do not include <span class="math inline">z_i</span> in our model, the class <span class="math inline">\mathcal{F}</span> is <span class="orange">misspecified</span>. The <span class="orange">maximum likelihood</span> estimate of <span class="math inline">\beta_2</span> under the misspecified <span class="math inline">\mathcal{F}</span> is: <span class="math display">
+\hat{\beta}_2 = \frac{1}{\sum_{j=1}^n (x_j - \bar{x})^2}\sum_{i=1}^n (x_i - \bar{x})(y_i - \bar{y}).
+</span></p></li>
+<li><p>Thus, the estimator <span class="math inline">\hat{\beta}_2</span>, <span class="blue">under the true model</span> <span class="math inline">f_0</span>, is distributed as a Gaussian with mean <span class="math display">
+\mathbb{E}_0(\hat{\beta}_2) = \beta_2 + \beta_3 \frac{1}{\sum_{j=1}^n (x_j - \bar{x})^2}\sum_{i=1}^n (x_i - \bar{x})(z_i - \bar{z}),
+</span> and variance <span class="math inline">\sigma^2 / \sum_{j=1}^n (x_j - \bar{x})^2</span>.</p></li>
+<li><p>In other words, <span class="math inline">\hat{\beta}_2</span> is <span class="orange">biased</span> and <span class="orange">inconsistent</span> unless <span class="math inline">x</span> and <span class="math inline">z</span> are <span class="blue">uncorrelated</span> or, obviously, if the model is correctly specified, that is if <span class="math inline">\beta_3 = 0</span>.</p></li>
+</ul>
 </section>
 <section id="maximum-likelihood-under-a-misspecified-model" class="level2">
 <h2 class="anchored" data-anchor-id="maximum-likelihood-under-a-misspecified-model">Maximum likelihood under a misspecified model</h2>
 <ul>
-<li>Interpretation of <span class="math inline">\hat{\theta}</span> as the minimizer of the Kullback-Leibler</li>
+<li><p>Let <span class="math inline">f_0(\cdot)</span> denote the true probability model, and let <span class="math inline">\mathcal{F} = \{f(\cdot;\theta) : \theta \in \Theta\}</span> be an <span class="orange">incorrectly specified</span> statistical model, such that <span class="math inline">f_0 \notin \mathcal{F}</span>.</p></li>
+<li><p>Suppose <span class="math inline">Y_1, \dots, Y_n</span> are <span class="blue">iid</span> under <span class="math inline">f_0</span>, and define the log-likelihood as <span class="math inline">\ell(\theta) = \sum_{i=1}^n \log{f(y_i;\theta)}</span>.</p></li>
+<li><p>Let <span class="math inline">\mathbb{E}_0(\cdot)</span> denote expectation under the true model <span class="math inline">f_0</span>. If the problem is <span class="blue">sufficiently regular</span>, the <span class="orange">maximum likelihood</span> estimator <span class="math inline">\hat{\theta}_n</span> <span class="orange">converges</span> in probability to some value <span class="math inline">\theta_0</span> such that <span class="math display">
+\mathbb{E}_0\{\ell(\theta)\} &lt; \mathbb{E}_0\{\ell(\theta_0)\}, \quad \text{for all } \theta \in \Theta, \quad \theta \neq \theta_0,
+</span> as shown in <span class="citation" data-cites="Huber1967">Huber (<a href="#ref-Huber1967" role="doc-biblioref">1967</a>)</span>. That is, <span class="math inline">\hat{\theta}_n</span> converges to a value satisfying <span class="orange">Wald’s inequality</span>.</p></li>
+<li><p>An alternative formulation of this result is the following: <span class="math display">
+\mathrm{KL}(f(\cdot; \theta_0) \mid f_0) &lt; \mathrm{KL}(f(\cdot; \theta) \mid f_0), \quad \text{for all } \theta \in \Theta, \quad \theta \neq \theta_0.
+</span></p></li>
+</ul>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>In other words, the <span class="orange">maximum likelihood</span> converges to <span class="math inline">\theta_0</span>, which represents the parameter value that makes <span class="math inline">f(\cdot;\theta)</span> <span class="blue">as close as possible</span> to the true <span class="math inline">f_0</span>, albeit <span class="math inline">\mathrm{KL}(f(\cdot; \theta_0) \mid f_0) &gt; 0</span>.</p>
+<p>The maximum likelihood makes our predictions “the best they can be” given the chosen model.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="example-misspecified-exponential-model-i" class="level2">
+<h2 class="anchored" data-anchor-id="example-misspecified-exponential-model-i">Example: misspecified exponential model I</h2>
+<ul>
+<li><p>Let <span class="math inline">\mathcal{F} = \{\mu^{-1}e^{-y/\mu} : \mu \in \mathbb{R}^+ \}</span> and suppose the data <span class="math inline">Y_1,\dots,Y_n</span> are iid from an <span class="orange">exponential</span> with mean <span class="math inline">\mu_0</span>. Then <span class="math inline">\bar{Y}</span> is a <span class="blue">consistent</span> and <span class="orange">efficient</span> estimator for <span class="math inline">\mu_0</span>.</p></li>
+<li><p>However, <span class="math inline">\bar{Y}</span> is a <span class="orange">robust</span> estimator, in the sense that if instead <span class="math inline">Y_i \overset{\textup{iid}}{\sim} f_0(\cdot)</span> with <span class="math inline">f_0(\cdot) \notin \mathcal{F}</span>, then <span class="math inline">\bar{Y}</span> remains <span class="blue">consistent</span> for the mean <span class="math inline">\mu_0</span> under minimal assumptions on <span class="math inline">f_0</span> (i.e.&nbsp;<span class="math inline">\mu_0</span> must exist).</p></li>
+<li><p>On the other hand, the central limit theorem shows that the asymptotic distribution is <span class="math display">
+\sqrt{n}(\bar{Y} - \mu) \overset{\textup{d}}{\longrightarrow} \textup{N}(0, \sigma^2).
+</span> where <span class="math inline">\sigma^2</span> is the variance of <span class="math inline">Y_i</span> under <span class="math inline">f_0(\cdot)</span>, provided <span class="math inline">\sigma^2 &lt; \infty</span>.</p></li>
+<li><p>Thus, <span class="blue">confidence intervals</span> are robust if <span class="math inline">\sigma^2</span> is estimated in a <span class="orange">robust</span> way, e.g.&nbsp;using the <span class="blue">sample variance</span>, but <span class="orange">not</span> if we use the usual <span class="math inline">\hat{\sigma} = i(\hat{\mu})^{-1} = \bar{Y}^2</span> implied by the exponential specification.</p></li>
+<li><p>This example can be read under the lenses of estimating equations. The score function <span class="math display">
+\ell^*(\mu) = \sum_{i=1}^n(Y_i - \mu)
+</span> is an <span class="blue">unbiased estimating equation</span> under <span class="math inline">f_0(\cdot)</span> for a broad class of models beyond <span class="math inline">\mathcal{F}</span>.</p></li>
 </ul>
 </section>
-<section id="re-interpreting-m-estimators-and-z-estimators" class="level2">
-<h2 class="anchored" data-anchor-id="re-interpreting-m-estimators-and-z-estimators">Re-interpreting M-estimators and Z-estimators</h2>
+<section id="robustness-and-unbiased-estimating-equations" class="level2">
+<h2 class="anchored" data-anchor-id="robustness-and-unbiased-estimating-equations">Robustness and unbiased estimating equations</h2>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>An essential requirement is that estimands must have the <span class="blue">same interpretation</span> under all the potential models. In the former exponential example <span class="math inline">\mu_0</span> represents the mean of <span class="math inline">f_0</span>.</p>
+<p>Formally, this means we can write the parameter <span class="math inline">\theta_0</span> as a <span class="orange">functional of interest</span> <span class="math inline">T(\cdot)</span> of <span class="math inline">f_0</span>: <span class="math display">
+\theta_0 = T(f_0).
+</span> For example, we might have <span class="math inline">\theta_0 = \int_\mathcal{Y} \bm{y} f_0(\bm{y}) \nu(\mathrm{d}\bm{y})</span>, that is, the mean of <span class="math inline">f_0</span>.</p>
+<p>On the other hand, for instance the parameters <span class="math inline">\alpha</span> and <span class="math inline">\beta</span> of a Gamma distribution are not robust to interpretation, because they are meaningless for models other than the Gamma.</p>
+</div>
+</div>
+</div>
 <ul>
-<li>Results of Godambe efficiency</li>
+<li><p>More broadly, if the <span class="orange">score function</span> <span class="math inline">\ell^*(\theta) = \sum_{i=1}^n \ell^*(\theta; Y_i)</span> is <span class="blue">unbiased</span> under <span class="math inline">f_0(\cdot)</span>, the estimator is <span class="blue">consistent</span> under mild conditions.</p></li>
+<li><p>Moreover, even if the maximum likelihood <span class="math inline">\hat{\theta}_n</span> is consistent, the <span class="blue">asymptotic variance</span> is not anymore the one induced by the Fisher information: <span class="orange">adjustments</span> are needed.</p></li>
 </ul>
+</section>
+<section id="misspecified-likelihoods-are-m-estimators" class="level2">
+<h2 class="anchored" data-anchor-id="misspecified-likelihoods-are-m-estimators">Misspecified likelihoods are M-estimators</h2>
+<ul>
+<li><p>The <span class="blue">theory</span> of <span class="blue">M- and Z-estimators</span> can be directly applied to investigate the asymptotic behavior the maximum likelihood estimator <span class="orange">under model misspecification</span>.</p></li>
+<li><p>If <span class="math inline">\mathcal{F}</span> is misspecified then the maximizer of the log-likelihood <span class="math inline">\ell(\theta) = \sum_{i=1}^n \log{f(y_i;\theta)}</span> should be regarded as an <span class="orange">M-estimator</span> while the score function <span class="math inline">\ell^*(\theta)</span> is a <span class="blue">Z-estimator</span>.</p></li>
+<li><p><span class="orange">Consistency</span> and <span class="blue">asymptotic normality</span> of the maximum likelihood estimator <span class="math inline">\hat{\theta}_n</span> for misspecified models hold under the assumptions in <span class="citation" data-cites="vandervaart1998">van der Vaart (<a href="#ref-vandervaart1998" role="doc-biblioref">1998</a>)</span>, Theorems 5.7, 5.9, 5.21.</p></li>
+<li><p>Note that under misspecification, <span class="blue">Bartlett identity</span> does not hold anymore. However, under the assumptions of Theorem 5.21 of <span class="citation" data-cites="vandervaart1998">van der Vaart (<a href="#ref-vandervaart1998" role="doc-biblioref">1998</a>)</span>, the maximum likelihood is such that <span class="math display">
+\sqrt{n}(\hat{\theta}_n - \theta_0) \overset{\text{d}}{\longrightarrow} \text{N}(0, v(\theta_0)^{-1}), \qquad v(\theta) = h(\theta)j(\theta)^{-1}h(\theta),
+</span> where <span class="math inline">V(\theta) = n v(\theta)</span> is the <span class="orange">Godambe information matrix</span> and <span class="math display">
+h(\theta) = \mathbb{E}_0\left(- \frac{\partial}{\partial \theta}\ell^*(\theta)\right), \qquad j(\theta) = \mathbb{E}_0\left(\ell^*(\theta)\ell^*(\theta)^T\right).
+</span> where expectations are taken over <span class="math inline">f_0 \notin \mathcal{F}</span> and not the misspecified <span class="math inline">f(\cdot; \theta)</span>, so that <span class="math inline">h(\theta) \neq j(\theta)</span>.</p></li>
+</ul>
+</section>
+<section id="sandwich-estimators" class="level2">
+<h2 class="anchored" data-anchor-id="sandwich-estimators">Sandwich estimators</h2>
+<ul>
+<li><p>In order to compute <span class="orange">confidence intervals</span> and test hypotheses, we need to estimate the <span class="blue">asymptotic variance</span> of the maximum likelihood estimator <span class="math inline">\hat{\theta}_n</span> under model misspecification.</p></li>
+<li><p>Informally, recall that for <span class="math inline">n</span> large enough and under regularity conditions, we have <span class="math display">
+\text{var}_0(\hat{\theta}_n) \approx V(\theta_0)^{-1}.
+</span></p></li>
+<li><p>If the model is correctly specified, then typical <span class="orange">estimators</span> of the <span class="orange">variance</span> of <span class="math inline">\hat{\theta}_n</span> are <span class="math inline">\mathcal{I}(\hat{\theta}_n)</span> and <span class="math inline">I(\hat{\theta}_n)</span>. Unfortunately, we cannot use <span class="math inline">V(\hat{\theta}_n)</span> because it depends on <span class="math inline">f_0</span>, which is unknown!</p></li>
+</ul>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>The <span class="blue">sandwich estimator</span> is a popular choice for estimating the <span class="orange">asymptotic variance</span> of <span class="math inline">\hat{\theta}_n</span> under model misspecification. The sandwich estimator for <span class="math inline">V(\theta)</span> is <span class="math display">
+\hat{V}(\hat{\theta}_n) = \mathcal{I}(\hat{\theta}_n)\left(\sum_{i=1}^n\ell^*(\hat{\theta}_n; y_i)\ell^*(\hat{\theta}_n; y_i)^T\right)^{-1}\mathcal{I}(\hat{\theta}_n),
+</span> recalling that <span class="math inline">\mathcal{I}(\theta) = - \partial/\partial \theta  \:\ell^*(\theta; \bm{y})</span> is the <span class="blue">observed information</span> matrix.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="example-misspecified-exponential-model-ii" class="level2">
+<h2 class="anchored" data-anchor-id="example-misspecified-exponential-model-ii">Example: misspecified exponential model II</h2>
+</section>
+<section id="example-correlated-observations" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="example-correlated-observations">Example: correlated observations</h2>
+<ul>
+<li><p>Let <span class="math inline">y_1,\dots,y_n</span> be realizations of <span class="orange">dependent</span> random variables from the density <span class="math inline">f(\bm{y};\theta)</span> with <span class="math inline">\Theta \subseteq \mathbb{R}^p</span>. Moreover, let <span class="math inline">f(y_i;\theta)</span> be the <span class="blue">marginal density</span> of <span class="math inline">y_i</span>.</p></li>
+<li><p>If the data are dependent, the log-likelihood <span class="math inline">\ell_c(\theta) = \sum_{i=1}^n \log{f(y_i;\theta)}</span> is <span class="orange">misspecified</span>, because it assumes independence. Indeed, <span class="math inline">\ell_c(\theta)</span> is an instance of <span class="blue">composite likelihood</span>.</p></li>
+<li><p>Nonetheless, under mild regularity conditions, the <span class="grey">misspecified score function</span> is <span class="orange">unbiased</span> under the true model <span class="math inline">f(\bm{y};\theta)</span>, thanks to the <span class="blue">linearity</span> of the expectation operator: <span class="math display">
+\ell^*_c(\theta) = \sum_{i=1}^n \frac{\partial}{\partial \theta}\log{f(y_i;\theta)} \implies \mathbb{E}_0\{\ell^*_c(\theta)\} = \bm{0}.
+</span></p></li>
+<li><p>Unbiasedness of <span class="math inline">\ell^*_c(\theta)</span> does not guarantee consistency nor asymptotic normality, but both are recovered under mild assumptions on the dependence structure, relying on <span class="blue">ergodic</span> theorems or <span class="orange">martingales</span>. Remarkably, a Godambe-like asymptotic variance is obtained at the limit<a href="#fn19" class="footnote-ref" id="fnref19" role="doc-noteref"><sup>19</sup></a>.</p></li>
+</ul>
+<div class="no-row-height column-margin column-container"><div id="fn19"><p><sup>19</sup>&nbsp;Refer to Section 7.2.3 in <span class="citation" data-cites="Davison2003">Davison (<a href="#ref-Davison2003" role="doc-biblioref">2003</a>)</span> for a discussion on general estimating equations with dependent data and sufficient conditions for consistency and asymptotic normality.</p></div></div></section>
+<section id="example-the-probability-of-observing-a-zero" class="level2">
+<h2 class="anchored" data-anchor-id="example-the-probability-of-observing-a-zero">Example: the probability of observing a zero</h2>
 </section>
 <section id="example-huber-estimators" class="level2">
 <h2 class="anchored" data-anchor-id="example-huber-estimators">Example: Huber estimators</h2>
@@ -2661,6 +2796,9 @@ Firth, D. (1993), <span>“Bias reduction of maximum likelihood estimates,”</s
 </div>
 <div id="ref-Godambe1960" class="csl-entry" role="listitem">
 Godambe, V. P. (1960), <span>“<span class="nocase">An optimum property of regular maximum likelihood estimation</span>,”</span> <em>Annals of Mathematical Statistics</em>, 31, 1208–1211.
+</div>
+<div id="ref-Huber1967" class="csl-entry" role="listitem">
+Huber, P. J. (1967), <span>“The behavior of maximum likelihood estimates under nonstandard conditions,”</span> in <em>Proceedings of the fifth berkeley symposium on mathematical statistics and probability</em>.
 </div>
 <div id="ref-James1961" class="csl-entry" role="listitem">
 James, W., and Stein, C. (1961), <span>“Estimation with quadratic loss,”</span> in <em>Proc. Fourth berkeley symposium</em>, <span>University of California Press</span>, pp. 361–380.
