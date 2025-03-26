@@ -2512,9 +2512,9 @@ h(\theta) = \mathbb{E}_0\left(- \frac{\partial}{\partial \theta}\ell^*(\theta)\r
 \ell^*(\mu) = \sum_{i=1}^n \left(-\frac{1}{\mu} + \frac{y_i}{\mu^2}\right) = - \frac{n}{\mu} + \frac{n \bar{y}}{\mu^2}, \qquad \mathcal{I}(\mu) = -\frac{\partial}{\partial \mu}\ell^*(\mu) = -\frac{n}{\mu^2} + \frac{2 n \bar{y}}{\mu^3}.
 </span></p></li>
 <li><p>The inverse of the observed information matrix, evaluated at <span class="math inline">\hat{\mu} = \bar{y}</span>, is an estimate of the asymptotic variance <span class="orange">assuming</span> the model is <span class="blue">correctly specified</span>: <span class="math display">
-\text{var}_\theta(\hat{\mu}) \approx \mathcal{I}(\hat{\mu})^{-1} = \frac{\bar{y}^2}{n}, \qquad (\text{under correct specification}).
+\text{var}_\theta(\hat{\mu}) \approx \mathcal{I}(\hat{\mu})^{-1} = \frac{\bar{y}^2}{n}.
 </span></p></li>
-<li><p>If the model is misspecified, then we can use the <span class="orange">sandwich estimator</span>: <span class="math display">
+<li><p>If the model is <span class="orange">misspecified</span>, then we can use the <span class="orange">sandwich estimator</span>: <span class="math display">
 \text{var}_0(\hat{\mu}) \approx \mathcal{I}(\hat{\mu})^{-2} \sum_{i=1}^n\ell^*(\hat{\mu}; y_i)^2 = \frac{\bar{y}^4}{n^2} \sum_{i=1}^n\frac{1}{\bar{y}^4}(y_i - \bar{y})^2 = \frac{1}{n}\left(\frac{1}{n}\sum_{i=1}^n (y_i - \bar{y})^2\right),
 </span> which is the <span class="math inline">n^{-1}</span> times the usual method of moments estimator for the variance.</p></li>
 </ul>

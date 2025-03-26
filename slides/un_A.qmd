@@ -2382,9 +2382,9 @@ $$
 $$
 - The inverse of the observed information matrix, evaluated at $\hat{\mu} = \bar{y}$, is an estimate of the asymptotic variance [assuming]{.orange} the model is [correctly specified]{.blue}:
 $$
-\text{var}_\theta(\hat{\mu}) \approx \mathcal{I}(\hat{\mu})^{-1} = \frac{\bar{y}^2}{n}, \qquad (\text{under correct specification}).
+\text{var}_\theta(\hat{\mu}) \approx \mathcal{I}(\hat{\mu})^{-1} = \frac{\bar{y}^2}{n}.
 $$
-- If the model is misspecified, then we can use the [sandwich estimator]{.orange}:
+- If the model is [misspecified]{.orange}, then we can use the [sandwich estimator]{.orange}:
 $$
 \text{var}_0(\hat{\mu}) \approx \mathcal{I}(\hat{\mu})^{-2} \sum_{i=1}^n\ell^*(\hat{\mu}; y_i)^2 = \frac{\bar{y}^4}{n^2} \sum_{i=1}^n\frac{1}{\bar{y}^4}(y_i - \bar{y})^2 = \frac{1}{n}\left(\frac{1}{n}\sum_{i=1}^n (y_i - \bar{y})^2\right), 
 $$
