@@ -246,11 +246,11 @@ is called [likelihood function]{.orange}. The log-likelihood function is $\ell(\
 
 
 
-## Cynical (but questionable) advice for a young investigator
+## Cynical and questionable advice for a young investigator
 
 1. Strive to [publish]{.blue} in [top statistical journals]{.orange}, such as: *Annals of Statistics, Biometrika, Journal of the American Statistical Association, Journal of the Royal Statistical Society: Series B*.
 
-1. However, keep in mind that both [quality]{.blue} and [quantity]{.orange} matter. Aim to have at least 2–4 submitted or published papers by the end of your Ph.D. — the more, the better.
+1. However, keep in mind that both [quality]{.blue} and [quantity]{.orange} matter. Aim to have at least 2–4 submitted or published papers by the end of your Ph.D. --- the more, the better.
 
 2. Focus on a [niche trending topic]{.orange}. Make sure you are part of a [large]{.blue} and [established group]{.blue} of researchers who actively promote the topic you are working on.
 
@@ -265,7 +265,7 @@ is called [likelihood function]{.orange}. The log-likelihood function is $\ell(\
 
 ## Deconstructing the cynical advice
 
-- The former is a list of cynical concrete recommendations (easier said than done, especially about publishing on top journals) that may help you secure a [permanent position]{.blue} in [academia]{.blue}. 
+- The former is a list of concrete recommendations (easier said than done, especially about publishing on top journals) that may help you secure a [permanent position]{.blue} in [academia]{.blue}. 
 
 - I [do not fully agree]{.orange} with those rules: there is more to pursuing a Ph.D. than just "getting a job." 
 
@@ -275,11 +275,11 @@ is called [likelihood function]{.orange}. The log-likelihood function is $\ell(\
 
 :::callout-warning
 
-- These rules may lead to an [unhealthy competition]{.orange} among peers, to [publish or perish]{.blue}, which has [negative psychological]{.orange} effects and it favors [incremental]{.orange} contributions. 
+- These rules may lead to an [unhealthy competition]{.orange} among peers, who struggle to [publish or perish]{.blue}, which has [negative psychological]{.orange} effects and it favors [incremental]{.orange} contributions. 
 
-- If the academic system rewards ultra-specialization, why study [classical statistical inference]{.orange} or other topics at all?  
+- Even if they work in the [short period]{.orange}, in the [long run]{.blue}, if the niche you decided to focus on is declining, transitioning towards different topics is really hard if have not studied them before. 
 
-- In the [long run]{.blue}, if the niche you decided to focus on is declining, transitioning towards different topics is really hard if have not studied them before. 
+- If the academic system rewards specialization, why study [classical statistics]{.orange} or other topics at all? What about the role of Universities in [preserving]{.blue} and [disseminating knowledge]{.blue}?
 
 - These suggestions apply to academia and do not consider [working]{.blue} in [industry]{.blue} after the Ph.D., which is ironically what many (most?) Ph.D. students will do.
 :::
