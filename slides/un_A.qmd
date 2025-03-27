@@ -2426,11 +2426,44 @@ $$
 \hat{\psi}_\text{MM} = \frac{1}{n}\sum_{i=1}^n \mathbb{I}(y_i = 0).
 $$
 
-## Example: linear models with misspecified variance
+## Example: linear models with misspecified variance I 📖
 
-- See Davison, Section 8.4
+- Let $Y_i = \bm{x}_i^T\beta + \epsilon_i$, where the [errors]{.orange} $\epsilon_i$ are random variables distributed according to $f_0$, whereas $\bm{x}_i$ are [known covariates]{.blue} and $\beta \in \mathbb{R}^p$ is a [parameter]{.orange} of interest.
 
-## Example: linear models with misspecified variance
+- If we further assume that $\epsilon_i \overset{\textup{iid}}{\sim} \text{N}(0, \sigma^2)$, then the [maximum likelihood estimator]{.orange} $\hat{\beta} = (\bm{X}^T\bm{X})^{-1}\bm{X}^T\bm{y}$ is the [least squares estimator]{.blue}. Moreover, the [score function]{.blue} is
+$$
+\ell^*(\beta) = \frac{1}{\sigma^2}\sum_{i=1}^n \bm{x}_i(y_i - \bm{x}_i^T\beta) = \frac{1}{\sigma^2}\bm{X}^T(\bm{y} - \bm{X}\beta),
+$$
+whereas the Fisher/observed [information matrix]{.orange} is
+$$
+I(\beta) = \mathcal{I}(\beta) = \frac{1}{\sigma^2}\sum_{i=1}^n \bm{x}_i\bm{x}_i^T = \frac{1}{\sigma^2}\bm{X}^T\bm{X} \implies \text{var}_\beta(\hat{\beta}) = \sigma^2 (\bm{X}^T\bm{X})^{-1}.
+$$
+- Provided that $\mathbb{E}_0(Y_i) = \bm{x}_i^T\beta$, that is, as long as the [linearity assumption]{.blue} holds under $f_0$, then the OLS estimator is [robust]{.orange} and [unbiased]{.blue} even when $\epsilon_i$ are not Gaussian or [not iid]{.orange}. 
+
+- If the iid Gaussian model is [misspecified]{.orange}, e.g. because $\text{var}_0(\epsilon_i) = \sigma^2_i$ (heteroskedasticity), then the OLS estimator is still a good choice but its variance should be adjusted.
+
+## Example: linear models with misspecified variance II 📖
+
+- The [variance]{.blue} of $\hat{\beta}$ under a general model $f_0$ in which the random vector $(\epsilon_1,\dots,\epsilon_n)$ has zero mean and $\text{var}_0(\bm{\epsilon}) = \bm{\Sigma}$, is explicity available
+$$
+\text{var}_0(\hat{\beta}) =  (\bm{X}^T\bm{X})^{-1} \bm{X}^T \bm{\Sigma}\bm{X} (\bm{X}^T\bm{X})^{-1}.
+$$
+This coincides with the inverse [Godambe information]{.blue} of the [estimating equation]{.orange} $\ell^*(\beta)$:
+$$
+\text{var}_0(\hat{\beta}) = I(\beta)^{-1} \mathbb{E}_0\left\{\frac{1}{\sigma^4}\bm{X}^T(\bm{Y} - \bm{X}\beta)(\bm{Y} - \bm{X}\beta)\bm{X}\right\} I(\beta)^{-1}
+$$
+- In practice, the matrix $\bm{\Sigma}$ is unknown. Thus, we rely on the [sandwich estimator]{.blue}:
+$$
+\begin{aligned}
+\hat{V}(\hat{\beta})^{-1} &= I(\hat{\beta})^{-1} \left\{\frac{1}{\sigma^4}\sum_{i=1}^n \bm{x}_i(y_i - \bm{x}_i^T\hat{\beta})(y_i - \bm{x}_i^T\hat{\beta})\bm{x}_i^T\right\} I(\hat{\beta})^{-1} \\
+&= (\bm{X}^T\bm{X})^{-1} \bm{X}^T \bm{R}^2 \bm{X} (\bm{X}^T\bm{X})^{-1},
+\end{aligned}
+$$
+where $\bm{R}^2 = \text{diag}(r_1^2,\dots,r_n^2)$ and $r_i = y_i - \bm{x}_i^T\hat{\beta}$ are the [residuals]{.orange}.
+
+- This [robust]{.orange} estimator is known as the [White's correction]{.blue} after @White1980, who also proved it is consistent if $\bm{\Sigma} = \text{diag}(\sigma_1^2,\dots,\sigma_n^2)$ and under technical conditions on $\bm{X}$.
+
+## Example: linear models with misspecified variance III 
 
 ```{r}
 library(MASS)
@@ -2458,11 +2491,11 @@ lines(times_seq, y_hat, col = "orange")
 plot(residuals(m1), xlab = "Index", ylab = "Residuals", pch = 16)
 ```
 
-- Estimated model is
+- In this example, we fit a linear model (in the parameters!) so that $\bm{Y} = \bm{X}\beta + \epsilon$ using [least squares]{.blue}, with $p = 12$. The residuals clearly show [heteroskedasticity]{.orange}.
 
-## Example: linear models with misspecified variance
+## Example: linear models with misspecified variance IV
 
-- Standard matrix
+- The [standard]{.blue} estimator is $\hat{\sigma}^2 (\bm{X}^T\bm{X})^{-1}$. Below we show the first $4 \times 4$ entries
 
 ```{r}
 var1 <- vcov(m1)
@@ -2478,7 +2511,7 @@ colnames(var1) <- rownames(var1) <- colnames(varHC) <- rownames(varHC) <- NULL
 |$\beta_3$ |  17.70| -73.32|  **87.43**| -69.35|
 |$\beta_4$ | -12.81|  54.10| -69.35| **217.58**|
 
-- Sandwhich estimated matrix
+- The [sandwhich (White)]{.orange} estimator is instead $(\bm{X}^T\bm{X})^{-1} \bm{X}^T \bm{R}^2 \bm{X} (\bm{X}^T\bm{X})^{-1}$:
 
 ```{r}
 #knitr::kable(varHC[1:4, 1:4], digits = 2)
@@ -2490,6 +2523,8 @@ colnames(var1) <- rownames(var1) <- colnames(varHC) <- rownames(varHC) <- NULL
 |$\beta_2$ | -9.73|  **42.79**| -43.71|  40.57|
 |$\beta_3$ |  9.45| -43.71|  **72.01**| -67.22|
 |$\beta_4$ | -8.80|  40.57| -67.22| **288.72**|
+
+- We used the `sandwich` R package, that implements several sandwich variants. 
 
 ## Example: Huber estimators
 

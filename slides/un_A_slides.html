@@ -2544,23 +2544,47 @@ h(\theta) = \mathbb{E}_0\left(- \frac{\partial}{\partial \theta}\ell^*(\theta)\r
 </span></p></li>
 </ul>
 </section>
-<section id="example-linear-models-with-misspecified-variance" class="slide level2 center">
-<h2>Example: linear models with misspecified variance</h2>
+<section id="example-linear-models-with-misspecified-variance-i" class="slide level2 center">
+<h2>Example: linear models with misspecified variance I 📖</h2>
 <ul>
-<li>See Davison, Section 8.4</li>
+<li><p>Let <span class="math inline">Y_i = \bm{x}_i^T\beta + \epsilon_i</span>, where the <span class="orange">errors</span> <span class="math inline">\epsilon_i</span> are random variables distributed according to <span class="math inline">f_0</span>, whereas <span class="math inline">\bm{x}_i</span> are <span class="blue">known covariates</span> and <span class="math inline">\beta \in \mathbb{R}^p</span> is a <span class="orange">parameter</span> of interest.</p></li>
+<li><p>If we further assume that <span class="math inline">\epsilon_i \overset{\textup{iid}}{\sim} \text{N}(0, \sigma^2)</span>, then the <span class="orange">maximum likelihood estimator</span> <span class="math inline">\hat{\beta} = (\bm{X}^T\bm{X})^{-1}\bm{X}^T\bm{y}</span> is the <span class="blue">least squares estimator</span>. Moreover, the <span class="blue">score function</span> is <span class="math display">
+\ell^*(\beta) = \frac{1}{\sigma^2}\sum_{i=1}^n \bm{x}_i(y_i - \bm{x}_i^T\beta) = \frac{1}{\sigma^2}\bm{X}^T(\bm{y} - \bm{X}\beta),
+</span> whereas the Fisher/observed <span class="orange">information matrix</span> is <span class="math display">
+I(\beta) = \mathcal{I}(\beta) = \frac{1}{\sigma^2}\sum_{i=1}^n \bm{x}_i\bm{x}_i^T = \frac{1}{\sigma^2}\bm{X}^T\bm{X} \implies \text{var}_\beta(\hat{\beta}) = \sigma^2 (\bm{X}^T\bm{X})^{-1}.
+</span></p></li>
+<li><p>Provided that <span class="math inline">\mathbb{E}_0(Y_i) = \bm{x}_i^T\beta</span>, that is, as long as the <span class="blue">linearity assumption</span> holds under <span class="math inline">f_0</span>, then the OLS estimator is <span class="orange">robust</span> and <span class="blue">unbiased</span> even when <span class="math inline">\epsilon_i</span> are not Gaussian or <span class="orange">not iid</span>.</p></li>
+<li><p>If the iid Gaussian model is <span class="orange">misspecified</span>, e.g.&nbsp;because <span class="math inline">\text{var}_0(\epsilon_i) = \sigma^2_i</span> (heteroskedasticity), then the OLS estimator is still a good choice but its variance should be adjusted.</p></li>
 </ul>
 </section>
-<section id="example-linear-models-with-misspecified-variance-1" class="slide level2 center">
-<h2>Example: linear models with misspecified variance</h2>
+<section id="example-linear-models-with-misspecified-variance-ii" class="slide level2 center">
+<h2>Example: linear models with misspecified variance II 📖</h2>
+<ul>
+<li><p>The <span class="blue">variance</span> of <span class="math inline">\hat{\beta}</span> under a general model <span class="math inline">f_0</span> in which the random vector <span class="math inline">(\epsilon_1,\dots,\epsilon_n)</span> has zero mean and <span class="math inline">\text{var}_0(\bm{\epsilon}) = \bm{\Sigma}</span>, is explicity available <span class="math display">
+\text{var}_0(\hat{\beta}) =  (\bm{X}^T\bm{X})^{-1} \bm{X}^T \bm{\Sigma}\bm{X} (\bm{X}^T\bm{X})^{-1}.
+</span> This coincides with the inverse <span class="blue">Godambe information</span> of the <span class="orange">estimating equation</span> <span class="math inline">\ell^*(\beta)</span>: <span class="math display">
+\text{var}_0(\hat{\beta}) = I(\beta)^{-1} \mathbb{E}_0\left\{\frac{1}{\sigma^4}\bm{X}^T(\bm{Y} - \bm{X}\beta)(\bm{Y} - \bm{X}\beta)\bm{X}\right\} I(\beta)^{-1}
+</span></p></li>
+<li><p>In practice, the matrix <span class="math inline">\bm{\Sigma}</span> is unknown. Thus, we rely on the <span class="blue">sandwich estimator</span>: <span class="math display">
+\begin{aligned}
+\hat{V}(\hat{\beta})^{-1} &amp;= I(\hat{\beta})^{-1} \left\{\frac{1}{\sigma^4}\sum_{i=1}^n \bm{x}_i(y_i - \bm{x}_i^T\hat{\beta})(y_i - \bm{x}_i^T\hat{\beta})\bm{x}_i^T\right\} I(\hat{\beta})^{-1} \\
+&amp;= (\bm{X}^T\bm{X})^{-1} \bm{X}^T \bm{R}^2 \bm{X} (\bm{X}^T\bm{X})^{-1},
+\end{aligned}
+</span> where <span class="math inline">\bm{R}^2 = \text{diag}(r_1^2,\dots,r_n^2)</span> and <span class="math inline">r_i = y_i - \bm{x}_i^T\hat{\beta}</span> are the <span class="orange">residuals</span>.</p></li>
+<li><p>This <span class="orange">robust</span> estimator is known as the <span class="blue">White’s correction</span> after <span class="citation" data-cites="White1980">White (<a href="#/references" role="doc-biblioref" onclick="">1980</a>)</span>, who also proved it is consistent if <span class="math inline">\bm{\Sigma} = \text{diag}(\sigma_1^2,\dots,\sigma_n^2)</span> and under technical conditions on <span class="math inline">\bm{X}</span>.</p></li>
+</ul>
+</section>
+<section id="example-linear-models-with-misspecified-variance-iii" class="slide level2 center">
+<h2>Example: linear models with misspecified variance III</h2>
 
 <img data-src="un_A_files/figure-revealjs/unnamed-chunk-20-1.png" width="2400" class="r-stretch"><ul>
-<li>Estimated model is</li>
+<li>In this example, we fit a linear model (in the parameters!) so that <span class="math inline">\bm{Y} = \bm{X}\beta + \epsilon</span> using <span class="blue">least squares</span>, with <span class="math inline">p = 12</span>. The residuals clearly show <span class="orange">heteroskedasticity</span>.</li>
 </ul>
 </section>
-<section id="example-linear-models-with-misspecified-variance-2" class="slide level2 center">
-<h2>Example: linear models with misspecified variance</h2>
+<section id="example-linear-models-with-misspecified-variance-iv" class="slide level2 center">
+<h2>Example: linear models with misspecified variance IV</h2>
 <ul>
-<li>Standard matrix</li>
+<li>The <span class="blue">standard</span> estimator is <span class="math inline">\hat{\sigma}^2 (\bm{X}^T\bm{X})^{-1}</span>. Below we show the first <span class="math inline">4 \times 4</span> entries</li>
 </ul>
 <table class="caption-top">
 <thead>
@@ -2604,7 +2628,7 @@ h(\theta) = \mathbb{E}_0\left(- \frac{\partial}{\partial \theta}\ell^*(\theta)\r
 </tbody>
 </table>
 <ul>
-<li>Sandwhich estimated matrix</li>
+<li>The <span class="orange">sandwhich (White)</span> estimator is instead <span class="math inline">(\bm{X}^T\bm{X})^{-1} \bm{X}^T \bm{R}^2 \bm{X} (\bm{X}^T\bm{X})^{-1}</span>:</li>
 </ul>
 <table class="caption-top">
 <thead>
@@ -2647,6 +2671,9 @@ h(\theta) = \mathbb{E}_0\left(- \frac{\partial}{\partial \theta}\ell^*(\theta)\r
 </tr>
 </tbody>
 </table>
+<ul>
+<li>We used the <code>sandwich</code> R package, that implements several sandwich variants.</li>
+</ul>
 </section>
 <section id="example-huber-estimators" class="slide level2 center">
 <h2>Example: Huber estimators</h2>
@@ -2760,6 +2787,9 @@ Stein, C. (1956), <span>“Inadmissibility of the usual estimator of the mean of
 </div>
 <div id="ref-vandervaart1998" class="csl-entry" role="listitem">
 van der Vaart, A. W. (1998), <em><span>Asymptotic Statistics</span></em>, Cambridge University Press.
+</div>
+<div id="ref-White1980" class="csl-entry" role="listitem">
+White, H. (1980), <span>“<span class="nocase">A heteroskedasticity-consistent covariance matrix estimator and a direct test for heteroskedasticity</span>,”</span> <em>Econometrica</em>, 4, 817–838.
 </div>
 </div>
 <div class="quarto-auto-generated-content">
