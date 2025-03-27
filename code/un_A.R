@@ -232,3 +232,28 @@ h <- function(x) {
 
 curve(h, 0, 30, n = 2000, xlab = expression(theta), ylab = "negative KL")
 abline(h = 0, lty = "dotted")
+
+library(MASS)
+library(sandwich)
+library(splines)
+
+rm(list = ls())
+dataset <- MASS::mcycle
+
+times_seq <- seq(from = min(dataset$times), to = max(dataset$times), length = 30000)
+knots <- quantile(dataset$times, ppoints(n = 12))
+
+m1 <- lm(accel ~ ns(times, knots = knots[-c(1, 12)], Boundary.knots = c(knots[1], knots[12]), intercept = TRUE) - 1, data = dataset)
+y_hat <- predict(m1, newdata = data.frame(times = times_seq))
+
+par(mfrow = c(1, 2))
+plot(dataset, pch = 16, xlab = "Time (ms)", ylab = "Head acceleration (g)")
+lines(times_seq, y_hat, col = "orange")
+plot(residuals(m1), xlab = "Index", ylab = "Residuals", pch = 16)
+
+var1 <- vcov(m1)
+varHC <- vcovHC(m1, type = "HC")
+colnames(var1) <- rownames(var1) <- colnames(varHC) <- rownames(varHC) <- NULL
+# knitr::kable(var1[1:4, 1:4], digits = 2)
+
+# knitr::kable(varHC[1:4, 1:4], digits = 2)

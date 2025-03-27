@@ -2163,7 +2163,7 @@ f(y; \theta) = \frac{1}{2}\phi(y; 0, 1) + \frac{1}{2}\phi(y; \theta, e^{-2/\thet
 </ul>
 </section>
 <section id="consistency-for-the-mle-1" class="slide level2 center">
-<h2>Consistency for the MLE</h2>
+<h2>Consistency for the MLE 📖</h2>
 <div class="callout callout-warning no-icon callout-titled callout-style-simple">
 <div class="callout-body">
 <div class="callout-title">
@@ -2187,7 +2187,7 @@ f(y; \theta) = \frac{1}{2}\phi(y; 0, 1) + \frac{1}{2}\phi(y; \theta, e^{-2/\thet
 </div>
 <aside><ol class="aside-footnotes"><li id="fn18"><p>See also <span class="citation" data-cites="vandervaart1998">van der Vaart (<a href="#/references" role="doc-biblioref" onclick="">1998</a>)</span>, Theorem 5.42, for slightly less stringent conditions and a careful discussion about the issue of multiple roots.</p></li></ol></aside></section>
 <section id="asymptotic-normality-of-the-mle" class="slide level2 center">
-<h2>Asymptotic normality of the MLE</h2>
+<h2>Asymptotic normality of the MLE 📖</h2>
 <div class="callout callout-warning no-icon callout-titled callout-style-simple">
 <div class="callout-body">
 <div class="callout-title">
@@ -2240,7 +2240,7 @@ M_n(\theta) = \textcolor{red}{\frac{1}{n}}\sum_{i=1}^n [\ell(\theta;Y_i) \textco
 </ul>
 </section>
 <section id="consistency-for-m-estimators-ii" class="slide level2 center">
-<h2>Consistency for M-estimators II</h2>
+<h2>Consistency for M-estimators II 📖</h2>
 <div class="callout callout-warning no-icon callout-titled callout-style-simple">
 <div class="callout-body">
 <div class="callout-title">
@@ -2263,7 +2263,7 @@ M_n(\theta) = \textcolor{red}{\frac{1}{n}}\sum_{i=1}^n [\ell(\theta;Y_i) \textco
 </ul>
 </section>
 <section id="consistency-for-z-estimators" class="slide level2 center">
-<h2>Consistency for Z-estimators</h2>
+<h2>Consistency for Z-estimators 📖</h2>
 <ul>
 <li><p>The former theorem can be also expressed in terms of Z-estimators <span class="math inline">Q_n(\theta)</span>, that is, on a set of <span class="orange">estimating equations</span>. An example is the score function <span class="math display">
 Q_n(\theta) = \textcolor{red}{\frac{1}{n}}\sum_{i=1}^n \ell^*(\theta; Y_i).
@@ -2357,7 +2357,7 @@ Q(\theta) = \ell^*(\theta) + A(\theta),
 
 <img data-src="img/firth.png" class="quarto-figure quarto-figure-center r-stretch" style="width:6in"></section>
 <section id="bias-reduction-using-firths-correction-iii" class="slide level2 center">
-<h2>Bias reduction using Firth’s correction III</h2>
+<h2>Bias reduction using Firth’s correction III 📖</h2>
 <div class="callout callout-tip no-icon callout-style-simple">
 <div class="callout-body">
 <div class="callout-content">
@@ -2404,7 +2404,7 @@ Q(\psi) = \ell^*(\psi) - I(\psi)b_1(\psi)/n \quad \implies \quad \hat{\psi}_\tex
 </ul>
 </section>
 <section id="example-omitted-variable-in-linear-regression" class="slide level2 center">
-<h2>Example: omitted variable in linear regression</h2>
+<h2>Example: omitted variable in linear regression 📖</h2>
 <ul>
 <li><p>Let <span class="math inline">y_1,\dots,y_n</span> be realizations from the model <span class="math inline">Y_i = \beta_1 + \beta_2 x_i + \beta_3 z_i + \epsilon_i</span> for <span class="math inline">i=1,\dots,n</span>, where <span class="math inline">x_i</span> and <span class="math inline">z_i</span> are linearly independent <span class="blue">covariates</span> and <span class="math inline">\epsilon_i \overset{\textup{iid}}{\sim} \text{N}(0, \sigma^2)</span> is the <span class="orange">error term</span>.</p></li>
 <li><p>If we do not include <span class="math inline">z_i</span> in our model, the class <span class="math inline">\mathcal{F}</span> is <span class="orange">misspecified</span>. The <span class="orange">maximum likelihood</span> estimate of <span class="math inline">\beta_2</span> under the misspecified <span class="math inline">\mathcal{F}</span> is: <span class="math display">
@@ -2417,7 +2417,7 @@ Q(\psi) = \ell^*(\psi) - I(\psi)b_1(\psi)/n \quad \implies \quad \hat{\psi}_\tex
 </ul>
 </section>
 <section id="maximum-likelihood-under-a-misspecified-model" class="slide level2 center">
-<h2>Maximum likelihood under a misspecified model</h2>
+<h2>Maximum likelihood under a misspecified model 📖</h2>
 <ul>
 <li><p>Let <span class="math inline">f_0(\cdot)</span> denote the true probability model, and let <span class="math inline">\mathcal{F} = \{f(\cdot;\theta) : \theta \in \Theta\}</span> be an <span class="orange">incorrectly specified</span> statistical model, such that <span class="math inline">f_0 \notin \mathcal{F}</span>.</p></li>
 <li><p>Suppose <span class="math inline">Y_1, \dots, Y_n</span> are <span class="blue">iid</span> under <span class="math inline">f_0</span>, and define the log-likelihood as <span class="math inline">\ell(\theta) = \sum_{i=1}^n \log{f(y_i;\theta)}</span>.</p></li>
@@ -2479,7 +2479,7 @@ Q(\psi) = \ell^*(\psi) - I(\psi)b_1(\psi)/n \quad \implies \quad \hat{\psi}_\tex
 \sqrt{n}(\hat{\theta}_n - \theta_0) \overset{\text{d}}{\longrightarrow} \text{N}(0, v(\theta_0)^{-1}), \qquad v(\theta) = h(\theta)j(\theta)^{-1}h(\theta),
 </span> where <span class="math inline">V(\theta) = n v(\theta)</span> is the <span class="orange">Godambe information matrix</span> and <span class="math display">
 h(\theta) = \mathbb{E}_0\left(- \frac{\partial}{\partial \theta}\ell^*(\theta)\right), \qquad j(\theta) = \mathbb{E}_0\left(\ell^*(\theta)\ell^*(\theta)^T\right).
-</span> where expectations are taken over <span class="math inline">f_0 \notin \mathcal{F}</span> and not the misspecified <span class="math inline">f(\cdot; \theta)</span>, so that <span class="math inline">h(\theta) \neq j(\theta)</span>.</p></li>
+</span> where expectations are taken over <span class="math inline">f_0</span> and not the misspecified <span class="math inline">f(\cdot; \theta)</span>, so that <span class="math inline">h(\theta) \neq j(\theta)</span>.</p></li>
 </ul>
 </section>
 <section id="sandwich-estimators" class="slide level2 center">
@@ -2496,13 +2496,25 @@ h(\theta) = \mathbb{E}_0\left(- \frac{\partial}{\partial \theta}\ell^*(\theta)\r
 <div class="callout-content">
 <p>The <span class="blue">sandwich estimator</span> is a popular choice for estimating the <span class="orange">asymptotic variance</span> of <span class="math inline">\hat{\theta}_n</span> under model misspecification. The sandwich estimator for <span class="math inline">V(\theta)</span> is <span class="math display">
 \hat{V}(\hat{\theta}_n) = \mathcal{I}(\hat{\theta}_n)\left(\sum_{i=1}^n\ell^*(\hat{\theta}_n; y_i)\ell^*(\hat{\theta}_n; y_i)^T\right)^{-1}\mathcal{I}(\hat{\theta}_n),
-</span> recalling that <span class="math inline">\mathcal{I}(\theta) = - \partial/\partial \theta  \:\ell^*(\theta; \bm{y})</span> is the <span class="blue">observed information</span> matrix.</p>
+</span> recalling that <span class="math inline">\mathcal{I}(\theta) = - \partial/\partial \theta  \:\ell^*(\theta; \bm{y})</span> is the <span class="blue">observed information</span> matrix. If the model is correctly specified then <span class="math inline">\hat{V}(\hat{\theta}_n) = \mathcal{I}(\hat{\theta}_n) + o_p(1)</span>.</p>
 </div>
 </div>
 </div>
 </section>
 <section id="example-misspecified-exponential-model-ii" class="slide level2 center">
-<h2>Example: misspecified exponential model II</h2>
+<h2>Example: misspecified exponential model II 📖</h2>
+<ul>
+<li><p>Let us consider again <span class="math inline">Y_i \overset{\textup{iid}}{\sim} f_0(\cdot)</span> with <span class="math inline">f_0(\cdot) \notin \mathcal{F}</span>, where <span class="math inline">\mathcal{F}</span> is a <span class="orange">misspecified exponential</span> model.</p></li>
+<li><p>The score function is <span class="orange">unbiased</span> for <span class="math inline">\mu</span> under <span class="math inline">f_0</span>. The score and the observed observation matrix are, respectively <span class="math display">
+\ell^*(\mu) = \sum_{i=1}^n \left(-\frac{1}{\mu} + \frac{y_i}{\mu^2}\right) = - \frac{n}{\mu} + \frac{n \bar{y}}{\mu^2}, \qquad \mathcal{I}(\mu) = -\frac{\partial}{\partial \mu}\ell^*(\mu) = -\frac{n}{\mu^2} + \frac{2 n \bar{y}}{\mu^3}.
+</span></p></li>
+<li><p>The inverse of the observed information matrix, evaluated at <span class="math inline">\hat{\mu} = \bar{y}</span>, is an estimate of the asymptotic variance <span class="orange">assuming</span> the model is <span class="blue">correctly specified</span>: <span class="math display">
+\text{var}_\theta(\hat{\mu}) \approx \mathcal{I}(\hat{\mu})^{-1} = \frac{\bar{y}^2}{n}.
+</span></p></li>
+<li><p>If the model is <span class="orange">misspecified</span>, then we can use the <span class="orange">sandwich estimator</span>: <span class="math display">
+\text{var}_0(\hat{\mu}) \approx \mathcal{I}(\hat{\mu})^{-2} \sum_{i=1}^n\ell^*(\hat{\mu}; y_i)^2 = \frac{\bar{y}^4}{n^2} \sum_{i=1}^n\frac{1}{\bar{y}^4}(y_i - \bar{y})^2 = \frac{1}{n}\left(\frac{1}{n}\sum_{i=1}^n (y_i - \bar{y})^2\right),
+</span> which is the <span class="math inline">n^{-1}</span> times the usual method of moments estimator for the variance.</p></li>
+</ul>
 </section>
 <section id="example-correlated-observations" class="slide level2 center">
 <h2>Example: correlated observations</h2>
@@ -2516,18 +2528,130 @@ h(\theta) = \mathbb{E}_0\left(- \frac{\partial}{\partial \theta}\ell^*(\theta)\r
 </ul>
 <aside><ol class="aside-footnotes"><li id="fn19"><p>Refer to Section 7.2.3 in <span class="citation" data-cites="Davison2003">Davison (<a href="#/references" role="doc-biblioref" onclick="">2003</a>)</span> for a discussion on general estimating equations with dependent data and sufficient conditions for consistency and asymptotic normality.</p></li></ol></aside></section>
 <section id="example-the-probability-of-observing-a-zero" class="slide level2 center">
-<h2>Example: the probability of observing a zero</h2>
-</section>
-<section id="example-huber-estimators" class="slide level2 center">
-<h2>Example: Huber estimators</h2>
+<h2>Example: the probability of observing a zero 📖</h2>
 <ul>
-<li>Section 10.2.2 of Casella-Berger</li>
-<li>See Davison, Section 8.4</li>
+<li><p>Let <span class="math inline">Y_1,\dots,Y_n</span> be an <span class="blue">iid</span> sample from a <span class="orange">discrete</span> distribution with pdf <span class="math inline">f_0</span>. We are interested in estimating the following functional <span class="math display">
+\psi_0 = \mathbb{P}(Y_i = 0) = f_0(0),
+</span></p></li>
+<li><p>Under a Poisson model <span class="math inline">\mathcal{F}</span> with mean <span class="math inline">\lambda</span>, <span class="math inline">\psi</span> is reparametrization: <span class="math inline">\psi = e^{-\lambda}</span>. Two estimators are: <span class="math display">
+\hat{\psi}_\text{ML} = e^{-\bar{y}} \quad (\text{maximum likelihood}), \qquad \hat{\psi} = \left(\frac{n-1}{n}\right)^{n\bar{y}}, \quad (\text{UMVU}).
+</span></p></li>
+<li><p>Both estimators are <span class="orange">not robust</span> for <span class="math inline">\psi_0</span> under model misspecification, unless under <span class="math inline">\psi_0</span> we have <span class="math inline">\psi_0 = e^{-\mu_0}</span>. Indeed, the score equation is <span class="orange">biased</span>, being equal to <span class="math display">
+\ell^*(\psi) = \frac{n}{\psi}\left(1 - \frac{\bar{y}}{-\log{\psi}}\right) \implies \mathbb{E}_0\{\ell^*(\psi_0)\} = \frac{n}{\psi_0}\left(1 - \frac{\mu_0}{-\log{\psi_0}}\right).
+</span></p></li>
+<li><p>A <span class="orange">robust alternative</span> is given by the <span class="blue">empirical proportion</span> of zero: <span class="math display">
+\hat{\psi}_\text{MM} = \frac{1}{n}\sum_{i=1}^n \mathbb{I}(y_i = 0).
+</span></p></li>
 </ul>
 </section>
 <section id="example-linear-models-with-misspecified-variance" class="slide level2 center">
 <h2>Example: linear models with misspecified variance</h2>
 <ul>
+<li>See Davison, Section 8.4</li>
+</ul>
+</section>
+<section id="example-linear-models-with-misspecified-variance-1" class="slide level2 center">
+<h2>Example: linear models with misspecified variance</h2>
+
+<img data-src="un_A_files/figure-revealjs/unnamed-chunk-20-1.png" width="2400" class="r-stretch"><ul>
+<li>Estimated model is</li>
+</ul>
+</section>
+<section id="example-linear-models-with-misspecified-variance-2" class="slide level2 center">
+<h2>Example: linear models with misspecified variance</h2>
+<ul>
+<li>Standard matrix</li>
+</ul>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: right;"><span class="math inline">\beta_1</span></th>
+<th style="text-align: right;"><span class="math inline">\beta_2</span></th>
+<th style="text-align: right;"><span class="math inline">\beta_3</span></th>
+<th style="text-align: right;"><span class="math inline">\beta_4</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\beta_1</span></td>
+<td style="text-align: right;"><strong>113.11</strong></td>
+<td style="text-align: right;">-47.95</td>
+<td style="text-align: right;">17.70</td>
+<td style="text-align: right;">-12.81</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\beta_2</span></td>
+<td style="text-align: right;">-47.95</td>
+<td style="text-align: right;"><strong>170.53</strong></td>
+<td style="text-align: right;">-73.32</td>
+<td style="text-align: right;">54.10</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\beta_3</span></td>
+<td style="text-align: right;">17.70</td>
+<td style="text-align: right;">-73.32</td>
+<td style="text-align: right;"><strong>87.43</strong></td>
+<td style="text-align: right;">-69.35</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\beta_4</span></td>
+<td style="text-align: right;">-12.81</td>
+<td style="text-align: right;">54.10</td>
+<td style="text-align: right;">-69.35</td>
+<td style="text-align: right;"><strong>217.58</strong></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Sandwhich estimated matrix</li>
+</ul>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: right;"><span class="math inline">\beta_1</span></th>
+<th style="text-align: right;"><span class="math inline">\beta_2</span></th>
+<th style="text-align: right;"><span class="math inline">\beta_3</span></th>
+<th style="text-align: right;"><span class="math inline">\beta_4</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\beta_1</span></td>
+<td style="text-align: right;"><strong>2.82</strong></td>
+<td style="text-align: right;">-9.73</td>
+<td style="text-align: right;">9.45</td>
+<td style="text-align: right;">-8.80</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\beta_2</span></td>
+<td style="text-align: right;">-9.73</td>
+<td style="text-align: right;"><strong>42.79</strong></td>
+<td style="text-align: right;">-43.71</td>
+<td style="text-align: right;">40.57</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\beta_3</span></td>
+<td style="text-align: right;">9.45</td>
+<td style="text-align: right;">-43.71</td>
+<td style="text-align: right;"><strong>72.01</strong></td>
+<td style="text-align: right;">-67.22</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\beta_4</span></td>
+<td style="text-align: right;">-8.80</td>
+<td style="text-align: right;">40.57</td>
+<td style="text-align: right;">-67.22</td>
+<td style="text-align: right;"><strong>288.72</strong></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="example-huber-estimators" class="slide level2 center">
+<h2>Example: Huber estimators</h2>
+<ul>
+<li>Section 10.2.2 of Casella-Berger</li>
 <li>See Davison, Section 8.4</li>
 </ul>
 </section></section>

@@ -2023,7 +2023,7 @@ abline(h = 0, lty = "dotted")
 
 - The picture depict $- \text{KL}(f(\cdot; \theta_0) \mid f(\cdot; \theta))$ in another [problematic]{.orange} situation. The true value is $\theta_0 = \pi/2$, but the presence of the asymptote may cause $\hat{\theta}_n$ to [diverge]{.orange}. 
 
-## Consistency for the MLE
+## Consistency for the MLE 📖
 
 :::callout-warning
 #### Theorem (@Lehmann1998, Th. 5.1, Chap. 6) 
@@ -2041,7 +2041,7 @@ Let us further require that, with probability tending to 1 as $n\to \infty$, the
 
 [^th_vdv]: See also @vandervaart1998, Theorem 5.42, for slightly less stringent conditions and a careful discussion about the issue of multiple roots.
 
-## Asymptotic normality of the MLE
+## Asymptotic normality of the MLE 📖
 
 :::callout-warning
 #### Theorem (@Lehmann1998, Th. 5.1, Chap. 6) 
@@ -2093,7 +2093,7 @@ where the red terms are ininfluential because the maximizer $\hat{\theta}_n$ of 
 
 - On the other hand, we will see that $\hat{\theta}_n$ does not need to maximize $M_n(\theta)$. Indeed, it is sufficient that is [nearly maximizes]{.blue} it, in the sense that $M_n(\hat{\theta}_n) \ge \sup_{\theta \in \Theta}M(\theta) - o_p(1)$.
 
-## Consistency for M-estimators II
+## Consistency for M-estimators II 📖
 
 :::callout-warning
 #### Theorem (@vandervaart1998, Theorem 5.7)
@@ -2113,7 +2113,7 @@ Then any sequence of estimators $\hat{\theta}_n$ with $M_n(\hat{\theta}_n) \ge M
 
 - The strong identifiability condition, also called [well separability]{.orange} ensures that only point close to $\theta_0$ are close to the maximum value $M(\theta_0)$, strengthening Wald inequality.
 
-## Consistency for Z-estimators
+## Consistency for Z-estimators 📖
 
 - The former theorem can be also expressed in terms of Z-estimators $Q_n(\theta)$, that is, on a set of [estimating equations]{.orange}. An example is the score function
 $$
@@ -2209,7 +2209,7 @@ Clearly, a natural candidate for $A(\theta; \bm{Y})$ is indeed $A(\theta) = - I(
 
 
 
-## Bias reduction using Firth's correction III
+## Bias reduction using Firth's correction III 📖
 
 
 :::callout-tip
@@ -2253,7 +2253,7 @@ which is a well-know [bias-reducing]{.orange} correction of the empirical logit.
 
 - Case i. is sometimes called [resistence]{.orange} and relies on the notion of [influence functions]{.blue}. For instance, the median is resistent, the mean is not. Here we will consider case ii. 
 
-## Example: omitted variable in linear regression
+## Example: omitted variable in linear regression 📖
 
 - Let $y_1,\dots,y_n$ be realizations from the model $Y_i = \beta_1 + \beta_2 x_i + \beta_3 z_i + \epsilon_i$ for $i=1,\dots,n$, where $x_i$ and $z_i$ are linearly independent [covariates]{.blue} and $\epsilon_i \overset{\textup{iid}}{\sim} \text{N}(0, \sigma^2)$ is the [error term]{.orange}.  
 
@@ -2268,7 +2268,7 @@ $$
 and variance $\sigma^2 / \sum_{j=1}^n (x_j - \bar{x})^2$. 
 - In other words, $\hat{\beta}_2$ is [biased]{.orange} and [inconsistent]{.orange} unless $x$ and $z$ are [uncorrelated]{.blue} or, obviously, if the model is correctly specified, that is if $\beta_3 = 0$. 
 
-## Maximum likelihood under a misspecified model
+## Maximum likelihood under a misspecified model 📖
 
 - Let $f_0(\cdot)$ denote the true probability model, and let $\mathcal{F} = \{f(\cdot;\theta) : \theta \in \Theta\}$ be an [incorrectly specified]{.orange} statistical model, such that $f_0 \notin \mathcal{F}$.
 
@@ -2349,7 +2349,7 @@ where $V(\theta) = n v(\theta)$ is the [Godambe information matrix]{.orange} and
 $$
 h(\theta) = \mathbb{E}_0\left(- \frac{\partial}{\partial \theta}\ell^*(\theta)\right), \qquad j(\theta) = \mathbb{E}_0\left(\ell^*(\theta)\ell^*(\theta)^T\right).
 $$
-where expectations are taken over $f_0 \notin \mathcal{F}$ and not the misspecified $f(\cdot; \theta)$, so that $h(\theta) \neq j(\theta)$. 
+where expectations are taken over $f_0$ and not the misspecified $f(\cdot; \theta)$, so that $h(\theta) \neq j(\theta)$. 
 
 ## Sandwich estimators
 
@@ -2367,11 +2367,28 @@ The [sandwich estimator]{.blue} is a popular choice for estimating the [asymptot
 $$
 \hat{V}(\hat{\theta}_n) = \mathcal{I}(\hat{\theta}_n)\left(\sum_{i=1}^n\ell^*(\hat{\theta}_n; y_i)\ell^*(\hat{\theta}_n; y_i)^T\right)^{-1}\mathcal{I}(\hat{\theta}_n),
 $$
-recalling that $\mathcal{I}(\theta) = - \partial/\partial \theta  \:\ell^*(\theta; \bm{y})$ is the [observed information]{.blue} matrix.
+recalling that $\mathcal{I}(\theta) = - \partial/\partial \theta  \:\ell^*(\theta; \bm{y})$ is the [observed information]{.blue} matrix. If the model is correctly specified then $\hat{V}(\hat{\theta}_n) = \mathcal{I}(\hat{\theta}_n) + o_p(1)$.  
 
 :::
 
-## Example: misspecified exponential model II
+
+## Example: misspecified exponential model II 📖
+
+- Let us consider again $Y_i \overset{\textup{iid}}{\sim} f_0(\cdot)$ with $f_0(\cdot) \notin \mathcal{F}$, where $\mathcal{F}$ is a [misspecified exponential]{.orange} model.
+
+- The score function is [unbiased]{.orange} for $\mu$ under $f_0$. The score and the observed observation matrix are, respectively
+$$
+\ell^*(\mu) = \sum_{i=1}^n \left(-\frac{1}{\mu} + \frac{y_i}{\mu^2}\right) = - \frac{n}{\mu} + \frac{n \bar{y}}{\mu^2}, \qquad \mathcal{I}(\mu) = -\frac{\partial}{\partial \mu}\ell^*(\mu) = -\frac{n}{\mu^2} + \frac{2 n \bar{y}}{\mu^3}.
+$$
+- The inverse of the observed information matrix, evaluated at $\hat{\mu} = \bar{y}$, is an estimate of the asymptotic variance [assuming]{.orange} the model is [correctly specified]{.blue}:
+$$
+\text{var}_\theta(\hat{\mu}) \approx \mathcal{I}(\hat{\mu})^{-1} = \frac{\bar{y}^2}{n}.
+$$
+- If the model is [misspecified]{.orange}, then we can use the [sandwich estimator]{.orange}:
+$$
+\text{var}_0(\hat{\mu}) \approx \mathcal{I}(\hat{\mu})^{-2} \sum_{i=1}^n\ell^*(\hat{\mu}; y_i)^2 = \frac{\bar{y}^4}{n^2} \sum_{i=1}^n\frac{1}{\bar{y}^4}(y_i - \bar{y})^2 = \frac{1}{n}\left(\frac{1}{n}\sum_{i=1}^n (y_i - \bar{y})^2\right), 
+$$
+which is the $n^{-1}$ times the usual method of moments estimator for the variance. 
 
 ## Example: correlated observations
 
@@ -2389,20 +2406,95 @@ $$
 [^dependent]: Refer to Section 7.2.3 in @Davison2003 for a discussion on general estimating equations with dependent data and sufficient conditions for consistency and asymptotic normality. 
 
 
-## Example: the probability of observing a zero
+## Example: the probability of observing a zero 📖
 
+- Let $Y_1,\dots,Y_n$ be an [iid]{.blue} sample from a [discrete]{.orange} distribution with pdf $f_0$. We are interested in estimating the following functional
+$$
+\psi_0 = \mathbb{P}(Y_i = 0) = f_0(0),
+$$
+- Under a Poisson model $\mathcal{F}$ with mean $\lambda$, $\psi$ is reparametrization: $\psi = e^{-\lambda}$. Two estimators are:
+$$
+\hat{\psi}_\text{ML} = e^{-\bar{y}} \quad (\text{maximum likelihood}), \qquad \hat{\psi} = \left(\frac{n-1}{n}\right)^{n\bar{y}}, \quad (\text{UMVU}).
+$$
+- Both estimators are [not robust]{.orange} for $\psi_0$ under model misspecification, unless under $\psi_0$ we have $\psi_0 = e^{-\mu_0}$. Indeed, the score equation is [biased]{.orange}, being equal to
+$$
+\ell^*(\psi) = \frac{n}{\psi}\left(1 - \frac{\bar{y}}{-\log{\psi}}\right) \implies \mathbb{E}_0\{\ell^*(\psi_0)\} = \frac{n}{\psi_0}\left(1 - \frac{\mu_0}{-\log{\psi_0}}\right).
+$$
 
-
-
-## Example: Huber estimators
-
-- Section 10.2.2 of Casella-Berger
-- See Davison, Section 8.4
+- A [robust alternative]{.orange} is given by the [empirical proportion]{.blue} of zero:
+$$
+\hat{\psi}_\text{MM} = \frac{1}{n}\sum_{i=1}^n \mathbb{I}(y_i = 0).
+$$
 
 ## Example: linear models with misspecified variance
 
 - See Davison, Section 8.4
 
+## Example: linear models with misspecified variance
+
+```{r}
+library(MASS)
+library(sandwich)
+library(splines)
+
+rm(list = ls())
+dataset <- MASS::mcycle
+
+times_seq <- seq(from = min(dataset$times), to = max(dataset$times), length = 30000)
+knots <- quantile(dataset$times, ppoints(n = 12))
+
+m1 <- lm(accel ~ ns(times, knots = knots[-c(1, 12)], Boundary.knots = c(knots[1], knots[12]), intercept = TRUE) - 1, data = dataset)
+y_hat <- predict(m1, newdata = data.frame(times = times_seq))
+```
+
+
+```{r}
+#| fig-width: 12
+#| fig-height: 6
+
+par(mfrow = c(1, 2))
+plot(dataset, pch = 16, xlab = "Time (ms)", ylab = "Head acceleration (g)")
+lines(times_seq, y_hat, col = "orange")
+plot(residuals(m1), xlab = "Index", ylab = "Residuals", pch = 16)
+```
+
+- Estimated model is
+
+## Example: linear models with misspecified variance
+
+- Standard matrix
+
+```{r}
+var1 <- vcov(m1)
+varHC <- vcovHC(m1, type = "HC")
+colnames(var1) <- rownames(var1) <- colnames(varHC) <- rownames(varHC) <- NULL
+#knitr::kable(var1[1:4, 1:4], digits = 2)
+```
+
+| | $\beta_1$ | $\beta_2$ | $\beta_3$ | $\beta_4$ | 
+|:--|------:|------:|------:|------:|
+|$\beta_1$ | **113.11**| -47.95|  17.70| -12.81|
+|$\beta_2$ | -47.95| **170.53**| -73.32|  54.10|
+|$\beta_3$ |  17.70| -73.32|  **87.43**| -69.35|
+|$\beta_4$ | -12.81|  54.10| -69.35| **217.58**|
+
+- Sandwhich estimated matrix
+
+```{r}
+#knitr::kable(varHC[1:4, 1:4], digits = 2)
+```
+
+|   | $\beta_1$ | $\beta_2$ | $\beta_3$ | $\beta_4$ | 
+|:---|-----:|------:|------:|------:|
+|$\beta_1$ |  **2.82**|  -9.73|   9.45|  -8.80|
+|$\beta_2$ | -9.73|  **42.79**| -43.71|  40.57|
+|$\beta_3$ |  9.45| -43.71|  **72.01**| -67.22|
+|$\beta_4$ | -8.80|  40.57| -67.22| **288.72**|
+
+## Example: Huber estimators
+
+- Section 10.2.2 of Casella-Berger
+- See Davison, Section 8.4
 
 
 # References and study material
