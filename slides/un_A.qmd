@@ -2251,7 +2251,68 @@ which is a well-know [bias-reducing]{.orange} correction of the empirical logit.
   i. robustness with respect to [contamination]{.blue} of the data (i.e. $y_i = 10^{32}$ is an [outlier]{.orange})
   ii. robustness with respect to [model misspecification]{.orange}, that is, we specify a class of models $\mathcal{F}$ but in reality $(Y_1,\dots,Y_n) \sim f_0(\cdot)$ and $f_0(\cdot) \notin \mathcal{F}$.
 
-- Case i. is sometimes called [resistence]{.orange} and relies on the notion of [influence functions]{.blue}. For instance, the median is resistent, the mean is not. Here we will consider case ii. 
+- Case i. is sometimes called [resistence]{.orange} and relies on the notion of [influence functions]{.blue}. For instance, the median is resistent, the mean is not. 
+
+## Example: Huber estimators for regression I 📖
+
+- Recall that a Huber estimator $\hat{\theta}_n$ for the [mean]{.orange} $\theta_0$ is defined as the solution of $$
+Q(\theta) = \sum_{i=1}^n q(Y_i - \theta)= 0, \qquad q(y) = \begin{cases} -k \quad &\text{ if }\: y \le -k\\
+y \quad &\text{ if  }\: |y| \le k \\
+k \quad &\text{ if }\: y \ge k\end{cases}.
+$$
+
+- We assume $Y_i \overset{\textup{iid}}{\sim} f_0$ where $f_0(y)$ is a [continuous]{.orange} and [symmetric]{.blue} density around $\theta_0$. Hence, there exists a density $\tilde{f}_0$ symmetric around $0$ such that $\tilde{f}_0(y - \theta_0) = f_0(y)$.
+
+- First of all, provided $f_0$ is symmetric, the estimating equation $Q(\theta)$ is [unbiased]{.orange} 
+$$
+\mathbb{E}_0\{Q(\theta)\} = n \mathbb{E}_0\{q(Y_1 - \theta_0)\} = 0.$$ 
+Broadly speaking, this means that Huber estimator $\hat{\theta}_n$ is [consistent]{.orange} for $\theta_0$. Moreover
+$$
+\sqrt{n}(\hat{\theta}_n - \theta_0) \overset{\text{d}}{\longrightarrow} \text{N}(0, v^{-1}(\theta_0)),\quad v(\theta)^{-1} = j(\theta)/h(\theta)^2.
+$$
+- Huber estimator is [robust]{.orange} but [less efficient]{.blue} than the maximum likelihood. For instance, if $f_0$ is a Gaussian with mean $\theta_0$ and variance $\sigma^2$, then $\bar{Y}$ has asymptotic variance $\sigma^2$ and $\sigma^2 \le v(\theta_0)^{-1}$.
+
+## Example: Huber estimators for regression II 📖
+
+- Let $Z \sim \tilde{f}_0$, and note such density [does not depend]{.orange} on $\theta_0$. After some calculations, we find
+$$
+j(\theta) = \mathbb{E}_0\{q^2(Y_1 - \theta)\}= \mathbb{E}\{Z^2 I(|Z|< k)\} + 2 k^2 \mathbb{P}(Z > k),
+$$
+and
+$$
+h(\theta) = \mathbb{E}_0\left(\frac{\partial}{\partial\theta}q(Y_1 - \theta)\right) =  \mathbb{P}(|Z| \le k).
+$$
+- Remarkably, the asymptotic variance does not depend on $\theta_0$ therefore its relative efficiency compared to the [normal model]{.orange} is also [constant]{.blue} over $\theta_0$. 
+
+```{r}
+avar <- function(k, f0){
+  j <- integrate(function(x) x^2 * f0(x), lower = -k, upper = k)$value + 2 * k^2 * integrate(function(x) f0(x), lower = k, upper = Inf)$value
+  h <- integrate(function(x) f0(x), lower = -k, upper = k)$value
+  
+  j / h^2
+}
+
+# Note that variance of mean under a normal model is 1
+sigma2 <- 1
+avar_mean_normal <- sigma2
+
+# Relative efficiency compared to the normal
+tab <- cbind(c(0, 0.5, 1, 1.5, 2), c(avar_mean_normal / avar(0.000001, function(x) dnorm(x, 0, sd = sqrt(sigma2))), 
+         avar_mean_normal / avar(0.5, function(x) dnorm(x,0, sd = sqrt(sigma2))), 
+         avar_mean_normal / avar(1, function(x) dnorm(x,0, sd = sqrt(sigma2))), 
+         avar_mean_normal / avar(1.5, function(x) dnorm(x,0, sd = sqrt(sigma2))), 
+         avar_mean_normal / avar(2, function(x) dnorm(x,0, sd = sqrt(sigma2)))))
+colnames(tab) <- c("k", "ARE")
+#knitr::kable(t(tab), digits = 3)
+```
+
+- Below we show the [asymptotic relative efficiency]{.blue} (ARE) of the Huber estimator compared to $\bar{Y}$ for different values of $k$, assuming $f_0$ is Gaussian with $\sigma^2 = 1$ and arbitrary $\theta_0$
+
+|$k$   | 0 (Median) | 0.5| 1| 1.5| 2|
+|:--------------|--------:|-----:|-----:|-----:|----:|
+|$\text{ARE} = \sigma^2/v(\theta_0)^{-1} = v(\theta_0)$ | 0.637| 0.792| 0.903| 0.964| 0.99|
+
+- The ARE does not depend on $\sigma^2$ if we use $k = \sigma \tilde{k}$. This is the default of the `huber` function of the `MASS` R package with $\tilde{k} = 1.5$, where $\sigma$ is robustly estimated using the MAD. 
 
 ## Example: omitted variable in linear regression 📖
 
@@ -2266,6 +2327,7 @@ $$
 \mathbb{E}_0(\hat{\beta}_2) = \beta_2 + \beta_3 \frac{1}{\sum_{j=1}^n (x_j - \bar{x})^2}\sum_{i=1}^n (x_i - \bar{x})(z_i - \bar{z}),
 $$
 and variance $\sigma^2 / \sum_{j=1}^n (x_j - \bar{x})^2$. 
+
 - In other words, $\hat{\beta}_2$ is [biased]{.orange} and [inconsistent]{.orange} unless $x$ and $z$ are [uncorrelated]{.blue} or, obviously, if the model is correctly specified, that is if $\beta_3 = 0$. 
 
 ## Maximum likelihood under a misspecified model 📖
@@ -2526,10 +2588,6 @@ colnames(var1) <- rownames(var1) <- colnames(varHC) <- rownames(varHC) <- NULL
 
 - We used the `sandwich` R package, that implements several sandwich variants. 
 
-## Example: Huber estimators
-
-- Section 10.2.2 of Casella-Berger
-- See Davison, Section 8.4
 
 
 # References and study material

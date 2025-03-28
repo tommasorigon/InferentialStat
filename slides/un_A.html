@@ -229,6 +229,8 @@ window.Quarto = {
   <li><a href="#robustness" id="toc-robustness" class="nav-link" data-scroll-target="#robustness">Robustness</a>
   <ul class="collapse">
   <li><a href="#robustness-preliminaries" id="toc-robustness-preliminaries" class="nav-link" data-scroll-target="#robustness-preliminaries">Robustness: preliminaries</a></li>
+  <li><a href="#example-huber-estimators-for-regression-i" id="toc-example-huber-estimators-for-regression-i" class="nav-link" data-scroll-target="#example-huber-estimators-for-regression-i">Example: Huber estimators for regression I 📖</a></li>
+  <li><a href="#example-huber-estimators-for-regression-ii" id="toc-example-huber-estimators-for-regression-ii" class="nav-link" data-scroll-target="#example-huber-estimators-for-regression-ii">Example: Huber estimators for regression II 📖</a></li>
   <li><a href="#example-omitted-variable-in-linear-regression" id="toc-example-omitted-variable-in-linear-regression" class="nav-link" data-scroll-target="#example-omitted-variable-in-linear-regression">Example: omitted variable in linear regression 📖</a></li>
   <li><a href="#maximum-likelihood-under-a-misspecified-model" id="toc-maximum-likelihood-under-a-misspecified-model" class="nav-link" data-scroll-target="#maximum-likelihood-under-a-misspecified-model">Maximum likelihood under a misspecified model 📖</a></li>
   <li><a href="#example-misspecified-exponential-model-i" id="toc-example-misspecified-exponential-model-i" class="nav-link" data-scroll-target="#example-misspecified-exponential-model-i">Example: misspecified exponential model I</a></li>
@@ -242,7 +244,6 @@ window.Quarto = {
   <li><a href="#example-linear-models-with-misspecified-variance-ii" id="toc-example-linear-models-with-misspecified-variance-ii" class="nav-link" data-scroll-target="#example-linear-models-with-misspecified-variance-ii">Example: linear models with misspecified variance II 📖</a></li>
   <li><a href="#example-linear-models-with-misspecified-variance-iii" id="toc-example-linear-models-with-misspecified-variance-iii" class="nav-link" data-scroll-target="#example-linear-models-with-misspecified-variance-iii">Example: linear models with misspecified variance III</a></li>
   <li><a href="#example-linear-models-with-misspecified-variance-iv" id="toc-example-linear-models-with-misspecified-variance-iv" class="nav-link" data-scroll-target="#example-linear-models-with-misspecified-variance-iv">Example: linear models with misspecified variance IV</a></li>
-  <li><a href="#example-huber-estimators" id="toc-example-huber-estimators" class="nav-link" data-scroll-target="#example-huber-estimators">Example: Huber estimators</a></li>
   </ul></li>
   <li><a href="#references-and-study-material" id="toc-references-and-study-material" class="nav-link" data-scroll-target="#references-and-study-material">References and study material</a>
   <ul class="collapse">
@@ -2577,7 +2578,70 @@ Q(\psi) = \ell^*(\psi) - I(\psi)b_1(\psi)/n \quad \implies \quad \hat{\psi}_\tex
 <li>robustness with respect to <span class="blue">contamination</span> of the data (i.e.&nbsp;<span class="math inline">y_i = 10^{32}</span> is an <span class="orange">outlier</span>)</li>
 <li>robustness with respect to <span class="orange">model misspecification</span>, that is, we specify a class of models <span class="math inline">\mathcal{F}</span> but in reality <span class="math inline">(Y_1,\dots,Y_n) \sim f_0(\cdot)</span> and <span class="math inline">f_0(\cdot) \notin \mathcal{F}</span>.</li>
 </ol></li>
-<li><p>Case i. is sometimes called <span class="orange">resistence</span> and relies on the notion of <span class="blue">influence functions</span>. For instance, the median is resistent, the mean is not. Here we will consider case ii.</p></li>
+<li><p>Case i. is sometimes called <span class="orange">resistence</span> and relies on the notion of <span class="blue">influence functions</span>. For instance, the median is resistent, the mean is not.</p></li>
+</ul>
+</section>
+<section id="example-huber-estimators-for-regression-i" class="level2">
+<h2 class="anchored" data-anchor-id="example-huber-estimators-for-regression-i">Example: Huber estimators for regression I 📖</h2>
+<ul>
+<li><p>Recall that a Huber estimator <span class="math inline">\hat{\theta}_n</span> for the <span class="orange">mean</span> <span class="math inline">\theta_0</span> is defined as the solution of <span class="math display">
+Q(\theta) = \sum_{i=1}^n q(Y_i - \theta)= 0, \qquad q(y) = \begin{cases} -k \quad &amp;\text{ if }\: y \le -k\\
+y \quad &amp;\text{ if  }\: |y| \le k \\
+k \quad &amp;\text{ if }\: y \ge k\end{cases}.
+</span></p></li>
+<li><p>We assume <span class="math inline">Y_i \overset{\textup{iid}}{\sim} f_0</span> where <span class="math inline">f_0(y)</span> is a <span class="orange">continuous</span> and <span class="blue">symmetric</span> density around <span class="math inline">\theta_0</span>. Hence, there exists a density <span class="math inline">\tilde{f}_0</span> symmetric around <span class="math inline">0</span> such that <span class="math inline">\tilde{f}_0(y - \theta_0) = f_0(y)</span>.</p></li>
+<li><p>First of all, provided <span class="math inline">f_0</span> is symmetric, the estimating equation <span class="math inline">Q(\theta)</span> is <span class="orange">unbiased</span> <span class="math display">
+\mathbb{E}_0\{Q(\theta)\} = n \mathbb{E}_0\{q(Y_1 - \theta_0)\} = 0.</span> Broadly speaking, this means that Huber estimator <span class="math inline">\hat{\theta}_n</span> is <span class="orange">consistent</span> for <span class="math inline">\theta_0</span>. Moreover <span class="math display">
+\sqrt{n}(\hat{\theta}_n - \theta_0) \overset{\text{d}}{\longrightarrow} \text{N}(0, v^{-1}(\theta_0)),\quad v(\theta)^{-1} = j(\theta)/h(\theta)^2.
+</span></p></li>
+<li><p>Huber estimator is <span class="orange">robust</span> but <span class="blue">less efficient</span> than the maximum likelihood. For instance, if <span class="math inline">f_0</span> is a Gaussian with mean <span class="math inline">\theta_0</span> and variance <span class="math inline">\sigma^2</span>, then <span class="math inline">\bar{Y}</span> has asymptotic variance <span class="math inline">\sigma^2</span> and <span class="math inline">\sigma^2 \le v(\theta_0)^{-1}</span>.</p></li>
+</ul>
+</section>
+<section id="example-huber-estimators-for-regression-ii" class="level2">
+<h2 class="anchored" data-anchor-id="example-huber-estimators-for-regression-ii">Example: Huber estimators for regression II 📖</h2>
+<ul>
+<li>Let <span class="math inline">Z \sim \tilde{f}_0</span>, and note such density <span class="orange">does not depend</span> on <span class="math inline">\theta_0</span>. After some calculations, we find <span class="math display">
+j(\theta) = \mathbb{E}_0\{q^2(Y_1 - \theta)\}= \mathbb{E}\{Z^2 I(|Z|&lt; k)\} + 2 k^2 \mathbb{P}(Z &gt; k),
+</span> and <span class="math display">
+h(\theta) = \mathbb{E}_0\left(\frac{\partial}{\partial\theta}q(Y_1 - \theta)\right) =  \mathbb{P}(|Z| \le k).
+</span></li>
+<li>Remarkably, the asymptotic variance does not depend on <span class="math inline">\theta_0</span> therefore its relative efficiency compared to the <span class="orange">normal model</span> is also <span class="blue">constant</span> over <span class="math inline">\theta_0</span>.</li>
+</ul>
+<ul>
+<li>Below we show the <span class="blue">asymptotic relative efficiency</span> (ARE) of the Huber estimator compared to <span class="math inline">\bar{Y}</span> for different values of <span class="math inline">k</span>, assuming <span class="math inline">f_0</span> is Gaussian with <span class="math inline">\sigma^2 = 1</span> and arbitrary <span class="math inline">\theta_0</span></li>
+</ul>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 31%">
+<col style="width: 19%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 10%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><span class="math inline">k</span></th>
+<th style="text-align: right;">0 (Median)</th>
+<th style="text-align: right;">0.5</th>
+<th style="text-align: right;">1</th>
+<th style="text-align: right;">1.5</th>
+<th style="text-align: right;">2</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\text{ARE} = \sigma^2/v(\theta_0)^{-1} = v(\theta_0)</span></td>
+<td style="text-align: right;">0.637</td>
+<td style="text-align: right;">0.792</td>
+<td style="text-align: right;">0.903</td>
+<td style="text-align: right;">0.964</td>
+<td style="text-align: right;">0.99</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>The ARE does not depend on <span class="math inline">\sigma^2</span> if we use <span class="math inline">k = \sigma \tilde{k}</span>. This is the default of the <code>huber</code> function of the <code>MASS</code> R package with <span class="math inline">\tilde{k} = 1.5</span>, where <span class="math inline">\sigma</span> is robustly estimated using the MAD.</li>
 </ul>
 </section>
 <section id="example-omitted-variable-in-linear-regression" class="level2">
@@ -2766,7 +2830,7 @@ I(\beta) = \mathcal{I}(\beta) = \frac{1}{\sigma^2}\sum_{i=1}^n \bm{x}_i\bm{x}_i^
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="un_A_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid figure-img" width="1800"></p>
+<p><img src="un_A_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid figure-img" width="1800"></p>
 </figure>
 </div>
 </div>
@@ -2867,13 +2931,6 @@ I(\beta) = \mathcal{I}(\beta) = \frac{1}{\sigma^2}\sum_{i=1}^n \bm{x}_i\bm{x}_i^
 </table>
 <ul>
 <li>We used the <code>sandwich</code> R package, that implements several sandwich variants.</li>
-</ul>
-</section>
-<section id="example-huber-estimators" class="level2">
-<h2 class="anchored" data-anchor-id="example-huber-estimators">Example: Huber estimators</h2>
-<ul>
-<li>Section 10.2.2 of Casella-Berger</li>
-<li>See Davison, Section 8.4</li>
 </ul>
 </section>
 </section>

@@ -233,6 +233,28 @@ h <- function(x) {
 curve(h, 0, 30, n = 2000, xlab = expression(theta), ylab = "negative KL")
 abline(h = 0, lty = "dotted")
 
+avar <- function(k, f0) {
+  j <- integrate(function(x) x^2 * f0(x), lower = -k, upper = k)$value + 2 * k^2 * integrate(function(x) f0(x), lower = k, upper = Inf)$value
+  h <- integrate(function(x) f0(x), lower = -k, upper = k)$value
+
+  j / h^2
+}
+
+# Note that variance of mean under a normal model is 1
+sigma2 <- 1
+avar_mean_normal <- sigma2
+
+# Relative efficiency compared to the normal
+tab <- cbind(c(0, 0.5, 1, 1.5, 2), c(
+  avar_mean_normal / avar(0.000001, function(x) dnorm(x, 0, sd = sqrt(sigma2))),
+  avar_mean_normal / avar(0.5, function(x) dnorm(x, 0, sd = sqrt(sigma2))),
+  avar_mean_normal / avar(1, function(x) dnorm(x, 0, sd = sqrt(sigma2))),
+  avar_mean_normal / avar(1.5, function(x) dnorm(x, 0, sd = sqrt(sigma2))),
+  avar_mean_normal / avar(2, function(x) dnorm(x, 0, sd = sqrt(sigma2)))
+))
+colnames(tab) <- c("k", "ARE")
+# knitr::kable(t(tab), digits = 3)
+
 library(MASS)
 library(sandwich)
 library(splines)
