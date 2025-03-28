@@ -1,5 +1,5 @@
 ---
-title: "Exponential families"
+title: "Generalized linear models"
 subtitle: "Statistical Inference - PhD EcoStatData"
 author: "[Tommaso Rigon]{.orange}"
 institute: "_Università degli Studi di Milano-Bicocca_"
@@ -18,7 +18,7 @@ format:
     center: true
     html-math-method: katex
     transition: none
-    output-file: un_B_slides.html
+    output-file: un_C_slides.html
     slide-number: true
     callout-appearance: minimal
     code-line-numbers: true
@@ -61,8 +61,8 @@ editor_options:
 #| message: false
 #| purl: false
 
-knitr::purl("un_B.qmd", output = "../code/un_B.R", documentation = 0)
-styler:::style_file("../code/un_B.R")
+knitr::purl("un_C.qmd", output = "../code/un_C.R", documentation = 0)
+styler:::style_file("../code/un_C.R")
 
 library(ggplot2)
 library(ggthemes)
@@ -85,12 +85,18 @@ library(ggthemes)
 - sdf
 :::
 
-# One-parameter exponential families
+# Likelihood and inference
 
-# Multiparameter exponential families
+# Special models
 
-# Likelihood quantities
+## Log-linear models and contingency tables
 
-# Sufficiency and completeness
+## Logistic regression with paired data
 
-# Exponential dispersion families
+# Quasi likelihoods
+
+# Bias correction
+
+# Case study I
+
+# Case study II

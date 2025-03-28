@@ -8,7 +8,7 @@
 
 <meta name="author" content="Tommaso Rigon">
 
-<title>Exponential families</title>
+<title>Generalized linear models</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -24,16 +24,16 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="un_B_files/libs/clipboard/clipboard.min.js"></script>
-<script src="un_B_files/libs/quarto-html/quarto.js"></script>
-<script src="un_B_files/libs/quarto-html/popper.min.js"></script>
-<script src="un_B_files/libs/quarto-html/tippy.umd.min.js"></script>
-<script src="un_B_files/libs/quarto-html/anchor.min.js"></script>
-<link href="un_B_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="un_B_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="un_B_files/libs/bootstrap/bootstrap.min.js"></script>
-<link href="un_B_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="un_B_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="un_C_files/libs/clipboard/clipboard.min.js"></script>
+<script src="un_C_files/libs/quarto-html/quarto.js"></script>
+<script src="un_C_files/libs/quarto-html/popper.min.js"></script>
+<script src="un_C_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="un_C_files/libs/quarto-html/anchor.min.js"></script>
+<link href="un_C_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="un_C_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="un_C_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="un_C_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="un_C_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <style>html{ scroll-behavior: smooth; }</style>
 
 
@@ -48,19 +48,24 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#homepage" id="toc-homepage" class="nav-link active" data-scroll-target="#homepage">Homepage</a></li>
-  <li><a href="#one-parameter-exponential-families" id="toc-one-parameter-exponential-families" class="nav-link" data-scroll-target="#one-parameter-exponential-families">One-parameter exponential families</a></li>
-  <li><a href="#multiparameter-exponential-families" id="toc-multiparameter-exponential-families" class="nav-link" data-scroll-target="#multiparameter-exponential-families">Multiparameter exponential families</a></li>
-  <li><a href="#likelihood-quantities" id="toc-likelihood-quantities" class="nav-link" data-scroll-target="#likelihood-quantities">Likelihood quantities</a></li>
-  <li><a href="#sufficiency-and-completeness" id="toc-sufficiency-and-completeness" class="nav-link" data-scroll-target="#sufficiency-and-completeness">Sufficiency and completeness</a></li>
-  <li><a href="#exponential-dispersion-families" id="toc-exponential-dispersion-families" class="nav-link" data-scroll-target="#exponential-dispersion-families">Exponential dispersion families</a></li>
+  <li><a href="#likelihood-and-inference" id="toc-likelihood-and-inference" class="nav-link" data-scroll-target="#likelihood-and-inference">Likelihood and inference</a></li>
+  <li><a href="#special-models" id="toc-special-models" class="nav-link" data-scroll-target="#special-models">Special models</a>
+  <ul class="collapse">
+  <li><a href="#log-linear-models-and-contingency-tables" id="toc-log-linear-models-and-contingency-tables" class="nav-link" data-scroll-target="#log-linear-models-and-contingency-tables">Log-linear models and contingency tables</a></li>
+  <li><a href="#logistic-regression-with-paired-data" id="toc-logistic-regression-with-paired-data" class="nav-link" data-scroll-target="#logistic-regression-with-paired-data">Logistic regression with paired data</a></li>
+  </ul></li>
+  <li><a href="#quasi-likelihoods" id="toc-quasi-likelihoods" class="nav-link" data-scroll-target="#quasi-likelihoods">Quasi likelihoods</a></li>
+  <li><a href="#bias-correction" id="toc-bias-correction" class="nav-link" data-scroll-target="#bias-correction">Bias correction</a></li>
+  <li><a href="#case-study-i" id="toc-case-study-i" class="nav-link" data-scroll-target="#case-study-i">Case study I</a></li>
+  <li><a href="#case-study-ii" id="toc-case-study-ii" class="nav-link" data-scroll-target="#case-study-ii">Case study II</a></li>
   </ul>
-<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="un_B_slides.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="un_C_slides.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
 </div>
 <main class="content column-page-left" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Exponential families</h1>
+<h1 class="title">Generalized linear models</h1>
 <p class="subtitle lead">Statistical Inference - PhD EcoStatData</p>
 </div>
 
@@ -107,20 +112,29 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 </div>
 </section>
-<section id="one-parameter-exponential-families" class="level1">
-<h1>One-parameter exponential families</h1>
+<section id="likelihood-and-inference" class="level1">
+<h1>Likelihood and inference</h1>
 </section>
-<section id="multiparameter-exponential-families" class="level1">
-<h1>Multiparameter exponential families</h1>
+<section id="special-models" class="level1">
+<h1>Special models</h1>
+<section id="log-linear-models-and-contingency-tables" class="level2">
+<h2 class="anchored" data-anchor-id="log-linear-models-and-contingency-tables">Log-linear models and contingency tables</h2>
 </section>
-<section id="likelihood-quantities" class="level1">
-<h1>Likelihood quantities</h1>
+<section id="logistic-regression-with-paired-data" class="level2">
+<h2 class="anchored" data-anchor-id="logistic-regression-with-paired-data">Logistic regression with paired data</h2>
 </section>
-<section id="sufficiency-and-completeness" class="level1">
-<h1>Sufficiency and completeness</h1>
 </section>
-<section id="exponential-dispersion-families" class="level1">
-<h1>Exponential dispersion families</h1>
+<section id="quasi-likelihoods" class="level1">
+<h1>Quasi likelihoods</h1>
+</section>
+<section id="bias-correction" class="level1">
+<h1>Bias correction</h1>
+</section>
+<section id="case-study-i" class="level1">
+<h1>Case study I</h1>
+</section>
+<section id="case-study-ii" class="level1">
+<h1>Case study II</h1>
 </section>
 
 </main>
@@ -550,5 +564,5 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<script src="un_B_files/libs/quarto-html/zenscroll-min.js"></script>
+<script src="un_C_files/libs/quarto-html/zenscroll-min.js"></script>
 </body></html>
