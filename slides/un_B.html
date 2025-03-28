@@ -36,49 +36,6 @@ ul.task-list li input[type="checkbox"] {
 <link href="un_B_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <style>html{ scroll-behavior: smooth; }</style>
 
-  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
-  <script>document.addEventListener("DOMContentLoaded", function () {
- var mathElements = document.getElementsByClassName("math");
- var macros = [];
- for (var i = 0; i < mathElements.length; i++) {
-  var texText = mathElements[i].firstChild;
-  if (mathElements[i].tagName == "SPAN") {
-   katex.render(texText.data, mathElements[i], {
-    displayMode: mathElements[i].classList.contains('display'),
-    throwOnError: false,
-    macros: macros,
-    fleqn: false
-   });
-}}});
-  </script>
-  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 </head>
 
@@ -143,19 +100,10 @@ window.Quarto = {
 <!-- [William of Ockham]{.grey} -->
 </div><div class="column" style="width:80%;">
 <ul>
-<li><p>This unit will cover the following <span class="orange">topics</span>:</p>
-<ul>
-<li>Methods of finding estimators</li>
-<li>Methods of evaluating estimators</li>
-<li>Unbiasedness</li>
-<li>Asymptotic evaluations</li>
-<li>Robustness and model misspecification</li>
-</ul></li>
+<li>This unit will cover the following <span class="orange">topics</span>:</li>
 </ul>
 </div><ul>
-<li><p>The rationale behind <span class="blue">point estimation</span> is quite simple:</p></li>
-<li><p>When sampling is from a <span class="orange">population</span> described by a pdf or a pmf <span class="math inline">f(\cdot ; \theta)</span>, knowledge of <span class="math inline">\theta</span> yields knowledge of the entire population.</p></li>
-<li><p>Hence, it is natural to seek a method of finding a good <span class="blue">estimator</span> of the unknown point <span class="math inline">\theta</span>.</p></li>
+<li>sdf</li>
 </ul>
 </div>
 </section>
