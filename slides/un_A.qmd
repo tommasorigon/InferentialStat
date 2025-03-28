@@ -2276,11 +2276,11 @@ $$
 
 - Let $Z \sim \tilde{f}_0$, and note such density [does not depend]{.orange} on $\theta_0$. After some calculations, we find
 $$
-j(\theta) = \mathbb{E}_0\{q^2(Y_1 - \theta)\}= \mathbb{E}\{Z^2 I(|Z|< k)\} + 2 k^2 \mathbb{P}(Z > k),
+j(\theta) = \mathbb{E}_0\{q(Y_1 - \theta)^2\}= \mathbb{E}\{Z^2 I(|Z|< k)\} + 2 k^2 \mathbb{P}(Z > k),
 $$
 and
 $$
-h(\theta) = \mathbb{E}_0\left(\frac{\partial}{\partial\theta}q(Y_1 - \theta)\right) =  \mathbb{P}(|Z| \le k).
+h(\theta) = \mathbb{E}_0\left(-\frac{\partial}{\partial\theta}q(Y_1 - \theta)\right) =  \mathbb{P}(|Z| \le k).
 $$
 - Remarkably, the asymptotic variance does not depend on $\theta_0$ therefore its relative efficiency compared to the [normal model]{.orange} is also [constant]{.blue} over $\theta_0$. 
 

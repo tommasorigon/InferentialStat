@@ -2423,9 +2423,9 @@ k \quad &amp;\text{ if }\: y \ge k\end{cases}.
 <h2>Example: Huber estimators for regression II 📖</h2>
 <ul>
 <li>Let <span class="math inline">Z \sim \tilde{f}_0</span>, and note such density <span class="orange">does not depend</span> on <span class="math inline">\theta_0</span>. After some calculations, we find <span class="math display">
-j(\theta) = \mathbb{E}_0\{q^2(Y_1 - \theta)\}= \mathbb{E}\{Z^2 I(|Z|&lt; k)\} + 2 k^2 \mathbb{P}(Z &gt; k),
+j(\theta) = \mathbb{E}_0\{q(Y_1 - \theta)^2\}= \mathbb{E}\{Z^2 I(|Z|&lt; k)\} + 2 k^2 \mathbb{P}(Z &gt; k),
 </span> and <span class="math display">
-h(\theta) = \mathbb{E}_0\left(\frac{\partial}{\partial\theta}q(Y_1 - \theta)\right) =  \mathbb{P}(|Z| \le k).
+h(\theta) = \mathbb{E}_0\left(-\frac{\partial}{\partial\theta}q(Y_1 - \theta)\right) =  \mathbb{P}(|Z| \le k).
 </span></li>
 <li>Remarkably, the asymptotic variance does not depend on <span class="math inline">\theta_0</span> therefore its relative efficiency compared to the <span class="orange">normal model</span> is also <span class="blue">constant</span> over <span class="math inline">\theta_0</span>.</li>
 </ul>
