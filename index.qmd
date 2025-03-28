@@ -33,17 +33,35 @@ Statistics)", Università degli Studi di Milano-Bicocca.
 
 ## Teaching material
 
-#### Textbooks 
+#### Textbooks
 
-- Agresti, A. 2015. [*Foundations of Linear and Generalized Linear Models*](https://www.wiley.com/en-us/Foundations+of+Linear+and+Generalized+Linear+Models-p-9781118730034). Wiley.
-- Casella, G., and R. L. Berger. 2002. [*Statistical Inference*](https://www.routledge.com/Statistical-Inference/Casella-Berger/p/book/9781032593036). Duxbury Advanced Series. Duxbury.
-- Davison, A. C. 2003. [*Statistical Models*](https://www.cambridge.org/core/books/statistical-models/8EC19F80551F52D4C58FAA2022048FC7). Cambridge University Press.
-- Keener, R. W. 2010. [*Theoretical Statistics*](https://link.springer.com/book/10.1007/978-0-387-93839-4). Springer. 
-- Lehmann, E. L., and G. Casella. 1998. [*Theory of Point Estimation*](https://link.springer.com/book/10.1007/b98854). Springer.
-<!-- - Efron, B. 2023. [*Exponential Families in Theory and Practice*](https://www.cambridge.org/core/books/exponential-families-in-theory-and-practice/45CE4C98DEAB5EC9D6934E9DAC002F5F). Cambridge University Press. -->
-- McCullagh, P., and J. A. Nelder. 1989. [*Generalized Linear Models*](https://www.taylorfrancis.com/books/mono/10.1201/9780203753736/generalized-linear-models-mccullagh). Second Edition. Springer.
-- Pace, L., and A. Salvan. 1997. [*Principles of Statistical Inference from a Neo-Fisherian Perspective*](https://www.worldscientific.com/worldscibooks/10.1142/3409). Advanced Series on Statistical Science and Applied Probability. World Scientific.
-- van der Vaart, A. W. 1998. [*Asymptotic Statistics*](https://www.cambridge.org/core/books/asymptotic-statistics/A3C7DAD3F7E66A1FA60E9C8FE132EE1D). Cambridge University Press.
+-   Agresti, A. 2015. [*Foundations of Linear and Generalized Linear
+    Models*](https://www.wiley.com/en-us/Foundations+of+Linear+and+Generalized+Linear+Models-p-9781118730034).
+    Wiley.
+-   Casella, G., and R. L. Berger. 2002. [*Statistical
+    Inference*](https://www.routledge.com/Statistical-Inference/Casella-Berger/p/book/9781032593036).
+    Duxbury Advanced Series. Duxbury.
+-   Davison, A. C. 2003. [*Statistical
+    Models*](https://www.cambridge.org/core/books/statistical-models/8EC19F80551F52D4C58FAA2022048FC7).
+    Cambridge University Press.
+-   Keener, R. W. 2010. [*Theoretical
+    Statistics*](https://link.springer.com/book/10.1007/978-0-387-93839-4).
+    Springer.
+-   Lehmann, E. L., and G. Casella. 1998. [*Theory of Point
+    Estimation*](https://link.springer.com/book/10.1007/b98854).
+    Springer.
+    <!-- - Efron, B. 2023. [*Exponential Families in Theory and Practice*](https://www.cambridge.org/core/books/exponential-families-in-theory-and-practice/45CE4C98DEAB5EC9D6934E9DAC002F5F). Cambridge University Press. -->
+-   McCullagh, P., and J. A. Nelder. 1989. [*Generalized Linear
+    Models*](https://www.taylorfrancis.com/books/mono/10.1201/9780203753736/generalized-linear-models-mccullagh).
+    Second Edition. Springer.
+-   Pace, L., and A. Salvan. 1997. [*Principles of Statistical Inference
+    from a Neo-Fisherian
+    Perspective*](https://www.worldscientific.com/worldscibooks/10.1142/3409).
+    Advanced Series on Statistical Science and Applied Probability.
+    World Scientific.
+-   van der Vaart, A. W. 1998. [*Asymptotic
+    Statistics*](https://www.cambridge.org/core/books/asymptotic-statistics/A3C7DAD3F7E66A1FA60E9C8FE132EE1D).
+    Cambridge University Press.
 
 ### Slides and lecture notes
 
@@ -52,20 +70,17 @@ to convert the HTML slides into pdf files, you can [follow the
 instruction of the quarto
 documentation](https://quarto.org/docs/presentations/revealjs/presenting.html#print-to-pdf).
 
-| Topic                           | Notes                                | Slides                                             | Code                  |
-|--------------------|------------------|------------------|------------------|
-| **Introduction**                | [Introduction](slides/un_intro.html) | [Slides Introduction](slides/un_intro_slides.html) |                       |
-| **Point estimation**            | [Unit A](slides/un_A.html)           | [Slides Unit A](slides/un_A_slides.html)           | [Code A](code/un_A.R) |
-| *Exercises*                     | [Exercises A](exe/exe_A.html)        |                                                    |                       |
-| **Exponential families**        | [Unit B](slides/un_B.html)           | [Slides Unit B](slides/un_B_slides.html)           | [Code B](code/un_B.R) |
-| *Exercises*                     | [Exercises B](exe/exe_B.html)        |                                                    |                       |
-| **Generalized linear models**   | [Unit C](slides/un_C.html)           | [Slides Unit C](slides/un_C_slides.html)           | [Code C](code/un_C.R) |
-| *Exercises*                     | [Exercises C](exe/exe_C.html)        |                                                    |                       |
-| **Linear mixed models** | [Unit D](slides/un_D.html)           | [Slides Unit D](slides/un_D_slides.html)           | [Code D](code/un_D.R) |
-| *Exercises*                     | [Exercises D](exe/exe_D.html)        |                                                    |                       |
+| Topic | Notes | Slides | Code |
+|-------------------|------------------|------------------|------------------|
+| **Introduction** | [Introduction](slides/un_intro.html) | [Slides Introduction](slides/un_intro_slides.html) |  |
+| **Point estimation** | [Unit A](slides/un_A.html) | [Slides Unit A](slides/un_A_slides.html) | [Code A](code/un_A.R) |
+| *Exercises* | [Exercises A](exe/exe_A.html) |  |  |
+| **Exponential families** | [Unit B](slides/un_B.html) | [Slides Unit B](slides/un_B_slides.html) | [Code B](code/un_B.R) |
+| *Exercises* | [Exercises B](exe/exe_B.html) |  |  |
+| **Generalized linear models** | [Unit C](slides/un_C.html) | [Slides Unit C](slides/un_C_slides.html) | [Code C](code/un_C.R) |
+| *Exercises* | [Exercises C](exe/exe_C.html) |  |  |
 
 <!-- ## Exam -->
-
 
 <!-- #### Mock exam -->
 

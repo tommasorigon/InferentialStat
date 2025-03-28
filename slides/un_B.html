@@ -8,7 +8,7 @@
 
 <meta name="author" content="Tommaso Rigon">
 
-<title>Statistical Inference</title>
+<title>Exponential families</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -24,49 +24,91 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="index_files/libs/clipboard/clipboard.min.js"></script>
-<script src="index_files/libs/quarto-html/quarto.js"></script>
-<script src="index_files/libs/quarto-html/popper.min.js"></script>
-<script src="index_files/libs/quarto-html/tippy.umd.min.js"></script>
-<script src="index_files/libs/quarto-html/anchor.min.js"></script>
-<link href="index_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="index_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="index_files/libs/bootstrap/bootstrap.min.js"></script>
-<link href="index_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="index_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="un_B_files/libs/clipboard/clipboard.min.js"></script>
+<script src="un_B_files/libs/quarto-html/quarto.js"></script>
+<script src="un_B_files/libs/quarto-html/popper.min.js"></script>
+<script src="un_B_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="un_B_files/libs/quarto-html/anchor.min.js"></script>
+<link href="un_B_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="un_B_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="un_B_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="un_B_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="un_B_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <style>html{ scroll-behavior: smooth; }</style>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
 <body>
 
-<div id="quarto-content" class="page-columns page-rows-contents page-layout-full toc-left">
-<div id="quarto-sidebar-toc-left" class="sidebar toc-left">
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-full">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
   <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#teaching-material" id="toc-teaching-material" class="nav-link active" data-scroll-target="#teaching-material">Teaching material</a>
-  <ul class="collapse">
-  <li><a href="#slides-and-lecture-notes" id="toc-slides-and-lecture-notes" class="nav-link" data-scroll-target="#slides-and-lecture-notes">Slides and lecture notes</a></li>
-  </ul></li>
-  <li><a href="#acknowledgments" id="toc-acknowledgments" class="nav-link" data-scroll-target="#acknowledgments">Acknowledgments</a></li>
+  <li><a href="#homepage" id="toc-homepage" class="nav-link active" data-scroll-target="#homepage">Homepage</a></li>
+  <li><a href="#exponential-families-of-order-1" id="toc-exponential-families-of-order-1" class="nav-link" data-scroll-target="#exponential-families-of-order-1">Exponential families of order 1</a></li>
+  <li><a href="#multiparameter-exponential-families" id="toc-multiparameter-exponential-families" class="nav-link" data-scroll-target="#multiparameter-exponential-families">Multiparameter exponential families</a></li>
+  <li><a href="#likelihood-quantities" id="toc-likelihood-quantities" class="nav-link" data-scroll-target="#likelihood-quantities">Likelihood quantities</a></li>
+  <li><a href="#sufficiency-and-completeness" id="toc-sufficiency-and-completeness" class="nav-link" data-scroll-target="#sufficiency-and-completeness">Sufficiency and completeness</a></li>
+  <li><a href="#exponential-dispersion-families" id="toc-exponential-dispersion-families" class="nav-link" data-scroll-target="#exponential-dispersion-families">Exponential dispersion families</a></li>
   </ul>
-</nav>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="un_B_slides.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
 </div>
-<div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-</div>
-<main class="content column-page-right" id="quarto-document-content">
+<main class="content column-page-left" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Statistical Inference</h1>
-<p class="subtitle lead">Ph.D.&nbsp;in Economics, Statistics, and Data Science - University of Milano-Bicocca</p>
+<h1 class="title">Exponential families</h1>
+<p class="subtitle lead">Statistical Inference - PhD EcoStatData</p>
 </div>
 
 
-<div class="quarto-title-meta-author column-page-right">
+<div class="quarto-title-meta-author column-page-left">
   <div class="quarto-title-meta-heading">Author</div>
   <div class="quarto-title-meta-heading">Affiliation</div>
   
@@ -80,7 +122,7 @@ ul.task-list li input[type="checkbox"] {
       </div>
   </div>
 
-<div class="quarto-title-meta column-page-right">
+<div class="quarto-title-meta column-page-left">
 
       
   
@@ -92,93 +134,45 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>This is the website of the <span class="blue">Statistical Inference</span> course of the “<em>Ph.D.&nbsp;in Economics, Statistics, and Data Science</em> (Curriculum Statistics)”, Università degli Studi di Milano-Bicocca.</p>
-<section id="teaching-material" class="level2">
-<h2 class="anchored" data-anchor-id="teaching-material">Teaching material</h2>
-<section id="textbooks" class="level4">
-<h4 class="anchored" data-anchor-id="textbooks">Textbooks</h4>
+<section id="homepage" class="level2">
+<h2 class="anchored" data-anchor-id="homepage"><a href="../index.html">Homepage</a></h2>
+<div class="columns">
+<div class="column" style="width:20%;">
+<p><img src="img/target.png" class="img-fluid"></p>
+<!-- *"Pluralitas non est ponenda sine necessitate."* -->
+<!-- [William of Ockham]{.grey} -->
+</div><div class="column" style="width:80%;">
 <ul>
-<li>Agresti, A. 2015. <a href="https://www.wiley.com/en-us/Foundations+of+Linear+and+Generalized+Linear+Models-p-9781118730034"><em>Foundations of Linear and Generalized Linear Models</em></a>. Wiley.</li>
-<li>Casella, G., and R. L. Berger. 2002. <a href="https://www.routledge.com/Statistical-Inference/Casella-Berger/p/book/9781032593036"><em>Statistical Inference</em></a>. Duxbury Advanced Series. Duxbury.</li>
-<li>Davison, A. C. 2003. <a href="https://www.cambridge.org/core/books/statistical-models/8EC19F80551F52D4C58FAA2022048FC7"><em>Statistical Models</em></a>. Cambridge University Press.</li>
-<li>Keener, R. W. 2010. <a href="https://link.springer.com/book/10.1007/978-0-387-93839-4"><em>Theoretical Statistics</em></a>. Springer.</li>
-<li>Lehmann, E. L., and G. Casella. 1998. <a href="https://link.springer.com/book/10.1007/b98854"><em>Theory of Point Estimation</em></a>. Springer. <!-- - Efron, B. 2023. [*Exponential Families in Theory and Practice*](https://www.cambridge.org/core/books/exponential-families-in-theory-and-practice/45CE4C98DEAB5EC9D6934E9DAC002F5F). Cambridge University Press. --></li>
-<li>McCullagh, P., and J. A. Nelder. 1989. <a href="https://www.taylorfrancis.com/books/mono/10.1201/9780203753736/generalized-linear-models-mccullagh"><em>Generalized Linear Models</em></a>. Second Edition. Springer.</li>
-<li>Pace, L., and A. Salvan. 1997. <a href="https://www.worldscientific.com/worldscibooks/10.1142/3409"><em>Principles of Statistical Inference from a Neo-Fisherian Perspective</em></a>. Advanced Series on Statistical Science and Applied Probability. World Scientific.</li>
-<li>van der Vaart, A. W. 1998. <a href="https://www.cambridge.org/core/books/asymptotic-statistics/A3C7DAD3F7E66A1FA60E9C8FE132EE1D"><em>Asymptotic Statistics</em></a>. Cambridge University Press.</li>
+<li><p>This unit will cover the following <span class="orange">topics</span>:</p>
+<ul>
+<li>Methods of finding estimators</li>
+<li>Methods of evaluating estimators</li>
+<li>Unbiasedness</li>
+<li>Asymptotic evaluations</li>
+<li>Robustness and model misspecification</li>
+</ul></li>
 </ul>
+</div><ul>
+<li><p>The rationale behind <span class="blue">point estimation</span> is quite simple:</p></li>
+<li><p>When sampling is from a <span class="orange">population</span> described by a pdf or a pmf <span class="math inline">f(\cdot ; \theta)</span>, knowledge of <span class="math inline">\theta</span> yields knowledge of the entire population.</p></li>
+<li><p>Hence, it is natural to seek a method of finding a good <span class="blue">estimator</span> of the unknown point <span class="math inline">\theta</span>.</p></li>
+</ul>
+</div>
 </section>
-<section id="slides-and-lecture-notes" class="level3">
-<h3 class="anchored" data-anchor-id="slides-and-lecture-notes">Slides and lecture notes</h3>
-<p>The slides are meant to be used in HTML. However, if you <em>really</em> want to convert the HTML slides into pdf files, you can <a href="https://quarto.org/docs/presentations/revealjs/presenting.html#print-to-pdf">follow the instruction of the quarto documentation</a>.</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Topic</th>
-<th>Notes</th>
-<th>Slides</th>
-<th>Code</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>Introduction</strong></td>
-<td><a href="slides/un_intro.html">Introduction</a></td>
-<td><a href="slides/un_intro_slides.html">Slides Introduction</a></td>
-<td></td>
-</tr>
-<tr class="even">
-<td><strong>Point estimation</strong></td>
-<td><a href="slides/un_A.html">Unit A</a></td>
-<td><a href="slides/un_A_slides.html">Slides Unit A</a></td>
-<td><a href="code/un_A.R">Code A</a></td>
-</tr>
-<tr class="odd">
-<td><em>Exercises</em></td>
-<td><a href="exe/exe_A.html">Exercises A</a></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td><strong>Exponential families</strong></td>
-<td><a href="slides/un_B.html">Unit B</a></td>
-<td><a href="slides/un_B_slides.html">Slides Unit B</a></td>
-<td><a href="code/un_B.R">Code B</a></td>
-</tr>
-<tr class="odd">
-<td><em>Exercises</em></td>
-<td><a href="exe/exe_B.html">Exercises B</a></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td><strong>Generalized linear models</strong></td>
-<td><a href="slides/un_C.html">Unit C</a></td>
-<td><a href="slides/un_C_slides.html">Slides Unit C</a></td>
-<td><a href="code/un_C.R">Code C</a></td>
-</tr>
-<tr class="odd">
-<td><em>Exercises</em></td>
-<td><a href="exe/exe_C.html">Exercises C</a></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<!-- ## Exam -->
-<!-- #### Mock exam -->
-<!-- An example of written examination is provided at [this link](exe/exe_exam.html).  -->
-<!-- ## Prerequisites -->
-<!-- Knowledge of the topics (i) linear algebra, (ii) linear models is highly recommended. -->
-<!-- Knowledge of topics covered in the courses Probability and Statistics M -->
-<!-- and Advanced Statistics M is also highly recommended. -->
+<section id="exponential-families-of-order-1" class="level1">
+<h1>Exponential families of order 1</h1>
 </section>
+<section id="multiparameter-exponential-families" class="level1">
+<h1>Multiparameter exponential families</h1>
 </section>
-<section id="acknowledgments" class="level2">
-<h2 class="anchored" data-anchor-id="acknowledgments">Acknowledgments</h2>
-<p>I have made use of several other books, scientific articles, and datasets to complement the main textbooks. They are all cited at the end of each unit. Students are encouraged to consult the books: these slides are just a concise summary.</p>
-<p>All the mistakes still present are mine.</p>
-<hr>
+<section id="likelihood-quantities" class="level1">
+<h1>Likelihood quantities</h1>
+</section>
+<section id="sufficiency-and-completeness" class="level1">
+<h1>Sufficiency and completeness</h1>
+</section>
+<section id="exponential-dispersion-families" class="level1">
+<h1>Exponential dispersion families</h1>
 </section>
 
 </main>
@@ -608,5 +602,5 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<script src="index_files/libs/quarto-html/zenscroll-min.js"></script>
+<script src="un_B_files/libs/quarto-html/zenscroll-min.js"></script>
 </body></html>

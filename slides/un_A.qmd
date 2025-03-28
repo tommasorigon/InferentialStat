@@ -2253,7 +2253,7 @@ which is a well-know [bias-reducing]{.orange} correction of the empirical logit.
 
 - Case i. is sometimes called [resistence]{.orange} and relies on the notion of [influence functions]{.blue}. For instance, the median is resistent, the mean is not. 
 
-## Example: Huber estimators for regression I 📖
+## Example: Huber estimators I 📖
 
 - Recall that a Huber estimator $\hat{\theta}_n$ for the [mean]{.orange} $\theta_0$ is defined as the solution of $$
 Q(\theta) = \sum_{i=1}^n q(Y_i - \theta)= 0, \qquad q(y) = \begin{cases} -k \quad &\text{ if }\: y \le -k\\
@@ -2272,7 +2272,7 @@ $$
 $$
 - Huber estimator is [robust]{.orange} but [less efficient]{.blue} than the maximum likelihood. For instance, if $f_0$ is a Gaussian with mean $\theta_0$ and variance $\sigma^2$, then $\bar{Y}$ has asymptotic variance $\sigma^2$ and $\sigma^2 \le v(\theta_0)^{-1}$.
 
-## Example: Huber estimators for regression II 📖
+## Example: Huber estimators II 📖
 
 - Let $Z \sim \tilde{f}_0$, and note such density [does not depend]{.orange} on $\theta_0$. After some calculations, we find
 $$
