@@ -95,7 +95,7 @@ library(ggthemes)
 
 # Quasi likelihoods
 
-# Bias correction
+# Bias correction and robustness
 
 # Case study I
 
