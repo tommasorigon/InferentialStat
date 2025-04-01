@@ -1475,8 +1475,8 @@ r(\pi, \hat{\theta}_\text{Bayes}) = 0.
 <div class="callout-content">
 <p>Let <span class="math inline">Y_1,\dots,Y_n</span> be a sample from a joint probability measure <span class="math inline">f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y})</span> and let <span class="math inline">\Theta \subseteq \mathbb{R}</span>. Moreover, let <span class="math inline">\hat{\theta}(\bm{Y})</span> be an estimator of <span class="math inline">\theta</span> satisfying <span class="math display">
 1 + b^*(\theta) := \frac{\partial}{\partial \theta}\int \hat{\theta}(\bm{y})f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y}) = \int \frac{\partial}{\partial \theta} \hat{\theta}(\bm{y})f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y}),
-</span> and with finite variance <span class="math inline">\text{var}(\hat{\theta}(\bm{Y})) &lt; \infty</span>. Then <span class="math display">
-\text{var}(\hat{\theta}(\bm{Y})) \ge \frac{[1 + b^*(\theta)]^2}{\mathbb{E}_\theta(\ell^*(\theta)^2)}.
+</span> and with finite variance <span class="math inline">\text{var}_\theta(\hat{\theta}(\bm{Y})) &lt; \infty</span>. Then <span class="math display">
+\text{var}_\theta(\hat{\theta}(\bm{Y})) \ge \frac{[1 + b^*(\theta)]^2}{\mathbb{E}_\theta(\ell^*(\theta)^2)}.
 </span> Moreover, if <span class="math inline">\hat{\theta}</span> is an <span class="orange">unbiased</span> estimator for <span class="math inline">\theta</span>, then <span class="math inline">b^*(\theta) = 0</span> and <span class="math inline">\text{var}(\hat{\theta}(\bm{Y})) \ge 1/\mathbb{E}_\theta(l^*(\theta)^2)</span> .</p>
 </div>
 </div>
@@ -1537,9 +1537,9 @@ I(\theta) := \mathbb{E}_\theta(\ell^*(\theta)^2),
 <p>Let <span class="math inline">Y_1,\dots,Y_n</span> be a sample from a joint probability measure <span class="math inline">f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y})</span> and let <span class="math inline">\Theta \subseteq \mathbb{R}</span>. If we can interchange <span class="orange">twice</span> derivation and integration, namely <span class="math display">
 \frac{\partial}{\partial \theta}\int f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y}) = \int \frac{\partial}{\partial \theta} f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y}), \tag{C.1}
 </span> <span class="math display">
-\frac{\partial^2}{\partial \theta^2}\int f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y}) = \int \frac{\partial^2}{\partial \theta^2}f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y}), \tag{C.2}
+\frac{\partial^2}{\partial^2 \theta}\int f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y}) = \int \frac{\partial^2}{\partial^2 \theta}f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y}), \tag{C.2}
 </span> then <span class="math display">
-I(\theta) = \mathbb{E}_\theta(\ell^*(\theta)^2) =\text{var}_\theta(\ell^*(\theta))= \mathbb{E}_\theta\left(-\frac{\partial^2}{\partial \theta^2}\ell(\theta)\right).
+I(\theta) = \mathbb{E}_\theta(\ell^*(\theta)^2) =\text{var}_\theta(\ell^*(\theta))= \mathbb{E}_\theta\left(-\frac{\partial^2}{\partial^2 \theta}\ell(\theta)\right).
 </span></p>
 </div>
 </div>
@@ -1549,7 +1549,7 @@ I(\theta) = \mathbb{E}_\theta(\ell^*(\theta)^2) =\text{var}_\theta(\ell^*(\theta
 </ul>
 </section>
 <section id="cramér-rao-iid-and-regular-case" class="slide level2 center">
-<h2>Cramér-Rao: iid and regular case 📖</h2>
+<h2>Cramér-Rao: iid and regular case</h2>
 <div class="callout callout-warning no-icon callout-titled callout-style-simple">
 <div class="callout-body">
 <div class="callout-title">
@@ -1557,7 +1557,7 @@ I(\theta) = \mathbb{E}_\theta(\ell^*(\theta)^2) =\text{var}_\theta(\ell^*(\theta
 </div>
 <div class="callout-content">
 <p>Let <span class="math inline">Y_1,\dots,Y_n</span> be an iid sample from <span class="math inline">f(y \mid \theta)\mathrm{d}y</span> satisfying conditions <span class="blue">C.1</span> and <span class="blue">C.2</span>, and let <span class="math inline">\Theta \subseteq \mathbb{R}</span>. Moreover, let <span class="math inline">\hat{\theta}(\bm{Y})</span> be an <span class="orange">unbiased</span> estimator of <span class="math inline">\theta</span> with finite variance <span class="math inline">\text{var}(\hat{\theta}(\bm{Y})) &lt; \infty</span>. Then <span class="math display">
-\text{var}_\theta(\hat{\theta}(\bm{Y})) \ge \frac{1}{n i(\theta)}, \qquad i(\theta) = -\int\frac{\partial^2}{\partial \theta^2}\log{f(y \mid \theta)}\mathrm{d}y.
+\text{var}_\theta(\hat{\theta}(\bm{Y})) \ge \frac{1}{n i(\theta)}, \qquad i(\theta) = -\int\frac{\partial^2}{\partial^2 \theta}\log{f(y \mid \theta)}\mathrm{d}y.
 </span></p>
 </div>
 </div>
@@ -1623,7 +1623,7 @@ i(\lambda) = -\mathbb{E}_\lambda\left(\frac{\partial}{\partial \lambda^2}\log{f(
 <div class="callout-body">
 <div class="callout-content">
 <ul>
-<li><p>Rao-Blackwell holds for any <span class="blue">convex loss function</span>; see <span class="citation" data-cites="Lehmann1998">Lehmann and Casella (<a href="#/references" role="doc-biblioref" onclick="">1998</a>)</span>, Theorem 7.8, Chap. 1. Note that <span class="orange">unbiasedness</span> does not play any role in the proof.</p></li>
+<li><p>As we shall see later, Rao-Blackwell holds for any <span class="blue">convex loss function</span>; see <span class="citation" data-cites="Lehmann1998">Lehmann and Casella (<a href="#/references" role="doc-biblioref" onclick="">1998</a>)</span>, Theorem 7.8, Chap. 1. Note that <span class="orange">unbiasedness</span> will not play any role.</p></li>
 <li><p>This means that conditioning of a sufficient statistic <span class="orange">reduces</span> the <span class="orange">mean squared error</span> of a biased estimator <span class="math inline">\tilde{\theta}</span>, albeit the resulting <span class="math inline">\hat{\theta}</span> would also be biased.</p></li>
 </ul>
 </div>

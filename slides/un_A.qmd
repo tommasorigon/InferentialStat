@@ -1304,9 +1304,9 @@ Let $Y_1,\dots,Y_n$ be a sample from a joint probability measure $f(\bm{y} \mid 
 $$
 1 + b^*(\theta) := \frac{\partial}{\partial \theta}\int \hat{\theta}(\bm{y})f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y}) = \int \frac{\partial}{\partial \theta} \hat{\theta}(\bm{y})f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y}),
 $$
-and with finite variance $\text{var}(\hat{\theta}(\bm{Y})) < \infty$. Then
+and with finite variance $\text{var}_\theta(\hat{\theta}(\bm{Y})) < \infty$. Then
 $$
-\text{var}(\hat{\theta}(\bm{Y})) \ge \frac{[1 + b^*(\theta)]^2}{\mathbb{E}_\theta(\ell^*(\theta)^2)}.
+\text{var}_\theta(\hat{\theta}(\bm{Y})) \ge \frac{[1 + b^*(\theta)]^2}{\mathbb{E}_\theta(\ell^*(\theta)^2)}.
 $$
 Moreover, if $\hat{\theta}$ is an [unbiased]{.orange} estimator for $\theta$, then $b^*(\theta) = 0$ and  $\text{var}(\hat{\theta}(\bm{Y})) \ge 1/\mathbb{E}_\theta(l^*(\theta)^2)$ . 
 :::
@@ -1355,23 +1355,23 @@ $$
 \frac{\partial}{\partial \theta}\int f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y}) = \int \frac{\partial}{\partial \theta} f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y}), \tag{C.1}
 $$
 $$
-\frac{\partial^2}{\partial \theta^2}\int f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y}) = \int \frac{\partial^2}{\partial \theta^2}f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y}), \tag{C.2}
+\frac{\partial^2}{\partial^2 \theta}\int f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y}) = \int \frac{\partial^2}{\partial^2 \theta}f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y}), \tag{C.2}
 $$
 then
 $$
-I(\theta) = \mathbb{E}_\theta(\ell^*(\theta)^2) =\text{var}_\theta(\ell^*(\theta))= \mathbb{E}_\theta\left(-\frac{\partial^2}{\partial \theta^2}\ell(\theta)\right).
+I(\theta) = \mathbb{E}_\theta(\ell^*(\theta)^2) =\text{var}_\theta(\ell^*(\theta))= \mathbb{E}_\theta\left(-\frac{\partial^2}{\partial^2 \theta}\ell(\theta)\right).
 $$
 :::
 
 - Both conditions are true in [regular exponential]{.orange} families. This also clarifies that, in regular models, Fisher information relates to the [curvature]{.blue} of the log-likelihood. 
 
-## Cramér-Rao: iid and regular case 📖
+## Cramér-Rao: iid and regular case
 
 ::: callout-warning
 #### Theorem (Cramér-Rao, simplified)
 Let $Y_1,\dots,Y_n$ be an iid sample from $f(y \mid \theta)\mathrm{d}y$ satisfying conditions [C.1]{.blue} and [C.2]{.blue}, and let $\Theta \subseteq \mathbb{R}$. Moreover, let $\hat{\theta}(\bm{Y})$ be an [unbiased]{.orange} estimator of $\theta$  with finite variance $\text{var}(\hat{\theta}(\bm{Y})) < \infty$. Then
 $$
-\text{var}_\theta(\hat{\theta}(\bm{Y})) \ge \frac{1}{n i(\theta)}, \qquad i(\theta) = -\int\frac{\partial^2}{\partial \theta^2}\log{f(y \mid \theta)}\mathrm{d}y.
+\text{var}_\theta(\hat{\theta}(\bm{Y})) \ge \frac{1}{n i(\theta)}, \qquad i(\theta) = -\int\frac{\partial^2}{\partial^2 \theta}\log{f(y \mid \theta)}\mathrm{d}y.
 $$
 :::
 
@@ -1435,7 +1435,7 @@ That is, $\hat{\theta}$ is a [uniformly better unbiased estimator]{.blue} of $\t
 :::
 
 :::callout-tip
-- Rao-Blackwell holds for any [convex loss function]{.blue}; see @Lehmann1998, Theorem 7.8, Chap. 1. Note that [unbiasedness]{.orange} does not play any role in the proof.
+- As we shall see later, Rao-Blackwell holds for any [convex loss function]{.blue}; see @Lehmann1998, Theorem 7.8, Chap. 1. Note that [unbiasedness]{.orange} will not play any role.
 
 - This means that conditioning of a sufficient statistic [reduces]{.orange} the [mean squared error]{.orange} of a biased estimator $\tilde{\theta}$, albeit the resulting $\hat{\theta}$ would also be biased. 
 :::

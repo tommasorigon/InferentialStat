@@ -175,7 +175,7 @@ window.Quarto = {
   <li><a href="#cramér-rao-considerations" id="toc-cramér-rao-considerations" class="nav-link" data-scroll-target="#cramér-rao-considerations">Cramér-Rao: considerations</a></li>
   <li><a href="#bartlett-identities-i" id="toc-bartlett-identities-i" class="nav-link" data-scroll-target="#bartlett-identities-i">Bartlett identities I 📖</a></li>
   <li><a href="#bartlett-identities-ii" id="toc-bartlett-identities-ii" class="nav-link" data-scroll-target="#bartlett-identities-ii">Bartlett identities II 📖</a></li>
-  <li><a href="#cramér-rao-iid-and-regular-case" id="toc-cramér-rao-iid-and-regular-case" class="nav-link" data-scroll-target="#cramér-rao-iid-and-regular-case">Cramér-Rao: iid and regular case 📖</a></li>
+  <li><a href="#cramér-rao-iid-and-regular-case" id="toc-cramér-rao-iid-and-regular-case" class="nav-link" data-scroll-target="#cramér-rao-iid-and-regular-case">Cramér-Rao: iid and regular case</a></li>
   <li><a href="#example-poisson-unbiased-estimation-1" id="toc-example-poisson-unbiased-estimation-1" class="nav-link" data-scroll-target="#example-poisson-unbiased-estimation-1">Example: Poisson unbiased estimation 📖</a></li>
   <li><a href="#cramér-rao-multiparameter-case" id="toc-cramér-rao-multiparameter-case" class="nav-link" data-scroll-target="#cramér-rao-multiparameter-case">Cramér-Rao, multiparameter case</a></li>
   <li><a href="#rao-blackwell" id="toc-rao-blackwell" class="nav-link" data-scroll-target="#rao-blackwell">Rao-Blackwell 📖</a></li>
@@ -229,8 +229,8 @@ window.Quarto = {
   <li><a href="#robustness" id="toc-robustness" class="nav-link" data-scroll-target="#robustness">Robustness</a>
   <ul class="collapse">
   <li><a href="#robustness-preliminaries" id="toc-robustness-preliminaries" class="nav-link" data-scroll-target="#robustness-preliminaries">Robustness: preliminaries</a></li>
-  <li><a href="#example-huber-estimators-for-regression-i" id="toc-example-huber-estimators-for-regression-i" class="nav-link" data-scroll-target="#example-huber-estimators-for-regression-i">Example: Huber estimators for regression I 📖</a></li>
-  <li><a href="#example-huber-estimators-for-regression-ii" id="toc-example-huber-estimators-for-regression-ii" class="nav-link" data-scroll-target="#example-huber-estimators-for-regression-ii">Example: Huber estimators for regression II 📖</a></li>
+  <li><a href="#example-huber-estimators-i" id="toc-example-huber-estimators-i" class="nav-link" data-scroll-target="#example-huber-estimators-i">Example: Huber estimators I 📖</a></li>
+  <li><a href="#example-huber-estimators-ii" id="toc-example-huber-estimators-ii" class="nav-link" data-scroll-target="#example-huber-estimators-ii">Example: Huber estimators II 📖</a></li>
   <li><a href="#example-omitted-variable-in-linear-regression" id="toc-example-omitted-variable-in-linear-regression" class="nav-link" data-scroll-target="#example-omitted-variable-in-linear-regression">Example: omitted variable in linear regression 📖</a></li>
   <li><a href="#maximum-likelihood-under-a-misspecified-model" id="toc-maximum-likelihood-under-a-misspecified-model" class="nav-link" data-scroll-target="#maximum-likelihood-under-a-misspecified-model">Maximum likelihood under a misspecified model 📖</a></li>
   <li><a href="#example-misspecified-exponential-model-i" id="toc-example-misspecified-exponential-model-i" class="nav-link" data-scroll-target="#example-misspecified-exponential-model-i">Example: misspecified exponential model I</a></li>
@@ -1511,8 +1511,8 @@ Theorem (Cramér-Rao, Theorem 7.3.9 in <span class="citation" data-cites="Casell
 <div class="callout-body-container callout-body">
 <p>Let <span class="math inline">Y_1,\dots,Y_n</span> be a sample from a joint probability measure <span class="math inline">f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y})</span> and let <span class="math inline">\Theta \subseteq \mathbb{R}</span>. Moreover, let <span class="math inline">\hat{\theta}(\bm{Y})</span> be an estimator of <span class="math inline">\theta</span> satisfying <span class="math display">
 1 + b^*(\theta) := \frac{\partial}{\partial \theta}\int \hat{\theta}(\bm{y})f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y}) = \int \frac{\partial}{\partial \theta} \hat{\theta}(\bm{y})f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y}),
-</span> and with finite variance <span class="math inline">\text{var}(\hat{\theta}(\bm{Y})) &lt; \infty</span>. Then <span class="math display">
-\text{var}(\hat{\theta}(\bm{Y})) \ge \frac{[1 + b^*(\theta)]^2}{\mathbb{E}_\theta(\ell^*(\theta)^2)}.
+</span> and with finite variance <span class="math inline">\text{var}_\theta(\hat{\theta}(\bm{Y})) &lt; \infty</span>. Then <span class="math display">
+\text{var}_\theta(\hat{\theta}(\bm{Y})) \ge \frac{[1 + b^*(\theta)]^2}{\mathbb{E}_\theta(\ell^*(\theta)^2)}.
 </span> Moreover, if <span class="math inline">\hat{\theta}</span> is an <span class="orange">unbiased</span> estimator for <span class="math inline">\theta</span>, then <span class="math inline">b^*(\theta) = 0</span> and <span class="math inline">\text{var}(\hat{\theta}(\bm{Y})) \ge 1/\mathbb{E}_\theta(l^*(\theta)^2)</span> .</p>
 </div>
 </div>
@@ -1585,9 +1585,9 @@ Second Bartlett identity
 <p>Let <span class="math inline">Y_1,\dots,Y_n</span> be a sample from a joint probability measure <span class="math inline">f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y})</span> and let <span class="math inline">\Theta \subseteq \mathbb{R}</span>. If we can interchange <span class="orange">twice</span> derivation and integration, namely <span class="math display">
 \frac{\partial}{\partial \theta}\int f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y}) = \int \frac{\partial}{\partial \theta} f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y}), \tag{C.1}
 </span> <span class="math display">
-\frac{\partial^2}{\partial \theta^2}\int f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y}) = \int \frac{\partial^2}{\partial \theta^2}f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y}), \tag{C.2}
+\frac{\partial^2}{\partial^2 \theta}\int f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y}) = \int \frac{\partial^2}{\partial^2 \theta}f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y}), \tag{C.2}
 </span> then <span class="math display">
-I(\theta) = \mathbb{E}_\theta(\ell^*(\theta)^2) =\text{var}_\theta(\ell^*(\theta))= \mathbb{E}_\theta\left(-\frac{\partial^2}{\partial \theta^2}\ell(\theta)\right).
+I(\theta) = \mathbb{E}_\theta(\ell^*(\theta)^2) =\text{var}_\theta(\ell^*(\theta))= \mathbb{E}_\theta\left(-\frac{\partial^2}{\partial^2 \theta}\ell(\theta)\right).
 </span></p>
 </div>
 </div>
@@ -1596,7 +1596,7 @@ I(\theta) = \mathbb{E}_\theta(\ell^*(\theta)^2) =\text{var}_\theta(\ell^*(\theta
 </ul>
 </section>
 <section id="cramér-rao-iid-and-regular-case" class="level2 page-columns page-full">
-<h2 class="anchored" data-anchor-id="cramér-rao-iid-and-regular-case">Cramér-Rao: iid and regular case 📖</h2>
+<h2 class="anchored" data-anchor-id="cramér-rao-iid-and-regular-case">Cramér-Rao: iid and regular case</h2>
 <div class="callout callout-style-simple callout-warning no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1608,7 +1608,7 @@ Theorem (Cramér-Rao, simplified)
 </div>
 <div class="callout-body-container callout-body">
 <p>Let <span class="math inline">Y_1,\dots,Y_n</span> be an iid sample from <span class="math inline">f(y \mid \theta)\mathrm{d}y</span> satisfying conditions <span class="blue">C.1</span> and <span class="blue">C.2</span>, and let <span class="math inline">\Theta \subseteq \mathbb{R}</span>. Moreover, let <span class="math inline">\hat{\theta}(\bm{Y})</span> be an <span class="orange">unbiased</span> estimator of <span class="math inline">\theta</span> with finite variance <span class="math inline">\text{var}(\hat{\theta}(\bm{Y})) &lt; \infty</span>. Then <span class="math display">
-\text{var}_\theta(\hat{\theta}(\bm{Y})) \ge \frac{1}{n i(\theta)}, \qquad i(\theta) = -\int\frac{\partial^2}{\partial \theta^2}\log{f(y \mid \theta)}\mathrm{d}y.
+\text{var}_\theta(\hat{\theta}(\bm{Y})) \ge \frac{1}{n i(\theta)}, \qquad i(\theta) = -\int\frac{\partial^2}{\partial^2 \theta}\log{f(y \mid \theta)}\mathrm{d}y.
 </span></p>
 </div>
 </div>
@@ -1682,7 +1682,7 @@ Theorem (Rao-Blackwell, <span class="citation" data-cites="Casella2002">Casella 
 </div>
 <div class="callout-body-container">
 <ul>
-<li><p>Rao-Blackwell holds for any <span class="blue">convex loss function</span>; see <span class="citation" data-cites="Lehmann1998">Lehmann and Casella (<a href="#ref-Lehmann1998" role="doc-biblioref">1998</a>)</span>, Theorem 7.8, Chap. 1. Note that <span class="orange">unbiasedness</span> does not play any role in the proof.</p></li>
+<li><p>As we shall see later, Rao-Blackwell holds for any <span class="blue">convex loss function</span>; see <span class="citation" data-cites="Lehmann1998">Lehmann and Casella (<a href="#ref-Lehmann1998" role="doc-biblioref">1998</a>)</span>, Theorem 7.8, Chap. 1. Note that <span class="orange">unbiasedness</span> will not play any role.</p></li>
 <li><p>This means that conditioning of a sufficient statistic <span class="orange">reduces</span> the <span class="orange">mean squared error</span> of a biased estimator <span class="math inline">\tilde{\theta}</span>, albeit the resulting <span class="math inline">\hat{\theta}</span> would also be biased.</p></li>
 </ul>
 </div>
@@ -2581,8 +2581,8 @@ Q(\psi) = \ell^*(\psi) - I(\psi)b_1(\psi)/n \quad \implies \quad \hat{\psi}_\tex
 <li><p>Case i. is sometimes called <span class="orange">resistence</span> and relies on the notion of <span class="blue">influence functions</span>. For instance, the median is resistent, the mean is not.</p></li>
 </ul>
 </section>
-<section id="example-huber-estimators-for-regression-i" class="level2">
-<h2 class="anchored" data-anchor-id="example-huber-estimators-for-regression-i">Example: Huber estimators for regression I 📖</h2>
+<section id="example-huber-estimators-i" class="level2">
+<h2 class="anchored" data-anchor-id="example-huber-estimators-i">Example: Huber estimators I 📖</h2>
 <ul>
 <li><p>Recall that a Huber estimator <span class="math inline">\hat{\theta}_n</span> for the <span class="orange">mean</span> <span class="math inline">\theta_0</span> is defined as the solution of <span class="math display">
 Q(\theta) = \sum_{i=1}^n q(Y_i - \theta)= 0, \qquad q(y) = \begin{cases} -k \quad &amp;\text{ if }\: y \le -k\\
@@ -2597,8 +2597,8 @@ k \quad &amp;\text{ if }\: y \ge k\end{cases}.
 <li><p>Huber estimator is <span class="orange">robust</span> but <span class="blue">less efficient</span> than the maximum likelihood. For instance, if <span class="math inline">f_0</span> is a Gaussian with mean <span class="math inline">\theta_0</span> and variance <span class="math inline">\sigma^2</span>, then <span class="math inline">\bar{Y}</span> has asymptotic variance <span class="math inline">\sigma^2</span> and <span class="math inline">\sigma^2 \le v(\theta_0)^{-1}</span>.</p></li>
 </ul>
 </section>
-<section id="example-huber-estimators-for-regression-ii" class="level2">
-<h2 class="anchored" data-anchor-id="example-huber-estimators-for-regression-ii">Example: Huber estimators for regression II 📖</h2>
+<section id="example-huber-estimators-ii" class="level2">
+<h2 class="anchored" data-anchor-id="example-huber-estimators-ii">Example: Huber estimators II 📖</h2>
 <ul>
 <li>Let <span class="math inline">Z \sim \tilde{f}_0</span>, and note such density <span class="orange">does not depend</span> on <span class="math inline">\theta_0</span>. After some calculations, we find <span class="math display">
 j(\theta) = \mathbb{E}_0\{q(Y_1 - \theta)^2\}= \mathbb{E}\{Z^2 I(|Z|&lt; k)\} + 2 k^2 \mathbb{P}(Z &gt; k),
