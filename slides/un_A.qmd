@@ -1825,7 +1825,7 @@ $$
 
 - [Remark]{.orange}: there exist infinitely many asymptotically efficient estimators.
 
-## Example: Poisson with unknown mean 📖 
+## Example: Poisson with unknown mean
 
 -   Let $Y_1,\dots,Y_n$ be a iid random sample from a [Poisson]{.orange}
     distribution of mean parameter $\lambda > 0$. The maximum likelihood estimator $\hat{\lambda}_n$ is the sample mean
@@ -1875,7 +1875,7 @@ $$
 for $r,s = 1,\dots,p$, that this, the [first]{.orange} and [second Bartlett identities]{.blue}. 
 :::
 
-## Wald inequality
+## Wald inequality 📖
 
 :::callout-warning
 #### Theorem (Wald inequality, @Lehmann1998, Theorem 3.2, Chap. 6)
