@@ -206,9 +206,9 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#asymptotic-evaluations-preliminaries" id="toc-asymptotic-evaluations-preliminaries" class="nav-link" data-scroll-target="#asymptotic-evaluations-preliminaries">Asymptotic evaluations: preliminaries</a></li>
   <li><a href="#asymptotic-evaluations-preliminaries-1" id="toc-asymptotic-evaluations-preliminaries-1" class="nav-link" data-scroll-target="#asymptotic-evaluations-preliminaries-1">Asymptotic evaluations: preliminaries</a></li>
-  <li><a href="#example-poisson-with-unknown-mean-1" id="toc-example-poisson-with-unknown-mean-1" class="nav-link" data-scroll-target="#example-poisson-with-unknown-mean-1">Example: Poisson with unknown mean 📖</a></li>
+  <li><a href="#example-poisson-with-unknown-mean-1" id="toc-example-poisson-with-unknown-mean-1" class="nav-link" data-scroll-target="#example-poisson-with-unknown-mean-1">Example: Poisson with unknown mean</a></li>
   <li><a href="#the-classical-regularity-conditions" id="toc-the-classical-regularity-conditions" class="nav-link" data-scroll-target="#the-classical-regularity-conditions">The classical “regularity conditions”</a></li>
-  <li><a href="#wald-inequality" id="toc-wald-inequality" class="nav-link" data-scroll-target="#wald-inequality">Wald inequality</a></li>
+  <li><a href="#wald-inequality" id="toc-wald-inequality" class="nav-link" data-scroll-target="#wald-inequality">Wald inequality 📖</a></li>
   <li><a href="#consistency-for-the-mle" id="toc-consistency-for-the-mle" class="nav-link" data-scroll-target="#consistency-for-the-mle">Consistency for the MLE</a></li>
   <li><a href="#what-could-go-wrong" id="toc-what-could-go-wrong" class="nav-link" data-scroll-target="#what-could-go-wrong">What could go wrong?</a></li>
   <li><a href="#what-could-go-wrong-1" id="toc-what-could-go-wrong-1" class="nav-link" data-scroll-target="#what-could-go-wrong-1">What could go wrong?</a></li>
@@ -2154,7 +2154,7 @@ Theorem (<span class="citation" data-cites="Casella2002">Casella and Berger (<a 
 </ul>
 </section>
 <section id="example-poisson-with-unknown-mean-1" class="level2">
-<h2 class="anchored" data-anchor-id="example-poisson-with-unknown-mean-1">Example: Poisson with unknown mean 📖</h2>
+<h2 class="anchored" data-anchor-id="example-poisson-with-unknown-mean-1">Example: Poisson with unknown mean</h2>
 <ul>
 <li><p>Let <span class="math inline">Y_1,\dots,Y_n</span> be a iid random sample from a <span class="orange">Poisson</span> distribution of mean parameter <span class="math inline">\lambda &gt; 0</span>. The maximum likelihood estimator <span class="math inline">\hat{\lambda}_n</span> is the sample mean <span class="math display">
 \hat{\lambda}_n = \bar{Y}.
@@ -2192,7 +2192,7 @@ Theorem (<span class="citation" data-cites="Casella2002">Casella and Berger (<a 
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>(<strong>A5</strong>) There is a neighbourhood <span class="math inline">\mathcal{N}</span> of the true value <span class="math inline">\theta_0</span> within which the first <span class="orange">three derivatives</span> of <span class="math inline">\ell(\theta)</span> exist a.s., and there exist functions <span class="math inline">m_{rst}(y)</span> such that <span class="math inline">|\partial^3\ell(\theta)/\partial\theta_r \partial\theta _s \partial \theta_t| \le m_{rst}(y)</span> and <span class="math inline">\mathbb{E}_\theta(M_{rst}(\bm{Y})) &lt; \infty</span> for <span class="math inline">r,s,t = 1,\dots,p</span> and <span class="math inline">\theta \in \mathcal{N}</span>.</p>
+<p>(<strong>A5</strong>) There is a neighbourhood <span class="math inline">\mathcal{N}</span> of the true value <span class="math inline">\theta_0</span> within which the first <span class="orange">three derivatives</span> of <span class="math inline">\ell(\theta)</span> exist a.s., and there exist functions <span class="math inline">m_{rst}(y)</span> such that <span class="math inline">|\partial^3f(y;\theta)/\partial\theta_r \partial\theta _s \partial \theta_t| \le m_{rst}(y)</span> and <span class="math inline">\mathbb{E}_\theta(M_{rst}(\bm{Y})) &lt; \infty</span> for <span class="math inline">r,s,t = 1,\dots,p</span> and <span class="math inline">\theta \in \mathcal{N}</span>.</p>
 <p>(<strong>A6</strong>) The <span class="blue">Fisher information matrix</span> is finite and <span class="orange">positive definite</span>, and <span class="math display">
 \mathbb{E}_\theta\left[\frac{\partial}{\partial\theta_r}\ell(\theta)\right] = 0, \qquad [I(\theta)]_{rs} = -\mathbb{E}_\theta\left[\frac{\partial^2}{\partial \theta_r \partial \theta_s}\ell(\theta)\right] = \mathbb{E}_\theta\left[\frac{\partial\ell(\theta)}{\partial \theta_r}\frac{\partial\ell(\theta)}{\partial \theta_s}\right],
 </span> for <span class="math inline">r,s = 1,\dots,p</span>, that this, the <span class="orange">first</span> and <span class="blue">second Bartlett identities</span>.</p>
@@ -2201,7 +2201,7 @@ Theorem (<span class="citation" data-cites="Casella2002">Casella and Berger (<a 
 </div>
 </section>
 <section id="wald-inequality" class="level2">
-<h2 class="anchored" data-anchor-id="wald-inequality">Wald inequality</h2>
+<h2 class="anchored" data-anchor-id="wald-inequality">Wald inequality 📖</h2>
 <div class="callout callout-style-simple callout-warning no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">

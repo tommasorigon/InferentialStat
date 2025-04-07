@@ -1866,7 +1866,7 @@ We will sometimes need the additional conditions:
 
 :::callout-warning
 
-(**A5**) There is a neighbourhood $\mathcal{N}$ of the true value $\theta_0$ within which the first [three derivatives]{.orange} of $\ell(\theta)$ exist a.s., and there exist functions $m_{rst}(y)$ such that $|\partial^3\ell(\theta)/\partial\theta_r \partial\theta _s \partial \theta_t| \le m_{rst}(y)$ and $\mathbb{E}_\theta(M_{rst}(\bm{Y})) < \infty$ for $r,s,t = 1,\dots,p$ and $\theta \in \mathcal{N}$. 
+(**A5**) There is a neighbourhood $\mathcal{N}$ of the true value $\theta_0$ within which the first [three derivatives]{.orange} of $\ell(\theta)$ exist a.s., and there exist functions $m_{rst}(y)$ such that $|\partial^3f(y;\theta)/\partial\theta_r \partial\theta _s \partial \theta_t| \le m_{rst}(y)$ and $\mathbb{E}_\theta(M_{rst}(\bm{Y})) < \infty$ for $r,s,t = 1,\dots,p$ and $\theta \in \mathcal{N}$. 
 
 (**A6**) The [Fisher information matrix]{.blue} is finite and [positive definite]{.orange}, and
 $$
