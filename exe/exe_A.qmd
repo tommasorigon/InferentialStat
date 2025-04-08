@@ -50,7 +50,7 @@ editor_options:
 :::
 
 ::: {.callout-note collapse=true}
-#### [Casella & Berger (2002), Exercise 7.6]{.blue}
+#### [Casella & Berger (2002), Exercise 7.6]{.orange}
 
 ![](img/Casella7_6.png)
 :::
@@ -62,27 +62,27 @@ editor_options:
 :::
 
 ::: {.callout-note collapse=true}
-#### [Casella & Berger (2002), Exercise 7.10]{.blue}
+#### [Casella & Berger (2002), Exercise 7.10]{.orange}
 
 ![](img/Casella7_10.png)
 :::
 
-## Risk, Bayes estimation, and shrinkage
+## Risk, losses, Bayes estimation, and shrinkage
 
 ::: {.callout-note collapse=true}
-#### [Casella & Berger (2002), Exercise 7.62]{.blue}
+#### [Casella & Berger (2002), Exercise 7.62]{.orange}
 
 ![](img/Casella7_62.png)
 :::
 
 ::: {.callout-note collapse=true}
-#### [Casella & Berger (2002), Exercise 7.63]{.blue}
+#### [Casella & Berger (2002), Exercise 7.63]{.orange}
 
 ![](img/Casella7_63.png)
 :::
 
 ::: {.callout-note collapse=true}
-#### [Casella & Berger (2002), Exercise 7.65]{.blue}
+#### [Casella & Berger (2002), Exercise 7.65]{.orange}
 
 ![](img/Casella7_65.png)
 :::
@@ -103,37 +103,43 @@ editor_options:
 :::
 
 ::: {.callout-note collapse=true}
-#### [Casella & Berger (2002), Exercise 7.44]{.blue}
+#### [Casella & Berger (2002), Exercise 7.44]{.orange}
 
 ![](img/Casella7_44.png)
 :::
 
 ::: {.callout-note collapse=true}
-#### [Casella & Berger (2002), Exercise 7.46]{.blue}
+#### [Casella & Berger (2002), Exercise 7.46]{.orange}
 
 ![](img/Casella7_46.png)
 :::
 
 ::: {.callout-note collapse=true}
-#### [Casella & Berger (2002), Exercise 7.48]{.blue}
+#### [Casella & Berger (2002), Exercise 7.48]{.orange}
 
 ![](img/Casella7_48.png)
 :::
 
 ::: {.callout-note collapse=true}
-#### [Casella & Berger (2002), Exercise 7.57]{.blue}
+#### [Casella & Berger (2002), Exercise 7.57]{.orange}
 
 ![](img/Casella7_57.png)
 :::
 
 ::: {.callout-note collapse=true}
-#### [Casella & Berger (2002), Exercise 7.66]{.blue}
+#### [Casella & Berger (2002), Exercise 7.66]{.orange}
 
 ![](img/Casella7_66.png)
 :::
 
 
 ## Asymptotics
+
+::: {.callout-note collapse=true}
+#### [Casella & Berger (2002), Exercise 10.9]{.orange}
+
+![](img/Casella10_9.png)
+:::
 
 ::: {.callout-note collapse=true}
 #### [Davison (2003), Exercise 5, pag. 125]{.blue}
@@ -146,6 +152,14 @@ editor_options:
 
 ![](img/Davison5_149.png)
 :::
+
+::: {.callout-note collapse=true}
+#### **Young and Smith (2008), Exercise 8.10, pag. 139**
+
+![](img/YoungSmith8_10.png)
+:::
+
+## Robustness
 
 ::: {.callout-note collapse=true}
 #### [Davison (2003), Exercise 2, pag. 324]{.blue}
@@ -163,21 +177,17 @@ Recalling that
 #### [Davison (2003), Exercise 6, pag. 325]{.blue}
 
 ![](img/Davison6_325.png)
-:::
-::: {.callout-note collapse=true}
-#### [Young and Smith (2008), Exercise 8.10, pag. 139]{.blue}
 
-![](img/YoungSmith8_10.png)
-:::
+Recalling that
 
-## Robustness
+![](img/Davison7_20.png)
+:::
 
 <!-- Moderate and hard -->
 
 
 <!-- An exercise about robustness and sandwich estimators is missing!! -->
 
-<!-- - Casella & Berger (2002), Exercise 7.48. (UMVUE) -->
 <!-- - Casella & Berger (2002), Exercise 7.5. (More on the binomial example) -->
 <!-- - Davison (2003), Exercise 1 pag. 156. (Weibull model, standard asymptotics) -->
 <!-- - Davison (2003) Exercise 1, pag. 324. (Reparametrizations for M estimators) -->
