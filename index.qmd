@@ -76,9 +76,9 @@ documentation](https://quarto.org/docs/presentations/revealjs/presenting.html#pr
 | **Point estimation** | [Unit A](slides/un_A.html) | [Slides Unit A](slides/un_A_slides.html) | [Code A](code/un_A.R) |
 | *Exercises* | [Exercises A](exe/exe_A.html) |  |  |
 | **Exponential families** | [Unit B] | [Slides Unit B]| [Code B] |
-| *Exercises* | [Exercises B](exe/exe_B.html) |  |  |
+| *Exercises* | [Exercises B] |  |  |
 | **Generalized linear models** | [Unit C] | [Slides Unit C] | [Code C] |
-| *Exercises* | [Exercises C](exe/exe_C.html) |  |  |
+| *Exercises* | [Exercises C] |  |  |
 
 <!-- ## Exam -->
 

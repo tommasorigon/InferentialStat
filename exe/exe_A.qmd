@@ -67,7 +67,7 @@ editor_options:
 ![](img/Casella7_10.png)
 :::
 
-## Risk and Bayes Estimation
+## Risk, Bayes estimation, and shrinkage
 
 ::: {.callout-note collapse=true}
 #### [Casella & Berger (2002), Exercise 7.62]{.blue}
@@ -145,6 +145,29 @@ editor_options:
 #### [Davison (2003), Exercise 5, pag. 149]{.blue}
 
 ![](img/Davison5_149.png)
+:::
+
+::: {.callout-note collapse=true}
+#### [Davison (2003), Exercise 2, pag. 324]{.blue}
+
+![](img/Davison2_325_1.png)
+![](img/Davison2_325_2.png)
+
+Recalling that
+
+![](img/Davison2_325_3.png)
+![](img/Davison2_325_4.png)
+:::
+
+::: {.callout-note collapse=true}
+#### [Davison (2003), Exercise 6, pag. 325]{.blue}
+
+![](img/Davison6_325.png)
+:::
+::: {.callout-note collapse=true}
+#### [Young and Smith (2008), Exercise 8.10, pag. 139]{.blue}
+
+![](img/YoungSmith8_10.png)
 :::
 
 ## Robustness
