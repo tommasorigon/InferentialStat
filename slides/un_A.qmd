@@ -2126,7 +2126,7 @@ $$
 #### Theorem (@vandervaart1998, Theorem 5.9)
 Let $\theta \subseteq \mathbb{R}^p$, $Q_n(\theta)$ be random vector-valued functions and $Q(\theta)$ be a vector-valued function of $\theta$ such that for every $\epsilon > 0$
 $$
-\sup_{\theta \in \Theta} \left ||Q_n(\theta) - Q(\theta)\right||_2 \overset{\textup{p}}{\longrightarrow} 0, \qquad\sup_{\theta : ||\theta- \theta_0||_2 \ge \epsilon} ||Q(\theta)||_2 > 0 = ||Q(\theta_0)||_2.
+\sup_{\theta \in \Theta} \left ||Q_n(\theta) - Q(\theta)\right||_2 \overset{\textup{p}}{\longrightarrow} 0, \qquad\inf_{\theta : ||\theta- \theta_0||_2 \ge \epsilon} ||Q(\theta)||_2 > ||Q(\theta_0)||_2 = 0.
 $$
 Then any sequence of estimators $\hat{\theta}_n$ such that $Q_n(\hat{\theta}_n) = o_p(1)$ [converges in probability]{.blue} to $\theta_0$. 
 :::
@@ -2155,6 +2155,8 @@ $$
 - The actual statement does not even require $Y_1,\dots,Y_n$ to be independent or identically distributed.
 
 - Moreover, the [regularity conditions]{.blue} are much weaker than [(A1)-(A6)]{.blue} and essentially ensure that the involved quantities are well-defined. [However]{.orange}, note that $\hat{\theta}_n$ must be [consistent]{.orange}.
+
+- An alternative proof relying on more [classical conditions]{.orange}, e.g. based on bounding third derivatives as in [(A1)-(A6)]{.blue}, is given in @vandervaart1998, Theorem 5.41.
 
 :::callout-tip
 In regular problems, an M-estimator $\hat{\theta}_n$ is [consistent]{.orange} and [asymptotically normal]{.blue}. Moreover, for $n$ large enough, its variance is the inverse of the [Godambe information]{.blue}. Informally,

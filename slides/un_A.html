@@ -2439,7 +2439,7 @@ Theorem (<span class="citation" data-cites="vandervaart1998">van der Vaart (<a h
 </div>
 <div class="callout-body-container callout-body">
 <p>Let <span class="math inline">\theta \subseteq \mathbb{R}^p</span>, <span class="math inline">Q_n(\theta)</span> be random vector-valued functions and <span class="math inline">Q(\theta)</span> be a vector-valued function of <span class="math inline">\theta</span> such that for every <span class="math inline">\epsilon &gt; 0</span> <span class="math display">
-\sup_{\theta \in \Theta} \left ||Q_n(\theta) - Q(\theta)\right||_2 \overset{\textup{p}}{\longrightarrow} 0, \qquad\sup_{\theta : ||\theta- \theta_0||_2 \ge \epsilon} ||Q(\theta)||_2 &gt; 0 = ||Q(\theta_0)||_2.
+\sup_{\theta \in \Theta} \left ||Q_n(\theta) - Q(\theta)\right||_2 \overset{\textup{p}}{\longrightarrow} 0, \qquad\inf_{\theta : ||\theta- \theta_0||_2 \ge \epsilon} ||Q(\theta)||_2 &gt; ||Q(\theta_0)||_2 = 0.
 </span> Then any sequence of estimators <span class="math inline">\hat{\theta}_n</span> such that <span class="math inline">Q_n(\hat{\theta}_n) = o_p(1)</span> <span class="blue">converges in probability</span> to <span class="math inline">\theta_0</span>.</p>
 </div>
 </div>
@@ -2472,6 +2472,7 @@ h(\theta) = \mathbb{E}_\theta\left(- \frac{\partial}{\partial \theta}q(\theta)\r
 <li><p>The previous theorem is very powerful as it applies to the broad class of M-estimators. Moreover, its statement has been substantially <span class="orange">simplified</span> compared to <span class="citation" data-cites="vandervaart1998">van der Vaart (<a href="#ref-vandervaart1998" role="doc-biblioref">1998</a>)</span>.</p></li>
 <li><p>The actual statement does not even require <span class="math inline">Y_1,\dots,Y_n</span> to be independent or identically distributed.</p></li>
 <li><p>Moreover, the <span class="blue">regularity conditions</span> are much weaker than <span class="blue">(A1)-(A6)</span> and essentially ensure that the involved quantities are well-defined. <span class="orange">However</span>, note that <span class="math inline">\hat{\theta}_n</span> must be <span class="orange">consistent</span>.</p></li>
+<li><p>An alternative proof strategy that closely resemble the one we have seen in class, based on bounding third derivatives as in <span class="blue">(A1)-(A6)</span>, is given in <span class="citation" data-cites="van_der_Vaart1998">(<a href="#ref-van_der_Vaart1998" role="doc-biblioref"><strong>van_der_Vaart1998?</strong></a>)</span>, Theorem 5.41.</p></li>
 </ul>
 <div class="callout callout-style-simple callout-tip no-icon">
 <div class="callout-body d-flex">
