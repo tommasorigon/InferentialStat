@@ -212,7 +212,7 @@ L(\theta) = L(\theta;\bm{y}) = c(\bm{y}) f(\bm{y}; \theta), \qquad \theta \in \T
 $$
 is called [likelihood function]{.orange}. The log-likelihood function is $\ell(\theta) := \log{L(\theta)}$. 
 
-- Some authors set $c = 1$, but this is [not correct]{.orange}. Indeed, defining the likelihood [up to a multiplicative factor]{.blue} can be justified in multiple ways:
+- Some authors set $c = 1$, but this is [debatable]{.orange}. Indeed, defining the likelihood [up to a multiplicative factor]{.blue} can be justified in multiple ways:
 
 - Intuitively, when comparing the coherency of two statistical models with the observed data, we only care about ratios of the form $L(\theta_1;\bm{y}) / L(\theta_2;\bm{y})$ where the constant simplifies. 
 
