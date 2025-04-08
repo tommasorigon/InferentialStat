@@ -36,27 +36,74 @@ editor_options:
 
 ## Preliminaries
 
-- Davison (2003), Exercise 8, pag. 109 (Sufficiency in a Gaussian model)
-- Davison (2003), Problem 2, pag. 156. (Reparametrizations and likelihood quantities)
-- Davison (2003), Problem 11, pag. 159. (Exponential model with censored data,  practical implementation)
-- Casella & Berger (2002), Exercise 7.6. (MLE and MoM for a non-regular model)
+#### [Davison (2003), Problem 2, pag. 156]{.blue} 
+
+![](img/Davison2.png)
+![](img/Davison2bis.png)
+
+#### [Davison (2003), Exercise 8, pag. 109]{.blue}
+
+![](img/Davison8.png)
+
+#### [Casella & Berger (2002), Exercise 7.6]{.blue}
+
+![](img/Casella7_6.png)
+
+#### [Davison (2003), Problem 11, pag. 159]{.blue}
+
+![](img/Davison11.png)
+
+#### [Casella & Berger (2002), Exercise 7.10]{.blue}
+
+![](img/Casella7_10.png)
 
 ## Risk and Bayes Estimation
 
-- Casella & Berger (2002), Exercise 7.62. (Risk and Bayes risk for a Gaussian distribution)
-- Casella & Berger (2002), Exercise 7.65. (LINEX loss, Bayes estimators)
+#### [Casella & Berger (2002), Exercise 7.62]{.blue}
+
+![](img/Casella7_62.png)
+
+#### [Casella & Berger (2002), Exercise 7.65]{.blue}
+
+![](img/Casella7_65.png)
 
 ## Unbiasedness and efficiency
 
-- Davison (2003), Problem 1, pag. 156. (Logistic density and expected information)
-- Casella & Berger (2002), Exercise 7.46. (Unbiasedeness, MoM, uniform non-regular model, UMVUE)
-- Casella & Berger (2002), Exercise 7.44. (Attaining the Cramer-Rao lower bound, UMVUE)
-- Casella & Berger (2002), Exercise 7.66. (Jacknife estimator, UMVUE)
+#### [Davison (2003), Problem 1, pag. 156]{.blue}
+
+![](img/Davison1.png)
+
+
+
+#### [Casella & Berger (2002), Exercise 7.44]{.blue}
+
+![](img/Casella7_44.png)
+
+#### [Casella & Berger (2002), Exercise 7.46]{.blue}
+
+![](img/Casella7_46.png)
+
+#### [Casella & Berger (2002), Exercise 7.48]{.blue}
+
+![](img/Casella7_48.png)
+
+#### [Casella & Berger (2002), Exercise 7.57]{.blue}
+
+![](img/Casella7_57.png)
+
+#### [Casella & Berger (2002), Exercise 7.66]{.blue}
+
+![](img/Casella7_66.png)
 
 ## Asymptotics
 
-- Davison (2003), Exercise 5, pag. 125. (Exponential model, asymptotics of the MLE)
-- Davison (2003), Exercise 5, pag. 149. (Non-regular models, asymptotics of the MLE)
+#### [Davison (2003), Exercise 5, pag. 125]{.blue}
+
+![](img/Davison5_125.png)
+
+#### [Davison (2003), Exercise 5, pag. 149]{.blue}
+
+![](img/Davison5_149.png)
 
 ## Robustness
 
