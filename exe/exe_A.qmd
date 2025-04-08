@@ -183,13 +183,26 @@ Recalling that
 ![](img/Davison7_20.png)
 :::
 
-<!-- Moderate and hard -->
+## Recap (ITA)
 
+These exercises are taken from the book by [Adimari and Pauli (2012)](https://moodle2.units.it/pluginfile.php/428460/mod_resource/content/2/AdimariPauli.pdf).
 
-<!-- An exercise about robustness and sandwich estimators is missing!! -->
+::: {.callout-note collapse=true}
+#### **Adimari and Pauli (2012), Exercise 28 (You can skip point a.)**
+![](img/Adimari28.png)
+:::
 
-<!-- - Casella & Berger (2002), Exercise 7.5. (More on the binomial example) -->
-<!-- - Davison (2003), Exercise 1 pag. 156. (Weibull model, standard asymptotics) -->
-<!-- - Davison (2003) Exercise 1, pag. 324. (Reparametrizations for M estimators) -->
-<!-- - Casella & Berger (2002), Exercise 7.37. (Non-regular model, UMVUE estimator) -->
-<!-- - Van der Vaart (2006), Exercise 1, pag. 40.  -->
+::: {.callout-note collapse=true}
+#### **Adimari and Pauli (2012), Exercise 56**
+![](img/Adimari56.png)
+:::
+
+::: {.callout-note collapse=true}
+#### **Adimari and Pauli (2012), Exercise 58**
+![](img/Adimari58.png)
+:::
+
+::: {.callout-note collapse=true}
+#### **Adimari and Pauli (2012), Exercise 70**
+![](img/Adimari70.png)
+:::
