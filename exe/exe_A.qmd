@@ -185,24 +185,30 @@ Recalling that
 
 ## Recap (ITA)
 
-These exercises are taken from the book by [Adimari and Pauli (2012)](https://moodle2.units.it/pluginfile.php/428460/mod_resource/content/2/AdimariPauli.pdf).
+These exercises are taken from the book by [Adimari and Pauli (2012)](https://moodle2.units.it/pluginfile.php/428460/mod_resource/content/2/AdimariPauli.pdf). They are in italian, but hopefully you can understand them. If not, just upload the picture on ChatGPT.
 
 ::: {.callout-note collapse=true}
-#### **Adimari and Pauli (2012), Exercise 28 (You can skip point a.)**
+#### **Adimari & Pauli (2012), Exercise 12**
+![](img/Adimari12.png)
+![](img/Adimari12bis.png)
+:::
+
+::: {.callout-note collapse=true}
+#### **Adimari & Pauli (2012), Exercise 28 (You can skip point a.)**
 ![](img/Adimari28.png)
 :::
 
 ::: {.callout-note collapse=true}
-#### **Adimari and Pauli (2012), Exercise 56**
+#### **Adimari & Pauli (2012), Exercise 56**
 ![](img/Adimari56.png)
 :::
 
 ::: {.callout-note collapse=true}
-#### **Adimari and Pauli (2012), Exercise 58**
+#### **Adimari & Pauli (2012), Exercise 58**
 ![](img/Adimari58.png)
 :::
 
 ::: {.callout-note collapse=true}
-#### **Adimari and Pauli (2012), Exercise 70**
+#### **Adimari & Pauli (2012), Exercise 70**
 ![](img/Adimari70.png)
 :::
