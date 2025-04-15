@@ -69,23 +69,152 @@ library(ggthemes)
 ```
 
 ::: columns
-::: {.column width="20%"}
-![](img/target.png)
+::: {.column width="30%"}
+![](img/gaussian.png)
 
 <!-- *"Pluralitas non est ponenda sine necessitate."* -->
 
 <!-- [William of Ockham]{.grey} -->
 :::
 
-::: {.column width="80%"}
+::: {.column width="70%"}
 - This unit will cover the following [topics]{.orange}:
+    - One-parameter exponential families
+    - Multiparameter exponential families
+    - Sufficiency and completeness
+    - Likelihood and inference
+    - Exponential dispersion families
+    
+- The [prime role]{.orange} of [exponential families]{.orange} in the theory of statistical inference was first emphasized by @Fisher1934.
+
+- Most [well-known]{.blue} [distributions]{.blue}---such as Gaussian, Poisson, Binomial, and Gamma---are instances of exponential families.
+
+- Exponential families are the distributions typically considered when presenting the usual "regularity conditions".
 
 :::
 
-- sdf
+
 :::
+
+## Overview
+
+![](img/EF.png){width=6in fig-align="center"}
+
+- Three level of statistical modeling. Figure 1 of @Efron2023.
 
 # One-parameter exponential families
+
+## Exponential tilting
+
+- Let $Y$ be a (non-degenerate) random variable with [support]{.blue} $\mathcal{Y} \subseteq \mathbb{R}$ and [density]{.orange} $f_0(y)$ with respect to a dominating measure $\nu(\mathrm{d}y)$.
+
+- We aim at building a [parametric family]{.blue} $\mathcal{F} = \{f(;\theta) : \theta \in \Theta \subseteq \mathbb{R} \}$ with common support $\mathcal{Y}$ such that $f_0$ is a special case, namely $f_0 \in \mathcal{F}$.
+
+- A strategy for doing this is called [exponential tilting]{.orange}, namely we could set
+$$
+f(y; \theta) \propto e^{\theta y}f_0(y).
+$$
+Thus, if $f(y;\theta)$ is generated via exponential tilting, then $f(y; 0) = e^0 f_0(y) = f_0(y)$. 
+
+- Let us define the mapping $M_0:\mathbb{R}\rightarrow (0,\infty]$
+$$
+M_0(\theta):=\int_\mathcal{Y}e^{\theta y}f_0(y)\nu(\mathrm{d}y), \qquad \theta \in \mathbb{R}.
+$$
+If $M_0(\theta)$ is [finite]{.orange} in a neighborhood of the origin, it is the [moment generating function]{.blue} of $Y$. 
+
+- Moreover, we define the set $\tilde{\Theta} \subseteq \mathbb{R}$ as the set of all $\theta$ such that $M_0(\theta)$ is finite, i.e.
+$$
+\tilde{\Theta} = \{\theta \in \mathbb{R} : M_0(\theta) < \infty\}.
+$$
+
+## Natural exponential family of order one
+
+- The mapping $K(\theta) = K_0(\theta) = \log{M_0(\theta)}$ is the [cumulant generating function]{.blue} of $f_0$. Clearly, it is [finite]{.orange} if and only if $M_0(\theta)$ is finite. 
+
+:::callout-note
+The parametric family generated via [exponential tilting]{.orange} of $f_0$
+$$
+\mathcal{F}_{\text{ne}}^1 = \left\{f(y;\theta) = \frac{e^{\theta y}f_0(y)}{M_0(\theta)} = f_0(y)\exp\{\theta y - K(\theta)\}, \quad y \in \mathcal{Y}, \theta \in \tilde{\Theta} \right\},
+$$
+is called a [natural exponential family]{.orange} of order one, and $\tilde{\Theta} = \{\theta \in \mathbb{R} : K(\theta) < \infty\}$ is the [natural parameter space]{.blue}.
+:::
+
+-	The natural parameter space $\tilde{\Theta}$ is the [widest possible]{.orange} and must be an [interval]{.orange}; see exercises. The family $\mathcal{F}_{\text{ne}}^1$ is said to be [full]{.blue}, whereas a subfamily of $\mathcal{F}_{\text{ne}}^1$ with $\Theta \subseteq \tilde{\Theta}$ is [non-full]{.blue}.
+
+-	By definition, all the densities $f(y;\theta) \in \mathcal{F}_{\text{ne}}^1$ have the [same support]{.blue}.
+
+:::callout-note
+A natural exponential family of order one, $\mathcal{F}_{\text{ne}}^1$, is said to be [regular]{.orange} if $\tilde{\Theta}$ is open.
+:::
+
+## Moment generating function
+
+- In regular problems, the functions $M_0(\theta)$ and $K_0(\theta)$ associated to a r.v. $Y$ with density $f_0$ are [finite]{.orange} in a neighbor of the origin. A [sufficient]{.blue} condition is that $\tilde{\Theta}$ is an [open set]{.blue}.
+
+:::callout-warning
+Suppose $M_0(t) < \infty$ for any $|t| < t_0$ and for some $t_0 > 0$. Then a standard result of probability theory (e.g. @Billingsley1995, Section 21) implies:
+  
+- The random variable $Y$ has [finite moments]{.blue} of all orders, i.e. $\mu_k = \mathbb{E}(Y^k) < \infty$ for all $k \geq 1$.
+  
+- The moments $(\mu_k)_{k \ge 1}$ and  [moment generating function]{.blue} $M_0(t)$ [uniquely characterize]{.orange} the [law]{.orange} of $Y$ and $f_0$. Moreover, $M_0(t)$ admits a [Taylor expansion]{.grey} around the origin:
+$$
+  M_0(t) = 1 +  \mu_1 t + \mu_2 \frac{t^2}{2!} + \mu_3 \frac{t^3}{3!} + \cdots = \sum_{k=0}^\infty \frac{t^k}{k!}\mu_k, \qquad |t| < t_0.
+$$
+- The moments $\mu_k$ equal the $k$th derivative of $M_0(t)$ evaluated at the origin:
+$$
+\mu_k = \mathbb{E}_\theta(Y^k) = \frac{\partial^k}{\partial^k t} M_0(t) \Big|_{t = 0}, \qquad k \ge 1.
+$$
+:::
+
+## Cumulant generating function
+
+- The [cumulant generating function]{.blue} $K_0(t) = \log{M_0(t)}$ is a convenient tool alternative to $M_0(t)$.
+
+- Suppose $K_0(t) < \infty$ for any $|t| < t_0$ and for some $t_0 > 0$. Then the cumulant generating function$K_0(t)$ [uniquely characterizes]{.orange} the law of $Y$ and it admits a Taylor series expansion
+$$
+K_0(t) = \kappa_1 t + \kappa_2 \frac{t^2}{2!} + \kappa_3 \frac{t^3}{3!} + \cdots = \sum_{k=1}^\infty \frac{t^k}{k!} \kappa_k, \qquad |t| < t_0,
+$$
+where the coefficients $(\kappa_k)_{k \ge 1}$ are [cumulants]{.blue} $Y$.
+
+- The cumulants $\kappa_k$ equal the $k$th derivative of $K_0(t)$ evaluated at the origin
+$$
+\kappa_k = \frac{\partial^k}{\partial^k t} K_0(t) \Big|_{t = 0}, \qquad k \ge 1.
+$$
+Moreover, it can be shown the following relationships with the first four moments hold:
+$$
+\kappa_1 = \mu_1 = \mathbb{E}_\theta(Y), \quad \kappa_2 = \text{var}_\theta(Y), \quad \kappa_3 = \mathbb{E}_\theta\{(Y - \mu_1)^3\}, \quad \kappa_4 = \mathbb{E}_\theta\{(Y - \mu_1)^4\} - 3\text{var}_\theta(Y)^2. 
+$$
+
+::: aside
+Refer to @Pace1997, Section 3.2.5 for detailed derivations. Standardized cumulants $\kappa_3/\kappa_2^{3/2}$ and $\kappa_4/\kappa_2^2$ are the [skewness]{.blue} and the (excess of) [kurtosis]{.blue} of $Y$.
+:::
+
+
+
+
+## Example: exponential family generated by the uniform
+
+## Example: exponential family generated by a Poisson
+
+## Example: exponential family generated by a Gaussian
+
+## Example: exponential family generated by a Gamma
+
+## Closure under exponential tilting
+
+## Mean and variance I
+
+## Mean and variance II
+
+## Variance function I
+
+## Variance function II
+
+## A broader definition of exponential families I
+
+## A broader definition of exponential families II
+
+## Independent sampling
 
 # Multiparameter exponential families
 
@@ -94,3 +223,25 @@ library(ggthemes)
 # Sufficiency and completeness
 
 # Exponential dispersion families
+
+# References and study material
+
+## Main references
+
+- @Pace1997
+  - [Chapter 5]{.orange} (*Exponential families*)
+  - [Chapter 6]{.orange} (*Exponential dispersion families*)
+  
+- @Davison2003
+  - [Chapter 5]{.blue} (*Models*)
+  
+- @Efron2016
+  - [Chapter 5]{.grey} (*Parametric models and exponential families*)
+  
+- @Efron2023
+
+## References {.unnumbered}
+
+::: {#refs}
+:::
+
