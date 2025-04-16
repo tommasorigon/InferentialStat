@@ -407,17 +407,17 @@ K_\theta(t) = \log M_\theta(t) = K_0(t + \theta) - K_0(\theta), \quad t + \theta
 <section id="moments-and-cumulants-ii" class="level2">
 <h2 class="anchored" data-anchor-id="moments-and-cumulants-ii">Moments and cumulants II</h2>
 <ul>
-<li>Thus, <span class="blue">moments</span> and <span class="orange">cumulants</span> exist for every <span class="math inline">\theta \in \text{int}\:{\tilde{\Theta}}</span>. In particular, cumulants are given by <span class="math display">
-\kappa_k = \frac{\partial^k}{\partial t^k} K_\theta(t) \Big|_{t = 0} = \frac{\partial^k}{\partial t^k} K(t + \theta) - K(\theta)\Big|_{t = 0} = \frac{\partial^k}{\partial \theta^k} K(\theta), \qquad k \ge 1.
-</span></li>
-<li>Let <span class="math inline">Y \sim f(y;\theta)</span>. The first two moments of <span class="math inline">Y</span> are therefore obtained as <span class="math display">
+<li><p>Thus, <span class="blue">moments</span> and <span class="orange">cumulants</span> exist for every <span class="math inline">\theta \in \text{int}\:\tilde{\Theta}</span>. In particular, the cumulants are <span class="math display">
+\kappa_k = \frac{\partial^k}{\partial t^k} K_\theta(t) \Big|_{t = 0} = \frac{\partial^k}{\partial t^k} \left[ K(t + \theta) - K(\theta) \right] \Big|_{t = 0} = \frac{\partial^k}{\partial \theta^k} K(\theta), \qquad k \ge 1.
+</span></p></li>
+<li><p>Let <span class="math inline">Y \sim f(y; \theta)</span>. The first two moments of <span class="math inline">Y</span> are therefore <span class="math display">
 \mu(\theta) := \mathbb{E}_\theta(Y) = \frac{\partial}{\partial \theta} K(\theta), \qquad \text{var}_\theta(Y) = \frac{\partial^2}{\partial \theta^2} K(\theta).
-</span></li>
-<li>We call <span class="math inline">\mu(\theta)</span> the <span class="orange">mean value mapping</span>, for any <span class="math inline">\theta \in \text{int}\:\tilde{\Theta}</span>. Moreover, note that <span class="math display">
-\text{var}_\theta(Y) = \frac{\partial}{\partial \theta}\mu(\theta),
-</span> tightly connecting mean and variance. Moreover, we have that <span class="math display">
-\frac{\partial^2}{\partial \theta^2} K(\theta) = \frac{\partial}{\partial \theta}\mu(\theta) = \text{var}_\theta(Y) &gt; 0, \qquad \theta \in \tilde{\Theta},
-</span> meaning that <span class="math inline">K(\theta)</span> is a <span class="blue">convex function</span> and <span class="math inline">\mu(\theta)</span> is a <span class="orange">monotone increasing function</span> of <span class="math inline">\theta</span>.</li>
+</span></p></li>
+<li><p>We call <span class="math inline">\mu(\theta)</span> the <span class="orange">mean value mapping</span>, for any <span class="math inline">\theta \in \text{int}\:\tilde{\Theta}</span>. Moreover, note that <span class="math display">
+\text{var}_\theta(Y) = \frac{\partial}{\partial \theta} \mu(\theta),
+</span> showing a tight connection between the mean and the variance. Finally, we have <span class="math display">
+\frac{\partial^2}{\partial \theta^2} K(\theta) = \frac{\partial}{\partial \theta} \mu(\theta) = \text{var}_\theta(Y) &gt; 0, \qquad \theta \in \tilde{\Theta},
+</span> which implies that <span class="math inline">K(\theta)</span> is a <span class="blue">convex function</span>, and <span class="math inline">\mu(\theta)</span> is a <span class="orange">monotone increasing function</span> of <span class="math inline">\theta</span>.</p></li>
 </ul>
 </section>
 <section id="mean-value-mapping-i" class="level2 page-columns page-full">

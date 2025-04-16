@@ -297,24 +297,26 @@ $$
 
 ## Moments and cumulants II
 
-- Thus, [moments]{.blue} and [cumulants]{.orange} exist for every $\theta \in \text{int}\:{\tilde{\Theta}}$. In particular, cumulants are given by
+- Thus, [moments]{.blue} and [cumulants]{.orange} exist for every $\theta \in \text{int}\:\tilde{\Theta}$. In particular, the cumulants are
 $$
-\kappa_k = \frac{\partial^k}{\partial t^k} K_\theta(t) \Big|_{t = 0} = \frac{\partial^k}{\partial t^k} K(t + \theta) - K(\theta)\Big|_{t = 0} = \frac{\partial^k}{\partial \theta^k} K(\theta), \qquad k \ge 1.
+\kappa_k = \frac{\partial^k}{\partial t^k} K_\theta(t) \Big|_{t = 0} = \frac{\partial^k}{\partial t^k} \left[ K(t + \theta) - K(\theta) \right] \Big|_{t = 0} = \frac{\partial^k}{\partial \theta^k} K(\theta), \qquad k \ge 1.
 $$
-- Let $Y \sim f(y;\theta)$. The first two moments of $Y$ are therefore obtained as
+
+- Let $Y \sim f(y; \theta)$. The first two moments of $Y$ are therefore
 $$
 \mu(\theta) := \mathbb{E}_\theta(Y) = \frac{\partial}{\partial \theta} K(\theta), \qquad \text{var}_\theta(Y) = \frac{\partial^2}{\partial \theta^2} K(\theta).
 $$
+
 - We call $\mu(\theta)$ the [mean value mapping]{.orange}, for any $\theta \in \text{int}\:\tilde{\Theta}$. Moreover, note that
 $$
-\text{var}_\theta(Y) = \frac{\partial}{\partial \theta}\mu(\theta),
+\text{var}_\theta(Y) = \frac{\partial}{\partial \theta} \mu(\theta),
 $$
-tightly connecting mean and variance. Moreover, we have that
+showing a tight connection between the mean and the variance. Finally, we have
 $$
-\frac{\partial^2}{\partial \theta^2} K(\theta) = \frac{\partial}{\partial \theta}\mu(\theta) = \text{var}_\theta(Y) > 0, \qquad \theta \in \tilde{\Theta},
+  \frac{\partial^2}{\partial \theta^2} K(\theta) = \frac{\partial}{\partial \theta} \mu(\theta) = \text{var}_\theta(Y) > 0, \qquad \theta \in \tilde{\Theta},
 $$
-meaning that $K(\theta)$ is a [convex function]{.blue} and $\mu(\theta)$ is a [monotone increasing function]{.orange} of $\theta$.
-
+  which implies that $K(\theta)$ is a [convex function]{.blue}, and $\mu(\theta)$ is a [monotone increasing function]{.orange} of $\theta$.
+  
 ## Mean value mapping I
 
 - The mean value mapping $\mu : \text{int}\:\tilde{\Theta} \to \mathbb{R}$ is a [monotone increasing]{.orange} smooth function of $\theta$ and therefore is [one-to-one]{.blue} and [invertible]{.blue} on the set $\text{int}\:\tilde{\Theta}$ with range
