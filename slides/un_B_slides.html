@@ -472,7 +472,7 @@ M_0(\theta):=\int_\mathcal{Y}e^{\theta y}f_0(y)\nu(\mathrm{d}y), \qquad \theta \
 M_0(t) = 1 +  \mu_1 t + \mu_2 \frac{t^2}{2!} + \mu_3 \frac{t^3}{3!} + \cdots = \sum_{k=0}^\infty \frac{t^k}{k!}\mu_k, \qquad |t| &lt; t_0.
 </span></p></li>
 <li><p>The moments <span class="math inline">\mu_k</span> equal the <span class="math inline">k</span>th derivative of <span class="math inline">M_0(t)</span> evaluated at the origin: <span class="math display">
-\mu_k = \mathbb{E}_\theta(Y^k) = \frac{\partial^k}{\partial^k t} M_0(t) \Big|_{t = 0}, \qquad k \ge 1.
+\mu_k = \mathbb{E}_\theta(Y^k) = \frac{\partial^k}{\partial t^k} M_0(t) \Big|_{t = 0}, \qquad k \ge 1.
 </span></p></li>
 </ul>
 </div>
@@ -487,7 +487,7 @@ M_0(t) = 1 +  \mu_1 t + \mu_2 \frac{t^2}{2!} + \mu_3 \frac{t^3}{3!} + \cdots = \
 K_0(t) = \kappa_1 t + \kappa_2 \frac{t^2}{2!} + \kappa_3 \frac{t^3}{3!} + \cdots = \sum_{k=1}^\infty \frac{t^k}{k!} \kappa_k, \qquad |t| &lt; t_0,
 </span> where the coefficients <span class="math inline">(\kappa_k)_{k \ge 1}</span> are <span class="blue">cumulants</span> <span class="math inline">Y</span>.</p></li>
 <li><p>The cumulants <span class="math inline">\kappa_k</span> equal the <span class="math inline">k</span>th derivative of <span class="math inline">K_0(t)</span> evaluated at the origin <span class="math display">
-\kappa_k = \frac{\partial^k}{\partial^k t} K_0(t) \Big|_{t = 0}, \qquad k \ge 1.
+\kappa_k = \frac{\partial^k}{\partial t^k} K_0(t) \Big|_{t = 0}, \qquad k \ge 1.
 </span> Moreover, it can be shown the following relationships with the first four moments hold: <span class="math display">
 \kappa_1 = \mu_1 = \mathbb{E}_\theta(Y), \quad \kappa_2 = \text{var}_\theta(Y), \quad \kappa_3 = \mathbb{E}_\theta\{(Y - \mu_1)^3\}, \quad \kappa_4 = \mathbb{E}_\theta\{(Y - \mu_1)^4\} - 3\text{var}_\theta(Y)^2.
 </span></p></li>
@@ -581,8 +581,24 @@ K_\theta(t) = \log{M_\theta(t)} = K_0(t + \theta) - K_0(\theta), \quad t + \thet
 </div>
 </div>
 </section>
-<section id="mean-and-variance-ii" class="slide level2 center">
-<h2>Mean and variance II</h2>
+<section id="moments-and-cumulants-ii" class="slide level2 center">
+<h2>Moments and cumulants II</h2>
+<ul>
+<li>Thus, <span class="blue">moments</span> and <span class="orange">cumulants</span> exist for every <span class="math inline">\theta \in \text{int}\:{\tilde{\Theta}}</span>. In particular, cumulants are given by <span class="math display">
+\kappa_k = \frac{\partial^k}{\partial t^k} K_\theta(t) \Big|_{t = 0} = \frac{\partial^k}{\partial t^k} K(t + \theta) - K(\theta)\Big|_{t = 0} = \frac{\partial^k}{\partial \theta^k} K(\theta), \qquad k \ge 1.
+</span></li>
+<li>Let <span class="math inline">Y \sim f(y;\theta)</span>. The first two moments of <span class="math inline">Y</span> are therefore obtained as <span class="math display">
+\mu(\theta) := \mathbb{E}_\theta(Y) = \frac{\partial}{\partial \theta} K(\theta), \qquad \text{var}_\theta(Y) = \frac{\partial^2}{\partial \theta^2} K(\theta).
+</span></li>
+<li>We call <span class="math inline">\mu(\theta)</span> the <span class="orange">mean value mapping</span>, for any <span class="math inline">\theta \in \text{int}\:\tilde{\Theta}</span>. Moreover, note that <span class="math display">
+\text{var}_\theta(Y) = \frac{\partial}{\partial \theta}\mu(\theta),
+</span> tightly connecting mean and variance. Moreover, we have that <span class="math display">
+\frac{\partial^2}{\partial \theta^2} K(\theta) = \frac{\partial}{\partial \theta}\mu(\theta) = \text{var}_\theta(Y) &gt; 0, \qquad \theta \in \tilde{\Theta},
+</span> meaning that <span class="math inline">K(\theta)</span> is a <span class="blue">convex function</span> and <span class="math inline">\mu(\theta)</span> is a <span class="orange">monotone increasing function</span> of <span class="math inline">\theta</span>.</li>
+</ul>
+</section>
+<section id="mean-value-mapping" class="slide level2 center">
+<h2>Mean value mapping</h2>
 </section>
 <section id="variance-function-i" class="slide level2 center">
 <h2>Variance function I</h2>

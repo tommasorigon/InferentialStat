@@ -163,7 +163,7 @@ $$
 $$
 - The moments $\mu_k$ equal the $k$th derivative of $M_0(t)$ evaluated at the origin:
 $$
-\mu_k = \mathbb{E}_\theta(Y^k) = \frac{\partial^k}{\partial^k t} M_0(t) \Big|_{t = 0}, \qquad k \ge 1.
+\mu_k = \mathbb{E}_\theta(Y^k) = \frac{\partial^k}{\partial t^k} M_0(t) \Big|_{t = 0}, \qquad k \ge 1.
 $$
 :::
 
@@ -179,7 +179,7 @@ where the coefficients $(\kappa_k)_{k \ge 1}$ are [cumulants]{.blue} $Y$.
 
 - The cumulants $\kappa_k$ equal the $k$th derivative of $K_0(t)$ evaluated at the origin
 $$
-\kappa_k = \frac{\partial^k}{\partial^k t} K_0(t) \Big|_{t = 0}, \qquad k \ge 1.
+\kappa_k = \frac{\partial^k}{\partial t^k} K_0(t) \Big|_{t = 0}, \qquad k \ge 1.
 $$
 Moreover, it can be shown the following relationships with the first four moments hold:
 $$
@@ -290,7 +290,29 @@ $$
 - If $\mathcal{F}_\text{en}^1$ is [not]{.orange} regular, then for $M_\theta(t)$ and $K_\theta(t)$ to be well-defined we require that $\theta$ is [not]{.orange} a [boundary point]{.blue}, that is, $\theta \in \text{int}\:{\tilde{\Theta}}$, which means it belongs to the interior of $\tilde{\Theta}$.
 :::
 
-## Mean and variance II
+## Moments and cumulants II
+
+- Thus, [moments]{.blue} and [cumulants]{.orange} exist for every $\theta \in \text{int}\:{\tilde{\Theta}}$. In particular, cumulants are given by
+$$
+\kappa_k = \frac{\partial^k}{\partial t^k} K_\theta(t) \Big|_{t = 0} = \frac{\partial^k}{\partial t^k} K(t + \theta) - K(\theta)\Big|_{t = 0} = \frac{\partial^k}{\partial \theta^k} K(\theta), \qquad k \ge 1.
+$$
+- Let $Y \sim f(y;\theta)$. The first two moments of $Y$ are therefore obtained as
+$$
+\mu(\theta) := \mathbb{E}_\theta(Y) = \frac{\partial}{\partial \theta} K(\theta), \qquad \text{var}_\theta(Y) = \frac{\partial^2}{\partial \theta^2} K(\theta).
+$$
+- We call $\mu(\theta)$ the [mean value mapping]{.orange}, for any $\theta \in \text{int}\:\tilde{\Theta}$. Moreover, note that
+$$
+\text{var}_\theta(Y) = \frac{\partial}{\partial \theta}\mu(\theta),
+$$
+tightly connecting mean and variance. Moreover, we have that
+$$
+\frac{\partial^2}{\partial \theta^2} K(\theta) = \frac{\partial}{\partial \theta}\mu(\theta) = \text{var}_\theta(Y) > 0, \qquad \theta \in \tilde{\Theta},
+$$
+meaning that $K(\theta)$ is a [convex function]{.blue} and $\mu(\theta)$ is a [monotone increasing function]{.orange} of $\theta$.
+
+## Mean value mapping
+
+
 
 ## Variance function I
 
