@@ -341,7 +341,7 @@ Indeed, $\text{int}\:C(\mathcal{Y})$ is an [open interval]{.orange} whose extrem
 
 - In a regular exponential family, the mean value mapping $\mu(\theta)$ is a [reparametrization]{.orange}, which means for each $\theta \in \tilde{\Theta}$ there exists a [unique]{.blue} mean $\mu \in \Mu$ such that $\mu = \mu(\theta)$. 
 
-- However, in regular families, a much stronger result holds: for each value of $y \in \text{int}\:C(\mathcal{Y})$, we can find a [unique]{.orange} $\theta \in \tilde{\Theta}$ having mean $\mu(\theta) = y$. 
+- However, in regular families, a much stronger result holds: for each value of $y \in \text{int}\:C(\mathcal{Y})$, we can find a [unique]{.orange} $\theta \in \tilde{\Theta}$ having mean $\mu(\theta) = y$.
 
 :::callout-warning
 #### Theorem (@Pace1997, Theorem 5.1)
