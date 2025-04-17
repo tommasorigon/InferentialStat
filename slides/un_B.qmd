@@ -482,10 +482,27 @@ $$
 for some baseline density $f_0(y)$, namely $f_S(s; \psi) \in \mathcal{F}_\text{en}^1$. If in addition $s(y)$ is a [one-to-one]{.orange} invertible mapping, this means $Y = s^{-1}(S)$ is just a transformation of a $\mathcal{F}_\text{en}^1$.
 
 :::callout-tip
-The exponentialy family $\mathcal{F}_\text{e}^1$ is, technically, a broader definition, but in practice it leads to a [reparametrization]{.orange} of a natural exponential family $\mathcal{F}_\text{en}^1$ in a [transformed space]{.blue} $s(Y)$. 
+The exponential family $\mathcal{F}_\text{e}^1$ is, technically, a broader definition, but in practice it leads to a [reparametrization]{.orange} of a natural exponential family $\mathcal{F}_\text{en}^1$ in a [transformed space]{.blue} $s(Y)$. 
 :::
 
 ## Independent sampling
+
+- Let $Y_1,\dots,Y_n$ be iid random variables with density $f(y; \theta)$, where $f(y; \theta) \in \mathcal{F}_\text{e}^1$ is a full exponential family. Without loss of generality, assume the density can be written as
+$$
+f(y; \theta) = h(y)\exp\{\theta s(y) - G(\theta)\}, \qquad \theta \in \tilde{\Theta}.
+$$
+
+- The [likelihood]{.blue} function is
+$$
+L(\theta; \bm{y}) = \prod_{i=1}^n \exp\left\{\theta s(y_i) - G(\theta)\right\} = \exp\left\{\theta \sum_{i=1}^n s(y_i) - n G(\theta)\right\},
+$$
+from which we see that $s = \sum_{i=1}^n s(y_i)$ is the [minimal sufficient statistic]{.orange} for $\theta$.
+
+- Inference can therefore be based on the random variable $S = \sum_{i=1}^n s(Y_i)$, whose distribution is
+$$
+f_S(s; \theta) = f_0(s)\exp\{\theta s - K(\theta)\},
+$$
+with $K(\theta) = n G(\theta)$ and for some density $f_0(s)$. That is, the distribution of the minimal sufficient statistic $f_S(s; \theta)$ is itself a [natural exponential family]{.blue} of order one.
 
 ## @Morris1982
 
@@ -544,7 +561,7 @@ The exponentialy family $\mathcal{F}_\text{e}^1$ is, technically, a broader defi
 
 - It investigates when a [conjugate prior]{.orange} specified on the mean parameter $\mu$ of a natural exponential family leads to a linear posterior expectation of $\mu$.
 
-- The main result shows that this [posterior linearity]{.orange} holds if and only if the [variance function]{.orange} is [quadratic]{.blue}
+- The main result shows that this [posterior linearity]{.orange} holds if and only if the [variance function]{.orange} is [quadratic]{.blue}.
 
 - The paper also explores the [monotonicity]{.blue} of the [posterior variance]{.orange} of $\mu$ with respect to both the sample size and the prior sample size.
 
@@ -552,7 +569,6 @@ The exponentialy family $\mathcal{F}_\text{e}^1$ is, technically, a broader defi
 :::
 
 :::
-
 
 # Multiparameter exponential families
 

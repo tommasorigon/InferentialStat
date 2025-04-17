@@ -719,13 +719,24 @@ f_S(s; \psi) = f_0(s)\exp\{\psi s - K(\psi)\},
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>The exponentialy family <span class="math inline">\mathcal{F}_\text{e}^1</span> is, technically, a broader definition, but in practice it leads to a <span class="orange">reparametrization</span> of a natural exponential family <span class="math inline">\mathcal{F}_\text{en}^1</span> in a <span class="blue">transformed space</span> <span class="math inline">s(Y)</span>.</p>
+<p>The exponential family <span class="math inline">\mathcal{F}_\text{e}^1</span> is, technically, a broader definition, but in practice it leads to a <span class="orange">reparametrization</span> of a natural exponential family <span class="math inline">\mathcal{F}_\text{en}^1</span> in a <span class="blue">transformed space</span> <span class="math inline">s(Y)</span>.</p>
 </div>
 </div>
 </div>
 </section>
 <section id="independent-sampling" class="level2">
 <h2 class="anchored" data-anchor-id="independent-sampling">Independent sampling</h2>
+<ul>
+<li><p>Let <span class="math inline">Y_1,\dots,Y_n</span> be iid random variables with density <span class="math inline">f(y; \theta)</span>, where <span class="math inline">f(y; \theta) \in \mathcal{F}_\text{e}^1</span> is a full exponential family. Without loss of generality, assume the density can be written as <span class="math display">
+f(y; \theta) = h(y)\exp\{\theta s(y) - G(\theta)\}, \qquad \theta \in \tilde{\Theta}.
+</span></p></li>
+<li><p>The <span class="blue">likelihood</span> function is <span class="math display">
+L(\theta; \bm{y}) = \prod_{i=1}^n \exp\left\{\theta s(y_i) - G(\theta)\right\} = \exp\left\{\theta \sum_{i=1}^n s(y_i) - n G(\theta)\right\},
+</span> from which we see that <span class="math inline">s = \sum_{i=1}^n s(y_i)</span> is the <span class="orange">minimal sufficient statistic</span> for <span class="math inline">\theta</span>.</p></li>
+<li><p>Inference can therefore be based on the random variable <span class="math inline">S = \sum_{i=1}^n s(Y_i)</span>, whose distribution is <span class="math display">
+f_S(s; \theta) = f_0(s)\exp\{\theta s - K(\theta)\},
+</span> with <span class="math inline">K(\theta) = n G(\theta)</span> and for some density <span class="math inline">f_0(s)</span>. That is, the distribution of the minimal sufficient statistic <span class="math inline">f_S(s; \theta)</span> is itself a <span class="blue">natural exponential family</span> of order one.</p></li>
+</ul>
 </section>
 <section id="morris1982" class="level2">
 <h2 class="anchored" data-anchor-id="morris1982"><span class="citation" data-cites="Morris1982">Morris (<a href="#ref-Morris1982" role="doc-biblioref">1982</a>)</span></h2>
@@ -774,7 +785,7 @@ f_S(s; \psi) = f_0(s)\exp\{\psi s - K(\psi)\},
 <ul>
 <li><p><span class="citation" data-cites="Consonni1992">Consonni and Veronese (<a href="#ref-Consonni1992" role="doc-biblioref">1992</a>, JASA)</span> is another <span class="blue">Bayesian</span> contribution which refines the results of <span class="citation" data-cites="Diaconis1979">Diaconis and Ylvisaker (<a href="#ref-Diaconis1979" role="doc-biblioref">1979</a>)</span>.</p></li>
 <li><p>It investigates when a <span class="orange">conjugate prior</span> specified on the mean parameter <span class="math inline">\mu</span> of a natural exponential family leads to a linear posterior expectation of <span class="math inline">\mu</span>.</p></li>
-<li><p>The main result shows that this <span class="orange">posterior linearity</span> holds if and only if the <span class="orange">variance function</span> is <span class="blue">quadratic</span></p></li>
+<li><p>The main result shows that this <span class="orange">posterior linearity</span> holds if and only if the <span class="orange">variance function</span> is <span class="blue">quadratic</span>.</p></li>
 <li><p>The paper also explores the <span class="blue">monotonicity</span> of the <span class="orange">posterior variance</span> of <span class="math inline">\mu</span> with respect to both the sample size and the prior sample size.</p></li>
 </ul>
 </div>
