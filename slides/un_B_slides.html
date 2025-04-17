@@ -638,7 +638,7 @@ C(\mathcal{Y}) = \{ y \in \mathbb{R} : y = \lambda y_1 + (1 - \lambda)y_2, \quad
 <p>Both definitions naturally generalize to the multivariate case when <span class="math inline">C, \mathcal{Y} \subseteq \mathbb{R}^p</span>, for <span class="math inline">p &gt; 1</span>.</p>
 </div></aside></section>
 <section id="mean-value-mapping-iii" class="slide level2 center">
-<h2>Mean value mapping III</h2>
+<h2>Mean value mapping III 📖</h2>
 <ul>
 <li><p>In a regular exponential family, the mean value mapping <span class="math inline">\mu(\theta)</span> is a <span class="orange">reparametrization</span>, meaning that for each <span class="math inline">\theta \in \tilde{\Theta}</span>, there exists a <span class="blue">unique</span> mean <span class="math inline">\mu \in \mathcal{M}</span> such that <span class="math inline">\mu = \mu(\theta)</span>.</p></li>
 <li><p>Moreover, in regular families, a much stronger result holds: for each value of <span class="math inline">y \in \text{int}\:C(\mathcal{Y})</span>, there exists a <span class="orange">unique</span> <span class="math inline">\theta \in \tilde{\Theta}</span> such that <span class="math inline">\mu(\theta) = y</span>.</p></li>
@@ -679,7 +679,7 @@ M_0(\theta) &lt; \infty, \qquad \theta \in  [-1, 1].
 </ul>
 </section>
 <section id="variance-function-i" class="slide level2 center">
-<h2>Variance function I</h2>
+<h2>Variance function I 📖</h2>
 <div class="callout callout-note no-icon callout-style-simple">
 <div class="callout-body">
 <div class="callout-content">
@@ -704,17 +704,32 @@ V(\mu) := \text{var}_{\theta(\mu)}(Y) = \frac{\partial^2}{\partial \theta^2} K(\
 </div>
 </section>
 <section id="variance-function-ii" class="slide level2 center">
-<h2>Variance function II</h2>
+<h2>Variance function II 📖</h2>
+<ul>
+<li><p>The characterization theorem of <span class="citation" data-cites="Morris1982">Morris (<a href="#/references" role="doc-biblioref" onclick="">1982</a>)</span> is <span class="blue">constructive</span> in nature, as its <span class="orange">proof</span> provides a practical way of determining <span class="math inline">K(\theta)</span> from <span class="math inline">(\mathcal{M}, V(\mu))</span>. In particular, the function <span class="math inline">K(\cdot)</span> must satisfy <span class="math display">
+K\left(\int_{\mu_0}^\mu \frac{1}{V(m)}\mathrm{d}m\right) = \int_{\mu_0}^\mu \frac{m}{V(m)}\mathrm{d}m,
+</span> where <span class="math inline">\mu_0</span> is an arbitrary point in <span class="math inline">\mathcal{M}</span>.</p></li>
+<li><p>For example, let <span class="math inline">\mathcal{M} = (0, \infty)</span> and <span class="math inline">V(\mu) = \mu^2</span>. Then, choosing <span class="math inline">\mu_0=1</span> gives <span class="math display">
+K\left(1 - \frac{1}{\mu}\right) = \log\mu,
+</span> and therefore <span class="math inline">\theta(\mu) = 1 - 1/\mu</span>, giving <span class="math inline">\tilde{\Theta} = (-\infty, 1)</span> and <span class="math inline">\mu(\theta) = (1 - \theta)^{-1}</span>. Hence we obtain <span class="math inline">K(\theta) = -\log(1 - \theta)</span>, which corresponds to the exponential density <span class="math inline">f_0(y) = e^{-y}</span>, for <span class="math inline">y &gt; 0</span>.</p></li>
+</ul>
+<div class="callout callout-tip no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<p>In order to identify <span class="math inline">\mathcal{F}_\text{en}^1</span> <span class="orange">both</span> <span class="math inline">\mathcal{M}</span> and <span class="math inline">V(\mu)</span> must be known.</p>
+</div>
+</div>
+</div>
 </section>
 <section id="well-known-exponential-families" class="slide level2 center">
 <h2>Well-known exponential families</h2>
-<table class="caption-top" style="width:100%;">
+<table class="caption-top">
 <colgroup>
-<col style="width: 31%">
-<col style="width: 13%">
-<col style="width: 13%">
-<col style="width: 22%">
-<col style="width: 19%">
+<col style="width: 32%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 20%">
+<col style="width: 24%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -722,7 +737,7 @@ V(\mu) := \text{var}_{\theta(\mu)}(Y) = \frac{\partial^2}{\partial \theta^2} K(\
 <th><span class="math inline">\text{N}(\phi, 1)</span></th>
 <th><span class="math inline">\text{Poisson}(\phi)</span></th>
 <th><span class="math inline">\text{Bin}(N, \phi)</span></th>
-<th><span class="math inline">\text{Gamma}(\nu,\phi)</span></th>
+<th><span class="math inline">\text{Gamma}(\nu,\phi), \nu &gt; 0</span></th>
 </tr>
 </thead>
 <tbody>
@@ -731,7 +746,7 @@ V(\mu) := \text{var}_{\theta(\mu)}(Y) = \frac{\partial^2}{\partial \theta^2} K(\
 <td><span class="math inline">\mathbb{R}</span></td>
 <td><span class="math inline">\mathbb{N}</span></td>
 <td><span class="math inline">\{0, 1, \dots, N\}</span></td>
-<td><span class="math inline">\mathbb{R}^+</span></td>
+<td><span class="math inline">(0, \infty)</span></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><span class="orange">Natural parametrization</span></td>
@@ -752,14 +767,14 @@ V(\mu) := \text{var}_{\theta(\mu)}(Y) = \frac{\partial^2}{\partial \theta^2} K(\
 <td><span class="math inline">(\sqrt{2\pi})^{-1}e^{-\frac{1}{2}y^2}</span></td>
 <td><span class="math inline">e^{-1}/ y!</span></td>
 <td><span class="math inline">\binom{N}{y}</span></td>
-<td><span class="math inline">y^{\nu - 1}/\Gamma(\nu)</span></td>
+<td><span class="math inline">y^{\nu - 1}e^{-y}/\Gamma(\nu)</span></td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><span class="math inline">K(\theta)</span></td>
 <td><span class="math inline">\theta^2/2</span></td>
 <td><span class="math inline">e^\theta</span></td>
-<td><span class="math inline">N \log\{1 + e^\theta\}</span></td>
-<td><span class="math inline">-\nu \log(-\theta)</span></td>
+<td><span class="math inline">N \log(1 + e^\theta)</span></td>
+<td><span class="math inline">-\nu \log(1-\theta)</span></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><span class="math inline">\tilde{\Theta}</span></td>
@@ -785,9 +800,9 @@ V(\mu) := \text{var}_{\theta(\mu)}(Y) = \frac{\partial^2}{\partial \theta^2} K(\
 <tr class="odd">
 <td style="text-align: left;"><span class="math inline">\mathcal{M}</span></td>
 <td><span class="math inline">\mathbb{R}</span></td>
-<td><span class="math inline">\mathbb{R}^+</span></td>
+<td><span class="math inline">(0, \infty)</span></td>
 <td><span class="math inline">(0, N)</span></td>
-<td><span class="math inline">\mathbb{R}^+</span></td>
+<td><span class="math inline">(0, \infty)</span></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><span class="math inline">V(\mu)</span></td>

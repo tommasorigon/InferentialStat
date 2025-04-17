@@ -334,7 +334,7 @@ Indeed, $\text{int}\:C(\mathcal{Y})$ is an [open interval]{.orange} whose extrem
 Both definitions naturally generalize to the multivariate case when $C, \mathcal{Y} \subseteq \mathbb{R}^p$, for $p > 1$. 
 :::
 
-## Mean value mapping III
+## Mean value mapping III 📖 
 
 - In a regular exponential family, the mean value mapping $\mu(\theta)$ is a [reparametrization]{.orange}, meaning that for each $\theta \in \tilde{\Theta}$, there exists a [unique]{.blue} mean $\mu \in \mathcal{M}$ such that $\mu = \mu(\theta)$.
 
@@ -375,7 +375,7 @@ $$
 - In other words, there are no values of $\theta$ such that $\mu(\theta) = y$ for any $y > a$, which implies, for instance, that the method of moments will encounter difficulties in estimating $\theta$.
 
 
-## Variance function I
+## Variance function I 📖 
 
 :::callout-note
 Let $Y \sim f(y; \theta)$, with $f(y; \theta) \in \mathcal{F}_\text{en}^1$ and let $\theta(\mu)$ be the [inverse map]{.orange} of $\mu(\theta)$. The variance of $Y$ can be expressed as a function of $\mu$:
@@ -393,21 +393,37 @@ If $Y$ has a density that belongs to a $\mathcal{F}_\text{en}^1$, then the [pair
 :::
 
 
-## Variance function II
+## Variance function II 📖 
+
+- The characterization theorem of @Morris1982 is [constructive]{.blue} in nature, as its [proof]{.orange} provides a practical way of determining $K(\theta)$ from $(\mathcal{M}, V(\mu))$. In particular, the function $K(\cdot)$ must satisfy
+$$
+K\left(\int_{\mu_0}^\mu \frac{1}{V(m)}\mathrm{d}m\right) = \int_{\mu_0}^\mu \frac{m}{V(m)}\mathrm{d}m,
+$$
+where $\mu_0$ is an arbitrary point in $\mathcal{M}$.
+
+- For example, let $\mathcal{M} = (0, \infty)$ and $V(\mu) = \mu^2$. Then, choosing $\mu_0=1$ gives
+$$
+K\left(1 - \frac{1}{\mu}\right) = \log\mu,
+$$
+and therefore $\theta(\mu) = 1 - 1/\mu$, giving $\tilde{\Theta} = (-\infty, 1)$ and $\mu(\theta) = (1 - \theta)^{-1}$. Hence we obtain $K(\theta) = -\log(1 - \theta)$, which corresponds to the exponential density $f_0(y) = e^{-y}$, for $y > 0$.
+
+:::callout-tip
+In order to identify $\mathcal{F}_\text{en}^1$ [both]{.orange} $\mathcal{M}$ and $V(\mu)$ must be known.
+:::
 
 ## Well-known exponential families
 
-| Notation | $\text{N}(\phi, 1)$ | $\text{Poisson}(\phi)$ | $\text{Bin}(N, \phi)$ | $\text{Gamma}(\nu,\phi)$|
-|:------------------------------------------|------------------|------------------|-------------------------------|--------------------------|
-| $\mathcal{Y}$ | $\mathbb{R}$ | $\mathbb{N}$ | $\{0, 1, \dots, N\}$ | $\mathbb{R}^+$ |
+| Notation | $\text{N}(\phi, 1)$ | $\text{Poisson}(\phi)$ | $\text{Bin}(N, \phi)$ | $\text{Gamma}(\nu,\phi), \nu > 0$|
+|:-------------------------------------------------|------------------|------------------|-------------------------------|--------------------------------------|
+| $\mathcal{Y}$ | $\mathbb{R}$ | $\mathbb{N}$ | $\{0, 1, \dots, N\}$ | $(0, \infty)$ |
 | [Natural parametrization]{.orange}
 | $\theta(\phi)$ | $\phi$ | $\log{\phi}$ | $\log\{\phi/(1 - \phi)\}$ | $-\phi$ |
-| $f_0(y)$ | $(\sqrt{2\pi})^{-1}e^{-\frac{1}{2}y^2}$ | $e^{-1}/ y!$ | $\binom{N}{y}$ | $y^{\nu - 1}/\Gamma(\nu)$ |
-| $K(\theta)$ | $\theta^2/2$ | $e^\theta$ | $N \log\{1 + e^\theta\}$ | $-\nu \log(-\theta)$ |
+| $f_0(y)$ | $(\sqrt{2\pi})^{-1}e^{-\frac{1}{2}y^2}$ | $e^{-1}/ y!$ | $\binom{N}{y}$ | $y^{\nu - 1}e^{-y}/\Gamma(\nu)$ |
+| $K(\theta)$ | $\theta^2/2$ | $e^\theta$ | $N \log(1 + e^\theta)$ | $-\nu \log(1-\theta)$ |
 | $\tilde{\Theta}$ | $\mathbb{R}$ | $\mathbb{R}$ | $\mathbb{R}$ | $(-\infty, 0)$ |
 | [Mean parametrization]{.blue} |
 | $\mu(\theta)$ | $\theta$ | $e^\theta-1$ | $N e^\theta/(1 + e^{\theta})$ | $-\nu/\theta$ |
-| $\mathcal{M}$ | $\mathbb{R}$ | $\mathbb{R}^+$ | $(0, N)$ | $\mathbb{R}^+$ |
+| $\mathcal{M}$ | $\mathbb{R}$ | $(0, \infty)$ | $(0, N)$ | $(0, \infty)$ |
 | $V(\mu)$ | $1$ | $\mu$ | $\mu(1 - \mu/ N)$ | $\mu^2/\nu$ |
 
 ## Quadratic variance functions
