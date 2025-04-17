@@ -79,8 +79,7 @@ library(ggthemes)
 
 ::: {.column width="70%"}
 - This unit will cover the following [topics]{.orange}:
-    - One-parameter exponential families
-    - Multiparameter exponential families
+    - One-parameter and multiparameter exponential families
     - Sufficiency and completeness
     - Likelihood and inference
     - Exponential dispersion families
@@ -101,13 +100,13 @@ library(ggthemes)
 
 ![](img/EF.png){width=6in fig-align="center"}
 
-- Three level of statistical modeling. Figure 1 of @Efron2023.
+- Figure 1 of @Efron2023. Three level of statistical modeling. 
 
 # One-parameter exponential families
 
 ## Exponential tilting
 
-- Let $Y$ be a (non-degenerate) random variable with [support]{.blue} $\mathcal{Y} \subseteq \mathbb{R}$ and [density]{.orange} $f_0(y)$ with respect to a dominating measure $\nu(\mathrm{d}y)$.
+- Let $Y$ be a [non-degenerate]{.orange} random variable with [support]{.blue} $\mathcal{Y} \subseteq \mathbb{R}$ and [density]{.orange} $f_0(y)$ with respect to a dominating measure $\nu(\mathrm{d}y)$.
 
 - We aim at building a [parametric family]{.blue} $\mathcal{F} = \{f(;\theta) : \theta \in \Theta \subseteq \mathbb{R} \}$ with common support $\mathcal{Y}$ such that $f_0$ is a special case, namely $f_0 \in \mathcal{F}$.
 
@@ -130,14 +129,14 @@ $$
 
 ## Natural exponential family of order one
 
-- The mapping $K(\theta) = K_0(\theta) = \log{M_0(\theta)}$ is the [cumulant generating function]{.blue} of $f_0$. Clearly, it is [finite]{.orange} if and only if $M_0(\theta)$ is finite. 
+- The mapping $K(\theta) = K_0(\theta) = \log{M_0(\theta)}$ is the [cumulant generating function]{.blue} of $f_0$. It is [finite]{.orange} if and only if $M_0(\theta)$ is finite. 
 
 :::callout-note
 The parametric family generated via [exponential tilting]{.orange} of $f_0$
 $$
 \mathcal{F}_{\text{ne}}^1 = \left\{f(y;\theta) = \frac{e^{\theta y}f_0(y)}{M_0(\theta)} = f_0(y)\exp\{\theta y - K(\theta)\}, \quad y \in \mathcal{Y}, \theta \in \tilde{\Theta} \right\},
 $$
-is called a [natural exponential family]{.orange} of order one, and $\tilde{\Theta} = \{\theta \in \mathbb{R} : K(\theta) < \infty\}$ is the [natural parameter space]{.blue}.
+is called a [natural exponential family]{.orange} of order one, and $\tilde{\Theta} = \{\theta \in \mathbb{R} : K(\theta) < \infty\}$ is the [natural parameter space]{.blue}. 
 :::
 
 -	The natural parameter space $\tilde{\Theta}$ is the [widest possible]{.orange} and must be an [interval]{.orange}; see exercises. The family $\mathcal{F}_{\text{ne}}^1$ is said to be [full]{.blue}, whereas a subfamily of $\mathcal{F}_{\text{ne}}^1$ with $\Theta \subseteq \tilde{\Theta}$ is [non-full]{.blue}.
@@ -150,7 +149,7 @@ A natural exponential family of order one, $\mathcal{F}_{\text{ne}}^1$, is said 
 
 ## Moment generating function
 
-- In regular problems, the functions $M_0(\theta)$ and $K_0(\theta)$ associated to a r.v. $Y$ with density $f_0$ are [finite]{.orange} in a neighbor of the origin. A [sufficient]{.blue} condition is that $\tilde{\Theta}$ is an [open set]{.blue}.
+- In regular problems, the functions $M_0(\theta)$ and $K_0(\theta)$ associated to a r.v. $Y$ with density $f_0$ are [finite]{.orange} in a neighbor of the origin. A [sufficient]{.blue} condition is that $\tilde{\Theta}$ is an [open set]{.blue} (regular $\mathcal{F}_\text{en}^1$).
 
 :::callout-warning
 Suppose $M_0(t) < \infty$ for any $|t| < t_0$ and for some $t_0 > 0$. Then a standard result of probability theory (e.g. @Billingsley1995, Section 21) implies:
@@ -169,22 +168,24 @@ $$
 
 ## Cumulant generating function
 
-- The [cumulant generating function]{.blue} $K_0(t) = \log{M_0(t)}$ is a convenient tool alternative to $M_0(t)$.
+:::callout-warning
+Suppose $K_0(t) = \log{M_0(t)} < \infty$ for any $|t| < t_0$ and for some $t_0 > 0$. Then:
 
-- Suppose $K_0(t) < \infty$ for any $|t| < t_0$ and for some $t_0 > 0$. Then the cumulant generating function$K_0(t)$ [uniquely characterizes]{.orange} the law of $Y$ and it admits a Taylor series expansion
+- $K_0$ [uniquely characterizes]{.orange} the law of $Y$ and it admits a [Taylor expansion]{.grey}
 $$
 K_0(t) = \kappa_1 t + \kappa_2 \frac{t^2}{2!} + \kappa_3 \frac{t^3}{3!} + \cdots = \sum_{k=1}^\infty \frac{t^k}{k!} \kappa_k, \qquad |t| < t_0,
 $$
-where the coefficients $(\kappa_k)_{k \ge 1}$ are [cumulants]{.blue} $Y$.
+where the coefficients $(\kappa_k)_{k \ge 1}$ are the [cumulants]{.blue} of $Y$.
 
 - The cumulants $\kappa_k$ equal the $k$th derivative of $K_0(t)$ evaluated at the origin
 $$
 \kappa_k = \frac{\partial^k}{\partial t^k} K_0(t) \Big|_{t = 0}, \qquad k \ge 1.
 $$
-Moreover, it can be shown the following relationships with the first four moments hold:
+Moreover, it can be shown the following moment relationships hold:
 $$
-\kappa_1 = \mu_1 = \mathbb{E}_\theta(Y), \quad \kappa_2 = \text{var}_\theta(Y), \quad \kappa_3 = \mathbb{E}_\theta\{(Y - \mu_1)^3\}, \quad \kappa_4 = \mathbb{E}_\theta\{(Y - \mu_1)^4\} - 3\text{var}_\theta(Y)^2. 
+\kappa_1 = \mathbb{E}_\theta(Y), \quad \kappa_2 = \text{var}_\theta(Y), \quad \kappa_3 = \mathbb{E}_\theta\{(Y - \mu_1)^3\}, \quad \kappa_4 = \mathbb{E}_\theta\{(Y - \mu_1)^4\} - 3\text{var}_\theta(Y)^2. 
 $$
+:::
 
 ::: aside
 Refer to @Pace1997, Section 3.2.5 for detailed derivations. Standardized cumulants $\kappa_3/\kappa_2^{3/2}$ and $\kappa_4/\kappa_2^2$ are the [skewness]{.blue} and the (excess of) [kurtosis]{.blue} of $Y$.
@@ -200,7 +201,7 @@ $$
 $$
 M_0(\theta)= \mathbb{E}(e^{\theta Y})  = \int_0^1 e^{\theta y} \mathrm{d}y = \frac{e^\theta}{\theta}\Big|_0^1 = \frac{e^\theta - 1}{\theta}, \qquad \theta \neq 0.
 $$
-and with $M_0(0) = 1$. Note that $M_0$ is continuous since $\lim_{\theta \to 0}(e^\theta - 1)/\theta = 1$.
+with $M_0(0) = 1$. Note that $M_0$ is continuous since $\lim_{\theta \to 0}(e^\theta - 1)/\theta = 1$.
 
 - Consequently, we have $M_0(\theta) < \infty$ for all $\theta \in \mathbb{R}$ and the [natural parameter space]{.orange} is $\tilde{\Theta} = \mathbb{R}$, which is an [open set]{.blue}. The resulting density is
 $$
@@ -249,38 +250,33 @@ so that $K(\theta) = \theta^2/2$.
 
 ## Closure under exponential tilting 📖 
 
-- Let $\mathcal{F}_{\text{ne}}^1$ be an exponential family with [parameter]{.blue} $\psi$ and [natural parameter space]{.orange} $\tilde{\Psi}$, with  
+- Let $\mathcal{F}_{\text{ne}}^1$ be an exponential family with [parameter]{.blue} $\psi$ and [natural parameter space]{.orange} $\tilde{\Psi}$, with density $f(y; \psi) = f_0(y)\exp\{\psi y - K(\psi)\}$. The [exponential tilting]{.orange} of $f(y; \psi)$ gives
 $$
-f(y; \psi) = f_0(y)\exp\{\psi y - K(\psi)\}, \qquad y \in \mathcal{Y}, \quad \psi \in \tilde{\Psi}.
+f(y; \theta, \psi) \propto e^{\theta y} f(y; \psi) \propto f_0(y) \exp\{(\theta + \psi)y\},
 $$
-
-- The [exponential tilting]{.orange} of $f(y; \psi)$ gives  
+and the [normalizing constant]{.blue} of $f_0(y) \exp\{(\theta + \psi)y\}$ is therefore  
 $$
-f(y; \theta, \psi) \propto e^{\theta y}f(y; \psi) \propto f_0(y)\exp\{(\theta + \psi)y\}.
-$$
-The [normalizing constant]{.blue} of $f_0(y)\exp\{(\theta + \psi)y\}$ is therefore  
-$$
-\int_\mathcal{Y} f_0(y)\exp\{(\theta + \psi)y\} \, \nu(\mathrm{d}y) = M_0(\theta + \psi).
+\int_\mathcal{Y} f_0(y) \exp\{(\theta + \psi)y\} \, \nu(\mathrm{d}y) = M_0(\theta + \psi).
 $$
 
 - Thus, for any $\theta$ and $\psi$ such that $M_0(\theta + \psi) < \infty$, the corresponding density is
 $$
-f(y; \theta, \psi) = f_0(y)\exp\{(\theta + \psi)y - K(\theta + \psi)\}, \qquad y \in \mathcal{Y}, \quad \theta + \psi \in \tilde{\Psi},
+f(y; \theta, \psi) = f_0(y) \exp\{(\theta + \psi)y - K(\theta + \psi)\},
 $$
-which is again a [member]{.blue} of the [exponential family]{.orange} $\mathcal{F}_{\text{ne}}^1$ with updated parameter $\theta + \psi$.
+which is again a [member]{.blue} of the [exponential family]{.orange} $\mathcal{F}_{\text{ne}}^1$, with updated parameter $\theta + \psi$.
 
-- In other words, exponential families are [closed]{.blue} under [exponential tilting]{.orange}, and $\mathcal{F}_{\text{ne}}^1$ can be thought of as being generated by any of its members.
+:::callout-tip
+Exponential families are [closed]{.blue} under [exponential tilting]{.orange}, and $\mathcal{F}_{\text{ne}}^1$ can be thought of as being generated by any of its members.
+:::
 
-## Moments and cumulants I
+## Moments and cumulants
 
-- The functions $M_0(\theta)$ and $K(\theta) = K_0(\theta)$ appearing in $f(y; \theta) = f_0(y)\exp\{\theta y - K_0(\theta)\}$, with $K_0(\theta) = \log M_0(\theta)$, refer to the moments and cumulants of the [baseline]{.orange} density $f_0(y)$.
-
-- Indeed, for any fixed $\theta$, the [moment generating function]{.blue} of $f(y; \theta)$ is
+- The functions $M_0(\theta)$ and $K(\theta) = K_0(\theta)$ of a $\mathcal{F}_\text{en}^1$, refer to the [baseline]{.orange} density $f_0(y)$. Indeed, for any fixed $\theta$, the [moment generating function]{.blue} of $f(y; \theta) \in \mathcal{F}_\text{en}^1$ is
 $$
 M_\theta(t) := \int_\mathcal{Y} e^{ty} f(y; \theta)\, \nu(\mathrm{d}y) 
   = \frac{1}{M_0(\theta)} \int_\mathcal{Y} e^{(t + \theta)y} f_0(y)\, \nu(\mathrm{d}y) 
   = \frac{M_0(t + \theta)}{M_0(\theta)}, \quad t + \theta \in \tilde{\Theta}.
-  $$
+$$
 
 - Consequently, the [cumulant generating function]{.orange} of $f(y; \theta)$ relates to $K_0$ as follows:
 $$
@@ -288,75 +284,74 @@ K_\theta(t) = \log M_\theta(t) = K_0(t + \theta) - K_0(\theta), \quad t + \theta
 $$
 
 :::callout-tip
-- If $\mathcal{F}_\text{en}^1$ is a [regular]{.orange} family, then $\tilde{\Theta}$ is an [open set]{.blue}, and $\tilde{\Theta} = \text{int}\:\tilde{\Theta}$, meaning that $\theta$ is always an [inner point]{.blue} of $\tilde{\Theta}$. Therefore, there exists a $t_0$ such that $t + \theta \in \tilde{\Theta}$ for all $|t| < t_0$.
+If $\mathcal{F}_\text{en}^1$ is a [regular]{.orange} family, then $\tilde{\Theta}$ is an [open set]{.blue}, and $\tilde{\Theta} = \text{int}\:\tilde{\Theta}$, meaning that $\theta$ is always an [inner point]{.blue} of $\tilde{\Theta}$. Therefore, there exists a $t_0$ such that $t + \theta \in \tilde{\Theta}$ for all $|t| < t_0$ implying that both $M_\theta$ and $K_\theta$ are [well-defined]{.orange}.
 
-- Consequently, if $\mathcal{F}_\text{en}^1$ is [regular]{.orange}, both $M_\theta$ and $K_\theta$ are finite in a neighborhood of the origin, and thus they characterize the law and the moments of $f(y; \theta)$.
 
-- If $\mathcal{F}_\text{en}^1$ is [not]{.orange} regular, then for $M_\theta(t)$ and $K_\theta(t)$ to be well-defined, we require that $\theta$ is [not]{.orange} a [boundary point]{.blue}; that is, $\theta \in \text{int}\:\tilde{\Theta}$, meaning it belongs to the interior of $\tilde{\Theta}$.
+If $\mathcal{F}_\text{en}^1$ is [not]{.orange} regular, then for $M_\theta(t)$ and $K_\theta(t)$ to be well-defined, we require that $\theta$ is [not]{.orange} a [boundary point]{.blue}; that is, $\theta \in \text{int}\:\tilde{\Theta}$, meaning it belongs to the interior of $\tilde{\Theta}$.
 :::
 
-## Moments and cumulants II
+## Mean value mapping I
 
-- Thus, [moments]{.blue} and [cumulants]{.orange} exist for every $\theta \in \text{int}\:\tilde{\Theta}$. In particular, the cumulants are
+- [Moments]{.blue} and [cumulants]{.orange} exist for every $\theta \in \text{int}\:\tilde{\Theta}$. In particular, the cumulants are
 $$
 \kappa_k = \frac{\partial^k}{\partial t^k} K_\theta(t) \Big|_{t = 0} = \frac{\partial^k}{\partial t^k} \left[ K(t + \theta) - K(\theta) \right] \Big|_{t = 0} = \frac{\partial^k}{\partial \theta^k} K(\theta), \qquad k \ge 1.
 $$
 
-- Let $Y \sim f(y; \theta)$. The first two moments of $Y$ are therefore
+:::callout-note
+Let $Y \sim f(y; \theta)$, with $f(y; \theta) \in \mathcal{F}_\text{en}^1$. The first two moments of $Y$ are obtained as: 
 $$
-\mu(\theta) := \mathbb{E}_\theta(Y) = \frac{\partial}{\partial \theta} K(\theta), \qquad \text{var}_\theta(Y) = \frac{\partial^2}{\partial \theta^2} K(\theta).
+\mu(\theta) := \mathbb{E}_\theta(Y) = \frac{\partial}{\partial \theta} K(\theta), \qquad \text{var}_\theta(Y) = \frac{\partial}{\partial \theta} \mu(\theta) = \frac{\partial^2}{\partial \theta^2} K(\theta),
 $$
+We call $\mu : \text{int}\:\tilde{\Theta} \to \mathbb{R}$ the [mean value mapping]{.orange}. 
+:::
 
-- We call $\mu(\theta)$ the [mean value mapping]{.orange}, for any $\theta \in \text{int}\:\tilde{\Theta}$. Moreover, note that
-$$
-\text{var}_\theta(Y) = \frac{\partial}{\partial \theta} \mu(\theta),
-$$
-showing a tight connection between the mean and the variance. Finally, we have
-$$
-  \frac{\partial^2}{\partial \theta^2} K(\theta) = \frac{\partial}{\partial \theta} \mu(\theta) = \text{var}_\theta(Y) > 0, \qquad \theta \in \tilde{\Theta},
-$$
-  which implies that $K(\theta)$ is a [convex function]{.blue}, and $\mu(\theta)$ is a [monotone increasing function]{.orange} of $\theta$.
-  
-## Mean value mapping I
+- If $f_0$ is non-degenerate, then $\text{var}_\theta(Y) > 0$, implying that $K(\theta)$ is a [convex function]{.blue}, and $\mu(\theta)$ is a [smooth]{.orange} and [monotone increasing]{.orange}, namely is a [one-to-one]{.blue} map. 
 
-- The mean value mapping $\mu : \text{int}\:\tilde{\Theta} \to \mathbb{R}$ is a [monotone increasing]{.orange} smooth function of $\theta$ and therefore is [one-to-one]{.blue} and [invertible]{.blue} on the set $\text{int}\:\tilde{\Theta}$ with range
-$$
-\Mu = \text{Range}(\mu) = \{\mu(\theta) : \theta \in \text{int}\:\tilde{\Theta}\}.
-$$
-The set $\Mu \subseteq\mathbb{R}$ is called [mean space]{.blue} or [expectation space]{.orange}. If $\mathcal{F}_\text{en}^1$ is a [regular]{.orange} exponential family, then $\tilde{\Theta} = \text{int}\:\tilde{\Theta}$ and $\mu(\theta)$ is a [reparametrization]{.blue}. 
-
-- Let $C = C(\mathcal{Y})$ be the [closed convex hull]{.blue} of the sample space $\mathcal{Y}$, which is the [smallest closed convex set]{.blue} $C \subseteq \mathbb{R}$ [containing]{.orange} $\mathcal{Y}$[^convex_hull], namely:
-$$
-C(\mathcal{Y}) = \{ y \in \mathbb{R} : y = \lambda y_1 + (1 - \lambda)y_2, \quad 0 \le \lambda \le 1, \quad y_1,y_2 \in \mathcal{Y}\}.
-$$
-Hence, if $\mathcal{Y} = \{0, 1, \dots, N\}$, then $C = [0,N]$. If $\mathcal{Y} = \mathbb{N}$, then $C = \mathbb{R}^+$. If $\mathcal{Y} = \mathbb{R}$, then $C = \mathbb{R}$.
-
-- Because of the properties of expectations, $\mu(\theta) \in \text{int}\:C(\mathcal{Y})$ for all $\theta \in \text{int}\:\tilde{\Theta}$, namely
-$$
-\Mu \subseteq \text{int}\:C(\mathcal{Y}).
-$$
-Indeed, $\text{int}\:C(\mathcal{Y})$ is an [open interval]{.orange} whose extremes are the [infimum]{.blue} and [supremum]{.blue} of $\mathcal{Y}$.
-
-[^convex_hull]: This naturally generalizes to the multivariate case when $C, \mathcal{Y} \subseteq \mathbb{R}^p$, for $p > 1$. 
+- Thus, if $\mathcal{F}_\text{en}^1$ is a [regular]{.orange} exponential family, then $\tilde{\Theta} = \text{int}\:\tilde{\Theta}$ and $\mu(\theta)$ is a [reparametrization]{.blue}. 
 
 ## Mean value mapping II
 
-- In a regular exponential family, the mean value mapping $\mu(\theta)$ is a [reparametrization]{.orange}, which means for each $\theta \in \tilde{\Theta}$ there exists a [unique]{.blue} mean $\mu \in \Mu$ such that $\mu = \mu(\theta)$. 
+:::callout-note
+The mean value mapping has range $\mathcal{M} = \text{Range}(\mu) = \{\mu(\theta) : \theta \in \text{int}\:\tilde{\Theta}\}$. The set $\mathcal{M} \subseteq\mathbb{R}$ is called [mean space]{.blue} or [expectation space]{.orange}. 
+:::
 
-- However, in regular families, a much stronger result holds: for each value of $y \in \text{int}\:C(\mathcal{Y})$, we can find a [unique]{.orange} $\theta \in \tilde{\Theta}$ having mean $\mu(\theta) = y$.
+:::callout-note
+Let $C = C(\mathcal{Y})$ be the [closed convex hull]{.blue} of the sample space $\mathcal{Y}$, which is the [smallest closed convex set]{.blue} $C \subseteq \mathbb{R}$ [containing]{.orange} $\mathcal{Y}$, namely:
+$$
+C(\mathcal{Y}) = \{ y \in \mathbb{R} : y = \lambda y_1 + (1 - \lambda)y_2, \quad 0 \le \lambda \le 1, \quad y_1,y_2 \in \mathcal{Y}\}.
+$$
+:::
+
+- Hence, if $\mathcal{Y} = \{0, 1, \dots, N\}$, then $C = [0,N]$. If $\mathcal{Y} = \mathbb{N}$, then $C = \mathbb{R}^+$. If $\mathcal{Y} = \mathbb{R}$, then $C = \mathbb{R}$.
+
+- Because of the properties of expectations, $\mu(\theta) \in \text{int}\:C(\mathcal{Y})$ for all $\theta \in \text{int}\:\tilde{\Theta}$, namely
+$$
+\mathcal{M} \subseteq \text{int}\:C(\mathcal{Y}).
+$$
+Indeed, $\text{int}\:C(\mathcal{Y})$ is an [open interval]{.orange} whose extremes are the [infimum]{.blue} and [supremum]{.blue} of $\mathcal{Y}$.
+
+:::aside
+Both definitions naturally generalize to the multivariate case when $C, \mathcal{Y} \subseteq \mathbb{R}^p$, for $p > 1$. 
+:::
+
+## Mean value mapping III
+
+- In a regular exponential family, the mean value mapping $\mu(\theta)$ is a [reparametrization]{.orange}, meaning that for each $\theta \in \tilde{\Theta}$, there exists a [unique]{.blue} mean $\mu \in \mathcal{M}$ such that $\mu = \mu(\theta)$.
+
+- Moreover, in regular families, a much stronger result holds: for each value of $y \in \text{int}\:C(\mathcal{Y})$, there exists a [unique]{.orange} $\theta \in \tilde{\Theta}$ such that $\mu(\theta) = y$.
 
 :::callout-warning
 #### Theorem (@Pace1997, Theorem 5.1)
 
-If $\mathcal{F}_\text{en}^1$ is regular, then $\Theta = \text{int}\:\tilde{\Theta}$ and $\Mu = \text{int}\:C.$
+If $\mathcal{F}_\text{en}^1$ is regular, then $\Theta = \text{int}\:\tilde{\Theta}$ and $\mathcal{M} = \text{int}\:C.$
 :::
 
-- This establishes a remarkable duality between the expectation space $\Mu$ and the sample space. Any value in $\text{int}\:C$ can be "reached"---that is, there exists a distribution $f(y; \theta)$ with that mean.
+- This establishes a [duality]{.blue} between the expectation space $\mathcal{M}$ and the sample space. Any value in $\text{int}\:C$ can be "reached", that is, there exists a distribution $f(y; \theta)$ with that mean.
 
 - This correspondence is crucial in maximum likelihood estimation and inference.
 
 :::aside
-This theorem can actually be strengthened: a necessary and sufficient condition for $\Mu = \text{int}\:C$ is that the family $\mathcal{F}_\text{en}^1$ is [steep]{.orange} (a regular family is also steep); see @Pace1997.
+This theorem can actually be strengthened: a necessary and sufficient condition for $\mathcal{M} = \text{int}\:C$ is that the family $\mathcal{F}_\text{en}^1$ is [steep]{.orange} (a regular family is also steep); see @Pace1997.
 :::
 
 ## A non regular and non steep exponential family
@@ -375,12 +370,28 @@ M_0(\theta) < \infty, \qquad \theta \in  [-1, 1].
 $$
 - Since $\tilde{\Theta}$ is a [closed set]{.blue}, the exponential family is [not regular]{.orange} (and is not steep either). In fact, one can show that $\lim_{\theta \to 1} \mu(\theta) = a < \infty$, implying that
 $$
-\Mu = (-a, a), \qquad \text{ whereas } \qquad \text{int}\:C = \mathbb{R}.
+\mathcal{M} = (-a, a), \qquad \text{ whereas } \qquad \text{int}\:C = \mathbb{R}.
 $$
-
+- In other words, there are no values of $\theta$ such that $\mu(\theta) = y$ for any $y > a$, which implies, for instance, that the method of moments will encounter difficulties in estimating $\theta$.
 
 
 ## Variance function I
+
+:::callout-note
+Let $Y \sim f(y; \theta)$, with $f(y; \theta) \in \mathcal{F}_\text{en}^1$ and let $\theta(\mu)$ be the [inverse map]{.orange} of $\mu(\theta)$. The variance of $Y$ can be expressed as a function of $\mu$:
+$$
+V(\mu) := \text{var}_{\theta(\mu)}(Y) = \frac{\partial^2}{\partial \theta^2} K(\theta) \Big|_{\theta = \theta(\mu)}.
+$$
+The function $V : \mathcal{M} \to \mathbb{R}^+$ is called the [variance function]{.orange} of the exponential family $\mathcal{F}_\text{en}^1$.
+:::
+
+- The importance of the variance function $V(\mu)$ is related to the following [characterization]{.blue} result due to @Morris1982.
+
+:::callout-warning
+#### Theorem (@Pace1997, Theorem 5.2)
+If $Y$ has a density that belongs to a $\mathcal{F}_\text{en}^1$, then the [pair]{.orange} $(\mathcal{M}, V(\mu))$ [uniquely]{.blue} determine the natural parameter space $\tilde{\Theta}$ and the cumulant generating function $K(\theta)$, and hence also $f(y;\theta)$.
+:::
+
 
 ## Variance function II
 
@@ -391,12 +402,12 @@ $$
 | $\mathcal{Y}$ | $\mathbb{R}$ | $\mathbb{N}$ | $\{0, 1, \dots, N\}$ | $\mathbb{R}^+$ |
 | [Natural parametrization]{.orange}
 | $\theta(\phi)$ | $\phi$ | $\log{\phi}$ | $\log\{\phi/(1 - \phi)\}$ | $-\phi$ |
-| $f_0(y)$ | $\{\sqrt{2\pi}\}^{-1}e^{-\frac{1}{2}y^2}$ | $1/ y!$ | $\binom{N}{y}$ | $y^{\nu - 1}/\Gamma(\nu)$ |
+| $f_0(y)$ | $(\sqrt{2\pi})^{-1}e^{-\frac{1}{2}y^2}$ | $e^{-1}/ y!$ | $\binom{N}{y}$ | $y^{\nu - 1}/\Gamma(\nu)$ |
 | $K(\theta)$ | $\theta^2/2$ | $e^\theta$ | $N \log\{1 + e^\theta\}$ | $-\nu \log(-\theta)$ |
 | $\tilde{\Theta}$ | $\mathbb{R}$ | $\mathbb{R}$ | $\mathbb{R}$ | $(-\infty, 0)$ |
 | [Mean parametrization]{.blue} |
-| $\mu(\theta)$ | $\theta$ | $e^\theta$ | $N e^\theta/(1 + e^{\theta})$ | $-\nu/\theta$ |
-| $\Mu$ | $\mathbb{R}$ | $\mathbb{R}^+$ | $(0, N)$ | $\mathbb{R}^+$ |
+| $\mu(\theta)$ | $\theta$ | $e^\theta-1$ | $N e^\theta/(1 + e^{\theta})$ | $-\nu/\theta$ |
+| $\mathcal{M}$ | $\mathbb{R}$ | $\mathbb{R}^+$ | $(0, N)$ | $\mathbb{R}^+$ |
 | $V(\mu)$ | $1$ | $\mu$ | $\mu(1 - \mu/ N)$ | $\mu^2/\nu$ |
 
 ## Quadratic variance functions

@@ -388,8 +388,7 @@
 <ul>
 <li><p>This unit will cover the following <span class="orange">topics</span>:</p>
 <ul>
-<li>One-parameter exponential families</li>
-<li>Multiparameter exponential families</li>
+<li>One-parameter and multiparameter exponential families</li>
 <li>Sufficiency and completeness</li>
 <li>Likelihood and inference</li>
 <li>Exponential dispersion families</li>
@@ -407,7 +406,7 @@
 <h2>Overview</h2>
 
 <img data-src="img/EF.png" class="quarto-figure quarto-figure-center r-stretch" style="width:6in"><ul>
-<li>Three level of statistical modeling. Figure 1 of <span class="citation" data-cites="Efron2023">Efron (<a href="#/references" role="doc-biblioref" onclick="">2023</a>)</span>.</li>
+<li>Figure 1 of <span class="citation" data-cites="Efron2023">Efron (<a href="#/references" role="doc-biblioref" onclick="">2023</a>)</span>. Three level of statistical modeling.</li>
 </ul>
 </section>
 <section>
@@ -418,7 +417,7 @@
 <section id="exponential-tilting" class="slide level2 center">
 <h2>Exponential tilting</h2>
 <ul>
-<li><p>Let <span class="math inline">Y</span> be a (non-degenerate) random variable with <span class="blue">support</span> <span class="math inline">\mathcal{Y} \subseteq \mathbb{R}</span> and <span class="orange">density</span> <span class="math inline">f_0(y)</span> with respect to a dominating measure <span class="math inline">\nu(\mathrm{d}y)</span>.</p></li>
+<li><p>Let <span class="math inline">Y</span> be a <span class="orange">non-degenerate</span> random variable with <span class="blue">support</span> <span class="math inline">\mathcal{Y} \subseteq \mathbb{R}</span> and <span class="orange">density</span> <span class="math inline">f_0(y)</span> with respect to a dominating measure <span class="math inline">\nu(\mathrm{d}y)</span>.</p></li>
 <li><p>We aim at building a <span class="blue">parametric family</span> <span class="math inline">\mathcal{F} = \{f(;\theta) : \theta \in \Theta \subseteq \mathbb{R} \}</span> with common support <span class="math inline">\mathcal{Y}</span> such that <span class="math inline">f_0</span> is a special case, namely <span class="math inline">f_0 \in \mathcal{F}</span>.</p></li>
 <li><p>A strategy for doing this is called <span class="orange">exponential tilting</span>, namely we could set <span class="math display">
 f(y; \theta) \propto e^{\theta y}f_0(y).
@@ -434,7 +433,7 @@ M_0(\theta):=\int_\mathcal{Y}e^{\theta y}f_0(y)\nu(\mathrm{d}y), \qquad \theta \
 <section id="natural-exponential-family-of-order-one" class="slide level2 center">
 <h2>Natural exponential family of order one</h2>
 <ul>
-<li>The mapping <span class="math inline">K(\theta) = K_0(\theta) = \log{M_0(\theta)}</span> is the <span class="blue">cumulant generating function</span> of <span class="math inline">f_0</span>. Clearly, it is <span class="orange">finite</span> if and only if <span class="math inline">M_0(\theta)</span> is finite.</li>
+<li>The mapping <span class="math inline">K(\theta) = K_0(\theta) = \log{M_0(\theta)}</span> is the <span class="blue">cumulant generating function</span> of <span class="math inline">f_0</span>. It is <span class="orange">finite</span> if and only if <span class="math inline">M_0(\theta)</span> is finite.</li>
 </ul>
 <div class="callout callout-note no-icon callout-style-simple">
 <div class="callout-body">
@@ -460,7 +459,7 @@ M_0(\theta):=\int_\mathcal{Y}e^{\theta y}f_0(y)\nu(\mathrm{d}y), \qquad \theta \
 <section id="moment-generating-function" class="slide level2 center">
 <h2>Moment generating function</h2>
 <ul>
-<li>In regular problems, the functions <span class="math inline">M_0(\theta)</span> and <span class="math inline">K_0(\theta)</span> associated to a r.v. <span class="math inline">Y</span> with density <span class="math inline">f_0</span> are <span class="orange">finite</span> in a neighbor of the origin. A <span class="blue">sufficient</span> condition is that <span class="math inline">\tilde{\Theta}</span> is an <span class="blue">open set</span>.</li>
+<li>In regular problems, the functions <span class="math inline">M_0(\theta)</span> and <span class="math inline">K_0(\theta)</span> associated to a r.v. <span class="math inline">Y</span> with density <span class="math inline">f_0</span> are <span class="orange">finite</span> in a neighbor of the origin. A <span class="blue">sufficient</span> condition is that <span class="math inline">\tilde{\Theta}</span> is an <span class="blue">open set</span> (regular <span class="math inline">\mathcal{F}_\text{en}^1</span>).</li>
 </ul>
 <div class="callout callout-warning no-icon callout-style-simple">
 <div class="callout-body">
@@ -481,17 +480,23 @@ M_0(t) = 1 +  \mu_1 t + \mu_2 \frac{t^2}{2!} + \mu_3 \frac{t^3}{3!} + \cdots = \
 </section>
 <section id="cumulant-generating-function" class="slide level2 center">
 <h2>Cumulant generating function</h2>
+<div class="callout callout-warning no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<p>Suppose <span class="math inline">K_0(t) = \log{M_0(t)} &lt; \infty</span> for any <span class="math inline">|t| &lt; t_0</span> and for some <span class="math inline">t_0 &gt; 0</span>. Then:</p>
 <ul>
-<li><p>The <span class="blue">cumulant generating function</span> <span class="math inline">K_0(t) = \log{M_0(t)}</span> is a convenient tool alternative to <span class="math inline">M_0(t)</span>.</p></li>
-<li><p>Suppose <span class="math inline">K_0(t) &lt; \infty</span> for any <span class="math inline">|t| &lt; t_0</span> and for some <span class="math inline">t_0 &gt; 0</span>. Then the cumulant generating function<span class="math inline">K_0(t)</span> <span class="orange">uniquely characterizes</span> the law of <span class="math inline">Y</span> and it admits a Taylor series expansion <span class="math display">
+<li><p><span class="math inline">K_0</span> <span class="orange">uniquely characterizes</span> the law of <span class="math inline">Y</span> and it admits a <span class="grey">Taylor expansion</span> <span class="math display">
 K_0(t) = \kappa_1 t + \kappa_2 \frac{t^2}{2!} + \kappa_3 \frac{t^3}{3!} + \cdots = \sum_{k=1}^\infty \frac{t^k}{k!} \kappa_k, \qquad |t| &lt; t_0,
-</span> where the coefficients <span class="math inline">(\kappa_k)_{k \ge 1}</span> are <span class="blue">cumulants</span> <span class="math inline">Y</span>.</p></li>
+</span> where the coefficients <span class="math inline">(\kappa_k)_{k \ge 1}</span> are the <span class="blue">cumulants</span> of <span class="math inline">Y</span>.</p></li>
 <li><p>The cumulants <span class="math inline">\kappa_k</span> equal the <span class="math inline">k</span>th derivative of <span class="math inline">K_0(t)</span> evaluated at the origin <span class="math display">
 \kappa_k = \frac{\partial^k}{\partial t^k} K_0(t) \Big|_{t = 0}, \qquad k \ge 1.
-</span> Moreover, it can be shown the following relationships with the first four moments hold: <span class="math display">
-\kappa_1 = \mu_1 = \mathbb{E}_\theta(Y), \quad \kappa_2 = \text{var}_\theta(Y), \quad \kappa_3 = \mathbb{E}_\theta\{(Y - \mu_1)^3\}, \quad \kappa_4 = \mathbb{E}_\theta\{(Y - \mu_1)^4\} - 3\text{var}_\theta(Y)^2.
+</span> Moreover, it can be shown the following moment relationships hold: <span class="math display">
+\kappa_1 = \mathbb{E}_\theta(Y), \quad \kappa_2 = \text{var}_\theta(Y), \quad \kappa_3 = \mathbb{E}_\theta\{(Y - \mu_1)^3\}, \quad \kappa_4 = \mathbb{E}_\theta\{(Y - \mu_1)^4\} - 3\text{var}_\theta(Y)^2.
 </span></p></li>
 </ul>
+</div>
+</div>
+</div>
 
 <aside><div>
 <p>Refer to <span class="citation" data-cites="Pace1997">Pace and Salvan (<a href="#/references" role="doc-biblioref" onclick="">1997</a>)</span>, Section 3.2.5 for detailed derivations. Standardized cumulants <span class="math inline">\kappa_3/\kappa_2^{3/2}</span> and <span class="math inline">\kappa_4/\kappa_2^2</span> are the <span class="blue">skewness</span> and the (excess of) <span class="blue">kurtosis</span> of <span class="math inline">Y</span>.</p>
@@ -504,7 +509,7 @@ f(y; \theta) \propto e^{\theta y}f_0(y) = e^{\theta y}, \qquad y \in [0,1], \qua
 </span></p></li>
 <li><p>The normalizing constant, that is, the <span class="blue">moment generating function</span>, is <span class="math display">
 M_0(\theta)= \mathbb{E}(e^{\theta Y})  = \int_0^1 e^{\theta y} \mathrm{d}y = \frac{e^\theta}{\theta}\Big|_0^1 = \frac{e^\theta - 1}{\theta}, \qquad \theta \neq 0.
-</span> and with <span class="math inline">M_0(0) = 1</span>. Note that <span class="math inline">M_0</span> is continuous since <span class="math inline">\lim_{\theta \to 0}(e^\theta - 1)/\theta = 1</span>.</p></li>
+</span> with <span class="math inline">M_0(0) = 1</span>. Note that <span class="math inline">M_0</span> is continuous since <span class="math inline">\lim_{\theta \to 0}(e^\theta - 1)/\theta = 1</span>.</p></li>
 <li><p>Consequently, we have <span class="math inline">M_0(\theta) &lt; \infty</span> for all <span class="math inline">\theta \in \mathbb{R}</span> and the <span class="orange">natural parameter space</span> is <span class="math inline">\tilde{\Theta} = \mathbb{R}</span>, which is an <span class="blue">open set</span>. The resulting density is <span class="math display">
 f(y; \theta) = \frac{\theta e^{\theta y}}{e^{\theta -1}} = \exp\{\theta y - K(\theta)\}, \qquad y \in [0, 1],
 </span> where <span class="math inline">K(\theta) = \log\{(e^\theta - 1)/\theta\}</span>.</p></li>
@@ -544,28 +549,28 @@ f(y; \theta) = \frac{1}{\sqrt{2\pi}}e^{\theta y}e^{-y^2/2}e^{-\theta^2/2} = \fra
 <section id="closure-under-exponential-tilting" class="slide level2 center">
 <h2>Closure under exponential tilting 📖</h2>
 <ul>
-<li><p>Let <span class="math inline">\mathcal{F}_{\text{ne}}^1</span> be an exponential family with <span class="blue">parameter</span> <span class="math inline">\psi</span> and <span class="orange">natural parameter space</span> <span class="math inline">\tilde{\Psi}</span>, with<br>
+<li><p>Let <span class="math inline">\mathcal{F}_{\text{ne}}^1</span> be an exponential family with <span class="blue">parameter</span> <span class="math inline">\psi</span> and <span class="orange">natural parameter space</span> <span class="math inline">\tilde{\Psi}</span>, with density <span class="math inline">f(y; \psi) = f_0(y)\exp\{\psi y - K(\psi)\}</span>. The <span class="orange">exponential tilting</span> of <span class="math inline">f(y; \psi)</span> gives <span class="math display">
+f(y; \theta, \psi) \propto e^{\theta y} f(y; \psi) \propto f_0(y) \exp\{(\theta + \psi)y\},
+</span> and the <span class="blue">normalizing constant</span> of <span class="math inline">f_0(y) \exp\{(\theta + \psi)y\}</span> is therefore<br>
 <span class="math display">
-f(y; \psi) = f_0(y)\exp\{\psi y - K(\psi)\}, \qquad y \in \mathcal{Y}, \quad \psi \in \tilde{\Psi}.
-</span></p></li>
-<li><p>The <span class="orange">exponential tilting</span> of <span class="math inline">f(y; \psi)</span> gives<br>
-<span class="math display">
-f(y; \theta, \psi) \propto e^{\theta y}f(y; \psi) \propto f_0(y)\exp\{(\theta + \psi)y\}.
-</span> The <span class="blue">normalizing constant</span> of <span class="math inline">f_0(y)\exp\{(\theta + \psi)y\}</span> is therefore<br>
-<span class="math display">
-\int_\mathcal{Y} f_0(y)\exp\{(\theta + \psi)y\} \, \nu(\mathrm{d}y) = M_0(\theta + \psi).
+\int_\mathcal{Y} f_0(y) \exp\{(\theta + \psi)y\} \, \nu(\mathrm{d}y) = M_0(\theta + \psi).
 </span></p></li>
 <li><p>Thus, for any <span class="math inline">\theta</span> and <span class="math inline">\psi</span> such that <span class="math inline">M_0(\theta + \psi) &lt; \infty</span>, the corresponding density is <span class="math display">
-f(y; \theta, \psi) = f_0(y)\exp\{(\theta + \psi)y - K(\theta + \psi)\}, \qquad y \in \mathcal{Y}, \quad \theta + \psi \in \tilde{\Psi},
-</span> which is again a <span class="blue">member</span> of the <span class="orange">exponential family</span> <span class="math inline">\mathcal{F}_{\text{ne}}^1</span> with updated parameter <span class="math inline">\theta + \psi</span>.</p></li>
-<li><p>In other words, exponential families are <span class="blue">closed</span> under <span class="orange">exponential tilting</span>, and <span class="math inline">\mathcal{F}_{\text{ne}}^1</span> can be thought of as being generated by any of its members.</p></li>
+f(y; \theta, \psi) = f_0(y) \exp\{(\theta + \psi)y - K(\theta + \psi)\},
+</span> which is again a <span class="blue">member</span> of the <span class="orange">exponential family</span> <span class="math inline">\mathcal{F}_{\text{ne}}^1</span>, with updated parameter <span class="math inline">\theta + \psi</span>.</p></li>
 </ul>
+<div class="callout callout-tip no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<p>Exponential families are <span class="blue">closed</span> under <span class="orange">exponential tilting</span>, and <span class="math inline">\mathcal{F}_{\text{ne}}^1</span> can be thought of as being generated by any of its members.</p>
+</div>
+</div>
+</div>
 </section>
-<section id="moments-and-cumulants-i" class="slide level2 center">
-<h2>Moments and cumulants I</h2>
+<section id="moments-and-cumulants" class="slide level2 center">
+<h2>Moments and cumulants</h2>
 <ul>
-<li><p>The functions <span class="math inline">M_0(\theta)</span> and <span class="math inline">K(\theta) = K_0(\theta)</span> appearing in <span class="math inline">f(y; \theta) = f_0(y)\exp\{\theta y - K_0(\theta)\}</span>, with <span class="math inline">K_0(\theta) = \log M_0(\theta)</span>, refer to the moments and cumulants of the <span class="orange">baseline</span> density <span class="math inline">f_0(y)</span>.</p></li>
-<li><p>Indeed, for any fixed <span class="math inline">\theta</span>, the <span class="blue">moment generating function</span> of <span class="math inline">f(y; \theta)</span> is <span class="math display">
+<li><p>The functions <span class="math inline">M_0(\theta)</span> and <span class="math inline">K(\theta) = K_0(\theta)</span> of a <span class="math inline">\mathcal{F}_\text{en}^1</span>, refer to the <span class="orange">baseline</span> density <span class="math inline">f_0(y)</span>. Indeed, for any fixed <span class="math inline">\theta</span>, the <span class="blue">moment generating function</span> of <span class="math inline">f(y; \theta) \in \mathcal{F}_\text{en}^1</span> is <span class="math display">
 M_\theta(t) := \int_\mathcal{Y} e^{ty} f(y; \theta)\, \nu(\mathrm{d}y)
 = \frac{1}{M_0(\theta)} \int_\mathcal{Y} e^{(t + \theta)y} f_0(y)\, \nu(\mathrm{d}y)
 = \frac{M_0(t + \theta)}{M_0(\theta)}, \quad t + \theta \in \tilde{\Theta}.
@@ -577,50 +582,66 @@ K_\theta(t) = \log M_\theta(t) = K_0(t + \theta) - K_0(\theta), \quad t + \theta
 <div class="callout callout-tip no-icon callout-style-simple">
 <div class="callout-body">
 <div class="callout-content">
-<ul>
-<li><p>If <span class="math inline">\mathcal{F}_\text{en}^1</span> is a <span class="orange">regular</span> family, then <span class="math inline">\tilde{\Theta}</span> is an <span class="blue">open set</span>, and <span class="math inline">\tilde{\Theta} = \text{int}\:\tilde{\Theta}</span>, meaning that <span class="math inline">\theta</span> is always an <span class="blue">inner point</span> of <span class="math inline">\tilde{\Theta}</span>. Therefore, there exists a <span class="math inline">t_0</span> such that <span class="math inline">t + \theta \in \tilde{\Theta}</span> for all <span class="math inline">|t| &lt; t_0</span>.</p></li>
-<li><p>Consequently, if <span class="math inline">\mathcal{F}_\text{en}^1</span> is <span class="orange">regular</span>, both <span class="math inline">M_\theta</span> and <span class="math inline">K_\theta</span> are finite in a neighborhood of the origin, and thus they characterize the law and the moments of <span class="math inline">f(y; \theta)</span>.</p></li>
-<li><p>If <span class="math inline">\mathcal{F}_\text{en}^1</span> is <span class="orange">not</span> regular, then for <span class="math inline">M_\theta(t)</span> and <span class="math inline">K_\theta(t)</span> to be well-defined, we require that <span class="math inline">\theta</span> is <span class="orange">not</span> a <span class="blue">boundary point</span>; that is, <span class="math inline">\theta \in \text{int}\:\tilde{\Theta}</span>, meaning it belongs to the interior of <span class="math inline">\tilde{\Theta}</span>.</p></li>
-</ul>
+<p>If <span class="math inline">\mathcal{F}_\text{en}^1</span> is a <span class="orange">regular</span> family, then <span class="math inline">\tilde{\Theta}</span> is an <span class="blue">open set</span>, and <span class="math inline">\tilde{\Theta} = \text{int}\:\tilde{\Theta}</span>, meaning that <span class="math inline">\theta</span> is always an <span class="blue">inner point</span> of <span class="math inline">\tilde{\Theta}</span>. Therefore, there exists a <span class="math inline">t_0</span> such that <span class="math inline">t + \theta \in \tilde{\Theta}</span> for all <span class="math inline">|t| &lt; t_0</span> implying that both <span class="math inline">M_\theta</span> and <span class="math inline">K_\theta</span> are <span class="orange">well-defined</span>.</p>
+<p>If <span class="math inline">\mathcal{F}_\text{en}^1</span> is <span class="orange">not</span> regular, then for <span class="math inline">M_\theta(t)</span> and <span class="math inline">K_\theta(t)</span> to be well-defined, we require that <span class="math inline">\theta</span> is <span class="orange">not</span> a <span class="blue">boundary point</span>; that is, <span class="math inline">\theta \in \text{int}\:\tilde{\Theta}</span>, meaning it belongs to the interior of <span class="math inline">\tilde{\Theta}</span>.</p>
 </div>
 </div>
 </div>
-</section>
-<section id="moments-and-cumulants-ii" class="slide level2 center">
-<h2>Moments and cumulants II</h2>
-<ul>
-<li><p>Thus, <span class="blue">moments</span> and <span class="orange">cumulants</span> exist for every <span class="math inline">\theta \in \text{int}\:\tilde{\Theta}</span>. In particular, the cumulants are <span class="math display">
-\kappa_k = \frac{\partial^k}{\partial t^k} K_\theta(t) \Big|_{t = 0} = \frac{\partial^k}{\partial t^k} \left[ K(t + \theta) - K(\theta) \right] \Big|_{t = 0} = \frac{\partial^k}{\partial \theta^k} K(\theta), \qquad k \ge 1.
-</span></p></li>
-<li><p>Let <span class="math inline">Y \sim f(y; \theta)</span>. The first two moments of <span class="math inline">Y</span> are therefore <span class="math display">
-\mu(\theta) := \mathbb{E}_\theta(Y) = \frac{\partial}{\partial \theta} K(\theta), \qquad \text{var}_\theta(Y) = \frac{\partial^2}{\partial \theta^2} K(\theta).
-</span></p></li>
-<li><p>We call <span class="math inline">\mu(\theta)</span> the <span class="orange">mean value mapping</span>, for any <span class="math inline">\theta \in \text{int}\:\tilde{\Theta}</span>. Moreover, note that <span class="math display">
-\text{var}_\theta(Y) = \frac{\partial}{\partial \theta} \mu(\theta),
-</span> showing a tight connection between the mean and the variance. Finally, we have <span class="math display">
-\frac{\partial^2}{\partial \theta^2} K(\theta) = \frac{\partial}{\partial \theta} \mu(\theta) = \text{var}_\theta(Y) &gt; 0, \qquad \theta \in \tilde{\Theta},
-</span> which implies that <span class="math inline">K(\theta)</span> is a <span class="blue">convex function</span>, and <span class="math inline">\mu(\theta)</span> is a <span class="orange">monotone increasing function</span> of <span class="math inline">\theta</span>.</p></li>
-</ul>
 </section>
 <section id="mean-value-mapping-i" class="slide level2 center">
 <h2>Mean value mapping I</h2>
 <ul>
-<li><p>The mean value mapping <span class="math inline">\mu : \text{int}\:\tilde{\Theta} \to \mathbb{R}</span> is a <span class="orange">monotone increasing</span> smooth function of <span class="math inline">\theta</span> and therefore is <span class="blue">one-to-one</span> and <span class="blue">invertible</span> on the set <span class="math inline">\text{int}\:\tilde{\Theta}</span> with range <span class="math display">
-\Mu = \text{Range}(\mu) = \{\mu(\theta) : \theta \in \text{int}\:\tilde{\Theta}\}.
-</span> The set <span class="math inline">\Mu \subseteq\mathbb{R}</span> is called <span class="blue">mean space</span> or <span class="orange">expectation space</span>. If <span class="math inline">\mathcal{F}_\text{en}^1</span> is a <span class="orange">regular</span> exponential family, then <span class="math inline">\tilde{\Theta} = \text{int}\:\tilde{\Theta}</span> and <span class="math inline">\mu(\theta)</span> is a <span class="blue">reparametrization</span>.</p></li>
-<li><p>Let <span class="math inline">C = C(\mathcal{Y})</span> be the <span class="blue">closed convex hull</span> of the sample space <span class="math inline">\mathcal{Y}</span>, which is the <span class="blue">smallest closed convex set</span> <span class="math inline">C \subseteq \mathbb{R}</span> <span class="orange">containing</span> <span class="math inline">\mathcal{Y}</span><sup>1</sup>, namely: <span class="math display">
-C(\mathcal{Y}) = \{ y \in \mathbb{R} : y = \lambda y_1 + (1 - \lambda)y_2, \quad 0 \le \lambda \le 1, \quad y_1,y_2 \in \mathcal{Y}\}.
-</span> Hence, if <span class="math inline">\mathcal{Y} = \{0, 1, \dots, N\}</span>, then <span class="math inline">C = [0,N]</span>. If <span class="math inline">\mathcal{Y} = \mathbb{N}</span>, then <span class="math inline">C = \mathbb{R}^+</span>. If <span class="math inline">\mathcal{Y} = \mathbb{R}</span>, then <span class="math inline">C = \mathbb{R}</span>.</p></li>
-<li><p>Because of the properties of expectations, <span class="math inline">\mu(\theta) \in \text{int}\:C(\mathcal{Y})</span> for all <span class="math inline">\theta \in \text{int}\:\tilde{\Theta}</span>, namely <span class="math display">
-\Mu \subseteq \text{int}\:C(\mathcal{Y}).
-</span> Indeed, <span class="math inline">\text{int}\:C(\mathcal{Y})</span> is an <span class="orange">open interval</span> whose extremes are the <span class="blue">infimum</span> and <span class="blue">supremum</span> of <span class="math inline">\mathcal{Y}</span>.</p></li>
+<li><span class="blue">Moments</span> and <span class="orange">cumulants</span> exist for every <span class="math inline">\theta \in \text{int}\:\tilde{\Theta}</span>. In particular, the cumulants are <span class="math display">
+\kappa_k = \frac{\partial^k}{\partial t^k} K_\theta(t) \Big|_{t = 0} = \frac{\partial^k}{\partial t^k} \left[ K(t + \theta) - K(\theta) \right] \Big|_{t = 0} = \frac{\partial^k}{\partial \theta^k} K(\theta), \qquad k \ge 1.
+</span></li>
 </ul>
-<aside><ol class="aside-footnotes"><li id="fn1"><p>This naturally generalizes to the multivariate case when <span class="math inline">C, \mathcal{Y} \subseteq \mathbb{R}^p</span>, for <span class="math inline">p &gt; 1</span>.</p></li></ol></aside></section>
+<div class="callout callout-note no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<p>Let <span class="math inline">Y \sim f(y; \theta)</span>, with <span class="math inline">f(y; \theta) \in \mathcal{F}_\text{en}^1</span>. The first two moments of <span class="math inline">Y</span> are obtained as: <span class="math display">
+\mu(\theta) := \mathbb{E}_\theta(Y) = \frac{\partial}{\partial \theta} K(\theta), \qquad \text{var}_\theta(Y) = \frac{\partial}{\partial \theta} \mu(\theta) = \frac{\partial^2}{\partial \theta^2} K(\theta),
+</span> We call <span class="math inline">\mu : \text{int}\:\tilde{\Theta} \to \mathbb{R}</span> the <span class="orange">mean value mapping</span>.</p>
+</div>
+</div>
+</div>
+<ul>
+<li><p>If <span class="math inline">f_0</span> is non-degenerate, then <span class="math inline">\text{var}_\theta(Y) &gt; 0</span>, implying that <span class="math inline">K(\theta)</span> is a <span class="blue">convex function</span>, and <span class="math inline">\mu(\theta)</span> is a <span class="orange">smooth</span> and <span class="orange">monotone increasing</span>, namely is a <span class="blue">one-to-one</span> map.</p></li>
+<li><p>Thus, if <span class="math inline">\mathcal{F}_\text{en}^1</span> is a <span class="orange">regular</span> exponential family, then <span class="math inline">\tilde{\Theta} = \text{int}\:\tilde{\Theta}</span> and <span class="math inline">\mu(\theta)</span> is a <span class="blue">reparametrization</span>.</p></li>
+</ul>
+</section>
 <section id="mean-value-mapping-ii" class="slide level2 center">
 <h2>Mean value mapping II</h2>
+<div class="callout callout-note no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<p>The mean value mapping has range <span class="math inline">\mathcal{M} = \text{Range}(\mu) = \{\mu(\theta) : \theta \in \text{int}\:\tilde{\Theta}\}</span>. The set <span class="math inline">\mathcal{M} \subseteq\mathbb{R}</span> is called <span class="blue">mean space</span> or <span class="orange">expectation space</span>.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-note no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<p>Let <span class="math inline">C = C(\mathcal{Y})</span> be the <span class="blue">closed convex hull</span> of the sample space <span class="math inline">\mathcal{Y}</span>, which is the <span class="blue">smallest closed convex set</span> <span class="math inline">C \subseteq \mathbb{R}</span> <span class="orange">containing</span> <span class="math inline">\mathcal{Y}</span>, namely: <span class="math display">
+C(\mathcal{Y}) = \{ y \in \mathbb{R} : y = \lambda y_1 + (1 - \lambda)y_2, \quad 0 \le \lambda \le 1, \quad y_1,y_2 \in \mathcal{Y}\}.
+</span></p>
+</div>
+</div>
+</div>
 <ul>
-<li><p>In a regular exponential family, the mean value mapping <span class="math inline">\mu(\theta)</span> is a <span class="orange">reparametrization</span>, which means for each <span class="math inline">\theta \in \tilde{\Theta}</span> there exists a <span class="blue">unique</span> mean <span class="math inline">\mu \in \Mu</span> such that <span class="math inline">\mu = \mu(\theta)</span>.</p></li>
-<li><p>However, in regular families, a much stronger result holds: for each value of <span class="math inline">y \in \text{int}\:C(\mathcal{Y})</span>, we can find a <span class="orange">unique</span> <span class="math inline">\theta \in \tilde{\Theta}</span> having mean <span class="math inline">\mu(\theta) = y</span>.</p></li>
+<li><p>Hence, if <span class="math inline">\mathcal{Y} = \{0, 1, \dots, N\}</span>, then <span class="math inline">C = [0,N]</span>. If <span class="math inline">\mathcal{Y} = \mathbb{N}</span>, then <span class="math inline">C = \mathbb{R}^+</span>. If <span class="math inline">\mathcal{Y} = \mathbb{R}</span>, then <span class="math inline">C = \mathbb{R}</span>.</p></li>
+<li><p>Because of the properties of expectations, <span class="math inline">\mu(\theta) \in \text{int}\:C(\mathcal{Y})</span> for all <span class="math inline">\theta \in \text{int}\:\tilde{\Theta}</span>, namely <span class="math display">
+\mathcal{M} \subseteq \text{int}\:C(\mathcal{Y}).
+</span> Indeed, <span class="math inline">\text{int}\:C(\mathcal{Y})</span> is an <span class="orange">open interval</span> whose extremes are the <span class="blue">infimum</span> and <span class="blue">supremum</span> of <span class="math inline">\mathcal{Y}</span>.</p></li>
+</ul>
+
+<aside><div>
+<p>Both definitions naturally generalize to the multivariate case when <span class="math inline">C, \mathcal{Y} \subseteq \mathbb{R}^p</span>, for <span class="math inline">p &gt; 1</span>.</p>
+</div></aside></section>
+<section id="mean-value-mapping-iii" class="slide level2 center">
+<h2>Mean value mapping III</h2>
+<ul>
+<li><p>In a regular exponential family, the mean value mapping <span class="math inline">\mu(\theta)</span> is a <span class="orange">reparametrization</span>, meaning that for each <span class="math inline">\theta \in \tilde{\Theta}</span>, there exists a <span class="blue">unique</span> mean <span class="math inline">\mu \in \mathcal{M}</span> such that <span class="math inline">\mu = \mu(\theta)</span>.</p></li>
+<li><p>Moreover, in regular families, a much stronger result holds: for each value of <span class="math inline">y \in \text{int}\:C(\mathcal{Y})</span>, there exists a <span class="orange">unique</span> <span class="math inline">\theta \in \tilde{\Theta}</span> such that <span class="math inline">\mu(\theta) = y</span>.</p></li>
 </ul>
 <div class="callout callout-warning no-icon callout-titled callout-style-simple">
 <div class="callout-body">
@@ -628,17 +649,17 @@ C(\mathcal{Y}) = \{ y \in \mathbb{R} : y = \lambda y_1 + (1 - \lambda)y_2, \quad
 <p><strong>Theorem (<span class="citation" data-cites="Pace1997">Pace and Salvan (<a href="#/references" role="doc-biblioref" onclick="">1997</a>)</span>, Theorem 5.1)</strong></p>
 </div>
 <div class="callout-content">
-<p>If <span class="math inline">\mathcal{F}_\text{en}^1</span> is regular, then <span class="math inline">\Theta = \text{int}\:\tilde{\Theta}</span> and <span class="math inline">\Mu = \text{int}\:C.</span></p>
+<p>If <span class="math inline">\mathcal{F}_\text{en}^1</span> is regular, then <span class="math inline">\Theta = \text{int}\:\tilde{\Theta}</span> and <span class="math inline">\mathcal{M} = \text{int}\:C.</span></p>
 </div>
 </div>
 </div>
 <ul>
-<li><p>This establishes a remarkable duality between the expectation space <span class="math inline">\Mu</span> and the sample space. Any value in <span class="math inline">\text{int}\:C</span> can be “reached”—that is, there exists a distribution <span class="math inline">f(y; \theta)</span> with that mean.</p></li>
+<li><p>This establishes a <span class="blue">duality</span> between the expectation space <span class="math inline">\mathcal{M}</span> and the sample space. Any value in <span class="math inline">\text{int}\:C</span> can be “reached”, that is, there exists a distribution <span class="math inline">f(y; \theta)</span> with that mean.</p></li>
 <li><p>This correspondence is crucial in maximum likelihood estimation and inference.</p></li>
 </ul>
 
 <aside><div>
-<p>This theorem can actually be strengthened: a necessary and sufficient condition for <span class="math inline">\Mu = \text{int}\:C</span> is that the family <span class="math inline">\mathcal{F}_\text{en}^1</span> is <span class="orange">steep</span> (a regular family is also steep); see <span class="citation" data-cites="Pace1997">Pace and Salvan (<a href="#/references" role="doc-biblioref" onclick="">1997</a>)</span>.</p>
+<p>This theorem can actually be strengthened: a necessary and sufficient condition for <span class="math inline">\mathcal{M} = \text{int}\:C</span> is that the family <span class="math inline">\mathcal{F}_\text{en}^1</span> is <span class="orange">steep</span> (a regular family is also steep); see <span class="citation" data-cites="Pace1997">Pace and Salvan (<a href="#/references" role="doc-biblioref" onclick="">1997</a>)</span>.</p>
 </div></aside></section>
 <section id="a-non-regular-and-non-steep-exponential-family" class="slide level2 center">
 <h2>A non regular and non steep exponential family</h2>
@@ -652,12 +673,35 @@ f(y; \theta) \propto e^{\theta y}f_0(y) \propto \frac{e^{-|y| + \theta y}}{1 + y
 M_0(\theta) &lt; \infty, \qquad \theta \in  [-1, 1].
 </span></li>
 <li>Since <span class="math inline">\tilde{\Theta}</span> is a <span class="blue">closed set</span>, the exponential family is <span class="orange">not regular</span> (and is not steep either). In fact, one can show that <span class="math inline">\lim_{\theta \to 1} \mu(\theta) = a &lt; \infty</span>, implying that <span class="math display">
-\Mu = (-a, a), \qquad \text{ whereas } \qquad \text{int}\:C = \mathbb{R}.
+\mathcal{M} = (-a, a), \qquad \text{ whereas } \qquad \text{int}\:C = \mathbb{R}.
 </span></li>
+<li>In other words, there are no values of <span class="math inline">\theta</span> such that <span class="math inline">\mu(\theta) = y</span> for any <span class="math inline">y &gt; a</span>, which implies, for instance, that the method of moments will encounter difficulties in estimating <span class="math inline">\theta</span>.</li>
 </ul>
 </section>
 <section id="variance-function-i" class="slide level2 center">
 <h2>Variance function I</h2>
+<div class="callout callout-note no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<p>Let <span class="math inline">Y \sim f(y; \theta)</span>, with <span class="math inline">f(y; \theta) \in \mathcal{F}_\text{en}^1</span> and let <span class="math inline">\theta(\mu)</span> be the <span class="orange">inverse map</span> of <span class="math inline">\mu(\theta)</span>. The variance of <span class="math inline">Y</span> can be expressed as a function of <span class="math inline">\mu</span>: <span class="math display">
+V(\mu) := \text{var}_{\theta(\mu)}(Y) = \frac{\partial^2}{\partial \theta^2} K(\theta) \Big|_{\theta = \theta(\mu)}.
+</span> The function <span class="math inline">V : \mathcal{M} \to \mathbb{R}^+</span> is called the <span class="orange">variance function</span> of the exponential family <span class="math inline">\mathcal{F}_\text{en}^1</span>.</p>
+</div>
+</div>
+</div>
+<ul>
+<li>The importance of the variance function <span class="math inline">V(\mu)</span> is related to the following <span class="blue">characterization</span> result due to <span class="citation" data-cites="Morris1982">Morris (<a href="#/references" role="doc-biblioref" onclick="">1982</a>)</span>.</li>
+</ul>
+<div class="callout callout-warning no-icon callout-titled callout-style-simple">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Theorem (<span class="citation" data-cites="Pace1997">Pace and Salvan (<a href="#/references" role="doc-biblioref" onclick="">1997</a>)</span>, Theorem 5.2)</strong></p>
+</div>
+<div class="callout-content">
+<p>If <span class="math inline">Y</span> has a density that belongs to a <span class="math inline">\mathcal{F}_\text{en}^1</span>, then the <span class="orange">pair</span> <span class="math inline">(\mathcal{M}, V(\mu))</span> <span class="blue">uniquely</span> determine the natural parameter space <span class="math inline">\tilde{\Theta}</span> and the cumulant generating function <span class="math inline">K(\theta)</span>, and hence also <span class="math inline">f(y;\theta)</span>.</p>
+</div>
+</div>
+</div>
 </section>
 <section id="variance-function-ii" class="slide level2 center">
 <h2>Variance function II</h2>
@@ -705,8 +749,8 @@ M_0(\theta) &lt; \infty, \qquad \theta \in  [-1, 1].
 </tr>
 <tr class="even">
 <td style="text-align: left;"><span class="math inline">f_0(y)</span></td>
-<td><span class="math inline">\{\sqrt{2\pi}\}^{-1}e^{-\frac{1}{2}y^2}</span></td>
-<td><span class="math inline">1/ y!</span></td>
+<td><span class="math inline">(\sqrt{2\pi})^{-1}e^{-\frac{1}{2}y^2}</span></td>
+<td><span class="math inline">e^{-1}/ y!</span></td>
 <td><span class="math inline">\binom{N}{y}</span></td>
 <td><span class="math inline">y^{\nu - 1}/\Gamma(\nu)</span></td>
 </tr>
@@ -734,12 +778,12 @@ M_0(\theta) &lt; \infty, \qquad \theta \in  [-1, 1].
 <tr class="even">
 <td style="text-align: left;"><span class="math inline">\mu(\theta)</span></td>
 <td><span class="math inline">\theta</span></td>
-<td><span class="math inline">e^\theta</span></td>
+<td><span class="math inline">e^\theta-1</span></td>
 <td><span class="math inline">N e^\theta/(1 + e^{\theta})</span></td>
 <td><span class="math inline">-\nu/\theta</span></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><span class="math inline">\Mu</span></td>
+<td style="text-align: left;"><span class="math inline">\mathcal{M}</span></td>
 <td><span class="math inline">\mathbb{R}</span></td>
 <td><span class="math inline">\mathbb{R}^+</span></td>
 <td><span class="math inline">(0, N)</span></td>
@@ -829,6 +873,9 @@ Efron, B., and Hastie, T. (2016), <em><span>Computer Age Statistical Inference</
 <div id="ref-Fisher1934" class="csl-entry" role="listitem">
 Fisher, R. A. (1934), <span>“<span class="nocase">Two new properties of mathematical likelihood</span>,”</span> <em>Proceedings of the Royal Society of London. Series A</em>, 144, 285–307.
 </div>
+<div id="ref-Morris1982" class="csl-entry" role="listitem">
+Morris, C. N. (1982), <span>“Natural exponential families with quadratic variance functions,”</span> <em>Annals of Statistics</em>, 10, 65–80.
+</div>
 <div id="ref-Pace1997" class="csl-entry" role="listitem">
 Pace, L., and Salvan, A. (1997), <em><span class="nocase">Principles of statistical inference from a Neo-Fisherian perspective</span></em>, Advanced series on statistical science and applied probability, World Scientific.
 </div>
@@ -840,7 +887,6 @@ Pace, L., and Salvan, A. (1997), <em><span class="nocase">Principles of statisti
 </div>
 </div>
 </section></section>
-
     </div>
   </div>
 
