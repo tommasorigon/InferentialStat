@@ -441,6 +441,8 @@ f(y; \theta) = \frac{\exp\left\{\theta y - \log\cos{\theta}\right\}}{2\cosh(\pi 
 $$
 with [mean]{.orange} function $\mu(\theta) = \tan{\theta}$ and [variance]{.blue} function $V(\mu) = \csc^2(\theta) = 1 + \mu^2$, and $\mathcal{M} = \mathbb{R}$. It is also a [regular]{.orange} exponential family.
 
+
+
 ## A general definition of exponential families I
 
 :::callout-note
@@ -456,16 +458,16 @@ The family is [full]{.blue} if the parameter space $\Psi$ is the widest possible
 :::
 
 :::callout-tip
-Suppose $f(y;\psi) \in \mathcal{F}_\text{e}^1$ and [$s(y) = y$]{.blue}, so that $f(y;\psi) = h(y)\exp\{\theta(\psi) y - G(\psi)\}$. Then, the function $\theta(\psi)$ must be a [one-to-one]{.blue} mapping, that is, a [reparametrization]{.orange}. Otherwise, the model would [not]{.orange} be [identifiable]{.orange}. Thus, we can write:
+Suppose $f(y; \psi) \in \mathcal{F}_\text{e}^1$ and [$s(y) = y$]{.blue}, so that   $f(y; \psi) = h(y)\exp\{\theta(\psi) y - G(\psi)\}$. Then, the function $\theta(\psi)$ must be a [one-to-one]{.blue} mapping, that is, a [reparametrization]{.orange}. Otherwise, the model would [not]{.orange} be [identifiable]{.orange}. Hence, we can write:
 $$
 f(y; \psi) = f_0(y)\exp\{\theta(\psi) y - K(\theta(\psi))\},
 $$
-for some density $f_0(y)$ and function $K(\cdot)$. Thus, this family $\mathcal{F}_\text{e}^1$ is a reparametrization of a $\mathcal{F}_\text{en}^1$. 
+for some density $f_0(y)$ and function $K(\cdot)$. Thus, the family $\mathcal{F}_\text{e}^1$ is a reparametrization of an $\mathcal{F}_\text{en}^1$.
 :::
 
 ## A general definition of exponential families II
 
-- When $s(y)$ is an arbitrary function of $y$ is, strictly speaking, a [generalization]{.blue} of the exponential family $\mathcal{F}_\text{en}^1$. 
+- When $s(y)$ is an arbitrary function of $y$, then $\mathcal{F}_\text{e}^1$ is [broader]{.blue} than $\mathcal{F}_\text{en}^1$. 
 
 - Without loss of generality, we can focus on the case $\theta(\psi) = \psi$ and with $G(\psi) = K(\psi)$, so that the family can be written as
 $$
@@ -477,13 +479,80 @@ because the general case would be a [reparametrization]{.orange} of this one.
 $$
 f_S(s; \psi) = f_0(s)\exp\{\psi s - K(\psi)\},
 $$
-for some baseline density $f_0(y)$, i.e $f_S(s; \psi) \in \mathcal{F}_\text{en}^1$. If in addition $s(y)$ is a [one-to-one]{.orange} invertible mapping, this means $Y = s^{-1}(S)$ is just a transformation of a $\mathcal{F}_\text{en}^1$.
+for some baseline density $f_0(y)$, namely $f_S(s; \psi) \in \mathcal{F}_\text{en}^1$. If in addition $s(y)$ is a [one-to-one]{.orange} invertible mapping, this means $Y = s^{-1}(S)$ is just a transformation of a $\mathcal{F}_\text{en}^1$.
 
 :::callout-tip
 The exponentialy family $\mathcal{F}_\text{e}^1$ is, technically, a broader definition, but in practice it leads to a [reparametrization]{.orange} of a natural exponential family $\mathcal{F}_\text{en}^1$ in a [transformed space]{.blue} $s(Y)$. 
 :::
 
 ## Independent sampling
+
+## @Morris1982
+
+::: columns
+::: {.column width="40%"}
+![](img/Morris.png)
+:::
+::: {.column width="60%"}
+- @Morris1982 [JASA]{.blue} is a [seminal]{.blue} paper in the field of [exponential families]{.orange}.
+
+- It is a must-read, as it encompasses and overviews many of the results discussed in this unit.
+
+- It also shows that exponential families with quadratic variance are [infinitely divisible]{.blue}, provided that $c \ge 0$.
+
+- The paper covers several [advanced topics]{.orange}, including:
+  - orthogonal polynomials;
+  - limiting results;
+  - large deviations;
+  - ...and more.
+
+:::
+
+:::
+
+## @Diaconis1979
+
+::: columns
+::: {.column width="40%"}
+![](img/Diaconis.png)
+:::
+::: {.column width="60%"}
+- Bayesian statistics also greatly benefits from the use of exponential families.
+
+- @Diaconis1979 [AoS]{.blue} is a [seminal paper]{.blue} on the topic of [conjugate priors]{.orange}.
+
+- Broadly speaking, conjugate priors always exist for exponential families.
+
+- These are known as the Diaconis–Ylvisaker conjugate priors.
+
+- Classical priors such as beta–Bernoulli and Poisson–gamma are special cases.
+
+- The posterior expectation under the mean parametrization is a [linear combination]{.blue} of the data and the prior mean.
+:::
+
+:::
+
+
+## @Consonni1992
+
+::: columns
+::: {.column width="40%"}
+![](img/Consonni.png)
+:::
+::: {.column width="60%"}
+- @Consonni1992 [JASA]{.blue} is another [Bayesian]{.blue} contribution which refines the results of @Diaconis1979.
+
+- It investigates when a [conjugate prior]{.orange} specified on the mean parameter $\mu$ of a natural exponential family leads to a linear posterior expectation of $\mu$.
+
+- The main result shows that this [posterior linearity]{.orange} holds if and only if the [variance function]{.orange} is [quadratic]{.blue}
+
+- The paper also explores the [monotonicity]{.blue} of the [posterior variance]{.orange} of $\mu$ with respect to both the sample size and the prior sample size.
+
+
+:::
+
+:::
+
 
 # Multiparameter exponential families
 
