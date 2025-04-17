@@ -412,11 +412,11 @@ In order to identify $\mathcal{F}_\text{en}^1$ [both]{.orange} $\mathcal{M}$ and
 
 ## Well-known exponential families
 
-| Notation | $\text{N}(\phi, 1)$ | $\text{Poisson}(\phi)$ | $\text{Bin}(N, \phi)$ | $\text{Gamma}(\nu,\phi), \nu > 0$|
+| Notation | $\text{N}(\psi, 1)$ | $\text{Poisson}(\psi)$ | $\text{Bin}(N, \psi)$ | $\text{Gamma}(\nu,\psi), \nu > 0$|
 |:-------------------------------------------------|------------------|------------------|-------------------------------|--------------------------------------|
 | $\mathcal{Y}$ | $\mathbb{R}$ | $\mathbb{N}$ | $\{0, 1, \dots, N\}$ | $(0, \infty)$ |
 | [Natural parametrization]{.orange}
-| $\theta(\phi)$ | $\phi$ | $\log{\phi}$ | $\log\{\phi/(1 - \phi)\}$ | $-\phi$ |
+| $\theta(\psi)$ | $\psi$ | $\log{\psi}$ | $\log\{\psi/(1 - \psi)\}$ | $-\psi$ |
 | $f_0(y)$ | $(\sqrt{2\pi})^{-1}e^{-\frac{1}{2}y^2}$ | $e^{-1}/ y!$ | $\binom{N}{y}$ | $y^{\nu - 1}e^{-y}/\Gamma(\nu)$ |
 | $K(\theta)$ | $\theta^2/2$ | $e^\theta$ | $N \log(1 + e^\theta)$ | $-\nu \log(1-\theta)$ |
 | $\tilde{\Theta}$ | $\mathbb{R}$ | $\mathbb{R}$ | $\mathbb{R}$ | $(-\infty, 0)$ |
@@ -443,7 +443,45 @@ with [mean]{.orange} function $\mu(\theta) = \tan{\theta}$ and [variance]{.blue}
 
 ## A broader definition of exponential families I
 
+:::callout-note
+Let $h(y) > 0$, $s(y)$, be real-valued functions not depending on $\psi$ and let $\theta(\psi), G(\psi)$ be real-valued functions not depending on $y$. The parametric family
+$$
+\mathcal{F}_{\text{e}}^1 = \left\{f(y;\psi) = h(y)\exp\{\theta(\psi) s(y) - G(\psi)\}, \quad y \in \mathcal{Y}\subseteq \mathbb{R}, \: \psi \in \Psi \right\},
+$$
+is called a [exponential family]{.orange} of order one, where the normalizing constant is
+$$
+G(\psi) = \int_\mathcal{Y} h(y) \exp\{\theta(\psi) s(y)\} \nu(\mathrm{d}y).
+$$
+The family is [full]{.blue} if the parameter space $\Psi$ is the widest possible $\tilde{\Psi} = \{\psi \subseteq\mathbb{R}: G(\psi) < \infty\}$. 
+:::
+
+:::callout-tip
+Suppose $f(y;\psi) \in \mathcal{F}_\text{e}^1$ and [$s(y) = y$]{.blue}, so that $f(y;\psi) = h(y)\exp\{\theta(\psi) y - G(\psi)\}$. Then, the function $\theta(\psi)$ must be a [one-to-one]{.blue} mapping, that is, a [reparametrization]{.orange}. Otherwise, the model would [not]{.orange} be [identifiable]{.orange}. Thus, we can write:
+$$
+f(y; \psi) = f_0(y)\exp\{\theta(\psi) y - K(\theta(\psi))\},
+$$
+for some density $f_0(y)$ and function $K(\cdot)$. Thus, this family $\mathcal{F}_\text{e}^1$ is a reparametrization of a $\mathcal{F}_\text{en}^1$. 
+:::
+
 ## A broader definition of exponential families II
+
+- When $s(y)$ is an arbitrary function of $y$ is a [generalization]{.blue} of the exponential family $\mathcal{F}_\text{en}^1$. 
+
+- Without loss of generality, we can focus on the case $\theta(\psi) = \psi$ and with $G(\psi) = K(\psi)$, so that the family can be written as
+$$
+f(y; \psi) = h(y)\exp\{\psi s(y) - K(\psi)\},
+$$
+because the general case would be a [reparametrization]{.orange} of this one.
+
+- Let $Y \sim f(y; \psi)$, with $f(y; \psi) \in \mathcal{F}_\text{e}^1$. Then, the random variable $S = s(Y)$ has density
+$$
+f_S(s; \psi) = f_0(s)\exp\{\psi s - K(\psi)\},
+$$
+for some density $f_0(y)$, i.e $f_S(s; \psi) \in \mathcal{F}_\text{en}^1$. If in addition $s(y)$ is a [one-to-one]{.orange} invertible mapping, this means $Y = s^{-1}(S)$ is just a transformation of a $\mathcal{F}_\text{en}^1$.
+
+:::callout-tip
+The exponentialy family $\mathcal{F}_\text{e}^1$ is, technically, a broader definition, but in practice it corresponds to a [reparametrization]{.orange} or a [transformation]{.blue} of a natural exponential family $\mathcal{F}_\text{en}^1$. 
+:::
 
 ## Independent sampling
 
