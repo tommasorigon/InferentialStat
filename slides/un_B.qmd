@@ -441,7 +441,7 @@ f(y; \theta) = \frac{\exp\left\{\theta y - \log\cos{\theta}\right\}}{2\cosh(\pi 
 $$
 with [mean]{.orange} function $\mu(\theta) = \tan{\theta}$ and [variance]{.blue} function $V(\mu) = \csc^2(\theta) = 1 + \mu^2$, and $\mathcal{M} = \mathbb{R}$. It is also a [regular]{.orange} exponential family.
 
-## A broader definition of exponential families I
+## A general definition of exponential families I
 
 :::callout-note
 Let $h(y) > 0$, $s(y)$, be real-valued functions not depending on $\psi$ and let $\theta(\psi), G(\psi)$ be real-valued functions not depending on $y$. The parametric family
@@ -463,7 +463,7 @@ $$
 for some density $f_0(y)$ and function $K(\cdot)$. Thus, this family $\mathcal{F}_\text{e}^1$ is a reparametrization of a $\mathcal{F}_\text{en}^1$. 
 :::
 
-## A broader definition of exponential families II
+## A general definition of exponential families II
 
 - When $s(y)$ is an arbitrary function of $y$ is, strictly speaking, a [generalization]{.blue} of the exponential family $\mathcal{F}_\text{en}^1$. 
 
