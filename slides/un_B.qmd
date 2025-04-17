@@ -465,7 +465,7 @@ for some density $f_0(y)$ and function $K(\cdot)$. Thus, this family $\mathcal{F
 
 ## A broader definition of exponential families II
 
-- When $s(y)$ is an arbitrary function of $y$ is a [generalization]{.blue} of the exponential family $\mathcal{F}_\text{en}^1$. 
+- When $s(y)$ is an arbitrary function of $y$ is, strictly speaking, a [generalization]{.blue} of the exponential family $\mathcal{F}_\text{en}^1$. 
 
 - Without loss of generality, we can focus on the case $\theta(\psi) = \psi$ and with $G(\psi) = K(\psi)$, so that the family can be written as
 $$
@@ -477,10 +477,10 @@ because the general case would be a [reparametrization]{.orange} of this one.
 $$
 f_S(s; \psi) = f_0(s)\exp\{\psi s - K(\psi)\},
 $$
-for some density $f_0(y)$, i.e $f_S(s; \psi) \in \mathcal{F}_\text{en}^1$. If in addition $s(y)$ is a [one-to-one]{.orange} invertible mapping, this means $Y = s^{-1}(S)$ is just a transformation of a $\mathcal{F}_\text{en}^1$.
+for some baseline density $f_0(y)$, i.e $f_S(s; \psi) \in \mathcal{F}_\text{en}^1$. If in addition $s(y)$ is a [one-to-one]{.orange} invertible mapping, this means $Y = s^{-1}(S)$ is just a transformation of a $\mathcal{F}_\text{en}^1$.
 
 :::callout-tip
-The exponentialy family $\mathcal{F}_\text{e}^1$ is, technically, a broader definition, but in practice it corresponds to a [reparametrization]{.orange} or a [transformation]{.blue} of a natural exponential family $\mathcal{F}_\text{en}^1$. 
+The exponentialy family $\mathcal{F}_\text{e}^1$ is, technically, a broader definition, but in practice it leads to a [reparametrization]{.orange} of a natural exponential family $\mathcal{F}_\text{en}^1$ in a [transformed space]{.blue} $s(Y)$. 
 :::
 
 ## Independent sampling
