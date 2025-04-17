@@ -428,6 +428,20 @@ In order to identify $\mathcal{F}_\text{en}^1$ [both]{.orange} $\mathcal{M}$ and
 
 ## Quadratic variance functions
 
+- There is more in @Morris1982's paper. Specifically, he focused on a subclass of [quadratic]{.orange} variance functions, which can be written as
+$$
+V(\mu) = a + b\mu + c\mu^2,
+$$
+for some known constants $a$, $b$, and $c$.
+
+- @Morris1982 showed that, up to transformations such as convolution, there exist only [six families]{.blue} within $\mathcal{F}_\text{en}^1$ that possess a [quadratic variance]{.orange} function. These are: (i) the normal, (ii) the Poisson, (iii) the gamma, (iv) the binomial, (v) the negative binomial, and (vi) a sixth family.
+
+- The sixth (less known) distribution is called the [generalized hyperbolic secant]{.blue}, and it has density
+$$
+f(y; \theta) = \frac{\exp\left\{\theta y - \log\cos{\theta}\right\}}{2\cosh(\pi y/2)}, \qquad y \in \mathbb{R}, \quad \theta \in (-\pi/2, \pi/2),
+$$
+with [mean]{.orange} function $\mu(\theta) = \tan{\theta}$ and [variance]{.blue} function $V(\mu) = \csc^2(\theta) = 1 + \mu^2$, and $\mathcal{M} = \mathbb{R}$. It is also a [regular]{.orange} exponential family.
+
 ## A broader definition of exponential families I
 
 ## A broader definition of exponential families II
