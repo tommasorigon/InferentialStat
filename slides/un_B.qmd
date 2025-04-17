@@ -572,6 +572,28 @@ with $K(\theta) = n G(\theta)$ and for some density $f_0(s)$. That is, the distr
 
 # Multiparameter exponential families
 
+## Natural exponential families of order $p$
+
+- Let $Y$ be a [non-degenerate]{.orange} random variable with [support]{.blue} $\mathcal{Y} \subseteq \mathbb{R}^p$ and [density]{.orange} $f_0(y)$ with respect to a dominating measure $\nu(\mathrm{d}y)$.
+
+- Let us define the mapping $M_0:\mathbb{R}^p\rightarrow (0,\infty]$
+$$
+M_0(\theta):=\int_\mathcal{Y}e^{\theta^T y}f_0(y)\nu(\mathrm{d}y), \qquad \theta \in \mathbb{R}^p.
+$$
+
+:::callout-note
+The parametric family generated via [exponential tilting]{.orange} of a density $f_0$ 
+$$
+\mathcal{F}_{\text{ne}}^p = \left\{f(y;\theta) = \frac{e^{\theta^T y}f_0(y)}{M_0(\theta)} = f_0(y)\exp\{\theta^T y - K(\theta)\}, \quad y \in \mathcal{Y}\subseteq \mathbb{R}^p, \:\theta \in \tilde{\Theta} \right\},
+$$
+is called a [natural exponential family]{.orange} of order one, $K(\theta) = \log M_0(\theta)$ and $\tilde{\Theta} = \{\theta \in \mathbb{R}^p : K(\theta) < \infty\}$ is the [natural parameter space]{.blue}. 
+:::
+
+- The family $\mathcal{F}_{\text{ne}}^p$ is said to be [full]{.blue}, whereas a subfamily of $\mathcal{F}_{\text{ne}}^p$ with $\Theta \subseteq \tilde{\Theta}$ is [non-full]{.blue}.
+
+
+
+
 # Likelihood quantities
 
 # Sufficiency and completeness

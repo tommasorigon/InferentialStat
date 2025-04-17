@@ -931,11 +931,32 @@ f_S(s; \theta) = f_0(s)\exp\{\theta s - K(\theta)\},
 </ul>
 </div></div>
 </section></section>
+<section>
 <section id="multiparameter-exponential-families" class="title-slide slide level1 center">
 <h1>Multiparameter exponential families</h1>
 
 </section>
-
+<section id="natural-exponential-families-of-order-p" class="slide level2 center">
+<h2>Natural exponential families of order <span class="math inline">p</span></h2>
+<ul>
+<li><p>Let <span class="math inline">Y</span> be a <span class="orange">non-degenerate</span> random variable with <span class="blue">support</span> <span class="math inline">\mathcal{Y} \subseteq \mathbb{R}^p</span> and <span class="orange">density</span> <span class="math inline">f_0(y)</span> with respect to a dominating measure <span class="math inline">\nu(\mathrm{d}y)</span>.</p></li>
+<li><p>Let us define the mapping <span class="math inline">M_0:\mathbb{R}^p\rightarrow (0,\infty]</span> <span class="math display">
+M_0(\theta):=\int_\mathcal{Y}e^{\theta^T y}f_0(y)\nu(\mathrm{d}y), \qquad \theta \in \mathbb{R}^p.
+</span></p></li>
+</ul>
+<div class="callout callout-note no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<p>The parametric family generated via <span class="orange">exponential tilting</span> of a density <span class="math inline">f_0</span> <span class="math display">
+\mathcal{F}_{\text{ne}}^p = \left\{f(y;\theta) = \frac{e^{\theta^T y}f_0(y)}{M_0(\theta)} = f_0(y)\exp\{\theta^T y - K(\theta)\}, \quad y \in \mathcal{Y}\subseteq \mathbb{R}^p, \:\theta \in \tilde{\Theta} \right\},
+</span> is called a <span class="orange">natural exponential family</span> of order one, <span class="math inline">K(\theta) = \log M_0(\theta)</span> and <span class="math inline">\tilde{\Theta} = \{\theta \in \mathbb{R}^p : K(\theta) &lt; \infty\}</span> is the <span class="blue">natural parameter space</span>.</p>
+</div>
+</div>
+</div>
+<ul>
+<li>The family <span class="math inline">\mathcal{F}_{\text{ne}}^p</span> is said to be <span class="blue">full</span>, whereas a subfamily of <span class="math inline">\mathcal{F}_{\text{ne}}^p</span> with <span class="math inline">\Theta \subseteq \tilde{\Theta}</span> is <span class="blue">non-full</span>.</li>
+</ul>
+</section></section>
 <section id="likelihood-quantities" class="title-slide slide level1 center">
 <h1>Likelihood quantities</h1>
 
