@@ -80,8 +80,7 @@ library(ggthemes)
 ::: {.column width="70%"}
 - This unit will cover the following [topics]{.orange}:
     - One-parameter and multiparameter exponential families
-    - Sufficiency and completeness
-    - Likelihood and inference
+    - Likelihood, inference, sufficiency and completeness
     - Exponential dispersion families
     
 - The [prime role]{.orange} of [exponential families]{.orange} in the theory of statistical inference was first emphasized by @Fisher1934.
