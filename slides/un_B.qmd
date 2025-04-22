@@ -9,7 +9,7 @@ citeproc: true
 csl: https://www.zotero.org/styles/journal-of-the-american-statistical-association
 reference-location: margin
 execute:
-  cache: false
+  cache: true
 filters: 
   - remove-pause.lua
 format:
@@ -413,15 +413,15 @@ In order to identify $\mathcal{F}_\text{en}^1$ [both]{.orange} $\mathcal{M}$ and
 ## Well-known exponential families
 
 | Notation | $\text{N}(\psi, 1)$ | $\text{Poisson}(\psi)$ | $\text{Bin}(N, \psi)$ | $\text{Gamma}(\nu,\psi), \nu > 0$|
-|:-------------------------------------------------|------------------|------------------|-------------------------------|--------------------------------------|
+|:-------------------------------------------------|------------------|----------------|-----------------------------------|--------------------------------------|
 | $\mathcal{Y}$ | $\mathbb{R}$ | $\mathbb{N}$ | $\{0, 1, \dots, N\}$ | $(0, \infty)$ |
 | [Natural parametrization]{.orange}
 | $\theta(\psi)$ | $\psi$ | $\log{\psi}$ | $\log\{\psi/(1 - \psi)\}$ | $-\psi$ |
-| $f_0(y)$ | $(\sqrt{2\pi})^{-1}e^{-\frac{1}{2}y^2}$ | $e^{-1}/ y!$ | $\binom{N}{y}$ | $y^{\nu - 1}e^{-y}/\Gamma(\nu)$ |
-| $K(\theta)$ | $\theta^2/2$ | $e^\theta$ | $N \log(1 + e^\theta)$ | $-\nu \log(1-\theta)$ |
+| $f_0(y)$ | $(\sqrt{2\pi})^{-1}e^{-\frac{1}{2}y^2}$ | $e^{-1}/ y!$ | $\binom{N}{y}\left(\frac{1}{2}\right)^N$ | $y^{\nu - 1}e^{-y}/\Gamma(\nu)$ |
+| $K(\theta)$ | $\theta^2/2$ | $e^\theta-1$ | $N \log(1 + e^\theta) - N\log{2}$ | $-\nu \log(1-\theta)$ |
 | $\tilde{\Theta}$ | $\mathbb{R}$ | $\mathbb{R}$ | $\mathbb{R}$ | $(-\infty, 0)$ |
 | [Mean parametrization]{.blue} |
-| $\mu(\theta)$ | $\theta$ | $e^\theta-1$ | $N e^\theta/(1 + e^{\theta})$ | $-\nu/\theta$ |
+| $\mu(\theta)$ | $\theta$ | $e^\theta$ | $N e^\theta/(1 + e^{\theta})$ | $-\nu/\theta$ |
 | $\mathcal{M}$ | $\mathbb{R}$ | $(0, \infty)$ | $(0, N)$ | $(0, \infty)$ |
 | $V(\mu)$ | $1$ | $\mu$ | $\mu(1 - \mu/ N)$ | $\mu^2/\nu$ |
 
@@ -504,6 +504,177 @@ f_S(s; \theta) = f_0(s)\exp\{\theta s - K(\theta)\},
 $$
 with $K(\theta) = n G(\theta)$ and for some density $f_0(s)$. That is, the distribution of the minimal sufficient statistic $f_S(s; \theta)$ is itself a [natural exponential family]{.blue} of order one.
 
+
+
+# Multiparameter exponential families
+
+## Natural exponential families of order $p$
+
+- Let $Y$ be a [non-degenerate]{.orange} random variable with [support]{.blue} $\mathcal{Y} \subseteq \mathbb{R}^p$ and [density]{.orange} $f_0(y)$ with respect to a dominating measure $\nu(\mathrm{d}y)$.
+
+- Let us define the mapping $M_0:\mathbb{R}^p\rightarrow (0,\infty]$
+$$
+M_0(\theta):=\int_\mathcal{Y}e^{\theta^T y}f_0(y)\nu(\mathrm{d}y), \qquad \theta \in \mathbb{R}^p.
+$$
+
+:::callout-note
+The parametric family generated via [exponential tilting]{.orange} of a density $f_0$ 
+$$
+\mathcal{F}_{\text{ne}}^p = \left\{f(y;\theta) = \frac{e^{\theta^T y}f_0(y)}{M_0(\theta)} = f_0(y)\exp\{\theta^T y - K(\theta)\}, \quad y \in \mathcal{Y}\subseteq \mathbb{R}^p, \:\theta \in \tilde{\Theta} \right\},
+$$
+is called a [natural exponential family]{.orange} of order one, $K(\theta) = \log M_0(\theta)$ and $\tilde{\Theta} = \{\theta \in \mathbb{R}^p : K(\theta) < \infty\}$ is the [natural parameter space]{.blue}. 
+:::
+
+- The family $\mathcal{F}_{\text{ne}}^p$ is said to be [full]{.blue}, whereas a subfamily of $\mathcal{F}_{\text{ne}}^p$ with $\Theta \subseteq \tilde{\Theta}$ is [non-full]{.blue}.
+
+## Example: multinomial distribution I 📖
+
+- Let $Y = (Y_1,\dots,Y_{p-1}) \sim \text{Multinom}(N; 1/p,\dots,1/p)$ be a [multinomial]{.orange} random vector with [uniform probabilities]{.blue} and density 
+$$
+f_0(y) = \frac{N!}{y_1!\cdots y_p!}\left(\frac{1}{p}\right)^N, \qquad y = (y_1,\dots,y_{p-1}) \in \mathcal{Y} \subseteq \mathbb{R}^{p-1},
+$$
+where $\mathcal{Y} = \{y_1,\dots,y_{p-1} \in \{1,\dots,N\}: \sum_{j=1}^{p-1} y_j\le N\}$ and with $y_p := N - \sum_{j=1}^{p-1}y_j$. 
+
+- The [exponential tilting]{.orange} of $f_0$ gives
+$$
+f(y; \theta) \propto f_0(y) e^{\theta^Ty} = \frac{N!}{y_1!\cdots y_p!}\left(\frac{1}{p}\right)^N e^{\theta_1 y_1 + \cdots + \theta_{p-1}y_{p-1}}, \qquad y \in \mathcal{Y}, \:\theta \in \mathbb{R}^{p-1}.
+$$
+- As a consequence of the [multinomial theorem]{.orange}, the normalizing constant, that is, the [moment generating function]{.blue}, is
+$$
+M_0(\theta) = \mathbb{E}\left(e^{\theta^Ty}\right) = \left(\frac{1}{p}\right)^N(1 + e^{\theta_1} + \cdots + e^{\theta_{p-1}})^N.
+$$
+Thus $M_0(\theta) < \infty$ for all $\theta \in \mathbb{R}^{p-1}$ and the [natural parameter space]{.orange} is $\tilde{\Theta} = \mathbb{R}^{p-1}$.
+
+
+## Example: multinomial distribution II 📖
+
+- The resulting density is
+$$
+f(y; \theta) = f_0(y)e^{\theta^Ty - K(\theta)} = \frac{N!}{y_1!\cdots y_p!}\frac{e^{\theta_1 y_1 + \cdots + \theta_{p-1}y_{p-1}}}{(1 + e^{\theta_1} + \cdots + e^{\theta_{p-1}})^N}, 
+$$
+where $K(\theta) = \log{M_0(\theta)} = N\log(1 + e^{\theta_1} + \cdots + e^{\theta_{p-1}}) - N\log{p}$.
+
+- In other words, the tilted density is again a [multinomial]{.blue} distribution with parameters $N$ and [probabilities]{.orange} $\pi_j = e^{\theta_j} / (1 + e^{\theta_1} + \cdots + e^{\theta_{p-1}})$. Indeed:
+$$
+\begin{aligned}
+f(y; \theta) &= \frac{N!}{y_1!\cdots y_p!}\frac{e^{\theta_1 y_1}  \cdots  e^{\theta_p y_p}}{(\sum_{j=1}^p e^{\theta_j})^{y_1} \cdots (\sum_{j=1}^p e^{\theta_j})^{y_p}} = \frac{N!}{y_1!\cdots y_p!} \prod_{j=1}^p\left(\frac{e^{\theta_j y_j}}{\sum_{j=1}^p e^{\theta_j}}\right)^{y_j} \\
+&= \frac{N!}{y_1!\cdots y_p!} \prod_{j=1}^p\pi_j^{y_j}.
+\end{aligned}
+$$
+where we defined $\theta_p := 0$, so that $\sum_{j=1}^pe^{\theta_j} = 1 + e^{\theta_1} + \cdots + e^{\theta_{p-1}}$, recalling that $\sum_{j=1}^py_j = N$.
+
+- The tilted density belong to a [natural exponential family]{.blue} $\mathcal{F}_\text{en}^{p-1}$ of [order]{.orange} $p-1$. 
+
+
+## Mean value mapping
+
+## Example: von Mises distribution
+
+## Wind direction in Venice I
+
+## Wind direction in Venice II
+
+```{r}
+#| message: false
+library(tidyverse)
+
+rm(list = ls())
+dataset <- read_delim("../data/Stazione_SanGiorgio.csv", delim = ";", col_types = "c")
+dataset <- dataset %>%
+  transmute(date = force_tz(as_datetime(Data), tzone = "Europe/Rome"), wind_dir = `San Giorgio D.Vento med. 10m`, `Wind speed` = `San Giorgio V.Vento max`) %>%
+  mutate(year = year(date)) %>%
+  mutate(month = month(date)) %>%
+  mutate(day = day(date)) %>%
+  mutate(hour = hour(date))
+
+# Filtering a bunch of them
+dataset <- filter(dataset, date >= "2025-04-14 00:00:00")
+
+# ggplot(data = dataset, aes(x = date, y = `Wind speed`)) +
+#  geom_line() +
+#  labs(x = "Date", y = "Wind Speed (m/s)") +
+#  theme_bw()
+```
+
+```{r}
+ggplot(data = dataset, aes(x = date, y = wind_dir, col = `Wind speed`)) +
+  geom_line() +
+  labs(x = "Date", y = "Wind direction (degrees)") +
+  theme_bw()
+```
+
+## Circular data
+
+```{r}
+ggplot(data = dataset, aes(x = sin(wind_dir / 360 * 2 * pi), y = cos(wind_dir / 360 * 2 * pi))) +
+  geom_point() +
+  xlim(c(-1, 1)) +
+  ylim(c(-1, 1)) +
+  labs(x = "Easting", y = "Northing") +
+  theme_bw() + coord_fixed(ratio = 1)
+```
+
+##
+
+```{r}
+y <- dataset$wind_dir / 360 * 2 * pi
+s1 <- sum(sin(y))
+s2 <- sum(cos(y))
+
+# Estimate the concentration parameter
+gamma <- atan2(s1, s2)
+tau <- circular::A1inv(mean(cos(y - gamma)))
+
+theta1 <- tau * sin(gamma)
+theta2 <- tau * cos(gamma)
+```
+
+```{r}
+library(circular)
+dvonmises <- function(x, gamma, tau){
+  1/ (2 * pi * circular::A1(tau)) * exp(tau * cos(x - gamma))
+}
+
+dvonmises <- Vectorize(dvonmises, vectorize.args = "x")
+x_seq <- seq(0, 2 * pi, length.out = 500)
+plot(x_seq / (2 * pi) * 360, dvonmises(x_seq, gamma, tau), type = "l", xlab = "Degrees", ylab = "Density")
+rug(y/ (2 * pi) * 360)
+```
+
+##
+
+```{r}
+ggplot(data = NULL, aes(x = sin(x_seq), y = cos(x_seq), col = dvonmises(x_seq, gamma, tau), size = dvonmises(x_seq, gamma, tau))) +
+  geom_point() +
+  xlim(c(-1, 1)) +
+  ylim(c(-1, 1)) +
+  labs(x = "Easting", y = "Northing") +
+  theme_bw() + theme(legend.position = "none")+ coord_fixed(ratio = 1)
+```
+
+# Inference
+
+# Exponential dispersion families
+
+# References and study material
+
+## Main references
+
+- @Pace1997
+  - [Chapter 5]{.orange} (*Exponential families*)
+  - [Chapter 6]{.orange} (*Exponential dispersion families*)
+  
+- @Davison2003
+  - [Chapter 5]{.blue} (*Models*)
+  
+- @Efron2016
+  - [Chapter 5]{.grey} (*Parametric models and exponential families*)
+  
+- @Efron2023
+  - [Chapter 1]{.orange} (*One-parameter exponential families*)
+  - [Chapter 2]{.orange} (*Multiparameter exponential families*)
+
+
 ## @Morris1982
 
 ::: columns
@@ -570,54 +741,8 @@ with $K(\theta) = n G(\theta)$ and for some density $f_0(s)$. That is, the distr
 
 :::
 
-# Multiparameter exponential families
-
-## Natural exponential families of order $p$
-
-- Let $Y$ be a [non-degenerate]{.orange} random variable with [support]{.blue} $\mathcal{Y} \subseteq \mathbb{R}^p$ and [density]{.orange} $f_0(y)$ with respect to a dominating measure $\nu(\mathrm{d}y)$.
-
-- Let us define the mapping $M_0:\mathbb{R}^p\rightarrow (0,\infty]$
-$$
-M_0(\theta):=\int_\mathcal{Y}e^{\theta^T y}f_0(y)\nu(\mathrm{d}y), \qquad \theta \in \mathbb{R}^p.
-$$
-
-:::callout-note
-The parametric family generated via [exponential tilting]{.orange} of a density $f_0$ 
-$$
-\mathcal{F}_{\text{ne}}^p = \left\{f(y;\theta) = \frac{e^{\theta^T y}f_0(y)}{M_0(\theta)} = f_0(y)\exp\{\theta^T y - K(\theta)\}, \quad y \in \mathcal{Y}\subseteq \mathbb{R}^p, \:\theta \in \tilde{\Theta} \right\},
-$$
-is called a [natural exponential family]{.orange} of order one, $K(\theta) = \log M_0(\theta)$ and $\tilde{\Theta} = \{\theta \in \mathbb{R}^p : K(\theta) < \infty\}$ is the [natural parameter space]{.blue}. 
-:::
-
-- The family $\mathcal{F}_{\text{ne}}^p$ is said to be [full]{.blue}, whereas a subfamily of $\mathcal{F}_{\text{ne}}^p$ with $\Theta \subseteq \tilde{\Theta}$ is [non-full]{.blue}.
-
-
-
-
-# Likelihood quantities
-
-# Sufficiency and completeness
-
-# Exponential dispersion families
-
-# References and study material
-
-## Main references
-
-- @Pace1997
-  - [Chapter 5]{.orange} (*Exponential families*)
-  - [Chapter 6]{.orange} (*Exponential dispersion families*)
-  
-- @Davison2003
-  - [Chapter 5]{.blue} (*Models*)
-  
-- @Efron2016
-  - [Chapter 5]{.grey} (*Parametric models and exponential families*)
-  
-- @Efron2023
 
 ## References {.unnumbered}
 
 ::: {#refs}
 :::
-

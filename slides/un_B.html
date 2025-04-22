@@ -134,17 +134,28 @@ window.Quarto = {
   <li><a href="#a-general-definition-of-exponential-families-i" id="toc-a-general-definition-of-exponential-families-i" class="nav-link" data-scroll-target="#a-general-definition-of-exponential-families-i">A general definition of exponential families I</a></li>
   <li><a href="#a-general-definition-of-exponential-families-ii" id="toc-a-general-definition-of-exponential-families-ii" class="nav-link" data-scroll-target="#a-general-definition-of-exponential-families-ii">A general definition of exponential families II</a></li>
   <li><a href="#independent-sampling" id="toc-independent-sampling" class="nav-link" data-scroll-target="#independent-sampling">Independent sampling</a></li>
-  <li><a href="#morris1982" id="toc-morris1982" class="nav-link" data-scroll-target="#morris1982"><span class="citation" data-cites="Morris1982">Morris (1982)</span></a></li>
-  <li><a href="#diaconis1979" id="toc-diaconis1979" class="nav-link" data-scroll-target="#diaconis1979"><span class="citation" data-cites="Diaconis1979">Diaconis and Ylvisaker (1979)</span></a></li>
-  <li><a href="#consonni1992" id="toc-consonni1992" class="nav-link" data-scroll-target="#consonni1992"><span class="citation" data-cites="Consonni1992">Consonni and Veronese (1992)</span></a></li>
   </ul></li>
-  <li><a href="#multiparameter-exponential-families" id="toc-multiparameter-exponential-families" class="nav-link" data-scroll-target="#multiparameter-exponential-families">Multiparameter exponential families</a></li>
-  <li><a href="#likelihood-quantities" id="toc-likelihood-quantities" class="nav-link" data-scroll-target="#likelihood-quantities">Likelihood quantities</a></li>
-  <li><a href="#sufficiency-and-completeness" id="toc-sufficiency-and-completeness" class="nav-link" data-scroll-target="#sufficiency-and-completeness">Sufficiency and completeness</a></li>
+  <li><a href="#multiparameter-exponential-families" id="toc-multiparameter-exponential-families" class="nav-link" data-scroll-target="#multiparameter-exponential-families">Multiparameter exponential families</a>
+  <ul class="collapse">
+  <li><a href="#natural-exponential-families-of-order-p" id="toc-natural-exponential-families-of-order-p" class="nav-link" data-scroll-target="#natural-exponential-families-of-order-p">Natural exponential families of order <span class="math inline">p</span></a></li>
+  <li><a href="#example-multinomial-distribution-i" id="toc-example-multinomial-distribution-i" class="nav-link" data-scroll-target="#example-multinomial-distribution-i">Example: multinomial distribution I 📖</a></li>
+  <li><a href="#example-multinomial-distribution-ii" id="toc-example-multinomial-distribution-ii" class="nav-link" data-scroll-target="#example-multinomial-distribution-ii">Example: multinomial distribution II 📖</a></li>
+  <li><a href="#mean-value-mapping" id="toc-mean-value-mapping" class="nav-link" data-scroll-target="#mean-value-mapping">Mean value mapping</a></li>
+  <li><a href="#example-von-mises-distribution" id="toc-example-von-mises-distribution" class="nav-link" data-scroll-target="#example-von-mises-distribution">Example: von Mises distribution</a></li>
+  <li><a href="#wind-direction-in-venice-i" id="toc-wind-direction-in-venice-i" class="nav-link" data-scroll-target="#wind-direction-in-venice-i">Wind direction in Venice I</a></li>
+  <li><a href="#wind-direction-in-venice-ii" id="toc-wind-direction-in-venice-ii" class="nav-link" data-scroll-target="#wind-direction-in-venice-ii">Wind direction in Venice II</a></li>
+  <li><a href="#circular-data" id="toc-circular-data" class="nav-link" data-scroll-target="#circular-data">Circular data</a></li>
+  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"></a></li>
+  <li><a href="#section-1" id="toc-section-1" class="nav-link" data-scroll-target="#section-1"></a></li>
+  </ul></li>
+  <li><a href="#inference" id="toc-inference" class="nav-link" data-scroll-target="#inference">Inference</a></li>
   <li><a href="#exponential-dispersion-families" id="toc-exponential-dispersion-families" class="nav-link" data-scroll-target="#exponential-dispersion-families">Exponential dispersion families</a></li>
   <li><a href="#references-and-study-material" id="toc-references-and-study-material" class="nav-link" data-scroll-target="#references-and-study-material">References and study material</a>
   <ul class="collapse">
   <li><a href="#main-references" id="toc-main-references" class="nav-link" data-scroll-target="#main-references">Main references</a></li>
+  <li><a href="#morris1982" id="toc-morris1982" class="nav-link" data-scroll-target="#morris1982"><span class="citation" data-cites="Morris1982">Morris (1982)</span></a></li>
+  <li><a href="#diaconis1979" id="toc-diaconis1979" class="nav-link" data-scroll-target="#diaconis1979"><span class="citation" data-cites="Diaconis1979">Diaconis and Ylvisaker (1979)</span></a></li>
+  <li><a href="#consonni1992" id="toc-consonni1992" class="nav-link" data-scroll-target="#consonni1992"><span class="citation" data-cites="Consonni1992">Consonni and Veronese (1992)</span></a></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul></li>
   </ul>
@@ -572,10 +583,10 @@ K\left(1 - \frac{1}{\mu}\right) = \log\mu,
 <h2 class="anchored" data-anchor-id="well-known-exponential-families">Well-known exponential families</h2>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 32%">
+<col style="width: 31%">
 <col style="width: 11%">
-<col style="width: 11%">
-<col style="width: 20%">
+<col style="width: 10%">
+<col style="width: 22%">
 <col style="width: 24%">
 </colgroup>
 <thead>
@@ -613,14 +624,14 @@ K\left(1 - \frac{1}{\mu}\right) = \log\mu,
 <td style="text-align: left;"><span class="math inline">f_0(y)</span></td>
 <td><span class="math inline">(\sqrt{2\pi})^{-1}e^{-\frac{1}{2}y^2}</span></td>
 <td><span class="math inline">e^{-1}/ y!</span></td>
-<td><span class="math inline">\binom{N}{y}</span></td>
+<td><span class="math inline">\binom{N}{y}\left(\frac{1}{2}\right)^N</span></td>
 <td><span class="math inline">y^{\nu - 1}e^{-y}/\Gamma(\nu)</span></td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><span class="math inline">K(\theta)</span></td>
 <td><span class="math inline">\theta^2/2</span></td>
-<td><span class="math inline">e^\theta</span></td>
-<td><span class="math inline">N \log(1 + e^\theta)</span></td>
+<td><span class="math inline">e^\theta-1</span></td>
+<td><span class="math inline">N \log(1 + e^\theta) - N\log{2}</span></td>
 <td><span class="math inline">-\nu \log(1-\theta)</span></td>
 </tr>
 <tr class="even">
@@ -640,7 +651,7 @@ K\left(1 - \frac{1}{\mu}\right) = \log\mu,
 <tr class="even">
 <td style="text-align: left;"><span class="math inline">\mu(\theta)</span></td>
 <td><span class="math inline">\theta</span></td>
-<td><span class="math inline">e^\theta-1</span></td>
+<td><span class="math inline">e^\theta</span></td>
 <td><span class="math inline">N e^\theta/(1 + e^{\theta})</span></td>
 <td><span class="math inline">-\nu/\theta</span></td>
 </tr>
@@ -738,6 +749,160 @@ f_S(s; \theta) = f_0(s)\exp\{\theta s - K(\theta)\},
 </span> with <span class="math inline">K(\theta) = n G(\theta)</span> and for some density <span class="math inline">f_0(s)</span>. That is, the distribution of the minimal sufficient statistic <span class="math inline">f_S(s; \theta)</span> is itself a <span class="blue">natural exponential family</span> of order one.</p></li>
 </ul>
 </section>
+</section>
+<section id="multiparameter-exponential-families" class="level1">
+<h1>Multiparameter exponential families</h1>
+<section id="natural-exponential-families-of-order-p" class="level2">
+<h2 class="anchored" data-anchor-id="natural-exponential-families-of-order-p">Natural exponential families of order <span class="math inline">p</span></h2>
+<ul>
+<li><p>Let <span class="math inline">Y</span> be a <span class="orange">non-degenerate</span> random variable with <span class="blue">support</span> <span class="math inline">\mathcal{Y} \subseteq \mathbb{R}^p</span> and <span class="orange">density</span> <span class="math inline">f_0(y)</span> with respect to a dominating measure <span class="math inline">\nu(\mathrm{d}y)</span>.</p></li>
+<li><p>Let us define the mapping <span class="math inline">M_0:\mathbb{R}^p\rightarrow (0,\infty]</span> <span class="math display">
+M_0(\theta):=\int_\mathcal{Y}e^{\theta^T y}f_0(y)\nu(\mathrm{d}y), \qquad \theta \in \mathbb{R}^p.
+</span></p></li>
+</ul>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>The parametric family generated via <span class="orange">exponential tilting</span> of a density <span class="math inline">f_0</span> <span class="math display">
+\mathcal{F}_{\text{ne}}^p = \left\{f(y;\theta) = \frac{e^{\theta^T y}f_0(y)}{M_0(\theta)} = f_0(y)\exp\{\theta^T y - K(\theta)\}, \quad y \in \mathcal{Y}\subseteq \mathbb{R}^p, \:\theta \in \tilde{\Theta} \right\},
+</span> is called a <span class="orange">natural exponential family</span> of order one, <span class="math inline">K(\theta) = \log M_0(\theta)</span> and <span class="math inline">\tilde{\Theta} = \{\theta \in \mathbb{R}^p : K(\theta) &lt; \infty\}</span> is the <span class="blue">natural parameter space</span>.</p>
+</div>
+</div>
+</div>
+<ul>
+<li>The family <span class="math inline">\mathcal{F}_{\text{ne}}^p</span> is said to be <span class="blue">full</span>, whereas a subfamily of <span class="math inline">\mathcal{F}_{\text{ne}}^p</span> with <span class="math inline">\Theta \subseteq \tilde{\Theta}</span> is <span class="blue">non-full</span>.</li>
+</ul>
+</section>
+<section id="example-multinomial-distribution-i" class="level2">
+<h2 class="anchored" data-anchor-id="example-multinomial-distribution-i">Example: multinomial distribution I 📖</h2>
+<ul>
+<li><p>Let <span class="math inline">Y = (Y_1,\dots,Y_{p-1}) \sim \text{Multinom}(N; 1/p,\dots,1/p)</span> be a <span class="orange">multinomial</span> random vector with <span class="blue">uniform probabilities</span> and density <span class="math display">
+f_0(y) = \frac{N!}{y_1!\cdots y_p!}\left(\frac{1}{p}\right)^N, \qquad y = (y_1,\dots,y_{p-1}) \in \mathcal{Y} \subseteq \mathbb{R}^{p-1},
+</span> where <span class="math inline">\mathcal{Y} = \{y_1,\dots,y_{p-1} \in \{1,\dots,N\}: \sum_{j=1}^{p-1} y_j\le N\}</span> and with <span class="math inline">y_p := N - \sum_{j=1}^{p-1}y_j</span>.</p></li>
+<li><p>The <span class="orange">exponential tilting</span> of <span class="math inline">f_0</span> gives <span class="math display">
+f(y; \theta) \propto f_0(y) e^{\theta^Ty} = \frac{N!}{y_1!\cdots y_p!}\left(\frac{1}{p}\right)^N e^{\theta_1 y_1 + \cdots + \theta_{p-1}y_{p-1}}, \qquad y \in \mathcal{Y}, \:\theta \in \mathbb{R}^{p-1}.
+</span></p></li>
+<li><p>As a consequence of the <span class="orange">multinomial theorem</span>, the normalizing constant, that is, the <span class="blue">moment generating function</span>, is <span class="math display">
+M_0(\theta) = \mathbb{E}\left(e^{\theta^Ty}\right) = \left(\frac{1}{p}\right)^N(1 + e^{\theta_1} + \cdots + e^{\theta_{p-1}})^N.
+</span> Thus <span class="math inline">M_0(\theta) &lt; \infty</span> for all <span class="math inline">\theta \in \mathbb{R}^{p-1}</span> and the <span class="orange">natural parameter space</span> is <span class="math inline">\tilde{\Theta} = \mathbb{R}^{p-1}</span>.</p></li>
+</ul>
+</section>
+<section id="example-multinomial-distribution-ii" class="level2">
+<h2 class="anchored" data-anchor-id="example-multinomial-distribution-ii">Example: multinomial distribution II 📖</h2>
+<ul>
+<li><p>The resulting density is <span class="math display">
+f(y; \theta) = f_0(y)e^{\theta^Ty - K(\theta)} = \frac{N!}{y_1!\cdots y_p!}\frac{e^{\theta_1 y_1 + \cdots + \theta_{p-1}y_{p-1}}}{(1 + e^{\theta_1} + \cdots + e^{\theta_{p-1}})^N},
+</span> where <span class="math inline">K(\theta) = \log{M_0(\theta)} = N\log(1 + e^{\theta_1} + \cdots + e^{\theta_{p-1}}) - N\log{p}</span>.</p></li>
+<li><p>In other words, the tilted density is again a <span class="blue">multinomial</span> distribution with parameters <span class="math inline">N</span> and <span class="orange">probabilities</span> <span class="math inline">\pi_j = e^{\theta_j} / (1 + e^{\theta_1} + \cdots + e^{\theta_{p-1}})</span>. Indeed: <span class="math display">
+\begin{aligned}
+f(y; \theta) &amp;= \frac{N!}{y_1!\cdots y_p!}\frac{e^{\theta_1 y_1}  \cdots  e^{\theta_p y_p}}{(\sum_{j=1}^p e^{\theta_j})^{y_1} \cdots (\sum_{j=1}^p e^{\theta_j})^{y_p}} = \frac{N!}{y_1!\cdots y_p!} \prod_{j=1}^p\left(\frac{e^{\theta_j y_j}}{\sum_{j=1}^p e^{\theta_j}}\right)^{y_j} \\
+&amp;= \frac{N!}{y_1!\cdots y_p!} \prod_{j=1}^p\pi_j^{y_j}.
+\end{aligned}
+</span> where we defined <span class="math inline">\theta_p := 0</span>, so that <span class="math inline">\sum_{j=1}^pe^{\theta_j} = 1 + e^{\theta_1} + \cdots + e^{\theta_{p-1}}</span>, recalling that <span class="math inline">\sum_{j=1}^py_j = N</span>.</p></li>
+<li><p>The tilted density belong to a <span class="blue">natural exponential family</span> <span class="math inline">\mathcal{F}_\text{en}^{p-1}</span> of <span class="orange">order</span> <span class="math inline">p-1</span>.</p></li>
+</ul>
+</section>
+<section id="mean-value-mapping" class="level2">
+<h2 class="anchored" data-anchor-id="mean-value-mapping">Mean value mapping</h2>
+</section>
+<section id="example-von-mises-distribution" class="level2">
+<h2 class="anchored" data-anchor-id="example-von-mises-distribution">Example: von Mises distribution</h2>
+</section>
+<section id="wind-direction-in-venice-i" class="level2">
+<h2 class="anchored" data-anchor-id="wind-direction-in-venice-i">Wind direction in Venice I</h2>
+</section>
+<section id="wind-direction-in-venice-ii" class="level2">
+<h2 class="anchored" data-anchor-id="wind-direction-in-venice-ii">Wind direction in Venice II</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="un_B_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="1050"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="circular-data" class="level2">
+<h2 class="anchored" data-anchor-id="circular-data">Circular data</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="un_B_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="1050"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="section" class="level2">
+<h2 class="anchored" data-anchor-id="section"></h2>
+<div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'circular'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:stats':
+
+    sd, var</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="un_B_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="1050"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="section-1" class="level2">
+<h2 class="anchored" data-anchor-id="section-1"></h2>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="un_B_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="1050"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="inference" class="level1">
+<h1>Inference</h1>
+</section>
+<section id="exponential-dispersion-families" class="level1">
+<h1>Exponential dispersion families</h1>
+</section>
+<section id="references-and-study-material" class="level1">
+<h1>References and study material</h1>
+<section id="main-references" class="level2">
+<h2 class="anchored" data-anchor-id="main-references">Main references</h2>
+<ul>
+<li><span class="citation" data-cites="Pace1997">Pace and Salvan (<a href="#ref-Pace1997" role="doc-biblioref">1997</a>)</span>
+<ul>
+<li><span class="orange">Chapter 5</span> (<em>Exponential families</em>)</li>
+<li><span class="orange">Chapter 6</span> (<em>Exponential dispersion families</em>)</li>
+</ul></li>
+<li><span class="citation" data-cites="Davison2003">Davison (<a href="#ref-Davison2003" role="doc-biblioref">2003</a>)</span>
+<ul>
+<li><span class="blue">Chapter 5</span> (<em>Models</em>)</li>
+</ul></li>
+<li><span class="citation" data-cites="Efron2016">Efron and Hastie (<a href="#ref-Efron2016" role="doc-biblioref">2016</a>)</span>
+<ul>
+<li><span class="grey">Chapter 5</span> (<em>Parametric models and exponential families</em>)</li>
+</ul></li>
+<li><span class="citation" data-cites="Efron2023">Efron (<a href="#ref-Efron2023" role="doc-biblioref">2023</a>)</span>
+<ul>
+<li><span class="orange">Chapter 1</span> (<em>One-parameter exponential families</em>)</li>
+<li><span class="orange">Chapter 2</span> (<em>Multiparameter exponential families</em>)</li>
+</ul></li>
+</ul>
+</section>
 <section id="morris1982" class="level2">
 <h2 class="anchored" data-anchor-id="morris1982"><span class="citation" data-cites="Morris1982">Morris (<a href="#ref-Morris1982" role="doc-biblioref">1982</a>)</span></h2>
 <div class="columns">
@@ -790,40 +955,6 @@ f_S(s; \theta) = f_0(s)\exp\{\theta s - K(\theta)\},
 </ul>
 </div>
 </div>
-</section>
-</section>
-<section id="multiparameter-exponential-families" class="level1">
-<h1>Multiparameter exponential families</h1>
-</section>
-<section id="likelihood-quantities" class="level1">
-<h1>Likelihood quantities</h1>
-</section>
-<section id="sufficiency-and-completeness" class="level1">
-<h1>Sufficiency and completeness</h1>
-</section>
-<section id="exponential-dispersion-families" class="level1">
-<h1>Exponential dispersion families</h1>
-</section>
-<section id="references-and-study-material" class="level1">
-<h1>References and study material</h1>
-<section id="main-references" class="level2">
-<h2 class="anchored" data-anchor-id="main-references">Main references</h2>
-<ul>
-<li><span class="citation" data-cites="Pace1997">Pace and Salvan (<a href="#ref-Pace1997" role="doc-biblioref">1997</a>)</span>
-<ul>
-<li><span class="orange">Chapter 5</span> (<em>Exponential families</em>)</li>
-<li><span class="orange">Chapter 6</span> (<em>Exponential dispersion families</em>)</li>
-</ul></li>
-<li><span class="citation" data-cites="Davison2003">Davison (<a href="#ref-Davison2003" role="doc-biblioref">2003</a>)</span>
-<ul>
-<li><span class="blue">Chapter 5</span> (<em>Models</em>)</li>
-</ul></li>
-<li><span class="citation" data-cites="Efron2016">Efron and Hastie (<a href="#ref-Efron2016" role="doc-biblioref">2016</a>)</span>
-<ul>
-<li><span class="grey">Chapter 5</span> (<em>Parametric models and exponential families</em>)</li>
-</ul></li>
-<li><span class="citation" data-cites="Efron2023">Efron (<a href="#ref-Efron2023" role="doc-biblioref">2023</a>)</span></li>
-</ul>
 </section>
 <section id="references" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="references">References</h2>
