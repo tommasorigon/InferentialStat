@@ -6,7 +6,6 @@ institute: "_Università degli Studi di Milano-Bicocca_"
 page-layout: full
 bibliography: ../biblio.bib
 citeproc: true
-csl: https://www.zotero.org/styles/journal-of-the-american-statistical-association
 reference-location: margin
 execute:
   cache: true
@@ -458,7 +457,7 @@ $$
 $$
 is called a [exponential family]{.orange} of order one, where the normalizing constant is
 $$
-G(\psi) = \int_\mathcal{Y} h(y) \exp\{\theta(\psi) s(y)\} \nu(\mathrm{d}y).
+\exp{G(\psi)} = \int_\mathcal{Y} h(y) \exp\{\theta(\psi) s(y)\} \nu(\mathrm{d}y).
 $$
 The family is [full]{.blue} if the parameter space $\Psi$ is the widest possible $\tilde{\Psi} = \{\psi \subseteq\mathbb{R}: G(\psi) < \infty\}$. 
 :::
@@ -485,7 +484,7 @@ because the general case would be a [reparametrization]{.orange} of this one.
 $$
 f_S(s; \psi) = f_0(s)\exp\{\theta s - K(\theta)\},
 $$
-for some baseline density $f_0(s)$, namely $f_S(s; \psi) \in \mathcal{F}_\text{en}^1$. If in addition $s(y)$ is a [one-to-one]{.orange} invertible mapping, this means $Y = s^{-1}(S)$ is just a transformation of a $\mathcal{F}_\text{en}^1$.
+for some baseline density $f_0(s)$, namely $f_S(s; \psi) \in \mathcal{F}_\text{en}^1$. If in addition $s(y)$ is a [one-to-one]{.orange} invertible mapping, this means $Y = s^{-1}(S)$ is just a transformation of an $\mathcal{F}_\text{en}^1$.
 
 :::callout-tip
 A full exponential family $\mathcal{F}_\text{e}^1$ is, technically, a broader definition, but in practice it leads to a [reparametrization]{.orange} of a natural exponential family $\mathcal{F}_\text{en}^1$ in a [transformed space]{.blue} $s(Y)$. 
@@ -572,6 +571,29 @@ where we defined $\theta_p := 0$, so that $\sum_{j=1}^pe^{\theta_j} = 1 + e^{\th
 - The tilted density belongs to a regular [natural exponential family]{.blue} $\mathcal{F}_\text{en}^{p-1}$ of [order]{.orange} $p-1$. 
 
 
+## Example: independent exponential families 📖
+
+- Let $Y = (Y_1,\dots,Y_p)$ be a random vector of [independent]{.blue} random variables each belonging to a [full natural exponential family]{.orange} $\mathcal{F}_\text{en}^1$ of order 1, with density
+$$
+f(y_j; \theta_j) = f_j(y_j)\exp\{\theta_j y_j - K_j(\theta_j)\}, \qquad \theta_j \in \tilde{\Theta}_j.
+$$
+
+- Let $\theta = (\theta_1,\dots,\theta_p)$. Because of independence, the [joint distribution]{.blue} of $Y$ is
+$$
+\begin{aligned}
+f(y;\theta) &= \prod_{j=1}^p f(y_j;\theta_j) = \prod_{j=1}^pf_j(y_j)\exp\{\theta_j y_j - K_j(\theta_j)\} \\
+&= \left[\prod_{j=1}^pf_j(y_j)\right]\exp\left\{\sum_{j=1}^p\theta_jy_j - \sum_{j=1}^pK_j(\theta_j)\right\} \\
+& = f_0(y)\exp\{\theta^Ty - K(\theta)\}
+\end{aligned}
+$$
+where $f_0(y) = \prod_{j=1}^pf_j(y_j)$, $K(\theta) = \sum_{j=1}^pK_j(\theta_j)$ and the [natural parameter space]{.orange} is
+$$
+\tilde{\Theta} = \tilde{\Theta}_1 \times \cdots \times \tilde{\Theta}_p.
+$$
+
+- Thus, $f(y;\theta)$ is an $\mathcal{F}_\text{en}^p$, in which $K(\theta)$ is a [separable]{.blue} function. 
+
+
 ## Mean value mapping and other properties
 
 <!-- - Properties of moments and cumulants in the one-parameter case carry over to the multi-parameter setting, with the obvious adjustments. -->
@@ -600,27 +622,46 @@ If $\mathcal{F}_\text{en}^p$ is regular, then  $\mathcal{M} = \text{int}\:C.$
 ## A general definition of exponential families I
 
 :::callout-note
-Let $h(y) > 0$, $s_1(y),\dots,s_p(y)$, be real-valued functions not depending on $\psi$ and let $\theta(\psi), G(\psi)$ be real-valued functions not depending on $y$. The parametric family
+Let $s_1(y),\dots,s_p(y)$ and $h(y) > 0$ be real-valued functions not depending on the parameter $\psi$ and let $\theta_1(\psi), \dots,\theta_p(\psi)$, $G(\psi)$ be real-valued functions not depending on $y$. The family
 $$
-\mathcal{F}_{\text{e}}^p = \left\{f(y;\psi) = h(y)\exp\{\theta(\psi) s(y) - G(\psi)\}, \quad y \in \mathcal{Y}\subseteq \mathbb{R}, \: \psi \in \Psi \right\},
+\mathcal{F}_{\text{e}}^p = \left\{f(y;\psi) = h(y)\exp\{\theta(\psi)^T s(y) - G(\psi)\}, \quad y \in \mathcal{Y}\subseteq \mathbb{R}^p, \: \psi \in \Psi \subseteq \mathbb{R}^q \right\},
 $$
-is called a [exponential family]{.orange} of order one, where the normalizing constant is
+is called a [exponential family]{.orange} of order $p$, where the normalizing constant is
 $$
-G(\psi) = \int_\mathcal{Y} h(y) \exp\{\theta(\psi) s(y)\} \nu(\mathrm{d}y).
+\exp{G(\psi)} = \int_\mathcal{Y} h(y) \exp\{\theta(\psi)^T s(y)\} \nu(\mathrm{d}y).
 $$
-The family is [full]{.blue} if the parameter space $\Psi$ is the widest possible $\tilde{\Psi} = \{\psi \subseteq\mathbb{R}: G(\psi) < \infty\}$. 
+The notation $\mathcal{F}_\text{e}^p$ is understood to indicate a [minimal representation]{.blue}, i.e. such that there is [no linear dependence]{.orange} between $1, s_1(y),\dots,s_p(y)$ or, equivalently, between $1, \theta_1(\psi), \dots,\theta_p(\psi)$. 
 :::
+
+  - If $q > p$, then $\psi$ is [not identifiable]{.orange} and this possibility should be discarded.
+  - If $q = p$, then $\theta(\psi)$ must be a one-to-one mapping, i.e. a [reparametrization]{.blue}, otherwise the model is again [not identifiabile]{.orange}.
+  - If $q < p$, we have a $(p,q)$-[curved exponential family]{.blue}, which corresponds to a [restriction]{.orange} of the natural parameter space.
+
+## Curved exponential families
+
+![](img/efron2.png){width=6in fig-align="center"}
+
+- Figure 4.1 of @Efron2023, Chapter 4. Three levels of statistical modeling, now with a fourth added representing curved exponential families.
 
 ## A general definition of exponential families II
 
-:::callout-tip
-Suppose $f(y; \psi) \in \mathcal{F}_\text{e}^1$ and [$s(y) = y$]{.blue}, so that   $f(y; \psi) = h(y)\exp\{\theta(\psi) y - G(\psi)\}$. Then, the function $\theta(\psi)$ must be a [one-to-one]{.blue} mapping, that is, a [reparametrization]{.orange}. Otherwise, the model would [not]{.orange} be [identifiable]{.orange}. Hence, we can write:
-$$
-f(y; \psi) = f_0(y)\exp\{\theta(\psi) y - K(\theta(\psi))\},
-$$
-for some density $f_0(y)$ and function $K(\cdot)$. Thus, the family $\mathcal{F}_\text{e}^1$ is a reparametrization of an $\mathcal{F}_\text{en}^1$.
-:::
+- We refer to @Efron2023, Chapter 4 for a detailed discussion on curved exponential families. From now on, we will focus on the $p = q$ case. 
 
+- Without loss of generality, we can focus on the [natural parametrization]{.blue} $\theta \in \Theta \subseteq \mathbb{R}^p$, meaning that $f(y;\theta) \in \mathcal{F}_\text{e}^p$ can be written as
+$$
+f(y; \theta) = h(y)\exp\{\theta^T s(y) - K(\theta)\},
+$$
+because the general case would be a [reparametrization]{.orange} of this one.
+
+- Let $Y \sim f(y; \theta)$, with $f(y; \theta) \in \mathcal{F}_\text{e}^p$. Then, the [random vector]{.blue} $S = s(Y) = (s_1(Y),\dots,s_p(Y))$ has density
+$$
+f_S(s; \psi) = f_0(s)\exp\{\theta s - K(\theta)\},
+$$
+for some baseline density $f_0(s)$, namely $f_S(s; \psi) \in \mathcal{F}_\text{en}^p$. If in addition $s(y)$ is a [one-to-one]{.orange} invertible mapping, this means $Y = s^{-1}(S)$ is just a transformation of an $\mathcal{F}_\text{en}^p$.
+
+:::callout-tip
+As in the single parameter case, a full exponential family $\mathcal{F}_\text{e}^p$ with $p = q$ in practice it leads to a [reparametrization]{.orange} of a natural exponential family $\mathcal{F}_\text{en}^p$ in a [transformed space]{.blue} $s(Y)$. 
+:::
 
 ## Example: gamma distribution
 
