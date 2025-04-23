@@ -6,6 +6,7 @@ institute: "_Università degli Studi di Milano-Bicocca_"
 page-layout: full
 bibliography: ../biblio.bib
 citeproc: true
+csl: https://www.zotero.org/styles/journal-of-the-american-statistical-association
 reference-location: margin
 execute:
   cache: true
@@ -663,13 +664,69 @@ for some baseline density $f_0(s)$, namely $f_S(s; \psi) \in \mathcal{F}_\text{e
 As in the single parameter case, a full exponential family $\mathcal{F}_\text{e}^p$ with $p = q$ in practice it leads to a [reparametrization]{.orange} of a natural exponential family $\mathcal{F}_\text{en}^p$ in a [transformed space]{.blue} $s(Y)$. 
 :::
 
-## Example: gamma distribution
+## Example: gamma distribution 📖
 
-## Example: von Mises distribution
+- The family $\text{Gamma}(\nu, \lambda)$ with $\nu,\lambda > 0$ is an $\mathcal{F}_\text{e}^2$. In fact, its [density]{.blue} is
+$$
+\begin{aligned}
+f(y; \nu, \lambda) &= \frac{\lambda^\nu}{\Gamma(\nu)}y^{\nu -1}e^{-\lambda y} = \frac{1}{y}\exp\{\nu\log{y} - \lambda y - \log\Gamma(\nu) + \nu\log{\lambda} \} \\
+&=h(y)\exp\{\theta(\psi)s(y) - G(\psi)\}.
+\end{aligned}
+$$
+where $h(y) = y^{-1}$, the [sufficient statistic]{.blue} $s(y) = (s_1(y), s_2(y)) = (\log{y}, y)$ whereas the [natural parameters]{.orange} and the cumulant generating functions are
+$$
+\theta(\psi) = (\theta_1(\psi), \theta_2(\psi)) = (\nu, -\lambda), \qquad G(\psi) = \log{\Gamma(\nu)} - \nu\log{\lambda}.
+$$
+having set $\psi = (\nu, \lambda)$. 
 
-## Wind direction in Venice I
+- As previously shown, this implies that the family
+$$
+f(s; \theta) = f_0(s)\exp\{\theta^Ts - \log{\Gamma(\theta_1)} + \theta_1\log(-\theta_2)\}, \qquad \theta \in \tilde{\Theta},
+$$
+is a regular [natural exponential family]{.orange} of order 2, with some baseline density $f_0(s)$.
 
-## Wind direction in Venice II
+
+## Example: von Mises distribution I
+
+- Let $Y$ be a random variable describing an [angle]{.blue}, so that $\mathcal{Y} = (0, 2\pi)$ and let us consider the [uniform density]{.orange} on the [circle]{.blue}, namely
+$$
+h(y) = \frac{1}{2\pi}, \qquad y \in (0, 2\pi).
+$$
+
+- We define a tilted density $f(y; \theta) \in \mathcal{F}_\text{e}^2$ by considering $s(y) = (\cos{y}, \sin{y})$, i.e. be the [cartesian coordinates]{.orange} of $y$. This choice of $s(y)$ ensures the appealing property $f(y;\theta) = f(y + 2k\pi;\theta)$. 
+
+- More precisely, let $\theta = (\theta_1,\theta_2)$ and define the parametric family of densities
+$$
+f(y; \theta) = h(y)\exp\{\theta^Ts(y) - K(\theta)\}, \qquad \theta \in \tilde{\Theta},
+$$
+where $h(y) = 1/2\pi$. The normalizing constant has a "closed form"
+$$
+\exp{K(\theta)} = \frac{1}{2\pi}\int_0^{2\pi}\exp\{\theta_1\cos(y) + \theta_2\sin(y)\}\mathrm{d}y = \mathcal{I}_0(||\theta||_2),
+$$
+where $\mathcal{I}_\nu(\cdot)$ is known as the [modified Bessel function]{.orange} of the first kind and order $\nu$.
+
+- It is easy to check that $K(\theta) < \infty$ for all values of $\theta \in \mathbb{R}^2$, therefore $\tilde{\Theta} = \mathbb{R}^2$. This complete the definition of what is known as the [von Mises]{.blue} distribution.
+
+## Example: von Mises distribution II
+
+- Instead of the [natural parametrization]{.orange} it is often convenient consider a [reparametrization]{.blue} $\psi =(\tau, \gamma)$, defined trough the one-to-one mapping
+$$
+\theta(\psi) = (\tau\cos{\gamma}, \tau\sin{\gamma}), \qquad \psi \in \tilde{\Psi} = (0, \infty) \times (0, 2\pi).
+$$
+
+- Using this parametrization, thanks to well-known [trigonometric]{.blue} relationships, we obtain the more familiar formulation of the von Mises distribution, which is
+$$
+f(y; \psi) = h(y)\exp\{\theta(\psi)s(y) - G(\psi))\} = \frac{1}{2\pi \mathcal{I}_0(\tau)}e^{\tau\cos(y - \gamma)}, \qquad y \in (0, 2\pi),
+$$
+so that $\gamma \in (0,2\pi)$ can be interpreted as the [location]{.orange} and $\tau > 0$ as the [precision]{.blue}.
+
+- We also note that the distribution of $s(Y)$ is a [regular]{.blue} [natural exponential family]{.orange} of order 2, with density
+$$
+f_S(s; \theta) = \frac{1}{2\pi}\exp\{\theta^Ts - \log\mathcal{I}_0(||\theta||_2)\}, \qquad s \in \mathcal{S} = \{(s_1,s_2) \in \mathbb{R}^2 : s_1^2 + s_2^2 = 1\},
+$$
+clarifying that $S = s(Y)$ is a random vector taking values on a [circle]{.orange} with unitary radius.  
+
+## Example: wind direction in Venice I
 
 ```{r}
 #| message: false
@@ -693,6 +750,21 @@ dataset <- filter(dataset, date >= "2025-04-14 00:00:00")
 #  theme_bw()
 ```
 
+- The von Mises distribution is sometimes regarded as the "Gaussian distribution for [circular data]{.blue}". To provide a concrete example, let us consider the [wind directions]{.orange} measured from the [San Giorgio metereological station](https://www.comune.venezia.it/it/content/17-san-giorgio), in Venice. 
+
+- Measurements are recorded every [5 minutes]{.orange}, from the 14-04-2025 to 18-04-2025, for a total of $n = 1153$. The variables `wind_dir` is recorded in [degrees]{.blue}, i.e. between 0 and 360.
+
+```{r}
+print(subset(dataset, select = c(date, wind_dir, `Wind speed`))[1:10, ])
+```
+
+
+:::aside
+The dataset is available [here](../data/Stazione_SanGiorgio.csv). The original source is the [webpage of Venice municipality](https://www.comune.venezia.it/it/content/dati-e-statistiche-).
+:::
+
+## Example: wind direction in Venice II
+
 ```{r}
 ggplot(data = dataset, aes(x = date, y = wind_dir, col = `Wind speed`)) +
   geom_line() +
@@ -700,7 +772,9 @@ ggplot(data = dataset, aes(x = date, y = wind_dir, col = `Wind speed`)) +
   theme_bw()
 ```
 
-## Circular data
+- This is a somewhat [misleading]{.orange} graphical representation of [wind directions]{.blue} evolving over time. Indeed, the "spykes" are not real, as the data point 1 and 359 are, in fact, extremely similar directions.
+
+## Example: wind direction in Venice III
 
 ```{r}
 ggplot(data = dataset, aes(x = sin(wind_dir / 360 * 2 * pi), y = cos(wind_dir / 360 * 2 * pi))) +
@@ -711,7 +785,13 @@ ggplot(data = dataset, aes(x = sin(wind_dir / 360 * 2 * pi), y = cos(wind_dir / 
   theme_bw() + coord_fixed(ratio = 1)
 ```
 
-##
+- A better graphical representation, using cartesian coordinates.
+
+## Marginal and conditional distributions
+
+# Inference
+
+## Example: wind direction in Venice IV
 
 ```{r}
 y <- dataset$wind_dir / 360 * 2 * pi
@@ -738,7 +818,7 @@ plot(x_seq / (2 * pi) * 360, dvonmises(x_seq, gamma, tau), type = "l", xlab = "D
 rug(y/ (2 * pi) * 360)
 ```
 
-##
+## Example: wind direction in Venice V
 
 ```{r}
 ggplot(data = NULL, aes(x = sin(x_seq), y = cos(x_seq), col = dvonmises(x_seq, gamma, tau), size = dvonmises(x_seq, gamma, tau))) +
@@ -749,7 +829,7 @@ ggplot(data = NULL, aes(x = sin(x_seq), y = cos(x_seq), col = dvonmises(x_seq, g
   theme_bw() + theme(legend.position = "none")+ coord_fixed(ratio = 1)
 ```
 
-# Inference
+
 
 # Exponential dispersion families
 

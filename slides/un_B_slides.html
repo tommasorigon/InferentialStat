@@ -1031,35 +1031,107 @@ f_S(s; \psi) = f_0(s)\exp\{\theta s - K(\theta)\},
 </div>
 </section>
 <section id="example-gamma-distribution" class="slide level2 center">
-<h2>Example: gamma distribution</h2>
+<h2>Example: gamma distribution 📖</h2>
+<ul>
+<li><p>The family <span class="math inline">\text{Gamma}(\nu, \lambda)</span> with <span class="math inline">\nu,\lambda &gt; 0</span> is an <span class="math inline">\mathcal{F}_\text{e}^2</span>. In fact, its <span class="blue">density</span> is <span class="math display">
+\begin{aligned}
+f(y; \nu, \lambda) &amp;= \frac{\lambda^\nu}{\Gamma(\nu)}y^{\nu -1}e^{-\lambda y} = \frac{1}{y}\exp\{\nu\log{y} - \lambda y - \log\Gamma(\nu) + \nu\log{\lambda} \} \\
+&amp;=h(y)\exp\{\theta(\psi)s(y) - G(\psi)\}.
+\end{aligned}
+</span> where <span class="math inline">h(y) = y^{-1}</span>, the <span class="blue">sufficient statistic</span> <span class="math inline">s(y) = (s_1(y), s_2(y)) = (\log{y}, y)</span> whereas the <span class="orange">natural parameters</span> and the cumulant generating functions are <span class="math display">
+\theta(\psi) = (\theta_1(\psi), \theta_2(\psi)) = (\nu, -\lambda), \qquad G(\psi) = \log{\Gamma(\nu)} - \nu\log{\lambda}.
+</span> having set <span class="math inline">\psi = (\nu, \lambda)</span>.</p></li>
+<li><p>As previously shown, this implies that the family <span class="math display">
+f(s; \theta) = f_0(s)\exp\{\theta^Ts - \log{\Gamma(\theta_1)} + \theta_1\log(-\theta_2)\}, \qquad \theta \in \tilde{\Theta},
+</span> is a regular <span class="orange">natural exponential family</span> of order 2, with some baseline density <span class="math inline">f_0(s)</span>.</p></li>
+</ul>
 </section>
-<section id="example-von-mises-distribution" class="slide level2 center">
-<h2>Example: von Mises distribution</h2>
+<section id="example-von-mises-distribution-i" class="slide level2 center">
+<h2>Example: von Mises distribution I</h2>
+<ul>
+<li><p>Let <span class="math inline">Y</span> be a random variable describing an <span class="blue">angle</span>, so that <span class="math inline">\mathcal{Y} = (0, 2\pi)</span> and let us consider the <span class="orange">uniform density</span> on the <span class="blue">circle</span>, namely <span class="math display">
+h(y) = \frac{1}{2\pi}, \qquad y \in (0, 2\pi).
+</span></p></li>
+<li><p>We define a tilted density <span class="math inline">f(y; \theta) \in \mathcal{F}_\text{e}^2</span> by considering <span class="math inline">s(y) = (\cos{y}, \sin{y})</span>, i.e.&nbsp;be the <span class="orange">cartesian coordinates</span> of <span class="math inline">y</span>. This choice of <span class="math inline">s(y)</span> ensures the appealing property <span class="math inline">f(y;\theta) = f(y + 2k\pi;\theta)</span>.</p></li>
+<li><p>More precisely, let <span class="math inline">\theta = (\theta_1,\theta_2)</span> and define the parametric family of densities <span class="math display">
+f(y; \theta) = h(y)\exp\{\theta^Ts(y) - K(\theta)\}, \qquad \theta \in \tilde{\Theta},
+</span> where <span class="math inline">h(y) = 1/2\pi</span>. The normalizing constant has a “closed form” <span class="math display">
+\exp{K(\theta)} = \frac{1}{2\pi}\int_0^{2\pi}\exp\{\theta_1\cos(y) + \theta_2\sin(y)\}\mathrm{d}y = \mathcal{I}_0(||\theta||_2),
+</span> where <span class="math inline">\mathcal{I}_\nu(\cdot)</span> is known as the <span class="orange">modified Bessel function</span> of the first kind and order <span class="math inline">\nu</span>.</p></li>
+<li><p>It is easy to check that <span class="math inline">K(\theta) &lt; \infty</span> for all values of <span class="math inline">\theta \in \mathbb{R}^2</span>, therefore <span class="math inline">\tilde{\Theta} = \mathbb{R}^2</span>. This complete the definition of what is known as the <span class="blue">von Mises</span> distribution.</p></li>
+</ul>
 </section>
-<section id="wind-direction-in-venice-i" class="slide level2 center">
-<h2>Wind direction in Venice I</h2>
+<section id="example-von-mises-distribution-ii" class="slide level2 center">
+<h2>Example: von Mises distribution II</h2>
+<ul>
+<li><p>Instead of the <span class="orange">natural parametrization</span> it is often convenient consider a <span class="blue">reparametrization</span> <span class="math inline">\psi =(\tau, \gamma)</span>, defined trough the one-to-one mapping <span class="math display">
+\theta(\psi) = (\tau\cos{\gamma}, \tau\sin{\gamma}), \qquad \psi \in \tilde{\Psi} = (0, \infty) \times (0, 2\pi).
+</span></p></li>
+<li><p>Using this parametrization, thanks to well-known <span class="blue">trigonometric</span> relationships, we obtain the more familiar formulation of the von Mises distribution, which is <span class="math display">
+f(y; \psi) = h(y)\exp\{\theta(\psi)s(y) - G(\psi))\} = \frac{1}{2\pi \mathcal{I}_0(\tau)}e^{\tau\cos(y - \gamma)}, \qquad y \in (0, 2\pi),
+</span> so that <span class="math inline">\gamma \in (0,2\pi)</span> can be interpreted as the <span class="orange">location</span> and <span class="math inline">\tau &gt; 0</span> as the <span class="blue">precision</span>.</p></li>
+<li><p>We also note that the distribution of <span class="math inline">s(Y)</span> is a <span class="blue">regular</span> <span class="orange">natural exponential family</span> of order 2, with density <span class="math display">
+f_S(s; \theta) = \frac{1}{2\pi}\exp\{\theta^Ts - \log\mathcal{I}_0(||\theta||_2)\}, \qquad s \in \mathcal{S} = \{(s_1,s_2) \in \mathbb{R}^2 : s_1^2 + s_2^2 = 1\},
+</span> clarifying that <span class="math inline">S = s(Y)</span> is a random vector taking values on a <span class="orange">circle</span> with unitary radius.</p></li>
+</ul>
 </section>
-<section id="wind-direction-in-venice-ii" class="slide level2 center">
-<h2>Wind direction in Venice II</h2>
+<section id="example-wind-direction-in-venice-i" class="slide level2 center">
+<h2>Example: wind direction in Venice I</h2>
+<ul>
+<li><p>The von Mises distribution is sometimes regarded as the “Gaussian distribution for <span class="blue">circular data</span>”. To provide a concrete example, let us consider the <span class="orange">wind directions</span> measured from the <a href="https://www.comune.venezia.it/it/content/17-san-giorgio">San Giorgio metereological station</a>, in Venice.</p></li>
+<li><p>Measurements are recorded every <span class="orange">5 minutes</span>, from the 14-04-2025 to 18-04-2025, for a total of <span class="math inline">n = 1153</span>. The variables <code>wind_dir</code> is recorded in <span class="blue">degrees</span>, i.e.&nbsp;between 0 and 360.</p></li>
+</ul>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 10 × 3
+   date                wind_dir `Wind speed`
+   &lt;dttm&gt;                 &lt;dbl&gt;        &lt;dbl&gt;
+ 1 2025-04-14 00:00:00      148          4.6
+ 2 2025-04-14 00:05:00      148          4.4
+ 3 2025-04-14 00:10:00      152          4.1
+ 4 2025-04-14 00:15:00      150          4.1
+ 5 2025-04-14 00:20:00      150          4  
+ 6 2025-04-14 00:25:00      148          3.8
+ 7 2025-04-14 00:30:00      151          3.3
+ 8 2025-04-14 00:35:00      145          3  
+ 9 2025-04-14 00:40:00      148          3.5
+10 2025-04-14 00:45:00      150          2.9</code></pre>
+</div>
+</div>
 
-<img data-src="un_B_files/figure-revealjs/unnamed-chunk-3-1.png" width="2000" class="r-stretch"></section>
-<section id="circular-data" class="slide level2 center">
-<h2>Circular data</h2>
+<aside><div>
+<p>The dataset is available <a href="../data/Stazione_SanGiorgio.csv">here</a>. The original source is the <a href="https://www.comune.venezia.it/it/content/dati-e-statistiche-">webpage of Venice municipality</a>.</p>
+</div></aside></section>
+<section id="example-wind-direction-in-venice-ii" class="slide level2 center">
+<h2>Example: wind direction in Venice II</h2>
 
-<img data-src="un_B_files/figure-revealjs/unnamed-chunk-4-1.png" width="2000" class="r-stretch"></section>
-<section id="section" class="slide level2 center">
-<h2></h2>
+<img data-src="un_B_files/figure-revealjs/unnamed-chunk-4-1.png" width="2000" class="r-stretch"><ul>
+<li>This is a somewhat <span class="orange">misleading</span> graphical representation of <span class="blue">wind directions</span> evolving over time. Indeed, the “spykes” are not real, as the data point 1 and 359 are, in fact, extremely similar directions.</li>
+</ul>
+</section>
+<section id="example-wind-direction-in-venice-iii" class="slide level2 center">
+<h2>Example: wind direction in Venice III</h2>
 
-<img data-src="un_B_files/figure-revealjs/unnamed-chunk-6-1.png" width="2000" class="r-stretch"></section>
-<section id="section-1" class="slide level2 center">
-<h2></h2>
-
-<img data-src="un_B_files/figure-revealjs/unnamed-chunk-7-1.png" width="2000" class="r-stretch"></section></section>
+<img data-src="un_B_files/figure-revealjs/unnamed-chunk-5-1.png" width="2000" class="r-stretch"><ul>
+<li>A better graphical representation, using cartesian coordinates.</li>
+</ul>
+</section>
+<section id="marginal-and-conditional-distributions" class="slide level2 center">
+<h2>Marginal and conditional distributions</h2>
+</section></section>
+<section>
 <section id="inference" class="title-slide slide level1 center">
 <h1>Inference</h1>
 
 </section>
+<section id="example-wind-direction-in-venice-iv" class="slide level2 center">
+<h2>Example: wind direction in Venice IV</h2>
 
+<img data-src="un_B_files/figure-revealjs/unnamed-chunk-7-1.png" width="2000" class="r-stretch"></section>
+<section id="example-wind-direction-in-venice-v" class="slide level2 center">
+<h2>Example: wind direction in Venice V</h2>
+
+<img data-src="un_B_files/figure-revealjs/unnamed-chunk-8-1.png" width="2000" class="r-stretch"></section></section>
 <section id="exponential-dispersion-families" class="title-slide slide level1 center">
 <h1>Exponential dispersion families</h1>
 
@@ -1162,37 +1234,37 @@ f_S(s; \psi) = f_0(s)\exp\{\theta s - K(\theta)\},
 <h2>References</h2>
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-Billingsley1995" class="csl-entry" role="listitem">
-Billingsley, Patrick. 1995. <em><span>Probability And Measure</span></em>. Wiley.
+Billingsley, P. (1995), <em><span>Probability And Measure</span></em>, Wiley.
 </div>
 <div id="ref-Consonni1992" class="csl-entry" role="listitem">
-Consonni, Guido, and Piero Veronese. 1992. <span>“Conjugate Priors for Exponential Families Having Quadratic Functions.”</span> <em>Journal of the American Statistical Association</em> 87 (420): 1123–27.
+Consonni, G., and Veronese, P. (1992), <span>“Conjugate priors for exponential families having quadratic functions,”</span> <em>Journal of the American Statistical Association</em>, 87, 1123–1127.
 </div>
 <div id="ref-Davison2003" class="csl-entry" role="listitem">
-Davison, A. C. 2003. <em><span>Statistical Models</span></em>. Cambridge University Press.
+Davison, A. C. (2003), <em><span>Statistical Models</span></em>, Cambridge University Press.
 </div>
 <div id="ref-Diaconis1979" class="csl-entry" role="listitem">
-Diaconis, Persi, and Donald Ylvisaker. 1979. <span>“<span class="nocase">Conjugate prior for exponential families</span>.”</span> <em>The Annals of Statistics</em> 7 (2): 269–92.
+Diaconis, P., and Ylvisaker, D. (1979), <span>“<span class="nocase">Conjugate prior for exponential families</span>,”</span> <em>The Annals of Statistics</em>, 7, 269–292.
 </div>
 <div id="ref-Efron2023" class="csl-entry" role="listitem">
-Efron, Bradley. 2023. <em><span class="nocase">Exponential Families in Theory and Practice</span></em>. Cambridge University Press.
+Efron, B. (2023), <em><span class="nocase">Exponential Families in Theory and Practice</span></em>, Cambridge University Press.
 </div>
 <div id="ref-Efron2016" class="csl-entry" role="listitem">
-Efron, Bradley, and Trevor Hastie. 2016. <em><span>Computer Age Statistical Inference</span></em>. Cambridge University Press.
+Efron, B., and Hastie, T. (2016), <em><span>Computer Age Statistical Inference</span></em>, Cambridge University Press.
 </div>
 <div id="ref-Fisher1934" class="csl-entry" role="listitem">
-Fisher, R. A. 1934. <span>“<span class="nocase">Two new properties of mathematical likelihood</span>.”</span> <em>Proceedings of the Royal Society of London. Series A</em> 144 (852): 285–307.
+Fisher, R. A. (1934), <span>“<span class="nocase">Two new properties of mathematical likelihood</span>,”</span> <em>Proceedings of the Royal Society of London. Series A</em>, 144, 285–307.
 </div>
 <div id="ref-Jorgensen1987" class="csl-entry" role="listitem">
-Jorgensen, Bert. 1987. <span>“<span class="nocase">Exponential dispersion model</span>.”</span> <em>Journal of the Royal Statistical Society. Series B: Methodological</em> 49 (2): 127–62.
+Jorgensen, B. (1987), <span>“<span class="nocase">Exponential dispersion model</span>,”</span> <em>Journal of the Royal Statistical Society. Series B: Methodological</em>, 49, 127–162.
 </div>
 <div id="ref-Morris1982" class="csl-entry" role="listitem">
-Morris, Carl N. 1982. <span>“Natural Exponential Families with Quadratic Variance Functions.”</span> <em>Annals of Statistics</em> 10 (1): 65–80.
+Morris, C. N. (1982), <span>“Natural exponential families with quadratic variance functions,”</span> <em>Annals of Statistics</em>, 10, 65–80.
 </div>
 <div id="ref-Nelder1972" class="csl-entry" role="listitem">
-Nelder, J. A., and R. W. M. Wedderburn. 1972. <span>“<span class="nocase">Generalized linear models</span>.”</span> <em>Journal of the Royal Statistical Society. Series A: Statistics in Society</em> 135 (3): 370–84.
+Nelder, J. A., and Wedderburn, R. W. M. (1972), <span>“<span class="nocase">Generalized linear models</span>,”</span> <em>Journal of the Royal Statistical Society. Series A: Statistics in Society</em>, 135, 370–384.
 </div>
 <div id="ref-Pace1997" class="csl-entry" role="listitem">
-Pace, Luigi, and Alessandra Salvan. 1997. <em><span class="nocase">Principles of statistical inference from a Neo-Fisherian perspective</span></em>. Vol. 4. Advanced Series on Statistical Science and Applied Probability. World Scientific.
+Pace, L., and Salvan, A. (1997), <em><span class="nocase">Principles of statistical inference from a Neo-Fisherian perspective</span></em>, Advanced series on statistical science and applied probability, World Scientific.
 </div>
 </div>
 <div class="quarto-auto-generated-content">
