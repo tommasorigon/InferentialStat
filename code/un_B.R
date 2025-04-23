@@ -17,18 +17,20 @@ dataset <- filter(dataset, date >= "2025-04-14 00:00:00")
 #  labs(x = "Date", y = "Wind Speed (m/s)") +
 #  theme_bw()
 
+print(subset(dataset, select = c(date, wind_dir, `Wind speed`))[1:10, ])
+
 ggplot(data = dataset, aes(x = date, y = wind_dir, col = `Wind speed`)) +
   geom_line() +
   labs(x = "Date", y = "Wind direction (degrees)") +
   theme_bw()
 
-ggplot(data = dataset, aes(x = sin(wind_dir / 360 * 2 * pi), y = cos(wind_dir / 360 * 2 * pi))) +
-  geom_point() +
-  xlim(c(-1, 1)) +
-  ylim(c(-1, 1)) +
-  labs(x = "Easting", y = "Northing") +
-  theme_bw() +
-  coord_fixed(ratio = 1)
+clifro::windrose(speed = dataset$`Wind speed`, direction = dataset$wind_dir)
+# ggplot(data = dataset, aes(x = sin(wind_dir / 360 * 2 * pi), y = cos(wind_dir / 360 * 2 * pi))) +
+#   geom_point() +
+#   xlim(c(-1, 1)) +
+#   ylim(c(-1, 1)) +
+#   labs(x = "Easting", y = "Northing") +
+#   theme_bw() + coord_fixed(ratio = 1)
 
 y <- dataset$wind_dir / 360 * 2 * pi
 s1 <- sum(sin(y))
@@ -41,7 +43,7 @@ tau <- circular::A1inv(mean(cos(y - gamma)))
 theta1 <- tau * sin(gamma)
 theta2 <- tau * cos(gamma)
 
-library(circular)
+# library(circular)
 dvonmises <- function(x, gamma, tau) {
   1 / (2 * pi * circular::A1(tau)) * exp(tau * cos(x - gamma))
 }

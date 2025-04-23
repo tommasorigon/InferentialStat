@@ -766,28 +766,34 @@ The dataset is available [here](../data/Stazione_SanGiorgio.csv). The original s
 ## Example: wind direction in Venice II
 
 ```{r}
+#| fig-width: 6
+#| fig-height: 4
+#| fig-align: center
 ggplot(data = dataset, aes(x = date, y = wind_dir, col = `Wind speed`)) +
   geom_line() +
   labs(x = "Date", y = "Wind direction (degrees)") +
   theme_bw()
 ```
 
-- This is a somewhat [misleading]{.orange} graphical representation of [wind directions]{.blue} evolving over time. Indeed, the "spykes" are not real, as the data point 1 and 359 are, in fact, extremely similar directions.
+- This is a somewhat [misleading]{.orange} graphical representation of [wind directions]{.blue} evolving over time. Indeed, the "spykes" are not real: the angles 1 and 359 are, in fact, very close.
 
 ## Example: wind direction in Venice III
 
 ```{r}
-ggplot(data = dataset, aes(x = sin(wind_dir / 360 * 2 * pi), y = cos(wind_dir / 360 * 2 * pi))) +
-  geom_point() +
-  xlim(c(-1, 1)) +
-  ylim(c(-1, 1)) +
-  labs(x = "Easting", y = "Northing") +
-  theme_bw() + coord_fixed(ratio = 1)
+clifro::windrose(speed = dataset$`Wind speed`, direction = dataset$wind_dir, n_directions = 20)
+# ggplot(data = dataset, aes(x = sin(wind_dir / 360 * 2 * pi), y = cos(wind_dir / 360 * 2 * pi))) +
+#   geom_point() +
+#   xlim(c(-1, 1)) +
+#   ylim(c(-1, 1)) +
+#   labs(x = "Easting", y = "Northing") +
+#   theme_bw() + coord_fixed(ratio = 1)
 ```
 
-- A better graphical representation, using cartesian coordinates.
+- A better graphical representation of [wind directions]{.blue} and [wind speed]{.orange}, using cartesian coordinates.
 
 ## Marginal and conditional distributions
+
+
 
 # Inference
 
