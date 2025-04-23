@@ -141,7 +141,8 @@ window.Quarto = {
   <li><a href="#example-multinomial-distribution-i" id="toc-example-multinomial-distribution-i" class="nav-link" data-scroll-target="#example-multinomial-distribution-i">Example: multinomial distribution I 📖</a></li>
   <li><a href="#example-multinomial-distribution-ii" id="toc-example-multinomial-distribution-ii" class="nav-link" data-scroll-target="#example-multinomial-distribution-ii">Example: multinomial distribution II 📖</a></li>
   <li><a href="#mean-value-mapping-and-other-properties" id="toc-mean-value-mapping-and-other-properties" class="nav-link" data-scroll-target="#mean-value-mapping-and-other-properties">Mean value mapping and other properties</a></li>
-  <li><a href="#a-general-definition-of-exponential-families" id="toc-a-general-definition-of-exponential-families" class="nav-link" data-scroll-target="#a-general-definition-of-exponential-families">A general definition of exponential families</a></li>
+  <li><a href="#a-general-definition-of-exponential-families-i-1" id="toc-a-general-definition-of-exponential-families-i-1" class="nav-link" data-scroll-target="#a-general-definition-of-exponential-families-i-1">A general definition of exponential families I</a></li>
+  <li><a href="#a-general-definition-of-exponential-families-ii-1" id="toc-a-general-definition-of-exponential-families-ii-1" class="nav-link" data-scroll-target="#a-general-definition-of-exponential-families-ii-1">A general definition of exponential families II</a></li>
   <li><a href="#example-gamma-distribution" id="toc-example-gamma-distribution" class="nav-link" data-scroll-target="#example-gamma-distribution">Example: gamma distribution</a></li>
   <li><a href="#example-von-mises-distribution" id="toc-example-von-mises-distribution" class="nav-link" data-scroll-target="#example-von-mises-distribution">Example: von Mises distribution</a></li>
   <li><a href="#wind-direction-in-venice-i" id="toc-wind-direction-in-venice-i" class="nav-link" data-scroll-target="#wind-direction-in-venice-i">Wind direction in Venice I</a></li>
@@ -712,9 +713,9 @@ G(\psi) = \int_\mathcal{Y} h(y) \exp\{\theta(\psi) s(y)\} \nu(\mathrm{d}y).
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>Suppose <span class="math inline">f(y; \psi) \in \mathcal{F}_\text{e}^1</span> and <span class="blue"><span class="math inline">s(y) = y</span></span>, so that <span class="math inline">f(y; \psi) = h(y)\exp\{\theta(\psi) y - G(\psi)\}</span>. Then, the function <span class="math inline">\theta(\psi)</span> must be a <span class="blue">one-to-one</span> mapping, that is, a <span class="orange">reparametrization</span>. Otherwise, the model would <span class="orange">not</span> be <span class="orange">identifiable</span>. Hence, we can write: <span class="math display">
-f(y; \psi) = f_0(y)\exp\{\theta(\psi) y - K(\theta(\psi))\},
-</span> for some density <span class="math inline">f_0(y)</span> and function <span class="math inline">K(\cdot)</span>. Thus, the family <span class="math inline">\mathcal{F}_\text{e}^1</span> is a reparametrization of an <span class="math inline">\mathcal{F}_\text{en}^1</span>.</p>
+<p>Suppose <span class="math inline">f(y; \psi) \in \mathcal{F}_\text{e}^1</span>. Then, the function <span class="math inline">\theta(\psi)</span> must be a <span class="blue">one-to-one</span> mapping, that is, a <span class="orange">reparametrization</span>, otherwise, the model would <span class="orange">not</span> be <span class="orange">identifiable</span>. Hence, we can write: <span class="math display">
+f(y; \psi) = h(y)\exp\{\theta(\psi) s(y) - K(\theta(\psi))\},
+</span> for some function <span class="math inline">K(\cdot)</span> such that <span class="math inline">G(\psi) = K(\theta(\psi))</span>.</p>
 </div>
 </div>
 </div>
@@ -723,12 +724,12 @@ f(y; \psi) = f_0(y)\exp\{\theta(\psi) y - K(\theta(\psi))\},
 <h2 class="anchored" data-anchor-id="a-general-definition-of-exponential-families-ii">A general definition of exponential families II</h2>
 <ul>
 <li><p>When <span class="math inline">s(y)</span> is an arbitrary function of <span class="math inline">y</span>, then <span class="math inline">\mathcal{F}_\text{e}^1</span> is <span class="blue">broader</span> than <span class="math inline">\mathcal{F}_\text{en}^1</span>.</p></li>
-<li><p>Without loss of generality, we can focus on the case <span class="math inline">\theta(\psi) = \psi</span> and with <span class="math inline">G(\psi) = K(\psi)</span>, so that the family can be written as <span class="math display">
-f(y; \psi) = h(y)\exp\{\psi s(y) - K(\psi)\},
+<li><p>Without loss of generality, we can focus on the natural parametrization <span class="math inline">\theta \in \Theta</span>, meaning that <span class="math inline">f(y;\theta) \in \mathcal{F}_\text{e}^1</span> can be written as <span class="math display">
+f(y; \theta) = h(y)\exp\{\theta s(y) - K(\theta)\},
 </span> because the general case would be a <span class="orange">reparametrization</span> of this one.</p></li>
-<li><p>Let <span class="math inline">Y \sim f(y; \psi)</span>, with <span class="math inline">f(y; \psi) \in \mathcal{F}_\text{e}^1</span>. Then, the random variable <span class="math inline">S = s(Y)</span> has density <span class="math display">
-f_S(s; \psi) = f_0(s)\exp\{\psi s - K(\psi)\},
-</span> for some baseline density <span class="math inline">f_0(y)</span>, namely <span class="math inline">f_S(s; \psi) \in \mathcal{F}_\text{en}^1</span>. If in addition <span class="math inline">s(y)</span> is a <span class="orange">one-to-one</span> invertible mapping, this means <span class="math inline">Y = s^{-1}(S)</span> is just a transformation of a <span class="math inline">\mathcal{F}_\text{en}^1</span>.</p></li>
+<li><p>Let <span class="math inline">Y \sim f(y; \theta)</span>, with <span class="math inline">f(y; \theta) \in \mathcal{F}_\text{e}^1</span>. Then, the random variable <span class="math inline">S = s(Y)</span> has density <span class="math display">
+f_S(s; \psi) = f_0(s)\exp\{\theta s - K(\theta)\},
+</span> for some baseline density <span class="math inline">f_0(s)</span>, namely <span class="math inline">f_S(s; \psi) \in \mathcal{F}_\text{en}^1</span>. If in addition <span class="math inline">s(y)</span> is a <span class="orange">one-to-one</span> invertible mapping, this means <span class="math inline">Y = s^{-1}(S)</span> is just a transformation of a <span class="math inline">\mathcal{F}_\text{en}^1</span>.</p></li>
 </ul>
 <div class="callout callout-style-simple callout-tip no-icon">
 <div class="callout-body d-flex">
@@ -736,7 +737,7 @@ f_S(s; \psi) = f_0(s)\exp\{\psi s - K(\psi)\},
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>The exponential family <span class="math inline">\mathcal{F}_\text{e}^1</span> is, technically, a broader definition, but in practice it leads to a <span class="orange">reparametrization</span> of a natural exponential family <span class="math inline">\mathcal{F}_\text{en}^1</span> in a <span class="blue">transformed space</span> <span class="math inline">s(Y)</span>.</p>
+<p>A full exponential family <span class="math inline">\mathcal{F}_\text{e}^1</span> is, technically, a broader definition, but in practice it leads to a <span class="orange">reparametrization</span> of a natural exponential family <span class="math inline">\mathcal{F}_\text{en}^1</span> in a <span class="blue">transformed space</span> <span class="math inline">s(Y)</span>.</p>
 </div>
 </div>
 </div>
@@ -842,8 +843,37 @@ Theorem (<span class="citation" data-cites="Pace1997">Pace and Salvan (<a href="
 </div>
 </div>
 </section>
-<section id="a-general-definition-of-exponential-families" class="level2">
-<h2 class="anchored" data-anchor-id="a-general-definition-of-exponential-families">A general definition of exponential families</h2>
+<section id="a-general-definition-of-exponential-families-i-1" class="level2">
+<h2 class="anchored" data-anchor-id="a-general-definition-of-exponential-families-i-1">A general definition of exponential families I</h2>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Let <span class="math inline">h(y) &gt; 0</span>, <span class="math inline">s_1(y),\dots,s_p(y)</span>, be real-valued functions not depending on <span class="math inline">\psi</span> and let <span class="math inline">\theta(\psi), G(\psi)</span> be real-valued functions not depending on <span class="math inline">y</span>. The parametric family <span class="math display">
+\mathcal{F}_{\text{e}}^p = \left\{f(y;\psi) = h(y)\exp\{\theta(\psi) s(y) - G(\psi)\}, \quad y \in \mathcal{Y}\subseteq \mathbb{R}, \: \psi \in \Psi \right\},
+</span> is called a <span class="orange">exponential family</span> of order one, where the normalizing constant is <span class="math display">
+G(\psi) = \int_\mathcal{Y} h(y) \exp\{\theta(\psi) s(y)\} \nu(\mathrm{d}y).
+</span> The family is <span class="blue">full</span> if the parameter space <span class="math inline">\Psi</span> is the widest possible <span class="math inline">\tilde{\Psi} = \{\psi \subseteq\mathbb{R}: G(\psi) &lt; \infty\}</span>.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="a-general-definition-of-exponential-families-ii-1" class="level2">
+<h2 class="anchored" data-anchor-id="a-general-definition-of-exponential-families-ii-1">A general definition of exponential families II</h2>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Suppose <span class="math inline">f(y; \psi) \in \mathcal{F}_\text{e}^1</span> and <span class="blue"><span class="math inline">s(y) = y</span></span>, so that <span class="math inline">f(y; \psi) = h(y)\exp\{\theta(\psi) y - G(\psi)\}</span>. Then, the function <span class="math inline">\theta(\psi)</span> must be a <span class="blue">one-to-one</span> mapping, that is, a <span class="orange">reparametrization</span>. Otherwise, the model would <span class="orange">not</span> be <span class="orange">identifiable</span>. Hence, we can write: <span class="math display">
+f(y; \psi) = f_0(y)\exp\{\theta(\psi) y - K(\theta(\psi))\},
+</span> for some density <span class="math inline">f_0(y)</span> and function <span class="math inline">K(\cdot)</span>. Thus, the family <span class="math inline">\mathcal{F}_\text{e}^1</span> is a reparametrization of an <span class="math inline">\mathcal{F}_\text{en}^1</span>.</p>
+</div>
+</div>
+</div>
 </section>
 <section id="example-gamma-distribution" class="level2">
 <h2 class="anchored" data-anchor-id="example-gamma-distribution">Example: gamma distribution</h2>

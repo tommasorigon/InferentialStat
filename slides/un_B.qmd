@@ -464,31 +464,31 @@ The family is [full]{.blue} if the parameter space $\Psi$ is the widest possible
 :::
 
 :::callout-tip
-Suppose $f(y; \psi) \in \mathcal{F}_\text{e}^1$ and [$s(y) = y$]{.blue}, so that   $f(y; \psi) = h(y)\exp\{\theta(\psi) y - G(\psi)\}$. Then, the function $\theta(\psi)$ must be a [one-to-one]{.blue} mapping, that is, a [reparametrization]{.orange}. Otherwise, the model would [not]{.orange} be [identifiable]{.orange}. Hence, we can write:
+Suppose $f(y; \psi) \in \mathcal{F}_\text{e}^1$. Then, the function $\theta(\psi)$ must be a [one-to-one]{.blue} mapping, that is, a [reparametrization]{.orange}, otherwise, the model would [not]{.orange} be [identifiable]{.orange}. Hence, we can write:
 $$
-f(y; \psi) = f_0(y)\exp\{\theta(\psi) y - K(\theta(\psi))\},
+f(y; \psi) = h(y)\exp\{\theta(\psi) s(y) - K(\theta(\psi))\},
 $$
-for some density $f_0(y)$ and function $K(\cdot)$. Thus, the family $\mathcal{F}_\text{e}^1$ is a reparametrization of an $\mathcal{F}_\text{en}^1$.
+for some function $K(\cdot)$ such that $G(\psi) = K(\theta(\psi))$. 
 :::
 
 ## A general definition of exponential families II
 
 - When $s(y)$ is an arbitrary function of $y$, then $\mathcal{F}_\text{e}^1$ is [broader]{.blue} than $\mathcal{F}_\text{en}^1$. 
 
-- Without loss of generality, we can focus on the case $\theta(\psi) = \psi$ and with $G(\psi) = K(\psi)$, so that the family can be written as
+- Without loss of generality, we can focus on the natural parametrization $\theta \in \Theta$, meaning that $f(y;\theta) \in \mathcal{F}_\text{e}^1$ can be written as
 $$
-f(y; \psi) = h(y)\exp\{\psi s(y) - K(\psi)\},
+f(y; \theta) = h(y)\exp\{\theta s(y) - K(\theta)\},
 $$
 because the general case would be a [reparametrization]{.orange} of this one.
 
-- Let $Y \sim f(y; \psi)$, with $f(y; \psi) \in \mathcal{F}_\text{e}^1$. Then, the random variable $S = s(Y)$ has density
+- Let $Y \sim f(y; \theta)$, with $f(y; \theta) \in \mathcal{F}_\text{e}^1$. Then, the random variable $S = s(Y)$ has density
 $$
-f_S(s; \psi) = f_0(s)\exp\{\psi s - K(\psi)\},
+f_S(s; \psi) = f_0(s)\exp\{\theta s - K(\theta)\},
 $$
-for some baseline density $f_0(y)$, namely $f_S(s; \psi) \in \mathcal{F}_\text{en}^1$. If in addition $s(y)$ is a [one-to-one]{.orange} invertible mapping, this means $Y = s^{-1}(S)$ is just a transformation of a $\mathcal{F}_\text{en}^1$.
+for some baseline density $f_0(s)$, namely $f_S(s; \psi) \in \mathcal{F}_\text{en}^1$. If in addition $s(y)$ is a [one-to-one]{.orange} invertible mapping, this means $Y = s^{-1}(S)$ is just a transformation of a $\mathcal{F}_\text{en}^1$.
 
 :::callout-tip
-The exponential family $\mathcal{F}_\text{e}^1$ is, technically, a broader definition, but in practice it leads to a [reparametrization]{.orange} of a natural exponential family $\mathcal{F}_\text{en}^1$ in a [transformed space]{.blue} $s(Y)$. 
+A full exponential family $\mathcal{F}_\text{e}^1$ is, technically, a broader definition, but in practice it leads to a [reparametrization]{.orange} of a natural exponential family $\mathcal{F}_\text{en}^1$ in a [transformed space]{.blue} $s(Y)$. 
 :::
 
 ## Independent sampling
@@ -597,7 +597,30 @@ If $\mathcal{F}_\text{en}^p$ is regular, then  $\mathcal{M} = \text{int}\:C.$
 :::
 
 
-## A general definition of exponential families
+## A general definition of exponential families I
+
+:::callout-note
+Let $h(y) > 0$, $s_1(y),\dots,s_p(y)$, be real-valued functions not depending on $\psi$ and let $\theta(\psi), G(\psi)$ be real-valued functions not depending on $y$. The parametric family
+$$
+\mathcal{F}_{\text{e}}^p = \left\{f(y;\psi) = h(y)\exp\{\theta(\psi) s(y) - G(\psi)\}, \quad y \in \mathcal{Y}\subseteq \mathbb{R}, \: \psi \in \Psi \right\},
+$$
+is called a [exponential family]{.orange} of order one, where the normalizing constant is
+$$
+G(\psi) = \int_\mathcal{Y} h(y) \exp\{\theta(\psi) s(y)\} \nu(\mathrm{d}y).
+$$
+The family is [full]{.blue} if the parameter space $\Psi$ is the widest possible $\tilde{\Psi} = \{\psi \subseteq\mathbb{R}: G(\psi) < \infty\}$. 
+:::
+
+## A general definition of exponential families II
+
+:::callout-tip
+Suppose $f(y; \psi) \in \mathcal{F}_\text{e}^1$ and [$s(y) = y$]{.blue}, so that   $f(y; \psi) = h(y)\exp\{\theta(\psi) y - G(\psi)\}$. Then, the function $\theta(\psi)$ must be a [one-to-one]{.blue} mapping, that is, a [reparametrization]{.orange}. Otherwise, the model would [not]{.orange} be [identifiable]{.orange}. Hence, we can write:
+$$
+f(y; \psi) = f_0(y)\exp\{\theta(\psi) y - K(\theta(\psi))\},
+$$
+for some density $f_0(y)$ and function $K(\cdot)$. Thus, the family $\mathcal{F}_\text{e}^1$ is a reparametrization of an $\mathcal{F}_\text{en}^1$.
+:::
+
 
 ## Example: gamma distribution
 
