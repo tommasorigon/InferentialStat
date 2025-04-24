@@ -466,49 +466,49 @@ The family is [full]{.blue} if the parameter space $\Psi$ is the widest possible
 :::callout-tip
 Suppose $f(y; \psi) \in \mathcal{F}_\text{e}^1$. Then, the function $\theta(\psi)$ must be a [one-to-one]{.blue} mapping, that is, a [reparametrization]{.orange}, otherwise, the model would [not]{.orange} be [identifiable]{.orange}. Hence, we can write:
 $$
-f(y; \psi) = h(y)\exp\{\theta(\psi) s(y) - K(\theta(\psi))\},
+f(y; \psi) = h(y)\exp\{\theta(\psi) s(y) - \tilde{G}(\theta(\psi))\},
 $$
-for some function $K(\cdot)$ such that $G(\psi) = K(\theta(\psi))$. 
+for some function $\tilde{G}(\cdot)$ such that $G(\psi) = \tilde{G}(\theta(\psi))$. 
 :::
 
 ## A general definition of exponential families II
 
 - When $s(y)$ is an arbitrary function of $y$, then $\mathcal{F}_\text{e}^1$ is [broader]{.blue} than $\mathcal{F}_\text{en}^1$. 
 
-- Without loss of generality, we can focus on the natural parametrization $\theta \in \Theta$, meaning that $f(y;\theta) \in \mathcal{F}_\text{e}^1$ can be written as
+- Without loss of generality, we can focus on the natural parametrization $\theta \in \Theta$ and a density baseline $h(y) = f_0(y)$, meaning that $f(y;\theta) \in \mathcal{F}_\text{e}^1$ can be written as
 $$
-f(y; \theta) = h(y)\exp\{\theta s(y) - K(\theta)\},
+f(y; \theta) = f_0(y)\exp\{\theta s(y) - K(\theta)\},
 $$
 because the general case would be a [reparametrization]{.orange} of this one.
 
 - Let $Y \sim f(y; \theta)$, with $f(y; \theta) \in \mathcal{F}_\text{e}^1$. Then, the random variable $S = s(Y)$ has density
 $$
-f_S(s; \psi) = f_0(s)\exp\{\theta s - K(\theta)\},
+f_S(s; \psi) = \tilde{f}_0(s)\exp\{\theta s - K(\theta)\},
 $$
-for some baseline density $f_0(s)$, namely $f_S(s; \psi) \in \mathcal{F}_\text{en}^1$. If in addition $s(y)$ is a [one-to-one]{.orange} invertible mapping, this means $Y = s^{-1}(S)$ is just a transformation of an $\mathcal{F}_\text{en}^1$.
+for some baseline density $\tilde{f}_0(s)$, namely $f_S(s; \psi) \in \mathcal{F}_\text{en}^1$. If in addition $s(y)$ is a [one-to-one]{.orange} invertible mapping, this means $Y = s^{-1}(S)$ is just a transformation of an $\mathcal{F}_\text{en}^1$.
 
 :::callout-tip
 A full exponential family $\mathcal{F}_\text{e}^1$ is, technically, a broader definition, but in practice it leads to a [reparametrization]{.orange} of a natural exponential family $\mathcal{F}_\text{en}^1$ in a [transformed space]{.blue} $s(Y)$. 
 :::
 
-## Independent sampling
+<!-- ## Independent sampling -->
 
-- Let $Y_1,\dots,Y_n$ be iid random variables with density $f(y; \theta)$, where $f(y; \theta) \in \mathcal{F}_\text{e}^1$ is a full exponential family. Without loss of generality, assume the density can be written as
-$$
-f(y; \theta) = h(y)\exp\{\theta s(y) - G(\theta)\}, \qquad \theta \in \tilde{\Theta}.
-$$
+<!-- - Let $Y_1,\dots,Y_n$ be iid random variables with density $f(y; \theta)$, where $f(y; \theta) \in \mathcal{F}_\text{e}^1$ is a full exponential family. Without loss of generality, assume the density can be written as -->
+<!-- $$ -->
+<!-- f(y; \theta) = h(y)\exp\{\theta s(y) - G(\theta)\}, \qquad \theta \in \tilde{\Theta}. -->
+<!-- $$ -->
 
-- The [likelihood]{.blue} function is
-$$
-L(\theta; \bm{y}) = \prod_{i=1}^n \exp\left\{\theta s(y_i) - G(\theta)\right\} = \exp\left\{\theta \sum_{i=1}^n s(y_i) - n G(\theta)\right\},
-$$
-from which we see that $s = \sum_{i=1}^n s(y_i)$ is the [minimal sufficient statistic]{.orange} for $\theta$.
+<!-- - The [likelihood]{.blue} function is -->
+<!-- $$ -->
+<!-- L(\theta; \bm{y}) = \prod_{i=1}^n \exp\left\{\theta s(y_i) - G(\theta)\right\} = \exp\left\{\theta \sum_{i=1}^n s(y_i) - n G(\theta)\right\}, -->
+<!-- $$ -->
+<!-- from which we see that $s = \sum_{i=1}^n s(y_i)$ is the [minimal sufficient statistic]{.orange} for $\theta$. -->
 
-- Inference can therefore be based on the random variable $S = \sum_{i=1}^n s(Y_i)$, whose distribution is
-$$
-f_S(s; \theta) = f_0(s)\exp\{\theta s - K(\theta)\},
-$$
-with $K(\theta) = n G(\theta)$ and for some density $f_0(s)$. That is, the distribution of the minimal sufficient statistic $f_S(s; \theta)$ is itself a [natural exponential family]{.blue} of order one.
+<!-- - Inference can therefore be based on the random variable $S = \sum_{i=1}^n s(Y_i)$, whose distribution is -->
+<!-- $$ -->
+<!-- f_S(s; \theta) = \tilde{f}_0(s)\exp\{\theta s - K(\theta)\}, -->
+<!-- $$ -->
+<!-- with $K(\theta) = n G(\theta)$ and for some density $\tilde{f}_0(s)$. That is, the distribution of the minimal sufficient statistic $f_S(s; \theta)$ is itself a [natural exponential family]{.blue} of order one. -->
 
 # Multiparameter exponential families
 
@@ -710,17 +710,17 @@ The notation $\mathcal{F}_\text{e}^p$ is understood to indicate a [minimal repre
 
 - We refer to @Efron2023, Chapter 4 for a detailed discussion on curved exponential families. From now on, we will focus on the $p = q$ case. 
 
-- Without loss of generality, we can focus on the [natural parametrization]{.blue} $\theta \in \Theta \subseteq \mathbb{R}^p$, meaning that $f(y;\theta) \in \mathcal{F}_\text{e}^p$ can be written as
+- Without loss of generality, we can focus on the [natural parametrization]{.blue} $\theta \in \Theta \subseteq \mathbb{R}^p$ and density baseline $h(y) = f_0(y)$, meaning that $f(y;\theta) \in \mathcal{F}_\text{e}^p$ can be written as
 $$
-f(y; \theta) = h(y)\exp\{\theta^T s(y) - K(\theta)\},
+f(y; \theta) = f_0(y)\exp\{\theta^T s(y) - K(\theta)\},
 $$
 because the general case would be a [reparametrization]{.orange} of this one.
 
 - Let $Y \sim f(y; \theta)$, with $f(y; \theta) \in \mathcal{F}_\text{e}^p$. Then, the [random vector]{.blue} $S = s(Y) = (s_1(Y),\dots,s_p(Y))$ has density
 $$
-f_S(s; \psi) = f_0(s)\exp\{\theta s - K(\theta)\},
+f_S(s; \psi) = \tilde{f}_0(s)\exp\{\theta s - K(\theta)\},
 $$
-for some baseline density $f_0(s)$, namely $f_S(s; \psi) \in \mathcal{F}_\text{en}^p$. If in addition $s(y)$ is a [one-to-one]{.orange} invertible mapping, this means $Y = s^{-1}(S)$ is just a transformation of an $\mathcal{F}_\text{en}^p$.
+for some baseline density $\tilde{f}_0(s)$, namely $f_S(s; \psi) \in \mathcal{F}_\text{en}^p$. If in addition $s(y)$ is a [one-to-one]{.orange} invertible mapping, this means $Y = s^{-1}(S)$ is just a transformation of an $\mathcal{F}_\text{en}^p$.
 
 :::callout-tip
 As in the single parameter case, a full exponential family $\mathcal{F}_\text{e}^p$ with $p = q$ in practice it leads to a [reparametrization]{.orange} of a natural exponential family $\mathcal{F}_\text{en}^p$ in a [transformed space]{.blue} $s(Y)$. 
@@ -842,12 +842,30 @@ clifro::windrose(speed = dataset$`Wind speed`, direction = dataset$wind_dir, n_d
 
 - A better graphical representation of [wind directions]{.blue} and [wind speed]{.orange}, using cartesian coordinates. From this windrose, it is clear the winds were coming mostly from the East. 
 
-
 # Inference
 
 ## Independent sampling
 
+- Let $Y_1,\dots,Y_n$ be iid random vectors with density $f(y; \theta)$, where $f(y; \theta) \in \mathcal{F}_\text{e}^p$, with $f(y; \theta) = h(y)\exp\{\theta^T s(y) - G(\theta)\}$. The [likelihood]{.blue} function is
+$$
+L(\theta; \bm{y}) = \prod_{i=1}^n \exp\left\{\theta^T s(y_i) - G(\theta)\right\} = \exp\left\{\theta^T \sum_{i=1}^n s(y_i) - n G(\theta)\right\},
+$$
+from which we see that $s = \sum_{i=1}^ns(y_i) =(\sum_{i=1}^n s_1(y_i),\dots,\sum_{i=1}^n s_p(y_i))$ is the [minimal sufficient statistic]{.orange} as long as $n \ge p$, which has [fixed dimension]{.blue} $p$ whatever the sample size. 
+
+- Inference can therefore be based on the random vector $S = \sum_{i=1}^n s(Y_i)$, whose distribution is
+$$
+f_S(s; \theta) = \tilde{f}_0(s)\exp\{\theta^T s - K(\theta)\},
+$$
+with $K(\theta) = n G(\theta)$ and for some density $\tilde{f}_0(s)$. In other words $f_S(s; \theta) \in  \mathcal{F}_\text{en}^p$.
+
+:::callout-warning
+#### Theorem (@Pace1997, Theorem 5.7)
+A sufficient statistic $S$ with distribution $\mathcal{F}_\text{en}^p$ is [complete]{.blue}, provided that $\text{int}\:\tilde{\Theta} \neq \emptyset$.  
+:::
+
 ## Sufficiency and completeness
+
+- 
 
 ## Likelihood quantities
 
