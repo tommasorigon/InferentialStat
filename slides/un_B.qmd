@@ -805,11 +805,6 @@ dataset <- dataset %>%
 
 # Filtering a bunch of them
 dataset <- filter(dataset, date >= "2025-04-14 00:00:00")
-
-# ggplot(data = dataset, aes(x = date, y = `Wind speed`)) +
-#  geom_line() +
-#  labs(x = "Date", y = "Wind Speed (m/s)") +
-#  theme_bw()
 ```
 
 - The von Mises distribution is sometimes regarded as the "Gaussian distribution for [circular data]{.blue}". To provide a concrete example, let us consider the [wind directions]{.orange} measured from the [San Giorgio metereological station](https://www.comune.venezia.it/it/content/17-san-giorgio), in Venice. 
@@ -843,18 +838,26 @@ ggplot(data = dataset, aes(x = date, y = wind_dir, col = `Wind speed`)) +
 
 ```{r}
 clifro::windrose(speed = dataset$`Wind speed`, direction = dataset$wind_dir, n_directions = 20)
-# ggplot(data = dataset, aes(x = sin(wind_dir / 360 * 2 * pi), y = cos(wind_dir / 360 * 2 * pi))) +
-#   geom_point() +
-#   xlim(c(-1, 1)) +
-#   ylim(c(-1, 1)) +
-#   labs(x = "Easting", y = "Northing") +
-#   theme_bw() + coord_fixed(ratio = 1)
 ```
 
 - A better graphical representation of [wind directions]{.blue} and [wind speed]{.orange}, using cartesian coordinates. From this windrose, it is clear the winds were coming mostly from the East. 
 
 
 # Inference
+
+## Independent sampling
+
+## Sufficiency and completeness
+
+## Likelihood quantities
+
+## Optimality properties of point estimates
+
+## Maximum likelihood estimation
+
+## Asymptotic theory
+
+## Firth corrections
 
 ## Example: wind direction in Venice IV
 
