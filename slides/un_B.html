@@ -156,7 +156,7 @@ window.Quarto = {
   </ul></li>
   <li><a href="#inference" id="toc-inference" class="nav-link" data-scroll-target="#inference">Inference</a>
   <ul class="collapse">
-  <li><a href="#independent-sampling" id="toc-independent-sampling" class="nav-link" data-scroll-target="#independent-sampling">Independent sampling</a></li>
+  <li><a href="#independent-sampling-sufficiency-and-completeness" id="toc-independent-sampling-sufficiency-and-completeness" class="nav-link" data-scroll-target="#independent-sampling-sufficiency-and-completeness">Independent sampling, sufficiency and completeness</a></li>
   <li><a href="#sufficiency-and-completeness" id="toc-sufficiency-and-completeness" class="nav-link" data-scroll-target="#sufficiency-and-completeness">Sufficiency and completeness</a></li>
   <li><a href="#likelihood-quantities" id="toc-likelihood-quantities" class="nav-link" data-scroll-target="#likelihood-quantities">Likelihood quantities</a></li>
   <li><a href="#optimality-properties-of-point-estimates" id="toc-optimality-properties-of-point-estimates" class="nav-link" data-scroll-target="#optimality-properties-of-point-estimates">Optimality properties of point estimates</a></li>
@@ -756,7 +756,7 @@ f_S(s; \psi) = \tilde{f}_0(s)\exp\{\theta s - K(\theta)\},
 </div>
 </div>
 <!-- ## Independent sampling -->
-<!-- - Let $Y_1,\dots,Y_n$ be iid random variables with density $f(y; \theta)$, where $f(y; \theta) \in \mathcal{F}_\text{e}^1$ is a full exponential family. Without loss of generality, assume the density can be written as -->
+<!-- - Let $Y_1,\dots,Y_n$ be iid random variables with density $f(y; \theta)$, where $f(y; \theta) \in \mathcal{F}_\text{e}^1$ is a full exponential family. , assume the density can be written as -->
 <!-- $$ -->
 <!-- f(y; \theta) = h(y)\exp\{\theta s(y) - G(\theta)\}, \qquad \theta \in \tilde{\Theta}. -->
 <!-- $$ -->
@@ -1125,15 +1125,15 @@ f_S(s; \theta) = \frac{1}{2\pi}\exp\{\theta^Ts - \log\mathcal{I}_0(||\theta||_2)
 </section>
 <section id="inference" class="level1">
 <h1>Inference</h1>
-<section id="independent-sampling" class="level2">
-<h2 class="anchored" data-anchor-id="independent-sampling">Independent sampling</h2>
+<section id="independent-sampling-sufficiency-and-completeness" class="level2">
+<h2 class="anchored" data-anchor-id="independent-sampling-sufficiency-and-completeness">Independent sampling, sufficiency and completeness</h2>
 <ul>
-<li><p>Let <span class="math inline">Y_1,\dots,Y_n</span> be iid random vectors with density <span class="math inline">f(y; \theta)</span>, where <span class="math inline">f(y; \theta) \in \mathcal{F}_\text{e}^p</span>, with <span class="math inline">f(y; \theta) = h(y)\exp\{\theta^T s(y) - G(\theta)\}</span>. The <span class="blue">likelihood</span> function is <span class="math display">
-L(\theta; \bm{y}) = \prod_{i=1}^n \exp\left\{\theta^T s(y_i) - G(\theta)\right\} = \exp\left\{\theta^T \sum_{i=1}^n s(y_i) - n G(\theta)\right\},
+<li><p>Let <span class="math inline">Y_1,\dots,Y_n</span> be iid random vectors with density <span class="math inline">f(y; \theta)</span>, where <span class="math inline">f(y; \theta) \in \mathcal{F}_\text{e}^p</span> and, without loss of generality, we let <span class="math inline">f(y; \theta) = f_0(y)\exp\{\theta^T s(y) - K(\theta)\}</span>. The <span class="blue">likelihood</span> function is <span class="math display">
+L(\theta; \bm{y}) = \prod_{i=1}^n \exp\left\{\theta^T s(y_i) - K(\theta)\right\} = \exp\left\{\theta^T \sum_{i=1}^n s(y_i) - n K(\theta)\right\},
 </span> from which we see that <span class="math inline">s = \sum_{i=1}^ns(y_i) =(\sum_{i=1}^n s_1(y_i),\dots,\sum_{i=1}^n s_p(y_i))</span> is the <span class="orange">minimal sufficient statistic</span> as long as <span class="math inline">n \ge p</span>, which has <span class="blue">fixed dimension</span> <span class="math inline">p</span> whatever the sample size.</p></li>
 <li><p>Inference can therefore be based on the random vector <span class="math inline">S = \sum_{i=1}^n s(Y_i)</span>, whose distribution is <span class="math display">
-f_S(s; \theta) = \tilde{f}_0(s)\exp\{\theta^T s - K(\theta)\},
-</span> with <span class="math inline">K(\theta) = n G(\theta)</span> and for some density <span class="math inline">\tilde{f}_0(s)</span>. In other words <span class="math inline">f_S(s; \theta) \in  \mathcal{F}_\text{en}^p</span>.</p></li>
+f_S(s; \theta) = \tilde{f}_0(s)\exp\{\theta^T s - \tilde{K}(\theta)\},
+</span> with <span class="math inline">\tilde{K}(\theta) = n K(\theta)</span> and for some density <span class="math inline">\tilde{f}_0(s)</span>. In other words <span class="math inline">f_S(s; \theta) \in  \mathcal{F}_\text{en}^p</span>.</p></li>
 </ul>
 <div class="callout callout-style-simple callout-warning no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -1152,8 +1152,26 @@ Theorem (<span class="citation" data-cites="Pace1997">Pace and Salvan (<a href="
 <section id="sufficiency-and-completeness" class="level2">
 <h2 class="anchored" data-anchor-id="sufficiency-and-completeness">Sufficiency and completeness</h2>
 <ul>
-<li></li>
+<li><p>Thus the log-likelihood function, after a reduction via <span class="blue">sufficiency</span>, is <span class="math display">
+\ell(\theta) = \ell(\theta; s) = \theta^Ts - n K(\theta), \qquad \theta \in \tilde{\Theta},
+</span> with <span class="math inline">S = \sum_{i=1}^n s(Y_i)</span> being distributed as a <span class="math inline">\mathcal{F}_\text{en}^p</span> with cumulant generating function <span class="math inline">n K(\theta)</span>.</p></li>
+<li><p>The <span class="blue">completeness</span> of <span class="math inline">S</span> in exponential families is a classical result that enables the usage of Rao-Blackwell-Lehmann-Scheffé theorem for finding the UMVUE.</p></li>
+<li><p>The existence of a minimal sufficient statistic that performs a <span class="orange">non-trivial</span> <span class="blue">dimensionality reduction</span>, from <span class="math inline">n</span> to <span class="math inline">p</span>, is a major simplification.</p></li>
+<li><p>This appears to be a characteristic of exponential families, with the only exception of non-regular cases.</p></li>
 </ul>
+<div class="callout callout-style-simple callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Theorem (Koopman-Pitman, <span class="citation" data-cites="Robert1994">Robert (<a href="#ref-Robert1994" role="doc-biblioref">1994</a>)</span>, Theorem 3.3.3)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If a parametric family whose <span class="orange">support</span> does <span class="orange">not depend</span> on the <span class="orange">parameter</span> is such that there exists a <span class="blue">sufficient statistic</span> of <span class="blue">constant dimension</span>, say <span class="math inline">p</span>, then the family is <span class="math inline">\mathcal{F}_\text{e}^p</span>.</p>
+</div>
+</div>
 </section>
 <section id="likelihood-quantities" class="level2">
 <h2 class="anchored" data-anchor-id="likelihood-quantities">Likelihood quantities</h2>
@@ -1327,6 +1345,9 @@ Nelder, J. A., and Wedderburn, R. W. M. (1972), <span>“<span class="nocase">Ge
 </div>
 <div id="ref-Pace1997" class="csl-entry" role="listitem">
 Pace, L., and Salvan, A. (1997), <em><span class="nocase">Principles of statistical inference from a Neo-Fisherian perspective</span></em>, Advanced series on statistical science and applied probability, World Scientific.
+</div>
+<div id="ref-Robert1994" class="csl-entry" role="listitem">
+Robert, C. P. (1994), <em><span class="nocase">The Bayesian Choice: from decision-theoretic foundations to computational implementation</span></em>, Springer.
 </div>
 </div>
 </section>

@@ -493,7 +493,7 @@ A full exponential family $\mathcal{F}_\text{e}^1$ is, technically, a broader de
 
 <!-- ## Independent sampling -->
 
-<!-- - Let $Y_1,\dots,Y_n$ be iid random variables with density $f(y; \theta)$, where $f(y; \theta) \in \mathcal{F}_\text{e}^1$ is a full exponential family. Without loss of generality, assume the density can be written as -->
+<!-- - Let $Y_1,\dots,Y_n$ be iid random variables with density $f(y; \theta)$, where $f(y; \theta) \in \mathcal{F}_\text{e}^1$ is a full exponential family. , assume the density can be written as -->
 <!-- $$ -->
 <!-- f(y; \theta) = h(y)\exp\{\theta s(y) - G(\theta)\}, \qquad \theta \in \tilde{\Theta}. -->
 <!-- $$ -->
@@ -844,19 +844,19 @@ clifro::windrose(speed = dataset$`Wind speed`, direction = dataset$wind_dir, n_d
 
 # Inference
 
-## Independent sampling
+## Independent sampling, sufficiency and completeness
 
-- Let $Y_1,\dots,Y_n$ be iid random vectors with density $f(y; \theta)$, where $f(y; \theta) \in \mathcal{F}_\text{e}^p$, with $f(y; \theta) = h(y)\exp\{\theta^T s(y) - G(\theta)\}$. The [likelihood]{.blue} function is
+- Let $Y_1,\dots,Y_n$ be iid random vectors with density $f(y; \theta)$, where $f(y; \theta) \in \mathcal{F}_\text{e}^p$ and, without loss of generality, we let $f(y; \theta) = f_0(y)\exp\{\theta^T s(y) - K(\theta)\}$. The [likelihood]{.blue} function is
 $$
-L(\theta; \bm{y}) = \prod_{i=1}^n \exp\left\{\theta^T s(y_i) - G(\theta)\right\} = \exp\left\{\theta^T \sum_{i=1}^n s(y_i) - n G(\theta)\right\},
+L(\theta; \bm{y}) = \prod_{i=1}^n \exp\left\{\theta^T s(y_i) - K(\theta)\right\} = \exp\left\{\theta^T \sum_{i=1}^n s(y_i) - n K(\theta)\right\},
 $$
 from which we see that $s = \sum_{i=1}^ns(y_i) =(\sum_{i=1}^n s_1(y_i),\dots,\sum_{i=1}^n s_p(y_i))$ is the [minimal sufficient statistic]{.orange} as long as $n \ge p$, which has [fixed dimension]{.blue} $p$ whatever the sample size. 
 
 - Inference can therefore be based on the random vector $S = \sum_{i=1}^n s(Y_i)$, whose distribution is
 $$
-f_S(s; \theta) = \tilde{f}_0(s)\exp\{\theta^T s - K(\theta)\},
+f_S(s; \theta) = \tilde{f}_0(s)\exp\{\theta^T s - \tilde{K}(\theta)\},
 $$
-with $K(\theta) = n G(\theta)$ and for some density $\tilde{f}_0(s)$. In other words $f_S(s; \theta) \in  \mathcal{F}_\text{en}^p$.
+with $\tilde{K}(\theta) = n K(\theta)$ and for some density $\tilde{f}_0(s)$. In other words $f_S(s; \theta) \in  \mathcal{F}_\text{en}^p$.
 
 :::callout-warning
 #### Theorem (@Pace1997, Theorem 5.7)
@@ -865,7 +865,23 @@ A sufficient statistic $S$ with distribution $\mathcal{F}_\text{en}^p$ is [compl
 
 ## Sufficiency and completeness
 
-- 
+- Thus the log-likelihood function, after a reduction via [sufficiency]{.blue}, is
+$$
+\ell(\theta) = \ell(\theta; s) = \theta^Ts - n K(\theta), \qquad \theta \in \tilde{\Theta},
+$$
+with $S = \sum_{i=1}^n s(Y_i)$ being distributed as a $\mathcal{F}_\text{en}^p$ with cumulant generating function $n K(\theta)$. 
+
+- The [completeness]{.blue} of $S$ in exponential families is a classical result that enables the usage of Rao-Blackwell-Lehmann-Scheffé theorem for finding the UMVUE.
+
+- The existence of a minimal sufficient statistic that performs a [non-trivial]{.orange} [dimensionality reduction]{.blue}, from $n$ to $p$, is a major simplification.
+
+- This appears to be a characteristic of exponential families, with the only exception of non-regular cases. 
+
+:::callout-warning
+#### Theorem (Koopman-Pitman, @Robert1994, Theorem 3.3.3)
+
+If a parametric family whose [support]{.orange} does [not depend]{.orange} on the [parameter]{.orange} is such that there exists a [sufficient statistic]{.blue} of [constant dimension]{.blue}, say $p$, then the family is $\mathcal{F}_\text{e}^p$.
+:::
 
 ## Likelihood quantities
 
