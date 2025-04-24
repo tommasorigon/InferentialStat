@@ -619,6 +619,68 @@ $$
 If $\mathcal{F}_\text{en}^p$ is regular, then  $\mathcal{M} = \text{int}\:C.$
 :::
 
+## Independence of the components
+
+:::callout-warning
+#### Theorem (@Pace1997, Theorem 5.4)
+
+If the natural observations of an $\mathcal{F}_\text{en}^p$ are [independent]{.blue} for some $\theta_0 \in \tilde{\Theta}$, then this is also true for every $\theta \in \tilde{\Theta}$.
+:::
+
+- This theorem essentially establishes that if the baseline density $f_0(\cdot)$ has independent components, then the exponential tilting preserves independence. 
+
+:::callout-warning
+#### Theorem (@Pace1997, Theorem 5.5)
+
+If, for every for every $\theta \in \tilde{\Theta}$, the natural observations of a [regular]{.blue} $\mathcal{F}_\text{en}^p$ are [uncorrelated]{.blue} then they are also [independent]{.orange}.
+:::
+
+- This generalizes a well-known fact of multivariate Gaussians, which are in fact an $\mathcal{F}_\text{en}^p$.
+
+- In practice, if the hessian matrix of $K(\theta)$ is [diagonal]{.blue}, then the natural observations are [independent]{.orange}. This occurs whenever $K(\theta)$ is [separable]{.orange}.  
+
+## Marginal and conditional distributions
+
+- Consider a $\mathcal{F}_\text{en}^p$ family, so that $f(y; \theta) = f_0(t)\exp\{\theta^T y - K(\theta)\}$. 
+
+- Let $y = (t, u)$ be a [partition]{.blue} of the natural observations $y$, where $t(\cdot)$ has $k$ components and $u$ has $p-k$ components. Let us partition $\theta$ accordingly, so that $\theta = (\tau, \zeta)$ and
+$$
+f(y; \tau, \zeta) = f_0(y)\exp\{\tau^Tt + \zeta^Tu - K(\tau,\zeta)\}, \qquad (\tau,\zeta) \in \tilde{\Theta}.
+$$
+
+:::callout-warning
+#### Theorem (@Pace1997, Theorem 5.6)
+
+<!-- For an $\mathcal{F}_\text{en}^p$ with density factorized as above: -->
+  
+  i. The family of [marginal]{.blue} distributions of $U$ is an $\mathcal{F}_\text{en}^{p-k}$ for every fixed value of $\tau$ and
+  $$
+  f_U(u; \tau, \zeta) = h_\tau(u)\exp\{\zeta^T u - K_\tau(\zeta)\}.
+  $$
+  
+  ii. the family of [conditional]{.orange} distributions of $T$ given $U = u$ is an $\mathcal{F}_\text{en}^k$ and the conditional densities do not depend on $\zeta$, that is
+  $$
+  f_{T\mid U=u}(t; u, \tau) = h_u(t)\exp\{\tau^T t - K_u(\tau)\}, \quad \exp{K_u(\tau)} = \mathbb{E}_0\left(e^{\tau^T T} \mid U = u\right).
+  $$
+:::
+
+## Conditional likelihoods
+
+- The former result on marginal and conditional laws is not just an elegant probabilistic fact. Indeed, it has sensible inferential applications. 
+
+- Often times, we can split the parameter vector $\theta$ into a [parameter of interest]{.blue} $\tau$ and a [nuisance parameter]{.orange} $\zeta$. We are not interested in learning $\zeta$. 
+
+:::callout-tip
+The main idea relies upon noticing that $f_{T\mid U=u}(t; u, \tau) = h_u(t)\exp\{\tau^T t - K_u(\tau)\}$ does not involve $\zeta$ and therefore we could define a [conditional likelihood]{.orange} based on $f_{T\mid U=u}$. 
+:::
+
+- A practical drawback of this approach is that the conditional cumulant generating function $K_u(\tau)$ is not always available in closed form, albeit with notable exceptions.
+
+- The approach is valid, in the sense that a likelihood based on $f_{T\mid U=u}$ is a [genuine likelihood]{.blue}. On the other hand, note that the full likelihood would be based on
+$$
+f(y;\tau, \zeta) = f_U(u; \tau, \zeta) f_{T\mid U=u}(t; u, \tau),
+$$
+and thus conditional likelihood is [discarding information]{.orange}, that is, it is neglecting $f_U(u; \tau, \zeta)$. 
 
 ## A general definition of exponential families I
 
@@ -789,10 +851,7 @@ clifro::windrose(speed = dataset$`Wind speed`, direction = dataset$wind_dir, n_d
 #   theme_bw() + coord_fixed(ratio = 1)
 ```
 
-- A better graphical representation of [wind directions]{.blue} and [wind speed]{.orange}, using cartesian coordinates.
-
-## Marginal and conditional distributions
-
+- A better graphical representation of [wind directions]{.blue} and [wind speed]{.orange}, using cartesian coordinates. From this windrose, it is clear the winds were coming mostly from the East. 
 
 
 # Inference

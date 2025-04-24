@@ -142,6 +142,9 @@ window.Quarto = {
   <li><a href="#example-multinomial-distribution-ii" id="toc-example-multinomial-distribution-ii" class="nav-link" data-scroll-target="#example-multinomial-distribution-ii">Example: multinomial distribution II 📖</a></li>
   <li><a href="#example-independent-exponential-families" id="toc-example-independent-exponential-families" class="nav-link" data-scroll-target="#example-independent-exponential-families">Example: independent exponential families 📖</a></li>
   <li><a href="#mean-value-mapping-and-other-properties" id="toc-mean-value-mapping-and-other-properties" class="nav-link" data-scroll-target="#mean-value-mapping-and-other-properties">Mean value mapping and other properties</a></li>
+  <li><a href="#independence-of-the-components" id="toc-independence-of-the-components" class="nav-link" data-scroll-target="#independence-of-the-components">Independence of the components</a></li>
+  <li><a href="#marginal-and-conditional-distributions" id="toc-marginal-and-conditional-distributions" class="nav-link" data-scroll-target="#marginal-and-conditional-distributions">Marginal and conditional distributions</a></li>
+  <li><a href="#conditional-likelihoods" id="toc-conditional-likelihoods" class="nav-link" data-scroll-target="#conditional-likelihoods">Conditional likelihoods</a></li>
   <li><a href="#a-general-definition-of-exponential-families-i-1" id="toc-a-general-definition-of-exponential-families-i-1" class="nav-link" data-scroll-target="#a-general-definition-of-exponential-families-i-1">A general definition of exponential families I</a></li>
   <li><a href="#curved-exponential-families" id="toc-curved-exponential-families" class="nav-link" data-scroll-target="#curved-exponential-families">Curved exponential families</a></li>
   <li><a href="#a-general-definition-of-exponential-families-ii-1" id="toc-a-general-definition-of-exponential-families-ii-1" class="nav-link" data-scroll-target="#a-general-definition-of-exponential-families-ii-1">A general definition of exponential families II</a></li>
@@ -151,7 +154,6 @@ window.Quarto = {
   <li><a href="#example-wind-direction-in-venice-i" id="toc-example-wind-direction-in-venice-i" class="nav-link" data-scroll-target="#example-wind-direction-in-venice-i">Example: wind direction in Venice I</a></li>
   <li><a href="#example-wind-direction-in-venice-ii" id="toc-example-wind-direction-in-venice-ii" class="nav-link" data-scroll-target="#example-wind-direction-in-venice-ii">Example: wind direction in Venice II</a></li>
   <li><a href="#example-wind-direction-in-venice-iii" id="toc-example-wind-direction-in-venice-iii" class="nav-link" data-scroll-target="#example-wind-direction-in-venice-iii">Example: wind direction in Venice III</a></li>
-  <li><a href="#marginal-and-conditional-distributions" id="toc-marginal-and-conditional-distributions" class="nav-link" data-scroll-target="#marginal-and-conditional-distributions">Marginal and conditional distributions</a></li>
   </ul></li>
   <li><a href="#inference" id="toc-inference" class="nav-link" data-scroll-target="#inference">Inference</a>
   <ul class="collapse">
@@ -867,6 +869,95 @@ Theorem (<span class="citation" data-cites="Pace1997">Pace and Salvan (<a href="
 </div>
 </div>
 </section>
+<section id="independence-of-the-components" class="level2">
+<h2 class="anchored" data-anchor-id="independence-of-the-components">Independence of the components</h2>
+<div class="callout callout-style-simple callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Theorem (<span class="citation" data-cites="Pace1997">Pace and Salvan (<a href="#ref-Pace1997" role="doc-biblioref">1997</a>)</span>, Theorem 5.4)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If the natural observations of an <span class="math inline">\mathcal{F}_\text{en}^p</span> are <span class="blue">independent</span> for some <span class="math inline">\theta_0 \in \tilde{\Theta}</span>, then this is also true for every <span class="math inline">\theta \in \tilde{\Theta}</span>.</p>
+</div>
+</div>
+<ul>
+<li>This theorem essentially establishes that if the baseline density <span class="math inline">f_0(\cdot)</span> has independent components, then the exponential tilting preserves independence.</li>
+</ul>
+<div class="callout callout-style-simple callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Theorem (<span class="citation" data-cites="Pace1997">Pace and Salvan (<a href="#ref-Pace1997" role="doc-biblioref">1997</a>)</span>, Theorem 5.5)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If, for every for every <span class="math inline">\theta \in \tilde{\Theta}</span>, the natural observations of a <span class="blue">regular</span> <span class="math inline">\mathcal{F}_\text{en}^p</span> are <span class="blue">uncorrelated</span> then they are also <span class="orange">independent</span>.</p>
+</div>
+</div>
+<ul>
+<li><p>This generalizes a well-known fact of multivariate Gaussians, which are in fact an <span class="math inline">\mathcal{F}_\text{en}^p</span>.</p></li>
+<li><p>In practice, if the hessian matrix of <span class="math inline">K(\theta)</span> is <span class="blue">diagonal</span>, then the natural observations are <span class="orange">independent</span>. This occurs whenever <span class="math inline">K(\theta)</span> is <span class="orange">separable</span>.</p></li>
+</ul>
+</section>
+<section id="marginal-and-conditional-distributions" class="level2">
+<h2 class="anchored" data-anchor-id="marginal-and-conditional-distributions">Marginal and conditional distributions</h2>
+<ul>
+<li><p>Consider a <span class="math inline">\mathcal{F}_\text{en}^p</span> family, so that <span class="math inline">f(y; \theta) = f_0(t)\exp\{\theta^T y - K(\theta)\}</span>.</p></li>
+<li><p>Let <span class="math inline">y = (t, u)</span> be a <span class="blue">partition</span> of the natural observations <span class="math inline">y</span>, where <span class="math inline">t(\cdot)</span> has <span class="math inline">k</span> components and <span class="math inline">u</span> has <span class="math inline">p-k</span> components. Let us partition <span class="math inline">\theta</span> accordingly, so that <span class="math inline">\theta = (\tau, \zeta)</span> and <span class="math display">
+f(y; \tau, \zeta) = f_0(y)\exp\{\tau^Tt + \zeta^Tu - K(\tau,\zeta)\}, \qquad (\tau,\zeta) \in \tilde{\Theta}.
+</span></p></li>
+</ul>
+<div class="callout callout-style-simple callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Theorem (<span class="citation" data-cites="Pace1997">Pace and Salvan (<a href="#ref-Pace1997" role="doc-biblioref">1997</a>)</span>, Theorem 5.6)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<!-- For an $\mathcal{F}_\text{en}^p$ with density factorized as above: -->
+<ol type="i">
+<li><p>The family of <span class="blue">marginal</span> distributions of <span class="math inline">U</span> is an <span class="math inline">\mathcal{F}_\text{en}^{p-k}</span> for every fixed value of <span class="math inline">\tau</span> and <span class="math display">
+  f_U(u; \tau, \zeta) = h_\tau(u)\exp\{\zeta^T u - K_\tau(\zeta)\}.
+  </span></p></li>
+<li><p>the family of <span class="orange">conditional</span> distributions of <span class="math inline">T</span> given <span class="math inline">U = u</span> is an <span class="math inline">\mathcal{F}_\text{en}^k</span> and the conditional densities do not depend on <span class="math inline">\zeta</span>, that is <span class="math display">
+  f_{T\mid U=u}(t; u, \tau) = h_u(t)\exp\{\tau^T t - K_u(\tau)\}, \quad \exp{K_u(\tau)} = \mathbb{E}_0\left(e^{\tau^T T} \mid U = u\right).
+  </span></p></li>
+</ol>
+</div>
+</div>
+</section>
+<section id="conditional-likelihoods" class="level2">
+<h2 class="anchored" data-anchor-id="conditional-likelihoods">Conditional likelihoods</h2>
+<ul>
+<li><p>The former result on marginal and conditional laws is not just an elegant probabilistic fact. Indeed, it has sensible inferential applications.</p></li>
+<li><p>Often times, we can split the parameter vector <span class="math inline">\theta</span> into a <span class="blue">parameter of interest</span> <span class="math inline">\tau</span> and a <span class="orange">nuisance parameter</span> <span class="math inline">\zeta</span>. We are not interested in learning <span class="math inline">\zeta</span>.</p></li>
+</ul>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>The main idea relies upon noticing that <span class="math inline">f_{T\mid U=u}(t; u, \tau) = h_u(t)\exp\{\tau^T t - K_u(\tau)\}</span> does not involve <span class="math inline">\zeta</span> and therefore we could define a <span class="orange">conditional likelihood</span> based on <span class="math inline">f_{T\mid U=u}</span>.</p>
+</div>
+</div>
+</div>
+<ul>
+<li><p>A practical drawback of this approach is that the conditional cumulant generating function <span class="math inline">K_u(\tau)</span> is not always available in closed form, albeit with notable exceptions.</p></li>
+<li><p>The approach is valid, in the sense that a likelihood based on <span class="math inline">f_{T\mid U=u}</span> is a <span class="blue">genuine likelihood</span>. On the other hand, note that the full likelihood would be based on <span class="math display">
+f(y;\tau, \zeta) = f_U(u; \tau, \zeta) f_{T\mid U=u}(t; u, \tau),
+</span> and thus conditional likelihood is <span class="orange">discarding information</span>, that is, it is neglecting <span class="math inline">f_U(u; \tau, \zeta)</span>.</p></li>
+</ul>
+</section>
 <section id="a-general-definition-of-exponential-families-i-1" class="level2">
 <h2 class="anchored" data-anchor-id="a-general-definition-of-exponential-families-i-1">A general definition of exponential families I</h2>
 <div class="callout callout-style-simple callout-note no-icon">
@@ -1021,11 +1112,8 @@ f_S(s; \theta) = \frac{1}{2\pi}\exp\{\theta^Ts - \log\mathcal{I}_0(||\theta||_2)
 </div>
 </div>
 <ul>
-<li>A better graphical representation of <span class="blue">wind directions</span> and <span class="orange">wind speed</span>, using cartesian coordinates.</li>
+<li>A better graphical representation of <span class="blue">wind directions</span> and <span class="orange">wind speed</span>, using cartesian coordinates. From this windrose, it is clear the winds were coming mostly from the East.</li>
 </ul>
-</section>
-<section id="marginal-and-conditional-distributions" class="level2">
-<h2 class="anchored" data-anchor-id="marginal-and-conditional-distributions">Marginal and conditional distributions</h2>
 </section>
 </section>
 <section id="inference" class="level1">
