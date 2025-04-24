@@ -19,7 +19,6 @@ format:
     code-line-numbers: true
     smooth-scroll: true
     fig-dpi: 250
-    toc-location: left
 editor: 
   markdown: 
     wrap: 72
