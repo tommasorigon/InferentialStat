@@ -6,7 +6,7 @@ institute: "_Università degli Studi di Milano-Bicocca_"
 page-layout: full
 bibliography: ../biblio.bib
 citeproc: true
-csl: https://www.zotero.org/styles/journal-of-the-american-statistical-association
+# csl: https://www.zotero.org/styles/journal-of-the-american-statistical-association
 reference-location: margin
 execute:
   cache: true
@@ -743,23 +743,23 @@ having set $\psi = (\nu, \lambda)$.
 
 - As previously shown, this implies that the family
 $$
-f(s; \theta) = f_0(s)\exp\{\theta^Ts - \log{\Gamma(\theta_1)} + \theta_1\log(-\theta_2)\}, \qquad \theta \in \tilde{\Theta},
+f(s; \theta) = \tilde{h}(y)\exp\{\theta^Ts - \log{\Gamma(\theta_1)} + \theta_1\log(-\theta_2)\}, \qquad \theta \in \tilde{\Theta},
 $$
-is a regular [natural exponential family]{.orange} of order 2, with some baseline density $f_0(s)$.
+is a regular [natural exponential family]{.orange} of order 2, with some function $\tilde{h}(s)$.
 
 
 ## Example: von Mises distribution I
 
 - Let $Y$ be a random variable describing an [angle]{.blue}, so that $\mathcal{Y} = (0, 2\pi)$ and let us consider the [uniform density]{.orange} on the [circle]{.blue}, namely
 $$
-h(y) = \frac{1}{2\pi}, \qquad y \in (0, 2\pi).
+f_0(y) = \frac{1}{2\pi}, \qquad y \in (0, 2\pi).
 $$
 
 - We define a tilted density $f(y; \theta) \in \mathcal{F}_\text{e}^2$ by considering $s(y) = (\cos{y}, \sin{y})$, i.e. be the [cartesian coordinates]{.orange} of $y$. This choice of $s(y)$ ensures the appealing property $f(y;\theta) = f(y + 2k\pi;\theta)$. 
 
 - More precisely, let $\theta = (\theta_1,\theta_2)$ and define the parametric family of densities
 $$
-f(y; \theta) = h(y)\exp\{\theta^Ts(y) - K(\theta)\}, \qquad \theta \in \tilde{\Theta},
+f(y; \theta) = f_0(y)\exp\{\theta^Ts(y) - K(\theta)\}, \qquad \theta \in \tilde{\Theta},
 $$
 where $h(y) = 1/2\pi$. The normalizing constant has a "closed form"
 $$
@@ -871,23 +871,65 @@ $$
 $$
 with $S = \sum_{i=1}^n s(Y_i)$ being distributed as a $\mathcal{F}_\text{en}^p$ with cumulant generating function $n K(\theta)$. 
 
-- The [completeness]{.blue} of $S$ in exponential families is a classical result that enables the usage of Rao-Blackwell-Lehmann-Scheffé theorem for finding the UMVUE.
+- The [completeness]{.orange} of $S$ in exponential families is a classical result that enables the usage of Rao-Blackwell-Lehmann-Scheffé theorem for finding the UMVUE.
 
-- The existence of a minimal sufficient statistic that performs a [non-trivial]{.orange} [dimensionality reduction]{.blue}, from $n$ to $p$, is a major simplification.
+- Moreover, the existence of a [minimal sufficient]{.blue} statistic that performs a [non trivial]{.orange} [dimensionality reduction]{.blue}, from $n$ to $p$ and with $p \le n$, is a major simplification.
 
-- This appears to be a characteristic of exponential families, with the only exception of non-regular cases. 
+- This only occurs in exponential families, except for non-regular cases. 
 
 :::callout-warning
-#### Theorem (Koopman-Pitman, @Robert1994, Theorem 3.3.3)
+#### Theorem (Koopman-Pitman-Darmois, @Robert1994, Theorem 3.3.3)
 
-If a parametric family whose [support]{.orange} does [not depend]{.orange} on the [parameter]{.orange} is such that there exists a [sufficient statistic]{.blue} of [constant dimension]{.blue}, say $p$, then the family is $\mathcal{F}_\text{e}^p$.
+Under iid sampling, if a parametric family whose [support]{.orange} does [not depend]{.orange} on the [parameter]{.orange} is such that there exists a [sufficient statistic]{.blue} of [constant dimension]{.blue} $p$ then the family is $\mathcal{F}_\text{e}^p$.
 :::
 
 ## Likelihood quantities
 
-## Optimality properties of point estimates
+- Recall that after a reduction via sufficiency $\ell(\theta) = \theta^Ts - \tilde{K}(\theta)$. Thus, the [score vector]{.blue} is
+$$
+l^*(\theta) = s - \frac{\partial}{\partial \theta}\tilde{K}(\theta) = s - \mu(\theta),
+$$
+where $\mu(\theta) = \mathbb{E}_\theta(S)$ is the [mean value mapping]{.orange} of the sufficient statistic $S$.
+
+- By direct calculation, this shows that the [first Bartlett identity]{.blue} holds, namely we have
+$$
+\mathbb{E}_\theta(l^*(\theta; S)) = \mathbb{E}_\theta(S) - \mathbb{E}_\theta(S) = \bm{0}.
+$$
+The [Fisher information]{.orange} is straighforward to compute, being equal to
+$$
+I(\theta) = \mathbb{E}_\theta(l^*(\theta)l^*(\theta)^\top) = \mathbb{E}_\theta\{(S - \mu(\theta))(S - \mu(\theta))^T\} = \text{var}_\theta(S).
+$$
+
+
+- Secondly, the [observed information]{.blue} is
+$$
+\mathcal{I}(\theta) = -\frac{\partial^2}{\partial \theta \partial \theta^T}\ell(\theta) = \frac{\partial^2}{\partial \theta \partial \theta^T}\tilde{K}(\theta) = \text{var}_\theta(S),
+$$
+which proves the [second Bartlett identity]{.blue} as an implication of the [remarkable]{.orange} identity $\mathcal{I}(\theta) = I(\theta)$, stronger than the usual $I(\theta) = \mathbb{E}_\theta(\mathcal{I}(\theta))$. In fact,  $\mathcal{I}(\theta)$ is non-stochastic. 
+
 
 ## Maximum likelihood estimation
+
+- The maximum likelihood estimate $\hat{\theta}$, if it exists, is the [unique]{.orange} solution of the [score equation]{.blue}
+$$
+s - \mu(\theta) = \bm{0}.
+$$
+It is unique because the second derivative of the log-likelihood is such that
+$$
+\frac{\partial^2}{\partial \theta \partial \theta^T}\ell(\theta) = -\text{var}_\theta(S) < 0, \qquad \theta \in \tilde{\Theta},
+$$
+implying that $\ell(\theta)$ is [concave]{.orange} in $\theta$.
+
+:::callout-warning
+#### Theorem (@Pace1997, Theorem 5.8)
+If $\mathcal{F}_\text{en}^p$ is regular, then the maximum likelihood estimate $\hat{\theta}$ exists and is the unique solution of $\ell^*(\theta) = \bm{0}$ if and only if $s \in \text{int}\:C(\mathcal{S})$, where $C(\mathcal{S})$ is the closed convex hull of the support of $\mathcal{S}$.
+:::
+
+- As a corollary, if $\mathcal{F}_\text{en}^p$ is regular, the MLE exists and is unique [with probability one]{.blue} if and only the boundary of $C = C(\mathcal{S})$ has probability $0$. Broadly speaking, issues may occur when $S$ is a [discrete]{.orange} random variable placing positive probability at the boundary of $\mathcal{S}$. 
+
+
+## Optimality properties of point estimates
+
 
 ## Asymptotic theory
 

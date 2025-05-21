@@ -159,8 +159,8 @@ window.Quarto = {
   <li><a href="#independent-sampling-sufficiency-and-completeness" id="toc-independent-sampling-sufficiency-and-completeness" class="nav-link" data-scroll-target="#independent-sampling-sufficiency-and-completeness">Independent sampling, sufficiency and completeness</a></li>
   <li><a href="#sufficiency-and-completeness" id="toc-sufficiency-and-completeness" class="nav-link" data-scroll-target="#sufficiency-and-completeness">Sufficiency and completeness</a></li>
   <li><a href="#likelihood-quantities" id="toc-likelihood-quantities" class="nav-link" data-scroll-target="#likelihood-quantities">Likelihood quantities</a></li>
-  <li><a href="#optimality-properties-of-point-estimates" id="toc-optimality-properties-of-point-estimates" class="nav-link" data-scroll-target="#optimality-properties-of-point-estimates">Optimality properties of point estimates</a></li>
   <li><a href="#maximum-likelihood-estimation" id="toc-maximum-likelihood-estimation" class="nav-link" data-scroll-target="#maximum-likelihood-estimation">Maximum likelihood estimation</a></li>
+  <li><a href="#optimality-properties-of-point-estimates" id="toc-optimality-properties-of-point-estimates" class="nav-link" data-scroll-target="#optimality-properties-of-point-estimates">Optimality properties of point estimates</a></li>
   <li><a href="#asymptotic-theory" id="toc-asymptotic-theory" class="nav-link" data-scroll-target="#asymptotic-theory">Asymptotic theory</a></li>
   <li><a href="#firth-corrections" id="toc-firth-corrections" class="nav-link" data-scroll-target="#firth-corrections">Firth corrections</a></li>
   <li><a href="#example-wind-direction-in-venice-iv" id="toc-example-wind-direction-in-venice-iv" class="nav-link" data-scroll-target="#example-wind-direction-in-venice-iv">Example: wind direction in Venice IV</a></li>
@@ -1032,19 +1032,19 @@ f(y; \nu, \lambda) &amp;= \frac{\lambda^\nu}{\Gamma(\nu)}y^{\nu -1}e^{-\lambda y
 \theta(\psi) = (\theta_1(\psi), \theta_2(\psi)) = (\nu, -\lambda), \qquad G(\psi) = \log{\Gamma(\nu)} - \nu\log{\lambda}.
 </span> having set <span class="math inline">\psi = (\nu, \lambda)</span>.</p></li>
 <li><p>As previously shown, this implies that the family <span class="math display">
-f(s; \theta) = f_0(s)\exp\{\theta^Ts - \log{\Gamma(\theta_1)} + \theta_1\log(-\theta_2)\}, \qquad \theta \in \tilde{\Theta},
-</span> is a regular <span class="orange">natural exponential family</span> of order 2, with some baseline density <span class="math inline">f_0(s)</span>.</p></li>
+f(s; \theta) = \tilde{h}(y)\exp\{\theta^Ts - \log{\Gamma(\theta_1)} + \theta_1\log(-\theta_2)\}, \qquad \theta \in \tilde{\Theta},
+</span> is a regular <span class="orange">natural exponential family</span> of order 2, with some function <span class="math inline">\tilde{h}(s)</span>.</p></li>
 </ul>
 </section>
 <section id="example-von-mises-distribution-i" class="level2">
 <h2 class="anchored" data-anchor-id="example-von-mises-distribution-i">Example: von Mises distribution I</h2>
 <ul>
 <li><p>Let <span class="math inline">Y</span> be a random variable describing an <span class="blue">angle</span>, so that <span class="math inline">\mathcal{Y} = (0, 2\pi)</span> and let us consider the <span class="orange">uniform density</span> on the <span class="blue">circle</span>, namely <span class="math display">
-h(y) = \frac{1}{2\pi}, \qquad y \in (0, 2\pi).
+f_0(y) = \frac{1}{2\pi}, \qquad y \in (0, 2\pi).
 </span></p></li>
 <li><p>We define a tilted density <span class="math inline">f(y; \theta) \in \mathcal{F}_\text{e}^2</span> by considering <span class="math inline">s(y) = (\cos{y}, \sin{y})</span>, i.e.&nbsp;be the <span class="orange">cartesian coordinates</span> of <span class="math inline">y</span>. This choice of <span class="math inline">s(y)</span> ensures the appealing property <span class="math inline">f(y;\theta) = f(y + 2k\pi;\theta)</span>.</p></li>
 <li><p>More precisely, let <span class="math inline">\theta = (\theta_1,\theta_2)</span> and define the parametric family of densities <span class="math display">
-f(y; \theta) = h(y)\exp\{\theta^Ts(y) - K(\theta)\}, \qquad \theta \in \tilde{\Theta},
+f(y; \theta) = f_0(y)\exp\{\theta^Ts(y) - K(\theta)\}, \qquad \theta \in \tilde{\Theta},
 </span> where <span class="math inline">h(y) = 1/2\pi</span>. The normalizing constant has a “closed form” <span class="math display">
 \exp{K(\theta)} = \frac{1}{2\pi}\int_0^{2\pi}\exp\{\theta_1\cos(y) + \theta_2\sin(y)\}\mathrm{d}y = \mathcal{I}_0(||\theta||_2),
 </span> where <span class="math inline">\mathcal{I}_\nu(\cdot)</span> is known as the <span class="orange">modified Bessel function</span> of the first kind and order <span class="math inline">\nu</span>.</p></li>
@@ -1155,9 +1155,9 @@ Theorem (<span class="citation" data-cites="Pace1997">Pace and Salvan (<a href="
 <li><p>Thus the log-likelihood function, after a reduction via <span class="blue">sufficiency</span>, is <span class="math display">
 \ell(\theta) = \ell(\theta; s) = \theta^Ts - n K(\theta), \qquad \theta \in \tilde{\Theta},
 </span> with <span class="math inline">S = \sum_{i=1}^n s(Y_i)</span> being distributed as a <span class="math inline">\mathcal{F}_\text{en}^p</span> with cumulant generating function <span class="math inline">n K(\theta)</span>.</p></li>
-<li><p>The <span class="blue">completeness</span> of <span class="math inline">S</span> in exponential families is a classical result that enables the usage of Rao-Blackwell-Lehmann-Scheffé theorem for finding the UMVUE.</p></li>
-<li><p>The existence of a minimal sufficient statistic that performs a <span class="orange">non-trivial</span> <span class="blue">dimensionality reduction</span>, from <span class="math inline">n</span> to <span class="math inline">p</span>, is a major simplification.</p></li>
-<li><p>This appears to be a characteristic of exponential families, with the only exception of non-regular cases.</p></li>
+<li><p>The <span class="orange">completeness</span> of <span class="math inline">S</span> in exponential families is a classical result that enables the usage of Rao-Blackwell-Lehmann-Scheffé theorem for finding the UMVUE.</p></li>
+<li><p>Moreover, the existence of a <span class="blue">minimal sufficient</span> statistic that performs a <span class="orange">non trivial</span> <span class="blue">dimensionality reduction</span>, from <span class="math inline">n</span> to <span class="math inline">p</span> and with <span class="math inline">p \le n</span>, is a major simplification.</p></li>
+<li><p>This only occurs in exponential families, except for non-regular cases.</p></li>
 </ul>
 <div class="callout callout-style-simple callout-warning no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -1165,22 +1165,58 @@ Theorem (<span class="citation" data-cites="Pace1997">Pace and Salvan (<a href="
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Theorem (Koopman-Pitman, <span class="citation" data-cites="Robert1994">Robert (<a href="#ref-Robert1994" role="doc-biblioref">1994</a>)</span>, Theorem 3.3.3)
+Theorem (Koopman-Pitman-Darmois, <span class="citation" data-cites="Robert1994">Robert (<a href="#ref-Robert1994" role="doc-biblioref">1994</a>)</span>, Theorem 3.3.3)
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>If a parametric family whose <span class="orange">support</span> does <span class="orange">not depend</span> on the <span class="orange">parameter</span> is such that there exists a <span class="blue">sufficient statistic</span> of <span class="blue">constant dimension</span>, say <span class="math inline">p</span>, then the family is <span class="math inline">\mathcal{F}_\text{e}^p</span>.</p>
+<p>Under iid sampling, if a parametric family whose <span class="orange">support</span> does <span class="orange">not depend</span> on the <span class="orange">parameter</span> is such that there exists a <span class="blue">sufficient statistic</span> of <span class="blue">constant dimension</span> <span class="math inline">p</span> then the family is <span class="math inline">\mathcal{F}_\text{e}^p</span>.</p>
 </div>
 </div>
 </section>
 <section id="likelihood-quantities" class="level2">
 <h2 class="anchored" data-anchor-id="likelihood-quantities">Likelihood quantities</h2>
-</section>
-<section id="optimality-properties-of-point-estimates" class="level2">
-<h2 class="anchored" data-anchor-id="optimality-properties-of-point-estimates">Optimality properties of point estimates</h2>
+<ul>
+<li><p>Recall that after a reduction via sufficiency <span class="math inline">\ell(\theta) = \theta^Ts - \tilde{K}(\theta)</span>. Thus, the <span class="blue">score vector</span> is <span class="math display">
+l^*(\theta) = s - \frac{\partial}{\partial \theta}\tilde{K}(\theta) = s - \mu(\theta),
+</span> where <span class="math inline">\mu(\theta) = \mathbb{E}_\theta(S)</span> is the <span class="orange">mean value mapping</span> of the sufficient statistic <span class="math inline">S</span>.</p></li>
+<li><p>By direct calculation, this shows that the <span class="blue">first Bartlett identity</span> holds, namely we have <span class="math display">
+\mathbb{E}_\theta(l^*(\theta; S)) = \mathbb{E}_\theta(S) - \mathbb{E}_\theta(S) = \bm{0}.
+</span> The <span class="orange">Fisher information</span> is straighforward to compute, being equal to <span class="math display">
+I(\theta) = \mathbb{E}_\theta(l^*(\theta)l^*(\theta)^\top) = \mathbb{E}_\theta\{(S - \mu(\theta))(S - \mu(\theta))^T\} = \text{var}_\theta(S).
+</span></p></li>
+<li><p>Secondly, the <span class="blue">observed information</span> is <span class="math display">
+\mathcal{I}(\theta) = -\frac{\partial^2}{\partial \theta \partial \theta^T}\ell(\theta) = \frac{\partial^2}{\partial \theta \partial \theta^T}\tilde{K}(\theta) = \text{var}_\theta(S),
+</span> which proves the <span class="blue">second Bartlett identity</span> as an implication of the <span class="orange">remarkable</span> identity <span class="math inline">\mathcal{I}(\theta) = I(\theta)</span>, stronger than the usual <span class="math inline">I(\theta) = \mathbb{E}_\theta(\mathcal{I}(\theta))</span>. In fact, <span class="math inline">\mathcal{I}(\theta)</span> is non-stochastic.</p></li>
+</ul>
 </section>
 <section id="maximum-likelihood-estimation" class="level2">
 <h2 class="anchored" data-anchor-id="maximum-likelihood-estimation">Maximum likelihood estimation</h2>
+<ul>
+<li>The maximum likelihood estimate <span class="math inline">\hat{\theta}</span>, if it exists, is the <span class="orange">unique</span> solution of the <span class="blue">score equation</span> <span class="math display">
+s - \mu(\theta) = \bm{0}.
+</span> It is unique because the second derivative of the log-likelihood is such that <span class="math display">
+\frac{\partial^2}{\partial \theta \partial \theta^T}\ell(\theta) = -\text{var}_\theta(S) &lt; 0, \qquad \theta \in \tilde{\Theta},
+</span> implying that <span class="math inline">\ell(\theta)</span> is <span class="orange">concave</span> in <span class="math inline">\theta</span>.</li>
+</ul>
+<div class="callout callout-style-simple callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Theorem (<span class="citation" data-cites="Pace1997">Pace and Salvan (<a href="#ref-Pace1997" role="doc-biblioref">1997</a>)</span>, Theorem 5.8)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If <span class="math inline">\mathcal{F}_\text{en}^p</span> is regular, then the maximum likelihood estimate <span class="math inline">\hat{\theta}</span> exists and is the unique solution of <span class="math inline">\ell^*(\theta) = \bm{0}</span> if and only if <span class="math inline">s \in \text{int}\:C(\mathcal{S})</span>, where <span class="math inline">C(\mathcal{S})</span> is the closed convex hull of the support of <span class="math inline">\mathcal{S}</span>.</p>
+</div>
+</div>
+<ul>
+<li>As a corollary, if <span class="math inline">\mathcal{F}_\text{en}^p</span> is regular, the MLE exists and is unique <span class="blue">with probability one</span> if and only the boundary of <span class="math inline">C = C(\mathcal{S})</span> has probability <span class="math inline">0</span>. Broadly speaking, issues may occur when <span class="math inline">S</span> is a <span class="orange">discrete</span> random variable placing positive probability at the boundary of <span class="math inline">\mathcal{S}</span>.</li>
+</ul>
+</section>
+<section id="optimality-properties-of-point-estimates" class="level2">
+<h2 class="anchored" data-anchor-id="optimality-properties-of-point-estimates">Optimality properties of point estimates</h2>
 </section>
 <section id="asymptotic-theory" class="level2">
 <h2 class="anchored" data-anchor-id="asymptotic-theory">Asymptotic theory</h2>
@@ -1314,40 +1350,40 @@ Theorem (Koopman-Pitman, <span class="citation" data-cites="Robert1994">Robert (
 <h2 class="unnumbered anchored" data-anchor-id="references">References</h2>
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-Billingsley1995" class="csl-entry" role="listitem">
-Billingsley, P. (1995), <em><span>Probability And Measure</span></em>, Wiley.
+Billingsley, Patrick. 1995. <em><span>Probability And Measure</span></em>. Wiley.
 </div>
 <div id="ref-Consonni1992" class="csl-entry" role="listitem">
-Consonni, G., and Veronese, P. (1992), <span>“Conjugate priors for exponential families having quadratic functions,”</span> <em>Journal of the American Statistical Association</em>, 87, 1123–1127.
+Consonni, Guido, and Piero Veronese. 1992. <span>“Conjugate Priors for Exponential Families Having Quadratic Functions.”</span> <em>Journal of the American Statistical Association</em> 87 (420): 1123–27.
 </div>
 <div id="ref-Davison2003" class="csl-entry" role="listitem">
-Davison, A. C. (2003), <em><span>Statistical Models</span></em>, Cambridge University Press.
+Davison, A. C. 2003. <em><span>Statistical Models</span></em>. Cambridge University Press.
 </div>
 <div id="ref-Diaconis1979" class="csl-entry" role="listitem">
-Diaconis, P., and Ylvisaker, D. (1979), <span>“<span class="nocase">Conjugate prior for exponential families</span>,”</span> <em>The Annals of Statistics</em>, 7, 269–292.
+Diaconis, Persi, and Donald Ylvisaker. 1979. <span>“<span class="nocase">Conjugate prior for exponential families</span>.”</span> <em>The Annals of Statistics</em> 7 (2): 269–92.
 </div>
 <div id="ref-Efron2023" class="csl-entry" role="listitem">
-Efron, B. (2023), <em><span class="nocase">Exponential Families in Theory and Practice</span></em>, Cambridge University Press.
+Efron, Bradley. 2023. <em><span class="nocase">Exponential Families in Theory and Practice</span></em>. Cambridge University Press.
 </div>
 <div id="ref-Efron2016" class="csl-entry" role="listitem">
-Efron, B., and Hastie, T. (2016), <em><span>Computer Age Statistical Inference</span></em>, Cambridge University Press.
+Efron, Bradley, and Trevor Hastie. 2016. <em><span>Computer Age Statistical Inference</span></em>. Cambridge University Press.
 </div>
 <div id="ref-Fisher1934" class="csl-entry" role="listitem">
-Fisher, R. A. (1934), <span>“<span class="nocase">Two new properties of mathematical likelihood</span>,”</span> <em>Proceedings of the Royal Society of London. Series A</em>, 144, 285–307.
+Fisher, R. A. 1934. <span>“<span class="nocase">Two new properties of mathematical likelihood</span>.”</span> <em>Proceedings of the Royal Society of London. Series A</em> 144 (852): 285–307.
 </div>
 <div id="ref-Jorgensen1987" class="csl-entry" role="listitem">
-Jorgensen, B. (1987), <span>“<span class="nocase">Exponential dispersion model</span>,”</span> <em>Journal of the Royal Statistical Society. Series B: Methodological</em>, 49, 127–162.
+Jorgensen, Bert. 1987. <span>“<span class="nocase">Exponential dispersion model</span>.”</span> <em>Journal of the Royal Statistical Society. Series B: Methodological</em> 49 (2): 127–62.
 </div>
 <div id="ref-Morris1982" class="csl-entry" role="listitem">
-Morris, C. N. (1982), <span>“Natural exponential families with quadratic variance functions,”</span> <em>Annals of Statistics</em>, 10, 65–80.
+Morris, Carl N. 1982. <span>“Natural Exponential Families with Quadratic Variance Functions.”</span> <em>Annals of Statistics</em> 10 (1): 65–80.
 </div>
 <div id="ref-Nelder1972" class="csl-entry" role="listitem">
-Nelder, J. A., and Wedderburn, R. W. M. (1972), <span>“<span class="nocase">Generalized linear models</span>,”</span> <em>Journal of the Royal Statistical Society. Series A: Statistics in Society</em>, 135, 370–384.
+Nelder, J. A., and R. W. M. Wedderburn. 1972. <span>“<span class="nocase">Generalized linear models</span>.”</span> <em>Journal of the Royal Statistical Society. Series A: Statistics in Society</em> 135 (3): 370–84.
 </div>
 <div id="ref-Pace1997" class="csl-entry" role="listitem">
-Pace, L., and Salvan, A. (1997), <em><span class="nocase">Principles of statistical inference from a Neo-Fisherian perspective</span></em>, Advanced series on statistical science and applied probability, World Scientific.
+Pace, Luigi, and Alessandra Salvan. 1997. <em><span class="nocase">Principles of statistical inference from a Neo-Fisherian perspective</span></em>. Vol. 4. Advanced Series on Statistical Science and Applied Probability. World Scientific.
 </div>
 <div id="ref-Robert1994" class="csl-entry" role="listitem">
-Robert, C. P. (1994), <em><span class="nocase">The Bayesian Choice: from decision-theoretic foundations to computational implementation</span></em>, Springer.
+Robert, Christian P. 1994. <em><span class="nocase">The Bayesian Choice: from decision-theoretic foundations to computational implementation</span></em>. Springer.
 </div>
 </div>
 </section>
