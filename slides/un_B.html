@@ -159,12 +159,15 @@ window.Quarto = {
   <li><a href="#independent-sampling-sufficiency-and-completeness" id="toc-independent-sampling-sufficiency-and-completeness" class="nav-link" data-scroll-target="#independent-sampling-sufficiency-and-completeness">Independent sampling, sufficiency and completeness</a></li>
   <li><a href="#sufficiency-and-completeness" id="toc-sufficiency-and-completeness" class="nav-link" data-scroll-target="#sufficiency-and-completeness">Sufficiency and completeness</a></li>
   <li><a href="#likelihood-quantities" id="toc-likelihood-quantities" class="nav-link" data-scroll-target="#likelihood-quantities">Likelihood quantities</a></li>
-  <li><a href="#maximum-likelihood-estimation" id="toc-maximum-likelihood-estimation" class="nav-link" data-scroll-target="#maximum-likelihood-estimation">Maximum likelihood estimation</a></li>
-  <li><a href="#optimality-properties-of-point-estimates" id="toc-optimality-properties-of-point-estimates" class="nav-link" data-scroll-target="#optimality-properties-of-point-estimates">Optimality properties of point estimates</a></li>
-  <li><a href="#asymptotic-theory" id="toc-asymptotic-theory" class="nav-link" data-scroll-target="#asymptotic-theory">Asymptotic theory</a></li>
-  <li><a href="#firth-corrections" id="toc-firth-corrections" class="nav-link" data-scroll-target="#firth-corrections">Firth corrections</a></li>
+  <li><a href="#existence-of-the-maximum-likelihood" id="toc-existence-of-the-maximum-likelihood" class="nav-link" data-scroll-target="#existence-of-the-maximum-likelihood">Existence of the maximum likelihood</a></li>
+  <li><a href="#likelihood-quantities-mean-parametrization" id="toc-likelihood-quantities-mean-parametrization" class="nav-link" data-scroll-target="#likelihood-quantities-mean-parametrization">Likelihood quantities: mean parametrization 📖</a></li>
+  <li><a href="#maximum-likelihood-mean-parametrization" id="toc-maximum-likelihood-mean-parametrization" class="nav-link" data-scroll-target="#maximum-likelihood-mean-parametrization">Maximum likelihood: mean parametrization</a></li>
+  <li><a href="#example-binomial-distribution" id="toc-example-binomial-distribution" class="nav-link" data-scroll-target="#example-binomial-distribution">Example: binomial distribution 📖</a></li>
+  <li><a href="#example-von-mises-distribution-iii" id="toc-example-von-mises-distribution-iii" class="nav-link" data-scroll-target="#example-von-mises-distribution-iii">Example: von Mises distribution III</a></li>
   <li><a href="#example-wind-direction-in-venice-iv" id="toc-example-wind-direction-in-venice-iv" class="nav-link" data-scroll-target="#example-wind-direction-in-venice-iv">Example: wind direction in Venice IV</a></li>
   <li><a href="#example-wind-direction-in-venice-v" id="toc-example-wind-direction-in-venice-v" class="nav-link" data-scroll-target="#example-wind-direction-in-venice-v">Example: wind direction in Venice V</a></li>
+  <li><a href="#asymptotic-theory" id="toc-asymptotic-theory" class="nav-link" data-scroll-target="#asymptotic-theory">Asymptotic theory</a></li>
+  <li><a href="#firth-corrections" id="toc-firth-corrections" class="nav-link" data-scroll-target="#firth-corrections">Firth corrections</a></li>
   </ul></li>
   <li><a href="#exponential-dispersion-families" id="toc-exponential-dispersion-families" class="nav-link" data-scroll-target="#exponential-dispersion-families">Exponential dispersion families</a></li>
   <li><a href="#references-and-study-material" id="toc-references-and-study-material" class="nav-link" data-scroll-target="#references-and-study-material">References and study material</a>
@@ -832,16 +835,16 @@ f(y; \theta) &amp;= \frac{N!}{y_1!\cdots y_p!}\frac{e^{\theta_1 y_1}  \cdots  e^
 <section id="example-independent-exponential-families" class="level2">
 <h2 class="anchored" data-anchor-id="example-independent-exponential-families">Example: independent exponential families 📖</h2>
 <ul>
-<li><p>Let <span class="math inline">Y = (Y_1,\dots,Y_p)</span> be a random vector of <span class="blue">independent</span> random variables each belonging to a <span class="orange">full natural exponential family</span> <span class="math inline">\mathcal{F}_\text{en}^1</span> of order 1, with density <span class="math display">
+<li><p>Let <span class="math inline">Y = (Y_1,\dots,Y_p)</span> be a random vector of <span class="blue">independent</span> random variables, each belonging to a <span class="orange">full natural exponential family</span> <span class="math inline">\mathcal{F}_\text{en}^1</span> of order 1, with density <span class="math display">
 f(y_j; \theta_j) = f_j(y_j)\exp\{\theta_j y_j - K_j(\theta_j)\}, \qquad \theta_j \in \tilde{\Theta}_j.
 </span></p></li>
 <li><p>Let <span class="math inline">\theta = (\theta_1,\dots,\theta_p)</span>. Because of independence, the <span class="blue">joint distribution</span> of <span class="math inline">Y</span> is <span class="math display">
 \begin{aligned}
-f(y;\theta) &amp;= \prod_{j=1}^p f(y_j;\theta_j) = \prod_{j=1}^pf_j(y_j)\exp\{\theta_j y_j - K_j(\theta_j)\} \\
-&amp;= \left[\prod_{j=1}^pf_j(y_j)\right]\exp\left\{\sum_{j=1}^p\theta_jy_j - \sum_{j=1}^pK_j(\theta_j)\right\} \\
-&amp; = f_0(y)\exp\{\theta^Ty - K(\theta)\}
+f(y;\theta) &amp;= \prod_{j=1}^p f(y_j;\theta_j) = \prod_{j=1}^p f_j(y_j)\exp\{\theta_j y_j - K_j(\theta_j)\} \\
+&amp;= \left[\prod_{j=1}^p f_j(y_j)\right] \exp\left\{\sum_{j=1}^p \theta_j y_j - \sum_{j=1}^p K_j(\theta_j)\right\} \\
+&amp;= f_0(y) \exp\{\theta^T y - K(\theta)\},
 \end{aligned}
-</span> where <span class="math inline">f_0(y) = \prod_{j=1}^pf_j(y_j)</span>, <span class="math inline">K(\theta) = \sum_{j=1}^pK_j(\theta_j)</span> and the <span class="orange">natural parameter space</span> is <span class="math display">
+</span> where <span class="math inline">f_0(y) = \prod_{j=1}^p f_j(y_j)</span>, <span class="math inline">K(\theta) = \sum_{j=1}^p K_j(\theta_j)</span>, and the <span class="orange">natural parameter space</span> is <span class="math display">
 \tilde{\Theta} = \tilde{\Theta}_1 \times \cdots \times \tilde{\Theta}_p.
 </span></p></li>
 <li><p>Thus, <span class="math inline">f(y;\theta)</span> is an <span class="math inline">\mathcal{F}_\text{en}^p</span>, in which <span class="math inline">K(\theta)</span> is a <span class="blue">separable</span> function.</p></li>
@@ -904,20 +907,20 @@ Theorem (<span class="citation" data-cites="Pace1997">Pace and Salvan (<a href="
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>If, for every for every <span class="math inline">\theta \in \tilde{\Theta}</span>, the natural observations of a <span class="blue">regular</span> <span class="math inline">\mathcal{F}_\text{en}^p</span> are <span class="blue">uncorrelated</span> then they are also <span class="orange">independent</span>.</p>
+<p>If, for every <span class="math inline">\theta \in \tilde{\Theta}</span>, the natural observations of a <span class="blue">regular</span> <span class="math inline">\mathcal{F}_\text{en}^p</span> are <span class="blue">uncorrelated</span>, then they are also <span class="orange">independent</span>.</p>
 </div>
 </div>
 <ul>
-<li><p>This generalizes a well-known fact of multivariate Gaussians, which are in fact an <span class="math inline">\mathcal{F}_\text{en}^p</span>.</p></li>
-<li><p>In practice, if the hessian matrix of <span class="math inline">K(\theta)</span> is <span class="blue">diagonal</span>, then the natural observations are <span class="orange">independent</span>. This occurs whenever <span class="math inline">K(\theta)</span> is <span class="orange">separable</span>.</p></li>
+<li><p>This generalizes a well-known fact about multivariate Gaussians, which are in fact an <span class="math inline">\mathcal{F}_\text{en}^p</span>.</p></li>
+<li><p>In practice, if the Hessian matrix of <span class="math inline">K(\theta)</span> is <span class="blue">diagonal</span>, then the natural observations are <span class="orange">independent</span>. This occurs whenever <span class="math inline">K(\theta)</span> is <span class="orange">separable</span>.</p></li>
 </ul>
 </section>
 <section id="marginal-and-conditional-distributions" class="level2">
 <h2 class="anchored" data-anchor-id="marginal-and-conditional-distributions">Marginal and conditional distributions</h2>
 <ul>
-<li><p>Consider a <span class="math inline">\mathcal{F}_\text{en}^p</span> family, so that <span class="math inline">f(y; \theta) = f_0(t)\exp\{\theta^T y - K(\theta)\}</span>.</p></li>
-<li><p>Let <span class="math inline">y = (t, u)</span> be a <span class="blue">partition</span> of the natural observations <span class="math inline">y</span>, where <span class="math inline">t(\cdot)</span> has <span class="math inline">k</span> components and <span class="math inline">u</span> has <span class="math inline">p-k</span> components. Let us partition <span class="math inline">\theta</span> accordingly, so that <span class="math inline">\theta = (\tau, \zeta)</span> and <span class="math display">
-f(y; \tau, \zeta) = f_0(y)\exp\{\tau^Tt + \zeta^Tu - K(\tau,\zeta)\}, \qquad (\tau,\zeta) \in \tilde{\Theta}.
+<li><p>Consider a <span class="math inline">\mathcal{F}_\text{en}^p</span> family, so that <span class="math inline">f(y; \theta) = f_0(y) \exp\{\theta^T y - K(\theta)\}</span>.</p></li>
+<li><p>Let <span class="math inline">y = (t, u)</span> be a <span class="blue">partition</span> of the natural observations <span class="math inline">y</span>, where <span class="math inline">t</span> has <span class="math inline">k</span> components and <span class="math inline">u</span> has <span class="math inline">p-k</span> components. Let us partition <span class="math inline">\theta</span> accordingly, so that <span class="math inline">\theta = (\tau, \zeta)</span> and <span class="math display">
+f(y; \tau, \zeta) = f_0(y) \exp\{\tau^T t + \zeta^T u - K(\tau, \zeta)\}, \qquad (\tau, \zeta) \in \tilde{\Theta}.
 </span></p></li>
 </ul>
 <div class="callout callout-style-simple callout-warning no-icon callout-titled">
@@ -930,14 +933,13 @@ Theorem (<span class="citation" data-cites="Pace1997">Pace and Salvan (<a href="
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<!-- For an $\mathcal{F}_\text{en}^p$ with density factorized as above: -->
 <ol type="i">
 <li><p>The family of <span class="blue">marginal</span> distributions of <span class="math inline">U</span> is an <span class="math inline">\mathcal{F}_\text{en}^{p-k}</span> for every fixed value of <span class="math inline">\tau</span> and <span class="math display">
-  f_U(u; \tau, \zeta) = h_\tau(u)\exp\{\zeta^T u - K_\tau(\zeta)\}.
-  </span></p></li>
-<li><p>the family of <span class="orange">conditional</span> distributions of <span class="math inline">T</span> given <span class="math inline">U = u</span> is an <span class="math inline">\mathcal{F}_\text{en}^k</span> and the conditional densities do not depend on <span class="math inline">\zeta</span>, that is <span class="math display">
-  f_{T\mid U=u}(t; u, \tau) = h_u(t)\exp\{\tau^T t - K_u(\tau)\}, \quad \exp{K_u(\tau)} = \mathbb{E}_0\left(e^{\tau^T T} \mid U = u\right).
-  </span></p></li>
+f_U(u; \tau, \zeta) = h_\tau(u) \exp\{\zeta^T u - K_\tau(\zeta)\}.
+</span></p></li>
+<li><p>The family of <span class="orange">conditional</span> distributions of <span class="math inline">T</span> given <span class="math inline">U = u</span> is an <span class="math inline">\mathcal{F}_\text{en}^k</span> and the conditional densities do not depend on <span class="math inline">\zeta</span>, that is <span class="math display">
+f_{T \mid U = u}(t; u, \tau) = h_u(t) \exp\{\tau^T t - K_u(\tau)\}, \quad \exp{K_u(\tau)} = \mathbb{E}_0\left(e^{\tau^T T} \mid U = u\right).
+</span></p></li>
 </ol>
 </div>
 </div>
@@ -945,8 +947,8 @@ Theorem (<span class="citation" data-cites="Pace1997">Pace and Salvan (<a href="
 <section id="conditional-likelihoods" class="level2">
 <h2 class="anchored" data-anchor-id="conditional-likelihoods">Conditional likelihoods</h2>
 <ul>
-<li><p>The former result on marginal and conditional laws is not just an elegant probabilistic fact. Indeed, it has sensible inferential applications.</p></li>
-<li><p>Often times, we can split the parameter vector <span class="math inline">\theta</span> into a <span class="blue">parameter of interest</span> <span class="math inline">\tau</span> and a <span class="orange">nuisance parameter</span> <span class="math inline">\zeta</span>. We are not interested in learning <span class="math inline">\zeta</span>.</p></li>
+<li><p>The former result on marginal and conditional laws is not just an elegant probabilistic fact. Indeed, it has meaningful inferential applications.</p></li>
+<li><p>Often, we can split the parameter vector <span class="math inline">\theta</span> into a <span class="blue">parameter of interest</span> <span class="math inline">\tau</span> and a <span class="orange">nuisance parameter</span> <span class="math inline">\zeta</span>. We are not interested in learning <span class="math inline">\zeta</span>.</p></li>
 </ul>
 <div class="callout callout-style-simple callout-tip no-icon">
 <div class="callout-body d-flex">
@@ -954,15 +956,15 @@ Theorem (<span class="citation" data-cites="Pace1997">Pace and Salvan (<a href="
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>The main idea relies upon noticing that <span class="math inline">f_{T\mid U=u}(t; u, \tau) = h_u(t)\exp\{\tau^T t - K_u(\tau)\}</span> does not involve <span class="math inline">\zeta</span> and therefore we could define a <span class="orange">conditional likelihood</span> based on <span class="math inline">f_{T\mid U=u}</span>.</p>
+<p>The main idea relies on noticing that <span class="math inline">f_{T \mid U = u}(t; u, \tau) = h_u(t) \exp\{\tau^T t - K_u(\tau)\}</span> does not involve <span class="math inline">\zeta</span> and therefore we could define a <span class="orange">conditional likelihood</span> based on <span class="math inline">f_{T \mid U = u}</span>.</p>
 </div>
 </div>
 </div>
 <ul>
 <li><p>A practical drawback of this approach is that the conditional cumulant generating function <span class="math inline">K_u(\tau)</span> is not always available in closed form, albeit with notable exceptions.</p></li>
-<li><p>The approach is valid, in the sense that a likelihood based on <span class="math inline">f_{T\mid U=u}</span> is a <span class="blue">genuine likelihood</span>. On the other hand, note that the full likelihood would be based on <span class="math display">
-f(y;\tau, \zeta) = f_U(u; \tau, \zeta) f_{T\mid U=u}(t; u, \tau),
-</span> and thus conditional likelihood is <span class="orange">discarding information</span>, that is, it is neglecting <span class="math inline">f_U(u; \tau, \zeta)</span>.</p></li>
+<li><p>The approach is valid, in the sense that a likelihood based on <span class="math inline">f_{T \mid U = u}</span> is a <span class="blue">genuine likelihood</span>. On the other hand, note that the full likelihood would be based on <span class="math display">
+f(y; \tau, \zeta) = f_U(u; \tau, \zeta) \, f_{T \mid U = u}(t; u, \tau),
+</span> and thus the conditional likelihood is <span class="orange">discarding information</span>, that is, it neglects <span class="math inline">f_U(u; \tau, \zeta)</span>.</p></li>
 </ul>
 </section>
 <section id="a-general-definition-of-exponential-families-i-1" class="level2">
@@ -973,17 +975,17 @@ f(y;\tau, \zeta) = f_U(u; \tau, \zeta) f_{T\mid U=u}(t; u, \tau),
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>Let <span class="math inline">s_1(y),\dots,s_p(y)</span> and <span class="math inline">h(y) &gt; 0</span> be real-valued functions not depending on the parameter <span class="math inline">\psi</span> and let <span class="math inline">\theta_1(\psi), \dots,\theta_p(\psi)</span>, <span class="math inline">G(\psi)</span> be real-valued functions not depending on <span class="math inline">y</span>. The family <span class="math display">
-\mathcal{F}_{\text{e}}^p = \left\{f(y;\psi) = h(y)\exp\{\theta(\psi)^T s(y) - G(\psi)\}, \quad y \in \mathcal{Y}\subseteq \mathbb{R}^p, \: \psi \in \Psi \subseteq \mathbb{R}^q \right\},
-</span> is called a <span class="orange">exponential family</span> of order <span class="math inline">p</span>, where the normalizing constant is <span class="math display">
-\exp{G(\psi)} = \int_\mathcal{Y} h(y) \exp\{\theta(\psi)^T s(y)\} \nu(\mathrm{d}y).
-</span> The notation <span class="math inline">\mathcal{F}_\text{e}^p</span> is understood to indicate a <span class="blue">minimal representation</span>, i.e.&nbsp;such that there is <span class="orange">no linear dependence</span> between <span class="math inline">1, s_1(y),\dots,s_p(y)</span> or, equivalently, between <span class="math inline">1, \theta_1(\psi), \dots,\theta_p(\psi)</span>.</p>
+<p>Let <span class="math inline">s_1(y), \dots, s_p(y)</span> and <span class="math inline">h(y) &gt; 0</span> be real-valued functions not depending on the parameter <span class="math inline">\psi</span>, and let <span class="math inline">\theta_1(\psi), \dots, \theta_p(\psi)</span>, <span class="math inline">G(\psi)</span> be real-valued functions not depending on <span class="math inline">y</span>. The family <span class="math display">
+\mathcal{F}_{\text{e}}^p = \left\{ f(y; \psi) = h(y) \exp\{\theta(\psi)^T s(y) - G(\psi)\}, \quad y \in \mathcal{Y} \subseteq \mathbb{R}^p, \: \psi \in \Psi \subseteq \mathbb{R}^q \right\},
+</span> is called an <span class="orange">exponential family</span> of order <span class="math inline">p</span>, where the normalizing constant is <span class="math display">
+\exp{G(\psi)} = \int_{\mathcal{Y}} h(y) \exp\{\theta(\psi)^T s(y)\} \nu(\mathrm{d}y).
+</span> The notation <span class="math inline">\mathcal{F}_\text{e}^p</span> is understood to indicate a <span class="blue">minimal representation</span>, i.e., such that there is <span class="orange">no linear dependence</span> between <span class="math inline">1, s_1(y), \dots, s_p(y)</span> or, equivalently, between <span class="math inline">1, \theta_1(\psi), \dots, \theta_p(\psi)</span>.</p>
 </div>
 </div>
 </div>
 <ul>
 <li>If <span class="math inline">q &gt; p</span>, then <span class="math inline">\psi</span> is <span class="orange">not identifiable</span> and this possibility should be discarded.</li>
-<li>If <span class="math inline">q = p</span>, then <span class="math inline">\theta(\psi)</span> must be a one-to-one mapping, i.e.&nbsp;a <span class="blue">reparametrization</span>, otherwise the model is again <span class="orange">not identifiabile</span>.</li>
+<li>If <span class="math inline">q = p</span>, then <span class="math inline">\theta(\psi)</span> must be a one-to-one mapping, i.e., a <span class="blue">reparametrization</span>, otherwise the model is again <span class="orange">not identifiable</span>.</li>
 <li>If <span class="math inline">q &lt; p</span>, we have a <span class="math inline">(p,q)</span>-<span class="blue">curved exponential family</span>, which corresponds to a <span class="orange">restriction</span> of the natural parameter space.</li>
 </ul>
 </section>
@@ -995,19 +997,19 @@ f(y;\tau, \zeta) = f_U(u; \tau, \zeta) f_{T\mid U=u}(t; u, \tau),
 </figure>
 </div>
 <ul>
-<li>Figure 4.1 of <span class="citation" data-cites="Efron2023">Efron (<a href="#ref-Efron2023" role="doc-biblioref">2023</a>)</span>, Chapter 4. Three levels of statistical modeling, now with a fourth added representing curved exponential families.</li>
+<li>Figure 4.1 of <span class="citation" data-cites="Efron2023">Efron (<a href="#ref-Efron2023" role="doc-biblioref">2023</a>)</span>, Chapter 4. Three levels of statistical modeling, now with a fourth level added representing curved exponential families.</li>
 </ul>
 </section>
 <section id="a-general-definition-of-exponential-families-ii-1" class="level2">
 <h2 class="anchored" data-anchor-id="a-general-definition-of-exponential-families-ii-1">A general definition of exponential families II</h2>
 <ul>
-<li><p>We refer to <span class="citation" data-cites="Efron2023">Efron (<a href="#ref-Efron2023" role="doc-biblioref">2023</a>)</span>, Chapter 4 for a detailed discussion on curved exponential families. From now on, we will focus on the <span class="math inline">p = q</span> case.</p></li>
-<li><p>Without loss of generality, we can focus on the <span class="blue">natural parametrization</span> <span class="math inline">\theta \in \Theta \subseteq \mathbb{R}^p</span> and density baseline <span class="math inline">h(y) = f_0(y)</span>, meaning that <span class="math inline">f(y;\theta) \in \mathcal{F}_\text{e}^p</span> can be written as <span class="math display">
+<li><p>We refer to <span class="citation" data-cites="Efron2023">Efron (<a href="#ref-Efron2023" role="doc-biblioref">2023</a>)</span>, Chapter 4, for a detailed discussion on curved exponential families. From now on, we will focus on the <span class="math inline">p = q</span> case.</p></li>
+<li><p>Without loss of generality, we can focus on the <span class="blue">natural parametrization</span> <span class="math inline">\theta \in \Theta \subseteq \mathbb{R}^p</span> and baseline density <span class="math inline">h(y) = f_0(y)</span>, meaning that <span class="math inline">f(y;\theta) \in \mathcal{F}_\text{e}^p</span> can be written as <span class="math display">
 f(y; \theta) = f_0(y)\exp\{\theta^T s(y) - K(\theta)\},
 </span> because the general case would be a <span class="orange">reparametrization</span> of this one.</p></li>
-<li><p>Let <span class="math inline">Y \sim f(y; \theta)</span>, with <span class="math inline">f(y; \theta) \in \mathcal{F}_\text{e}^p</span>. Then, the <span class="blue">random vector</span> <span class="math inline">S = s(Y) = (s_1(Y),\dots,s_p(Y))</span> has density <span class="math display">
-f_S(s; \psi) = \tilde{f}_0(s)\exp\{\theta s - K(\theta)\},
-</span> for some baseline density <span class="math inline">\tilde{f}_0(s)</span>, namely <span class="math inline">f_S(s; \psi) \in \mathcal{F}_\text{en}^p</span>. If in addition <span class="math inline">s(y)</span> is a <span class="orange">one-to-one</span> invertible mapping, this means <span class="math inline">Y = s^{-1}(S)</span> is just a transformation of an <span class="math inline">\mathcal{F}_\text{en}^p</span>.</p></li>
+<li><p>Let <span class="math inline">Y \sim f(y; \theta)</span>, with <span class="math inline">f(y; \theta) \in \mathcal{F}_\text{e}^p</span>. Then, the <span class="blue">random vector</span> <span class="math inline">S = s(Y) = (s_1(Y), \dots, s_p(Y))</span> has density <span class="math display">
+f_S(s; \theta) = \tilde{f}_0(s)\exp\{\theta^T s - K(\theta)\},
+</span> for some baseline density <span class="math inline">\tilde{f}_0(s)</span>, namely <span class="math inline">f_S(s; \theta) \in \mathcal{F}_\text{en}^p</span>. If in addition <span class="math inline">s(y)</span> is a <span class="orange">one-to-one</span> invertible mapping, this means <span class="math inline">Y = s^{-1}(S)</span> is just a transformation of an <span class="math inline">\mathcal{F}_\text{en}^p</span>.</p></li>
 </ul>
 <div class="callout callout-style-simple callout-tip no-icon">
 <div class="callout-body d-flex">
@@ -1015,7 +1017,7 @@ f_S(s; \psi) = \tilde{f}_0(s)\exp\{\theta s - K(\theta)\},
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>As in the single parameter case, a full exponential family <span class="math inline">\mathcal{F}_\text{e}^p</span> with <span class="math inline">p = q</span> in practice it leads to a <span class="orange">reparametrization</span> of a natural exponential family <span class="math inline">\mathcal{F}_\text{en}^p</span> in a <span class="blue">transformed space</span> <span class="math inline">s(Y)</span>.</p>
+<p>As in the single parameter case, a full exponential family <span class="math inline">\mathcal{F}_\text{e}^p</span> with <span class="math inline">p = q</span> in practice leads to a <span class="orange">reparametrization</span> of a natural exponential family <span class="math inline">\mathcal{F}_\text{en}^p</span> in a <span class="blue">transformed space</span> <span class="math inline">s(Y)</span>.</p>
 </div>
 </div>
 </div>
@@ -1025,51 +1027,51 @@ f_S(s; \psi) = \tilde{f}_0(s)\exp\{\theta s - K(\theta)\},
 <ul>
 <li><p>The family <span class="math inline">\text{Gamma}(\nu, \lambda)</span> with <span class="math inline">\nu,\lambda &gt; 0</span> is an <span class="math inline">\mathcal{F}_\text{e}^2</span>. In fact, its <span class="blue">density</span> is <span class="math display">
 \begin{aligned}
-f(y; \nu, \lambda) &amp;= \frac{\lambda^\nu}{\Gamma(\nu)}y^{\nu -1}e^{-\lambda y} = \frac{1}{y}\exp\{\nu\log{y} - \lambda y - \log\Gamma(\nu) + \nu\log{\lambda} \} \\
-&amp;=h(y)\exp\{\theta(\psi)s(y) - G(\psi)\}.
+f(y; \nu, \lambda) &amp;= \frac{\lambda^\nu}{\Gamma(\nu)}y^{\nu -1}e^{-\lambda y} = \frac{1}{y}\exp\{\nu\log{y} - \lambda y - \log\Gamma(\nu) + \nu\log{\lambda}\} \\
+&amp;= h(y)\exp\{\theta(\psi)^T s(y) - G(\psi)\}.
 \end{aligned}
-</span> where <span class="math inline">h(y) = y^{-1}</span>, the <span class="blue">sufficient statistic</span> <span class="math inline">s(y) = (s_1(y), s_2(y)) = (\log{y}, y)</span> whereas the <span class="orange">natural parameters</span> and the cumulant generating functions are <span class="math display">
-\theta(\psi) = (\theta_1(\psi), \theta_2(\psi)) = (\nu, -\lambda), \qquad G(\psi) = \log{\Gamma(\nu)} - \nu\log{\lambda}.
+</span> where <span class="math inline">h(y) = y^{-1}</span>, the <span class="blue">sufficient statistic</span> <span class="math inline">s(y) = (s_1(y), s_2(y)) = (\log{y}, y)</span>, whereas the <span class="orange">natural parameters</span> and the cumulant generating function are <span class="math display">
+\theta(\psi) = (\theta_1(\psi), \theta_2(\psi)) = (\nu, -\lambda), \qquad G(\psi) = \log{\Gamma(\nu)} - \nu\log{\lambda},
 </span> having set <span class="math inline">\psi = (\nu, \lambda)</span>.</p></li>
 <li><p>As previously shown, this implies that the family <span class="math display">
-f(s; \theta) = \tilde{h}(y)\exp\{\theta^Ts - \log{\Gamma(\theta_1)} + \theta_1\log(-\theta_2)\}, \qquad \theta \in \tilde{\Theta},
+f(s; \theta) = \tilde{h}(s)\exp\{\theta^Ts - \log{\Gamma(\theta_1)} + \theta_1\log(-\theta_2)\}, \qquad \theta \in \tilde{\Theta},
 </span> is a regular <span class="orange">natural exponential family</span> of order 2, with some function <span class="math inline">\tilde{h}(s)</span>.</p></li>
 </ul>
 </section>
 <section id="example-von-mises-distribution-i" class="level2">
 <h2 class="anchored" data-anchor-id="example-von-mises-distribution-i">Example: von Mises distribution I</h2>
 <ul>
-<li><p>Let <span class="math inline">Y</span> be a random variable describing an <span class="blue">angle</span>, so that <span class="math inline">\mathcal{Y} = (0, 2\pi)</span> and let us consider the <span class="orange">uniform density</span> on the <span class="blue">circle</span>, namely <span class="math display">
+<li><p>Let <span class="math inline">Y</span> be a random variable describing an <span class="blue">angle</span>, so that <span class="math inline">\mathcal{Y} = (0, 2\pi)</span>, and let us consider the <span class="orange">uniform density</span> on the <span class="blue">circle</span>, namely <span class="math display">
 f_0(y) = \frac{1}{2\pi}, \qquad y \in (0, 2\pi).
 </span></p></li>
-<li><p>We define a tilted density <span class="math inline">f(y; \theta) \in \mathcal{F}_\text{e}^2</span> by considering <span class="math inline">s(y) = (\cos{y}, \sin{y})</span>, i.e.&nbsp;be the <span class="orange">cartesian coordinates</span> of <span class="math inline">y</span>. This choice of <span class="math inline">s(y)</span> ensures the appealing property <span class="math inline">f(y;\theta) = f(y + 2k\pi;\theta)</span>.</p></li>
+<li><p>We define a tilted density <span class="math inline">f(y; \theta) \in \mathcal{F}_\text{e}^2</span> by considering <span class="math inline">s(y) = (\cos{y}, \sin{y})</span>, i.e., the <span class="orange">cartesian coordinates</span> of <span class="math inline">y</span>. This choice of <span class="math inline">s(y)</span> ensures the appealing property <span class="math inline">f(y;\theta) = f(y + 2k\pi;\theta)</span>.</p></li>
 <li><p>More precisely, let <span class="math inline">\theta = (\theta_1,\theta_2)</span> and define the parametric family of densities <span class="math display">
 f(y; \theta) = f_0(y)\exp\{\theta^Ts(y) - K(\theta)\}, \qquad \theta \in \tilde{\Theta},
 </span> where <span class="math inline">h(y) = 1/2\pi</span>. The normalizing constant has a “closed form” <span class="math display">
-\exp{K(\theta)} = \frac{1}{2\pi}\int_0^{2\pi}\exp\{\theta_1\cos(y) + \theta_2\sin(y)\}\mathrm{d}y = \mathcal{I}_0(||\theta||_2),
-</span> where <span class="math inline">\mathcal{I}_\nu(\cdot)</span> is known as the <span class="orange">modified Bessel function</span> of the first kind and order <span class="math inline">\nu</span>.</p></li>
-<li><p>It is easy to check that <span class="math inline">K(\theta) &lt; \infty</span> for all values of <span class="math inline">\theta \in \mathbb{R}^2</span>, therefore <span class="math inline">\tilde{\Theta} = \mathbb{R}^2</span>. This complete the definition of what is known as the <span class="blue">von Mises</span> distribution.</p></li>
+\exp{K(\theta)} = \frac{1}{2\pi}\int_0^{2\pi}\exp\{\theta_1\cos(y) + \theta_2\sin(y)\}\mathrm{d}y = \mathcal{A}_0(||\theta||_2),
+</span> where <span class="math inline">\mathcal{A}_\nu(\cdot)</span> is known as the <span class="orange">modified Bessel function</span> of the first kind and order <span class="math inline">\nu</span>.</p></li>
+<li><p>It is easy to check that <span class="math inline">K(\theta) &lt; \infty</span> for all values of <span class="math inline">\theta \in \mathbb{R}^2</span>; therefore, <span class="math inline">\tilde{\Theta} = \mathbb{R}^2</span>. This completes the definition of what is known as the <span class="blue">von Mises</span> distribution.</p></li>
 </ul>
 </section>
 <section id="example-von-mises-distribution-ii" class="level2">
 <h2 class="anchored" data-anchor-id="example-von-mises-distribution-ii">Example: von Mises distribution II</h2>
 <ul>
-<li><p>Instead of the <span class="orange">natural parametrization</span> it is often convenient consider a <span class="blue">reparametrization</span> <span class="math inline">\psi =(\tau, \gamma)</span>, defined trough the one-to-one mapping <span class="math display">
+<li><p>Instead of the <span class="orange">natural parametrization</span>, it is often convenient to consider a <span class="blue">reparametrization</span> <span class="math inline">\psi =(\tau, \gamma)</span>, defined through the one-to-one mapping <span class="math display">
 \theta(\psi) = (\tau\cos{\gamma}, \tau\sin{\gamma}), \qquad \psi \in \tilde{\Psi} = (0, \infty) \times (0, 2\pi).
 </span></p></li>
 <li><p>Using this parametrization, thanks to well-known <span class="blue">trigonometric</span> relationships, we obtain the more familiar formulation of the von Mises distribution, which is <span class="math display">
-f(y; \psi) = h(y)\exp\{\theta(\psi)s(y) - G(\psi))\} = \frac{1}{2\pi \mathcal{I}_0(\tau)}e^{\tau\cos(y - \gamma)}, \qquad y \in (0, 2\pi),
+f(y; \psi) = h(y)\exp\{\theta(\psi)s(y) - G(\psi)\} = \frac{1}{2\pi \mathcal{A}_0(\tau)}e^{\tau\cos(y - \gamma)}, \qquad y \in (0, 2\pi),
 </span> so that <span class="math inline">\gamma \in (0,2\pi)</span> can be interpreted as the <span class="orange">location</span> and <span class="math inline">\tau &gt; 0</span> as the <span class="blue">precision</span>.</p></li>
 <li><p>We also note that the distribution of <span class="math inline">s(Y)</span> is a <span class="blue">regular</span> <span class="orange">natural exponential family</span> of order 2, with density <span class="math display">
-f_S(s; \theta) = \frac{1}{2\pi}\exp\{\theta^Ts - \log\mathcal{I}_0(||\theta||_2)\}, \qquad s \in \mathcal{S} = \{(s_1,s_2) \in \mathbb{R}^2 : s_1^2 + s_2^2 = 1\},
-</span> clarifying that <span class="math inline">S = s(Y)</span> is a random vector taking values on a <span class="orange">circle</span> with unitary radius.</p></li>
+f_S(s; \theta) = \frac{1}{2\pi}\exp\{\theta^Ts - \log\mathcal{A}_0(||\theta||_2)\}, \qquad s \in \mathcal{S} = \{(s_1,s_2) \in \mathbb{R}^2 : s_1^2 + s_2^2 = 1\},
+</span> clarifying that <span class="math inline">S = s(Y)</span> is a random vector taking values on a <span class="orange">circle</span> with unit radius.</p></li>
 </ul>
 </section>
 <section id="example-wind-direction-in-venice-i" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="example-wind-direction-in-venice-i">Example: wind direction in Venice I</h2>
 <ul>
-<li><p>The von Mises distribution is sometimes regarded as the “Gaussian distribution for <span class="blue">circular data</span>”. To provide a concrete example, let us consider the <span class="orange">wind directions</span> measured from the <a href="https://www.comune.venezia.it/it/content/17-san-giorgio">San Giorgio metereological station</a>, in Venice.</p></li>
-<li><p>Measurements are recorded every <span class="orange">5 minutes</span>, from the 14-04-2025 to 18-04-2025, for a total of <span class="math inline">n = 1153</span>. The variables <code>wind_dir</code> is recorded in <span class="blue">degrees</span>, i.e.&nbsp;between 0 and 360.</p></li>
+<li><p>The von Mises distribution is sometimes regarded as the “Gaussian distribution for <span class="blue">circular data</span>”. To provide a concrete example, let us consider the <span class="orange">wind directions</span> measured from the <a href="https://www.comune.venezia.it/it/content/17-san-giorgio">San Giorgio meteorological station</a>, in Venice.</p></li>
+<li><p>Measurements are recorded every <span class="orange">5 minutes</span>, from 14-04-2025 to 18-04-2025, for a total of <span class="math inline">n = 1153</span>. The variable <code>wind_dir</code> is recorded in <span class="blue">degrees</span>, i.e., between 0 and 360.</p></li>
 </ul>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
@@ -1104,7 +1106,7 @@ f_S(s; \theta) = \frac{1}{2\pi}\exp\{\theta^Ts - \log\mathcal{I}_0(||\theta||_2)
 </div>
 </div>
 <ul>
-<li>This is a somewhat <span class="orange">misleading</span> graphical representation of <span class="blue">wind directions</span> evolving over time. Indeed, the “spykes” are not real: the angles 1 and 359 are, in fact, very close.</li>
+<li>This is a somewhat <span class="orange">misleading</span> graphical representation of <span class="blue">wind directions</span> evolving over time. Indeed, the “spikes” are not real: the angles 1 and 359 are, in fact, very close.</li>
 </ul>
 </section>
 <section id="example-wind-direction-in-venice-iii" class="level2">
@@ -1119,7 +1121,7 @@ f_S(s; \theta) = \frac{1}{2\pi}\exp\{\theta^Ts - \log\mathcal{I}_0(||\theta||_2)
 </div>
 </div>
 <ul>
-<li>A better graphical representation of <span class="blue">wind directions</span> and <span class="orange">wind speed</span>, using cartesian coordinates. From this windrose, it is clear the winds were coming mostly from the East.</li>
+<li>A better graphical representation of <span class="blue">wind directions</span> and <span class="orange">wind speed</span>, using Cartesian coordinates. From this wind rose, it is clear the winds were coming mostly from the east.</li>
 </ul>
 </section>
 </section>
@@ -1130,10 +1132,10 @@ f_S(s; \theta) = \frac{1}{2\pi}\exp\{\theta^Ts - \log\mathcal{I}_0(||\theta||_2)
 <ul>
 <li><p>Let <span class="math inline">Y_1,\dots,Y_n</span> be iid random vectors with density <span class="math inline">f(y; \theta)</span>, where <span class="math inline">f(y; \theta) \in \mathcal{F}_\text{e}^p</span> and, without loss of generality, we let <span class="math inline">f(y; \theta) = f_0(y)\exp\{\theta^T s(y) - K(\theta)\}</span>. The <span class="blue">likelihood</span> function is <span class="math display">
 L(\theta; \bm{y}) = \prod_{i=1}^n \exp\left\{\theta^T s(y_i) - K(\theta)\right\} = \exp\left\{\theta^T \sum_{i=1}^n s(y_i) - n K(\theta)\right\},
-</span> from which we see that <span class="math inline">s = \sum_{i=1}^ns(y_i) =(\sum_{i=1}^n s_1(y_i),\dots,\sum_{i=1}^n s_p(y_i))</span> is the <span class="orange">minimal sufficient statistic</span> as long as <span class="math inline">n \ge p</span>, which has <span class="blue">fixed dimension</span> <span class="math inline">p</span> whatever the sample size.</p></li>
+</span> from which we see that <span class="math inline">s = \sum_{i=1}^n s(y_i) = \left(\sum_{i=1}^n s_1(y_i), \dots, \sum_{i=1}^n s_p(y_i)\right)</span> is the <span class="orange">minimal sufficient statistic</span> as long as <span class="math inline">n \ge p</span>, which has <span class="blue">fixed dimension</span> <span class="math inline">p</span> whatever the sample size.</p></li>
 <li><p>Inference can therefore be based on the random vector <span class="math inline">S = \sum_{i=1}^n s(Y_i)</span>, whose distribution is <span class="math display">
 f_S(s; \theta) = \tilde{f}_0(s)\exp\{\theta^T s - \tilde{K}(\theta)\},
-</span> with <span class="math inline">\tilde{K}(\theta) = n K(\theta)</span> and for some density <span class="math inline">\tilde{f}_0(s)</span>. In other words <span class="math inline">f_S(s; \theta) \in  \mathcal{F}_\text{en}^p</span>.</p></li>
+</span> with <span class="math inline">\tilde{K}(\theta) = n K(\theta)</span> and for some density <span class="math inline">\tilde{f}_0(s)</span>. In other words, <span class="math inline">f_S(s; \theta) \in \mathcal{F}_\text{en}^p</span>.</p></li>
 </ul>
 <div class="callout callout-style-simple callout-warning no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -1152,11 +1154,11 @@ Theorem (<span class="citation" data-cites="Pace1997">Pace and Salvan (<a href="
 <section id="sufficiency-and-completeness" class="level2">
 <h2 class="anchored" data-anchor-id="sufficiency-and-completeness">Sufficiency and completeness</h2>
 <ul>
-<li><p>Thus the log-likelihood function, after a reduction via <span class="blue">sufficiency</span>, is <span class="math display">
-\ell(\theta) = \ell(\theta; s) = \theta^Ts - n K(\theta), \qquad \theta \in \tilde{\Theta},
-</span> with <span class="math inline">S = \sum_{i=1}^n s(Y_i)</span> being distributed as a <span class="math inline">\mathcal{F}_\text{en}^p</span> with cumulant generating function <span class="math inline">n K(\theta)</span>.</p></li>
-<li><p>The <span class="orange">completeness</span> of <span class="math inline">S</span> in exponential families is a classical result that enables the usage of Rao-Blackwell-Lehmann-Scheffé theorem for finding the UMVUE.</p></li>
-<li><p>Moreover, the existence of a <span class="blue">minimal sufficient</span> statistic that performs a <span class="orange">non trivial</span> <span class="blue">dimensionality reduction</span>, from <span class="math inline">n</span> to <span class="math inline">p</span> and with <span class="math inline">p \le n</span>, is a major simplification.</p></li>
+<li><p>Thus, the log-likelihood function, after a reduction via <span class="blue">sufficiency</span>, is <span class="math display">
+\ell(\theta) = \ell(\theta; s) = \theta^T s - n K(\theta), \qquad \theta \in \tilde{\Theta},
+</span> with <span class="math inline">S = \sum_{i=1}^n s(Y_i)</span> being distributed as a <span class="math inline">\mathcal{F}_\text{en}^p</span> with cumulant generating function <span class="math inline">n K(\theta)</span>, whereas each <span class="math inline">s(Y_i)</span> is distributed as a <span class="math inline">\mathcal{F}_\text{en}^p</span> with cumulant generating function <span class="math inline">K(\theta)</span>.</p></li>
+<li><p>The <span class="orange">completeness</span> of <span class="math inline">S</span> in exponential families is a classical result that enables the usage of the Rao-Blackwell-Lehmann-Scheffé theorem for finding the UMVUE.</p></li>
+<li><p>Moreover, the existence of a <span class="blue">minimal sufficient</span> statistic that performs a <span class="orange">non-trivial</span> <span class="blue">dimensionality reduction</span>, from <span class="math inline">n</span> to <span class="math inline">p</span> and with <span class="math inline">p \le n</span>, is a major simplification.</p></li>
 <li><p>This only occurs in exponential families, except for non-regular cases.</p></li>
 </ul>
 <div class="callout callout-style-simple callout-warning no-icon callout-titled">
@@ -1169,34 +1171,34 @@ Theorem (Koopman-Pitman-Darmois, <span class="citation" data-cites="Robert1994">
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Under iid sampling, if a parametric family whose <span class="orange">support</span> does <span class="orange">not depend</span> on the <span class="orange">parameter</span> is such that there exists a <span class="blue">sufficient statistic</span> of <span class="blue">constant dimension</span> <span class="math inline">p</span> then the family is <span class="math inline">\mathcal{F}_\text{e}^p</span>.</p>
+<p>Under iid sampling, if a parametric family whose <span class="orange">support</span> does <span class="orange">not depend</span> on the <span class="orange">parameter</span> is such that there exists a <span class="blue">sufficient statistic</span> of <span class="blue">constant dimension</span> <span class="math inline">p</span>, then the family is <span class="math inline">\mathcal{F}_\text{e}^p</span>.</p>
 </div>
 </div>
 </section>
 <section id="likelihood-quantities" class="level2">
 <h2 class="anchored" data-anchor-id="likelihood-quantities">Likelihood quantities</h2>
 <ul>
-<li><p>Recall that after a reduction via sufficiency <span class="math inline">\ell(\theta) = \theta^Ts - \tilde{K}(\theta)</span>. Thus, the <span class="blue">score vector</span> is <span class="math display">
-l^*(\theta) = s - \frac{\partial}{\partial \theta}\tilde{K}(\theta) = s - \mu(\theta),
-</span> where <span class="math inline">\mu(\theta) = \mathbb{E}_\theta(S)</span> is the <span class="orange">mean value mapping</span> of the sufficient statistic <span class="math inline">S</span>.</p></li>
-<li><p>By direct calculation, this shows that the <span class="blue">first Bartlett identity</span> holds, namely we have <span class="math display">
-\mathbb{E}_\theta(l^*(\theta; S)) = \mathbb{E}_\theta(S) - \mathbb{E}_\theta(S) = \bm{0}.
-</span> The <span class="orange">Fisher information</span> is straighforward to compute, being equal to <span class="math display">
-I(\theta) = \mathbb{E}_\theta(l^*(\theta)l^*(\theta)^\top) = \mathbb{E}_\theta\{(S - \mu(\theta))(S - \mu(\theta))^T\} = \text{var}_\theta(S).
+<li><p>After a sufficiency reduction, we get <span class="math inline">\ell(\theta) = \theta^T s - n K(\theta)</span>. Thus, the <span class="blue">score function</span> is <span class="math display">
+\ell^*(\theta) = s - n \frac{\partial}{\partial \theta}K(\theta) = s - n \mu(\theta),
+</span> where <span class="math inline">\mu(\theta) = \mathbb{E}_\theta(s(Y_1))</span> is the <span class="orange">mean value mapping</span> of each <span class="math inline">s(Y_i)</span> and <span class="math inline">n \mu(\theta) = \mathbb{E}(S)</span>.</p></li>
+<li><p>By direct calculation, we show that the <span class="blue">first Bartlett identity</span> holds, namely <span class="math display">
+\mathbb{E}_\theta(\ell^*(\theta; S)) = \mathbb{E}_\theta(S) - n\mu(\theta) = n\mu(\theta) - n\mu(\theta)= \bm{0}.
+</span> The <span class="orange">Fisher information</span> is straightforward to compute, being equal to <span class="math display">
+I(\theta) = \mathbb{E}_\theta(\ell^*(\theta)\ell^*(\theta)^T) = \mathbb{E}_\theta\{(S - n\mu(\theta))(S - n\mu(\theta))^T\} = \text{var}_\theta(S) = n \, \text{var}_\theta(s(Y_1)).
 </span></p></li>
-<li><p>Secondly, the <span class="blue">observed information</span> is <span class="math display">
-\mathcal{I}(\theta) = -\frac{\partial^2}{\partial \theta \partial \theta^T}\ell(\theta) = \frac{\partial^2}{\partial \theta \partial \theta^T}\tilde{K}(\theta) = \text{var}_\theta(S),
-</span> which proves the <span class="blue">second Bartlett identity</span> as an implication of the <span class="orange">remarkable</span> identity <span class="math inline">\mathcal{I}(\theta) = I(\theta)</span>, stronger than the usual <span class="math inline">I(\theta) = \mathbb{E}_\theta(\mathcal{I}(\theta))</span>. In fact, <span class="math inline">\mathcal{I}(\theta)</span> is non-stochastic.</p></li>
+<li><p>Moreover, the <span class="blue">observed information</span> is <span class="math display">
+\mathcal{I}(\theta) = -\frac{\partial^2}{\partial \theta \partial \theta^T}\ell(\theta) = \frac{\partial^2}{\partial \theta \partial \theta^T}\tilde{K}(\theta)= n\frac{\partial^2}{\partial \theta \partial \theta^T}K(\theta)  = n \, \text{var}_\theta(s(Y_1)),
+</span> which proves the <span class="blue">second Bartlett identity</span> as an implication of the <span class="orange">remarkable</span> identity <span class="math inline">\mathcal{I}(\theta) = I(\theta)</span>, stronger than the usual <span class="math inline">I(\theta) = \mathbb{E}_\theta(\mathcal{I}(\theta))</span>. In fact, <span class="math inline">\mathcal{I}(\theta)</span> is <span class="blue">non-stochastic</span>.</p></li>
 </ul>
 </section>
-<section id="maximum-likelihood-estimation" class="level2">
-<h2 class="anchored" data-anchor-id="maximum-likelihood-estimation">Maximum likelihood estimation</h2>
+<section id="existence-of-the-maximum-likelihood" class="level2">
+<h2 class="anchored" data-anchor-id="existence-of-the-maximum-likelihood">Existence of the maximum likelihood</h2>
 <ul>
 <li>The maximum likelihood estimate <span class="math inline">\hat{\theta}</span>, if it exists, is the <span class="orange">unique</span> solution of the <span class="blue">score equation</span> <span class="math display">
-s - \mu(\theta) = \bm{0}.
-</span> It is unique because the second derivative of the log-likelihood is such that <span class="math display">
-\frac{\partial^2}{\partial \theta \partial \theta^T}\ell(\theta) = -\text{var}_\theta(S) &lt; 0, \qquad \theta \in \tilde{\Theta},
-</span> implying that <span class="math inline">\ell(\theta)</span> is <span class="orange">concave</span> in <span class="math inline">\theta</span>.</li>
+s - n \mu(\theta) = \bm{0}, \qquad \text{so that} \qquad \hat{\theta} = \mu^{-1}\left(\frac{s}{n}\right) = \mu^{-1}\left(\frac{1}{n}\sum_{i=1}^ns(y_i)\right).
+</span> It is unique because <span class="math inline">\ell(\theta)</span> is <span class="orange">concave</span> in <span class="math inline">\theta</span>, namely its second derivative is <span class="math display">
+\frac{\partial^2}{\partial \theta \partial \theta^T}\ell(\theta) = -\text{var}_\theta(S) &lt; 0, \qquad \theta \in \tilde{\Theta}.
+</span></li>
 </ul>
 <div class="callout callout-style-simple callout-warning no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -1212,17 +1214,47 @@ Theorem (<span class="citation" data-cites="Pace1997">Pace and Salvan (<a href="
 </div>
 </div>
 <ul>
-<li>As a corollary, if <span class="math inline">\mathcal{F}_\text{en}^p</span> is regular, the MLE exists and is unique <span class="blue">with probability one</span> if and only the boundary of <span class="math inline">C = C(\mathcal{S})</span> has probability <span class="math inline">0</span>. Broadly speaking, issues may occur when <span class="math inline">S</span> is a <span class="orange">discrete</span> random variable placing positive probability at the boundary of <span class="math inline">\mathcal{S}</span>.</li>
+<li>As a corollary, if <span class="math inline">\mathcal{F}_\text{en}^p</span> is regular, the MLE exists and is unique <span class="blue">with probability one</span> if and only if the boundary of <span class="math inline">C = C(\mathcal{S})</span> has probability <span class="math inline">0</span>. This is often violated when <span class="math inline">S</span> is <span class="orange">discrete</span>.</li>
 </ul>
 </section>
-<section id="optimality-properties-of-point-estimates" class="level2">
-<h2 class="anchored" data-anchor-id="optimality-properties-of-point-estimates">Optimality properties of point estimates</h2>
+<section id="likelihood-quantities-mean-parametrization" class="level2">
+<h2 class="anchored" data-anchor-id="likelihood-quantities-mean-parametrization">Likelihood quantities: mean parametrization 📖</h2>
+<ul>
+<li><p>Let us consider the <span class="blue">mean parametrization</span> <span class="math inline">\mu = \mu(\theta) = \mathbb{E}_\theta(s(Y_1))</span>, whose inverse is <span class="math inline">\theta = \theta(\mu)</span>. The log-likelihood is: <span class="math display">
+\ell(\mu) = \ell(\theta(\mu)) = \theta(\mu)^T s - n K(\theta(\mu)), \qquad \mu \in \mathcal{M}.
+</span></p></li>
+<li><p>Hence, using the <span class="orange">chain rule</span> of differentiation, we obtain the <span class="blue">score</span> <span class="math display">
+\ell^*(\mu) = \left(\frac{\partial}{\partial \mu}\theta(\mu)\right)(s - n \mu) = \text{var}_{\mu}(s(Y_1))^{-1}(s - n \mu),
+</span> where the last step follows from the properties of the derivatives of inverse functions.</p></li>
+<li><p>Thus, the <span class="blue">observed information</span> matrix for the mean parametrization is <span class="math display">
+\mathcal{I}_\mu(\mu) = -\frac{\partial^2}{\partial \mu \partial \mu^T}\ell(\mu) = -\left(\frac{\partial^2}{\partial \mu \partial \mu^T}\theta(\mu)\right)(s - n \mu) + n \, \text{var}_{\mu}(s(Y_1))^{-1},
+</span> whereas the <span class="orange">Fisher information</span> matrix for <span class="math inline">\mu</span> is <span class="math display">
+I_\mu(\mu) = \mathbb{E}_\mu(\mathcal{I}_\mu(\mu)) = n \, \text{var}_{\mu}(s(Y_1))^{-1} = n \, V(\mu)^{-1}.
+</span></p></li>
+</ul>
 </section>
-<section id="asymptotic-theory" class="level2">
-<h2 class="anchored" data-anchor-id="asymptotic-theory">Asymptotic theory</h2>
+<section id="maximum-likelihood-mean-parametrization" class="level2">
+<h2 class="anchored" data-anchor-id="maximum-likelihood-mean-parametrization">Maximum likelihood: mean parametrization</h2>
+<ul>
+<li><p>Thus, the maximum likelihood estimate of the <span class="orange">mean parametrization</span> <span class="math inline">\hat{\mu} = \mu(\hat{\theta})</span> is <span class="math display">
+\hat{\mu} = \frac{s}{n} = \frac{1}{n}\sum_{i=1}^ns(y_i).
+</span> This means <span class="math inline">\hat{\mu}</span> is both the <span class="orange">maximum likelihood</span> and the <span class="blue">method of moments</span> estimate of <span class="math inline">\mu</span>.</p></li>
+<li><p>It is also an <span class="blue">unbiased estimator</span>, because by definition <span class="math display">
+\mathbb{E}(\hat{\mu}) = \frac{1}{n}\sum_{i=1}^n\mathbb{E}_\mu(s(Y_i)) = \mathbb{E}_\theta(s(Y_1)) = \mu.
+</span></p></li>
+<li><p>Furthermore <span class="math inline">\hat{\mu}</span> is the <span class="orange">UMVUE</span> of <span class="math inline">\mu</span>. Indeed, we could first notice that <span class="math inline">\hat{\mu}</span> is a function of <span class="math inline">S</span>, which is a <span class="orange">complete</span> sufficient statistic Alternatively, we could note that the variance of <span class="math inline">\hat{\mu}</span> is <span class="math display">
+\text{var}_\mu(\hat{\mu}) = \frac{1}{n}\text{var}_\mu(s(Y_1))= \frac{1}{n}V(\mu) = \mathcal{I}_\mu(\mu)^{-1},
+</span> which corresponds to the <span class="blue">Cramer-Rao</span> lower bound.</p></li>
+</ul>
+<!-- ::: callout-tip -->
+<!-- The maximum likelihood estimate for $\hat{\theta}$ is typically [biased]{.blue}; therefore, it cannot be the [UMVUE]{.orange}, even though it depends on the complete sufficient statistic $S$. -->
+<!-- ::: -->
 </section>
-<section id="firth-corrections" class="level2">
-<h2 class="anchored" data-anchor-id="firth-corrections">Firth corrections</h2>
+<section id="example-binomial-distribution" class="level2">
+<h2 class="anchored" data-anchor-id="example-binomial-distribution">Example: binomial distribution 📖</h2>
+</section>
+<section id="example-von-mises-distribution-iii" class="level2">
+<h2 class="anchored" data-anchor-id="example-von-mises-distribution-iii">Example: von Mises distribution III</h2>
 </section>
 <section id="example-wind-direction-in-venice-iv" class="level2">
 <h2 class="anchored" data-anchor-id="example-wind-direction-in-venice-iv">Example: wind direction in Venice IV</h2>
@@ -1247,6 +1279,12 @@ Theorem (<span class="citation" data-cites="Pace1997">Pace and Salvan (<a href="
 </div>
 </div>
 </div>
+</section>
+<section id="asymptotic-theory" class="level2">
+<h2 class="anchored" data-anchor-id="asymptotic-theory">Asymptotic theory</h2>
+</section>
+<section id="firth-corrections" class="level2">
+<h2 class="anchored" data-anchor-id="firth-corrections">Firth corrections</h2>
 </section>
 </section>
 <section id="exponential-dispersion-families" class="level1">
