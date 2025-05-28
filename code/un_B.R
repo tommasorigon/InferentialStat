@@ -12,11 +12,6 @@ dataset <- dataset %>%
 # Filtering a bunch of them
 dataset <- filter(dataset, date >= "2025-04-14 00:00:00")
 
-# ggplot(data = dataset, aes(x = date, y = `Wind speed`)) +
-#  geom_line() +
-#  labs(x = "Date", y = "Wind Speed (m/s)") +
-#  theme_bw()
-
 print(subset(dataset, select = c(date, wind_dir, `Wind speed`))[1:10, ])
 
 ggplot(data = dataset, aes(x = date, y = wind_dir, col = `Wind speed`)) +
@@ -24,13 +19,7 @@ ggplot(data = dataset, aes(x = date, y = wind_dir, col = `Wind speed`)) +
   labs(x = "Date", y = "Wind direction (degrees)") +
   theme_bw()
 
-clifro::windrose(speed = dataset$`Wind speed`, direction = dataset$wind_dir)
-# ggplot(data = dataset, aes(x = sin(wind_dir / 360 * 2 * pi), y = cos(wind_dir / 360 * 2 * pi))) +
-#   geom_point() +
-#   xlim(c(-1, 1)) +
-#   ylim(c(-1, 1)) +
-#   labs(x = "Easting", y = "Northing") +
-#   theme_bw() + coord_fixed(ratio = 1)
+clifro::windrose(speed = dataset$`Wind speed`, direction = dataset$wind_dir, n_directions = 20)
 
 y <- dataset$wind_dir / 360 * 2 * pi
 s1 <- sum(sin(y))

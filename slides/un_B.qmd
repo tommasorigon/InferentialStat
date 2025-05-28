@@ -82,8 +82,7 @@ library(ggthemes)
 - This unit will cover the following [topics]{.orange}:
     - One-parameter and multiparameter exponential families
     - Likelihood, inference, sufficiency and completeness
-    - Exponential dispersion families
-    
+
 - The [prime role]{.orange} of [exponential families]{.orange} in the theory of statistical inference was first emphasized by @Fisher1934.
 
 - Most [well-known]{.blue} [distributions]{.blue}---such as Gaussian, Poisson, Binomial, and Gamma---are instances of exponential families.
@@ -968,21 +967,55 @@ which corresponds to the [Cramer-Rao]{.blue} lower bound.
 
 ## Example: binomial distribution 📖 
 
-## Example: von Mises distribution III
+- Let $Y_1,\dots,Y_n$ be iid Bernoulli random variables with mean $\mu \in (0,1)$, that is $\text{pr}(Y_i = 1) = \mu$. Then, the log-likelihood function is
+$$
+\ell(\mu) = \sum_{i=1}^n[y_i\log{\mu} + (1 - y_i)\log{(1 - \mu)}] = s \log{\mu} + (n - s)\log{(1 - \mu)},
+$$
+with $S = \sum_{i=1}^nY_i$ being the [minimal sufficient]{.orange} statistic and the [natural parametrization]{.blue} is $\theta(\mu) = \log{\mu/(1-\mu)}$. Note that $S \sim \text{Binom}(n, \mu)$. 
+
+- The [variance function]{.blue} is $V(\mu) = \text{var}_\mu(Y_i)= \mu(1-\mu)$, so that the [score function]{.blue} becomes
+$$
+\ell^*(\mu) = \frac{s}{\mu} - \frac{n - s}{1 - \mu} = \frac{1}{V(\mu)}(s - n\mu),
+$$
+leading to the well-known UMVUE maximum likelihood estimator $\hat{\mu} = s/n$. 
+
+- Finally, the [observed information]{.orange} and the [Fisher information]{.blue} equal, respectively
+$$
+\mathcal{I}_\mu(\mu) = \frac{s}{\mu^2} - \frac{n - s}{(1 - \mu)^2}, \qquad I_\mu(\mu) = \mathbb{E}_\mu(\mathcal{I}_\mu(\mu)) = \frac{n}{\mu(1 - \mu)} = \frac{n}{V(\mu)}.
+$$
+
+## Example: von Mises distribution III 📖 
+
+- Let $Y_1,\dots,Y_n$ be iid random variables from a [Von-Mises]{.blue} distribution with density $f(y; \psi) = (2\pi\mathcal{A}_0(\tau))^{-1}\exp\{\tau\cos(y - \gamma)\}$, with $y \in (0, 2\pi)$, therefore the [log-likelihood]{.orange} is
+$$
+\ell(\psi) = \tau\sum_{i=1}^n\cos(y_i - \gamma) - n\log{\mathcal{A}_0(\tau)}.
+$$
+
+- The Jacobian of the log-likelihood is
+$$
+\frac{\partial}{\partial \gamma} \ell(\psi) = \tau\sum_{i=1}^n\sin(y_i - \gamma), \quad\frac{\partial}{\partial \tau}\ell(\psi) = \sum_{i=1}^n\cos{(y_i - \gamma)} - n\frac{\mathcal{A_1(\tau)}}{\mathcal{A}_0(\tau)}.
+$$
+
+- Thus, the [maximum likelihood estimate]{.blue} $(\hat{\gamma},\hat{\tau})$ is the solution of the following equations
+$$
+\tan(\hat{\gamma}) = \frac{\sum_{i=1}^n\sin{y_i}}{\sum_{i=1}^n\cos{y_i}}, \qquad \frac{1}{n}\sum_{i=1}^n\cos{(y_i - \hat{\gamma})} = \frac{\mathcal{A_1(\hat{\tau})}}{\mathcal{A}_0(\hat{\tau})}.
+$$
+The estimate for $\tau$ can be obtained [numerically]{.orange} e.g. using the `circular::A1inv` function. 
 
 ## Example: wind direction in Venice IV
 
 ```{r}
 y <- dataset$wind_dir / 360 * 2 * pi
-s1 <- sum(sin(y))
-s2 <- sum(cos(y))
+s1 <- sum(cos(y))
+s2 <- sum(sin(y))
+
 
 # Estimate the concentration parameter
-gamma <- atan2(s1, s2)
+gamma <- atan2(s2, s1)
 tau <- circular::A1inv(mean(cos(y - gamma)))
 
-theta1 <- tau * sin(gamma)
-theta2 <- tau * cos(gamma)
+theta1 <- tau * cos(gamma)
+theta2 <- tau * sin(gamma)
 ```
 
 ```{r}
@@ -995,7 +1028,10 @@ dvonmises <- Vectorize(dvonmises, vectorize.args = "x")
 x_seq <- seq(0, 2 * pi, length.out = 500)
 plot(x_seq / (2 * pi) * 360, dvonmises(x_seq, gamma, tau), type = "l", xlab = "Degrees", ylab = "Density")
 rug(y/ (2 * pi) * 360)
+abline(v = gamma / (2 * pi) * 360, lty = "dashed")
 ```
+
+- The [estimated]{.orange} values are $\hat{\gamma} = 1.375$ (corresponding to about 79 degrees) and $\hat{\tau} = 2.51$.
 
 ## Example: wind direction in Venice V
 
@@ -1008,15 +1044,10 @@ ggplot(data = NULL, aes(x = sin(x_seq), y = cos(x_seq), col = dvonmises(x_seq, g
   theme_bw() + theme(legend.position = "none")+ coord_fixed(ratio = 1)
 ```
 
-
 ## Asymptotic theory
 
 ## Firth corrections
 
-
-
-
-# Exponential dispersion families
 
 # References and study material
 
