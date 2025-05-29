@@ -1371,7 +1371,7 @@ $$
 #### Theorem (Cramér-Rao, simplified)
 Let $Y_1,\dots,Y_n$ be an iid sample from $f(y \mid \theta)\mathrm{d}y$ satisfying conditions [C.1]{.blue} and [C.2]{.blue}, and let $\Theta \subseteq \mathbb{R}$. Moreover, let $\hat{\theta}(\bm{Y})$ be an [unbiased]{.orange} estimator of $\theta$  with finite variance $\text{var}(\hat{\theta}(\bm{Y})) < \infty$. Then
 $$
-\text{var}_\theta(\hat{\theta}(\bm{Y})) \ge \frac{1}{n i(\theta)}, \qquad i(\theta) = -\int\frac{\partial^2}{\partial^2 \theta}\log{f(y \mid \theta)}\mathrm{d}y.
+\text{var}_\theta(\hat{\theta}(\bm{Y})) \ge \frac{1}{n i(\theta)}, \qquad i(\theta) = -\int\frac{\partial^2}{\partial^2 \theta}\log{f(y \mid \theta)}f(y\mid\theta)\mathrm{d}y.
 $$
 :::
 
