@@ -1608,7 +1608,7 @@ Theorem (Cramér-Rao, simplified)
 </div>
 <div class="callout-body-container callout-body">
 <p>Let <span class="math inline">Y_1,\dots,Y_n</span> be an iid sample from <span class="math inline">f(y \mid \theta)\mathrm{d}y</span> satisfying conditions <span class="blue">C.1</span> and <span class="blue">C.2</span>, and let <span class="math inline">\Theta \subseteq \mathbb{R}</span>. Moreover, let <span class="math inline">\hat{\theta}(\bm{Y})</span> be an <span class="orange">unbiased</span> estimator of <span class="math inline">\theta</span> with finite variance <span class="math inline">\text{var}(\hat{\theta}(\bm{Y})) &lt; \infty</span>. Then <span class="math display">
-\text{var}_\theta(\hat{\theta}(\bm{Y})) \ge \frac{1}{n i(\theta)}, \qquad i(\theta) = -\int\frac{\partial^2}{\partial^2 \theta}\log{f(y \mid \theta)}f(y\mid\theta)\mathrm{d}y.
+\text{var}_\theta(\hat{\theta}(\bm{Y})) \ge \frac{1}{n i(\theta)}, \qquad i(\theta) = -\int \left[\frac{\partial^2}{\partial^2 \theta}\log{f(y \mid \theta)}\right]f(y\mid\theta)\mathrm{d}y.
 </span></p>
 </div>
 </div>

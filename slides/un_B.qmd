@@ -1044,7 +1044,25 @@ ggplot(data = NULL, aes(x = sin(x_seq), y = cos(x_seq), col = dvonmises(x_seq, g
   theme_bw() + theme(legend.position = "none")+ coord_fixed(ratio = 1)
 ```
 
-## Asymptotic theory
+## Asymptotic theory: remarks
+
+- Let us consider an iid sample from a model such that the minimal sufficient statistic belongs to a [regular exponential family]{.orange} $\mathcal{F}_\text{en}^p$, with natural parameter $\theta \in \tilde{\Theta}$.
+
+- It is straightforward to verify that the [regularity conditions]{.blue} [A1–A6]{.blue} from [Unit A](un_A.html) are [all satisfied]{.blue}. Thus, Theorem 5.1 of @Lehmann1998 applies directly.
+
+- We also proved that, if the score function has a root, then the maximum likelihood estimate $\hat{\theta}$ exists and is the [unique solution]{.blue} of $\ell^*(\theta) = \mathbf{0}$, where $\ell^*(\theta) = s - n \mu(\theta)$.
+
+- The maximum likelihood estimate may fail to exist if $s$ lies on the boundary of $C(\mathcal{S})$. However, as $n \to \infty$, the probability that $s$ lies on the boundary of $C(\mathcal{S})$ tends to zero.
+
+- Indeed, by the law of large numbers, $S/n$ converges almost surely to $\mu(\theta) \in \mathcal{M} = \text{int}\:\mathcal{C}(S)$, implying that a unique root of the score function eventually exists with probability one.
+
+:::callout-tip
+If the observations are iid from a [regular]{.orange} exponential family, the maximum likelihood estimator $\hat{\theta}$ is consistent and asymptotically normal for $\theta$. By the [continuous mapping theorem]{.blue}, this implies that $\hat{\mu} = \mu(\hat{\theta})$, or any other [smooth reparametrization]{.orange}, is a consistent estimator of $\mu$.
+:::
+
+## Wald inequality: a direct proof 📖
+
+## Consistency and normality: a direct proof
 
 ## Firth corrections
 

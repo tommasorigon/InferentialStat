@@ -1326,7 +1326,7 @@ I_\mu(\mu) = \mathbb{E}_\mu(\mathcal{I}_\mu(\mu)) = n \, \text{var}_{\mu}(s(Y_1)
 </ul>
 </section>
 <section id="example-von-mises-distribution-iii" class="slide level2 center">
-<h2>Example: von Mises distribution III</h2>
+<h2>Example: von Mises distribution III 📖</h2>
 <ul>
 <li><p>Let <span class="math inline">Y_1,\dots,Y_n</span> be iid random variables from a <span class="blue">Von-Mises</span> distribution with density <span class="math inline">f(y; \psi) = (2\pi\mathcal{A}_0(\tau))^{-1}\exp\{\tau\cos(y - \gamma)\}</span>, with <span class="math inline">y \in (0, 2\pi)</span>, therefore the <span class="orange">log-likelihood</span> is <span class="math display">
 \ell(\psi) = \tau\sum_{i=1}^n\cos(y_i - \gamma) - n\log{\mathcal{A}_0(\tau)}.
@@ -1350,8 +1350,28 @@ I_\mu(\mu) = \mathbb{E}_\mu(\mathcal{I}_\mu(\mu)) = n \, \text{var}_{\mu}(s(Y_1)
 <h2>Example: wind direction in Venice V</h2>
 
 <img data-src="un_B_files/figure-revealjs/unnamed-chunk-8-1.png" width="2000" class="r-stretch"></section>
-<section id="asymptotic-theory" class="slide level2 center">
-<h2>Asymptotic theory</h2>
+<section id="asymptotic-theory-remarks" class="slide level2 center">
+<h2>Asymptotic theory: remarks</h2>
+<ul>
+<li><p>Let us consider an iid sample from a model such that the minimal sufficient statistic belongs to a <span class="orange">regular exponential family</span> <span class="math inline">\mathcal{F}_\text{en}^p</span>, with natural parameter <span class="math inline">\theta \in \tilde{\Theta}</span>.</p></li>
+<li><p>It is straightforward to verify that the <span class="blue">regularity conditions</span> <span class="blue">A1–A6</span> from <a href="un_A.html">Unit A</a> are <span class="blue">all satisfied</span>. Thus, Theorem 5.1 of <span class="citation" data-cites="Lehmann1998">Lehmann and Casella (<a href="#/references" role="doc-biblioref" onclick="">1998</a>)</span> applies directly.</p></li>
+<li><p>We also proved that, if the score function has a root, then the maximum likelihood estimate <span class="math inline">\hat{\theta}</span> exists and is the <span class="blue">unique solution</span> of <span class="math inline">\ell^*(\theta) = \mathbf{0}</span>, where <span class="math inline">\ell^*(\theta) = s - n \mu(\theta)</span>.</p></li>
+<li><p>The maximum likelihood estimate may fail to exist if <span class="math inline">s</span> lies on the boundary of <span class="math inline">C(\mathcal{S})</span>. However, as <span class="math inline">n \to \infty</span>, the probability that <span class="math inline">s</span> lies on the boundary of <span class="math inline">C(\mathcal{S})</span> tends to zero.</p></li>
+<li><p>Indeed, by the law of large numbers, <span class="math inline">S/n</span> converges almost surely to <span class="math inline">\mu(\theta) \in \mathcal{M} = \text{int}\:\mathcal{C}(S)</span>, implying that a unique root of the score function eventually exists with probability one.</p></li>
+</ul>
+<div class="callout callout-tip no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<p>If the observations are iid from a <span class="orange">regular</span> exponential family, the maximum likelihood estimator <span class="math inline">\hat{\theta}</span> is consistent and asymptotically normal for <span class="math inline">\theta</span>. By the <span class="blue">continuous mapping theorem</span>, this implies that <span class="math inline">\hat{\mu} = \mu(\hat{\theta})</span>, or any other <span class="orange">smooth reparametrization</span>, is a consistent estimator of <span class="math inline">\mu</span>.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="wald-inequality-a-direct-proof" class="slide level2 center">
+<h2>Wald inequality: a direct proof 📖</h2>
+</section>
+<section id="consistency-and-normality-a-direct-proof" class="slide level2 center">
+<h2>Consistency and normality: a direct proof</h2>
 </section>
 <section id="firth-corrections" class="slide level2 center">
 <h2>Firth corrections</h2>
@@ -1475,6 +1495,9 @@ Fisher, R. A. 1934. <span>“<span class="nocase">Two new properties of mathemat
 </div>
 <div id="ref-Jorgensen1987" class="csl-entry" role="listitem">
 Jorgensen, Bert. 1987. <span>“<span class="nocase">Exponential dispersion model</span>.”</span> <em>Journal of the Royal Statistical Society. Series B: Methodological</em> 49 (2): 127–62.
+</div>
+<div id="ref-Lehmann1998" class="csl-entry" role="listitem">
+Lehmann, E. L., and G. Casella. 1998. <em><span class="nocase">Theory of Point Estimation, Second Edition</span></em>. Springer.
 </div>
 <div id="ref-Morris1982" class="csl-entry" role="listitem">
 Morris, Carl N. 1982. <span>“Natural Exponential Families with Quadratic Variance Functions.”</span> <em>Annals of Statistics</em> 10 (1): 65–80.
