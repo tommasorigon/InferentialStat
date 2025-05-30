@@ -1557,7 +1557,7 @@ I(\theta) = \mathbb{E}_\theta(\ell^*(\theta)^2) =\text{var}_\theta(\ell^*(\theta
 </div>
 <div class="callout-content">
 <p>Let <span class="math inline">Y_1,\dots,Y_n</span> be an iid sample from <span class="math inline">f(y \mid \theta)\mathrm{d}y</span> satisfying conditions <span class="blue">C.1</span> and <span class="blue">C.2</span>, and let <span class="math inline">\Theta \subseteq \mathbb{R}</span>. Moreover, let <span class="math inline">\hat{\theta}(\bm{Y})</span> be an <span class="orange">unbiased</span> estimator of <span class="math inline">\theta</span> with finite variance <span class="math inline">\text{var}(\hat{\theta}(\bm{Y})) &lt; \infty</span>. Then <span class="math display">
-\text{var}_\theta(\hat{\theta}(\bm{Y})) \ge \frac{1}{n i(\theta)}, \qquad i(\theta) = -\int\frac{\partial^2}{\partial^2 \theta}\log{f(y \mid \theta)}\mathrm{d}y.
+\text{var}_\theta(\hat{\theta}(\bm{Y})) \ge \frac{1}{n i(\theta)}, \qquad i(\theta) = -\int\frac{\partial^2}{\partial^2 \theta}\log{f(y \mid \theta)}f(y\mid\theta)\mathrm{d}y.
 </span></p>
 </div>
 </div>
@@ -2195,7 +2195,7 @@ f(y; \theta) = \frac{1}{2}\phi(y; 0, 1) + \frac{1}{2}\phi(y; \theta, e^{-2/\thet
 </div>
 <div class="callout-content">
 <p>Under assumptions <span class="blue">(A1)-(A6)</span>, suppose the maximum likelihood estimator <span class="math inline">\hat{\theta}_n</span> exists and is <span class="orange">consistent</span> for the true value <span class="math inline">\theta_0</span>. Then <span class="math display">
-\sqrt{n}(\hat{\theta}_n - \theta_0) \overset{\text{d}}{\longrightarrow} \text{N}(0, i(\theta_0)^{-1}), \quad i(\theta) = -\int\frac{\partial^2}{\partial \theta \partial \theta^T}\log{f(y \mid \theta)}\mathrm{d}y,
+\sqrt{n}(\hat{\theta}_n - \theta_0) \overset{\text{d}}{\longrightarrow} \text{N}(0, i(\theta_0)^{-1}), \quad i(\theta) = -\int\left(\frac{\partial^2}{\partial \theta \partial \theta^T}\log{f(y \mid \theta)}\right)f(y \mid \theta)\mathrm{d}y,
 </span> where <span class="math inline">n i(\theta)</span> is the <span class="blue">Fisher information matrix</span>.</p>
 </div>
 </div>
@@ -2801,7 +2801,7 @@ Casella, G., and Berger, R. L. (2002), <em><span>Statistical Inference</span></e
 Davison, A. C. (2003), <em><span>Statistical Models</span></em>, Cambridge University Press.
 </div>
 <div id="ref-Diaconis1979" class="csl-entry" role="listitem">
-Diaconis, P., and Ylvisaker, D. (1979), <span>“<span class="nocase">Conjugate prior for exponential families</span>,”</span> <em>Ann. of Statist.</em>, 7, 269–292.
+Diaconis, P., and Ylvisaker, D. (1979), <span>“<span class="nocase">Conjugate prior for exponential families</span>,”</span> <em>The Annals of Statistics</em>, 7, 269–292.
 </div>
 <div id="ref-Efron1975b" class="csl-entry" role="listitem">
 Efron, B. (1975), <span>“<span class="nocase">Defining the curvature of a statistical problem (with applications to second order efficiency)</span>,”</span> <em>The Annals of Statistics</em>, 3, 1189–1242.

@@ -2048,7 +2048,7 @@ Let us further require that, with probability tending to 1 as $n\to \infty$, the
 
 Under assumptions [(A1)-(A6)]{.blue}, suppose the maximum likelihood estimator $\hat{\theta}_n$ exists and is [consistent]{.orange} for the true value $\theta_0$. Then
 $$
-\sqrt{n}(\hat{\theta}_n - \theta_0) \overset{\text{d}}{\longrightarrow} \text{N}(0, i(\theta_0)^{-1}), \quad i(\theta) = -\int\frac{\partial^2}{\partial \theta \partial \theta^T}\log{f(y \mid \theta)}\mathrm{d}y,
+\sqrt{n}(\hat{\theta}_n - \theta_0) \overset{\text{d}}{\longrightarrow} \text{N}(0, i(\theta_0)^{-1}), \quad i(\theta) = -\int\left(\frac{\partial^2}{\partial \theta \partial \theta^T}\log{f(y \mid \theta)}\right)f(y \mid \theta)\mathrm{d}y,
 $$
 where $n i(\theta)$ is the [Fisher information matrix]{.blue}.
 :::
