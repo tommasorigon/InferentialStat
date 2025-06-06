@@ -1369,12 +1369,20 @@ I_\mu(\mu) = \mathbb{E}_\mu(\mathcal{I}_\mu(\mu)) = n \, \text{var}_{\mu}(s(Y_1)
 </section>
 <section id="wald-inequality-a-direct-proof" class="slide level2 center">
 <h2>Wald inequality: a direct proof 📖</h2>
-</section>
-<section id="consistency-and-normality-a-direct-proof" class="slide level2 center">
-<h2>Consistency and normality: a direct proof</h2>
-</section>
-<section id="firth-corrections" class="slide level2 center">
-<h2>Firth corrections</h2>
+<ul>
+<li><p>Let us recall that <span class="blue">Wald inequality</span> states that <span class="math display">
+\mathbb{E}_{\theta_0}\left(\ell(\theta; \bm{Y})\right) &lt; \mathbb{E}_{\theta_0}\left(\ell(\theta_0; \bm{Y})\right), \qquad \theta \neq \theta_0,
+</span> and the proof relies on the Kullback-Leibler divergence.</p></li>
+<li><p>Let us focus on the <span class="orange">univariate</span> case <span class="math inline">\Theta \subseteq \mathbb{R}</span>. It is instructive to provide a <span class="orange">direct proof</span> for exponential families, recalling that <span class="math inline">\ell(\theta_0\bm{Y}) = \theta S - n K(\theta)</span>.</p></li>
+<li><p>In the first place, note that <span class="math display">
+\mathbb{E}_{\theta_0}(\ell(\theta; \bm{Y})) = n \left[\theta \mu(\theta_0) - K(\theta)\right],
+</span> implying that Wald inequality holds true if and only if <span class="math display">
+\mu(\theta_0)\left(\theta_0 - \theta\right) &gt; K(\theta_0) - K(\theta), \qquad \theta \neq \theta_0.
+</span></p></li>
+<li><p>This is indeed the case, the above being a <a href="https://en.wikipedia.org/wiki/Convex_function">characterization</a> of <span class="orange">convexity</span> for <span class="math inline">K(\cdot)</span>, which we previously show having <span class="math inline">\partial^2 /\partial \theta^2 K(\theta) &gt; 0</span> for all <span class="math inline">\theta \in \tilde{\Theta}</span>. Moreover, recall that <span class="math inline">\mu(\theta) = \partial /\partial \theta K(\theta)</span>.</p></li>
+</ul>
+<!-- ## Consistency and normality: a direct proof -->
+<!-- ## Firth corrections -->
 </section></section>
 <section>
 <section id="references-and-study-material" class="title-slide slide level1 center">

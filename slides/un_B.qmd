@@ -1062,9 +1062,28 @@ If the observations are iid from a [regular]{.orange} exponential family, the ma
 
 ## Wald inequality: a direct proof 📖
 
-## Consistency and normality: a direct proof
+- Let us recall that [Wald inequality]{.blue} states that
+$$
+\mathbb{E}_{\theta_0}\left(\ell(\theta; \bm{Y})\right) < \mathbb{E}_{\theta_0}\left(\ell(\theta_0; \bm{Y})\right), \qquad \theta \neq \theta_0,
+$$
+and the proof relies on the Kullback-Leibler divergence.
 
-## Firth corrections
+- Let us focus on the [univariate]{.orange} case $\Theta \subseteq \mathbb{R}$. It is instructive to provide a [direct proof]{.orange} for exponential families, recalling that $\ell(\theta_0\bm{Y}) = \theta S - n K(\theta)$. 
+
+- In the first place, note that
+$$
+\mathbb{E}_{\theta_0}(\ell(\theta; \bm{Y})) = n \left[\theta \mu(\theta_0) - K(\theta)\right], 
+$$
+implying that Wald inequality holds true if and only if
+$$
+\mu(\theta_0)\left(\theta_0 - \theta\right) > K(\theta_0) - K(\theta), \qquad \theta \neq \theta_0.
+$$
+
+- This is indeed the case, the above being a [characterization](https://en.wikipedia.org/wiki/Convex_function) of [convexity]{.orange} for $K(\cdot)$, which we previously show having $\partial^2 /\partial \theta^2 K(\theta) > 0$ for all $\theta \in \tilde{\Theta}$. Moreover, recall that $\mu(\theta) = \partial /\partial \theta K(\theta)$.
+
+<!-- ## Consistency and normality: a direct proof -->
+
+<!-- ## Firth corrections -->
 
 
 # References and study material
