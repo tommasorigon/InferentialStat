@@ -2104,7 +2104,7 @@ $$
 \sup_{\theta : ||\theta- \theta_0||_2 \ge \epsilon} M(\theta) < M(\theta_0). \qquad \text{(Strong identifiability)}
 \end{aligned}
 $$
-Then any sequence of estimators $\hat{\theta}_n$ with $M_n(\hat{\theta}_n) \ge M_n(\theta_0) + o_p(1)$ [converges in probability]{.blue} to $\theta_0$ as $n\rightarrow \infty$. 
+Then any sequence of estimators $\hat{\theta}_n$ with $M_n(\hat{\theta}_n) \ge M_n(\theta_0) - o_p(1)$ [converges in probability]{.blue} to $\theta_0$ as $n\rightarrow \infty$. 
 :::
 
 - The [uniform convergence]{.orange} assumption strengthen the pointwise convergence typically ensured by the law of large numbers, that is, $m(\theta)$ should be [Glivenko-Cantelli]{.blue}.

@@ -347,7 +347,7 @@ Both definitions naturally generalize to the multivariate case when $C, \mathcal
 :::callout-warning
 #### Theorem (@Pace1997, Theorem 5.1)
 
-If $\mathcal{F}_\text{en}^1$ is regular, then $\Theta = \text{int}\:\tilde{\Theta}$ and $\mathcal{M} = \text{int}\:C.$
+If $\mathcal{F}_\text{en}^1$ is regular, then $\Theta = \text{int}\:\tilde{\Theta} = \tilde{\Theta}$ and $\mathcal{M} = \text{int}\:C.$
 :::
 
 - This establishes a [duality]{.blue} between the expectation space $\mathcal{M}$ and the sample space. Any value in $\text{int}\:C$ can be "reached", that is, there exists a distribution $f(y; \theta)$ with that mean.
