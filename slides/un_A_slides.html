@@ -1901,7 +1901,7 @@ V(\theta) =  I(\theta),
 Q(\theta) = \sum_{i=1}^n q(\theta; Y_i) = \sum_{i=1}^n w_i(\theta)(Y_i - \mu_i(\theta)),
 </span> for some set of positive <span class="orange">weights</span> <span class="math inline">w_i(\theta)</span>. Can we find the <span class="blue">optimal</span> set of weights, according to the <span class="blue">Godambe information</span>?</p></li>
 <li><p>The <span class="blue">sensitivity</span> <span class="math inline">H(\theta)</span> and the <span class="orange">variability</span> <span class="math inline">J(\theta)</span> of <span class="math inline">Q(\theta)</span> are readily available: <span class="math display">
-H(\theta) = \sum_{i=1}^n w_i(\theta)\mu_i(\theta), \qquad J(\theta) = \sum_{i=1}^n w_i^2(\theta) V_i(\theta).
+H(\theta) = \sum_{i=1}^n w_i(\theta)\mu_i^*(\theta), \qquad J(\theta) = \sum_{i=1}^n w_i^2(\theta) V_i(\theta).
 </span> Therefore, the optimal weights are those that <span class="orange">maximize</span> the <span class="blue">Godambe information</span>: <span class="math display">
 V(\theta) = \frac{\left(\sum_{i=1}^n w_i(\theta)\mu_i(\theta)\right)^2}{\sum_{i=1}^n w_i^2(\theta) V_i(\theta)}.
 </span></p></li>
@@ -1971,7 +1971,7 @@ Q(\theta) = \sum_{i=1}^n \frac{\mu_i^*(\theta)}{V_i(\theta)}(Y_i - \mu_i(\theta)
 <li><p>We discuss here <span class="orange">connections</span> between the <span class="blue">BLUE estimators</span> and the <span class="orange">unbiased estimating equations</span>, aimed at providing a <span class="orange">unified view</span> of these concepts.</p></li>
 <li><p>Under the same assumptions of Gauss-Markov theorem, let us consider: <span class="math display">
 Q(\beta) = \bm{A}^T(\bm{Y} - \bm{X}\beta),
-</span> for some <span class="math inline">n \times p</span> matrix <span class="math inline">\bm{A}</span> having full rank. This is a <span class="orange">linear unbiased</span> estimating equation, and the <span class="blue">optimal</span> choice of <span class="math inline">\bm{A}</span> minimizes the <span class="orange">Godambe information</span>.</p></li>
+</span> for some <span class="math inline">n \times p</span> matrix <span class="math inline">\bm{A}</span> having full rank. This is a <span class="orange">linear unbiased</span> estimating equation, and the <span class="blue">optimal</span> choice of <span class="math inline">\bm{A}</span> maximizes the <span class="orange">Godambe information</span>.</p></li>
 <li><p>Solving this estimating equation we obtain to a linear unbiased estimator, which is <span class="math display">
 \hat{\beta} = (\bm{A}^T \bm{X})^{-1}\bm{A}^T \bm{Y}, \qquad \mathbb{E}(\hat{\beta}) = (\bm{A}^T \bm{X})^{-1}\bm{A}^T \bm{X}\beta = \beta.
 </span></p></li>
@@ -2195,7 +2195,7 @@ f(y; \theta) = \frac{1}{2}\phi(y; 0, 1) + \frac{1}{2}\phi(y; \theta, e^{-2/\thet
 </div>
 <div class="callout-content">
 <p>Under assumptions <span class="blue">(A1)-(A6)</span>, suppose the maximum likelihood estimator <span class="math inline">\hat{\theta}_n</span> exists and is <span class="orange">consistent</span> for the true value <span class="math inline">\theta_0</span>. Then <span class="math display">
-\sqrt{n}(\hat{\theta}_n - \theta_0) \overset{\text{d}}{\longrightarrow} \text{N}(0, i(\theta_0)^{-1}), \quad i(\theta) = -\int\frac{\partial^2}{\partial \theta \partial \theta^T}\log{f(y \mid \theta)}\mathrm{d}y,
+\sqrt{n}(\hat{\theta}_n - \theta_0) \overset{\text{d}}{\longrightarrow} \text{N}(0, i(\theta_0)^{-1}), \quad i(\theta) = -\int\left(\frac{\partial^2}{\partial \theta \partial \theta^T}\log{f(y \mid \theta)}\right)f(y \mid \theta)\mathrm{d}y,
 </span> where <span class="math inline">n i(\theta)</span> is the <span class="blue">Fisher information matrix</span>.</p>
 </div>
 </div>
@@ -2393,8 +2393,8 @@ Q(\psi) = \ell^*(\psi) - I(\psi)b_1(\psi)/n \quad \implies \quad \hat{\psi}_\tex
 <li><p>The term “<span class="orange">robustness</span>” is intentionally vague, but let us say that any statistical procedure:</p>
 <ol type="a">
 <li>Should have nearly optimal efficiency if the model is correctly specified</li>
-<li>Small deviations from the model assumptions should impair the model only slightly</li>
-<li>Somewhat larger devitations from the model should not cause a catastrophe</li>
+<li>Small deviations from the model assumptions should impact the model only slightly</li>
+<li>Somewhat larger deviations from the model should not cause a catastrophe</li>
 </ol></li>
 <li><p>We also distinguish among two kinds of robustness:</p>
 <ol type="i">

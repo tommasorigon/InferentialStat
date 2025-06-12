@@ -1686,7 +1686,7 @@ for some set of positive [weights]{.orange} $w_i(\theta)$. Can we find the [opti
 
 - The [sensitivity]{.blue} $H(\theta)$ and the [variability]{.orange} $J(\theta)$ of $Q(\theta)$ are readily available:
 $$
-  H(\theta) = \sum_{i=1}^n w_i(\theta)\mu_i(\theta), \qquad J(\theta) = \sum_{i=1}^n w_i^2(\theta) V_i(\theta).
+  H(\theta) = \sum_{i=1}^n w_i(\theta)\mu_i^*(\theta), \qquad J(\theta) = \sum_{i=1}^n w_i^2(\theta) V_i(\theta).
 $$
 Therefore, the optimal weights are those that [maximize]{.orange} the [Godambe information]{.blue}:
 $$
@@ -1752,7 +1752,7 @@ corresponding to the [generalized least squares]{.orange} estimator.
 $$
 Q(\beta) = \bm{A}^T(\bm{Y} - \bm{X}\beta), 
 $$
-for some $n \times p$ matrix $\bm{A}$ having full rank. This is a [linear unbiased]{.orange} estimating equation, and the [optimal]{.blue} choice of $\bm{A}$ minimizes the [Godambe information]{.orange}. 
+for some $n \times p$ matrix $\bm{A}$ having full rank. This is a [linear unbiased]{.orange} estimating equation, and the [optimal]{.blue} choice of $\bm{A}$ maximizes the [Godambe information]{.orange}. 
 
 - Solving this estimating equation we obtain to a linear unbiased estimator, which is
 $$
@@ -2048,7 +2048,7 @@ Let us further require that, with probability tending to 1 as $n\to \infty$, the
 
 Under assumptions [(A1)-(A6)]{.blue}, suppose the maximum likelihood estimator $\hat{\theta}_n$ exists and is [consistent]{.orange} for the true value $\theta_0$. Then
 $$
-\sqrt{n}(\hat{\theta}_n - \theta_0) \overset{\text{d}}{\longrightarrow} \text{N}(0, i(\theta_0)^{-1}), \quad i(\theta) = -\int\frac{\partial^2}{\partial \theta \partial \theta^T}\log{f(y \mid \theta)}\mathrm{d}y,
+\sqrt{n}(\hat{\theta}_n - \theta_0) \overset{\text{d}}{\longrightarrow} \text{N}(0, i(\theta_0)^{-1}), \quad i(\theta) = -\int\left(\frac{\partial^2}{\partial \theta \partial \theta^T}\log{f(y \mid \theta)}\right)f(y \mid \theta)\mathrm{d}y,
 $$
 where $n i(\theta)$ is the [Fisher information matrix]{.blue}.
 :::
@@ -2246,8 +2246,8 @@ which is a well-know [bias-reducing]{.orange} correction of the empirical logit.
 
 - The term "[robustness]{.orange}" is intentionally vague, but let us say that any statistical procedure:
   a. Should have nearly optimal efficiency if the model is correctly specified
-  b. Small deviations from the model assumptions should impair the model only slightly
-  c. Somewhat larger devitations from the model should not cause a catastrophe
+  b. Small deviations from the model assumptions should impact the model only slightly
+  c. Somewhat larger deviations from the model should not cause a catastrophe
 
 - We also distinguish among two kinds of robustness:
   i. robustness with respect to [contamination]{.blue} of the data (i.e. $y_i = 10^{32}$ is an [outlier]{.orange})
