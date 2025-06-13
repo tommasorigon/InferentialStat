@@ -218,7 +218,7 @@ f(y; \theta) \propto e^{\theta y}f_0(y) = \frac{e^{\theta y}e^{-1}}{y!}, \qquad 
 $$
 - The normalizing constant, that is, the [moment generating function]{.blue}, is
 $$
-M_0(\theta)= \mathbb{E}(e^{\theta Y})  = e^{-1}\sum_{k=0}^\infty \frac{e^{\theta y}}{y!} = \exp\{e^\theta - 1\}, \qquad \theta \in \mathbb{R}.
+M_0(\theta)= \mathbb{E}(e^{\theta Y})  = e^{-1}\sum_{k=0}^\infty \frac{e^{\theta k}}{k!} = \exp\{e^\theta - 1\}, \qquad \theta \in \mathbb{R}.
 $$
 - Consequently, we have $M_0(\theta) < \infty$ for all $\theta \in \mathbb{R}$ and the [natural parameter space]{.orange} is $\tilde{\Theta} = \mathbb{R}$, which is an [open set]{.blue}. The resulting density is
 $$

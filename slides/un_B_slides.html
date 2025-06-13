@@ -521,7 +521,7 @@ f(y; \theta) = \frac{\theta e^{\theta y}}{e^{\theta -1}} = \exp\{\theta y - K(\t
 f(y; \theta) \propto e^{\theta y}f_0(y) = \frac{e^{\theta y}e^{-1}}{y!}, \qquad y \in \mathbb{N}, \quad \theta \in \mathbb{R}.
 </span></p></li>
 <li><p>The normalizing constant, that is, the <span class="blue">moment generating function</span>, is <span class="math display">
-M_0(\theta)= \mathbb{E}(e^{\theta Y})  = e^{-1}\sum_{k=0}^\infty \frac{e^{\theta y}}{y!} = \exp\{e^\theta - 1\}, \qquad \theta \in \mathbb{R}.
+M_0(\theta)= \mathbb{E}(e^{\theta Y})  = e^{-1}\sum_{k=0}^\infty \frac{e^{\theta k}}{k!} = \exp\{e^\theta - 1\}, \qquad \theta \in \mathbb{R}.
 </span></p></li>
 <li><p>Consequently, we have <span class="math inline">M_0(\theta) &lt; \infty</span> for all <span class="math inline">\theta \in \mathbb{R}</span> and the <span class="orange">natural parameter space</span> is <span class="math inline">\tilde{\Theta} = \mathbb{R}</span>, which is an <span class="blue">open set</span>. The resulting density is <span class="math display">
 f(y; \theta) = \frac{e^{\theta y} e^{-1}}{y!}\frac{e^{-e^\theta}}{e^{-1}} = \frac{e^{-1}}{y!}\exp\{\theta y - (e^\theta - 1)\} = \frac{\lambda^y e^{\lambda}}{y!}, \qquad y \in \mathbb{N},
