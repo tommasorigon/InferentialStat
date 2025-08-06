@@ -22,15 +22,16 @@ ggplot(data = dataset, aes(x = date, y = wind_dir, col = `Wind speed`)) +
 clifro::windrose(speed = dataset$`Wind speed`, direction = dataset$wind_dir, n_directions = 20)
 
 y <- dataset$wind_dir / 360 * 2 * pi
-s1 <- sum(sin(y))
-s2 <- sum(cos(y))
+s1 <- sum(cos(y))
+s2 <- sum(sin(y))
+
 
 # Estimate the concentration parameter
-gamma <- atan2(s1, s2)
+gamma <- atan2(s2, s1)
 tau <- circular::A1inv(mean(cos(y - gamma)))
 
-theta1 <- tau * sin(gamma)
-theta2 <- tau * cos(gamma)
+theta1 <- tau * cos(gamma)
+theta2 <- tau * sin(gamma)
 
 # library(circular)
 dvonmises <- function(x, gamma, tau) {
@@ -41,6 +42,7 @@ dvonmises <- Vectorize(dvonmises, vectorize.args = "x")
 x_seq <- seq(0, 2 * pi, length.out = 500)
 plot(x_seq / (2 * pi) * 360, dvonmises(x_seq, gamma, tau), type = "l", xlab = "Degrees", ylab = "Density")
 rug(y / (2 * pi) * 360)
+abline(v = gamma / (2 * pi) * 360, lty = "dashed")
 
 ggplot(data = NULL, aes(x = sin(x_seq), y = cos(x_seq), col = dvonmises(x_seq, gamma, tau), size = dvonmises(x_seq, gamma, tau))) +
   geom_point() +
