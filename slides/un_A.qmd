@@ -246,8 +246,8 @@ ggplot(data = FoodExpenditure, aes(x = food, col = Income)) +
   theme(legend.position = "top") +
   scale_color_tableau(palette = "Color Blind") +
   xlab("Food expenditure (proportion)") +
-  geom_function(fun = function(x) dbeta(x, alpha_low, beta_low), col = "#1170aa") +
-  geom_function(fun = function(x) dbeta(x, alpha_high, beta_high), col = "#fc7d0b") +
+  geom_function(fun = function(x) dbeta(x, alpha_low, beta_low), col = "#3232AA") +
+  geom_function(fun = function(x) dbeta(x, alpha_high, beta_high), col = "#FF8C00") +
   xlim(c(0.02, 0.4)) +
   ylab("Density")
 ```

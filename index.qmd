@@ -76,7 +76,7 @@ documentation](https://quarto.org/docs/presentations/revealjs/presenting.html#pr
 | *Exercises* | [Exercises A](exe/exe_A.html) |  |  |
 | **Exponential families** | [Unit B](slides/un_B.html) | [Slides Unit B](slides/un_B_slides.html)| [Code B](code/un_B.R) |
 | *Exercises* | [Exercises B](exe/exe_B.html) |  |  |
-| **Generalized linear models** | [Unit C](https://tommasorigon.github.io/StatIII/) |  |  |
+| **Generalized linear models** | [GLM course](https://tommasorigon.github.io/StatIII/) |  |  |
 
 <!-- ## Exam -->
 
