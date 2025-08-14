@@ -788,6 +788,7 @@ clarifying that $S = s(Y)$ is a random vector taking values on a [circle]{.orang
 
 ```{r}
 #| message: false
+
 library(tidyverse)
 
 rm(list = ls())
@@ -808,6 +809,7 @@ dataset <- filter(dataset, date >= "2025-04-14 00:00:00")
 - Measurements are recorded every [5 minutes]{.orange}, from 14-04-2025 to 18-04-2025, for a total of $n = 1153$. The variable `wind_dir` is recorded in [degrees]{.blue}, i.e., between 0 and 360.
 
 ```{r}
+#| classes: styled-output
 print(subset(dataset, select = c(date, wind_dir, `Wind speed`))[1:10, ])
 ```
 
