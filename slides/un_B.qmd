@@ -43,7 +43,7 @@ format:
     smooth-scroll: true
     code-fold: false
     code-summary: "Show the code"
-    fig-dpi: 150
+    fig-dpi: 90
     toc-location: right
     highlight-style: github
 editor: 
