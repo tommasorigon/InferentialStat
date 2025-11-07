@@ -322,7 +322,7 @@ m_1 = \frac{\alpha}{\alpha + \beta}, \qquad m_2 = \frac{\alpha (\alpha+1)}{(\alp
 <section id="example-beta-distribution-food-expenditure-1" class="slide level2 center">
 <h2>Example: beta distribution (food expenditure)</h2>
 
-<img data-src="un_A_files/figure-revealjs/unnamed-chunk-5-1.png" width="1800" class="r-stretch"><ul>
+<img data-src="un_A_files/figure-revealjs/unnamed-chunk-5-1.png" width="810" class="r-stretch"><ul>
 <li><span class="orange">Estimated densities</span> <span class="math inline">f(y; \hat{\alpha}, \hat{\beta})</span> for each income level, showing a reasonable fit in both cases.</li>
 </ul>
 </section>
@@ -430,7 +430,7 @@ L(\hat{N}) \ge L(\hat{N} - 1), \qquad L(\hat{N} + 1) &lt; L(\hat{N}).
 <li>The <span class="orange">method of moments</span> estimator gives <span class="math inline">\hat{N}_\text{MM}</span> = 102 (rounded to the closest integer) and <span class="math inline">\hat{p}_\text{MM}</span> = 0.21. The <span class="blue">maximum likelihood</span>, instead, gives <span class="math inline">\hat{N}_\text{ML}</span> = 99 and <span class="math inline">\hat{p}_\text{ML}</span> = 0.22.</li>
 </ul>
 
-<img data-src="un_A_files/figure-revealjs/unnamed-chunk-7-1.png" class="quarto-figure quarto-figure-center r-stretch" width="1800"><ul>
+<img data-src="un_A_files/figure-revealjs/unnamed-chunk-7-1.png" class="quarto-figure quarto-figure-center r-stretch" width="810"><ul>
 <li>If we replace <span class="math inline">27</span> with a <span class="math inline">28</span>, we obtain drastically different estimates, namely <span class="math inline">\hat{N}_\text{MM} =  195</span> and <span class="math inline">\hat{N}_\text{ML} = 191</span>, demonstrating a <span class="orange">large</span> amount of <span class="orange">variability</span>.</li>
 </ul>
 </section>
@@ -703,7 +703,7 @@ R(p; \hat{p}) = \mathbb{E}_p\{(\hat{p} - p)^2\} = \text{var}_p(\hat{p}) = \frac{
 <section id="example-mse-of-binomial-estimators-ii" class="slide level2 center">
 <h2>Example: MSE of binomial estimators II</h2>
 
-<img data-src="un_A_files/figure-revealjs/unnamed-chunk-11-1.png" width="1800" class="r-stretch"></section>
+<img data-src="un_A_files/figure-revealjs/unnamed-chunk-11-1.png" width="810" class="r-stretch"></section>
 <section id="example-mse-of-binomial-estimators-iii" class="slide level2 center">
 <h2>Example: MSE of binomial estimators III</h2>
 <ul>
@@ -1010,7 +1010,7 @@ r(\pi, \hat{p}_\text{minimax}) = \int_0^1 \mathbb{E}_p\{(\hat{p}_\text{minimax} 
 <section id="example-integrated-risk-of-binomial-estimators-1" class="slide level2 center">
 <h2>Example: integrated risk of binomial estimators</h2>
 
-<img data-src="un_A_files/figure-revealjs/unnamed-chunk-13-1.png" class="quarto-figure quarto-figure-center r-stretch" width="1800"><ul>
+<img data-src="un_A_files/figure-revealjs/unnamed-chunk-13-1.png" class="quarto-figure quarto-figure-center r-stretch" width="810"><ul>
 <li>According to the integrated risk and using constant weights <span class="math inline">\pi(\mathrm{d}p) = \mathrm{d}p</span> one should <span class="orange">prefer</span> <span class="math inline">\hat{p}</span> over <span class="math inline">\hat{p}_\text{minimax}</span> when <span class="math inline">n \ge 20</span> and viceversa.</li>
 </ul>
 </section>
@@ -1074,7 +1074,7 @@ r(\pi, \hat{p}_\text{Bayes}) = \int_0^1 R(p; \hat{p}_\text{Bayes})\mathrm{d}p = 
 <section id="example-integrated-risk-of-binomial-estimators-3" class="slide level2 center">
 <h2>Example: integrated risk of binomial estimators</h2>
 
-<img data-src="un_A_files/figure-revealjs/unnamed-chunk-14-1.png" class="quarto-figure quarto-figure-center r-stretch" width="1800"></section>
+<img data-src="un_A_files/figure-revealjs/unnamed-chunk-14-1.png" class="quarto-figure quarto-figure-center r-stretch" width="810"></section>
 <section id="admissibility-of-bayesian-estimators" class="slide level2 center">
 <h2>Admissibility of Bayesian estimators 📖</h2>
 <ul>
@@ -1119,7 +1119,7 @@ r(\pi, \hat{p}_\text{Bayes}) = \int_0^1 R(p; \hat{p}_\text{Bayes})\mathrm{d}p = 
 <section id="example-mse-of-binomial-estimators-minimax" class="slide level2 center">
 <h2>Example: MSE of binomial estimators (minimax)</h2>
 
-<img data-src="un_A_files/figure-revealjs/unnamed-chunk-15-1.png" class="quarto-figure quarto-figure-center r-stretch" width="1800"><ul>
+<img data-src="un_A_files/figure-revealjs/unnamed-chunk-15-1.png" class="quarto-figure quarto-figure-center r-stretch" width="810"><ul>
 <li><p>We will show that <span class="math inline">\hat{p}_\text{minimax} = (n_1 + 0.5\sqrt{n})/(n + \sqrt{n})</span> is indeed the <span class="orange">minimax estimator</span>. However, this is a very <span class="blue">conservative</span> choice.</p></li>
 <li><p>One could argue that the maximum likelihood <span class="math inline">\hat{p} = n_1/n</span> is the preferred choice in practice, especially when <span class="math inline">n</span> is large enough, even though it has slightly higher risk when <span class="math inline">p \approx 1/2</span>.</p></li>
 </ul>
@@ -1952,14 +1952,14 @@ f(y; \theta) = \frac{1}{2}\phi(y; 0, 1) + \frac{1}{2}\phi(y; \theta, e^{-2/\thet
 <section id="what-could-go-wrong-1" class="slide level2 center">
 <h2>What could go wrong?</h2>
 
-<img data-src="un_A_files/figure-revealjs/unnamed-chunk-17-1.png" class="quarto-figure quarto-figure-center r-stretch" width="1600"><ul>
+<img data-src="un_A_files/figure-revealjs/unnamed-chunk-17-1.png" class="quarto-figure quarto-figure-center r-stretch" width="720"><ul>
 <li>These are <span class="blue">simulated data</span> when the true value is <span class="math inline">\theta_0 = 0.6</span>. We plot the <span class="orange">log-density</span> <span class="math inline">\log{f(y;\theta_0)}</span> and the <span class="blue">log-likelihood</span> <span class="math inline">\ell(\theta)</span> for <span class="math inline">n=10,30,100</span>.</li>
 </ul>
 </section>
 <section id="what-else-could-go-wrong" class="slide level2 center">
 <h2>What else could go wrong?</h2>
 
-<img data-src="un_A_files/figure-revealjs/unnamed-chunk-18-1.png" width="2000" class="r-stretch"><ul>
+<img data-src="un_A_files/figure-revealjs/unnamed-chunk-18-1.png" width="900" class="r-stretch"><ul>
 <li>The picture depict <span class="math inline">- \text{KL}(f(\cdot; \theta_0) \mid f(\cdot; \theta))</span> in another <span class="orange">problematic</span> situation. The true value is <span class="math inline">\theta_0 = \pi/2</span>, but the presence of the asymptote may cause <span class="math inline">\hat{\theta}_n</span> to <span class="orange">diverge</span>.</li>
 </ul>
 </section>
@@ -2442,7 +2442,7 @@ I(\beta) = \mathcal{I}(\beta) = \frac{1}{\sigma^2}\sum_{i=1}^n \bm{x}_i\bm{x}_i^
 <section id="example-linear-models-with-misspecified-variance-iii" class="slide level2 center">
 <h2>Example: linear models with misspecified variance III</h2>
 
-<img data-src="un_A_files/figure-revealjs/unnamed-chunk-21-1.png" width="2400" class="r-stretch"><ul>
+<img data-src="un_A_files/figure-revealjs/unnamed-chunk-21-1.png" width="1080" class="r-stretch"><ul>
 <li>In this example, we fit a linear model (in the parameters!) so that <span class="math inline">\bm{Y} = \bm{X}\beta + \epsilon</span> using <span class="blue">least squares</span>, with <span class="math inline">p = 12</span>. The residuals clearly show <span class="orange">heteroskedasticity</span>.</li>
 </ul>
 </section>
