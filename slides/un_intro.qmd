@@ -160,10 +160,10 @@ editor_options:
   - Asymptotic probability theory, $O_p(\cdot)$ and $o_p(\cdot)$ notations
   - Likelihood function: definition and basic properties
   - Sufficiency, ancillarity, Fisher factorization theorem, minimality
-  - Tests based on the likelihood (likelihood ratio, score test, Wald test), asymptotically equivalent forms, confidence intervals
   - Linear models, ordinary least squares, exact normal theory
 
 - If you are unfamiliar with any of these, please have a look at Chap. 2 and Chap. 3 of @Pace1997, and @Davison2003.
+
 
 ## Statistical Inference
 
