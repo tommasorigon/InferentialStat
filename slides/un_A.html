@@ -340,8 +340,8 @@ window.Quarto = {
 <ul>
 <li><p>To streamline the presentation, we consider estimators that target the <span class="orange">unknown parameter</span> <span class="math inline">\theta</span> rather than an arbitrary (non-one-to-one) <span class="blue">transformation</span> <span class="math inline">g(\theta)</span>.</p></li>
 <li><p>Most theoretical results <span class="orange">extend naturally</span> to the general case <span class="math inline">g(\theta)</span>.</p></li>
+<li><p>The range of the estimator usually coincides with <span class="math inline">\Theta</span>, i.e.&nbsp;<span class="math inline">\hat{\theta} : \mathcal{Y} \rightarrow \Theta</span>, but there are exceptions.</p></li>
 </ul>
-<!-- - In principle, the range of the estimator coincides with that of the parameter, i.e. $\hat{\theta} : \mathcal{Y} \rightarrow \Theta$, but there are exceptions. -->
 </div>
 </div>
 </div>
@@ -499,7 +499,7 @@ L(\hat{\theta}) = \max_{\theta \in \Theta} L(\theta).
 <section id="properties-and-remarks-about-the-mle" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="properties-and-remarks-about-the-mle">Properties and remarks about the MLE 📖</h2>
 <ul>
-<li><span class="blue">Remark I</span>: the MLE may <span class="orange">not exists</span> and is <span class="orange">not</span> necessarily <span class="orange">unique</span>. On the other hand, if <span class="math inline">\Theta \subseteq \mathbb{R}^p</span> and <span class="math inline">l(\theta)</span> is differentiable, then it can be found as the solution of the <span class="blue">score equations</span>: <span class="math display">
+<li><span class="blue">Remark I</span>: the MLE may <span class="orange">not exists</span> and is <span class="orange">not</span> necessarily <span class="orange">unique</span>. On the other hand, if <span class="math inline">\Theta \subseteq \mathbb{R}^p</span> and <span class="math inline">\ell(\theta)</span> is differentiable, then it can be found as the solution of the <span class="blue">score equations</span>: <span class="math display">
 \ell^*(\theta) = \frac{\partial}{\partial \theta}\ell(\theta) = 0.
 </span></li>
 </ul>

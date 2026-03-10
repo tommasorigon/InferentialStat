@@ -110,7 +110,7 @@ $$ That is, any [statistic]{.orange} is a point estimator.
 
 - Most theoretical results [extend naturally]{.orange} to the general case $g(\theta)$. 
 
-<!-- - In principle, the range of the estimator coincides with that of the parameter, i.e. $\hat{\theta} : \mathcal{Y} \rightarrow \Theta$, but there are exceptions. -->
+- The range of the estimator usually coincides with $\Theta$, i.e. $\hat{\theta} : \mathcal{Y} \rightarrow \Theta$, but there are exceptions.
 
 :::
 
@@ -153,10 +153,7 @@ $$ That is, any [statistic]{.orange} is a point estimator.
     $$ where $m = (m_1,\dots,m_p)$ and
     $\mu(\theta) = (\mu_1(\theta),\dots,\mu_p(\theta))$.
 
--   Suppose also that $\mu(\theta)$ is a [one-to-one]{.blue} mapping and
-    let $g(\mu)$ be the inverse of $\mu(\theta)$, that is
-    $g = \mu^{-1}$. We assume that $g$ has [differentiable]{.blue}
-    components $g_r(\cdot)$ for $r = 1,\dots,p$.
+-   Suppose also that $\mu(\theta)$ is a [one-to-one]{.blue} mapping and let $g(\mu)$ be the inverse of $\mu(\theta)$, that is $g = \mu^{-1}$. We assume that $g$ has [differentiable]{.blue} components $g_r(\cdot)$ for $r = 1,\dots,p$.
 
 -   The moments estimator can be written as $\hat{\theta} = g(m)$ and
     $\theta = g(\mu(\theta))$. Then, as a consequence of the [delta
@@ -310,7 +307,7 @@ $\theta$ based on a sample $\bm{Y}$ is $\hat{\theta}(\bm{Y})$.
 
 -   [Remark I]{.blue}: the MLE may [not exists]{.orange} and is
     [not]{.orange} necessarily [unique]{.orange}. On the other hand, if $\Theta \subseteq \mathbb{R}^p$ and 
-    $l(\theta)$ is differentiable, then it can be found as the solution
+    $\ell(\theta)$ is differentiable, then it can be found as the solution
     of the [score equations]{.blue}: $$
     \ell^*(\theta) = \frac{\partial}{\partial \theta}\ell(\theta) = 0.
     $$
