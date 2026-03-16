@@ -699,7 +699,7 @@ R(p; \hat{p}) = \mathbb{E}_p\{(\hat{p} - p)^2\} = \text{var}_p(\hat{p}) = \frac{
 \hat{p}_\text{minimax} = \frac{n_1 + 0.5\sqrt{n}}{n + \sqrt{n}}, \qquad R(p; \hat{p}_\text{minimax}) = \mathbb{E}_p\{(\hat{p}_\text{minimax} - p)^2\} = \frac{n}{4 ( n + \sqrt{n})^2}.
 </span> This Bayesian estimator has <span class="orange">constant risk</span>, that is, <span class="math inline">R(p; \hat{p}_\text{minimax})</span> does not depend on <span class="math inline">p</span>.<sup>1</sup></p></li>
 </ul>
-<aside><ol class="aside-footnotes"><li id="fn8"><p>Some subjective Bayesians may criticize this estimator for not being “truly Bayesian” as the hyperparameters depend on the sample size <span class="math inline">n</span>, making the prior data-dependent. However, here we are evaluating <span class="math inline">\hat{p}_\text{Bayes}</span> from a frequentist perspective.</p></li></ol></aside></section>
+<aside><ol class="aside-footnotes"><li id="fn8"><p>Some subjective Bayesians may criticize this estimator for not being “truly Bayesian” as the hyperparameters depend on the sample size <span class="math inline">n</span>, making the prior data-dependent. However, here we are evaluating <span class="math inline">\hat{p}_\text{minimax}</span> from a frequentist perspective.</p></li></ol></aside></section>
 <section id="example-mse-of-binomial-estimators-ii" class="slide level2 center">
 <h2>Example: MSE of binomial estimators II</h2>
 
@@ -1721,7 +1721,7 @@ Q(\theta) = \sum_{i=1}^n \frac{\mu_i^*(\theta)}{V_i(\theta)}(Y_i - \mu_i(\theta)
 <div class="callout callout-tip no-icon callout-style-simple">
 <div class="callout-body">
 <div class="callout-content">
-<p>Let <span class="math inline">Y_1,\dots,Y_n</span> be independent random variables such that <span class="math inline">\mu_i(\theta) = \lambda e_i</span> and <span class="math inline">V_i(\theta) = \lambda e_i</span>, where <span class="math inline">e_i</span> are <span class="orange">known constants</span> e.g.&nbsp;representing exposure. Then the optimal weights are <span class="math inline">w_i(\theta) = 1</span> and <span class="math inline">\hat{\theta} = \bar{Y}/ \bar{e}</span>. Note the <span class="math inline">Y_i</span> is <span class="blue">not</span> necessarily <span class="blue">Poisson</span>.</p>
+<p>Let <span class="math inline">Y_1,\dots,Y_n</span> be independent random variables such that <span class="math inline">\mu_i(\theta) = \lambda e_i</span> and <span class="math inline">V_i(\theta) = \lambda e_i</span>, where <span class="math inline">e_i</span> are <span class="orange">known constants</span> e.g.&nbsp;representing exposure. Then the optimal weights are <span class="math inline">w_i(\theta) = 1</span> and <span class="math inline">\hat{\theta} = \bar{Y}/ \bar{e}</span>. Note that <span class="math inline">Y_i</span> is <span class="blue">not</span> necessarily <span class="blue">Poisson</span>.</p>
 </div>
 </div>
 </div>

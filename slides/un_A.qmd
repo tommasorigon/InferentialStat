@@ -725,7 +725,7 @@ $$
 $$
 This Bayesian estimator has [constant risk]{.orange}, that is, $R(p; \hat{p}_\text{minimax})$ does not depend on $p$.[^7]  
 
-[^7]: Some subjective Bayesians may criticize this estimator for not being "truly Bayesian" as the hyperparameters depend on the sample size $n$, making the prior data-dependent. However, here we are evaluating $\hat{p}_\text{Bayes}$ from a frequentist perspective.
+[^7]: Some subjective Bayesians may criticize this estimator for not being "truly Bayesian" as the hyperparameters depend on the sample size $n$, making the prior data-dependent. However, here we are evaluating $\hat{p}_\text{minimax}$ from a frequentist perspective.
 
 ## Example: MSE of binomial estimators II
 
@@ -1703,7 +1703,7 @@ $$
 - This optimality property holds for a special class of [linear]{.blue} unbiased estimating equations but does [not]{.orange} make [assumptions]{.orange} of the distribution of $Y_i$ other than $\mu_i(\theta)$ and $V_i(\theta)$.
 
 ::: callout-tip
-Let $Y_1,\dots,Y_n$ be independent random variables such that $\mu_i(\theta) = \lambda e_i$ and $V_i(\theta) = \lambda e_i$, where $e_i$ are [known constants]{.orange} e.g. representing exposure. Then the optimal weights are $w_i(\theta) = 1$ and $\hat{\theta} = \bar{Y}/ \bar{e}$. Note the $Y_i$ is [not]{.blue} necessarily [Poisson]{.blue}. 
+Let $Y_1,\dots,Y_n$ be independent random variables such that $\mu_i(\theta) = \lambda e_i$ and $V_i(\theta) = \lambda e_i$, where $e_i$ are [known constants]{.orange} e.g. representing exposure. Then the optimal weights are $w_i(\theta) = 1$ and $\hat{\theta} = \bar{Y}/ \bar{e}$. Note that $Y_i$ is [not]{.blue} necessarily [Poisson]{.blue}. 
 :::
 
 [^best_linear]: See @Davison2003, Section 7.2.2, for a proof.
