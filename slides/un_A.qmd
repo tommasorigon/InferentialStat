@@ -1326,7 +1326,7 @@ $$
 Moreover, if $\hat{\theta}$ is an [unbiased]{.orange} estimator for $\theta$, then $b^*(\theta) = 0$ and  $\text{var}(\hat{\theta}(\bm{Y})) \ge 1/\mathbb{E}_\theta(l^*(\theta)^2)$ . 
 :::
 
-[^caveat]: There are some caveats, see the additional considerations.
+[^caveat]: This is essentially correct, but strictly speaking, the result holds only for estimators that satisfy the condition. 
 
 ## Cramér-Rao: considerations
 
@@ -1371,7 +1371,7 @@ $$
 
 ::: callout-warning
 #### Theorem (Cramér-Rao, simplified)
-Under the same assumption of Cramér-Rao theorem, assume in addition that $Y_1,\dots,Y_n$ is an iid sample from $f(y \mid \theta)\mathrm{d}y$ satisfying also condition [C.2]{.blue}, and let $\Theta \subseteq \mathbb{R}$. Moreover, let $\hat{\theta}(\bm{Y})$ be an [unbiased]{.orange} estimator of $\theta$  with finite variance $\text{var}(\hat{\theta}(\bm{Y})) < \infty$. Then
+In addition to the assumptions of Cramér-Rao theorem, suppose $Y_1,\dots,Y_n$ is an iid sample from $f(y \mid \theta)\mathrm{d}y$ satisfying also condition [C.2]{.blue}. Moreover, let $\hat{\theta}(\bm{Y})$ be an [unbiased]{.orange} estimator of $\theta$  with finite variance $\text{var}(\hat{\theta}(\bm{Y})) < \infty$. Then
 $$
 \text{var}_\theta(\hat{\theta}(\bm{Y})) \ge \frac{1}{n i(\theta)}, \qquad i(\theta) = -\int \left[\frac{\partial^2}{\partial^2 \theta}\log{f(y \mid \theta)}\right]f(y\mid\theta)\mathrm{d}y.
 $$
@@ -1425,18 +1425,16 @@ corresponding to the multiparameter Cramér-Rao theorem.
 
 :::callout-tip
 
-- The classical statement of the Cramér-Rao lower bound imposes [restrictions]{.orange} on the [estimator]{.orange} itself, which is problematic. 
+- The classical statement of the Cramér–Rao lower bound imposes [restrictions]{.orange} on the [estimator]{.blue} itself, which is conceptually problematic.
 
-- As stated, the theorem leaves open the possibility that some estimators, not satisfying the stated condition, may have variance below the bound.
+-	As stated, the theorem leaves open the possibility that some estimators that do not satisfy the condition may have variance below the bound.
 :::
 
-- This can be solved solved by imposing a fairly technical condition, similar to what is known to [Lipschitz condition]{.blue} on the considered class of densities $f(\bm{y} \mid \theta)$ rather than estimators.
+- This issue can be addressed by restricting the class of densities $f(\bm{y} \mid \theta)$, rather than on the estimators, typically a regularity condition akin to a [Lipschitz condition]{.blue}.
 
-- Within such a restricted class, the Cramér-Rao theorem is valid for any estimator $\hat{\theta}$. 
+- Within such a restricted class, which includes regular exponential families, the Cramér–Rao bound holds for any estimator $\hat{\theta}$.
 
-- See Theorem 5.15, Chap.2, @Lehmann1998 for a Cramér-Rao theorem based on the [Lipschitz condition]{.blue}.
-
-- Refer to note 8.6, Chap.2 for @Lehmann1998 for necessary and sufficient conditions. 
+- See Theorem 5.15, Chap.2, @Lehmann1998 for such a refined Cramér-Rao theorem. See also note 8.6, Chap.2 in @Lehmann1998 for a detailed discussion.  
 
 
 

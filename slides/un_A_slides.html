@@ -1302,7 +1302,7 @@ r(\pi, \hat{\theta}_\text{Bayes}) = 0.
 </div>
 </div>
 </div>
-<aside><ol class="aside-footnotes"><li id="fn12"><p>There are some caveats, see the additional considerations.</p></li></ol></aside></section>
+<aside><ol class="aside-footnotes"><li id="fn12"><p>This is essentially correct, but strictly speaking, the result holds only for estimators that satisfy the condition.</p></li></ol></aside></section>
 <section id="cramér-rao-considerations" class="slide level2 center">
 <h2>Cramér-Rao: considerations</h2>
 <div class="callout callout-tip no-icon callout-style-simple">
@@ -1358,7 +1358,7 @@ I(\theta) = \mathbb{E}_\theta(\ell^*(\theta)^2) =\text{var}_\theta(\ell^*(\theta
 <p><strong>Theorem (Cramér-Rao, simplified)</strong></p>
 </div>
 <div class="callout-content">
-<p>Under the same assumption of Cramér-Rao theorem, assume in addition that <span class="math inline">Y_1,\dots,Y_n</span> is an iid sample from <span class="math inline">f(y \mid \theta)\mathrm{d}y</span> satisfying also condition <span class="blue">C.2</span>, and let <span class="math inline">\Theta \subseteq \mathbb{R}</span>. Moreover, let <span class="math inline">\hat{\theta}(\bm{Y})</span> be an <span class="orange">unbiased</span> estimator of <span class="math inline">\theta</span> with finite variance <span class="math inline">\text{var}(\hat{\theta}(\bm{Y})) &lt; \infty</span>. Then <span class="math display">
+<p>In addition to the assumptions of Cramér-Rao theorem, suppose <span class="math inline">Y_1,\dots,Y_n</span> is an iid sample from <span class="math inline">f(y \mid \theta)\mathrm{d}y</span> satisfying also condition <span class="blue">C.2</span>. Moreover, let <span class="math inline">\hat{\theta}(\bm{Y})</span> be an <span class="orange">unbiased</span> estimator of <span class="math inline">\theta</span> with finite variance <span class="math inline">\text{var}(\hat{\theta}(\bm{Y})) &lt; \infty</span>. Then <span class="math display">
 \text{var}_\theta(\hat{\theta}(\bm{Y})) \ge \frac{1}{n i(\theta)}, \qquad i(\theta) = -\int \left[\frac{\partial^2}{\partial^2 \theta}\log{f(y \mid \theta)}\right]f(y\mid\theta)\mathrm{d}y.
 </span></p>
 </div>
@@ -1410,17 +1410,16 @@ i(\lambda) = -\mathbb{E}_\lambda\left(\frac{\partial}{\partial \lambda^2}\log{f(
 <div class="callout-body">
 <div class="callout-content">
 <ul>
-<li><p>The classical statement of the Cramér-Rao lower bound imposes <span class="orange">restrictions</span> on the <span class="orange">estimator</span> itself, which is problematic.</p></li>
-<li><p>As stated, the theorem leaves open the possibility that some estimators, not satisfying the stated condition, may have variance below the bound.</p></li>
+<li><p>The classical statement of the Cramér–Rao lower bound imposes <span class="orange">restrictions</span> on the <span class="blue">estimator</span> itself, which is conceptually problematic.</p></li>
+<li><p>As stated, the theorem leaves open the possibility that some estimators that do not satisfy the condition may have variance below the bound.</p></li>
 </ul>
 </div>
 </div>
 </div>
 <ul>
-<li><p>This can be solved solved by imposing a fairly technical condition, similar to what is known to <span class="blue">Lipschitz condition</span> on the considered class of densities <span class="math inline">f(\bm{y} \mid \theta)</span> rather than estimators.</p></li>
-<li><p>Within such a restricted class, the Cramér-Rao theorem is valid for any estimator <span class="math inline">\hat{\theta}</span>.</p></li>
-<li><p>See Theorem 5.15, Chap.2, <span class="citation" data-cites="Lehmann1998">Lehmann and Casella (<a href="#/references" role="doc-biblioref" onclick="">1998</a>)</span> for a Cramér-Rao theorem based on the <span class="blue">Lipschitz condition</span>.</p></li>
-<li><p>Refer to note 8.6, Chap.2 for <span class="citation" data-cites="Lehmann1998">Lehmann and Casella (<a href="#/references" role="doc-biblioref" onclick="">1998</a>)</span> for necessary and sufficient conditions.</p></li>
+<li><p>This issue can be addressed by restricting the class of densities <span class="math inline">f(\bm{y} \mid \theta)</span>, rather than on the estimators, typically a regularity condition akin to a <span class="blue">Lipschitz condition</span>.</p></li>
+<li><p>Within such a restricted class, which includes regular exponential families, the Cramér–Rao bound holds for any estimator <span class="math inline">\hat{\theta}</span>.</p></li>
+<li><p>See Theorem 5.15, Chap.2, <span class="citation" data-cites="Lehmann1998">Lehmann and Casella (<a href="#/references" role="doc-biblioref" onclick="">1998</a>)</span> for such a refined Cramér-Rao theorem. See also note 8.6, Chap.2 in <span class="citation" data-cites="Lehmann1998">Lehmann and Casella (<a href="#/references" role="doc-biblioref" onclick="">1998</a>)</span> for a detailed discussion.</p></li>
 </ul>
 </section>
 <section id="rao-blackwell" class="slide level2 center">
