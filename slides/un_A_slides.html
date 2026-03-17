@@ -1263,10 +1263,30 @@ r(\pi, \hat{\theta}_\text{Bayes}) = 0.
 <li><p>The success of UMVUE estimators is tied to two illuminating and elegant theorems: <span class="blue">Cramér-Rao</span> and <span class="orange">Rao-Blackwell</span>, which connect likelihood theory, sufficiency, and unbiasedness.</p></li>
 </ul>
 </section>
+<section id="bartlett-identities-i" class="slide level2 center">
+<h2>Bartlett identities I 📖</h2>
+<div class="callout callout-warning no-icon callout-titled callout-style-simple">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>First Bartlett identity</strong></p>
+</div>
+<div class="callout-content">
+<p>Let <span class="math inline">Y_1,\dots,Y_n</span> be a sample from a joint probability measure <span class="math inline">f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y})</span> and let <span class="math inline">\Theta \subseteq \mathbb{R}</span>. If we can interchange derivation and integration, namely <span class="math display">\frac{\partial}{\partial \theta}\int f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y}) = \int \frac{\partial}{\partial \theta} f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y}), \tag{C.1}
+</span> then <span class="math display">
+\mathbb{E}_\theta(\ell^*(\theta)) = 0,\qquad \text{implying}\qquad   \mathbb{E}_\theta(\ell^*(\theta)^2) = \text{var}_\theta(\ell^*(\theta)).
+</span></p>
+</div>
+</div>
+</div>
+<ul>
+<li><p>Thus, the above regularity condition implies that the score function <span class="math inline">\ell^*(\theta)</span> is un <span class="blue">unbiased estimating equation</span>.</p></li>
+<li><p>The regularity condition is always satisfied, for example, in regular exponential families.</p></li>
+</ul>
+</section>
 <section id="cramér-rao-inequality" class="slide level2 center">
 <h2>Cramér-Rao inequality 📖</h2>
 <ul>
-<li>The Cramér-Rao theorem establishes a <span class="blue">lower bound</span> for the variance of an estimator. Thus, if the variance of an unbiased estimator <span class="math inline">\hat{\theta}</span> attains the lower bound for all <span class="math inline">\theta</span>, then <span class="math inline">\hat{\theta}</span> is <span class="orange">UMVUE</span>.</li>
+<li>The Cramér-Rao theorem establishes a <span class="blue">lower bound</span> for the variance of an estimator. Thus, if the variance of an unbiased estimator <span class="math inline">\hat{\theta}</span> attains the lower bound for all <span class="math inline">\theta</span>, then <span class="math inline">\hat{\theta}</span> is <span class="orange">UMVUE</span>. <sup>1</sup></li>
 </ul>
 <div class="callout callout-warning no-icon callout-titled callout-style-simple">
 <div class="callout-body">
@@ -1274,7 +1294,7 @@ r(\pi, \hat{\theta}_\text{Bayes}) = 0.
 <p><strong>Theorem (Cramér-Rao, Theorem 7.3.9 in <span class="citation" data-cites="Casella2002">Casella and Berger (<a href="#/references" role="doc-biblioref" onclick="">2002</a>)</span>)</strong></p>
 </div>
 <div class="callout-content">
-<p>Let <span class="math inline">Y_1,\dots,Y_n</span> be a sample from a joint probability measure <span class="math inline">f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y})</span> and let <span class="math inline">\Theta \subseteq \mathbb{R}</span>. Moreover, let <span class="math inline">\hat{\theta}(\bm{Y})</span> be an estimator of <span class="math inline">\theta</span> satisfying <span class="math display">
+<p>Let <span class="math inline">Y_1,\dots,Y_n</span> be a sample from a joint probability measure <span class="math inline">f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y})</span> satisfying condition <span class="blue">C.1</span> and let <span class="math inline">\Theta \subseteq \mathbb{R}</span>. Moreover, let <span class="math inline">\hat{\theta}(\bm{Y})</span> be an estimator of <span class="math inline">\theta</span> satisfying <span class="math display">
 1 + b^*(\theta) := \frac{\partial}{\partial \theta}\int \hat{\theta}(\bm{y})f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y}) = \int \frac{\partial}{\partial \theta} \hat{\theta}(\bm{y})f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y}),
 </span> and with finite variance <span class="math inline">\text{var}_\theta(\hat{\theta}(\bm{Y})) &lt; \infty</span>. Then <span class="math display">
 \text{var}_\theta(\hat{\theta}(\bm{Y})) \ge \frac{[1 + b^*(\theta)]^2}{\mathbb{E}_\theta(\ell^*(\theta)^2)}.
@@ -1282,7 +1302,7 @@ r(\pi, \hat{\theta}_\text{Bayes}) = 0.
 </div>
 </div>
 </div>
-</section>
+<aside><ol class="aside-footnotes"><li id="fn12"><p>There are some caveats, see the additional considerations.</p></li></ol></aside></section>
 <section id="cramér-rao-considerations" class="slide level2 center">
 <h2>Cramér-Rao: considerations</h2>
 <div class="callout callout-tip no-icon callout-style-simple">
@@ -1307,26 +1327,7 @@ I(\theta) := \mathbb{E}_\theta(\ell^*(\theta)^2),
 </div>
 </div>
 </div>
-<aside><ol class="aside-footnotes"><li id="fn12"><p>See Example 7.3.13 in <span class="citation" data-cites="Casella2002">Casella and Berger (<a href="#/references" role="doc-biblioref" onclick="">2002</a>)</span>, for a simple and illuminating example.</p></li></ol></aside></section>
-<section id="bartlett-identities-i" class="slide level2 center">
-<h2>Bartlett identities I 📖</h2>
-<div class="callout callout-warning no-icon callout-titled callout-style-simple">
-<div class="callout-body">
-<div class="callout-title">
-<p><strong>First Bartlett identity</strong></p>
-</div>
-<div class="callout-content">
-<p>Let <span class="math inline">Y_1,\dots,Y_n</span> be a sample from a joint probability measure <span class="math inline">f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y})</span> and let <span class="math inline">\Theta \subseteq \mathbb{R}</span>. If we can interchange derivation and integration, namely <span class="math display">\frac{\partial}{\partial \theta}\int f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y}) = \int \frac{\partial}{\partial \theta} f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y}), \tag{C.1}
-</span> then <span class="math display">
-\mathbb{E}_\theta(\ell^*(\theta)) = 0,\qquad \text{implying}\qquad  I(\theta) = \mathbb{E}_\theta(\ell^*(\theta)^2) = \text{var}_\theta(\ell^*(\theta)).
-</span></p>
-</div>
-</div>
-</div>
-<ul>
-<li>Thus, the regularity condition of Cramér-Rao implies that the score function <span class="math inline">\ell^*(\theta)</span> is un <span class="blue">unbiased estimating equation</span>.</li>
-</ul>
-</section>
+<aside><ol class="aside-footnotes"><li id="fn13"><p>See Example 7.3.13 in <span class="citation" data-cites="Casella2002">Casella and Berger (<a href="#/references" role="doc-biblioref" onclick="">2002</a>)</span>, for a simple and illuminating example.</p></li></ol></aside></section>
 <section id="bartlett-identities-ii" class="slide level2 center">
 <h2>Bartlett identities II 📖</h2>
 <div class="callout callout-warning no-icon callout-titled callout-style-simple">
@@ -1357,7 +1358,7 @@ I(\theta) = \mathbb{E}_\theta(\ell^*(\theta)^2) =\text{var}_\theta(\ell^*(\theta
 <p><strong>Theorem (Cramér-Rao, simplified)</strong></p>
 </div>
 <div class="callout-content">
-<p>Let <span class="math inline">Y_1,\dots,Y_n</span> be an iid sample from <span class="math inline">f(y \mid \theta)\mathrm{d}y</span> satisfying conditions <span class="blue">C.1</span> and <span class="blue">C.2</span>, and let <span class="math inline">\Theta \subseteq \mathbb{R}</span>. Moreover, let <span class="math inline">\hat{\theta}(\bm{Y})</span> be an <span class="orange">unbiased</span> estimator of <span class="math inline">\theta</span> with finite variance <span class="math inline">\text{var}(\hat{\theta}(\bm{Y})) &lt; \infty</span>. Then <span class="math display">
+<p>Under the same assumption of Cramér-Rao theorem, assume in addition that <span class="math inline">Y_1,\dots,Y_n</span> is an iid sample from <span class="math inline">f(y \mid \theta)\mathrm{d}y</span> satisfying also condition <span class="blue">C.2</span>, and let <span class="math inline">\Theta \subseteq \mathbb{R}</span>. Moreover, let <span class="math inline">\hat{\theta}(\bm{Y})</span> be an <span class="orange">unbiased</span> estimator of <span class="math inline">\theta</span> with finite variance <span class="math inline">\text{var}(\hat{\theta}(\bm{Y})) &lt; \infty</span>. Then <span class="math display">
 \text{var}_\theta(\hat{\theta}(\bm{Y})) \ge \frac{1}{n i(\theta)}, \qquad i(\theta) = -\int \left[\frac{\partial^2}{\partial^2 \theta}\log{f(y \mid \theta)}\right]f(y\mid\theta)\mathrm{d}y.
 </span></p>
 </div>
@@ -1367,7 +1368,7 @@ I(\theta) = \mathbb{E}_\theta(\ell^*(\theta)^2) =\text{var}_\theta(\ell^*(\theta
 <li><p>The Fisher information is the <span class="blue">sum</span> of <span class="blue">individual contributions</span> <span class="math inline">I(\theta) = i(\theta) + \cdots + i(\theta) = n i(\theta)</span>.</p></li>
 <li><p>It can be shown<sup>1</sup> that <span class="blue">attainment</span>, that is the equality <span class="math inline">\text{var}(\hat{\theta}(\bm{Y})) = 1/ni(\theta)</span>, occurs if and only if <span class="math inline">f(y \mid \theta)</span> is the density of an <span class="orange">exponential family</span>.</p></li>
 </ul>
-<aside><ol class="aside-footnotes"><li id="fn13"><p>See Theorem 5.12, Chap.2, <span class="citation" data-cites="Lehmann1998">Lehmann and Casella (<a href="#/references" role="doc-biblioref" onclick="">1998</a>)</span>.</p></li></ol></aside></section>
+<aside><ol class="aside-footnotes"><li id="fn14"><p>See Theorem 5.12, Chap.2, <span class="citation" data-cites="Lehmann1998">Lehmann and Casella (<a href="#/references" role="doc-biblioref" onclick="">1998</a>)</span>.</p></li></ol></aside></section>
 <section id="example-poisson-unbiased-estimation-1" class="slide level2 center">
 <h2>Example: Poisson unbiased estimation 📖</h2>
 <ul>
@@ -1401,6 +1402,25 @@ i(\lambda) = -\mathbb{E}_\lambda\left(\frac{\partial}{\partial \lambda^2}\log{f(
 \text{var}_\theta(\hat{\theta}(\bm{Y})) \ge I(\theta)^{-1}, \quad I(\theta) = n i(\theta), \quad i(\theta) = - \int\frac{\partial^2}{\partial \theta \partial \theta^T} \log f(y \mid \theta)\mathrm{d}y,
 </span> corresponding to the multiparameter Cramér-Rao theorem.</p></li>
 <li><p>Refer to Theorem 6.6, Chap. 2 in <span class="citation" data-cites="Lehmann1998">Lehmann and Casella (<a href="#/references" role="doc-biblioref" onclick="">1998</a>)</span> for a proof.</p></li>
+</ul>
+</section>
+<section id="cramér-rao-additional-considerations" class="slide level2 center">
+<h2>Cramér-Rao: additional considerations ☠️</h2>
+<div class="callout callout-tip no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<ul>
+<li><p>The classical statement of the Cramér-Rao lower bound imposes <span class="orange">restrictions</span> on the <span class="orange">estimator</span> itself, which is problematic.</p></li>
+<li><p>As stated, the theorem leaves open the possibility that some estimators, not satisfying the stated condition, may have variance below the bound.</p></li>
+</ul>
+</div>
+</div>
+</div>
+<ul>
+<li><p>This can be solved solved by imposing a fairly technical condition, similar to what is known to <span class="blue">Lipschitz condition</span> on the considered class of densities <span class="math inline">f(\bm{y} \mid \theta)</span> rather than estimators.</p></li>
+<li><p>Within such a restricted class, the Cramér-Rao theorem is valid for any estimator <span class="math inline">\hat{\theta}</span>.</p></li>
+<li><p>See Theorem 5.15, Chap.2, <span class="citation" data-cites="Lehmann1998">Lehmann and Casella (<a href="#/references" role="doc-biblioref" onclick="">1998</a>)</span> for a Cramér-Rao theorem based on the <span class="blue">Lipschitz condition</span>.</p></li>
+<li><p>Refer to note 8.6, Chap.2 for <span class="citation" data-cites="Lehmann1998">Lehmann and Casella (<a href="#/references" role="doc-biblioref" onclick="">1998</a>)</span> for necessary and sufficient conditions.</p></li>
 </ul>
 </section>
 <section id="rao-blackwell" class="slide level2 center">
@@ -1535,7 +1555,7 @@ i(\lambda) = -\mathbb{E}_\lambda\left(\frac{\partial}{\partial \lambda^2}\log{f(
 \hat{\psi} = \mathbb{E}(\tilde{\psi} \mid S) = N \binom{N n - N}{S-1}/ \binom{N n}{S}.
 </span> which can be obtained after simple calculations.</p></li>
 </ul>
-<aside><ol class="aside-footnotes"><li id="fn14"><p>See Example 6.2.22 of <span class="citation" data-cites="Casella2002">Casella and Berger (<a href="#/references" role="doc-biblioref" onclick="">2002</a>)</span>. This is also follows from general result of exponential families.</p></li></ol></aside></section>
+<aside><ol class="aside-footnotes"><li id="fn15"><p>See Example 6.2.22 of <span class="citation" data-cites="Casella2002">Casella and Berger (<a href="#/references" role="doc-biblioref" onclick="">2002</a>)</span>. This is also follows from general result of exponential families.</p></li></ol></aside></section>
 <section id="rao-blackwell-multiparameter-case" class="slide level2 center">
 <h2>Rao-Blackwell, multiparameter case</h2>
 <ul>
@@ -1595,7 +1615,7 @@ Q(\theta) = \sum_{i=1}^n q(\theta; Y_i) = \bm{0},
 </div>
 </div>
 </div>
-<aside><ol class="aside-footnotes"><li id="fn15"><p>Refer to <span class="citation" data-cites="Davison2003">Davison (<a href="#/references" role="doc-biblioref" onclick="">2003</a>)</span>, Section 7.2, for an intuitive argument and <span class="citation" data-cites="vandervaart1998">van der Vaart (<a href="#/references" role="doc-biblioref" onclick="">1998</a>)</span>, Chap. 5 for a rigorous proof.</p></li></ol></aside></section>
+<aside><ol class="aside-footnotes"><li id="fn16"><p>Refer to <span class="citation" data-cites="Davison2003">Davison (<a href="#/references" role="doc-biblioref" onclick="">2003</a>)</span>, Section 7.2, for an intuitive argument and <span class="citation" data-cites="vandervaart1998">van der Vaart (<a href="#/references" role="doc-biblioref" onclick="">1998</a>)</span>, Chap. 5 for a rigorous proof.</p></li></ol></aside></section>
 <section id="asymptotic-behavior-of-unbiased-estimating-equations" class="slide level2 center">
 <h2>Asymptotic behavior of unbiased estimating equations</h2>
 <ul>
@@ -1725,7 +1745,7 @@ Q(\theta) = \sum_{i=1}^n \frac{\mu_i^*(\theta)}{V_i(\theta)}(Y_i - \mu_i(\theta)
 </div>
 </div>
 </div>
-<aside><ol class="aside-footnotes"><li id="fn16"><p>See <span class="citation" data-cites="Davison2003">Davison (<a href="#/references" role="doc-biblioref" onclick="">2003</a>)</span>, Section 7.2.2, for a proof.</p></li></ol></aside></section>
+<aside><ol class="aside-footnotes"><li id="fn17"><p>See <span class="citation" data-cites="Davison2003">Davison (<a href="#/references" role="doc-biblioref" onclick="">2003</a>)</span>, Section 7.2.2, for a proof.</p></li></ol></aside></section>
 <section id="blue-estimators-i" class="slide level2 center">
 <h2>BLUE estimators I</h2>
 <div class="callout callout-warning no-icon callout-titled callout-style-simple">
@@ -1948,7 +1968,7 @@ f(y; \theta) = \frac{1}{2}\phi(y; 0, 1) + \frac{1}{2}\phi(y; \theta, e^{-2/\thet
 </div>
 </div>
 </div>
-<aside><ol class="aside-footnotes"><li id="fn17"><p>This example is taken from a <a href="https://radfordneal.wordpress.com/2008/08/09/inconsistent-maximum-likelihood-estimation-an-ordinary-example/">blogpost</a> of Radford Neal.</p></li></ol></aside></section>
+<aside><ol class="aside-footnotes"><li id="fn18"><p>This example is taken from a <a href="https://radfordneal.wordpress.com/2008/08/09/inconsistent-maximum-likelihood-estimation-an-ordinary-example/">blogpost</a> of Radford Neal.</p></li></ol></aside></section>
 <section id="what-could-go-wrong-1" class="slide level2 center">
 <h2>What could go wrong?</h2>
 
@@ -1986,7 +2006,7 @@ f(y; \theta) = \frac{1}{2}\phi(y; 0, 1) + \frac{1}{2}\phi(y; \theta, e^{-2/\thet
 </div>
 </div>
 </div>
-<aside><ol class="aside-footnotes"><li id="fn18"><p>See also <span class="citation" data-cites="vandervaart1998">van der Vaart (<a href="#/references" role="doc-biblioref" onclick="">1998</a>)</span>, Theorem 5.42, for slightly less stringent conditions and a careful discussion about the issue of multiple roots.</p></li></ol></aside></section>
+<aside><ol class="aside-footnotes"><li id="fn19"><p>See also <span class="citation" data-cites="vandervaart1998">van der Vaart (<a href="#/references" role="doc-biblioref" onclick="">1998</a>)</span>, Theorem 5.42, for slightly less stringent conditions and a careful discussion about the issue of multiple roots.</p></li></ol></aside></section>
 <section id="asymptotic-normality-of-the-mle" class="slide level2 center">
 <h2>Asymptotic normality of the MLE 📖</h2>
 <div class="callout callout-warning no-icon callout-titled callout-style-simple">
@@ -2391,7 +2411,7 @@ h(\theta) = \mathbb{E}_0\left(- \frac{\partial}{\partial \theta}\ell^*(\theta)\r
 </span></p></li>
 <li><p>Unbiasedness of <span class="math inline">\ell^*_c(\theta)</span> does not guarantee consistency nor asymptotic normality, but both are recovered under mild assumptions on the dependence structure, relying on <span class="blue">ergodic</span> theorems or <span class="orange">martingales</span>. Remarkably, a Godambe-like asymptotic variance is obtained at the limit<sup>1</sup>.</p></li>
 </ul>
-<aside><ol class="aside-footnotes"><li id="fn19"><p>Refer to Section 7.2.3 in <span class="citation" data-cites="Davison2003">Davison (<a href="#/references" role="doc-biblioref" onclick="">2003</a>)</span> for a discussion on general estimating equations with dependent data and sufficient conditions for consistency and asymptotic normality.</p></li></ol></aside></section>
+<aside><ol class="aside-footnotes"><li id="fn20"><p>Refer to Section 7.2.3 in <span class="citation" data-cites="Davison2003">Davison (<a href="#/references" role="doc-biblioref" onclick="">2003</a>)</span> for a discussion on general estimating equations with dependent data and sufficient conditions for consistency and asymptotic normality.</p></li></ol></aside></section>
 <section id="example-the-probability-of-observing-a-zero" class="slide level2 center">
 <h2>Example: the probability of observing a zero 📖</h2>
 <ul>

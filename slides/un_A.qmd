@@ -1291,13 +1291,31 @@ The estimator $\hat{\theta}$ is also called [uniform minimum variance unbiased e
 
 - The success of UMVUE estimators is tied to two illuminating and elegant theorems: [Cramér-Rao]{.blue} and [Rao-Blackwell]{.orange}, which connect likelihood theory, sufficiency, and unbiasedness.
 
+
+## Bartlett identities I 📖
+
+:::callout-warning
+#### First Bartlett identity
+Let $Y_1,\dots,Y_n$ be a sample from a joint probability measure $f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y})$ and let $\Theta \subseteq \mathbb{R}$. If we can interchange derivation and integration, namely
+$$\frac{\partial}{\partial \theta}\int f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y}) = \int \frac{\partial}{\partial \theta} f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y}), \tag{C.1}
+$$
+then 
+$$
+\mathbb{E}_\theta(\ell^*(\theta)) = 0,\qquad \text{implying}\qquad   \mathbb{E}_\theta(\ell^*(\theta)^2) = \text{var}_\theta(\ell^*(\theta)).
+$$
+:::
+
+- Thus, the above regularity condition implies that the score function $\ell^*(\theta)$ is un [unbiased estimating equation]{.blue}. 
+
+- The regularity condition is always satisfied, for example, in regular exponential families. 
+
 ## Cramér-Rao inequality 📖
 
-- The Cramér-Rao theorem establishes a [lower bound]{.blue} for the variance of an estimator. Thus, if the variance of an unbiased estimator $\hat{\theta}$ attains the lower bound for all $\theta$, then $\hat{\theta}$ is [UMVUE]{.orange}.
+- The Cramér-Rao theorem establishes a [lower bound]{.blue} for the variance of an estimator. Thus, if the variance of an unbiased estimator $\hat{\theta}$ attains the lower bound for all $\theta$, then $\hat{\theta}$ is [UMVUE]{.orange}. [^caveat]
 
 ::: callout-warning
 #### Theorem (Cramér-Rao, Theorem 7.3.9 in @Casella2002)
-Let $Y_1,\dots,Y_n$ be a sample from a joint probability measure $f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y})$ and let $\Theta \subseteq \mathbb{R}$. Moreover, let $\hat{\theta}(\bm{Y})$ be an estimator of $\theta$ satisfying
+Let $Y_1,\dots,Y_n$ be a sample from a joint probability measure $f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y})$ satisfying condition [C.1]{.blue} and let $\Theta \subseteq \mathbb{R}$. Moreover, let $\hat{\theta}(\bm{Y})$ be an estimator of $\theta$ satisfying
 $$
 1 + b^*(\theta) := \frac{\partial}{\partial \theta}\int \hat{\theta}(\bm{y})f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y}) = \int \frac{\partial}{\partial \theta} \hat{\theta}(\bm{y})f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y}),
 $$
@@ -1307,6 +1325,8 @@ $$
 $$
 Moreover, if $\hat{\theta}$ is an [unbiased]{.orange} estimator for $\theta$, then $b^*(\theta) = 0$ and  $\text{var}(\hat{\theta}(\bm{Y})) \ge 1/\mathbb{E}_\theta(l^*(\theta)^2)$ . 
 :::
+
+[^caveat]: There are some caveats, see the additional considerations.
 
 ## Cramér-Rao: considerations
 
@@ -1327,21 +1347,6 @@ If $W(\bm{Y})$ is an unbiased estimator of a [transformation]{.blue} $g(\theta)$
 :::
 
 [^uniform_example]: See Example 7.3.13 in @Casella2002, for a simple and illuminating example.
-
-## Bartlett identities I 📖
-
-:::callout-warning
-#### First Bartlett identity
-Let $Y_1,\dots,Y_n$ be a sample from a joint probability measure $f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y})$ and let $\Theta \subseteq \mathbb{R}$. If we can interchange derivation and integration, namely
-$$\frac{\partial}{\partial \theta}\int f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y}) = \int \frac{\partial}{\partial \theta} f(\bm{y} \mid \theta)\nu(\mathrm{d}\bm{y}), \tag{C.1}
-$$
-then 
-$$
-\mathbb{E}_\theta(\ell^*(\theta)) = 0,\qquad \text{implying}\qquad  I(\theta) = \mathbb{E}_\theta(\ell^*(\theta)^2) = \text{var}_\theta(\ell^*(\theta)).
-$$
-:::
-
-- Thus, the regularity condition of Cramér-Rao implies that the score function $\ell^*(\theta)$ is un [unbiased estimating equation]{.blue}. 
 
 ## Bartlett identities II 📖
 
@@ -1366,7 +1371,7 @@ $$
 
 ::: callout-warning
 #### Theorem (Cramér-Rao, simplified)
-Let $Y_1,\dots,Y_n$ be an iid sample from $f(y \mid \theta)\mathrm{d}y$ satisfying conditions [C.1]{.blue} and [C.2]{.blue}, and let $\Theta \subseteq \mathbb{R}$. Moreover, let $\hat{\theta}(\bm{Y})$ be an [unbiased]{.orange} estimator of $\theta$  with finite variance $\text{var}(\hat{\theta}(\bm{Y})) < \infty$. Then
+Under the same assumption of Cramér-Rao theorem, assume in addition that $Y_1,\dots,Y_n$ is an iid sample from $f(y \mid \theta)\mathrm{d}y$ satisfying also condition [C.2]{.blue}, and let $\Theta \subseteq \mathbb{R}$. Moreover, let $\hat{\theta}(\bm{Y})$ be an [unbiased]{.orange} estimator of $\theta$  with finite variance $\text{var}(\hat{\theta}(\bm{Y})) < \infty$. Then
 $$
 \text{var}_\theta(\hat{\theta}(\bm{Y})) \ge \frac{1}{n i(\theta)}, \qquad i(\theta) = -\int \left[\frac{\partial^2}{\partial^2 \theta}\log{f(y \mid \theta)}\right]f(y\mid\theta)\mathrm{d}y.
 $$
@@ -1415,6 +1420,24 @@ $$
 corresponding to the multiparameter Cramér-Rao theorem.
 
 - Refer to Theorem 6.6, Chap. 2 in @Lehmann1998 for a proof.
+
+## Cramér-Rao: additional considerations ☠️
+
+:::callout-tip
+
+- The classical statement of the Cramér-Rao lower bound imposes [restrictions]{.orange} on the [estimator]{.orange} itself, which is problematic. 
+
+- As stated, the theorem leaves open the possibility that some estimators, not satisfying the stated condition, may have variance below the bound.
+:::
+
+- This can be solved solved by imposing a fairly technical condition, similar to what is known to [Lipschitz condition]{.blue} on the considered class of densities $f(\bm{y} \mid \theta)$ rather than estimators.
+
+- Within such a restricted class, the Cramér-Rao theorem is valid for any estimator $\hat{\theta}$. 
+
+- See Theorem 5.15, Chap.2, @Lehmann1998 for a Cramér-Rao theorem based on the [Lipschitz condition]{.blue}.
+
+- Refer to note 8.6, Chap.2 for @Lehmann1998 for necessary and sufficient conditions. 
+
 
 
 ## Rao-Blackwell 📖
