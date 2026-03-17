@@ -1302,15 +1302,15 @@ r(\pi, \hat{\theta}_\text{Bayes}) = 0.
 </div>
 </div>
 </div>
-<aside><ol class="aside-footnotes"><li id="fn12"><p>This is essentially correct, but strictly speaking, the result holds only for estimators that satisfy the condition.</p></li></ol></aside></section>
+<aside><ol class="aside-footnotes"><li id="fn12"><p>This is essentially correct, but strictly speaking, Cramér-Rao holds only for estimators that satisfy the condition.</p></li></ol></aside></section>
 <section id="cramér-rao-considerations" class="slide level2 center">
 <h2>Cramér-Rao: considerations</h2>
 <div class="callout callout-tip no-icon callout-style-simple">
 <div class="callout-body">
 <div class="callout-content">
 <ul>
-<li><p>The interchange of the derivative under the integral sign is an important <span class="orange">condition</span>, not merely a technical artifact of the proof.</p></li>
-<li><p>For example, if the <span class="blue">sample space</span> of i.i.d. random variables <span class="math inline">Y_i</span> <span class="blue">depends on <span class="math inline">\theta</span></span>, such condition is violated, and the Cramér-Rao lower bound may not hold.<sup>1</sup></p></li>
+<li><p>The interchange of the derivative under the integral sign, e.g.&nbsp;<span class="blue">C.1</span>, is an important <span class="orange">condition</span>, not merely a technical artifact of the proof.</p></li>
+<li><p>For example, if the <span class="blue">sample space</span> of i.i.d. random variables <span class="math inline">Y_i</span> <span class="blue">depends on <span class="math inline">\theta</span></span>, condition <span class="blue">C.1</span> is violated, and the Cramér-Rao lower bound may not hold.<sup>1</sup></p></li>
 </ul>
 </div>
 </div>
@@ -1404,8 +1404,8 @@ i(\lambda) = -\mathbb{E}_\lambda\left(\frac{\partial}{\partial \lambda^2}\log{f(
 <li><p>Refer to Theorem 6.6, Chap. 2 in <span class="citation" data-cites="Lehmann1998">Lehmann and Casella (<a href="#/references" role="doc-biblioref" onclick="">1998</a>)</span> for a proof.</p></li>
 </ul>
 </section>
-<section id="cramér-rao-additional-considerations" class="slide level2 center">
-<h2>Cramér-Rao: additional considerations ☠️</h2>
+<section id="cramér-rao-technical-considerations" class="slide level2 center">
+<h2>Cramér-Rao: technical considerations ☠️</h2>
 <div class="callout callout-tip no-icon callout-style-simple">
 <div class="callout-body">
 <div class="callout-content">
@@ -1418,8 +1418,8 @@ i(\lambda) = -\mathbb{E}_\lambda\left(\frac{\partial}{\partial \lambda^2}\log{f(
 </div>
 <ul>
 <li><p>This issue can be addressed by restricting the class of densities <span class="math inline">f(\bm{y} \mid \theta)</span>, rather than on the estimators, typically a regularity condition akin to a <span class="blue">Lipschitz condition</span>.</p></li>
-<li><p>Within such a restricted class, which includes regular exponential families, the Cramér–Rao bound holds for any estimator <span class="math inline">\hat{\theta}</span>.</p></li>
-<li><p>See Theorem 5.15, Chap.2, <span class="citation" data-cites="Lehmann1998">Lehmann and Casella (<a href="#/references" role="doc-biblioref" onclick="">1998</a>)</span> for such a refined Cramér-Rao theorem. See also note 8.6, Chap.2 in <span class="citation" data-cites="Lehmann1998">Lehmann and Casella (<a href="#/references" role="doc-biblioref" onclick="">1998</a>)</span> for a detailed discussion.</p></li>
+<li><p>Within such a restricted class, which includes regular exponential families, the Cramér–Rao bound holds for any estimator <span class="math inline">\hat{\theta}</span> and condition <span class="blue">C.1</span> is automatically satisfied.</p></li>
+<li><p>See Theorem 5.15, Chap.2, <span class="citation" data-cites="Lehmann1998">Lehmann and Casella (<a href="#/references" role="doc-biblioref" onclick="">1998</a>)</span> for such a refined Cramér-Rao theorem. See also note 8.6, Chap.2 for a detailed discussion.</p></li>
 </ul>
 </section>
 <section id="rao-blackwell" class="slide level2 center">

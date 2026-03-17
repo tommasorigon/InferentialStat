@@ -179,7 +179,7 @@ window.Quarto = {
   <li><a href="#cramér-rao-iid-and-regular-case" id="toc-cramér-rao-iid-and-regular-case" class="nav-link" data-scroll-target="#cramér-rao-iid-and-regular-case">Cramér-Rao: iid and regular case</a></li>
   <li><a href="#example-poisson-unbiased-estimation-1" id="toc-example-poisson-unbiased-estimation-1" class="nav-link" data-scroll-target="#example-poisson-unbiased-estimation-1">Example: Poisson unbiased estimation 📖</a></li>
   <li><a href="#cramér-rao-multiparameter-case" id="toc-cramér-rao-multiparameter-case" class="nav-link" data-scroll-target="#cramér-rao-multiparameter-case">Cramér-Rao, multiparameter case</a></li>
-  <li><a href="#cramér-rao-additional-considerations" id="toc-cramér-rao-additional-considerations" class="nav-link" data-scroll-target="#cramér-rao-additional-considerations">Cramér-Rao: additional considerations ☠️</a></li>
+  <li><a href="#cramér-rao-technical-considerations" id="toc-cramér-rao-technical-considerations" class="nav-link" data-scroll-target="#cramér-rao-technical-considerations">Cramér-Rao: technical considerations ☠️</a></li>
   <li><a href="#rao-blackwell" id="toc-rao-blackwell" class="nav-link" data-scroll-target="#rao-blackwell">Rao-Blackwell 📖</a></li>
   <li><a href="#en-route-to-finding-unique-umvue-i" id="toc-en-route-to-finding-unique-umvue-i" class="nav-link" data-scroll-target="#en-route-to-finding-unique-umvue-i"><em>En route</em> to finding unique UMVUE I 📖</a></li>
   <li><a href="#en-route-to-finding-unique-umvue-ii" id="toc-en-route-to-finding-unique-umvue-ii" class="nav-link" data-scroll-target="#en-route-to-finding-unique-umvue-ii"><em>En route</em> to finding unique UMVUE II 📖</a></li>
@@ -1524,7 +1524,7 @@ First Bartlett identity
 <ul>
 <li>The Cramér-Rao theorem establishes a <span class="blue">lower bound</span> for the variance of an estimator. Thus, if the variance of an unbiased estimator <span class="math inline">\hat{\theta}</span> attains the lower bound for all <span class="math inline">\theta</span>, then <span class="math inline">\hat{\theta}</span> is <span class="orange">UMVUE</span>. <a href="#fn12" class="footnote-ref" id="fnref12" role="doc-noteref"><sup>12</sup></a></li>
 </ul>
-<div class="no-row-height column-margin column-container"><div id="fn12"><p><sup>12</sup>&nbsp;This is essentially correct, but strictly speaking, the result holds only for estimators that satisfy the condition.</p></div></div><div class="callout callout-style-simple callout-warning no-icon callout-titled">
+<div class="no-row-height column-margin column-container"><div id="fn12"><p><sup>12</sup>&nbsp;This is essentially correct, but strictly speaking, Cramér-Rao holds only for estimators that satisfy the condition.</p></div></div><div class="callout callout-style-simple callout-warning no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
@@ -1551,8 +1551,8 @@ Theorem (Cramér-Rao, Theorem 7.3.9 in <span class="citation" data-cites="Casell
 </div>
 <div class="callout-body-container">
 <ul>
-<li><p>The interchange of the derivative under the integral sign is an important <span class="orange">condition</span>, not merely a technical artifact of the proof.</p></li>
-<li><p>For example, if the <span class="blue">sample space</span> of i.i.d. random variables <span class="math inline">Y_i</span> <span class="blue">depends on <span class="math inline">\theta</span></span>, such condition is violated, and the Cramér-Rao lower bound may not hold.<a href="#fn13" class="footnote-ref" id="fnref13" role="doc-noteref"><sup>13</sup></a></p></li>
+<li><p>The interchange of the derivative under the integral sign, e.g.&nbsp;<span class="blue">C.1</span>, is an important <span class="orange">condition</span>, not merely a technical artifact of the proof.</p></li>
+<li><p>For example, if the <span class="blue">sample space</span> of i.i.d. random variables <span class="math inline">Y_i</span> <span class="blue">depends on <span class="math inline">\theta</span></span>, condition <span class="blue">C.1</span> is violated, and the Cramér-Rao lower bound may not hold.<a href="#fn13" class="footnote-ref" id="fnref13" role="doc-noteref"><sup>13</sup></a></p></li>
 </ul>
 </div>
 </div>
@@ -1658,8 +1658,8 @@ i(\lambda) = -\mathbb{E}_\lambda\left(\frac{\partial}{\partial \lambda^2}\log{f(
 <li><p>Refer to Theorem 6.6, Chap. 2 in <span class="citation" data-cites="Lehmann1998">Lehmann and Casella (<a href="#ref-Lehmann1998" role="doc-biblioref">1998</a>)</span> for a proof.</p></li>
 </ul>
 </section>
-<section id="cramér-rao-additional-considerations" class="level2">
-<h2 class="anchored" data-anchor-id="cramér-rao-additional-considerations">Cramér-Rao: additional considerations ☠️</h2>
+<section id="cramér-rao-technical-considerations" class="level2">
+<h2 class="anchored" data-anchor-id="cramér-rao-technical-considerations">Cramér-Rao: technical considerations ☠️</h2>
 <div class="callout callout-style-simple callout-tip no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -1675,8 +1675,8 @@ i(\lambda) = -\mathbb{E}_\lambda\left(\frac{\partial}{\partial \lambda^2}\log{f(
 </div>
 <ul>
 <li><p>This issue can be addressed by restricting the class of densities <span class="math inline">f(\bm{y} \mid \theta)</span>, rather than on the estimators, typically a regularity condition akin to a <span class="blue">Lipschitz condition</span>.</p></li>
-<li><p>Within such a restricted class, which includes regular exponential families, the Cramér–Rao bound holds for any estimator <span class="math inline">\hat{\theta}</span>.</p></li>
-<li><p>See Theorem 5.15, Chap.2, <span class="citation" data-cites="Lehmann1998">Lehmann and Casella (<a href="#ref-Lehmann1998" role="doc-biblioref">1998</a>)</span> for such a refined Cramér-Rao theorem. See also note 8.6, Chap.2 in <span class="citation" data-cites="Lehmann1998">Lehmann and Casella (<a href="#ref-Lehmann1998" role="doc-biblioref">1998</a>)</span> for a detailed discussion.</p></li>
+<li><p>Within such a restricted class, which includes regular exponential families, the Cramér–Rao bound holds for any estimator <span class="math inline">\hat{\theta}</span> and condition <span class="blue">C.1</span> is automatically satisfied.</p></li>
+<li><p>See Theorem 5.15, Chap.2, <span class="citation" data-cites="Lehmann1998">Lehmann and Casella (<a href="#ref-Lehmann1998" role="doc-biblioref">1998</a>)</span> for such a refined Cramér-Rao theorem. See also note 8.6, Chap.2 for a detailed discussion.</p></li>
 </ul>
 </section>
 <section id="rao-blackwell" class="level2">

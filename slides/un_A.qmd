@@ -1326,14 +1326,14 @@ $$
 Moreover, if $\hat{\theta}$ is an [unbiased]{.orange} estimator for $\theta$, then $b^*(\theta) = 0$ and  $\text{var}(\hat{\theta}(\bm{Y})) \ge 1/\mathbb{E}_\theta(l^*(\theta)^2)$ . 
 :::
 
-[^caveat]: This is essentially correct, but strictly speaking, the result holds only for estimators that satisfy the condition. 
+[^caveat]: This is essentially correct, but strictly speaking, Cramér-Rao holds only for estimators that satisfy the condition. 
 
 ## Cramér-Rao: considerations
 
 :::callout-tip
-- The interchange of the derivative under the integral sign is an important [condition]{.orange}, not merely a technical artifact of the proof.
+- The interchange of the derivative under the integral sign, e.g. [C.1]{.blue}, is an important [condition]{.orange}, not merely a technical artifact of the proof.
 
-- For example, if the [sample space]{.blue} of i.i.d. random variables $Y_i$ [depends on $\theta$]{.blue}, such condition is violated, and the Cramér-Rao lower bound may not hold.[^uniform_example]
+- For example, if the [sample space]{.blue} of i.i.d. random variables $Y_i$ [depends on $\theta$]{.blue}, condition [C.1]{.blue} is violated, and the Cramér-Rao lower bound may not hold.[^uniform_example]
 :::
 
 - The Cramér-Rao inequality is sometimes called [information inequality]{.orange}. In fact $I(\theta)$ defined as: 
@@ -1421,7 +1421,7 @@ corresponding to the multiparameter Cramér-Rao theorem.
 
 - Refer to Theorem 6.6, Chap. 2 in @Lehmann1998 for a proof.
 
-## Cramér-Rao: additional considerations ☠️
+## Cramér-Rao: technical considerations ☠️
 
 :::callout-tip
 
@@ -1432,9 +1432,9 @@ corresponding to the multiparameter Cramér-Rao theorem.
 
 - This issue can be addressed by restricting the class of densities $f(\bm{y} \mid \theta)$, rather than on the estimators, typically a regularity condition akin to a [Lipschitz condition]{.blue}.
 
-- Within such a restricted class, which includes regular exponential families, the Cramér–Rao bound holds for any estimator $\hat{\theta}$.
+- Within such a restricted class, which includes regular exponential families, the Cramér–Rao bound holds for any estimator $\hat{\theta}$ and condition [C.1]{.blue} is automatically satisfied.
 
-- See Theorem 5.15, Chap.2, @Lehmann1998 for such a refined Cramér-Rao theorem. See also note 8.6, Chap.2 in @Lehmann1998 for a detailed discussion.  
+- See Theorem 5.15, Chap.2, @Lehmann1998 for such a refined Cramér-Rao theorem. See also note 8.6, Chap.2 for a detailed discussion.  
 
 
 
