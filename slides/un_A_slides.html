@@ -1807,7 +1807,7 @@ J(\beta) = \text{var}(Q(\beta)) = \sigma^2 \bm{A}^T \bm{A}, \qquad H(\beta) = \m
 V(\beta)^{-1} =  \sigma^2 \left[(\bm{A}^T \bm{X})^{-1}\bm{A}^T\right] \left[(\bm{A}^T \bm{X})^{-1}\bm{A}^T\right]^T.
 </span></p></li>
 <li><p>The key remark is the following: a direct calculation shows that the variance of <span class="math inline">\hat{\beta}</span> is <span class="math display">
-\text{var}(\beta) = \sigma^2 \left[(\bm{A}^T \bm{X})^{-1}\bm{A}^T\right] \left[(\bm{A}^T \bm{X})^{-1}\bm{A}^T\right]^T = V(\beta)^{-1},
+\text{var}(\hat{\beta}) = \sigma^2 \left[(\bm{A}^T \bm{X})^{-1}\bm{A}^T\right] \left[(\bm{A}^T \bm{X})^{-1}\bm{A}^T\right]^T = V(\beta)^{-1},
 </span> that is, the <span class="orange">variance</span> of <span class="math inline">\hat{\beta}</span> coincides with the inverse of the <span class="blue">Godambe information</span>. This is a consequence of the linearity of <span class="math inline">Q(\beta)</span>, otherwise the property holds only asymptotically.</p></li>
 <li><p>Thus, the same proof of Gauss-Markov theorem can be used to show that the <span class="blue">BLUE estimator</span> is <span class="orange">Godambe efficient</span> and the optimal matrix is <span class="math inline">\bm{A} = \bm{X}</span>, giving <span class="math display">
 \hat{\beta} = (\bm{X}^T\bm{X})^{-1}\bm{X}^T\bm{Y}, \qquad V(\beta) = \frac{1}{\sigma^2}\bm{X}^T\bm{X}.
@@ -1925,7 +1925,7 @@ V(\beta)^{-1} =  \sigma^2 \left[(\bm{A}^T \bm{X})^{-1}\bm{A}^T\right] \left[(\bm
 </div>
 </section>
 <section id="consistency-for-the-mle" class="slide level2 center">
-<h2>Consistency for the MLE</h2>
+<h2>Consistency for the MLE 📖</h2>
 <ul>
 <li><p>Wald inequality is the main workhorse for proving <span class="blue">consistency</span> of the <span class="orange">maximum likelihood</span>.</p></li>
 <li><p>Broadly speaking, <span class="blue">on average</span>, the likelihood is <span class="orange">maximized</span> at the true value <span class="math inline">\theta_0</span>, and this holds almost surely for large <span class="math inline">n</span>, suggesting that <span class="math inline">\hat{\theta}_n \rightarrow \theta_0</span> almost surely as <span class="math inline">n\rightarrow \infty</span>.</p></li>
@@ -1937,7 +1937,7 @@ V(\beta)^{-1} =  \sigma^2 \left[(\bm{A}^T \bm{X})^{-1}\bm{A}^T\right] \left[(\bm
 <p><strong>Theorem (<span class="citation" data-cites="Lehmann1998">Lehmann and Casella (<a href="#/references" role="doc-biblioref" onclick="">1998</a>)</span>, Cor. 3.5, Chap. 6)</strong></p>
 </div>
 <div class="callout-content">
-<p>Under assumptions <span class="blue">(A1)-(A3)</span> and if <span class="math inline">\Theta = (\theta_0,\theta_1,\dots,\theta_k)</span> is <span class="orange">finite</span>, then <span class="math inline">\hat{\theta}_n</span> exists, is unique and is a <span class="blue">consistent estimator</span> of <span class="math inline">\theta_0</span>.</p>
+<p>Under assumptions <span class="blue">(A1)-(A3)</span> and if <span class="math inline">\Theta = (\theta_0,\theta_1,\dots,\theta_k)</span> is <span class="orange">finite</span>, then <span class="math inline">\hat{\theta}_n</span> exists and is unique with probability tending to <span class="math inline">1</span>, and is a <span class="blue">consistent estimator</span> of <span class="math inline">\theta_0</span>.</p>
 </div>
 </div>
 </div>

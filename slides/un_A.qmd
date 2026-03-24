@@ -1792,7 +1792,7 @@ $$
 
 - The key remark is the following: a direct calculation shows that the variance of $\hat{\beta}$ is
 $$
-\text{var}(\beta) = \sigma^2 \left[(\bm{A}^T \bm{X})^{-1}\bm{A}^T\right] \left[(\bm{A}^T \bm{X})^{-1}\bm{A}^T\right]^T = V(\beta)^{-1},
+\text{var}(\hat{\beta}) = \sigma^2 \left[(\bm{A}^T \bm{X})^{-1}\bm{A}^T\right] \left[(\bm{A}^T \bm{X})^{-1}\bm{A}^T\right]^T = V(\beta)^{-1},
 $$
 that is, the [variance]{.orange} of $\hat{\beta}$ coincides with the inverse of the [Godambe information]{.blue}. This is a consequence of the linearity of $Q(\beta)$, otherwise the property holds only asymptotically. 
 
@@ -1912,7 +1912,7 @@ $$
 which is commonly known as [Wald inequality]{.orange}.
 :::
 
-## Consistency for the MLE
+## Consistency for the MLE 📖
 
 - Wald inequality is the main workhorse for proving [consistency]{.blue} of the [maximum likelihood]{.orange}. 
 
@@ -1923,7 +1923,7 @@ which is commonly known as [Wald inequality]{.orange}.
 :::callout-warning
 #### Theorem (@Lehmann1998, Cor. 3.5, Chap. 6) 
 
-Under assumptions [(A1)-(A3)]{.blue} and if $\Theta = (\theta_0,\theta_1,\dots,\theta_k)$ is [finite]{.orange}, then $\hat{\theta}_n$ exists, is unique and is a [consistent estimator]{.blue} of $\theta_0$.
+Under assumptions [(A1)-(A3)]{.blue} and if $\Theta = (\theta_0,\theta_1,\dots,\theta_k)$ is [finite]{.orange}, then $\hat{\theta}_n$ exists and is unique with probability tending to $1$, and is a [consistent estimator]{.blue} of $\theta_0$.
 :::
 :::callout-tip
 [Proof]{.grey}. Let $A_{j,n} = \{\ell(\theta_0) > \ell(\theta_j)\}$ for $j=1,\dots,k$. It holds $\mathbb{P}(A_{j,n}) \rightarrow 1$ as $n\rightarrow \infty$. Hence: 
