@@ -1936,7 +1936,7 @@ $$
 
 - Let $Y_1,\dots,Y_n$ be an iid sample from the following univariate density[^Neal]
 $$
-f(y; \theta) = \frac{1}{2}\phi(y; 0, 1) + \frac{1}{2}\phi(y; \theta, e^{-2/\theta^2}),  \qquad \theta \in \mathbb{R},
+f(y; \theta) = \frac{1}{2}\phi(y; 0, 1) + \frac{1}{2}\phi(y; \theta, e^{-2/\theta^2}),  \qquad \theta \neq 0,
 $$
 where $\phi(x; \mu, \sigma^2)$ is the [normal density]{.orange}. The density $f(y; \theta)$ satisfies conditions [(A1)-(A4)]{.blue}. Moreover $\ell(\theta)$ is [differentiable]{.blue}. 
 

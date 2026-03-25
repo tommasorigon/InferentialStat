@@ -1955,7 +1955,7 @@ V(\beta)^{-1} =  \sigma^2 \left[(\bm{A}^T \bm{X})^{-1}\bm{A}^T\right] \left[(\bm
 <h2>What could go wrong?</h2>
 <ul>
 <li><p>Let <span class="math inline">Y_1,\dots,Y_n</span> be an iid sample from the following univariate density<sup>1</sup> <span class="math display">
-f(y; \theta) = \frac{1}{2}\phi(y; 0, 1) + \frac{1}{2}\phi(y; \theta, e^{-2/\theta^2}),  \qquad \theta \in \mathbb{R},
+f(y; \theta) = \frac{1}{2}\phi(y; 0, 1) + \frac{1}{2}\phi(y; \theta, e^{-2/\theta^2}),  \qquad \theta \neq 0,
 </span> where <span class="math inline">\phi(x; \mu, \sigma^2)</span> is the <span class="orange">normal density</span>. The density <span class="math inline">f(y; \theta)</span> satisfies conditions <span class="blue">(A1)-(A4)</span>. Moreover <span class="math inline">\ell(\theta)</span> is <span class="blue">differentiable</span>.</p></li>
 <li><p>However, the log-likelihood present <span class="blue">spykes</span> in correspondence of the observed data and the maximum likelihood concentrates around <span class="math inline">0</span> rather than <span class="math inline">\theta_0</span>, i.e <span class="math inline">\hat{\theta}_n</span> is <span class="orange">inconsistent</span>.</p></li>
 <li><p>Indeed, there are <span class="blue">multiple roots</span> of the score equation <span class="math inline">\ell^*(\theta)</span>, corresponding to the spykes. The “correct” solution close <span class="math inline">\theta_0</span> is among them, but is not identified by the data even for large <span class="math inline">n</span>.</p></li>
