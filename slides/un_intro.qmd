@@ -156,7 +156,7 @@ editor_options:
 
 - As mentioned, it is assumed that you have already been exposed to courses on statistical inference before.
 
-- [Propedeutical]{.blue} topics that I will [not]{.orange} discuss here are:
+- [Propaedeutic]{.blue} topics that I will [not]{.orange} discuss here are:
   - Asymptotic probability theory, $O_p(\cdot)$ and $o_p(\cdot)$ notations
   - Likelihood function: definition and basic properties
   - Sufficiency, ancillarity, Fisher factorization theorem, minimality
@@ -188,7 +188,7 @@ that is, there exists a measurable set $A \in \mathcal{B}(\mathcal{Y})$ such tha
 
 ## Dominated statistical models
 
-- We will focus on [dominated families]{.orange} of distributions, namely we assume there exist a measure $\nu(\mathrm{d}\bm{y})$ over $\mathcal{B}(\mathcal{Y})$ such that $P_\theta$ is absolutely continuous w.r.t. $\nu$ for all $\theta \in \Theta$, that is
+- We will focus on [dominated families]{.orange} of distributions, namely we assume there exists a measure $\nu(\mathrm{d}\bm{y})$ over $\mathcal{B}(\mathcal{Y})$ such that $P_\theta$ is absolutely continuous w.r.t. $\nu$ for all $\theta \in \Theta$, that is
 $$
 \forall A\in \mathcal{B}(\mathcal{Y}) \quad \text{ such that } \quad \nu(A) = 0 \quad\implies \quad P_\theta(A) = 0.
 $$
@@ -258,18 +258,18 @@ is called [likelihood function]{.orange}. The log-likelihood function is $\ell(\
 
 4. Closely follow the [suggestions]{.blue} of your [advisor]{.blue} --- they know better than you how to navigate the system and can guide you through many political and scientific challenges.
 
-5. [Do not wast time]{.orange} on activities that do not produce papers. This include:
+5. [Do not waste time]{.orange} on activities that do not produce papers. This includes:
     - Teaching to undergraduate students
     - Disseminating your work to the broader community, beyond academia
     - Studying topics unrelated to your niche area
 
 ## Deconstructing the cynical advice
 
-- The former is a list of concrete recommendations (easier said than done, especially about publishing on top journals) that may help you secure a [permanent position]{.blue} in [academia]{.blue}. 
+- The following is a list of concrete recommendations (easier said than done, especially about publishing on top journals) that may help you secure a [permanent position]{.blue} in [academia]{.blue}. 
 
 - I [do not fully agree]{.orange} with those rules: there is more to pursuing a Ph.D. than just "getting a job." 
 
-- These suggestions may change over time and do not necessarily apply to other fields.  Moreover, keep in mind academia, in the [short period]{.orange}, is also a [game of chance]{.blue}.
+- These suggestions may change over time and do not necessarily apply to other fields.  Moreover, keep in mind academia, in the [short run]{.orange}, is also a [game of chance]{.blue}.
 
 - I recognize their [effectiveness]{.blue}, but there are, I think, some [uncomfortable]{.orange} consequences. 
 
@@ -277,7 +277,7 @@ is called [likelihood function]{.orange}. The log-likelihood function is $\ell(\
 
 - These rules may lead to an [unhealthy competition]{.orange} among peers, who struggle to [publish or perish]{.blue}, which has [negative psychological]{.orange} effects and it favors [incremental]{.orange} contributions. 
 
-- Even if they work in the [short period]{.orange}, in the [long run]{.blue}, if the niche you decided to focus on is declining, transitioning towards different topics is hard if have not studied anything else. 
+- Even if they work in the [short run]{.orange}, in the [long run]{.blue}, if the niche you decided to focus on is declining, transitioning towards different topics is hard if you have not studied anything else. 
 
 - If the academic system rewards specialization, why study [classical statistics]{.orange} or other topics at all? What about the role of Universities in [preserving]{.blue} and [disseminating knowledge]{.blue}?
 
@@ -296,15 +296,15 @@ is called [likelihood function]{.orange}. The log-likelihood function is $\ell(\
 :::
 
 ::: {.column width="75%"}
-- The former list of practical advice is probably [effective]{.orange} but [questionable]{.orange}. For sure, it lacks [perspective]{.blue}.
+- The above list of practical advice is probably [effective]{.orange} but [questionable]{.orange}. For sure, it lacks [perspective]{.blue}.
 
 - In looking for [principles]{.blue} defining a [good researcher]{.orange}, I once again need to borrow the words of somebody else.
 
-- [Santiago Ramón y Cajal]{.grey}  is a fascinating personalities in science. He was one of the most important [neuroanatomist]{.blue} of his century. 
+- [Santiago Ramón y Cajal]{.grey}  is a fascinating personality in science. He was one of the most important [neuroanatomists]{.blue} of his century. 
 
 - Cajal was also a [thoughtful]{.orange} and inspired [teacher]{.orange}. 
 
-- "The advice" became vehicle for Cajal to write down the thoughts and anecdotes he would give to students and colleagues about how to make [important original contributions]{.blue} in any branch of [science]{.orange}.
+- "The advice" became a vehicle for Cajal to write down the thoughts and anecdotes he would give to students and colleagues about how to make [important original contributions]{.blue} in any branch of [science]{.orange}.
 
 - This book was written in 1898. The world was different, and so was academia. Yet, the book feels remarkably [modern]{.blue}.
 
