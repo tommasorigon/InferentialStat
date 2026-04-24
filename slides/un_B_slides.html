@@ -205,7 +205,7 @@
 <h2>Overview</h2>
 
 <img data-src="img/EF.png" class="quarto-figure quarto-figure-center r-stretch" style="width:6in"><ul>
-<li>Figure 1 of <span class="citation" data-cites="Efron2023">Efron (<a href="#/references" role="doc-biblioref" onclick="">2023</a>)</span>. Three level of statistical modeling.</li>
+<li>Figure 1 of <span class="citation" data-cites="Efron2023">Efron (<a href="#/references" role="doc-biblioref" onclick="">2023</a>)</span>. Three levels of statistical modeling.</li>
 </ul>
 </section>
 <section>
@@ -217,7 +217,7 @@
 <h2>Exponential tilting</h2>
 <ul>
 <li><p>Let <span class="math inline">Y</span> be a <span class="orange">non-degenerate</span> random variable with <span class="blue">support</span> <span class="math inline">\mathcal{Y} \subseteq \mathbb{R}</span> and <span class="orange">density</span> <span class="math inline">f_0(y)</span> with respect to a dominating measure <span class="math inline">\nu(\mathrm{d}y)</span>.</p></li>
-<li><p>We aim at building a <span class="blue">parametric family</span> <span class="math inline">\mathcal{F} = \{f(;\theta) : \theta \in \Theta \subseteq \mathbb{R} \}</span> with common support <span class="math inline">\mathcal{Y}</span> such that <span class="math inline">f_0</span> is a special case, namely <span class="math inline">f_0 \in \mathcal{F}</span>.</p></li>
+<li><p>We aim at building a <span class="blue">parametric family</span> <span class="math inline">\mathcal{F} = \{f(\cdot;\theta) : \theta \in \Theta \subseteq \mathbb{R} \}</span> with common support <span class="math inline">\mathcal{Y}</span> such that <span class="math inline">f_0</span> is a special case, namely <span class="math inline">f_0 \in \mathcal{F}</span>.</p></li>
 <li><p>A strategy for doing this is called <span class="orange">exponential tilting</span>, namely we could set <span class="math display">
 f(y; \theta) \propto e^{\theta y}f_0(y).
 </span> Thus, if <span class="math inline">f(y;\theta)</span> is generated via exponential tilting, then <span class="math inline">f(y; 0) = e^0 f_0(y) = f_0(y)</span>.</p></li>
@@ -289,7 +289,7 @@ K_0(t) = \kappa_1 t + \kappa_2 \frac{t^2}{2!} + \kappa_3 \frac{t^3}{3!} + \cdots
 </span> where the coefficients <span class="math inline">(\kappa_k)_{k \ge 1}</span> are the <span class="blue">cumulants</span> of <span class="math inline">Y</span>.</p></li>
 <li><p>The cumulants <span class="math inline">\kappa_k</span> equal the <span class="math inline">k</span>th derivative of <span class="math inline">K_0(t)</span> evaluated at the origin <span class="math display">
 \kappa_k = \frac{\partial^k}{\partial t^k} K_0(t) \Big|_{t = 0}, \qquad k \ge 1.
-</span> Moreover, it can be shown the following moment relationships hold: <span class="math display">
+</span> Moreover, it can be shown that the following moment relationships hold: <span class="math display">
 \kappa_1 = \mathbb{E}_\theta(Y), \quad \kappa_2 = \text{var}_\theta(Y), \quad \kappa_3 = \mathbb{E}_\theta\{(Y - \mu_1)^3\}, \quad \kappa_4 = \mathbb{E}_\theta\{(Y - \mu_1)^4\} - 3\text{var}_\theta(Y)^2.
 </span></p></li>
 </ul>
@@ -325,7 +325,7 @@ f(y; \theta) \propto e^{\theta y}f_0(y) = \frac{e^{\theta y}e^{-1}}{y!}, \qquad 
 M_0(\theta)= \mathbb{E}(e^{\theta Y})  = e^{-1}\sum_{k=0}^\infty \frac{e^{\theta k}}{k!} = \exp\{e^\theta - 1\}, \qquad \theta \in \mathbb{R}.
 </span></p></li>
 <li><p>Consequently, we have <span class="math inline">M_0(\theta) &lt; \infty</span> for all <span class="math inline">\theta \in \mathbb{R}</span> and the <span class="orange">natural parameter space</span> is <span class="math inline">\tilde{\Theta} = \mathbb{R}</span>, which is an <span class="blue">open set</span>. The resulting density is <span class="math display">
-f(y; \theta) = \frac{e^{\theta y} e^{-1}}{y!}\frac{e^{-e^\theta}}{e^{-1}} = \frac{e^{-1}}{y!}\exp\{\theta y - (e^\theta - 1)\} = \frac{\lambda^y e^{\lambda}}{y!}, \qquad y \in \mathbb{N},
+f(y; \theta) = \frac{e^{\theta y} e^{-1}}{y!}\frac{e^{-e^\theta}}{e^{-1}} = \frac{e^{-1}}{y!}\exp\{\theta y - (e^\theta - 1)\} = \frac{\lambda^y e^{-\lambda}}{y!}, \qquad y \in \mathbb{N},
 </span> so that <span class="math inline">K(\theta) = e^\theta - 1</span> and having defined <span class="math inline">\lambda  = e^\theta</span>.</p></li>
 <li><p>In other words, the tilted density is again a Poisson distribution with mean <span class="math inline">e^\theta</span>.</p></li>
 </ul>
@@ -635,7 +635,7 @@ f(y; \theta) = \frac{\exp\left\{\theta y - \log\cos{\theta}\right\}}{2\cosh(\pi 
 <div class="callout-content">
 <p>Let <span class="math inline">h(y) &gt; 0</span>, <span class="math inline">s(y)</span>, be real-valued functions not depending on <span class="math inline">\psi</span> and let <span class="math inline">\theta(\psi), G(\psi)</span> be real-valued functions not depending on <span class="math inline">y</span>. The parametric family <span class="math display">
 \mathcal{F}_{\text{e}}^1 = \left\{f(y;\psi) = h(y)\exp\{\theta(\psi) s(y) - G(\psi)\}, \quad y \in \mathcal{Y}\subseteq \mathbb{R}, \: \psi \in \Psi \right\},
-</span> is called a <span class="orange">exponential family</span> of order one, where the normalizing constant is <span class="math display">
+</span> is called an <span class="orange">exponential family</span> of order one, where the normalizing constant is <span class="math display">
 \exp{G(\psi)} = \int_\mathcal{Y} h(y) \exp\{\theta(\psi) s(y)\} \nu(\mathrm{d}y).
 </span> The family is <span class="blue">full</span> if the parameter space <span class="math inline">\Psi</span> is the widest possible <span class="math inline">\tilde{\Psi} = \{\psi \subseteq\mathbb{R}: G(\psi) &lt; \infty\}</span>.</p>
 </div>
@@ -703,7 +703,7 @@ M_0(\theta):=\int_\mathcal{Y}e^{\theta^T y}f_0(y)\nu(\mathrm{d}y), \qquad \theta
 <div class="callout-content">
 <p>The parametric family generated via <span class="orange">exponential tilting</span> of a density <span class="math inline">f_0</span> <span class="math display">
 \mathcal{F}_{\text{ne}}^p = \left\{f(y;\theta) = \frac{e^{\theta^T y}f_0(y)}{M_0(\theta)} = f_0(y)\exp\{\theta^T y - K(\theta)\}, \quad y \in \mathcal{Y}\subseteq \mathbb{R}^p, \:\theta \in \tilde{\Theta} \right\},
-</span> is called a <span class="orange">natural exponential family</span> of order one, <span class="math inline">K(\theta) = \log M_0(\theta)</span> and <span class="math inline">\tilde{\Theta} = \{\theta \in \mathbb{R}^p : K(\theta) &lt; \infty\}</span> is the <span class="blue">natural parameter space</span>.</p>
+</span> is called a <span class="orange">natural exponential family</span> of order <span class="math inline">p</span>, <span class="math inline">K(\theta) = \log M_0(\theta)</span> and <span class="math inline">\tilde{\Theta} = \{\theta \in \mathbb{R}^p : K(\theta) &lt; \infty\}</span> is the <span class="blue">natural parameter space</span>.</p>
 </div>
 </div>
 </div>
@@ -1174,13 +1174,13 @@ I_\mu(\mu) = \mathbb{E}_\mu(\mathcal{I}_\mu(\mu)) = n \, \text{var}_{\mu}(s(Y_1)
 <li><p>Let us recall that <span class="blue">Wald inequality</span> states that <span class="math display">
 \mathbb{E}_{\theta_0}\left(\ell(\theta; \bm{Y})\right) &lt; \mathbb{E}_{\theta_0}\left(\ell(\theta_0; \bm{Y})\right), \qquad \theta \neq \theta_0,
 </span> and the proof relies on the Kullback-Leibler divergence.</p></li>
-<li><p>Let us focus on the <span class="orange">univariate</span> case <span class="math inline">\Theta \subseteq \mathbb{R}</span>. It is instructive to provide a <span class="orange">direct proof</span> for exponential families, recalling that <span class="math inline">\ell(\theta_0\bm{Y}) = \theta S - n K(\theta)</span>.</p></li>
+<li><p>Let us focus on the <span class="orange">univariate</span> case <span class="math inline">\Theta \subseteq \mathbb{R}</span>. It is instructive to provide a <span class="orange">direct proof</span> for exponential families, recalling that <span class="math inline">\ell(\theta_0; \bm{Y}) = \theta S - n K(\theta)</span>.</p></li>
 <li><p>In the first place, note that <span class="math display">
 \mathbb{E}_{\theta_0}(\ell(\theta; \bm{Y})) = n \left[\theta \mu(\theta_0) - K(\theta)\right],
 </span> implying that Wald inequality holds true if and only if <span class="math display">
 \mu(\theta_0)\left(\theta_0 - \theta\right) &gt; K(\theta_0) - K(\theta), \qquad \theta \neq \theta_0.
 </span></p></li>
-<li><p>This is indeed the case, the above being a <a href="https://en.wikipedia.org/wiki/Convex_function">characterization</a> of <span class="orange">convexity</span> for <span class="math inline">K(\cdot)</span>, which we previously show having <span class="math inline">\partial^2 /\partial \theta^2 K(\theta) &gt; 0</span> for all <span class="math inline">\theta \in \tilde{\Theta}</span>. Moreover, recall that <span class="math inline">\mu(\theta) = \partial /\partial \theta K(\theta)</span>.</p></li>
+<li><p>This is indeed the case, the above being a <a href="https://en.wikipedia.org/wiki/Convex_function">characterization</a> of <span class="orange">convexity</span> for <span class="math inline">K(\cdot)</span>, which we previously showed to have <span class="math inline">\partial^2 /\partial \theta^2 K(\theta) &gt; 0</span> for all <span class="math inline">\theta \in \tilde{\Theta}</span>. Moreover, recall that <span class="math inline">\mu(\theta) = \partial /\partial \theta K(\theta)</span>.</p></li>
 </ul>
 <!-- ## Consistency and normality: a direct proof -->
 <!-- ## Firth corrections -->
@@ -1244,7 +1244,7 @@ I_\mu(\mu) = \mathbb{E}_\mu(\mathcal{I}_\mu(\mu)) = n \, \text{var}_{\mu}(s(Y_1)
 <li><p>It studies a multivariate extension of exponential dispersion models of <span class="citation" data-cites="Nelder1972">Nelder and Wedderburn (<a href="#/references" role="doc-biblioref" onclick="">1972</a>)</span>.</p></li>
 <li><p>It characterizes the entire class in terms of variance function, extending <span class="citation" data-cites="Morris1982">Morris (<a href="#/references" role="doc-biblioref" onclick="">1982</a>)</span>.</p></li>
 <li><p>It also describes a notion of asymptotic normality called <span class="blue">small sample asymptotics</span>.</p></li>
-<li><p>It is a <span class="orange">read</span> paper and among the discussants we find, J.A. Nelder, A.C. Davison, C.N. Morris.</p></li>
+<li><p>It is a <span class="orange">widely read</span> paper and among the discussants we find, J.A. Nelder, A.C. Davison, C.N. Morris.</p></li>
 </ul>
 </div></div>
 </section>

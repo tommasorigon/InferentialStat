@@ -99,7 +99,7 @@ library(ggthemes)
 
 ![](img/EF.png){width=6in fig-align="center"}
 
-- Figure 1 of @Efron2023. Three level of statistical modeling. 
+- Figure 1 of @Efron2023. Three levels of statistical modeling. 
 
 # One-parameter exponential families
 
@@ -107,7 +107,7 @@ library(ggthemes)
 
 - Let $Y$ be a [non-degenerate]{.orange} random variable with [support]{.blue} $\mathcal{Y} \subseteq \mathbb{R}$ and [density]{.orange} $f_0(y)$ with respect to a dominating measure $\nu(\mathrm{d}y)$.
 
-- We aim at building a [parametric family]{.blue} $\mathcal{F} = \{f(;\theta) : \theta \in \Theta \subseteq \mathbb{R} \}$ with common support $\mathcal{Y}$ such that $f_0$ is a special case, namely $f_0 \in \mathcal{F}$.
+- We aim at building a [parametric family]{.blue} $\mathcal{F} = \{f(\cdot;\theta) : \theta \in \Theta \subseteq \mathbb{R} \}$ with common support $\mathcal{Y}$ such that $f_0$ is a special case, namely $f_0 \in \mathcal{F}$.
 
 - A strategy for doing this is called [exponential tilting]{.orange}, namely we could set
 $$
@@ -180,7 +180,7 @@ where the coefficients $(\kappa_k)_{k \ge 1}$ are the [cumulants]{.blue} of $Y$.
 $$
 \kappa_k = \frac{\partial^k}{\partial t^k} K_0(t) \Big|_{t = 0}, \qquad k \ge 1.
 $$
-Moreover, it can be shown the following moment relationships hold:
+Moreover, it can be shown that the following moment relationships hold:
 $$
 \kappa_1 = \mathbb{E}_\theta(Y), \quad \kappa_2 = \text{var}_\theta(Y), \quad \kappa_3 = \mathbb{E}_\theta\{(Y - \mu_1)^3\}, \quad \kappa_4 = \mathbb{E}_\theta\{(Y - \mu_1)^4\} - 3\text{var}_\theta(Y)^2. 
 $$
@@ -222,7 +222,7 @@ M_0(\theta)= \mathbb{E}(e^{\theta Y})  = e^{-1}\sum_{k=0}^\infty \frac{e^{\theta
 $$
 - Consequently, we have $M_0(\theta) < \infty$ for all $\theta \in \mathbb{R}$ and the [natural parameter space]{.orange} is $\tilde{\Theta} = \mathbb{R}$, which is an [open set]{.blue}. The resulting density is
 $$
-f(y; \theta) = \frac{e^{\theta y} e^{-1}}{y!}\frac{e^{-e^\theta}}{e^{-1}} = \frac{e^{-1}}{y!}\exp\{\theta y - (e^\theta - 1)\} = \frac{\lambda^y e^{\lambda}}{y!}, \qquad y \in \mathbb{N},
+f(y; \theta) = \frac{e^{\theta y} e^{-1}}{y!}\frac{e^{-e^\theta}}{e^{-1}} = \frac{e^{-1}}{y!}\exp\{\theta y - (e^\theta - 1)\} = \frac{\lambda^y e^{-\lambda}}{y!}, \qquad y \in \mathbb{N},
 $$
 so that $K(\theta) = e^\theta - 1$ and having defined $\lambda  = e^\theta$. 
 
@@ -455,7 +455,7 @@ Let $h(y) > 0$, $s(y)$, be real-valued functions not depending on $\psi$ and let
 $$
 \mathcal{F}_{\text{e}}^1 = \left\{f(y;\psi) = h(y)\exp\{\theta(\psi) s(y) - G(\psi)\}, \quad y \in \mathcal{Y}\subseteq \mathbb{R}, \: \psi \in \Psi \right\},
 $$
-is called a [exponential family]{.orange} of order one, where the normalizing constant is
+is called an [exponential family]{.orange} of order one, where the normalizing constant is
 $$
 \exp{G(\psi)} = \int_\mathcal{Y} h(y) \exp\{\theta(\psi) s(y)\} \nu(\mathrm{d}y).
 $$
@@ -525,7 +525,7 @@ The parametric family generated via [exponential tilting]{.orange} of a density 
 $$
 \mathcal{F}_{\text{ne}}^p = \left\{f(y;\theta) = \frac{e^{\theta^T y}f_0(y)}{M_0(\theta)} = f_0(y)\exp\{\theta^T y - K(\theta)\}, \quad y \in \mathcal{Y}\subseteq \mathbb{R}^p, \:\theta \in \tilde{\Theta} \right\},
 $$
-is called a [natural exponential family]{.orange} of order one, $K(\theta) = \log M_0(\theta)$ and $\tilde{\Theta} = \{\theta \in \mathbb{R}^p : K(\theta) < \infty\}$ is the [natural parameter space]{.blue}. 
+is called a [natural exponential family]{.orange} of order $p$, $K(\theta) = \log M_0(\theta)$ and $\tilde{\Theta} = \{\theta \in \mathbb{R}^p : K(\theta) < \infty\}$ is the [natural parameter space]{.blue}. 
 :::
 
 - The family $\mathcal{F}_{\text{ne}}^p$ is said to be [full]{.blue}, whereas a subfamily of $\mathcal{F}_{\text{ne}}^p$ with $\Theta \subseteq \tilde{\Theta}$ is [non-full]{.blue}. Moreover, the family $\mathcal{F}_{\text{ne}}^p$ is said to be [regular]{.orange} if $\tilde{\Theta}$ is an open set. 
@@ -1070,7 +1070,7 @@ $$
 $$
 and the proof relies on the Kullback-Leibler divergence.
 
-- Let us focus on the [univariate]{.orange} case $\Theta \subseteq \mathbb{R}$. It is instructive to provide a [direct proof]{.orange} for exponential families, recalling that $\ell(\theta_0\bm{Y}) = \theta S - n K(\theta)$. 
+- Let us focus on the [univariate]{.orange} case $\Theta \subseteq \mathbb{R}$. It is instructive to provide a [direct proof]{.orange} for exponential families, recalling that $\ell(\theta_0; \bm{Y}) = \theta S - n K(\theta)$. 
 
 - In the first place, note that
 $$
@@ -1081,7 +1081,7 @@ $$
 \mu(\theta_0)\left(\theta_0 - \theta\right) > K(\theta_0) - K(\theta), \qquad \theta \neq \theta_0.
 $$
 
-- This is indeed the case, the above being a [characterization](https://en.wikipedia.org/wiki/Convex_function) of [convexity]{.orange} for $K(\cdot)$, which we previously show having $\partial^2 /\partial \theta^2 K(\theta) > 0$ for all $\theta \in \tilde{\Theta}$. Moreover, recall that $\mu(\theta) = \partial /\partial \theta K(\theta)$.
+- This is indeed the case, the above being a [characterization](https://en.wikipedia.org/wiki/Convex_function) of [convexity]{.orange} for $K(\cdot)$, which we previously showed to have $\partial^2 /\partial \theta^2 K(\theta) > 0$ for all $\theta \in \tilde{\Theta}$. Moreover, recall that $\mu(\theta) = \partial /\partial \theta K(\theta)$.
 
 <!-- ## Consistency and normality: a direct proof -->
 
@@ -1145,7 +1145,7 @@ $$
 
 - It also describes a notion of asymptotic normality called [small sample asymptotics]{.blue}. 
 
-- It is a [read]{.orange} paper and among the discussants we find, J.A. Nelder, A.C. Davison, C.N. Morris.
+- It is a [widely read]{.orange} paper and among the discussants we find, J.A. Nelder, A.C. Davison, C.N. Morris.
 
 :::
 
