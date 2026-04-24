@@ -265,7 +265,7 @@ is called [likelihood function]{.orange}. The log-likelihood function is $\ell(\
 
 ## Deconstructing the cynical advice
 
-- The following is a list of concrete recommendations (easier said than done, especially about publishing on top journals) that may help you secure a [permanent position]{.blue} in [academia]{.blue}. 
+- The former is a list of concrete recommendations (easier said than done, especially about publishing on top journals) that may help you secure a [permanent position]{.blue} in [academia]{.blue}. 
 
 - I [do not fully agree]{.orange} with those rules: there is more to pursuing a Ph.D. than just "getting a job." 
 
@@ -296,7 +296,7 @@ is called [likelihood function]{.orange}. The log-likelihood function is $\ell(\
 :::
 
 ::: {.column width="75%"}
-- The above list of practical advice is probably [effective]{.orange} but [questionable]{.orange}. For sure, it lacks [perspective]{.blue}.
+- The former list of practical advice is probably [effective]{.orange} but [questionable]{.orange}. For sure, it lacks [perspective]{.blue}.
 
 - In looking for [principles]{.blue} defining a [good researcher]{.orange}, I once again need to borrow the words of somebody else.
 
