@@ -138,13 +138,13 @@ $$ That is, any [statistic]{.orange} is a point estimator.
     \end{aligned}
     $$
 
-- In general, it is [not guaranteed]{.orange} that a [solution exists]{.blue} nor its [uniqueness]{.blue}.
+- In general, it is [not guaranteed]{.orange} that a [solution exists]{.blue} or that it is [unique]{.blue}.
 
 ## Asymptotic evaluation of the MM
 
 -   Moments estimators are not necessarily the best estimators, but
     [under reasonable conditions]{.blue} they are [consistent]{.orange},
-    they have converge rate $\sqrt{n}$, and they are [asymptotically
+    they have convergence rate $\sqrt{n}$, and they are [asymptotically
     normal]{.orange}.
 
 -   Suppose $(Y,Y^2,\dots,Y^p)$ has [covariance]{.blue} $\Sigma$, then the
@@ -337,7 +337,7 @@ Let $\psi(\cdot)$ be [one-to-one]{.orange}[^invariance], that is, a [reparametri
     
 ## Example: Poisson with unknown mean 📖 
 
--   Let $Y_1,\dots,Y_n$ be a iid random sample from a Poisson
+-   Let $Y_1,\dots,Y_n$ be an iid random sample from a Poisson
     distribution of mean parameter $\lambda > 0$, with [likelihood
     function]{.orange} $$
     L(\lambda) = \prod_{i=1}^n \frac{e^{-\lambda} \lambda^{y_i}}{y_i!}.
@@ -424,7 +424,7 @@ ggplot(data = data.frame(N = N_seq, loglik = loglik), aes(x = N, y = loglik)) +
 
 ## M-estimators
 
--   M- and Z- estimators are broad class of estimators that encompass
+-   M- and Z-estimators are a broad class of estimators that encompass
     the maximum likelihood (iid observations) and other popular methods
     as special cases. [^1]
 
@@ -468,7 +468,7 @@ An example is the [score function]{.blue} $\ell^*(\theta)$. However, this is [no
 
 - The [location]{.orange} of a r.v. $Y$ is a vague term that can be made precise by defining it as the expectation $\mathbb{E}(Y)$, a quantile, or the center of symmetry, as in the following example.
 
-- Let $Y_1,\dots,Y_n$ be a iid sample of real-valued random variables belonging to family of distributions $\mathcal{F}$ defined as
+- Let $Y_1,\dots,Y_n$ be an iid sample of real-valued random variables belonging to family of distributions $\mathcal{F}$ defined as
 $$
 \mathcal{F} = \{f(y - \theta) : \theta \in \Theta \subseteq \mathbb{R} \},
 $$
@@ -548,7 +548,7 @@ for (i in 1:length(k_values)) {
 
 ## Example: Newcomb's speed of light
 
-- Data $y_1, \dots, y_{66}$ represent Simon Newcomb's measurements (1882) of the [speed of light]{.orange}. The data are recordes as [deviations]{.blue} from 24,800 nanoseconds.
+- Data $y_1, \dots, y_{66}$ represent Simon Newcomb's measurements (1882) of the [speed of light]{.orange}. The data are recorded as [deviations]{.blue} from 24,800 nanoseconds.
 
 ```{r}
 library(BayesDA)
@@ -1280,7 +1280,7 @@ In this subsection on [unbiasedness]{.orange}, we will often assume that $\Theta
 :::
 
 :::callout-note
-Let $\Theta \subseteq \mathbb{R}$. An estimator $\hat{\theta}$ is a [best unbiased estimator]{.blue} of $\theta$ if it satisfies $\mathbb{E}_\theta(\hat{\theta}) = \theta$ for all $\theta$ (unbiasdness) and, for any [other unbiased]{.orange} estimator $\tilde{\theta}$, we have
+Let $\Theta \subseteq \mathbb{R}$. An estimator $\hat{\theta}$ is a [best unbiased estimator]{.blue} of $\theta$ if it satisfies $\mathbb{E}_\theta(\hat{\theta}) = \theta$ for all $\theta$ (unbiasedness) and, for any [other unbiased]{.orange} estimator $\tilde{\theta}$, we have
 $$
 \text{var}_\theta(\hat{\theta}) \le \text{var}_\theta(\tilde{\theta}), \qquad \text {for all } \theta \in \Theta.
 $$
@@ -1305,7 +1305,7 @@ $$
 $$
 :::
 
-- Thus, the above regularity condition implies that the score function $\ell^*(\theta)$ is un [unbiased estimating equation]{.blue}. 
+- Thus, the above regularity condition implies that the score function $\ell^*(\theta)$ is an [unbiased estimating equation]{.blue}. 
 
 - The regularity condition is always satisfied, for example, in regular exponential families. 
 
@@ -1440,7 +1440,7 @@ corresponding to the multiparameter Cramér-Rao theorem.
 
 ## Rao-Blackwell 📖
 
-- The Rao-Blackwell theorem is [contructive strategy]{.orange} for improving estimators that emphasizes the pivotal role of [sufficiency]{.orange} in finding UMVU estimators. 
+- The Rao-Blackwell theorem is a [constructive strategy]{.orange} for improving estimators that emphasizes the pivotal role of [sufficiency]{.orange} in finding UMVU estimators. 
 
 :::callout-warning
 #### Theorem (Rao-Blackwell, @Casella2002, Theorem 7.3.17)
@@ -1481,7 +1481,7 @@ is [unbiased]{.orange} for $\theta$ and is based on a [sufficient statistic]{.bl
 
 ## *En route* to finding unique UMVUE II 📖
 
-- Suppose we wish to improve on an unbiased estimator $\hat{\theta}$. Then, we could consider $U = U(\bm{Y})$ such that $\mathbb{E}_\theta(U) = 0$, i.e. $U$ is an [unbiased estimator or 0]{.blue}, and let
+- Suppose we wish to improve on an unbiased estimator $\hat{\theta}$. Then, we could consider $U = U(\bm{Y})$ such that $\mathbb{E}_\theta(U) = 0$, i.e. $U$ is an [unbiased estimator of 0]{.blue}, and let
 $$
 \tilde{\theta} = \hat{\theta} + a U, \qquad a \in \mathbb{R}.
 $$
@@ -1503,7 +1503,7 @@ $$
 
 ## Completeness
 
-- Proving that an estimator $\hat{\theta}$ is uncorrelated with all unbiased estimators of 0 is very hard, limitating the practical usefulness of the former theorem.
+- Proving that an estimator $\hat{\theta}$ is uncorrelated with all unbiased estimators of 0 is very hard, limiting the practical usefulness of the former theorem.
 
 - However, if we assume $S$ is [complete]{.orange}, we can finally see the light at the end of the tunnel. 
 
@@ -1553,7 +1553,7 @@ which can be obtained after simple calculations.
 
 ## Rao-Blackwell, multiparameter case
 
-- Generalizations of Rao-Blakwell theory to the multiparameter case $\Theta \subseteq \mathbb{R}^p$ are possible.
+- Generalizations of Rao-Blackwell theory to the multiparameter case $\Theta \subseteq \mathbb{R}^p$ are possible.
 
 - If one is interested in estimating $\psi = g(\theta)$ for some [function]{.blue} $g: \mathbb{R}^p \to \mathbb{R}$, then the previously developed [theory applies almost directly]{.orange}, with minor modifications to the statements.
 
@@ -1758,7 +1758,7 @@ corresponding to the [generalized least squares]{.orange} estimator.
 
 - This interesting [generalization]{.blue} of Gauss-Markov is often not applicable in practice, because the covariance matrix $\Sigma$ is typically [unknown]{.orange}.
 
-- When $\Sigma = \text{diag}(\sigma_1^2,\dots,\sigma_n^2)$ is [diagonal]{.orange}, i.e. in presence of heteroschedasticity, the Aitken estimator reduces to the [weighted least squares]{.blue} estimator.
+- When $\Sigma = \text{diag}(\sigma_1^2,\dots,\sigma_n^2)$ is [diagonal]{.orange}, i.e. in the presence of heteroscedasticity, the Aitken estimator reduces to the [weighted least squares]{.blue} estimator.
 
 - Moreover, if $Y_i$ are independent random variables with mean $\mu$ and variance $\sigma^2_i$, then the [weighted mean]{.orange} $\hat{\mu} = \sum_{i=1}^n w_i Y_i / \sum_{j=1}^n w_j$ is BLUE, where $w_i = (1/\sigma_i^2)$.
 
@@ -1772,7 +1772,7 @@ Q(\beta) = \bm{A}^T(\bm{Y} - \bm{X}\beta),
 $$
 for some $n \times p$ matrix $\bm{A}$ having full rank. This is a [linear unbiased]{.orange} estimating equation, and the [optimal]{.blue} choice of $\bm{A}$ maximizes the [Godambe information]{.orange}. 
 
-- Solving this estimating equation we obtain to a linear unbiased estimator, which is
+- Solving this estimating equation yields a linear unbiased estimator, which is
 $$
 \hat{\beta} = (\bm{A}^T \bm{X})^{-1}\bm{A}^T \bm{Y}, \qquad \mathbb{E}(\hat{\beta}) = (\bm{A}^T \bm{X})^{-1}\bm{A}^T \bm{X}\beta = \beta.
 $$
@@ -1785,7 +1785,7 @@ Consequently, the [Godambe information]{.blue} is $V(\beta) =  \sigma^{-2} (\bm{
 
 ## BLUE estimators and unbiased estimating equations II
 
-- The [optimal]{.orange} choice of $\bm{A}$ equivalently minimizes the inverse of the [Godambe information]{.blue}, which after a few algebraic manipulation is equal to
+- The [optimal]{.orange} choice of $\bm{A}$ equivalently minimizes the inverse of the [Godambe information]{.blue}, which after a few algebraic manipulations is equal to
 $$
 V(\beta)^{-1} =  \sigma^2 \left[(\bm{A}^T \bm{X})^{-1}\bm{A}^T\right] \left[(\bm{A}^T \bm{X})^{-1}\bm{A}^T\right]^T.
 $$
@@ -1845,7 +1845,7 @@ $$
 
 ## Example: Poisson with unknown mean
 
--   Let $Y_1,\dots,Y_n$ be a iid random sample from a [Poisson]{.orange}
+-   Let $Y_1,\dots,Y_n$ be an iid random sample from a [Poisson]{.orange}
     distribution of mean parameter $\lambda > 0$. The maximum likelihood estimator $\hat{\lambda}_n$ is the sample mean
     $$
     \hat{\lambda}_n = \bar{Y}.
@@ -1890,7 +1890,7 @@ We will sometimes need the additional conditions:
 $$
 \mathbb{E}_\theta\left[\frac{\partial}{\partial\theta_r}\ell(\theta)\right] = 0, \qquad [I(\theta)]_{rs} = -\mathbb{E}_\theta\left[\frac{\partial^2}{\partial \theta_r \partial \theta_s}\ell(\theta)\right] = \mathbb{E}_\theta\left[\frac{\partial\ell(\theta)}{\partial \theta_r}\frac{\partial\ell(\theta)}{\partial \theta_s}\right],
 $$
-for $r,s = 1,\dots,p$, that this, the [first]{.orange} and [second Bartlett identities]{.blue}. 
+for $r,s = 1,\dots,p$, that is, the [first]{.orange} and [second Bartlett identities]{.blue}. 
 :::
 
 ## Wald inequality 📖
@@ -1940,9 +1940,9 @@ f(y; \theta) = \frac{1}{2}\phi(y; 0, 1) + \frac{1}{2}\phi(y; \theta, e^{-2/\thet
 $$
 where $\phi(x; \mu, \sigma^2)$ is the [normal density]{.orange}. The density $f(y; \theta)$ satisfies conditions [(A1)-(A4)]{.blue}. Moreover $\ell(\theta)$ is [differentiable]{.blue}. 
 
-- However, the log-likelihood present [spykes]{.blue} in correspondence of the observed data  and the maximum likelihood concentrates around $0$ rather than $\theta_0$, i.e $\hat{\theta}_n$ is [inconsistent]{.orange}.
+- However, the log-likelihood present [spikes]{.blue} in correspondence of the observed data  and the maximum likelihood concentrates around $0$ rather than $\theta_0$, i.e $\hat{\theta}_n$ is [inconsistent]{.orange}.
 
-- Indeed, there are [multiple roots]{.blue} of the score equation $\ell^*(\theta)$, corresponding to the spykes. The "correct" solution close $\theta_0$ is among them, but is not identified by the data even for large $n$. 
+- Indeed, there are [multiple roots]{.blue} of the score equation $\ell^*(\theta)$, corresponding to the spikes. The "correct" solution close $\theta_0$ is among them, but is not identified by the data even for large $n$. 
 
 :::callout-tip
 Note this example does not contradict Wald inequality, because the spykes occur on a [set of measure zero]{.orange}. Indeed for any fixed $\theta$ the probability of observing $Y_i = \theta$ is zero.
@@ -2051,7 +2051,7 @@ Under assumptions [(A1)-(A6)]{.blue}, with probability tending to $1$ as $n\righ
 
 - This standard result of the literature requires several regularity conditions and yet it delivers [less]{.orange} than [what it seems]{.orange}.[^th_vdv] 
 
-- The claim is that a [clairvoyant statistician]{.blue}, with knowlegde of $\theta_0$, could choose a consistent sequence of roots. In reality, it may be impossibile to choose the right solution.
+- The claim is that a [clairvoyant statistician]{.blue}, with knowledge of $\theta_0$, could choose a consistent sequence of roots. In reality, it may be impossibile to choose the right solution.
 
 :::callout-tip
 Let us further require that, with probability tending to 1 as $n\to \infty$, there is a [unique solution]{.blue} to the [score equation]{.orange}. In that case $\hat{\theta}_n$ is [consistent]{.orange} and is also the [global maximizer]{.blue} of $\ell(\theta)$.
@@ -2105,11 +2105,11 @@ $$
 $$
 M_n(\theta) = \textcolor{red}{\frac{1}{n}}\sum_{i=1}^n [\ell(\theta;Y_i) \textcolor{red}{- \ell(\theta_0; Y_i)}] = \frac{1}{n}\sum_{i=1}^n\log{\frac{f(Y_i; \theta)}{f(Y_i; \theta_0)}},
 $$
-where the red terms are ininfluential because the maximizer $\hat{\theta}_n$ of $M_n(\theta)$ is the same. 
+where the red terms are inconsequential because the maximizer $\hat{\theta}_n$ of $M_n(\theta)$ is the same. 
 
 - Under conditions [(A1)-(A3)]{.blue} the law of large numbers guarantees that $M_n(\theta) \overset{\textup{p}}{\longrightarrow} M(\theta)$ [pointwise]{.orange} for every $\theta$, where $M(\theta) = - \text{KL}(f(\cdot; \theta_0) \mid f(\cdot; \theta))$. However, this was [not enough]{.orange}. 
 
-- On the other hand, we will see that $\hat{\theta}_n$ does not need to maximize $M_n(\theta)$. Indeed, it is sufficient that is [nearly maximizes]{.blue} it, in the sense that $M_n(\hat{\theta}_n) \ge \sup_{\theta \in \Theta}M(\theta) - o_p(1)$.
+- On the other hand, we will see that $\hat{\theta}_n$ does not need to maximize $M_n(\theta)$. Indeed, it is sufficient that it [nearly maximizes]{.blue} it, in the sense that $M_n(\hat{\theta}_n) \ge \sup_{\theta \in \Theta}M(\theta) - o_p(1)$.
 
 ## Consistency for M-estimators II 📖
 
@@ -2133,7 +2133,7 @@ Then any sequence of estimators $\hat{\theta}_n$ with $M_n(\hat{\theta}_n) \ge M
 
 ## Consistency for Z-estimators 📖
 
-- The former theorem can be also expressed in terms of Z-estimators $Q_n(\theta)$, that is, on a set of [estimating equations]{.orange}. An example is the score function
+- The former theorem can also be expressed in terms of Z-estimators $Q_n(\theta)$, that is, on a set of [estimating equations]{.orange}. An example is the score function
 $$
 Q_n(\theta) = \textcolor{red}{\frac{1}{n}}\sum_{i=1}^n \ell^*(\theta; Y_i).
 $$
@@ -2205,7 +2205,7 @@ where $\Delta^2(\theta) \geq 0$, with equality if and only if $\hat{\theta}_\tex
 ## Bias reduction using Firth's correction I
 
 
-- The jackknife and $\hat{\theta}_\text{bs}$ are "corrective" rather than "preventive". That is, the maximum likelihood $\hat{\theta}$ is first calculated, then corrected. A practical requirement is the [existence]{.orange} of $\hat{\theta}$. 
+- The jackknife and $\hat{\theta}_\text{bc}$ are "corrective" rather than "preventive". That is, the maximum likelihood $\hat{\theta}$ is first calculated, then corrected. A practical requirement is the [existence]{.orange} of $\hat{\theta}$. 
 
 - Motivated by this, @Firth1993 proposed a [modified score equation]{.blue}. The idea is that the [bias]{.orange} in $\hat{\theta}$ can be [reduced]{.orange} by introducing a [small bias]{.blue} into the [score function]{.blue}.  
 
@@ -2249,7 +2249,7 @@ Let $Y_1,\dots,Y_n$ be an iid sample from a Bernoulli with parameter $p$ and con
 $$
 \hat{\beta}_\text{Firth} = \log\left(\frac{n_1 + 1/2}{n - n_1 + 1/2}\right), \quad \text{whereas}\quad \hat{\beta} = \log\left(\frac{n_1}{n - n_1}\right),
 $$
-which is a well-know [bias-reducing]{.orange} correction of the empirical logit. 
+which is a well-known [bias-reducing]{.orange} correction of the empirical logit. 
 :::
 
 
@@ -2271,7 +2271,7 @@ which is a well-know [bias-reducing]{.orange} correction of the empirical logit.
   i. robustness with respect to [contamination]{.blue} of the data (i.e. $y_i = 10^{32}$ is an [outlier]{.orange})
   ii. robustness with respect to [model misspecification]{.orange}, that is, we specify a class of models $\mathcal{F}$ but in reality $(Y_1,\dots,Y_n) \sim f_0(\cdot)$ and $f_0(\cdot) \notin \mathcal{F}$.
 
-- Case i. is sometimes called [resistence]{.orange} and relies on the notion of [influence functions]{.blue}. For instance, the median is resistent, the mean is not. 
+- Case i. is sometimes called [resistance]{.orange} and relies on the notion of [influence functions]{.blue}. For instance, the median is resistant, the mean is not. 
 
 ## Example: Huber estimators I 📖
 
@@ -2458,7 +2458,7 @@ recalling that $\mathcal{I}(\theta) = - \partial/\partial \theta  \:\ell^*(\thet
 
 - Let us consider again $Y_i \overset{\textup{iid}}{\sim} f_0(\cdot)$ with $f_0(\cdot) \notin \mathcal{F}$, where $\mathcal{F}$ is a [misspecified exponential]{.orange} model.
 
-- The score function is [unbiased]{.orange} for $\mu$ under $f_0$. The score and the observed observation matrix are, respectively
+- The score function is [unbiased]{.orange} for $\mu$ under $f_0$. The score and the observed information matrix are, respectively
 $$
 \ell^*(\mu) = \sum_{i=1}^n \left(-\frac{1}{\mu} + \frac{y_i}{\mu^2}\right) = - \frac{n}{\mu} + \frac{n \bar{y}}{\mu^2}, \qquad \mathcal{I}(\mu) = -\frac{\partial}{\partial \mu}\ell^*(\mu) = -\frac{n}{\mu^2} + \frac{2 n \bar{y}}{\mu^3}.
 $$
@@ -2593,7 +2593,7 @@ colnames(var1) <- rownames(var1) <- colnames(varHC) <- rownames(varHC) <- NULL
 |$\beta_3$ |  17.70| -73.32|  **87.43**| -69.35|
 |$\beta_4$ | -12.81|  54.10| -69.35| **217.58**|
 
-- The [sandwhich (White)]{.orange} estimator is instead $(\bm{X}^T\bm{X})^{-1} \bm{X}^T \bm{R}^2 \bm{X} (\bm{X}^T\bm{X})^{-1}$:
+- The [sandwich (White)]{.orange} estimator is instead $(\bm{X}^T\bm{X})^{-1} \bm{X}^T \bm{R}^2 \bm{X} (\bm{X}^T\bm{X})^{-1}$:
 
 ```{r}
 #knitr::kable(varHC[1:4, 1:4], digits = 2)
@@ -2634,7 +2634,6 @@ colnames(var1) <- rownames(var1) <- colnames(varHC) <- rownames(varHC) <- NULL
   - [Chapter 1]{.orange} (*Preparations*)
   - [Chapter 2]{.orange} (*Unbiasedness*)
   - [Chapter 4]{.orange} (*Average risk optimality*)
-  - [Chapter 5]{.orange} (*Minimax and admissibility*)
   - [Chapter 5]{.orange} (*Minimax and admissibility*)
   - [Chapter 6]{.orange} (*Asymptotic optimality*)
   

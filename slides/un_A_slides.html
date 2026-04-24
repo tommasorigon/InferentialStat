@@ -251,13 +251,13 @@
   \mu_p(\theta_1,\dots,\theta_p) &amp;= m_p. \\
   \end{aligned}
   </span></p></li>
-<li><p>In general, it is <span class="orange">not guaranteed</span> that a <span class="blue">solution exists</span> nor its <span class="blue">uniqueness</span>.</p></li>
+<li><p>In general, it is <span class="orange">not guaranteed</span> that a <span class="blue">solution exists</span> or that it is <span class="blue">unique</span>.</p></li>
 </ul>
 </section>
 <section id="asymptotic-evaluation-of-the-mm" class="slide level2 center">
 <h2>Asymptotic evaluation of the MM</h2>
 <ul>
-<li><p>Moments estimators are not necessarily the best estimators, but <span class="blue">under reasonable conditions</span> they are <span class="orange">consistent</span>, they have converge rate <span class="math inline">\sqrt{n}</span>, and they are <span class="orange">asymptotically normal</span>.</p></li>
+<li><p>Moments estimators are not necessarily the best estimators, but <span class="blue">under reasonable conditions</span> they are <span class="orange">consistent</span>, they have convergence rate <span class="math inline">\sqrt{n}</span>, and they are <span class="orange">asymptotically normal</span>.</p></li>
 <li><p>Suppose <span class="math inline">(Y,Y^2,\dots,Y^p)</span> has <span class="blue">covariance</span> <span class="math inline">\Sigma</span>, then the multivariate <span class="orange">central limit theorem</span> implies that as <span class="math inline">n\rightarrow \infty</span> <span class="math display">
 \sqrt{n}\{m - \mu(\theta)\} \overset{\text{d}}{\longrightarrow} Z, \qquad Z\sim N_p(0, \Sigma),
 </span> where <span class="math inline">m = (m_1,\dots,m_p)</span> and <span class="math inline">\mu(\theta) = (\mu_1(\theta),\dots,\mu_p(\theta))</span>.</p></li>
@@ -391,7 +391,7 @@ L(\hat{\theta}) = \max_{\theta \in \Theta} L(\theta).
 <section id="example-poisson-with-unknown-mean" class="slide level2 center">
 <h2>Example: Poisson with unknown mean 📖</h2>
 <ul>
-<li><p>Let <span class="math inline">Y_1,\dots,Y_n</span> be a iid random sample from a Poisson distribution of mean parameter <span class="math inline">\lambda &gt; 0</span>, with <span class="orange">likelihood function</span> <span class="math display">
+<li><p>Let <span class="math inline">Y_1,\dots,Y_n</span> be an iid random sample from a Poisson distribution of mean parameter <span class="math inline">\lambda &gt; 0</span>, with <span class="orange">likelihood function</span> <span class="math display">
 L(\lambda) = \prod_{i=1}^n \frac{e^{-\lambda} \lambda^{y_i}}{y_i!}.
 </span></p></li>
 <li><p>Therefore the <span class="blue">log-likelihood</span>, up to an additive constant <span class="math inline">c</span> not depending on <span class="math inline">\lambda</span>, is <span class="math display">
@@ -437,7 +437,7 @@ L(\hat{N}) \ge L(\hat{N} - 1), \qquad L(\hat{N} + 1) &lt; L(\hat{N}).
 <section id="m-estimators" class="slide level2 center">
 <h2>M-estimators</h2>
 <ul>
-<li>M- and Z- estimators are broad class of estimators that encompass the maximum likelihood (iid observations) and other popular methods as special cases. <sup>1</sup></li>
+<li>M- and Z-estimators are a broad class of estimators that encompass the maximum likelihood (iid observations) and other popular methods as special cases. <sup>1</sup></li>
 </ul>
 <div class="callout callout-note no-icon callout-style-simple">
 <div class="callout-body">
@@ -478,7 +478,7 @@ Q(\theta) = \frac{\partial}{\partial \theta} M(\theta).</span> An example is the
 <h2>Huber estimators I</h2>
 <ul>
 <li><p>The <span class="orange">location</span> of a r.v. <span class="math inline">Y</span> is a vague term that can be made precise by defining it as the expectation <span class="math inline">\mathbb{E}(Y)</span>, a quantile, or the center of symmetry, as in the following example.</p></li>
-<li><p>Let <span class="math inline">Y_1,\dots,Y_n</span> be a iid sample of real-valued random variables belonging to family of distributions <span class="math inline">\mathcal{F}</span> defined as <span class="math display">
+<li><p>Let <span class="math inline">Y_1,\dots,Y_n</span> be an iid sample of real-valued random variables belonging to family of distributions <span class="math inline">\mathcal{F}</span> defined as <span class="math display">
 \mathcal{F} = \{f(y - \theta) : \theta \in \Theta \subseteq \mathbb{R} \},
 </span> for some unknown density <span class="math inline">f(y)</span> <span class="blue">symmetric</span> around <span class="math inline">0</span>. The parameter <span class="math inline">\theta</span> is the <span class="orange">location</span>.</p></li>
 <li><p>Classical M- estimators for <span class="math inline">\theta</span> are the <span class="blue">mean</span> and the <span class="orange">median</span>, maximizing: <span class="math display">
@@ -517,7 +517,7 @@ k \quad &amp;\text{ if }\: y \ge k\end{cases}
 <section id="example-newcombs-speed-of-light" class="slide level2 center">
 <h2>Example: Newcomb’s speed of light</h2>
 <ul>
-<li>Data <span class="math inline">y_1, \dots, y_{66}</span> represent Simon Newcomb’s measurements (1882) of the <span class="orange">speed of light</span>. The data are recordes as <span class="blue">deviations</span> from 24,800 nanoseconds.</li>
+<li>Data <span class="math inline">y_1, \dots, y_{66}</span> represent Simon Newcomb’s measurements (1882) of the <span class="orange">speed of light</span>. The data are recorded as <span class="blue">deviations</span> from 24,800 nanoseconds.</li>
 </ul>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
@@ -1252,7 +1252,7 @@ r(\pi, \hat{\theta}_\text{Bayes}) = 0.
 <div class="callout callout-note no-icon callout-style-simple">
 <div class="callout-body">
 <div class="callout-content">
-<p>Let <span class="math inline">\Theta \subseteq \mathbb{R}</span>. An estimator <span class="math inline">\hat{\theta}</span> is a <span class="blue">best unbiased estimator</span> of <span class="math inline">\theta</span> if it satisfies <span class="math inline">\mathbb{E}_\theta(\hat{\theta}) = \theta</span> for all <span class="math inline">\theta</span> (unbiasdness) and, for any <span class="orange">other unbiased</span> estimator <span class="math inline">\tilde{\theta}</span>, we have <span class="math display">
+<p>Let <span class="math inline">\Theta \subseteq \mathbb{R}</span>. An estimator <span class="math inline">\hat{\theta}</span> is a <span class="blue">best unbiased estimator</span> of <span class="math inline">\theta</span> if it satisfies <span class="math inline">\mathbb{E}_\theta(\hat{\theta}) = \theta</span> for all <span class="math inline">\theta</span> (unbiasedness) and, for any <span class="orange">other unbiased</span> estimator <span class="math inline">\tilde{\theta}</span>, we have <span class="math display">
 \text{var}_\theta(\hat{\theta}) \le \text{var}_\theta(\tilde{\theta}), \qquad \text {for all } \theta \in \Theta.
 </span> The estimator <span class="math inline">\hat{\theta}</span> is also called <span class="orange">uniform minimum variance unbiased estimator</span> (UMVUE) of <span class="math inline">\theta</span>.</p>
 </div>
@@ -1279,7 +1279,7 @@ r(\pi, \hat{\theta}_\text{Bayes}) = 0.
 </div>
 </div>
 <ul>
-<li><p>Thus, the above regularity condition implies that the score function <span class="math inline">\ell^*(\theta)</span> is un <span class="blue">unbiased estimating equation</span>.</p></li>
+<li><p>Thus, the above regularity condition implies that the score function <span class="math inline">\ell^*(\theta)</span> is an <span class="blue">unbiased estimating equation</span>.</p></li>
 <li><p>The regularity condition is always satisfied, for example, in regular exponential families.</p></li>
 </ul>
 </section>
@@ -1425,7 +1425,7 @@ i(\lambda) = -\mathbb{E}_\lambda\left(\frac{\partial}{\partial \lambda^2}\log{f(
 <section id="rao-blackwell" class="slide level2 center">
 <h2>Rao-Blackwell 📖</h2>
 <ul>
-<li>The Rao-Blackwell theorem is <span class="orange">contructive strategy</span> for improving estimators that emphasizes the pivotal role of <span class="orange">sufficiency</span> in finding UMVU estimators.</li>
+<li>The Rao-Blackwell theorem is a <span class="orange">constructive strategy</span> for improving estimators that emphasizes the pivotal role of <span class="orange">sufficiency</span> in finding UMVU estimators.</li>
 </ul>
 <div class="callout callout-warning no-icon callout-titled callout-style-simple">
 <div class="callout-body">
@@ -1482,7 +1482,7 @@ i(\lambda) = -\mathbb{E}_\lambda\left(\frac{\partial}{\partial \lambda^2}\log{f(
 <section id="en-route-to-finding-unique-umvue-ii" class="slide level2 center">
 <h2><em>En route</em> to finding unique UMVUE II 📖</h2>
 <ul>
-<li>Suppose we wish to improve on an unbiased estimator <span class="math inline">\hat{\theta}</span>. Then, we could consider <span class="math inline">U = U(\bm{Y})</span> such that <span class="math inline">\mathbb{E}_\theta(U) = 0</span>, i.e.&nbsp;<span class="math inline">U</span> is an <span class="blue">unbiased estimator or 0</span>, and let <span class="math display">
+<li>Suppose we wish to improve on an unbiased estimator <span class="math inline">\hat{\theta}</span>. Then, we could consider <span class="math inline">U = U(\bm{Y})</span> such that <span class="math inline">\mathbb{E}_\theta(U) = 0</span>, i.e.&nbsp;<span class="math inline">U</span> is an <span class="blue">unbiased estimator of 0</span>, and let <span class="math display">
 \tilde{\theta} = \hat{\theta} + a U, \qquad a \in \mathbb{R}.
 </span> Clearly, <span class="math inline">\tilde{\theta}</span> is also <span class="orange">unbiased</span> and its <span class="orange">variance</span> is <span class="math display">
 \text{var}_\theta(\tilde{\theta}) = \text{var}_\theta(\hat{\theta}) + 2 a \text{cov}_\theta(\hat{\theta}, U) + a^2\text{var}_\theta(U).
@@ -1505,7 +1505,7 @@ i(\lambda) = -\mathbb{E}_\lambda\left(\frac{\partial}{\partial \lambda^2}\log{f(
 <section id="completeness" class="slide level2 center">
 <h2>Completeness</h2>
 <ul>
-<li><p>Proving that an estimator <span class="math inline">\hat{\theta}</span> is uncorrelated with all unbiased estimators of 0 is very hard, limitating the practical usefulness of the former theorem.</p></li>
+<li><p>Proving that an estimator <span class="math inline">\hat{\theta}</span> is uncorrelated with all unbiased estimators of 0 is very hard, limiting the practical usefulness of the former theorem.</p></li>
 <li><p>However, if we assume <span class="math inline">S</span> is <span class="orange">complete</span>, we can finally see the light at the end of the tunnel.</p></li>
 </ul>
 <div class="callout callout-note no-icon callout-style-simple">
@@ -1558,7 +1558,7 @@ i(\lambda) = -\mathbb{E}_\lambda\left(\frac{\partial}{\partial \lambda^2}\log{f(
 <section id="rao-blackwell-multiparameter-case" class="slide level2 center">
 <h2>Rao-Blackwell, multiparameter case</h2>
 <ul>
-<li><p>Generalizations of Rao-Blakwell theory to the multiparameter case <span class="math inline">\Theta \subseteq \mathbb{R}^p</span> are possible.</p></li>
+<li><p>Generalizations of Rao-Blackwell theory to the multiparameter case <span class="math inline">\Theta \subseteq \mathbb{R}^p</span> are possible.</p></li>
 <li><p>If one is interested in estimating <span class="math inline">\psi = g(\theta)</span> for some <span class="blue">function</span> <span class="math inline">g: \mathbb{R}^p \to \mathbb{R}</span>, then the previously developed <span class="orange">theory applies almost directly</span>, with minor modifications to the statements.</p></li>
 <li><p>Note that a special case of the above is <span class="math inline">g(\theta) = \theta_j</span>, meaning that the developed theory can be <span class="orange">separately</span> applied to <span class="blue">each coordinate</span> of <span class="math inline">\theta</span>.</p></li>
 </ul>
@@ -1781,7 +1781,7 @@ Q(\theta) = \sum_{i=1}^n \frac{\mu_i^*(\theta)}{V_i(\theta)}(Y_i - \mu_i(\theta)
 </div>
 <ul>
 <li><p>This interesting <span class="blue">generalization</span> of Gauss-Markov is often not applicable in practice, because the covariance matrix <span class="math inline">\Sigma</span> is typically <span class="orange">unknown</span>.</p></li>
-<li><p>When <span class="math inline">\Sigma = \text{diag}(\sigma_1^2,\dots,\sigma_n^2)</span> is <span class="orange">diagonal</span>, i.e.&nbsp;in presence of heteroschedasticity, the Aitken estimator reduces to the <span class="blue">weighted least squares</span> estimator.</p></li>
+<li><p>When <span class="math inline">\Sigma = \text{diag}(\sigma_1^2,\dots,\sigma_n^2)</span> is <span class="orange">diagonal</span>, i.e.&nbsp;in the presence of heteroscedasticity, the Aitken estimator reduces to the <span class="blue">weighted least squares</span> estimator.</p></li>
 <li><p>Moreover, if <span class="math inline">Y_i</span> are independent random variables with mean <span class="math inline">\mu</span> and variance <span class="math inline">\sigma^2_i</span>, then the <span class="orange">weighted mean</span> <span class="math inline">\hat{\mu} = \sum_{i=1}^n w_i Y_i / \sum_{j=1}^n w_j</span> is BLUE, where <span class="math inline">w_i = (1/\sigma_i^2)</span>.</p></li>
 </ul>
 </section>
@@ -1792,7 +1792,7 @@ Q(\theta) = \sum_{i=1}^n \frac{\mu_i^*(\theta)}{V_i(\theta)}(Y_i - \mu_i(\theta)
 <li><p>Under the same assumptions of Gauss-Markov theorem, let us consider: <span class="math display">
 Q(\beta) = \bm{A}^T(\bm{Y} - \bm{X}\beta),
 </span> for some <span class="math inline">n \times p</span> matrix <span class="math inline">\bm{A}</span> having full rank. This is a <span class="orange">linear unbiased</span> estimating equation, and the <span class="blue">optimal</span> choice of <span class="math inline">\bm{A}</span> maximizes the <span class="orange">Godambe information</span>.</p></li>
-<li><p>Solving this estimating equation we obtain to a linear unbiased estimator, which is <span class="math display">
+<li><p>Solving this estimating equation yields a linear unbiased estimator, which is <span class="math display">
 \hat{\beta} = (\bm{A}^T \bm{X})^{-1}\bm{A}^T \bm{Y}, \qquad \mathbb{E}(\hat{\beta}) = (\bm{A}^T \bm{X})^{-1}\bm{A}^T \bm{X}\beta = \beta.
 </span></p></li>
 <li><p>The <span class="blue">sensitivity</span> and <span class="orange">variability</span> matrices of <span class="math inline">Q(\beta)</span> are <span class="math display">
@@ -1803,7 +1803,7 @@ J(\beta) = \text{var}(Q(\beta)) = \sigma^2 \bm{A}^T \bm{A}, \qquad H(\beta) = \m
 <section id="blue-estimators-and-unbiased-estimating-equations-ii" class="slide level2 center">
 <h2>BLUE estimators and unbiased estimating equations II</h2>
 <ul>
-<li><p>The <span class="orange">optimal</span> choice of <span class="math inline">\bm{A}</span> equivalently minimizes the inverse of the <span class="blue">Godambe information</span>, which after a few algebraic manipulation is equal to <span class="math display">
+<li><p>The <span class="orange">optimal</span> choice of <span class="math inline">\bm{A}</span> equivalently minimizes the inverse of the <span class="blue">Godambe information</span>, which after a few algebraic manipulations is equal to <span class="math display">
 V(\beta)^{-1} =  \sigma^2 \left[(\bm{A}^T \bm{X})^{-1}\bm{A}^T\right] \left[(\bm{A}^T \bm{X})^{-1}\bm{A}^T\right]^T.
 </span></p></li>
 <li><p>The key remark is the following: a direct calculation shows that the variance of <span class="math inline">\hat{\beta}</span> is <span class="math display">
@@ -1867,7 +1867,7 @@ V(\beta)^{-1} =  \sigma^2 \left[(\bm{A}^T \bm{X})^{-1}\bm{A}^T\right] \left[(\bm
 <section id="example-poisson-with-unknown-mean-1" class="slide level2 center">
 <h2>Example: Poisson with unknown mean</h2>
 <ul>
-<li><p>Let <span class="math inline">Y_1,\dots,Y_n</span> be a iid random sample from a <span class="orange">Poisson</span> distribution of mean parameter <span class="math inline">\lambda &gt; 0</span>. The maximum likelihood estimator <span class="math inline">\hat{\lambda}_n</span> is the sample mean <span class="math display">
+<li><p>Let <span class="math inline">Y_1,\dots,Y_n</span> be an iid random sample from a <span class="orange">Poisson</span> distribution of mean parameter <span class="math inline">\lambda &gt; 0</span>. The maximum likelihood estimator <span class="math inline">\hat{\lambda}_n</span> is the sample mean <span class="math display">
 \hat{\lambda}_n = \bar{Y}.
 </span></p></li>
 <li><p>One could invoke the strong <span class="blue">law of large numbers</span> to show that <span class="math inline">\hat{\lambda}_n \overset{\text{a.s.}}{\longrightarrow} \lambda</span>. Alternatively: <span class="math display">
@@ -1900,7 +1900,7 @@ V(\beta)^{-1} =  \sigma^2 \left[(\bm{A}^T \bm{X})^{-1}\bm{A}^T\right] \left[(\bm
 <p>(<strong>A5</strong>) There is a neighbourhood <span class="math inline">\mathcal{N}</span> of the true value <span class="math inline">\theta_0</span> within which the first <span class="orange">three derivatives</span> of <span class="math inline">\ell(\theta)</span> exist a.s., and there exist functions <span class="math inline">m_{rst}(y)</span> such that <span class="math inline">|\partial^3f(y;\theta)/\partial\theta_r \partial\theta _s \partial \theta_t| \le m_{rst}(y)</span> and <span class="math inline">\mathbb{E}_\theta(M_{rst}(\bm{Y})) &lt; \infty</span> for <span class="math inline">r,s,t = 1,\dots,p</span> and <span class="math inline">\theta \in \mathcal{N}</span>.</p>
 <p>(<strong>A6</strong>) The <span class="blue">Fisher information matrix</span> is finite and <span class="orange">positive definite</span>, and <span class="math display">
 \mathbb{E}_\theta\left[\frac{\partial}{\partial\theta_r}\ell(\theta)\right] = 0, \qquad [I(\theta)]_{rs} = -\mathbb{E}_\theta\left[\frac{\partial^2}{\partial \theta_r \partial \theta_s}\ell(\theta)\right] = \mathbb{E}_\theta\left[\frac{\partial\ell(\theta)}{\partial \theta_r}\frac{\partial\ell(\theta)}{\partial \theta_s}\right],
-</span> for <span class="math inline">r,s = 1,\dots,p</span>, that this, the <span class="orange">first</span> and <span class="blue">second Bartlett identities</span>.</p>
+</span> for <span class="math inline">r,s = 1,\dots,p</span>, that is, the <span class="orange">first</span> and <span class="blue">second Bartlett identities</span>.</p>
 </div>
 </div>
 </div>
@@ -1957,8 +1957,8 @@ V(\beta)^{-1} =  \sigma^2 \left[(\bm{A}^T \bm{X})^{-1}\bm{A}^T\right] \left[(\bm
 <li><p>Let <span class="math inline">Y_1,\dots,Y_n</span> be an iid sample from the following univariate density<sup>1</sup> <span class="math display">
 f(y; \theta) = \frac{1}{2}\phi(y; 0, 1) + \frac{1}{2}\phi(y; \theta, e^{-2/\theta^2}),  \qquad \theta \neq 0,
 </span> where <span class="math inline">\phi(x; \mu, \sigma^2)</span> is the <span class="orange">normal density</span>. The density <span class="math inline">f(y; \theta)</span> satisfies conditions <span class="blue">(A1)-(A4)</span>. Moreover <span class="math inline">\ell(\theta)</span> is <span class="blue">differentiable</span>.</p></li>
-<li><p>However, the log-likelihood present <span class="blue">spykes</span> in correspondence of the observed data and the maximum likelihood concentrates around <span class="math inline">0</span> rather than <span class="math inline">\theta_0</span>, i.e <span class="math inline">\hat{\theta}_n</span> is <span class="orange">inconsistent</span>.</p></li>
-<li><p>Indeed, there are <span class="blue">multiple roots</span> of the score equation <span class="math inline">\ell^*(\theta)</span>, corresponding to the spykes. The “correct” solution close <span class="math inline">\theta_0</span> is among them, but is not identified by the data even for large <span class="math inline">n</span>.</p></li>
+<li><p>However, the log-likelihood present <span class="blue">spikes</span> in correspondence of the observed data and the maximum likelihood concentrates around <span class="math inline">0</span> rather than <span class="math inline">\theta_0</span>, i.e <span class="math inline">\hat{\theta}_n</span> is <span class="orange">inconsistent</span>.</p></li>
+<li><p>Indeed, there are <span class="blue">multiple roots</span> of the score equation <span class="math inline">\ell^*(\theta)</span>, corresponding to the spikes. The “correct” solution close <span class="math inline">\theta_0</span> is among them, but is not identified by the data even for large <span class="math inline">n</span>.</p></li>
 </ul>
 <div class="callout callout-tip no-icon callout-style-simple">
 <div class="callout-body">
@@ -1996,7 +1996,7 @@ f(y; \theta) = \frac{1}{2}\phi(y; 0, 1) + \frac{1}{2}\phi(y; \theta, e^{-2/\thet
 </div>
 <ul>
 <li><p>This standard result of the literature requires several regularity conditions and yet it delivers <span class="orange">less</span> than <span class="orange">what it seems</span>.<sup>1</sup></p></li>
-<li><p>The claim is that a <span class="blue">clairvoyant statistician</span>, with knowlegde of <span class="math inline">\theta_0</span>, could choose a consistent sequence of roots. In reality, it may be impossibile to choose the right solution.</p></li>
+<li><p>The claim is that a <span class="blue">clairvoyant statistician</span>, with knowledge of <span class="math inline">\theta_0</span>, could choose a consistent sequence of roots. In reality, it may be impossibile to choose the right solution.</p></li>
 </ul>
 <div class="callout callout-tip no-icon callout-style-simple">
 <div class="callout-body">
@@ -2054,9 +2054,9 @@ M_n(\theta) = \sum_{i=1}^n \ell(\theta;Y_i),
 </span></p></li>
 <li><p>In order to simplify the subsequent exposition, it is convenient to consider <span class="math display">
 M_n(\theta) = \textcolor{red}{\frac{1}{n}}\sum_{i=1}^n [\ell(\theta;Y_i) \textcolor{red}{- \ell(\theta_0; Y_i)}] = \frac{1}{n}\sum_{i=1}^n\log{\frac{f(Y_i; \theta)}{f(Y_i; \theta_0)}},
-</span> where the red terms are ininfluential because the maximizer <span class="math inline">\hat{\theta}_n</span> of <span class="math inline">M_n(\theta)</span> is the same.</p></li>
+</span> where the red terms are inconsequential because the maximizer <span class="math inline">\hat{\theta}_n</span> of <span class="math inline">M_n(\theta)</span> is the same.</p></li>
 <li><p>Under conditions <span class="blue">(A1)-(A3)</span> the law of large numbers guarantees that <span class="math inline">M_n(\theta) \overset{\textup{p}}{\longrightarrow} M(\theta)</span> <span class="orange">pointwise</span> for every <span class="math inline">\theta</span>, where <span class="math inline">M(\theta) = - \text{KL}(f(\cdot; \theta_0) \mid f(\cdot; \theta))</span>. However, this was <span class="orange">not enough</span>.</p></li>
-<li><p>On the other hand, we will see that <span class="math inline">\hat{\theta}_n</span> does not need to maximize <span class="math inline">M_n(\theta)</span>. Indeed, it is sufficient that is <span class="blue">nearly maximizes</span> it, in the sense that <span class="math inline">M_n(\hat{\theta}_n) \ge \sup_{\theta \in \Theta}M(\theta) - o_p(1)</span>.</p></li>
+<li><p>On the other hand, we will see that <span class="math inline">\hat{\theta}_n</span> does not need to maximize <span class="math inline">M_n(\theta)</span>. Indeed, it is sufficient that it <span class="blue">nearly maximizes</span> it, in the sense that <span class="math inline">M_n(\hat{\theta}_n) \ge \sup_{\theta \in \Theta}M(\theta) - o_p(1)</span>.</p></li>
 </ul>
 </section>
 <section id="consistency-for-m-estimators-ii" class="slide level2 center">
@@ -2085,7 +2085,7 @@ M_n(\theta) = \textcolor{red}{\frac{1}{n}}\sum_{i=1}^n [\ell(\theta;Y_i) \textco
 <section id="consistency-for-z-estimators" class="slide level2 center">
 <h2>Consistency for Z-estimators 📖</h2>
 <ul>
-<li><p>The former theorem can be also expressed in terms of Z-estimators <span class="math inline">Q_n(\theta)</span>, that is, on a set of <span class="orange">estimating equations</span>. An example is the score function <span class="math display">
+<li><p>The former theorem can also be expressed in terms of Z-estimators <span class="math inline">Q_n(\theta)</span>, that is, on a set of <span class="orange">estimating equations</span>. An example is the score function <span class="math display">
 Q_n(\theta) = \textcolor{red}{\frac{1}{n}}\sum_{i=1}^n \ell^*(\theta; Y_i).
 </span></p></li>
 <li><p>We require <span class="math inline">\hat{\theta}_n</span> to <span class="blue">nearly solve</span> <span class="math inline">Q_n(\theta) = \bm{0}</span> and that <span class="math inline">\lim_{n\to\infty} Q_n(\theta_0) = \bm{0}</span>. Intuitively, this comes from the <span class="blue">LLN</span> in <span class="orange">unbiased estimating equations</span>, in which case <span class="math inline">\mathbb{E}_{\theta_0}(Q_n(\theta_0)) = \bm{0}</span>.</p></li>
@@ -2158,7 +2158,7 @@ h(\theta) = \mathbb{E}_\theta\left(- \frac{\partial}{\partial \theta}q(\theta)\r
 <section id="bias-reduction-using-firths-correction-i" class="slide level2 center">
 <h2>Bias reduction using Firth’s correction I</h2>
 <ul>
-<li><p>The jackknife and <span class="math inline">\hat{\theta}_\text{bs}</span> are “corrective” rather than “preventive”. That is, the maximum likelihood <span class="math inline">\hat{\theta}</span> is first calculated, then corrected. A practical requirement is the <span class="orange">existence</span> of <span class="math inline">\hat{\theta}</span>.</p></li>
+<li><p>The jackknife and <span class="math inline">\hat{\theta}_\text{bc}</span> are “corrective” rather than “preventive”. That is, the maximum likelihood <span class="math inline">\hat{\theta}</span> is first calculated, then corrected. A practical requirement is the <span class="orange">existence</span> of <span class="math inline">\hat{\theta}</span>.</p></li>
 <li><p>Motivated by this, <span class="citation" data-cites="Firth1993">Firth (<a href="#/references" role="doc-biblioref" onclick="">1993</a>)</span> proposed a <span class="blue">modified score equation</span>. The idea is that the <span class="orange">bias</span> in <span class="math inline">\hat{\theta}</span> can be <span class="orange">reduced</span> by introducing a <span class="blue">small bias</span> into the <span class="blue">score function</span>.</p></li>
 </ul>
 <div class="callout callout-note no-icon callout-style-simple">
@@ -2195,7 +2195,7 @@ Q(\psi) = \ell^*(\psi) - I(\psi)b_1(\psi)/n \quad \implies \quad \hat{\psi}_\tex
 <div class="callout-content">
 <p>Let <span class="math inline">Y_1,\dots,Y_n</span> be an iid sample from a Bernoulli with parameter <span class="math inline">p</span> and consider the reparametrization <span class="math inline">\beta = \log{p/(1-p)}</span>. Application of <span class="citation" data-cites="Firth1993">Firth (<a href="#/references" role="doc-biblioref" onclick="">1993</a>)</span> method gives <span class="math display">
 \hat{\beta}_\text{Firth} = \log\left(\frac{n_1 + 1/2}{n - n_1 + 1/2}\right), \quad \text{whereas}\quad \hat{\beta} = \log\left(\frac{n_1}{n - n_1}\right),
-</span> which is a well-know <span class="orange">bias-reducing</span> correction of the empirical logit.</p>
+</span> which is a well-known <span class="orange">bias-reducing</span> correction of the empirical logit.</p>
 </div>
 </div>
 </div>
@@ -2221,7 +2221,7 @@ Q(\psi) = \ell^*(\psi) - I(\psi)b_1(\psi)/n \quad \implies \quad \hat{\psi}_\tex
 <li>robustness with respect to <span class="blue">contamination</span> of the data (i.e.&nbsp;<span class="math inline">y_i = 10^{32}</span> is an <span class="orange">outlier</span>)</li>
 <li>robustness with respect to <span class="orange">model misspecification</span>, that is, we specify a class of models <span class="math inline">\mathcal{F}</span> but in reality <span class="math inline">(Y_1,\dots,Y_n) \sim f_0(\cdot)</span> and <span class="math inline">f_0(\cdot) \notin \mathcal{F}</span>.</li>
 </ol></li>
-<li><p>Case i. is sometimes called <span class="orange">resistence</span> and relies on the notion of <span class="blue">influence functions</span>. For instance, the median is resistent, the mean is not.</p></li>
+<li><p>Case i. is sometimes called <span class="orange">resistance</span> and relies on the notion of <span class="blue">influence functions</span>. For instance, the median is resistant, the mean is not.</p></li>
 </ul>
 </section>
 <section id="example-huber-estimators-i" class="slide level2 center">
@@ -2389,7 +2389,7 @@ h(\theta) = \mathbb{E}_0\left(- \frac{\partial}{\partial \theta}\ell^*(\theta)\r
 <h2>Example: misspecified exponential model II 📖</h2>
 <ul>
 <li><p>Let us consider again <span class="math inline">Y_i \overset{\textup{iid}}{\sim} f_0(\cdot)</span> with <span class="math inline">f_0(\cdot) \notin \mathcal{F}</span>, where <span class="math inline">\mathcal{F}</span> is a <span class="orange">misspecified exponential</span> model.</p></li>
-<li><p>The score function is <span class="orange">unbiased</span> for <span class="math inline">\mu</span> under <span class="math inline">f_0</span>. The score and the observed observation matrix are, respectively <span class="math display">
+<li><p>The score function is <span class="orange">unbiased</span> for <span class="math inline">\mu</span> under <span class="math inline">f_0</span>. The score and the observed information matrix are, respectively <span class="math display">
 \ell^*(\mu) = \sum_{i=1}^n \left(-\frac{1}{\mu} + \frac{y_i}{\mu^2}\right) = - \frac{n}{\mu} + \frac{n \bar{y}}{\mu^2}, \qquad \mathcal{I}(\mu) = -\frac{\partial}{\partial \mu}\ell^*(\mu) = -\frac{n}{\mu^2} + \frac{2 n \bar{y}}{\mu^3}.
 </span></p></li>
 <li><p>The inverse of the observed information matrix, evaluated at <span class="math inline">\hat{\mu} = \bar{y}</span>, is an estimate of the asymptotic variance <span class="orange">assuming</span> the model is <span class="blue">correctly specified</span>: <span class="math display">
@@ -2512,7 +2512,7 @@ I(\beta) = \mathcal{I}(\beta) = \frac{1}{\sigma^2}\sum_{i=1}^n \bm{x}_i\bm{x}_i^
 </tbody>
 </table>
 <ul>
-<li>The <span class="orange">sandwhich (White)</span> estimator is instead <span class="math inline">(\bm{X}^T\bm{X})^{-1} \bm{X}^T \bm{R}^2 \bm{X} (\bm{X}^T\bm{X})^{-1}</span>:</li>
+<li>The <span class="orange">sandwich (White)</span> estimator is instead <span class="math inline">(\bm{X}^T\bm{X})^{-1} \bm{X}^T \bm{R}^2 \bm{X} (\bm{X}^T\bm{X})^{-1}</span>:</li>
 </ul>
 <table class="caption-top">
 <thead>
@@ -2593,7 +2593,6 @@ I(\beta) = \mathcal{I}(\beta) = \frac{1}{\sigma^2}\sum_{i=1}^n \bm{x}_i\bm{x}_i^
 <li><span class="orange">Chapter 1</span> (<em>Preparations</em>)</li>
 <li><span class="orange">Chapter 2</span> (<em>Unbiasedness</em>)</li>
 <li><span class="orange">Chapter 4</span> (<em>Average risk optimality</em>)</li>
-<li><span class="orange">Chapter 5</span> (<em>Minimax and admissibility</em>)</li>
 <li><span class="orange">Chapter 5</span> (<em>Minimax and admissibility</em>)</li>
 <li><span class="orange">Chapter 6</span> (<em>Asymptotic optimality</em>)</li>
 </ul></li>
